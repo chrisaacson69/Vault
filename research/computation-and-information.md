@@ -40,10 +40,43 @@ Computation and information theory sit underneath several threads in the vault:
 
 ## Topics to Develop
 
-### Computability and Complexity
-- P vs NP — the biggest open question in CS. Can every problem whose solution is quickly verifiable also be quickly solved?
+### P vs NP — The Precomputation Argument and Why Hardness Is Physical
+
+**The question:** Can every problem whose solution is quickly *verifiable* also be quickly *solvable*? (P = NP?) This is the biggest open question in computer science.
+
+**Chris's precomputation argument (explored, not endorsed):**
+
+Every program has a finite input set and a finite output set. For any NP problem, precompute all input-output pairs into a lookup table. The "real" program is just a table lookup — O(1) time. Therefore P = NP.
+
+**Why it fails — three levels:**
+
+1. **Theoretically:** P vs NP is defined on Turing machines, which have infinite tape. Input size *n* is unbounded. The lookup table for all inputs of all sizes is infinite — it's not a finite object. For any fixed *n* you can hardcode the answer, but that's trivially true for every problem and says nothing about computational structure.
+
+2. **Practically:** Even for finite, bounded games, precomputation is physically impossible. Chess has ~10^44 positions. Go has ~10^170. The universe has ~10^80 atoms and has existed for ~10^62 Planck times. You can't store the lookup table for Go — not "it would be hard," there aren't enough atoms in the universe to represent it.
+
+3. **Proves too much:** If the argument worked, it would collapse the ENTIRE complexity hierarchy into O(1) — sorting, matrix multiplication, everything. A model where nothing is hard tells you nothing about what IS hard.
+
+**What the argument reveals — hardness is model-relative but physically real:**
+
+The precomputation argument shows that computational hardness is a feature of the *interaction* between problem and model, not a Platonic property of problems in the abstract. Remove the bounds (infinite time, infinite storage), and hardness disappears. But the bounds aren't arbitrary — they're imposed by physics:
+
+- Measurement takes resources
+- Causality propagates at finite speed
+- Information storage requires atoms
+- The Church-Turing thesis: every physically realizable computation is equivalent to Turing machines (up to polynomial overhead)
+
+Even quantum computers — a fundamentally different computational model that exploits superposition — are not believed to solve NP-complete problems in polynomial time (BQP ≠ NP is the consensus conjecture). The hardness shows up in every computational model the universe allows.
+
+**Structural realist reading:** Computational complexity isn't Platonic (problems aren't "inherently hard" in some abstract realm) and it isn't arbitrary (the hardness isn't a quirk of one model). It's structural — a pattern that every physically realizable map faithfully reproduces. In the same way that the [logic-and-math](./philosophy/logic-and-math/README.md) framework treats mathematical structures as real patterns modeled by constructed formalisms, computational complexity is a real pattern in what physical systems can and can't do.
+
+**The closure:** Computational complexity is ultimately grounded in the same physical constraints as everything else in the [measurement-causality](./philosophy/measurement-causality.md) framework. Causality, free will, consciousness, market computation, and the hardness of NP problems all emerge from the same underlying reality — finite physical interactions propagating through a universe with finite resources.
+
+**Further ideas on P vs NP to develop** — Chris has additional less-formalized intuitions about patterns in problem solving that may connect here.
+
+### Complexity Theory (General)
 - Complexity classes and what they mean for practical computation
 - Algorithmic information theory (Kolmogorov complexity) — the shortest program that produces a given output. Connects to randomness: a string is random iff it can't be compressed.
+- Non-uniform computation (P/poly, circuit complexity) — the formal version of "different program for each input size," which is closest to the precomputation argument. Even here, NP ⊄ P/poly unless the polynomial hierarchy collapses (Karp-Lipton theorem).
 
 ### Information in Physics
 - Landauer's principle — erasing information requires energy (connects information to thermodynamics)
