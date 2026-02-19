@@ -30,6 +30,7 @@
   - [Risk and Entrepreneurship](./research/economics/risk-and-entrepreneurship.md) — uncertainty, time preference, and entrepreneurial judgment
   - [Praxis: Agent Teams vs. Theory](./research/economics/praxis-agent-teams.md) — real-world results tested against the framework
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
+- [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
 - [Cognitive vs. Motor Skills](./research/cognitive-vs-motor.md) — (stub) the architectural split between thinking and moving, in both humans and AI
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework

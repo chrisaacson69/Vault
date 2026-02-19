@@ -3,7 +3,7 @@
 
 **Status:** active — broad strokes laid, detail to follow
 **Created:** 2026-02-16
-**Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [The LLM Grounding Problem](../../llm-grounding-problem.md)
+**Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [The LLM Grounding Problem](../../llm-grounding-problem.md), [Computation and Information Theory](../../computation-and-information.md)
 
 ## Core Position: Structural Realism
 

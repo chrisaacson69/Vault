@@ -11,3 +11,4 @@
 - [Slay](../projects/slay/README.md)
 - [Slay-C](../projects/slay-c/README.md)
 - [Measurement, Causality, and Free Will](../research/philosophy/measurement-causality.md)
+- [Computation and Information Theory](../research/computation-and-information.md)
