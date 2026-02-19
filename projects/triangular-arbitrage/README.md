@@ -4,7 +4,7 @@
 **Status:** active — DeFi/Solana path under investigation
 **Created:** 2026-02-12
 **Repo:** `https://github.com/chrisaacson69/triangular-arbitrage`
-**Links:** [Economics](../../research/economics/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [Cyborg Model](../../research/cyborg-model.md), [Cognitive vs. Motor Skills](../../research/cognitive-vs-motor.md)
+**Links:** [Economics](../../research/economics/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [Computation and Information Theory](../../research/computation-and-information.md), [Cyborg Model](../../research/cyborg-model.md), [Cognitive vs. Motor Skills](../../research/cognitive-vs-motor.md)
 
 ## Summary
 
@@ -33,6 +33,45 @@ Exploit differentials in exchange rates across currencies or tokens. If the prod
 This project validated every layer of the economics framework: utility/trade (differentials exist), risk (asymmetric profile favors the bet), COO vs CEO (we initially skipped the CEO step), grounding (real money, can't be talked out of a loss).
 
 See full analysis and next steps in the repo README.
+
+## Next Directions
+
+### DeFi Triangular Arbitrage (Solana)
+
+**Why DeFi solves the biggest practical risk:** On-chain transactions are atomic — an entire triangular loop (A→B→C→A) either executes completely or reverts. No partial execution, no stranded positions. If your internet drops mid-submission, the transaction either already landed or never happened. Flash loans eliminate capital requirements entirely — borrow, arbitrage, repay in one atomic transaction.
+
+**Remaining practical concerns:**
+- MEV (Maximal Extractable Value) — validators/searchers can front-run or sandwich your arbitrage transaction. Mitigation: use Jito bundles on Solana for MEV protection, or private transaction submission.
+- Competition — other bots are scanning the same pools. Edge comes from speed (optimized on-chain programs), breadth (monitoring more pool pairs), or novel routes (multi-hop paths others miss).
+- Simulation — Solana devnet and local validator allow full testing without risking capital.
+
+### Cross-Exchange Arbitrage
+
+**The mechanism:** Hold pre-funded balances on multiple exchanges (CEXs, DEXs, or both). When the same asset is priced differently across venues by more than the combined fees, buy on the cheaper exchange and sell on the more expensive one simultaneously. No transfer between exchanges during the trade — both legs execute against existing balances.
+
+**Synchronization:** Maintain WebSocket connections to each exchange, streaming live order book data. An event loop processes price updates from all feeds and recalculates cross-venue spreads on every tick. Perfect clock synchronization isn't required — the spread just needs to exceed fees + the staleness window.
+
+**Capital model:** Pre-funded accounts on each venue. Periodic offline rebalancing moves funds between exchanges to maintain inventory. The trade-off is capital efficiency — funds are spread across venues rather than concentrated.
+
+**No prediction required:** Pure cross-exchange arbitrage is reactive, not predictive. You observe a current mispricing and exploit it. If you need to predict price direction, you've crossed from arbitrage into speculation.
+
+### Futures and Derivatives Strategies
+
+Futures analysis opens several strategies beyond spot arbitrage:
+
+- **Cash-and-carry arbitrage** — when futures trade at a premium to spot, buy spot and short futures. The spread is locked in as profit because futures converge to spot at expiry. No prediction needed — convergence is structural.
+- **Funding rate arbitrage** — perpetual futures have periodic funding payments between longs and shorts. When funding rates are elevated, go long spot + short perp (or vice versa) to collect funding as yield while remaining market-neutral.
+- **Cross-venue futures arbitrage** — the same futures contract priced differently across exchanges. Same pre-funded inventory model as spot arbitrage.
+- **Hedging during execution** — if a cross-exchange spot arbitrage can't be executed simultaneously (e.g., one leg is slow), hedge the directional exposure with a futures position until both legs complete.
+
+**Statistical arbitrage (different risk profile):** When correlated assets' price ratios deviate from their historical mean, bet on reversion. This IS predictive — it requires a model of "normal" price relationships and a bet that deviations are temporary. Higher potential returns than pure arbitrage, but introduces directional risk. Closer to quantitative trading than arbitrage proper.
+
+### Architecture Considerations
+
+- **Simulation first** — all strategies should be backtested against historical data and forward-tested on testnets/devnets before live capital
+- **Risk management** — position limits, maximum exposure per venue, automatic shutdown on anomalous conditions
+- **Monitoring** — real-time dashboard showing open positions, P&L, spread history, execution latency
+- **Modular design** — exchange connectors as plugins (add new venues without rewriting core logic), strategy layer separate from execution layer
 
 ## Repository Files
 
