@@ -71,7 +71,39 @@ Even quantum computers — a fundamentally different computational model that ex
 
 **The closure:** Computational complexity is ultimately grounded in the same physical constraints as everything else in the [measurement-causality](./philosophy/measurement-causality.md) framework. Causality, free will, consciousness, market computation, and the hardness of NP problems all emerge from the same underlying reality — finite physical interactions propagating through a universe with finite resources.
 
-**Further ideas on P vs NP to develop** — Chris has additional less-formalized intuitions about patterns in problem solving that may connect here.
+### P vs NP — The Minesweeper Argument and Non-Locality of Constraints
+
+**The problem:** Minesweeper consistency — determining whether a given board configuration is consistent with at least one valid mine placement — is NP-complete (Richard Kaye, 2000). Chris's experience trying to solve it algorithmically revealed a structural pattern that appears across NP-complete problems.
+
+**Chris's approach:**
+
+Take a 3x3 grid around each cell. There are at most 2^9 = 512 possible mine configurations in that window (plus edge cases for board boundaries). Precompute what each configuration looks like, then match patterns against the actual board to solve it — a local lookup table.
+
+**Why it fails — non-locality of constraints:**
+
+Mine placements several grid spaces away from the current cell can determine its outcome. A constraint in one corner of the board propagates through a chain of dependencies to affect the solution in the opposite corner. Scaling to 9x9 doesn't fix it — it just pushes the boundary. For any fixed window size *k*, there exist board configurations where the answer depends on constraints outside the window. And some configurations are genuinely indeterminate — multiple valid mine placements are consistent with all revealed information, even with the rest of the board exposed.
+
+**The pattern across NP-complete problems:**
+
+Chris observed the same structure in every NP-complete problem he examined: local algorithms work for most cases but hit edge cases requiring deeper recursion. Expanding the local window catches those cases but introduces new edge cases at the larger scale. The complexity is fractal — it recurs at every level and bottoms out only at solving the entire problem. There's no bounded shortcut.
+
+This maps directly to SAT solving: a clause involving variables x1, x2, x3 looks local, but setting x1 forces x7 via another clause, which forces x42 via another. Local constraint propagation cascades into global dependency chains.
+
+**Formal connection — resolution complexity:**
+
+The closest formal analogue is resolution complexity. Chris's "window" approach is essentially bounded-width resolution — examining a fixed number of variables at a time. Ben-Sasson and Wigderson (1999) proved rigorously that bounded-width resolution is insufficient for certain formulas: you need resolution width proportional to the problem size. This is exactly the "exceptions always require a bigger grid" observation, formalized.
+
+**Why this doesn't prove P ≠ NP (but almost certainly points at the truth):**
+
+The argument proves that *this class of algorithms* — local pattern matching with bounded windows — can't solve NP-complete problems in polynomial time. That's true and provable. But P vs NP asks whether *any* polynomial-time algorithm exists, including radically different approaches (algebraic, spectral, topological) that don't work by local constraint propagation at all.
+
+Razborov and Rudich (1997) showed that "natural proofs" — arguments identifying a structural property that distinguishes hard problems from easy ones — probably can't prove P ≠ NP, because such properties would break cryptographic assumptions believed to be true. Chris's argument is "natural" in their technical sense: it identifies non-local constraint propagation as the structural obstacle and argues it makes the problem inherently hard.
+
+**What the argument captures:**
+
+The fact that non-local constraint propagation appears in every NP-complete problem isn't a coincidence — NP-completeness means these problems are all polynomial-time reducible to each other, so the same structural obstacle *must* appear everywhere. What Chris's pattern recognition picks up empirically is the shadow of a deep structural invariant. No one has ever found a polynomial algorithm for any of the thousands of known NP-complete problems, despite decades of effort. The gap between "this pattern exists everywhere I look" and "therefore no algorithm of any kind can crack it" is exactly what makes P vs NP a millennium prize problem.
+
+**Chris's additional intuitions on P vs NP** — less formalized ideas about patterns in problem solving that may connect here. To be developed.
 
 ### Complexity Theory (General)
 - Complexity classes and what they mean for practical computation
@@ -129,6 +161,8 @@ Hayek understood this intuitively in *The Use of Knowledge in Society* (1945). T
 | *The Emperor's New Mind* (1989) | Roger Penrose | Non-computability of consciousness (counterpoint to Wolfram) |
 | *The Use of Knowledge in Society* (1945) | Friedrich Hayek | Markets as distributed information systems — the original insight |
 | *Chaos* (1987) | James Gleick | Accessible introduction to nonlinear dynamics and sensitivity to initial conditions |
+| *Minesweeper is NP-complete* (2000) | Richard Kaye | Proof that Minesweeper consistency is NP-complete |
+| *Short proofs are narrow — resolution made simple* (1999) | Ben-Sasson & Wigderson | Width-size tradeoffs in resolution — formal basis for "bounded windows can't suffice" |
 
 ## Tags
 [ai](../tags/ai.md), [philosophy](../tags/philosophy.md), [mathematics](../tags/mathematics.md), [economics](../tags/economics.md)
