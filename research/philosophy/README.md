@@ -11,6 +11,7 @@
 - [Logic and Mathematics](./logic-and-math/README.md) — structural realism; formalisms as maps, not territory
 - [Epistemology](./epistemology/README.md) — (stub) how we know what we know; Objectivist engagement; non-human cognition
 - [Legal Theory](./legal-theory/README.md) — applied libertarian legal philosophy; NAP, property rights, adversarial debates
+- [Measurement, Causality, and Free Will](./measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
 - [Civilizational Cycles](./civilizational-cycles.md) — theories of rise and fall; Ibn Khaldun, Spengler, Toynbee, Turchin, Tainter, Hayek, and their connections to economics and the voluntary-to-coercion drift
 
 ## Notes

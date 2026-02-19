@@ -11,3 +11,4 @@
 - [Demolition Man Analysis](../research/demolition-man-analysis.md)
 - [Civilizational Cycles](../research/philosophy/civilizational-cycles.md)
 - [Rudyard Lynch (Whatifalthist)](../research/philosophy/whatifalthist.md)
+- [Measurement, Causality, and Free Will](../research/philosophy/measurement-causality.md)

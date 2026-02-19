@@ -14,6 +14,7 @@
 - [economics](./economics.md) — 7 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 1 file
+- [free-will](./free-will.md) — 3 files
 - [game-ai](./game-ai.md) — 3 files
 - [games](./games.md) — 3 files
 - [grounding](./grounding.md) — 1 file

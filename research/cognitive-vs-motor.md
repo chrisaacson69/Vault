@@ -3,7 +3,7 @@
 
 **Status:** stub — data dump for future exploration
 **Created:** 2026-02-12
-**Links:** [Cyborg Model](./cyborg-model.md), [LLM Grounding Problem](./llm-grounding-problem.md)
+**Links:** [Cyborg Model](./cyborg-model.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md)
 
 ## The Core Distinction
 

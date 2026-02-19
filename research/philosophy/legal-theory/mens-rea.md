@@ -3,7 +3,7 @@
 
 **Status:** active (literature review added)
 **Created:** 2026-02-17
-**Links:** [Legal Theory](./README.md), [Morality](../morality/README.md)
+**Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Measurement, Causality, and Free Will](../measurement-causality.md)
 
 ## Positions
 

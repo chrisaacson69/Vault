@@ -21,6 +21,7 @@
   - [Logic and Mathematics](./research/philosophy/logic-and-math/README.md) — structural realism; formalisms as maps, not territory
   - [Epistemology](./research/philosophy/epistemology/README.md) — (stub) how we know what we know; Objectivist engagement
   - [Legal Theory](./research/philosophy/legal-theory/README.md) — libertarian law; mens rea debate, marriage, shared ownership
+  - [Measurement, Causality, and Free Will](./research/philosophy/measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
   - [Civilizational Cycles](./research/philosophy/civilizational-cycles.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
     - [Rudyard Lynch (Whatifalthist)](./research/philosophy/whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments

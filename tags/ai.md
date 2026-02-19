@@ -10,3 +10,4 @@
 - [Camelot From YouTube](../projects/camelot-from-youtube/README.md)
 - [Slay](../projects/slay/README.md)
 - [Slay-C](../projects/slay-c/README.md)
+- [Measurement, Causality, and Free Will](../research/philosophy/measurement-causality.md)
