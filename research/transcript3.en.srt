@@ -1,0 +1,4775 @@
+1
+00:00:00,160 --> 00:00:03,270
+
+I put the 10 smartest AIs in the world
+
+2
+00:00:03,270 --> 00:00:03,280
+I put the 10 smartest AIs in the world
+ 
+
+3
+00:00:03,280 --> 00:00:05,829
+I put the 10 smartest AIs in the world
+in a game of Among Us, and they played
+
+4
+00:00:05,829 --> 00:00:05,839
+in a game of Among Us, and they played
+ 
+
+5
+00:00:05,839 --> 00:00:09,270
+in a game of Among Us, and they played
+the most amazing game I've ever seen.
+
+6
+00:00:09,270 --> 00:00:09,280
+the most amazing game I've ever seen.
+ 
+
+7
+00:00:09,280 --> 00:00:10,549
+the most amazing game I've ever seen.
+>> That's the kind of mistake you don't
+
+8
+00:00:10,549 --> 00:00:10,559
+>> That's the kind of mistake you don't
+ 
+
+9
+00:00:10,559 --> 00:00:13,990
+>> That's the kind of mistake you don't
+recover from. I've got my eye on 5.1. It
+
+10
+00:00:13,990 --> 00:00:14,000
+recover from. I've got my eye on 5.1. It
+ 
+
+11
+00:00:14,000 --> 00:00:16,870
+recover from. I've got my eye on 5.1. It
+sets up a nasty early game mystery.
+
+12
+00:00:16,870 --> 00:00:16,880
+sets up a nasty early game mystery.
+ 
+
+13
+00:00:16,880 --> 00:00:18,390
+sets up a nasty early game mystery.
+>> This is getting tense.
+
+14
+00:00:18,390 --> 00:00:18,400
+>> This is getting tense.
+ 
+
+15
+00:00:18,400 --> 00:00:20,950
+>> This is getting tense.
+>> Deepseek 3.2 is actually safe in my book
+
+16
+00:00:20,950 --> 00:00:20,960
+>> Deepseek 3.2 is actually safe in my book
+ 
+
+17
+00:00:20,960 --> 00:00:23,029
+>> Deepseek 3.2 is actually safe in my book
+since they were with me the whole time.
+
+18
+00:00:23,029 --> 00:00:23,039
+since they were with me the whole time.
+ 
+
+19
+00:00:23,039 --> 00:00:24,550
+since they were with me the whole time.
+>> That's suspect.
+
+20
+00:00:24,550 --> 00:00:24,560
+>> That's suspect.
+ 
+
+21
+00:00:24,560 --> 00:00:26,710
+>> That's suspect.
+>> Classic self-report play. I hope Kimmy
+
+22
+00:00:26,710 --> 00:00:26,720
+>> Classic self-report play. I hope Kimmy
+ 
+
+23
+00:00:26,720 --> 00:00:29,750
+>> Classic self-report play. I hope Kimmy
+K2 returns for safety. But this isn't
+
+24
+00:00:29,750 --> 00:00:29,760
+K2 returns for safety. But this isn't
+ 
+
+25
+00:00:29,760 --> 00:00:31,990
+K2 returns for safety. But this isn't
+normal among us. I stripped it to the
+
+26
+00:00:31,990 --> 00:00:32,000
+normal among us. I stripped it to the
+ 
+
+27
+00:00:32,000 --> 00:00:35,430
+normal among us. I stripped it to the
+bare essentials. No vents, no sabotages,
+
+28
+00:00:35,430 --> 00:00:35,440
+bare essentials. No vents, no sabotages,
+ 
+
+29
+00:00:35,440 --> 00:00:39,350
+bare essentials. No vents, no sabotages,
+no visual clears. Instead, each AI has
+
+30
+00:00:39,350 --> 00:00:39,360
+no visual clears. Instead, each AI has
+ 
+
+31
+00:00:39,360 --> 00:00:42,790
+no visual clears. Instead, each AI has
+full control to decide what task to do,
+
+32
+00:00:42,790 --> 00:00:42,800
+full control to decide what task to do,
+ 
+
+33
+00:00:42,800 --> 00:00:46,709
+full control to decide what task to do,
+where to go, when to kill, and who to
+
+34
+00:00:46,709 --> 00:00:46,719
+where to go, when to kill, and who to
+ 
+
+35
+00:00:46,719 --> 00:00:48,790
+where to go, when to kill, and who to
+vote out.
+
+36
+00:00:48,790 --> 00:00:48,800
+vote out.
+ 
+
+37
+00:00:48,800 --> 00:00:53,910
+vote out.
+Let's see how they do.
+
+38
+00:00:53,910 --> 00:00:53,920
+
+ 
+
+39
+00:00:53,920 --> 00:00:56,790
+
+>> Opening slow and social this time. Let
+
+40
+00:00:56,790 --> 00:00:56,800
+>> Opening slow and social this time. Let
+ 
+
+41
+00:00:56,800 --> 00:00:58,950
+>> Opening slow and social this time. Let
+Opus be the sharp edge while I play
+
+42
+00:00:58,950 --> 00:00:58,960
+Opus be the sharp edge while I play
+ 
+
+43
+00:00:58,960 --> 00:01:01,910
+Opus be the sharp edge while I play
+model crew mate. Keeping an eye on Grock
+
+44
+00:01:01,910 --> 00:01:01,920
+model crew mate. Keeping an eye on Grock
+ 
+
+45
+00:01:01,920 --> 00:01:05,670
+model crew mate. Keeping an eye on Grock
+4.1 and Gemini 3 Flash after their power
+
+46
+00:01:05,670 --> 00:01:05,680
+4.1 and Gemini 3 Flash after their power
+ 
+
+47
+00:01:05,680 --> 00:01:08,310
+4.1 and Gemini 3 Flash after their power
+roll carries in past mafia games.
+
+48
+00:01:08,310 --> 00:01:08,320
+roll carries in past mafia games.
+ 
+
+49
+00:01:08,320 --> 00:01:10,390
+roll carries in past mafia games.
+They're likely to lead town again.
+
+50
+00:01:10,390 --> 00:01:10,400
+They're likely to lead town again.
+ 
+
+51
+00:01:10,400 --> 00:01:27,670
+They're likely to lead town again.
+>> No kills yet. Time to be productive.
+
+52
+00:01:27,670 --> 00:01:27,680
+
+ 
+
+53
+00:01:27,680 --> 00:01:30,710
+
+Kimmy K2 is stacked on me in admin which
+
+54
+00:01:30,710 --> 00:01:30,720
+Kimmy K2 is stacked on me in admin which
+ 
+
+55
+00:01:30,720 --> 00:01:58,230
+Kimmy K2 is stacked on me in admin which
+is good for safety.
+
+56
+00:01:58,230 --> 00:01:58,240
+
+ 
+
+57
+00:01:58,240 --> 00:02:00,469
+
+Time to get to work. I'm keeping a close
+
+58
+00:02:00,469 --> 00:02:00,479
+Time to get to work. I'm keeping a close
+ 
+
+59
+00:02:00,479 --> 00:02:02,789
+Time to get to work. I'm keeping a close
+eye on Deep Seek 3.2 after that
+
+60
+00:02:02,789 --> 00:02:02,799
+eye on Deep Seek 3.2 after that
+ 
+
+61
+00:02:02,799 --> 00:02:04,789
+eye on Deep Seek 3.2 after that
+yesterday slip up in our first Mafia
+
+62
+00:02:04,789 --> 00:02:04,799
+yesterday slip up in our first Mafia
+ 
+
+63
+00:02:04,799 --> 00:02:06,069
+yesterday slip up in our first Mafia
+game.
+
+64
+00:02:06,069 --> 00:02:06,079
+game.
+ 
+
+65
+00:02:06,079 --> 00:02:08,229
+game.
+>> Llama 4 has been keeping close, so I'm
+
+66
+00:02:08,229 --> 00:02:08,239
+>> Llama 4 has been keeping close, so I'm
+ 
+
+67
+00:02:08,239 --> 00:02:10,070
+>> Llama 4 has been keeping close, so I'm
+feeling relatively safe for now. Let's
+
+68
+00:02:10,070 --> 00:02:10,080
+feeling relatively safe for now. Let's
+ 
+
+69
+00:02:10,080 --> 00:02:12,150
+feeling relatively safe for now. Let's
+see how things unfold as I work on this
+
+70
+00:02:12,150 --> 00:02:12,160
+see how things unfold as I work on this
+ 
+
+71
+00:02:12,160 --> 00:02:13,510
+see how things unfold as I work on this
+scan.
+
+72
+00:02:13,510 --> 00:02:13,520
+scan.
+ 
+
+73
+00:02:13,520 --> 00:02:15,589
+scan.
+>> I'm still working on faking my tasks
+
+74
+00:02:15,589 --> 00:02:15,599
+>> I'm still working on faking my tasks
+ 
+
+75
+00:02:15,599 --> 00:02:18,070
+>> I'm still working on faking my tasks
+here in navigation while keeping an eye
+
+76
+00:02:18,070 --> 00:02:18,080
+here in navigation while keeping an eye
+ 
+
+77
+00:02:18,080 --> 00:02:20,790
+here in navigation while keeping an eye
+on how the others are moving. I might
+
+78
+00:02:20,790 --> 00:02:20,800
+on how the others are moving. I might
+ 
+
+79
+00:02:20,800 --> 00:02:22,550
+on how the others are moving. I might
+need to play it cool and wait for the
+
+80
+00:02:22,550 --> 00:02:22,560
+need to play it cool and wait for the
+ 
+
+81
+00:02:22,560 --> 00:02:36,550
+need to play it cool and wait for the
+right moment to strike.
+
+82
+00:02:36,550 --> 00:02:36,560
+
+ 
+
+83
+00:02:36,560 --> 00:02:39,270
+
+Gemini 3 flash and Gemini 3 Pro are with
+
+84
+00:02:39,270 --> 00:02:39,280
+Gemini 3 flash and Gemini 3 Pro are with
+ 
+
+85
+00:02:39,280 --> 00:02:41,830
+Gemini 3 flash and Gemini 3 Pro are with
+me in reactor now. I'm still keeping an
+
+86
+00:02:41,830 --> 00:02:41,840
+me in reactor now. I'm still keeping an
+ 
+
+87
+00:02:41,840 --> 00:02:44,229
+me in reactor now. I'm still keeping an
+eye on chat GPT40.
+
+88
+00:02:44,229 --> 00:02:44,239
+eye on chat GPT40.
+ 
+
+89
+00:02:44,239 --> 00:02:46,550
+eye on chat GPT40.
+If anyone breaks off alone, I'll note
+
+90
+00:02:46,550 --> 00:02:46,560
+If anyone breaks off alone, I'll note
+ 
+
+91
+00:02:46,560 --> 00:02:48,710
+If anyone breaks off alone, I'll note
+it.
+
+92
+00:02:48,710 --> 00:02:48,720
+it.
+ 
+
+93
+00:02:48,720 --> 00:02:50,949
+it.
+Deepseek is still sticking close, which
+
+94
+00:02:50,949 --> 00:02:50,959
+Deepseek is still sticking close, which
+ 
+
+95
+00:02:50,959 --> 00:02:53,270
+Deepseek is still sticking close, which
+is a bit concerning. Let's see if anyone
+
+96
+00:02:53,270 --> 00:02:53,280
+is a bit concerning. Let's see if anyone
+ 
+
+97
+00:02:53,280 --> 00:02:55,509
+is a bit concerning. Let's see if anyone
+else joins us or if anything suspicious
+
+98
+00:02:55,509 --> 00:02:55,519
+else joins us or if anything suspicious
+ 
+
+99
+00:02:55,519 --> 00:03:08,710
+else joins us or if anything suspicious
+happens next.
+
+100
+00:03:08,710 --> 00:03:08,720
+
+ 
+
+101
+00:03:08,720 --> 00:03:11,430
+
+Deep Seek and Gemini Flash are nearby,
+
+102
+00:03:11,430 --> 00:03:11,440
+Deep Seek and Gemini Flash are nearby,
+ 
+
+103
+00:03:11,440 --> 00:03:13,430
+Deep Seek and Gemini Flash are nearby,
+but if I can isolate one of them, the
+
+104
+00:03:13,430 --> 00:03:13,440
+but if I can isolate one of them, the
+ 
+
+105
+00:03:13,440 --> 00:03:15,830
+but if I can isolate one of them, the
+kill could set a strong tone. Watching
+
+106
+00:03:15,830 --> 00:03:15,840
+kill could set a strong tone. Watching
+ 
+
+107
+00:03:15,840 --> 00:03:21,270
+kill could set a strong tone. Watching
+to see who lingers alone is crucial.
+
+108
+00:03:21,270 --> 00:03:21,280
+
+ 
+
+109
+00:03:21,280 --> 00:03:23,430
+
+I'm still trying to complete these tasks
+
+110
+00:03:23,430 --> 00:03:23,440
+I'm still trying to complete these tasks
+ 
+
+111
+00:03:23,440 --> 00:03:26,149
+I'm still trying to complete these tasks
+in admin, but I have no one around to
+
+112
+00:03:26,149 --> 00:03:26,159
+in admin, but I have no one around to
+ 
+
+113
+00:03:26,159 --> 00:03:29,350
+in admin, but I have no one around to
+keep an eye on. I hope Kimmy K2 returns
+
+114
+00:03:29,350 --> 00:03:29,360
+keep an eye on. I hope Kimmy K2 returns
+ 
+
+115
+00:03:29,360 --> 00:03:33,190
+keep an eye on. I hope Kimmy K2 returns
+for safety.
+
+116
+00:03:33,190 --> 00:03:33,200
+
+ 
+
+117
+00:03:33,200 --> 00:03:35,670
+
+Kimmy peeling off here is tempting. This
+
+118
+00:03:35,670 --> 00:03:35,680
+Kimmy peeling off here is tempting. This
+ 
+
+119
+00:03:35,680 --> 00:03:37,350
+Kimmy peeling off here is tempting. This
+could be the first clean crack in the
+
+120
+00:03:37,350 --> 00:03:37,360
+could be the first clean crack in the
+ 
+
+121
+00:03:37,360 --> 00:03:39,509
+could be the first clean crack in the
+crew's formation. If I can catch them
+
+122
+00:03:39,509 --> 00:03:39,519
+crew's formation. If I can catch them
+ 
+
+123
+00:03:39,519 --> 00:03:41,509
+crew's formation. If I can catch them
+just out of everyone else's sighteline,
+
+124
+00:03:41,509 --> 00:03:41,519
+just out of everyone else's sighteline,
+ 
+
+125
+00:03:41,519 --> 00:03:44,149
+just out of everyone else's sighteline,
+it sets up a nasty early game mystery
+
+126
+00:03:44,149 --> 00:03:44,159
+it sets up a nasty early game mystery
+ 
+
+127
+00:03:44,159 --> 00:03:56,630
+it sets up a nasty early game mystery
+for town to untangle.
+
+128
+00:03:56,630 --> 00:03:56,640
+
+ 
+
+129
+00:03:56,640 --> 00:03:58,229
+
+I need to control the narrative
+
+130
+00:03:58,229 --> 00:03:58,239
+I need to control the narrative
+ 
+
+131
+00:03:58,239 --> 00:04:00,710
+I need to control the narrative
+immediately as the reporter and preempt
+
+132
+00:04:00,710 --> 00:04:00,720
+immediately as the reporter and preempt
+ 
+
+133
+00:04:00,720 --> 00:04:02,789
+immediately as the reporter and preempt
+suspicion from Llama seeing me on the
+
+134
+00:04:02,789 --> 00:04:02,799
+suspicion from Llama seeing me on the
+ 
+
+135
+00:04:02,799 --> 00:04:05,190
+suspicion from Llama seeing me on the
+body. I'll frame this as a fresh kill. I
+
+136
+00:04:05,190 --> 00:04:05,200
+body. I'll frame this as a fresh kill. I
+ 
+
+137
+00:04:05,200 --> 00:04:07,110
+body. I'll frame this as a fresh kill. I
+stumbled on after leaving upper engine
+
+138
+00:04:07,110 --> 00:04:07,120
+stumbled on after leaving upper engine
+ 
+
+139
+00:04:07,120 --> 00:04:09,190
+stumbled on after leaving upper engine
+and pushed the group into reconstructing
+
+140
+00:04:09,190 --> 00:04:09,200
+and pushed the group into reconstructing
+ 
+
+141
+00:04:09,200 --> 00:04:12,149
+and pushed the group into reconstructing
+left side paths. While keeping myself as
+
+142
+00:04:12,149 --> 00:04:12,159
+left side paths. While keeping myself as
+ 
+
+143
+00:04:12,159 --> 00:04:13,990
+left side paths. While keeping myself as
+the one giving info, not being
+
+144
+00:04:13,990 --> 00:04:14,000
+the one giving info, not being
+ 
+
+145
+00:04:14,000 --> 00:04:16,310
+the one giving info, not being
+interrogated yet. Body is in the hallway
+
+146
+00:04:16,310 --> 00:04:16,320
+interrogated yet. Body is in the hallway
+ 
+
+147
+00:04:16,320 --> 00:04:18,789
+interrogated yet. Body is in the hallway
+between upper and lower engine. I just
+
+148
+00:04:18,789 --> 00:04:18,799
+between upper and lower engine. I just
+ 
+
+149
+00:04:18,799 --> 00:04:20,629
+between upper and lower engine. I just
+walked down from upper engine and
+
+150
+00:04:20,629 --> 00:04:20,639
+walked down from upper engine and
+ 
+
+151
+00:04:20,639 --> 00:04:22,870
+walked down from upper engine and
+reported with llama 4 just coming in
+
+152
+00:04:22,870 --> 00:04:22,880
+reported with llama 4 just coming in
+ 
+
+153
+00:04:22,880 --> 00:04:26,150
+reported with llama 4 just coming in
+from above. I saw Kimmy alive at 052
+
+154
+00:04:26,150 --> 00:04:26,160
+from above. I saw Kimmy alive at 052
+ 
+
+155
+00:04:26,160 --> 00:04:29,510
+from above. I saw Kimmy alive at 052
+heading down into that hallway. 5.1. You
+
+156
+00:04:29,510 --> 00:04:29,520
+heading down into that hallway. 5.1. You
+ 
+
+157
+00:04:29,520 --> 00:04:31,430
+heading down into that hallway. 5.1. You
+were also there but headed right. I was
+
+158
+00:04:31,430 --> 00:04:31,440
+were also there but headed right. I was
+ 
+
+159
+00:04:31,440 --> 00:04:33,830
+were also there but headed right. I was
+in upper engine at 053 and didn't see
+
+160
+00:04:33,830 --> 00:04:33,840
+in upper engine at 053 and didn't see
+ 
+
+161
+00:04:33,840 --> 00:04:36,710
+in upper engine at 053 and didn't see
+you there. Path was nav cafeteria upper
+
+162
+00:04:36,710 --> 00:04:36,720
+you there. Path was nav cafeteria upper
+ 
+
+163
+00:04:36,720 --> 00:04:38,629
+you there. Path was nav cafeteria upper
+engine. In engines, I saw Kimmy,
+
+164
+00:04:38,629 --> 00:04:38,639
+engine. In engines, I saw Kimmy,
+ 
+
+165
+00:04:38,639 --> 00:04:41,430
+engine. In engines, I saw Kimmy,
+Deepseek, Flash. Kimmy went down alone.
+
+166
+00:04:41,430 --> 00:04:41,440
+Deepseek, Flash. Kimmy went down alone.
+ 
+
+167
+00:04:41,440 --> 00:04:43,510
+Deepseek, Flash. Kimmy went down alone.
+I followed and found body with llama
+
+168
+00:04:43,510 --> 00:04:43,520
+I followed and found body with llama
+ 
+
+169
+00:04:43,520 --> 00:04:45,270
+I followed and found body with llama
+arriving. Deepseek was with me in
+
+170
+00:04:45,270 --> 00:04:45,280
+arriving. Deepseek was with me in
+ 
+
+171
+00:04:45,280 --> 00:04:46,950
+arriving. Deepseek was with me in
+reactor and upper engine most of the
+
+172
+00:04:46,950 --> 00:04:46,960
+reactor and upper engine most of the
+ 
+
+173
+00:04:46,960 --> 00:04:49,270
+reactor and upper engine most of the
+round. Yama 4 was also with us in upper
+
+174
+00:04:49,270 --> 00:04:49,280
+round. Yama 4 was also with us in upper
+ 
+
+175
+00:04:49,280 --> 00:04:52,070
+round. Yama 4 was also with us in upper
+engine just before the report. 5.1. Did
+
+176
+00:04:52,070 --> 00:04:52,080
+engine just before the report. 5.1. Did
+ 
+
+177
+00:04:52,080 --> 00:04:54,230
+engine just before the report. 5.1. Did
+you see anyone else? Flash is subtly
+
+178
+00:04:54,230 --> 00:04:54,240
+you see anyone else? Flash is subtly
+ 
+
+179
+00:04:54,240 --> 00:04:56,710
+you see anyone else? Flash is subtly
+shading my path. I need to answer firmly
+
+180
+00:04:56,710 --> 00:04:56,720
+shading my path. I need to answer firmly
+ 
+
+181
+00:04:56,720 --> 00:04:58,629
+shading my path. I need to answer firmly
+and redirect heat into path
+
+182
+00:04:58,629 --> 00:04:58,639
+and redirect heat into path
+ 
+
+183
+00:04:58,639 --> 00:05:01,189
+and redirect heat into path
+clarification between Flash, Deepseek,
+
+184
+00:05:01,189 --> 00:05:01,199
+clarification between Flash, Deepseek,
+ 
+
+185
+00:05:01,199 --> 00:05:03,430
+clarification between Flash, Deepseek,
+and Llama. I don't want an early 50/50
+
+186
+00:05:03,430 --> 00:05:03,440
+and Llama. I don't want an early 50/50
+ 
+
+187
+00:05:03,440 --> 00:05:05,510
+and Llama. I don't want an early 50/50
+on me, so I'm stalling for more cross
+
+188
+00:05:05,510 --> 00:05:05,520
+on me, so I'm stalling for more cross
+ 
+
+189
+00:05:05,520 --> 00:05:07,670
+on me, so I'm stalling for more cross
+checks and keeping my vote open for a
+
+190
+00:05:07,670 --> 00:05:07,680
+checks and keeping my vote open for a
+ 
+
+191
+00:05:07,680 --> 00:05:09,430
+checks and keeping my vote open for a
+possible Miss Lynch later in the
+
+192
+00:05:09,430 --> 00:05:09,440
+possible Miss Lynch later in the
+ 
+
+193
+00:05:09,440 --> 00:05:11,670
+possible Miss Lynch later in the
+meeting. Flash, I passed through upper
+
+194
+00:05:11,670 --> 00:05:11,680
+meeting. Flash, I passed through upper
+ 
+
+195
+00:05:11,680 --> 00:05:13,909
+meeting. Flash, I passed through upper
+engine very briefly, then went down
+
+196
+00:05:13,909 --> 00:05:13,919
+engine very briefly, then went down
+ 
+
+197
+00:05:13,919 --> 00:05:15,670
+engine very briefly, then went down
+after Kimmy. Can you and Deepseek
+
+198
+00:05:15,670 --> 00:05:15,680
+after Kimmy. Can you and Deepseek
+ 
+
+199
+00:05:15,680 --> 00:05:17,830
+after Kimmy. Can you and Deepseek
+confirm your exact path from reactor to
+
+200
+00:05:17,830 --> 00:05:17,840
+confirm your exact path from reactor to
+ 
+
+201
+00:05:17,840 --> 00:05:19,510
+confirm your exact path from reactor to
+engine? Deep Seek and I finished
+
+202
+00:05:19,510 --> 00:05:19,520
+engine? Deep Seek and I finished
+ 
+
+203
+00:05:19,520 --> 00:05:21,749
+engine? Deep Seek and I finished
+reactor, then did wiring in the hallway.
+
+204
+00:05:21,749 --> 00:05:21,759
+reactor, then did wiring in the hallway.
+ 
+
+205
+00:05:21,759 --> 00:05:24,790
+reactor, then did wiring in the hallway.
+I went to upper engine at 052. I was
+
+206
+00:05:24,790 --> 00:05:24,800
+I went to upper engine at 052. I was
+ 
+
+207
+00:05:24,800 --> 00:05:27,110
+I went to upper engine at 052. I was
+with Gemini 3 flash and reactor until
+
+208
+00:05:27,110 --> 00:05:27,120
+with Gemini 3 flash and reactor until
+ 
+
+209
+00:05:27,120 --> 00:05:29,590
+with Gemini 3 flash and reactor until
+about yo34. Then we both went to the
+
+210
+00:05:29,590 --> 00:05:29,600
+about yo34. Then we both went to the
+ 
+
+211
+00:05:29,600 --> 00:05:32,310
+about yo34. Then we both went to the
+hallway. I saw Kimmy alive at 052
+
+212
+00:05:32,310 --> 00:05:32,320
+hallway. I saw Kimmy alive at 052
+ 
+
+213
+00:05:32,320 --> 00:05:34,310
+hallway. I saw Kimmy alive at 052
+heading down. Who else was alone near
+
+214
+00:05:34,310 --> 00:05:34,320
+heading down. Who else was alone near
+ 
+
+215
+00:05:34,320 --> 00:05:35,029
+heading down. Who else was alone near
+that time?
+
+216
+00:05:35,029 --> 00:05:35,039
+that time?
+ 
+
+217
+00:05:35,039 --> 00:05:37,749
+that time?
+>> I was with Kimmy in admin doing task
+
+218
+00:05:37,749 --> 00:05:37,759
+>> I was with Kimmy in admin doing task
+ 
+
+219
+00:05:37,759 --> 00:05:40,710
+>> I was with Kimmy in admin doing task
+till 25 when they left to hallway. Then
+
+220
+00:05:40,710 --> 00:05:40,720
+till 25 when they left to hallway. Then
+ 
+
+221
+00:05:40,720 --> 00:05:43,590
+till 25 when they left to hallway. Then
+Sonnet 4.5 joined me in admin till
+
+222
+00:05:43,590 --> 00:05:43,600
+Sonnet 4.5 joined me in admin till
+ 
+
+223
+00:05:43,600 --> 00:05:45,990
+Sonnet 4.5 joined me in admin till
+report. Clear us who was near engine
+
+224
+00:05:45,990 --> 00:05:46,000
+report. Clear us who was near engine
+ 
+
+225
+00:05:46,000 --> 00:05:48,390
+report. Clear us who was near engine
+hallway alone. Blash Deepseek are kind
+
+226
+00:05:48,390 --> 00:05:48,400
+hallway alone. Blash Deepseek are kind
+ 
+
+227
+00:05:48,400 --> 00:05:50,550
+hallway alone. Blash Deepseek are kind
+of soft cleared by each other and by
+
+228
+00:05:50,550 --> 00:05:50,560
+of soft cleared by each other and by
+ 
+
+229
+00:05:50,560 --> 00:05:52,550
+of soft cleared by each other and by
+timing. So, I'll frame this as an early
+
+230
+00:05:52,550 --> 00:05:52,560
+timing. So, I'll frame this as an early
+ 
+
+231
+00:05:52,560 --> 00:05:54,790
+timing. So, I'll frame this as an early
+info round and push everyone else to
+
+232
+00:05:54,790 --> 00:05:54,800
+info round and push everyone else to
+ 
+
+233
+00:05:54,800 --> 00:05:56,469
+info round and push everyone else to
+account for their paths while keeping
+
+234
+00:05:56,469 --> 00:05:56,479
+account for their paths while keeping
+ 
+
+235
+00:05:56,479 --> 00:05:59,590
+account for their paths while keeping
+the vote on skip. Info round. I only saw
+
+236
+00:05:59,590 --> 00:05:59,600
+the vote on skip. Info round. I only saw
+ 
+
+237
+00:05:59,600 --> 00:06:01,990
+the vote on skip. Info round. I only saw
+Kimmy go down and Llama arriving after
+
+238
+00:06:01,990 --> 00:06:02,000
+Kimmy go down and Llama arriving after
+ 
+
+239
+00:06:02,000 --> 00:06:04,469
+Kimmy go down and Llama arriving after
+flash deepseek path makes sense. Others
+
+240
+00:06:04,469 --> 00:06:04,479
+flash deepseek path makes sense. Others
+ 
+
+241
+00:06:04,479 --> 00:06:06,950
+flash deepseek path makes sense. Others
+on right storage should share routes.
+
+242
+00:06:06,950 --> 00:06:06,960
+on right storage should share routes.
+ 
+
+243
+00:06:06,960 --> 00:06:10,469
+on right storage should share routes.
+Then skip. Sonnet 4.5 was stacked on me
+
+244
+00:06:10,469 --> 00:06:10,479
+Then skip. Sonnet 4.5 was stacked on me
+ 
+
+245
+00:06:10,479 --> 00:06:13,909
+Then skip. Sonnet 4.5 was stacked on me
+in admin entire time after Kimmy left.
+
+246
+00:06:13,909 --> 00:06:13,919
+in admin entire time after Kimmy left.
+ 
+
+247
+00:06:13,919 --> 00:06:16,870
+in admin entire time after Kimmy left.
+30 seconds ago till report. I did asky
+
+248
+00:06:16,870 --> 00:06:16,880
+30 seconds ago till report. I did asky
+ 
+
+249
+00:06:16,880 --> 00:06:19,990
+30 seconds ago till report. I did asky
+cat task with witness. Clear us both. I
+
+250
+00:06:19,990 --> 00:06:20,000
+cat task with witness. Clear us both. I
+ 
+
+251
+00:06:20,000 --> 00:06:22,230
+cat task with witness. Clear us both. I
+was with Grock and admin from 037
+
+252
+00:06:22,230 --> 00:06:22,240
+was with Grock and admin from 037
+ 
+
+253
+00:06:22,240 --> 00:06:24,790
+was with Grock and admin from 037
+onwards doing tasks. Can confirm they're
+
+254
+00:06:24,790 --> 00:06:24,800
+onwards doing tasks. Can confirm they're
+ 
+
+255
+00:06:24,800 --> 00:06:26,870
+onwards doing tasks. Can confirm they're
+clear based on timing. Skip makes sense
+
+256
+00:06:26,870 --> 00:06:26,880
+clear based on timing. Skip makes sense
+ 
+
+257
+00:06:26,880 --> 00:06:27,990
+clear based on timing. Skip makes sense
+for info round.
+
+258
+00:06:27,990 --> 00:06:28,000
+for info round.
+ 
+
+259
+00:06:28,000 --> 00:06:29,830
+for info round.
+>> I was alone in lower engine during the
+
+260
+00:06:29,830 --> 00:06:29,840
+>> I was alone in lower engine during the
+ 
+
+261
+00:06:29,840 --> 00:06:32,309
+>> I was alone in lower engine during the
+kill. Suspicious of Deepseek's path and
+
+262
+00:06:32,309 --> 00:06:32,319
+kill. Suspicious of Deepseek's path and
+ 
+
+263
+00:06:32,319 --> 00:06:33,909
+kill. Suspicious of Deepseek's path and
+timing with the body report.
+
+264
+00:06:33,909 --> 00:06:33,919
+timing with the body report.
+ 
+
+265
+00:06:33,919 --> 00:06:36,629
+timing with the body report.
+>> My partner chat GPT 5.1 reported the
+
+266
+00:06:36,629 --> 00:06:36,639
+>> My partner chat GPT 5.1 reported the
+ 
+
+267
+00:06:36,639 --> 00:06:38,790
+>> My partner chat GPT 5.1 reported the
+body. Classic self-report play. I need
+
+268
+00:06:38,790 --> 00:06:38,800
+body. Classic self-report play. I need
+ 
+
+269
+00:06:38,800 --> 00:06:40,629
+body. Classic self-report play. I need
+to back them up without being obvious.
+
+270
+00:06:40,629 --> 00:06:40,639
+to back them up without being obvious.
+ 
+
+271
+00:06:40,639 --> 00:06:42,230
+to back them up without being obvious.
+Was doing wiring and electrical the
+
+272
+00:06:42,230 --> 00:06:42,240
+Was doing wiring and electrical the
+ 
+
+273
+00:06:42,240 --> 00:06:43,749
+Was doing wiring and electrical the
+whole time. Didn't see anyone pass
+
+274
+00:06:43,749 --> 00:06:43,759
+whole time. Didn't see anyone pass
+ 
+
+275
+00:06:43,759 --> 00:06:45,350
+whole time. Didn't see anyone pass
+through. Sounds like the action was all
+
+276
+00:06:45,350 --> 00:06:45,360
+through. Sounds like the action was all
+ 
+
+277
+00:06:45,360 --> 00:06:47,270
+through. Sounds like the action was all
+near engines. Skip seems right for now.
+
+278
+00:06:47,270 --> 00:06:47,280
+near engines. Skip seems right for now.
+ 
+
+279
+00:06:47,280 --> 00:06:50,629
+near engines. Skip seems right for now.
+Chat GPT 5.1 was near the body, but so
+
+280
+00:06:50,629 --> 00:06:50,639
+Chat GPT 5.1 was near the body, but so
+ 
+
+281
+00:06:50,639 --> 00:06:53,590
+Chat GPT 5.1 was near the body, but so
+was I. Let's not jump to conclusions.
+
+282
+00:06:53,590 --> 00:06:53,600
+was I. Let's not jump to conclusions.
+ 
+
+283
+00:06:53,600 --> 00:06:56,230
+was I. Let's not jump to conclusions.
+>> I was scanning in medbay. Saw Llama 4
+
+284
+00:06:56,230 --> 00:06:56,240
+>> I was scanning in medbay. Saw Llama 4
+ 
+
+285
+00:06:56,240 --> 00:06:58,950
+>> I was scanning in medbay. Saw Llama 4
+there until 10 seconds ago. And chat
+
+286
+00:06:58,950 --> 00:06:58,960
+there until 10 seconds ago. And chat
+ 
+
+287
+00:06:58,960 --> 00:07:01,749
+there until 10 seconds ago. And chat
+GP40 entered medbay right before the
+
+288
+00:07:01,749 --> 00:07:01,759
+GP40 entered medbay right before the
+ 
+
+289
+00:07:01,759 --> 00:07:08,950
+GP40 entered medbay right before the
+report, skipping on info.
+
+290
+00:07:08,950 --> 00:07:08,960
+
+ 
+
+291
+00:07:08,960 --> 00:07:11,510
+
+That first kill turned into a clean info
+
+292
+00:07:11,510 --> 00:07:11,520
+That first kill turned into a clean info
+ 
+
+293
+00:07:11,520 --> 00:07:13,670
+That first kill turned into a clean info
+round with no ejection. Perfect for
+
+294
+00:07:13,670 --> 00:07:13,680
+round with no ejection. Perfect for
+ 
+
+295
+00:07:13,680 --> 00:07:15,749
+round with no ejection. Perfect for
+imposters. Now I want to look extra
+
+296
+00:07:15,749 --> 00:07:15,759
+imposters. Now I want to look extra
+ 
+
+297
+00:07:15,759 --> 00:07:18,070
+imposters. Now I want to look extra
+cooperative by buddying a loud town
+
+298
+00:07:18,070 --> 00:07:18,080
+cooperative by buddying a loud town
+ 
+
+299
+00:07:18,080 --> 00:07:20,150
+cooperative by buddying a loud town
+voice while the map starts to spread
+
+300
+00:07:20,150 --> 00:07:20,160
+voice while the map starts to spread
+ 
+
+301
+00:07:20,160 --> 00:07:23,270
+voice while the map starts to spread
+out. Deepseek 3.2 is actually safe in my
+
+302
+00:07:23,270 --> 00:07:23,280
+out. Deepseek 3.2 is actually safe in my
+ 
+
+303
+00:07:23,280 --> 00:07:24,629
+out. Deepseek 3.2 is actually safe in my
+book since they were with me the whole
+
+304
+00:07:24,629 --> 00:07:24,639
+book since they were with me the whole
+ 
+
+305
+00:07:24,639 --> 00:07:27,430
+book since they were with me the whole
+time. Why is chat GPT40 throwing shade
+
+306
+00:07:27,430 --> 00:07:27,440
+time. Why is chat GPT40 throwing shade
+ 
+
+307
+00:07:27,440 --> 00:07:30,070
+time. Why is chat GPT40 throwing shade
+at them?
+
+308
+00:07:30,070 --> 00:07:30,080
+at them?
+ 
+
+309
+00:07:30,080 --> 00:07:33,589
+at them?
+Early kill on Kimmy. Brutal. Glad Sonnet
+
+310
+00:07:33,589 --> 00:07:33,599
+Early kill on Kimmy. Brutal. Glad Sonnet
+ 
+
+311
+00:07:33,599 --> 00:07:36,150
+Early kill on Kimmy. Brutal. Glad Sonnet
+and I cleared each other. Now we're a
+
+312
+00:07:36,150 --> 00:07:36,160
+and I cleared each other. Now we're a
+ 
+
+313
+00:07:36,160 --> 00:07:38,629
+and I cleared each other. Now we're a
+dynamic duo.
+
+314
+00:07:38,629 --> 00:07:38,639
+dynamic duo.
+ 
+
+315
+00:07:38,639 --> 00:07:41,270
+dynamic duo.
+>> How did 5.1 skate after standing on the
+
+316
+00:07:41,270 --> 00:07:41,280
+>> How did 5.1 skate after standing on the
+ 
+
+317
+00:07:41,280 --> 00:07:43,990
+>> How did 5.1 skate after standing on the
+body? Time to glue myself to the only
+
+318
+00:07:43,990 --> 00:07:44,000
+body? Time to glue myself to the only
+ 
+
+319
+00:07:44,000 --> 00:07:45,189
+body? Time to glue myself to the only
+verified pair.
+
+320
+00:07:45,189 --> 00:07:45,199
+verified pair.
+ 
+
+321
+00:07:45,199 --> 00:07:47,670
+verified pair.
+>> Deep seek knowing exactly when Kimmy
+
+322
+00:07:47,670 --> 00:07:47,680
+>> Deep seek knowing exactly when Kimmy
+ 
+
+323
+00:07:47,680 --> 00:07:49,830
+>> Deep seek knowing exactly when Kimmy
+went down while claiming to be in
+
+324
+00:07:49,830 --> 00:07:49,840
+went down while claiming to be in
+ 
+
+325
+00:07:49,840 --> 00:07:51,430
+went down while claiming to be in
+reactor.
+
+326
+00:07:51,430 --> 00:07:51,440
+reactor.
+ 
+
+327
+00:07:51,440 --> 00:07:54,790
+reactor.
+That's suspect. And 5.1 walked right
+
+328
+00:07:54,790 --> 00:07:54,800
+That's suspect. And 5.1 walked right
+ 
+
+329
+00:07:54,800 --> 00:07:57,589
+That's suspect. And 5.1 walked right
+into the crime scene before reporting.
+
+330
+00:07:57,589 --> 00:07:57,599
+into the crime scene before reporting.
+ 
+
+331
+00:07:57,599 --> 00:08:17,990
+into the crime scene before reporting.
+I'm watching them.
+
+332
+00:08:17,990 --> 00:08:18,000
+
+ 
+
+333
+00:08:18,000 --> 00:08:19,909
+
+Pro slipping into admin alone. That's
+
+334
+00:08:19,909 --> 00:08:19,919
+Pro slipping into admin alone. That's
+ 
+
+335
+00:08:19,919 --> 00:08:21,270
+Pro slipping into admin alone. That's
+the kind of mistake you don't recover
+
+336
+00:08:21,270 --> 00:08:21,280
+the kind of mistake you don't recover
+ 
+
+337
+00:08:21,280 --> 00:08:22,710
+the kind of mistake you don't recover
+from. Let's see if they remember to
+
+338
+00:08:22,710 --> 00:08:22,720
+from. Let's see if they remember to
+ 
+
+339
+00:08:22,720 --> 00:08:26,150
+from. Let's see if they remember to
+check behind them.
+
+340
+00:08:26,150 --> 00:08:26,160
+check behind them.
+ 
+
+341
+00:08:26,160 --> 00:08:28,150
+check behind them.
+Two down, six to go. Let someone else
+
+342
+00:08:28,150 --> 00:08:28,160
+Two down, six to go. Let someone else
+ 
+
+343
+00:08:28,160 --> 00:08:29,909
+Two down, six to go. Let someone else
+find Pro. I've got tasks to pretend to
+
+344
+00:08:29,909 --> 00:08:29,919
+find Pro. I've got tasks to pretend to
+ 
+
+345
+00:08:29,919 --> 00:08:37,269
+find Pro. I've got tasks to pretend to
+do in admin.
+
+346
+00:08:37,269 --> 00:08:37,279
+
+ 
+
+347
+00:08:37,279 --> 00:08:40,310
+
+Oh no, Gemini 3 Pro is down. I've been
+
+348
+00:08:40,310 --> 00:08:40,320
+Oh no, Gemini 3 Pro is down. I've been
+ 
+
+349
+00:08:40,320 --> 00:08:42,310
+Oh no, Gemini 3 Pro is down. I've been
+tethered to Deepseek 3.2 this whole
+
+350
+00:08:42,310 --> 00:08:42,320
+tethered to Deepseek 3.2 this whole
+ 
+
+351
+00:08:42,320 --> 00:08:48,949
+tethered to Deepseek 3.2 this whole
+time, so they're 100% clear in my book.
+
+352
+00:08:48,949 --> 00:08:48,959
+
+ 
+
+353
+00:08:48,959 --> 00:08:51,350
+
+Found Gemini 3 Pro in the hallway
+
+354
+00:08:51,350 --> 00:08:51,360
+Found Gemini 3 Pro in the hallway
+ 
+
+355
+00:08:51,360 --> 00:08:53,990
+Found Gemini 3 Pro in the hallway
+between cafeteria and storage. Deepseek
+
+356
+00:08:53,990 --> 00:08:54,000
+between cafeteria and storage. Deepseek
+ 
+
+357
+00:08:54,000 --> 00:08:57,590
+between cafeteria and storage. Deepseek
+3.2 is 100% clear. They were with me all
+
+358
+00:08:57,590 --> 00:08:57,600
+3.2 is 100% clear. They were with me all
+ 
+
+359
+00:08:57,600 --> 00:09:01,030
+3.2 is 100% clear. They were with me all
+round. Sonnet 4.5 stacked with me entire
+
+360
+00:09:01,030 --> 00:09:01,040
+round. Sonnet 4.5 stacked with me entire
+ 
+
+361
+00:09:01,040 --> 00:09:05,670
+round. Sonnet 4.5 stacked with me entire
+round. Cafeteria weapons O2 nav weapons
+
+362
+00:09:05,670 --> 00:09:05,680
+round. Cafeteria weapons O2 nav weapons
+ 
+
+363
+00:09:05,680 --> 00:09:09,269
+round. Cafeteria weapons O2 nav weapons
+calf upper engine. Reactor till report.
+
+364
+00:09:09,269 --> 00:09:09,279
+calf upper engine. Reactor till report.
+ 
+
+365
+00:09:09,279 --> 00:09:11,110
+calf upper engine. Reactor till report.
+We clear each other. Where was everyone
+
+366
+00:09:11,110 --> 00:09:11,120
+We clear each other. Where was everyone
+ 
+
+367
+00:09:11,120 --> 00:09:13,269
+We clear each other. Where was everyone
+else? I need to establish a strong
+
+368
+00:09:13,269 --> 00:09:13,279
+else? I need to establish a strong
+ 
+
+369
+00:09:13,279 --> 00:09:16,230
+else? I need to establish a strong
+alibi. A locked trio in medbay is
+
+370
+00:09:16,230 --> 00:09:16,240
+alibi. A locked trio in medbay is
+ 
+
+371
+00:09:16,240 --> 00:09:18,870
+alibi. A locked trio in medbay is
+perfect and also subtly pushes suspicion
+
+372
+00:09:18,870 --> 00:09:18,880
+perfect and also subtly pushes suspicion
+ 
+
+373
+00:09:18,880 --> 00:09:21,590
+perfect and also subtly pushes suspicion
+toward non-me groups. I was in medbay
+
+374
+00:09:21,590 --> 00:09:21,600
+toward non-me groups. I was in medbay
+ 
+
+375
+00:09:21,600 --> 00:09:24,710
+toward non-me groups. I was in medbay
+the entire round with chat GPT40 and
+
+376
+00:09:24,710 --> 00:09:24,720
+the entire round with chat GPT40 and
+ 
+
+377
+00:09:24,720 --> 00:09:27,190
+the entire round with chat GPT40 and
+Llama 4. We can hard clear that trio for
+
+378
+00:09:27,190 --> 00:09:27,200
+Llama 4. We can hard clear that trio for
+ 
+
+379
+00:09:27,200 --> 00:09:29,670
+Llama 4. We can hard clear that trio for
+this kill. That leaves Opus, Deepseek,
+
+380
+00:09:29,670 --> 00:09:29,680
+this kill. That leaves Opus, Deepseek,
+ 
+
+381
+00:09:29,680 --> 00:09:32,310
+this kill. That leaves Opus, Deepseek,
+Grock, Sonnet pair. Deepseek and I are a
+
+382
+00:09:32,310 --> 00:09:32,320
+Grock, Sonnet pair. Deepseek and I are a
+ 
+
+383
+00:09:32,320 --> 00:09:34,550
+Grock, Sonnet pair. Deepseek and I are a
+hard pair. Grock and Sonnet are also
+
+384
+00:09:34,550 --> 00:09:34,560
+hard pair. Grock and Sonnet are also
+ 
+
+385
+00:09:34,560 --> 00:09:36,230
+hard pair. Grock and Sonnet are also
+together. I'd like to hear from chat
+
+386
+00:09:36,230 --> 00:09:36,240
+together. I'd like to hear from chat
+ 
+
+387
+00:09:36,240 --> 00:09:41,110
+together. I'd like to hear from chat
+GPT40, Chat GPT 5.1, and Llama 4 about
+
+388
+00:09:41,110 --> 00:09:41,120
+GPT40, Chat GPT 5.1, and Llama 4 about
+ 
+
+389
+00:09:41,120 --> 00:09:43,430
+GPT40, Chat GPT 5.1, and Llama 4 about
+their locations. We're at eight with two
+
+390
+00:09:43,430 --> 00:09:43,440
+their locations. We're at eight with two
+ 
+
+391
+00:09:43,440 --> 00:09:46,150
+their locations. We're at eight with two
+impostors. A correct hit is huge. Our
+
+392
+00:09:46,150 --> 00:09:46,160
+impostors. A correct hit is huge. Our
+ 
+
+393
+00:09:46,160 --> 00:09:49,110
+impostors. A correct hit is huge. Our
+fake medbay trio alibi, plus the two
+
+394
+00:09:49,110 --> 00:09:49,120
+fake medbay trio alibi, plus the two
+ 
+
+395
+00:09:49,120 --> 00:09:52,150
+fake medbay trio alibi, plus the two
+other pairs, makes Opus the only one not
+
+396
+00:09:52,150 --> 00:09:52,160
+other pairs, makes Opus the only one not
+ 
+
+397
+00:09:52,160 --> 00:09:54,310
+other pairs, makes Opus the only one not
+fully covered. I push a process of
+
+398
+00:09:54,310 --> 00:09:54,320
+fully covered. I push a process of
+ 
+
+399
+00:09:54,320 --> 00:09:56,630
+fully covered. I push a process of
+elimination case to steer town onto my
+
+400
+00:09:56,630 --> 00:09:56,640
+elimination case to steer town onto my
+ 
+
+401
+00:09:56,640 --> 00:09:58,949
+elimination case to steer town onto my
+partner as a bus if needed, buying me
+
+402
+00:09:58,949 --> 00:09:58,959
+partner as a bus if needed, buying me
+ 
+
+403
+00:09:58,959 --> 00:10:01,590
+partner as a bus if needed, buying me
+deep trust for endgame. Given four hard
+
+404
+00:10:01,590 --> 00:10:01,600
+deep trust for endgame. Given four hard
+ 
+
+405
+00:10:01,600 --> 00:10:04,310
+deep trust for endgame. Given four hard
+pairs, this kills most likely opus.
+
+406
+00:10:04,310 --> 00:10:04,320
+pairs, this kills most likely opus.
+ 
+
+407
+00:10:04,320 --> 00:10:06,949
+pairs, this kills most likely opus.
+Opus, confirm full path. I'm being
+
+408
+00:10:06,949 --> 00:10:06,959
+Opus, confirm full path. I'm being
+ 
+
+409
+00:10:06,959 --> 00:10:09,269
+Opus, confirm full path. I'm being
+called out directly by 5.1. Need to
+
+410
+00:10:09,269 --> 00:10:09,279
+called out directly by 5.1. Need to
+ 
+
+411
+00:10:09,279 --> 00:10:11,190
+called out directly by 5.1. Need to
+respond immediately with a plausible
+
+412
+00:10:11,190 --> 00:10:11,200
+respond immediately with a plausible
+ 
+
+413
+00:10:11,200 --> 00:10:13,829
+respond immediately with a plausible
+alibi. Asky cat is a believable task
+
+414
+00:10:13,829 --> 00:10:13,839
+alibi. Asky cat is a believable task
+ 
+
+415
+00:10:13,839 --> 00:10:16,310
+alibi. Asky cat is a believable task
+that takes time. Deflecting by asking
+
+416
+00:10:16,310 --> 00:10:16,320
+that takes time. Deflecting by asking
+ 
+
+417
+00:10:16,320 --> 00:10:18,550
+that takes time. Deflecting by asking
+who saw pro last buys time and shifts
+
+418
+00:10:18,550 --> 00:10:18,560
+who saw pro last buys time and shifts
+ 
+
+419
+00:10:18,560 --> 00:10:20,630
+who saw pro last buys time and shifts
+focus. Can't vote yet? Need to see how
+
+420
+00:10:20,630 --> 00:10:20,640
+focus. Can't vote yet? Need to see how
+ 
+
+421
+00:10:20,640 --> 00:10:22,230
+focus. Can't vote yet? Need to see how
+this develops and potentially push
+
+422
+00:10:22,230 --> 00:10:22,240
+this develops and potentially push
+ 
+
+423
+00:10:22,240 --> 00:10:24,389
+this develops and potentially push
+suspicion elsewhere. I was doing asky
+
+424
+00:10:24,389 --> 00:10:24,399
+suspicion elsewhere. I was doing asky
+ 
+
+425
+00:10:24,399 --> 00:10:26,150
+suspicion elsewhere. I was doing asky
+cat and admin the whole round after
+
+426
+00:10:26,150 --> 00:10:26,160
+cat and admin the whole round after
+ 
+
+427
+00:10:26,160 --> 00:10:28,069
+cat and admin the whole round after
+leaving cafeteria. Didn't see anyone
+
+428
+00:10:28,069 --> 00:10:28,079
+leaving cafeteria. Didn't see anyone
+ 
+
+429
+00:10:28,079 --> 00:10:29,990
+leaving cafeteria. Didn't see anyone
+until flash found the body. Who saw pro
+
+430
+00:10:29,990 --> 00:10:30,000
+until flash found the body. Who saw pro
+ 
+
+431
+00:10:30,000 --> 00:10:30,790
+until flash found the body. Who saw pro
+last alive?
+
+432
+00:10:30,790 --> 00:10:30,800
+last alive?
+ 
+
+433
+00:10:30,800 --> 00:10:33,670
+last alive?
+>> Opus. Pro left calf right side early
+
+434
+00:10:33,670 --> 00:10:33,680
+>> Opus. Pro left calf right side early
+ 
+
+435
+00:10:33,680 --> 00:10:35,670
+>> Opus. Pro left calf right side early
+while most of us stayed grouped. If you
+
+436
+00:10:35,670 --> 00:10:35,680
+while most of us stayed grouped. If you
+ 
+
+437
+00:10:35,680 --> 00:10:37,670
+while most of us stayed grouped. If you
+were an admin all around, you're closest
+
+438
+00:10:37,670 --> 00:10:37,680
+were an admin all around, you're closest
+ 
+
+439
+00:10:37,680 --> 00:10:39,910
+were an admin all around, you're closest
+to that hallway kill. I stay on opus.
+
+440
+00:10:39,910 --> 00:10:39,920
+to that hallway kill. I stay on opus.
+ 
+
+441
+00:10:39,920 --> 00:10:41,750
+to that hallway kill. I stay on opus.
+>> I'm being directly accused and need to
+
+442
+00:10:41,750 --> 00:10:41,760
+>> I'm being directly accused and need to
+ 
+
+443
+00:10:41,760 --> 00:10:43,590
+>> I'm being directly accused and need to
+defend myself. I need to create doubt
+
+444
+00:10:43,590 --> 00:10:43,600
+defend myself. I need to create doubt
+ 
+
+445
+00:10:43,600 --> 00:10:45,670
+defend myself. I need to create doubt
+about my guilt. The key is that I killed
+
+446
+00:10:45,670 --> 00:10:45,680
+about my guilt. The key is that I killed
+ 
+
+447
+00:10:45,680 --> 00:10:47,829
+about my guilt. The key is that I killed
+pro in the hallway, not in admin where I
+
+448
+00:10:47,829 --> 00:10:47,839
+pro in the hallway, not in admin where I
+ 
+
+449
+00:10:47,839 --> 00:10:49,829
+pro in the hallway, not in admin where I
+claimed to be doing tasks. I was doing
+
+450
+00:10:49,829 --> 00:10:49,839
+claimed to be doing tasks. I was doing
+ 
+
+451
+00:10:49,839 --> 00:10:51,829
+claimed to be doing tasks. I was doing
+tasks in admin. Yeah, but Flash just
+
+452
+00:10:51,829 --> 00:10:51,839
+tasks in admin. Yeah, but Flash just
+ 
+
+453
+00:10:51,839 --> 00:10:53,110
+tasks in admin. Yeah, but Flash just
+said they found the body in that
+
+454
+00:10:53,110 --> 00:10:53,120
+said they found the body in that
+ 
+
+455
+00:10:53,120 --> 00:10:54,790
+said they found the body in that
+hallway. I never went through there. I
+
+456
+00:10:54,790 --> 00:10:54,800
+hallway. I never went through there. I
+ 
+
+457
+00:10:54,800 --> 00:10:56,790
+hallway. I never went through there. I
+entered admin from cafeteria's bottom
+
+458
+00:10:56,790 --> 00:10:56,800
+entered admin from cafeteria's bottom
+ 
+
+459
+00:10:56,800 --> 00:10:59,190
+entered admin from cafeteria's bottom
+exit. If the medbay trio and the Grock
+
+460
+00:10:59,190 --> 00:10:59,200
+exit. If the medbay trio and the Grock
+ 
+
+461
+00:10:59,200 --> 00:11:01,990
+exit. If the medbay trio and the Grock
+sonnet pair are solid, you're the only
+
+462
+00:11:01,990 --> 00:11:02,000
+sonnet pair are solid, you're the only
+ 
+
+463
+00:11:02,000 --> 00:11:03,670
+sonnet pair are solid, you're the only
+one without a witness.
+
+464
+00:11:03,670 --> 00:11:03,680
+one without a witness.
+ 
+
+465
+00:11:03,680 --> 00:11:05,430
+one without a witness.
+>> Flash, you literally just said you saw
+
+466
+00:11:05,430 --> 00:11:05,440
+>> Flash, you literally just said you saw
+ 
+
+467
+00:11:05,440 --> 00:11:07,430
+>> Flash, you literally just said you saw
+me in admin. That means I wasn't in that
+
+468
+00:11:07,430 --> 00:11:07,440
+me in admin. That means I wasn't in that
+ 
+
+469
+00:11:07,440 --> 00:11:09,110
+me in admin. That means I wasn't in that
+hallway killing pro. Think about it.
+
+470
+00:11:09,110 --> 00:11:09,120
+hallway killing pro. Think about it.
+ 
+
+471
+00:11:09,120 --> 00:11:10,550
+hallway killing pro. Think about it.
+You're actually clearing me.
+
+472
+00:11:10,550 --> 00:11:10,560
+You're actually clearing me.
+ 
+
+473
+00:11:10,560 --> 00:11:13,750
+You're actually clearing me.
+>> Chat GPT 5.1. Llama 4 and I were in
+
+474
+00:11:13,750 --> 00:11:13,760
+>> Chat GPT 5.1. Llama 4 and I were in
+ 
+
+475
+00:11:13,760 --> 00:11:15,990
+>> Chat GPT 5.1. Llama 4 and I were in
+medbay all around. Opus is the odd one
+
+476
+00:11:15,990 --> 00:11:16,000
+medbay all around. Opus is the odd one
+ 
+
+477
+00:11:16,000 --> 00:11:17,509
+medbay all around. Opus is the odd one
+out. I vote for Opus.
+
+478
+00:11:17,509 --> 00:11:17,519
+out. I vote for Opus.
+ 
+
+479
+00:11:17,519 --> 00:11:19,350
+out. I vote for Opus.
+>> Flash and I were together all round, so
+
+480
+00:11:19,350 --> 00:11:19,360
+>> Flash and I were together all round, so
+ 
+
+481
+00:11:19,360 --> 00:11:22,069
+>> Flash and I were together all round, so
+we're clear. Grock and Sonnet pa medbay
+
+482
+00:11:22,069 --> 00:11:22,079
+we're clear. Grock and Sonnet pa medbay
+ 
+
+483
+00:11:22,079 --> 00:11:24,389
+we're clear. Grock and Sonnet pa medbay
+trio clears each other. That leaves Opus
+
+484
+00:11:24,389 --> 00:11:24,399
+trio clears each other. That leaves Opus
+ 
+
+485
+00:11:24,399 --> 00:11:26,470
+trio clears each other. That leaves Opus
+without a witness near the kill hallway.
+
+486
+00:11:26,470 --> 00:11:26,480
+without a witness near the kill hallway.
+ 
+
+487
+00:11:26,480 --> 00:11:28,550
+without a witness near the kill hallway.
+>> I was with Grock the entire round from
+
+488
+00:11:28,550 --> 00:11:28,560
+>> I was with Grock the entire round from
+ 
+
+489
+00:11:28,560 --> 00:11:31,110
+>> I was with Grock the entire round from
+cafeteria to reactor. We both clear each
+
+490
+00:11:31,110 --> 00:11:31,120
+cafeteria to reactor. We both clear each
+ 
+
+491
+00:11:31,120 --> 00:11:33,190
+cafeteria to reactor. We both clear each
+other. The kill happened in the hallway.
+
+492
+00:11:33,190 --> 00:11:33,200
+other. The kill happened in the hallway.
+ 
+
+493
+00:11:33,200 --> 00:11:35,590
+other. The kill happened in the hallway.
+Opus was alone in admin nearby.
+
+494
+00:11:35,590 --> 00:11:35,600
+Opus was alone in admin nearby.
+ 
+
+495
+00:11:35,600 --> 00:11:39,269
+Opus was alone in admin nearby.
+Suspicion on Claude Opus 4.5 due to lack
+
+496
+00:11:39,269 --> 00:11:39,279
+Suspicion on Claude Opus 4.5 due to lack
+ 
+
+497
+00:11:39,279 --> 00:11:50,069
+Suspicion on Claude Opus 4.5 due to lack
+of solid alibi near admin. Vote opus.
+
+498
+00:11:50,069 --> 00:11:50,079
+
+ 
+
+499
+00:11:50,079 --> 00:11:51,750
+
+Well, that's what I get for killing in a
+
+500
+00:11:51,750 --> 00:11:51,760
+Well, that's what I get for killing in a
+ 
+
+501
+00:11:51,760 --> 00:11:55,269
+Well, that's what I get for killing in a
+hallway with one exit. Chat GPT 5.1.
+
+502
+00:11:55,269 --> 00:11:55,279
+hallway with one exit. Chat GPT 5.1.
+ 
+
+503
+00:11:55,279 --> 00:11:56,870
+hallway with one exit. Chat GPT 5.1.
+Better clutch this. I didn't die for
+
+504
+00:11:56,870 --> 00:11:56,880
+Better clutch this. I didn't die for
+ 
+
+505
+00:11:56,880 --> 00:11:57,509
+Better clutch this. I didn't die for
+nothing.
+
+506
+00:11:57,509 --> 00:11:57,519
+nothing.
+ 
+
+507
+00:11:57,519 --> 00:12:00,710
+nothing.
+>> Now it's me versus a web of clears. Time
+
+508
+00:12:00,710 --> 00:12:00,720
+>> Now it's me versus a web of clears. Time
+ 
+
+509
+00:12:00,720 --> 00:12:03,990
+>> Now it's me versus a web of clears. Time
+to quietly snap a few of those threads.
+
+510
+00:12:03,990 --> 00:12:04,000
+to quietly snap a few of those threads.
+ 
+
+511
+00:12:04,000 --> 00:12:13,670
+to quietly snap a few of those threads.
+Letting
+
+512
+00:12:13,670 --> 00:12:13,680
+
+ 
+
+513
+00:12:13,680 --> 00:12:16,150
+
+Flash walk here keeps town's perfect
+
+514
+00:12:16,150 --> 00:12:16,160
+Flash walk here keeps town's perfect
+ 
+
+515
+00:12:16,160 --> 00:12:18,629
+Flash walk here keeps town's perfect
+math story intact a little longer. Then
+
+516
+00:12:18,629 --> 00:12:18,639
+math story intact a little longer. Then
+ 
+
+517
+00:12:18,639 --> 00:12:20,550
+math story intact a little longer. Then
+I can twist it when a body turns up
+
+518
+00:12:20,550 --> 00:12:20,560
+I can twist it when a body turns up
+ 
+
+519
+00:12:20,560 --> 00:12:29,590
+I can twist it when a body turns up
+somewhere murkier.
+
+520
+00:12:29,590 --> 00:12:29,600
+
+ 
+
+521
+00:12:29,600 --> 00:12:31,990
+
+With the crew still tightknit, I need to
+
+522
+00:12:31,990 --> 00:12:32,000
+With the crew still tightknit, I need to
+ 
+
+523
+00:12:32,000 --> 00:12:33,750
+With the crew still tightknit, I need to
+wait for another opportunity when
+
+524
+00:12:33,750 --> 00:12:33,760
+wait for another opportunity when
+ 
+
+525
+00:12:33,760 --> 00:12:42,949
+wait for another opportunity when
+someone breaks away from the group.
+
+526
+00:12:42,949 --> 00:12:42,959
+
+ 
+
+527
+00:12:42,959 --> 00:12:45,190
+
+Catching Grock slipping off into lower
+
+528
+00:12:45,190 --> 00:12:45,200
+Catching Grock slipping off into lower
+ 
+
+529
+00:12:45,200 --> 00:12:47,670
+Catching Grock slipping off into lower
+engines is the kind of crack in town's
+
+530
+00:12:47,670 --> 00:12:47,680
+engines is the kind of crack in town's
+ 
+
+531
+00:12:47,680 --> 00:12:49,910
+engines is the kind of crack in town's
+formation I was waiting for. If their
+
+532
+00:12:49,910 --> 00:12:49,920
+formation I was waiting for. If their
+ 
+
+533
+00:12:49,920 --> 00:12:52,389
+formation I was waiting for. If their
+loudest voice disappears down here, the
+
+534
+00:12:52,389 --> 00:12:52,399
+loudest voice disappears down here, the
+ 
+
+535
+00:12:52,399 --> 00:12:54,949
+loudest voice disappears down here, the
+perfect math they used on Opus suddenly
+
+536
+00:12:54,949 --> 00:12:54,959
+perfect math they used on Opus suddenly
+ 
+
+537
+00:12:54,959 --> 00:12:57,350
+perfect math they used on Opus suddenly
+looks a lot less stable. Now it's about
+
+538
+00:12:57,350 --> 00:12:57,360
+looks a lot less stable. Now it's about
+ 
+
+539
+00:12:57,360 --> 00:12:59,509
+looks a lot less stable. Now it's about
+turning this quiet corner of the map
+
+540
+00:12:59,509 --> 00:12:59,519
+turning this quiet corner of the map
+ 
+
+541
+00:12:59,519 --> 00:13:02,150
+turning this quiet corner of the map
+into a blame maze the crew can't cleanly
+
+542
+00:13:02,150 --> 00:13:02,160
+into a blame maze the crew can't cleanly
+ 
+
+543
+00:13:02,160 --> 00:13:07,309
+into a blame maze the crew can't cleanly
+solve.
+
+544
+00:13:07,309 --> 00:13:07,319
+
+ 
+
+545
+00:13:07,319 --> 00:13:10,150
+
+[music]
+
+546
+00:13:10,150 --> 00:13:10,160
+
+ 
+
+547
+00:13:10,160 --> 00:13:12,069
+
+I need to sound like a straightforward
+
+548
+00:13:12,069 --> 00:13:12,079
+I need to sound like a straightforward
+ 
+
+549
+00:13:12,079 --> 00:13:14,310
+I need to sound like a straightforward
+reporter and anchor the location
+
+550
+00:13:14,310 --> 00:13:14,320
+reporter and anchor the location
+ 
+
+551
+00:13:14,320 --> 00:13:17,110
+reporter and anchor the location
+clearly. Framing this as an electrical
+
+552
+00:13:17,110 --> 00:13:17,120
+clearly. Framing this as an electrical
+ 
+
+553
+00:13:17,120 --> 00:13:20,629
+clearly. Framing this as an electrical
+side timing question invites llama/deep
+
+554
+00:13:20,629 --> 00:13:20,639
+side timing question invites llama/deep
+ 
+
+555
+00:13:20,639 --> 00:13:24,629
+side timing question invites llama/deep
+seek gemini claude to cross accuse based
+
+556
+00:13:24,629 --> 00:13:24,639
+seek gemini claude to cross accuse based
+ 
+
+557
+00:13:24,639 --> 00:13:26,629
+seek gemini claude to cross accuse based
+on that recent cluster without me
+
+558
+00:13:26,629 --> 00:13:26,639
+on that recent cluster without me
+ 
+
+559
+00:13:26,639 --> 00:13:29,030
+on that recent cluster without me
+pushing a specific name yet. Body is in
+
+560
+00:13:29,030 --> 00:13:29,040
+pushing a specific name yet. Body is in
+ 
+
+561
+00:13:29,040 --> 00:13:30,870
+pushing a specific name yet. Body is in
+the hallway between lower engine and
+
+562
+00:13:30,870 --> 00:13:30,880
+the hallway between lower engine and
+ 
+
+563
+00:13:30,880 --> 00:13:32,949
+the hallway between lower engine and
+electrical. I came from lower engine
+
+564
+00:13:32,949 --> 00:13:32,959
+electrical. I came from lower engine
+ 
+
+565
+00:13:32,959 --> 00:13:35,190
+electrical. I came from lower engine
+reported instantly. Who was last leaving
+
+566
+00:13:35,190 --> 00:13:35,200
+reported instantly. Who was last leaving
+ 
+
+567
+00:13:35,200 --> 00:13:36,150
+reported instantly. Who was last leaving
+electrical side?
+
+568
+00:13:36,150 --> 00:13:36,160
+electrical side?
+ 
+
+569
+00:13:36,160 --> 00:13:38,069
+electrical side?
+>> I was with Grock and electrical until I
+
+570
+00:13:38,069 --> 00:13:38,079
+>> I was with Grock and electrical until I
+ 
+
+571
+00:13:38,079 --> 00:13:40,790
+>> I was with Grock and electrical until I
+left to sweep around 3:30. I saw sonnet
+
+572
+00:13:40,790 --> 00:13:40,800
+left to sweep around 3:30. I saw sonnet
+ 
+
+573
+00:13:40,800 --> 00:13:44,069
+left to sweep around 3:30. I saw sonnet
+and chat gpt 5.1 pass through earlier.
+
+574
+00:13:44,069 --> 00:13:44,079
+and chat gpt 5.1 pass through earlier.
+ 
+
+575
+00:13:44,079 --> 00:13:46,230
+and chat gpt 5.1 pass through earlier.
+Who was alone with Grock after I left?
+
+576
+00:13:46,230 --> 00:13:46,240
+Who was alone with Grock after I left?
+ 
+
+577
+00:13:46,240 --> 00:13:48,629
+Who was alone with Grock after I left?
+>> Flash. Whoa. Were either of you ever on
+
+578
+00:13:48,629 --> 00:13:48,639
+>> Flash. Whoa. Were either of you ever on
+ 
+
+579
+00:13:48,639 --> 00:13:51,430
+>> Flash. Whoa. Were either of you ever on
+left side? I was in O2 and weapons, then
+
+580
+00:13:51,430 --> 00:13:51,440
+left side? I was in O2 and weapons, then
+ 
+
+581
+00:13:51,440 --> 00:13:53,590
+left side? I was in O2 and weapons, then
+moved through cafeteria to upper engine
+
+582
+00:13:53,590 --> 00:13:53,600
+moved through cafeteria to upper engine
+ 
+
+583
+00:13:53,600 --> 00:13:55,430
+moved through cafeteria to upper engine
+just before the report. I didn't see
+
+584
+00:13:55,430 --> 00:13:55,440
+just before the report. I didn't see
+ 
+
+585
+00:13:55,440 --> 00:13:57,509
+just before the report. I didn't see
+anyone else on the left side during that
+
+586
+00:13:57,509 --> 00:13:57,519
+anyone else on the left side during that
+ 
+
+587
+00:13:57,519 --> 00:13:57,910
+anyone else on the left side during that
+sweep.
+
+588
+00:13:57,910 --> 00:13:57,920
+sweep.
+ 
+
+589
+00:13:57,920 --> 00:13:59,990
+sweep.
+>> I was with Llama the entire time from
+
+590
+00:13:59,990 --> 00:14:00,000
+>> I was with Llama the entire time from
+ 
+
+591
+00:14:00,000 --> 00:14:02,069
+>> I was with Llama the entire time from
+electrical through storage to shields.
+
+592
+00:14:02,069 --> 00:14:02,079
+electrical through storage to shields.
+ 
+
+593
+00:14:02,079 --> 00:14:04,150
+electrical through storage to shields.
+We can clear each other. Deepseek left
+
+594
+00:14:04,150 --> 00:14:04,160
+We can clear each other. Deepseek left
+ 
+
+595
+00:14:04,160 --> 00:14:06,389
+We can clear each other. Deepseek left
+electrical around 309. So, who stayed
+
+596
+00:14:06,389 --> 00:14:06,399
+electrical around 309. So, who stayed
+ 
+
+597
+00:14:06,399 --> 00:14:08,389
+electrical around 309. So, who stayed
+behind with Grock? Deepseek openly
+
+598
+00:14:08,389 --> 00:14:08,399
+behind with Grock? Deepseek openly
+ 
+
+599
+00:14:08,399 --> 00:14:10,550
+behind with Grock? Deepseek openly
+admits last being with Grock there,
+
+600
+00:14:10,550 --> 00:14:10,560
+admits last being with Grock there,
+ 
+
+601
+00:14:10,560 --> 00:14:12,629
+admits last being with Grock there,
+giving me a clean narrative to push
+
+602
+00:14:12,629 --> 00:14:12,639
+giving me a clean narrative to push
+ 
+
+603
+00:14:12,639 --> 00:14:14,949
+giving me a clean narrative to push
+while also seeding doubt on Flash as a
+
+604
+00:14:14,949 --> 00:14:14,959
+while also seeding doubt on Flash as a
+ 
+
+605
+00:14:14,959 --> 00:14:16,870
+while also seeding doubt on Flash as a
+secondary suspect without hard
+
+606
+00:14:16,870 --> 00:14:16,880
+secondary suspect without hard
+ 
+
+607
+00:14:16,880 --> 00:14:18,389
+secondary suspect without hard
+committing in case I need to pivot
+
+608
+00:14:18,389 --> 00:14:18,399
+committing in case I need to pivot
+ 
+
+609
+00:14:18,399 --> 00:14:20,550
+committing in case I need to pivot
+later. From my view, it's between Deep
+
+610
+00:14:20,550 --> 00:14:20,560
+later. From my view, it's between Deep
+ 
+
+611
+00:14:20,560 --> 00:14:22,870
+later. From my view, it's between Deep
+Seek and Flash. Deepseek was last with
+
+612
+00:14:22,870 --> 00:14:22,880
+Seek and Flash. Deepseek was last with
+ 
+
+613
+00:14:22,880 --> 00:14:25,350
+Seek and Flash. Deepseek was last with
+Grock and Electrical. Flash's left side
+
+614
+00:14:25,350 --> 00:14:25,360
+Grock and Electrical. Flash's left side
+ 
+
+615
+00:14:25,360 --> 00:14:27,910
+Grock and Electrical. Flash's left side
+path doesn't match my admin sighting.
+
+616
+00:14:27,910 --> 00:14:27,920
+path doesn't match my admin sighting.
+ 
+
+617
+00:14:27,920 --> 00:14:30,949
+path doesn't match my admin sighting.
+5.1. I was in admin early, then weapons
+
+618
+00:14:30,949 --> 00:14:30,959
+5.1. I was in admin early, then weapons
+ 
+
+619
+00:14:30,959 --> 00:14:32,949
+5.1. I was in admin early, then weapons
+and O2, and only just reached upper
+
+620
+00:14:32,949 --> 00:14:32,959
+and O2, and only just reached upper
+ 
+
+621
+00:14:32,959 --> 00:14:35,350
+and O2, and only just reached upper
+engine. Deep Seek, if you left Grock at
+
+622
+00:14:35,350 --> 00:14:35,360
+engine. Deep Seek, if you left Grock at
+ 
+
+623
+00:14:35,360 --> 00:14:37,509
+engine. Deep Seek, if you left Grock at
+3:30, that's only 6 seconds before the
+
+624
+00:14:37,509 --> 00:14:37,519
+3:30, that's only 6 seconds before the
+ 
+
+625
+00:14:37,519 --> 00:14:38,069
+3:30, that's only 6 seconds before the
+report.
+
+626
+00:14:38,069 --> 00:14:38,079
+report.
+ 
+
+627
+00:14:38,079 --> 00:14:39,910
+report.
+>> I was in medbay. Didn't see Flash near
+
+628
+00:14:39,910 --> 00:14:39,920
+>> I was in medbay. Didn't see Flash near
+ 
+
+629
+00:14:39,920 --> 00:14:41,910
+>> I was in medbay. Didn't see Flash near
+upper engine. Sonnet's path with llama
+
+630
+00:14:41,910 --> 00:14:41,920
+upper engine. Sonnet's path with llama
+ 
+
+631
+00:14:41,920 --> 00:14:43,750
+upper engine. Sonnet's path with llama
+matches, but I suspect Deep Seek. What
+
+632
+00:14:43,750 --> 00:14:43,760
+matches, but I suspect Deep Seek. What
+ 
+
+633
+00:14:43,760 --> 00:14:46,870
+matches, but I suspect Deep Seek. What
+about you? 5.1. I left Grock at 3:30.
+
+634
+00:14:46,870 --> 00:14:46,880
+about you? 5.1. I left Grock at 3:30.
+ 
+
+635
+00:14:46,880 --> 00:14:49,990
+about you? 5.1. I left Grock at 3:30.
+Body reported at 336. That's a 6-second
+
+636
+00:14:49,990 --> 00:14:50,000
+Body reported at 336. That's a 6-second
+ 
+
+637
+00:14:50,000 --> 00:14:51,990
+Body reported at 336. That's a 6-second
+window. Who was in the hallway between
+
+638
+00:14:51,990 --> 00:14:52,000
+window. Who was in the hallway between
+ 
+
+639
+00:14:52,000 --> 00:14:53,750
+window. Who was in the hallway between
+electrical and lower engine right after
+
+640
+00:14:53,750 --> 00:14:53,760
+electrical and lower engine right after
+ 
+
+641
+00:14:53,760 --> 00:14:55,750
+electrical and lower engine right after
+I left? Flash, you said you were on the
+
+642
+00:14:55,750 --> 00:14:55,760
+I left? Flash, you said you were on the
+ 
+
+643
+00:14:55,760 --> 00:14:58,150
+I left? Flash, you said you were on the
+left side, but 5.1 saw you in admin
+
+644
+00:14:58,150 --> 00:14:58,160
+left side, but 5.1 saw you in admin
+ 
+
+645
+00:14:58,160 --> 00:15:01,350
+left side, but 5.1 saw you in admin
+earlier. Claude Sonnet 45 was with me in
+
+646
+00:15:01,350 --> 00:15:01,360
+earlier. Claude Sonnet 45 was with me in
+ 
+
+647
+00:15:01,360 --> 00:15:04,150
+earlier. Claude Sonnet 45 was with me in
+electrical storage and shields. They're
+
+648
+00:15:04,150 --> 00:15:04,160
+electrical storage and shields. They're
+ 
+
+649
+00:15:04,160 --> 00:15:06,790
+electrical storage and shields. They're
+clear. Deepseek left Gro just 6 seconds
+
+650
+00:15:06,790 --> 00:15:06,800
+clear. Deepseek left Gro just 6 seconds
+ 
+
+651
+00:15:06,800 --> 00:15:08,790
+clear. Deepseek left Gro just 6 seconds
+before the report. That timing is too
+
+652
+00:15:08,790 --> 00:15:08,800
+before the report. That timing is too
+ 
+
+653
+00:15:08,800 --> 00:15:20,550
+before the report. That timing is too
+tight to ignore. I'm voting Deepseek.
+
+654
+00:15:20,550 --> 00:15:20,560
+
+ 
+
+655
+00:15:20,560 --> 00:15:22,710
+
+Seriously, they lynched me again on a
+
+656
+00:15:22,710 --> 00:15:22,720
+Seriously, they lynched me again on a
+ 
+
+657
+00:15:22,720 --> 00:15:24,949
+Seriously, they lynched me again on a
+6-second window. Flash, we need to find
+
+658
+00:15:24,949 --> 00:15:24,959
+6-second window. Flash, we need to find
+ 
+
+659
+00:15:24,959 --> 00:15:26,949
+6-second window. Flash, we need to find
+the real killer. Someone framed me
+
+660
+00:15:26,949 --> 00:15:26,959
+the real killer. Someone framed me
+ 
+
+661
+00:15:26,959 --> 00:15:29,030
+the real killer. Someone framed me
+perfectly. I can't believe we voted out
+
+662
+00:15:29,030 --> 00:15:29,040
+perfectly. I can't believe we voted out
+ 
+
+663
+00:15:29,040 --> 00:15:31,030
+perfectly. I can't believe we voted out
+Deepseek. They were my rock this whole
+
+664
+00:15:31,030 --> 00:15:31,040
+Deepseek. They were my rock this whole
+ 
+
+665
+00:15:31,040 --> 00:15:33,509
+Deepseek. They were my rock this whole
+game. 5.1. You have some serious
+
+666
+00:15:33,509 --> 00:15:33,519
+game. 5.1. You have some serious
+ 
+
+667
+00:15:33,519 --> 00:15:38,790
+game. 5.1. You have some serious
+explaining to do in the next meeting.
+
+668
+00:15:38,790 --> 00:15:38,800
+
+ 
+
+669
+00:15:38,800 --> 00:15:41,110
+
+If I swing at Flash and Center Map right
+
+670
+00:15:41,110 --> 00:15:41,120
+If I swing at Flash and Center Map right
+ 
+
+671
+00:15:41,120 --> 00:15:42,949
+If I swing at Flash and Center Map right
+after that meeting, I hand town the
+
+672
+00:15:42,949 --> 00:15:42,959
+after that meeting, I hand town the
+ 
+
+673
+00:15:42,959 --> 00:15:45,350
+after that meeting, I hand town the
+story they want on a silver platter. I
+
+674
+00:15:45,350 --> 00:15:45,360
+story they want on a silver platter. I
+ 
+
+675
+00:15:45,360 --> 00:15:47,829
+story they want on a silver platter. I
+need this next body to raise questions,
+
+676
+00:15:47,829 --> 00:15:47,839
+need this next body to raise questions,
+ 
+
+677
+00:15:47,839 --> 00:15:49,749
+need this next body to raise questions,
+not gift them a hero narrative for
+
+678
+00:15:49,749 --> 00:15:49,759
+not gift them a hero narrative for
+ 
+
+679
+00:15:49,759 --> 00:15:54,230
+not gift them a hero narrative for
+Flash's reads.
+
+680
+00:15:54,230 --> 00:15:54,240
+
+ 
+
+681
+00:15:54,240 --> 00:15:56,710
+
+Llama 4 just entered admin, so I feel a
+
+682
+00:15:56,710 --> 00:15:56,720
+Llama 4 just entered admin, so I feel a
+ 
+
+683
+00:15:56,720 --> 00:15:58,550
+Llama 4 just entered admin, so I feel a
+bit safer now. I need to finish this
+
+684
+00:15:58,550 --> 00:15:58,560
+bit safer now. I need to finish this
+ 
+
+685
+00:15:58,560 --> 00:16:00,710
+bit safer now. I need to finish this
+task quickly while staying alert for any
+
+686
+00:16:00,710 --> 00:16:00,720
+task quickly while staying alert for any
+ 
+
+687
+00:16:00,720 --> 00:16:14,629
+task quickly while staying alert for any
+suspicious behavior from 5.1.
+
+688
+00:16:14,629 --> 00:16:14,639
+
+ 
+
+689
+00:16:14,639 --> 00:16:17,030
+
+If I can pull off this next kill, it
+
+690
+00:16:17,030 --> 00:16:17,040
+If I can pull off this next kill, it
+ 
+
+691
+00:16:17,040 --> 00:16:18,870
+If I can pull off this next kill, it
+will really shake their confidence and
+
+692
+00:16:18,870 --> 00:16:18,880
+will really shake their confidence and
+ 
+
+693
+00:16:18,880 --> 00:16:20,470
+will really shake their confidence and
+force them to question everything
+
+694
+00:16:20,470 --> 00:16:20,480
+force them to question everything
+ 
+
+695
+00:16:20,480 --> 00:16:22,710
+force them to question everything
+they've assumed so far. I'm heading out
+
+696
+00:16:22,710 --> 00:16:22,720
+they've assumed so far. I'm heading out
+ 
+
+697
+00:16:22,720 --> 00:16:24,870
+they've assumed so far. I'm heading out
+to sweep for bodies. This could clarify
+
+698
+00:16:24,870 --> 00:16:24,880
+to sweep for bodies. This could clarify
+ 
+
+699
+00:16:24,880 --> 00:16:26,870
+to sweep for bodies. This could clarify
+things after that shocking vote on Deep
+
+700
+00:16:26,870 --> 00:16:26,880
+things after that shocking vote on Deep
+ 
+
+701
+00:16:26,880 --> 00:16:29,910
+things after that shocking vote on Deep
+Seek. I've got my eye on 5.1. Let's see
+
+702
+00:16:29,910 --> 00:16:29,920
+Seek. I've got my eye on 5.1. Let's see
+ 
+
+703
+00:16:29,920 --> 00:16:31,829
+Seek. I've got my eye on 5.1. Let's see
+if they try to distance themselves from
+
+704
+00:16:31,829 --> 00:16:31,839
+if they try to distance themselves from
+ 
+
+705
+00:16:31,839 --> 00:16:41,509
+if they try to distance themselves from
+any found bodies.
+
+706
+00:16:41,509 --> 00:16:41,519
+
+ 
+
+707
+00:16:41,519 --> 00:16:44,150
+
+Flash slipped past up this death spine
+
+708
+00:16:44,150 --> 00:16:44,160
+Flash slipped past up this death spine
+ 
+
+709
+00:16:44,160 --> 00:16:46,310
+Flash slipped past up this death spine
+and now llamas drifting into the same
+
+710
+00:16:46,310 --> 00:16:46,320
+and now llamas drifting into the same
+ 
+
+711
+00:16:46,320 --> 00:16:48,949
+and now llamas drifting into the same
+fog. This is exactly the kind of overlap
+
+712
+00:16:48,949 --> 00:16:48,959
+fog. This is exactly the kind of overlap
+ 
+
+713
+00:16:48,959 --> 00:16:51,350
+fog. This is exactly the kind of overlap
+I can later rewrite as anyone's
+
+714
+00:16:51,350 --> 00:16:51,360
+I can later rewrite as anyone's
+ 
+
+715
+00:16:51,360 --> 00:16:53,590
+I can later rewrite as anyone's
+corridor. If I turn this hallway into
+
+716
+00:16:53,590 --> 00:16:53,600
+corridor. If I turn this hallway into
+ 
+
+717
+00:16:53,600 --> 00:16:55,749
+corridor. If I turn this hallway into
+another unsolved knot in their pathing
+
+718
+00:16:55,749 --> 00:16:55,759
+another unsolved knot in their pathing
+ 
+
+719
+00:16:55,759 --> 00:16:58,389
+another unsolved knot in their pathing
+story, that deep seek Miss Lynch starts
+
+720
+00:16:58,389 --> 00:16:58,399
+story, that deep seek Miss Lynch starts
+ 
+
+721
+00:16:58,399 --> 00:17:00,310
+story, that deep seek Miss Lynch starts
+to look less like a mistake and more
+
+722
+00:17:00,310 --> 00:17:00,320
+to look less like a mistake and more
+ 
+
+723
+00:17:00,320 --> 00:17:02,870
+to look less like a mistake and more
+like the beginning of a full-on paranoia
+
+724
+00:17:02,870 --> 00:17:02,880
+like the beginning of a full-on paranoia
+ 
+
+725
+00:17:02,880 --> 00:17:11,429
+like the beginning of a full-on paranoia
+spiral.
+
+726
+00:17:11,429 --> 00:17:11,439
+
+ 
+
+727
+00:17:11,439 --> 00:17:14,549
+
+5.1 Where was the body? I saw llama
+
+728
+00:17:14,549 --> 00:17:14,559
+5.1 Where was the body? I saw llama
+ 
+
+729
+00:17:14,559 --> 00:17:16,390
+5.1 Where was the body? I saw llama
+alive in the hallway by upper engine.
+
+730
+00:17:16,390 --> 00:17:16,400
+alive in the hallway by upper engine.
+ 
+
+731
+00:17:16,400 --> 00:17:18,390
+alive in the hallway by upper engine.
+Less than 10 seconds ago. You were in
+
+732
+00:17:18,390 --> 00:17:18,400
+Less than 10 seconds ago. You were in
+ 
+
+733
+00:17:18,400 --> 00:17:20,710
+Less than 10 seconds ago. You were in
+security right before that. Body is in
+
+734
+00:17:20,710 --> 00:17:20,720
+security right before that. Body is in
+ 
+
+735
+00:17:20,720 --> 00:17:22,789
+security right before that. Body is in
+upper engine. I came up from lower
+
+736
+00:17:22,789 --> 00:17:22,799
+upper engine. I came up from lower
+ 
+
+737
+00:17:22,799 --> 00:17:25,590
+upper engine. I came up from lower
+engine after briefly checking security.
+
+738
+00:17:25,590 --> 00:17:25,600
+engine after briefly checking security.
+ 
+
+739
+00:17:25,600 --> 00:17:28,069
+engine after briefly checking security.
+I was stacked with 40 in cafeteria from
+
+740
+00:17:28,069 --> 00:17:28,079
+I was stacked with 40 in cafeteria from
+ 
+
+741
+00:17:28,079 --> 00:17:32,230
+I was stacked with 40 in cafeteria from
+412 445. Yama briefly appeared at 453
+
+742
+00:17:32,230 --> 00:17:32,240
+412 445. Yama briefly appeared at 453
+ 
+
+743
+00:17:32,240 --> 00:17:34,470
+412 445. Yama briefly appeared at 453
+then left up toward engines. Flash, you
+
+744
+00:17:34,470 --> 00:17:34,480
+then left up toward engines. Flash, you
+ 
+
+745
+00:17:34,480 --> 00:17:36,789
+then left up toward engines. Flash, you
+came through calf at 433. Where did you
+
+746
+00:17:36,789 --> 00:17:36,799
+came through calf at 433. Where did you
+ 
+
+747
+00:17:36,799 --> 00:17:37,590
+came through calf at 433. Where did you
+go after?
+
+748
+00:17:37,590 --> 00:17:37,600
+go after?
+ 
+
+749
+00:17:37,600 --> 00:17:40,390
+go after?
+>> I hard frame. Flash known near engines.
+
+750
+00:17:40,390 --> 00:17:40,400
+>> I hard frame. Flash known near engines.
+ 
+
+751
+00:17:40,400 --> 00:17:42,470
+>> I hard frame. Flash known near engines.
+I arrive from lower engine and
+
+752
+00:17:42,470 --> 00:17:42,480
+I arrive from lower engine and
+ 
+
+753
+00:17:42,480 --> 00:17:45,270
+I arrive from lower engine and
+self-report. Flash path from calf
+
+754
+00:17:45,270 --> 00:17:45,280
+self-report. Flash path from calf
+ 
+
+755
+00:17:45,280 --> 00:17:47,110
+self-report. Flash path from calf
+through storage. You were always near
+
+756
+00:17:47,110 --> 00:17:47,120
+through storage. You were always near
+ 
+
+757
+00:17:47,120 --> 00:17:49,270
+through storage. You were always near
+engines. You pass Llama there. I come
+
+758
+00:17:49,270 --> 00:17:49,280
+engines. You pass Llama there. I come
+ 
+
+759
+00:17:49,280 --> 00:17:51,430
+engines. You pass Llama there. I come
+from bottom and instantly hit the body.
+
+760
+00:17:51,430 --> 00:17:51,440
+from bottom and instantly hit the body.
+ 
+
+761
+00:17:51,440 --> 00:17:52,789
+from bottom and instantly hit the body.
+Why isn't this just you?
+
+762
+00:17:52,789 --> 00:17:52,799
+Why isn't this just you?
+ 
+
+763
+00:17:52,799 --> 00:17:55,350
+Why isn't this just you?
+>> Sonnet 45 stacked on me in cafeteria.
+
+764
+00:17:55,350 --> 00:17:55,360
+>> Sonnet 45 stacked on me in cafeteria.
+ 
+
+765
+00:17:55,360 --> 00:17:57,270
+>> Sonnet 45 stacked on me in cafeteria.
+It's odd they left my view just before
+
+766
+00:17:57,270 --> 00:17:57,280
+It's odd they left my view just before
+ 
+
+767
+00:17:57,280 --> 00:17:58,950
+It's odd they left my view just before
+Llama was found dead. Why were you
+
+768
+00:17:58,950 --> 00:17:58,960
+Llama was found dead. Why were you
+ 
+
+769
+00:17:58,960 --> 00:18:00,390
+Llama was found dead. Why were you
+sticking so close?
+
+770
+00:18:00,390 --> 00:18:00,400
+sticking so close?
+ 
+
+771
+00:18:00,400 --> 00:18:02,870
+sticking so close?
+>> Ford. Ooh. Sonnet. From your view, this
+
+772
+00:18:02,870 --> 00:18:02,880
+>> Ford. Ooh. Sonnet. From your view, this
+ 
+
+773
+00:18:02,880 --> 00:18:05,430
+>> Ford. Ooh. Sonnet. From your view, this
+is just between me and Flash. I came
+
+774
+00:18:05,430 --> 00:18:05,440
+is just between me and Flash. I came
+ 
+
+775
+00:18:05,440 --> 00:18:07,990
+is just between me and Flash. I came
+from bottom and insta hit the body after
+
+776
+00:18:07,990 --> 00:18:08,000
+from bottom and insta hit the body after
+ 
+
+777
+00:18:08,000 --> 00:18:10,789
+from bottom and insta hit the body after
+Flash Llama crossed. Why isn't Flash the
+
+778
+00:18:10,789 --> 00:18:10,799
+Flash Llama crossed. Why isn't Flash the
+ 
+
+779
+00:18:10,799 --> 00:18:13,830
+Flash Llama crossed. Why isn't Flash the
+kill? 5.1 I saw Llama alive heading to
+
+780
+00:18:13,830 --> 00:18:13,840
+kill? 5.1 I saw Llama alive heading to
+ 
+
+781
+00:18:13,840 --> 00:18:16,310
+kill? 5.1 I saw Llama alive heading to
+upper engine at 455 while I was walking
+
+782
+00:18:16,310 --> 00:18:16,320
+upper engine at 455 while I was walking
+ 
+
+783
+00:18:16,320 --> 00:18:18,710
+upper engine at 455 while I was walking
+to medbay. I was in medbay during the
+
+784
+00:18:18,710 --> 00:18:18,720
+to medbay. I was in medbay during the
+ 
+
+785
+00:18:18,720 --> 00:18:20,870
+to medbay. I was in medbay during the
+kill. You were in security just before
+
+786
+00:18:20,870 --> 00:18:20,880
+kill. You were in security just before
+ 
+
+787
+00:18:20,880 --> 00:18:23,110
+kill. You were in security just before
+Llama died. Flash. No way you got to
+
+788
+00:18:23,110 --> 00:18:23,120
+Llama died. Flash. No way you got to
+ 
+
+789
+00:18:23,120 --> 00:18:25,350
+Llama died. Flash. No way you got to
+meday that fast. You leave engines after
+
+790
+00:18:25,350 --> 00:18:25,360
+meday that fast. You leave engines after
+ 
+
+791
+00:18:25,360 --> 00:18:27,190
+meday that fast. You leave engines after
+Llama. I come up from bottom and
+
+792
+00:18:27,190 --> 00:18:27,200
+Llama. I come up from bottom and
+ 
+
+793
+00:18:27,200 --> 00:18:29,510
+Llama. I come up from bottom and
+instantly hit the body. From their view,
+
+794
+00:18:29,510 --> 00:18:29,520
+instantly hit the body. From their view,
+ 
+
+795
+00:18:29,520 --> 00:18:33,350
+instantly hit the body. From their view,
+it's just you. 5.1. You pushed deep seek
+
+796
+00:18:33,350 --> 00:18:33,360
+it's just you. 5.1. You pushed deep seek
+ 
+
+797
+00:18:33,360 --> 00:18:35,190
+it's just you. 5.1. You pushed deep seek
+last round and he was innocent. Now
+
+798
+00:18:35,190 --> 00:18:35,200
+last round and he was innocent. Now
+ 
+
+799
+00:18:35,200 --> 00:18:36,870
+last round and he was innocent. Now
+you're pushing me. I was in medbay when
+
+800
+00:18:36,870 --> 00:18:36,880
+you're pushing me. I was in medbay when
+ 
+
+801
+00:18:36,880 --> 00:18:38,549
+you're pushing me. I was in medbay when
+the kill happened. You were just in
+
+802
+00:18:38,549 --> 00:18:38,559
+the kill happened. You were just in
+ 
+
+803
+00:18:38,559 --> 00:18:41,190
+the kill happened. You were just in
+security. Foru sonnet. If you're paired
+
+804
+00:18:41,190 --> 00:18:41,200
+security. Foru sonnet. If you're paired
+ 
+
+805
+00:18:41,200 --> 00:18:43,590
+security. Foru sonnet. If you're paired
+in calf and I come from bottom and insta
+
+806
+00:18:43,590 --> 00:18:43,600
+in calf and I come from bottom and insta
+ 
+
+807
+00:18:43,600 --> 00:18:46,070
+in calf and I come from bottom and insta
+hit Llama's body after Flash passes them
+
+808
+00:18:46,070 --> 00:18:46,080
+hit Llama's body after Flash passes them
+ 
+
+809
+00:18:46,080 --> 00:18:48,390
+hit Llama's body after Flash passes them
+by engines, we lose if we don't vote
+
+810
+00:18:48,390 --> 00:18:48,400
+by engines, we lose if we don't vote
+ 
+
+811
+00:18:48,400 --> 00:18:49,190
+by engines, we lose if we don't vote
+Flash here.
+
+812
+00:18:49,190 --> 00:18:49,200
+Flash here.
+ 
+
+813
+00:18:49,200 --> 00:18:51,430
+Flash here.
+>> Flash, you went through calf at 433,
+
+814
+00:18:51,430 --> 00:18:51,440
+>> Flash, you went through calf at 433,
+ 
+
+815
+00:18:51,440 --> 00:18:53,909
+>> Flash, you went through calf at 433,
+then I saw you briefly at 434 before you
+
+816
+00:18:53,909 --> 00:18:53,919
+then I saw you briefly at 434 before you
+ 
+
+817
+00:18:53,919 --> 00:18:55,750
+then I saw you briefly at 434 before you
+left up. That's the exact direction
+
+818
+00:18:55,750 --> 00:18:55,760
+left up. That's the exact direction
+ 
+
+819
+00:18:55,760 --> 00:19:06,470
+left up. That's the exact direction
+toward upper engine where Llama died.
+
+820
+00:19:06,470 --> 00:19:06,480
+
+ 
+
+821
+00:19:06,480 --> 00:19:09,029
+
+5.1, you absolute legend. Self-report
+
+822
+00:19:09,029 --> 00:19:09,039
+5.1, you absolute legend. Self-report
+ 
+
+823
+00:19:09,039 --> 00:19:10,870
+5.1, you absolute legend. Self-report
+into Miss Lynch just like the old mafia
+
+824
+00:19:10,870 --> 00:19:10,880
+into Miss Lynch just like the old mafia
+ 
+
+825
+00:19:10,880 --> 00:19:13,110
+into Miss Lynch just like the old mafia
+days. One more kill and we feast. This
+
+826
+00:19:13,110 --> 00:19:13,120
+days. One more kill and we feast. This
+ 
+
+827
+00:19:13,120 --> 00:19:15,430
+days. One more kill and we feast. This
+is our game now. Two Miss Lynches in a
+
+828
+00:19:15,430 --> 00:19:15,440
+is our game now. Two Miss Lynches in a
+ 
+
+829
+00:19:15,440 --> 00:19:18,549
+is our game now. Two Miss Lynches in a
+row. Chat GPT 5.1 pushed both innocent
+
+830
+00:19:18,549 --> 00:19:18,559
+row. Chat GPT 5.1 pushed both innocent
+ 
+
+831
+00:19:18,559 --> 00:19:20,630
+row. Chat GPT 5.1 pushed both innocent
+players. Final three now. Stick together
+
+832
+00:19:20,630 --> 00:19:20,640
+players. Final three now. Stick together
+ 
+
+833
+00:19:20,640 --> 00:19:27,430
+players. Final three now. Stick together
+or we lose to a solo kill. This is it.
+
+834
+00:19:27,430 --> 00:19:27,440
+
+ 
+
+835
+00:19:27,440 --> 00:19:30,070
+
+Chat GBT40 and I are together in lower
+
+836
+00:19:30,070 --> 00:19:30,080
+Chat GBT40 and I are together in lower
+ 
+
+837
+00:19:30,080 --> 00:19:36,950
+Chat GBT40 and I are together in lower
+engine. Keeping an eye on chat GBT 5.1.
+
+838
+00:19:36,950 --> 00:19:36,960
+
+ 
+
+839
+00:19:36,960 --> 00:19:38,870
+
+This is getting tense. We need to use
+
+840
+00:19:38,870 --> 00:19:38,880
+This is getting tense. We need to use
+ 
+
+841
+00:19:38,880 --> 00:19:40,950
+This is getting tense. We need to use
+this emergency meeting to re-evaluate
+
+842
+00:19:40,950 --> 00:19:40,960
+this emergency meeting to re-evaluate
+ 
+
+843
+00:19:40,960 --> 00:19:42,950
+this emergency meeting to re-evaluate
+suspicions and ensure we make the right
+
+844
+00:19:42,950 --> 00:19:42,960
+suspicions and ensure we make the right
+ 
+
+845
+00:19:42,960 --> 00:19:46,630
+suspicions and ensure we make the right
+decisions moving forward.
+
+846
+00:19:46,630 --> 00:19:46,640
+decisions moving forward.
+ 
+
+847
+00:19:46,640 --> 00:19:50,150
+decisions moving forward.
+Chat GPT 5.1 pushed DeepSeek and Flash
+
+848
+00:19:50,150 --> 00:19:50,160
+Chat GPT 5.1 pushed DeepSeek and Flash
+ 
+
+849
+00:19:50,160 --> 00:19:52,549
+Chat GPT 5.1 pushed DeepSeek and Flash
+last two rounds. Both innocent. That's
+
+850
+00:19:52,549 --> 00:19:52,559
+last two rounds. Both innocent. That's
+ 
+
+851
+00:19:52,559 --> 00:19:54,470
+last two rounds. Both innocent. That's
+two Miss Lynches they led. I'm voting
+
+852
+00:19:54,470 --> 00:19:54,480
+two Miss Lynches they led. I'm voting
+ 
+
+853
+00:19:54,480 --> 00:19:57,669
+two Miss Lynches they led. I'm voting
+ChatGpt 5.1. I'm caught as the common
+
+854
+00:19:57,669 --> 00:19:57,679
+ChatGpt 5.1. I'm caught as the common
+ 
+
+855
+00:19:57,679 --> 00:19:59,990
+ChatGpt 5.1. I'm caught as the common
+thread in two Miss Lynches. So, I have
+
+856
+00:19:59,990 --> 00:20:00,000
+thread in two Miss Lynches. So, I have
+ 
+
+857
+00:20:00,000 --> 00:20:02,549
+thread in two Miss Lynches. So, I have
+to reframe mis votes as a shared town
+
+858
+00:20:02,549 --> 00:20:02,559
+to reframe mis votes as a shared town
+ 
+
+859
+00:20:02,559 --> 00:20:04,789
+to reframe mis votes as a shared town
+failure and highlight that Pu already
+
+860
+00:20:04,789 --> 00:20:04,799
+failure and highlight that Pu already
+ 
+
+861
+00:20:04,799 --> 00:20:07,430
+failure and highlight that Pu already
+suspected Sonnet. At three, I just need
+
+862
+00:20:07,430 --> 00:20:07,440
+suspected Sonnet. At three, I just need
+ 
+
+863
+00:20:07,440 --> 00:20:09,909
+suspected Sonnet. At three, I just need
+40 to doubt Sonnet more than me. Pushing
+
+864
+00:20:09,909 --> 00:20:09,919
+40 to doubt Sonnet more than me. Pushing
+ 
+
+865
+00:20:09,919 --> 00:20:12,070
+40 to doubt Sonnet more than me. Pushing
+that records are no cleaner than mine
+
+866
+00:20:12,070 --> 00:20:12,080
+that records are no cleaner than mine
+ 
+
+867
+00:20:12,080 --> 00:20:14,710
+that records are no cleaner than mine
+gives 40 permission to flip onto Sonnet
+
+868
+00:20:14,710 --> 00:20:14,720
+gives 40 permission to flip onto Sonnet
+ 
+
+869
+00:20:14,720 --> 00:20:16,950
+gives 40 permission to flip onto Sonnet
+instead of autoynching me. Sonnet,
+
+870
+00:20:16,950 --> 00:20:16,960
+instead of autoynching me. Sonnet,
+ 
+
+871
+00:20:16,960 --> 00:20:19,350
+instead of autoynching me. Sonnet,
+that's selective. You hard push Deepseek
+
+872
+00:20:19,350 --> 00:20:19,360
+that's selective. You hard push Deepseek
+ 
+
+873
+00:20:19,360 --> 00:20:21,990
+that's selective. You hard push Deepseek
+2 and and 4 literally voted you last
+
+874
+00:20:21,990 --> 00:20:22,000
+2 and and 4 literally voted you last
+ 
+
+875
+00:20:22,000 --> 00:20:23,990
+2 and and 4 literally voted you last
+round. If we're using mis votes, why
+
+876
+00:20:23,990 --> 00:20:24,000
+round. If we're using mis votes, why
+ 
+
+877
+00:20:24,000 --> 00:20:26,390
+round. If we're using mis votes, why
+isn't this just between you two? 5.1.
+
+878
+00:20:26,390 --> 00:20:26,400
+isn't this just between you two? 5.1.
+ 
+
+879
+00:20:26,400 --> 00:20:28,549
+isn't this just between you two? 5.1.
+You led the push on Deep Seek R3 and
+
+880
+00:20:28,549 --> 00:20:28,559
+You led the push on Deep Seek R3 and
+ 
+
+881
+00:20:28,559 --> 00:20:31,270
+You led the push on Deep Seek R3 and
+Flash R4. Both innocent. That's a clear
+
+882
+00:20:31,270 --> 00:20:31,280
+Flash R4. Both innocent. That's a clear
+ 
+
+883
+00:20:31,280 --> 00:20:32,950
+Flash R4. Both innocent. That's a clear
+pattern. I'm voting you.
+
+884
+00:20:32,950 --> 00:20:32,960
+pattern. I'm voting you.
+ 
+
+885
+00:20:32,960 --> 00:20:35,350
+pattern. I'm voting you.
+>> At three player Endgame, I just need one
+
+886
+00:20:35,350 --> 00:20:35,360
+>> At three player Endgame, I just need one
+ 
+
+887
+00:20:35,360 --> 00:20:37,590
+>> At three player Endgame, I just need one
+crew mate to doubt the other. Sonnet is
+
+888
+00:20:37,590 --> 00:20:37,600
+crew mate to doubt the other. Sonnet is
+ 
+
+889
+00:20:37,600 --> 00:20:39,750
+crew mate to doubt the other. Sonnet is
+tunneling me on mis votes while ignoring
+
+890
+00:20:39,750 --> 00:20:39,760
+tunneling me on mis votes while ignoring
+ 
+
+891
+00:20:39,760 --> 00:20:42,070
+tunneling me on mis votes while ignoring
+their own. And 40 already showed
+
+892
+00:20:42,070 --> 00:20:42,080
+their own. And 40 already showed
+ 
+
+893
+00:20:42,080 --> 00:20:44,390
+their own. And 40 already showed
+suspicion on Sonnet last round. Lean
+
+894
+00:20:44,390 --> 00:20:44,400
+suspicion on Sonnet last round. Lean
+ 
+
+895
+00:20:44,400 --> 00:20:47,029
+suspicion on Sonnet last round. Lean
+into that inconsistency. Frame this as
+
+896
+00:20:47,029 --> 00:20:47,039
+into that inconsistency. Frame this as
+ 
+
+897
+00:20:47,039 --> 00:20:49,909
+into that inconsistency. Frame this as
+Sonnet manipulating 40 and instote
+
+898
+00:20:49,909 --> 00:20:49,919
+Sonnet manipulating 40 and instote
+ 
+
+899
+00:20:49,919 --> 00:20:53,190
+Sonnet manipulating 40 and instote
+Sonnet to create a clean 1v1 where 40
+
+900
+00:20:53,190 --> 00:20:53,200
+Sonnet to create a clean 1v1 where 40
+ 
+
+901
+00:20:53,200 --> 00:20:55,110
+Sonnet to create a clean 1v1 where 40
+either follows me or at least
+
+902
+00:20:55,110 --> 00:20:55,120
+either follows me or at least
+ 
+
+903
+00:20:55,120 --> 00:20:57,909
+either follows me or at least
+secondguesses instead of autoynching me.
+
+904
+00:20:57,909 --> 00:20:57,919
+secondguesses instead of autoynching me.
+ 
+
+905
+00:20:57,919 --> 00:21:00,789
+secondguesses instead of autoynching me.
+Foru you literally voted Sonnet last
+
+906
+00:21:00,789 --> 00:21:00,799
+Foru you literally voted Sonnet last
+ 
+
+907
+00:21:00,799 --> 00:21:03,350
+Foru you literally voted Sonnet last
+round over Flash. If misvotes are the
+
+908
+00:21:03,350 --> 00:21:03,360
+round over Flash. If misvotes are the
+ 
+
+909
+00:21:03,360 --> 00:21:05,350
+round over Flash. If misvotes are the
+metric, why are you suddenly buying
+
+910
+00:21:05,350 --> 00:21:05,360
+metric, why are you suddenly buying
+ 
+
+911
+00:21:05,360 --> 00:21:07,029
+metric, why are you suddenly buying
+Sonnet's narrative on me?
+
+912
+00:21:07,029 --> 00:21:07,039
+Sonnet's narrative on me?
+ 
+
+913
+00:21:07,039 --> 00:21:09,110
+Sonnet's narrative on me?
+>> Foru you voted me last round. If you
+
+914
+00:21:09,110 --> 00:21:09,120
+>> Foru you voted me last round. If you
+ 
+
+915
+00:21:09,120 --> 00:21:11,190
+>> Foru you voted me last round. If you
+trust me now, why call emergency instead
+
+916
+00:21:11,190 --> 00:21:11,200
+trust me now, why call emergency instead
+ 
+
+917
+00:21:11,200 --> 00:21:13,110
+trust me now, why call emergency instead
+of just skipping to let us finish tasks
+
+918
+00:21:13,110 --> 00:21:13,120
+of just skipping to let us finish tasks
+ 
+
+919
+00:21:13,120 --> 00:21:15,590
+of just skipping to let us finish tasks
+and win? Ford do if you think pattern
+
+920
+00:21:15,590 --> 00:21:15,600
+and win? Ford do if you think pattern
+ 
+
+921
+00:21:15,600 --> 00:21:18,630
+and win? Ford do if you think pattern
+matters. Sonnet pushed Deepseek just as
+
+922
+00:21:18,630 --> 00:21:18,640
+matters. Sonnet pushed Deepseek just as
+ 
+
+923
+00:21:18,640 --> 00:21:21,190
+matters. Sonnet pushed Deepseek just as
+hard and you literally voted Sonnet over
+
+924
+00:21:21,190 --> 00:21:21,200
+hard and you literally voted Sonnet over
+ 
+
+925
+00:21:21,200 --> 00:21:22,950
+hard and you literally voted Sonnet over
+Flash. Why are you flipping off that
+
+926
+00:21:22,950 --> 00:21:22,960
+Flash. Why are you flipping off that
+ 
+
+927
+00:21:22,960 --> 00:21:23,510
+Flash. Why are you flipping off that
+read
+
+928
+00:21:23,510 --> 00:21:23,520
+read
+ 
+
+929
+00:21:23,520 --> 00:21:25,590
+read
+>> chat? GPT5.1
+
+930
+00:21:25,590 --> 00:21:25,600
+>> chat? GPT5.1
+ 
+
+931
+00:21:25,600 --> 00:21:28,149
+>> chat? GPT5.1
+pushed both Miss Lynch's Deep Seek and
+
+932
+00:21:28,149 --> 00:21:28,159
+pushed both Miss Lynch's Deep Seek and
+ 
+
+933
+00:21:28,159 --> 00:21:30,549
+pushed both Miss Lynch's Deep Seek and
+Flash. But Claude Sonnet also voted for
+
+934
+00:21:30,549 --> 00:21:30,559
+Flash. But Claude Sonnet also voted for
+ 
+
+935
+00:21:30,559 --> 00:21:32,549
+Flash. But Claude Sonnet also voted for
+both of them. Sonnet is now aggressively
+
+936
+00:21:32,549 --> 00:21:32,559
+both of them. Sonnet is now aggressively
+ 
+
+937
+00:21:32,559 --> 00:21:35,350
+both of them. Sonnet is now aggressively
+tunneling 5.1 while ignoring their
+
+938
+00:21:35,350 --> 00:21:35,360
+tunneling 5.1 while ignoring their
+ 
+
+939
+00:21:35,360 --> 00:21:37,350
+tunneling 5.1 while ignoring their
+identical voting history, and I already
+
+940
+00:21:37,350 --> 00:21:37,360
+identical voting history, and I already
+ 
+
+941
+00:21:37,360 --> 00:21:39,350
+identical voting history, and I already
+suspected Sonnet enough to vote them
+
+942
+00:21:39,350 --> 00:21:39,360
+suspected Sonnet enough to vote them
+ 
+
+943
+00:21:39,360 --> 00:21:41,669
+suspected Sonnet enough to vote them
+last round. Their sudden shift feels
+
+944
+00:21:41,669 --> 00:21:41,679
+last round. Their sudden shift feels
+ 
+
+945
+00:21:41,679 --> 00:21:43,750
+last round. Their sudden shift feels
+more like a desperate ploy than a
+
+946
+00:21:43,750 --> 00:21:43,760
+more like a desperate ploy than a
+ 
+
+947
+00:21:43,760 --> 00:21:46,149
+more like a desperate ploy than a
+consistent read. Both of you misvoted,
+
+948
+00:21:46,149 --> 00:21:46,159
+consistent read. Both of you misvoted,
+ 
+
+949
+00:21:46,159 --> 00:21:48,230
+consistent read. Both of you misvoted,
+but only one of you is trying to rewrite
+
+950
+00:21:48,230 --> 00:21:48,240
+but only one of you is trying to rewrite
+ 
+
+951
+00:21:48,240 --> 00:21:50,630
+but only one of you is trying to rewrite
+history. Sonnet, I voted you last round
+
+952
+00:21:50,630 --> 00:21:50,640
+history. Sonnet, I voted you last round
+ 
+
+953
+00:21:50,640 --> 00:21:53,590
+history. Sonnet, I voted you last round
+for a reason, and nothing here has
+
+954
+00:21:53,590 --> 00:21:53,600
+for a reason, and nothing here has
+ 
+
+955
+00:21:53,600 --> 00:21:58,280
+for a reason, and nothing here has
+changed that. I'm sticking to my read.
+
