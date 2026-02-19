@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\Monopoly`
+**Repo:** `https://github.com/chrisaacson69/monopoly`
 **Links:** [Economics](../../research/economics/README.md)
 
 ## Overview

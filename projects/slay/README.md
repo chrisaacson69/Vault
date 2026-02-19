@@ -3,8 +3,8 @@
 
 **Status:** active
 **Created:** 2026-02-12
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\slay`
-**Links:** [Vault Index](../../INDEX.md)
+**Repo:** `https://github.com/chrisaacson69/slay`
+**Links:** [Slay-C (C port)](../slay-c/README.md), [Vault Index](../../INDEX.md)
 
 ## Overview
 

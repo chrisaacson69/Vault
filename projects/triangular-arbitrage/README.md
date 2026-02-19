@@ -3,7 +3,7 @@
 
 **Status:** active — DeFi/Solana path under investigation
 **Created:** 2026-02-12
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\triangular-arbitrage`
+**Repo:** `https://github.com/chrisaacson69/triangular-arbitrage`
 **Links:** [Economics](../../research/economics/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [Cyborg Model](../../research/cyborg-model.md), [Cognitive vs. Motor Skills](../../research/cognitive-vs-motor.md)
 
 ## Summary

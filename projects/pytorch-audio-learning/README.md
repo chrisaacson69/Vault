@@ -3,7 +3,7 @@
 
 **Status:** reference
 **Created:** 2026-02-02
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\pytorch-audio-learning`
+**Repo:** `https://github.com/chrisaacson69/pytorch-audio-learning`
 **Links:** [PyTorch Learning](../pytorch-learning/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md)
 
 ## Overview

@@ -3,7 +3,7 @@
 
 **Status:** complete
 **Created:** 2026
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\batch_resize`
+**Repo:** `https://github.com/chrisaacson69/batch-resize`
 
 ## Overview
 

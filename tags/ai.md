@@ -9,3 +9,4 @@
 - [The Limits of Utopia](../notes/limits-of-utopia.md)
 - [Camelot From YouTube](../projects/camelot-from-youtube/README.md)
 - [Slay](../projects/slay/README.md)
+- [Slay-C](../projects/slay-c/README.md)

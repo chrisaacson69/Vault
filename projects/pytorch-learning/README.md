@@ -3,7 +3,7 @@
 
 **Status:** reference
 **Created:** 2026-02-02
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\pytorch-learning`
+**Repo:** `https://github.com/chrisaacson69/pytorch-learning`
 **Links:** [PyTorch Audio Learning](../pytorch-audio-learning/README.md)
 
 ## Overview

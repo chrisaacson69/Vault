@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\camelot_from_youtube`
+**Repo:** `https://github.com/chrisaacson69/camelot_from_youtube`
 **Links:** [DJ Set 1](../dj-set-1/README.md), [Order Playlist](../order-playlist/README.md)
 
 ## Overview

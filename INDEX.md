@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-02-17
+**Last updated:** 2026-02-19
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -12,6 +12,7 @@
 - [PyTorch Learning](./projects/pytorch-learning/README.md) — structured PyTorch fundamentals tutorial (reference)
 - [PyTorch Audio Learning](./projects/pytorch-audio-learning/README.md) — TorchAudio tutorial: spectrograms, MFCC, speech recognition (reference)
 - [Slay](./projects/slay/README.md) — hex strategy game recreation with AI player (active)
+- [Slay-C](./projects/slay-c/README.md) — C port of Slay engine for performance and deep search (active)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
 
 ## Research

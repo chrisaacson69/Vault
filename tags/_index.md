@@ -1,10 +1,11 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 7 files
+- [ai](./ai.md) — 8 files
 - [agents](./agents.md) — 7 files
 - [audio-processing](./audio-processing.md) — 1 file
 - [civilizational-cycles](./civilizational-cycles.md) — 4 files
+- [c](./c.md) — 1 file
 - [claude](./claude.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [crypto](./crypto.md) — 1 file
@@ -13,8 +14,8 @@
 - [economics](./economics.md) — 7 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 1 file
-- [game-ai](./game-ai.md) — 2 files
-- [games](./games.md) — 2 files
+- [game-ai](./game-ai.md) — 3 files
+- [games](./games.md) — 3 files
 - [grounding](./grounding.md) — 1 file
 - [history](./history.md) — 2 files
 - [javascript](./javascript.md) — 1 file

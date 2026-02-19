@@ -3,7 +3,7 @@
 
 **Status:** complete
 **Created:** 2026
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\order_playlist`
+**Repo:** `https://github.com/chrisaacson69/order-playlist`
 **Links:** [Camelot From YouTube](../camelot-from-youtube/README.md), [DJ Set 1](../dj-set-1/README.md)
 
 ## Overview

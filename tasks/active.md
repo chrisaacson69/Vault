@@ -1,32 +1,27 @@
 # Active Tasks & Goals
 > Current things to do, tracked and linked.
 
-**Updated:** 2026-02-17
+**Updated:** 2026-02-19
+
+## Completed
+
+### GitHub Migration ✓
+Moved all `source/repos/` projects to GitHub under `chrisaacson69`. Vault is its own repo; code projects are separate repos. Vault project pages use `**Repo:**` fields pointing to GitHub URLs.
+
+**Repos pushed:**
+- [Vault](https://github.com/chrisaacson69/Vault) — personal knowledge system
+- [camelot_from_youtube](https://github.com/chrisaacson69/camelot_from_youtube) — DJ track analysis toolkit
+- [batch-resize](https://github.com/chrisaacson69/batch-resize) — image batch resizer
+- [order-playlist](https://github.com/chrisaacson69/order-playlist) — DJ playlist optimizer
+- [monopoly](https://github.com/chrisaacson69/monopoly) — Monopoly AI (reorganized: ai/, player/, research/, integration/, source-material/)
+- [slay](https://github.com/chrisaacson69/slay) — hex strategy game (Python)
+- [slay-c](https://github.com/chrisaacson69/slay-c) — hex strategy game (C port)
+- [triangular-arbitrage](https://github.com/chrisaacson69/triangular-arbitrage) — currency/crypto arbitrage
+- [pytorch-learning](https://github.com/chrisaacson69/pytorch-learning) — PyTorch tutorial series
+- [pytorch-audio-learning](https://github.com/chrisaacson69/pytorch-audio-learning) — TorchAudio tutorial series
 
 ## In Progress
-
-### GitHub Migration
-Move `source/repos/` projects to GitHub. The vault stays local with relative markdown links; repo READMEs are self-contained.
-
-**Architecture:**
-- The vault is its own GitHub repo. All internal links use relative paths — works locally and on GitHub natively.
-- Code projects (`source/repos/*`) are separate GitHub repos.
-- Vault project pages use `**Repo:**` to point outward to GitHub URLs for the code repos. These are the only non-relative links in the vault.
-
-**Steps:**
-- [ ] Chris: compile list of all `source/repos/` projects needing vault pointers
-- [ ] Create vault project pages for any that don't have one yet
-- [ ] Init git in vault, push to GitHub
-- [ ] Init git in each code repo (where missing), push to GitHub
-- [ ] Update vault `**Repo:**` fields from local paths to GitHub URLs
-
-**Projects with vault pages already:**
-- [Triangular Arbitrage](../projects/triangular-arbitrage/README.md)
-- [Slay](../projects/slay/README.md)
-- [DJ Set 1](../projects/dj-set-1/README.md) (repo: `camelot_from_youtube`)
-
-**Projects needing vault pages:**
-- _(Chris compiling list)_
+_Nothing active._
 
 ## Up Next
 _Nothing yet._
