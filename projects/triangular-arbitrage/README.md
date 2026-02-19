@@ -66,6 +66,20 @@ Futures analysis opens several strategies beyond spot arbitrage:
 
 **Statistical arbitrage (different risk profile):** When correlated assets' price ratios deviate from their historical mean, bet on reversion. This IS predictive — it requires a model of "normal" price relationships and a bet that deviations are temporary. Higher potential returns than pure arbitrage, but introduces directional risk. Closer to quantitative trading than arbitrage proper.
 
+### Strategic Approach — Compete on Insight, Not Speed
+
+**The competition gradient:** Simple, pure arbitrage on major pairs is a COO problem — execution speed, infrastructure, operational efficiency. MEV bots and HFT shops dominate this with Jito bundles, colocation, and custom hardware. Competing there as a solo operator means playing their game on their turf.
+
+**Where the edge lives:** The more complex strategies — futures basis trades, funding rate capture, statistical arbitrage across correlated pairs — are CEO problems. They require judgment about *which* bets to take, modeling of risk/reward tradeoffs, and understanding of market microstructure. First-principles analysis provides an edge here because you're not racing on milliseconds, you're racing on insight. There's less competition precisely because the risk filters out participants who can't model it properly — profit is the reward for correct bets under uncertainty (see [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md)).
+
+**The plan:**
+1. **Explore all strategies in simulation** — even simple ones, to build empirical understanding of market behavior
+2. **Focus analytical effort on the riskier strategies** — these are where competition is thinnest and the analysis edge matters most
+3. **Prove the edge before scaling infrastructure** — dedicated hardware without a proven strategy is just expensive electricity. Traditional quant shops started on retail hardware and only moved to colocation/FPGAs once strategies proved out
+4. **Scale infrastructure to match proven edge** — if strategies work in simulation and small live tests, invest in faster execution to capture more of the spread
+
+**The data has value beyond P&L:** Even if direct trading doesn't produce immediate returns, the simulation process generates deep empirical understanding of how these markets actually behave — feeding back into the economics research, computation-and-information work, and general market microstructure knowledge.
+
 ### Architecture Considerations
 
 - **Simulation first** — all strategies should be backtested against historical data and forward-tested on testnets/devnets before live capital
