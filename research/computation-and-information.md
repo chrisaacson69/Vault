@@ -3,7 +3,7 @@
 
 **Status:** stub — connections mapped, detail to follow
 **Created:** 2026-02-19
-**Links:** [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md)
+**Links:** [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md), [Economics](./economics/README.md)
 
 ## Why This Matters
 
@@ -51,10 +51,26 @@ Computation and information theory sit underneath several threads in the vault:
 - Wheeler's "it from bit" — the idea that physical reality is fundamentally informational
 - Connection to measurement-causality: if measurement = information gain, and causality = information propagation, then information IS the substrate of causality
 
-### Computation in Markets
+### Computation in Markets — The Price System as Distributed Computing
+
+A market economy is a massively parallel, distributed computing system. The price mechanism is its communication protocol.
+
+**The price system's computational properties:**
+- **Bandwidth:** A single price encodes supply, demand, scarcity, opportunity costs, time preference, and the subjective valuations of every participant — compressed into one number. No report to a planning bureau transmits that much information that fast.
+- **Latency:** Price changes propagate at the speed of transactions. A central planner must collect, aggregate, process, and redistribute — each step adds delay, and by the time the plan is issued, the information is stale.
+- **Parallelism:** Each node (actor) processes only its local information. The baker knows his flour costs; the customer knows her budget. The computational load is split across millions of actors, each handling a trivial piece. A central planner tries to process ALL of it on one node — a serial bottleneck on a fundamentally parallel problem.
+- **Proximity:** The nodes ARE the actors. Zero distance between information source and decision maker. Central planning introduces translation layers (report → aggregate → plan → distribute) where information degrades at every step.
+
+**Why central planning is impossible in principle (not just impractical):**
+
+This is computational irreducibility applied to economics. The market's output is the result of millions of nonlinear interactions between agents who are themselves computationally irreducible (free will — see [measurement-causality](./philosophy/measurement-causality.md)). You cannot simulate the market without running the market. Any attempt to "plan" what the market would produce requires performing the same computation the market performs — at which point you've rebuilt the market with extra overhead and worse information.
+
+Hayek understood this intuitively in *The Use of Knowledge in Society* (1945). The formal language of computation theory makes it rigorous: central planning fails for the same theoretical reason you can't predict a conscious agent's choice without running the agent's computation. The same limit applies at the individual level (free will) and the collective level (markets).
+
+**Additional connections:**
 - Algorithmic trading as a computational problem
 - Information asymmetry and market efficiency (connects to [triangular arbitrage](../projects/triangular-arbitrage/README.md))
-- Hayek's knowledge problem — markets as distributed computation. No central planner can compute what the price system computes spontaneously.
+- See [Economics](./economics/README.md) for the underlying value/profit/risk framework
 
 ### Self-Reference and Strange Loops
 - Gödel sentences, quines (programs that output themselves), fixed-point theorems
@@ -67,7 +83,7 @@ Computation and information theory sit underneath several threads in the vault:
 - Is Wolfram right that the universe IS computation, or is computation another map (consistent with structural realism)?
 - How does Shannon entropy relate to thermodynamic entropy? Are they the same thing viewed from different angles, or genuinely distinct?
 - Can Kolmogorov complexity provide a formal definition of "information generation" that distinguishes free agents from complex-but-determined systems?
-- Hayek's knowledge problem + computational irreducibility: is this a formal proof that central planning is impossible, not just impractical?
+- ~~Hayek's knowledge problem + computational irreducibility: is this a formal proof that central planning is impossible, not just impractical?~~ → Yes. The market is a computationally irreducible system of computationally irreducible agents. You cannot shortcut the computation. See "Computation in Markets" section above.
 
 ## Suggested Reading
 
@@ -78,7 +94,8 @@ Computation and information theory sit underneath several threads in the vault:
 | *A New Kind of Science* (2002) | Stephen Wolfram | Computational irreducibility thesis |
 | *Gödel, Escher, Bach* (1979) | Douglas Hofstadter | Self-reference and consciousness (popularization) |
 | *The Emperor's New Mind* (1989) | Roger Penrose | Non-computability of consciousness (counterpoint to Wolfram) |
+| *The Use of Knowledge in Society* (1945) | Friedrich Hayek | Markets as distributed information systems — the original insight |
 | *Chaos* (1987) | James Gleick | Accessible introduction to nonlinear dynamics and sensitivity to initial conditions |
 
 ## Tags
-[ai](../tags/ai.md), [philosophy](../tags/philosophy.md), [mathematics](../tags/mathematics.md)
+[ai](../tags/ai.md), [philosophy](../tags/philosophy.md), [mathematics](../tags/mathematics.md), [economics](../tags/economics.md)
