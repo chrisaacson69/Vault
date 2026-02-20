@@ -91,4 +91,4 @@ This is a microcosm of a larger problem: the best classic game designs are trapp
 
 ## Tags
 
-[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [ai](../../tags/ai.md)
+[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [ai](../../tags/ai.md), [simulation](../../tags/simulation.md)

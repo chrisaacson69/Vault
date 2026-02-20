@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-12
-**Links:** [The Limits of Utopia](../notes/limits-of-utopia.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cyborg Model](./cyborg-model.md)
+**Links:** [The Limits of Utopia](../notes/limits-of-utopia.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cyborg Model](./cyborg-model.md), [Gaming](./gaming/README.md)
 **Source:** [Full transcript](./demolition-man-script.txt)
 
 ## The Setup

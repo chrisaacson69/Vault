@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-12
-**Links:** [Economics](./README.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md)
+**Links:** [Economics](./README.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md)
 
 ## Core Principle
 

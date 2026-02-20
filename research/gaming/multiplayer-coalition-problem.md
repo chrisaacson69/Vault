@@ -134,7 +134,13 @@ The observation that multiplayer games naturally reduce through phases suggests 
 
 **Phase 1: Many players (6→4).** High chaos, rapid elimination of weak players. Strategy is mostly local — survive, accumulate, exploit mistakes. Leader evaluation is less useful because the "leader" changes rapidly. Heuristic play focused on position and efficiency may be sufficient.
 
-**Phase 2: Middle game (4→3).** Coalition dynamics intensify. Temporary alliances form and break. Kingmaker situations arise. This is where leader evaluation becomes critical. The AI needs to model not just its own position but the relative threat of each opponent.
+**Phase 2: Middle game (4→3).** Coalition dynamics intensify. Temporary alliances form and break. Kingmaker situations arise. Leader evaluation matters here — but identifying the leader is not actually the hard problem. These games are mostly perfect information, and calculating the lead is relatively straightforward:
+
+- **Slay:** Perfect information. Territory count, income, unit strength — all visible. The leader is trivially identifiable.
+- **Risk:** Nearly perfect information. The board state is fully visible. The only hidden information is cards held, but worst-case assumption (assume each opponent holds a tradeable set) is good enough for accurate positional assessment.
+- **Monopoly:** The EPT (Earnings Per Turn) framework already solves this — Markov-chain landing probabilities × rent gives you each player's expected income. Total asset position is visible. The leader calculation is just math.
+
+The hard problem in Phase 2 is not *who* is leading but *what to do about it* — the coalition response. When and how to pressure the leader, whether to ally with another underdog or go it alone, and how to avoid becoming the kingmaker.
 
 **Phase 3: Three-player balance (3→2).** The self-balancing dynamic kicks in. The two weaker players pressure the leader. Alliances swap as leadership changes. This phase might be approximately solvable if the balancing dynamic can be formalized — perhaps as a repeated game where the equilibrium strategy is "always oppose the leader."
 
@@ -150,7 +156,7 @@ This is similar to how chess engines handle openings (book), middlegame (search 
 - Is there a formal reduction from Risk's coalition problem (or Slay's, or Monopoly's) to a known PPAD-complete problem? This would prove intractability of the full solution.
 - Can Monte Carlo Tree Search with multiplayer dynamics find better solutions than the heuristic + genetic algorithm approach that plateaued in Monopoly?
 - Does giving AI players genuinely different valuation models (rather than the same model with tuned parameters) generate enough trade surplus to break Monopoly out of the 5% convergence trap?
-- What's the minimum information an AI needs about opponents' strategies to make good coalition decisions? Full game state? Just leader identification? Something in between?
+- What's the minimum information an AI needs about opponents' strategies to make good coalition decisions? Leader identification is easy in these games (they're mostly perfect information — see Phase 2 note above). The real question is what additional modeling of opponent *intent* (not position) is needed to predict coalition shifts.
 - Can the interest rate framework be formalized enough to serve as a meta-heuristic — an AI that explicitly models its effective interest rate and adjusts strategy based on whether it's ahead or behind the compounding curve?
 - Is the Stockfish NN eval + algorithmic search split sufficient for multiplayer, or does the search itself need to be learned?
 
@@ -168,4 +174,4 @@ This is similar to how chess engines handle openings (book), middlegame (search 
 
 ## Tags
 
-[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [ai](../../tags/ai.md), [mathematics](../../tags/mathematics.md)
+[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [ai](../../tags/ai.md), [mathematics](../../tags/mathematics.md), [simulation](../../tags/simulation.md)
