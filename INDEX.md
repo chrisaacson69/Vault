@@ -30,6 +30,8 @@
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual
   - [Risk and Entrepreneurship](./research/economics/risk-and-entrepreneurship.md) — uncertainty, time preference, and entrepreneurial judgment
   - [Praxis: Agent Teams vs. Theory](./research/economics/praxis-agent-teams.md) — real-world results tested against the framework
+- [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking (4X, simulation, game AI)
+  - [The Multiplayer Coalition Problem](./research/gaming/multiplayer-coalition-problem.md) — why multiplayer games resist solution; three-player balancing, phase decomposition, Stockfish architecture as template
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage

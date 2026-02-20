@@ -1,7 +1,7 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 8 files
+- [ai](./ai.md) — 10 files
 - [agents](./agents.md) — 7 files
 - [audio-processing](./audio-processing.md) — 1 file
 - [civilizational-cycles](./civilizational-cycles.md) — 4 files
@@ -11,12 +11,12 @@
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 1 file
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 7 files
+- [economics](./economics.md) — 9 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 1 file
 - [free-will](./free-will.md) — 3 files
-- [game-ai](./game-ai.md) — 3 files
-- [games](./games.md) — 3 files
+- [game-ai](./game-ai.md) — 5 files
+- [games](./games.md) — 5 files
 - [grounding](./grounding.md) — 1 file
 - [history](./history.md) — 2 files
 - [javascript](./javascript.md) — 1 file
@@ -24,7 +24,7 @@
 - [llm-limitations](./llm-limitations.md) — 2 files
 - [logic](./logic.md) — 1 file
 - [machine-learning](./machine-learning.md) — 2 files
-- [mathematics](./mathematics.md) — 1 file
+- [mathematics](./mathematics.md) — 3 files
 - [morality](./morality.md) — 2 files
 - [music](./music.md) — 3 files
 - [natural-law](./natural-law.md) — 1 file
@@ -35,4 +35,5 @@
 - [python](./python.md) — 7 files
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 2 files
+- [simulation](./simulation.md) — 1 file
 - [utility](./utility.md) — 1 file
