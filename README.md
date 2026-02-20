@@ -33,6 +33,7 @@ Code lives in separate repos. Each vault project page links to its GitHub repo v
 | Project | Description | Repo |
 |---------|-------------|------|
 | [Camelot From YouTube](./projects/camelot-from-youtube/README.md) | DJ track analysis — BPM, key, events, Rekordbox export | [camelot_from_youtube](https://github.com/chrisaacson69/camelot_from_youtube) |
+| [CyborgDJ](./projects/cyborgdj/README.md) | Programmatic DJ mixing engine — JSON spec in, mixed audio out | [cyborgdj](https://github.com/chrisaacson69/cyborgdj) |
 | [Monopoly](./projects/monopoly/README.md) | Monopoly AI — Markov chains, EPT valuation, strategic trading | [monopoly](https://github.com/chrisaacson69/monopoly) |
 | [Slay](./projects/slay/README.md) | Hex strategy game with alpha-beta AI (Python) | [slay](https://github.com/chrisaacson69/slay) |
 | [Slay-C](./projects/slay-c/README.md) | C port of Slay for performance and deep search | [slay-c](https://github.com/chrisaacson69/slay-c) |

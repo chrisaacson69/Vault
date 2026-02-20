@@ -6,8 +6,9 @@
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
 - [Camelot From YouTube](./projects/camelot-from-youtube/README.md) — music analysis tool: key, BPM, structure, events, Rekordbox export (active)
+- [CyborgDJ](./projects/cyborgdj/README.md) — programmatic DJ mixing engine; JSON spec in, mixed audio out (active)
 - [DJ Set 1](./projects/dj-set-1/README.md) — 11-track progressive/trance mix, texture-over-harmony philosophy (planning)
-- [Set Mastering Pipeline — "Cyborg DJ"](./projects/set-mastering/README.md) — automated DJ mix execution from MD instructions + light mastering (planning)
+- [Set Mastering](./projects/set-mastering/README.md) — automated DJ mix execution pipeline + light mastering (planning)
 - [Monopoly](./projects/monopoly/README.md) — Monopoly engine with Markov-chain AI and strategic trading (active)
 - [Order Playlist](./projects/order-playlist/README.md) — DJ playlist optimizer using Camelot harmonic mixing (complete)
 - [PyTorch Learning](./projects/pytorch-learning/README.md) — structured PyTorch fundamentals tutorial (reference)
