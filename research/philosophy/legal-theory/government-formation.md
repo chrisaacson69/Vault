@@ -69,6 +69,36 @@ The market equilibrium for dispute resolution within a territory converges towar
 
 **Agreement with libertarians:** The *unnatural* monopoly on force — the fact that it trends toward tyranny — is what causes the problems. The monopoly is a practical necessity that carries inherent danger. This connects directly to the civilizational cycles work: the drift from voluntary to forced cooperation is how free societies die.
 
+### The Exit Problem — Free Association Without Free Dissociation
+
+**The ratchet:** Organizations have asymmetric incentives around membership. Strong incentives to attract and grow — more members means more resources, more legitimacy, more power. But allowing exit introduces market discipline that constrains the organization. So organizations systematically make exit costly:
+
+- **Nations** make secession illegal
+- **Unions** make membership mandatory (closed shops)
+- **HOAs** attach to the deed, not the person
+- **Social media platforms** make data export difficult
+- **The EU** has Article 50 but made Brexit maximally painful to deter others
+
+The pattern is general: join easily, leave with difficulty. And once exit is foreclosed, the internal dynamics shift from "serve members to retain them" to "extract from members because they can't leave." This is the voluntary → coercive drift at the organizational level.
+
+**The US Civil War as the death of federalism:**
+
+The Civil War resolved the slavery question (rightly). But the structural precedent it set was: the union is permanent, states cannot secede. This transformed federalism from a voluntary association of sovereign states into a permanent union with subordinate administrative units.
+
+The underlying contention was free association. The South no longer wanted the jurisdiction of the North. Whatever the moral dimensions of the specific dispute (and slavery is indefensible), the structural question was: can members of a voluntary union leave? The answer, established by force, was no.
+
+Without a credible exit threat, the federal government had no structural incentive to respect state sovereignty — because states couldn't credibly say "we'll leave." This is the precondition that enabled the subsequent centralization: Commerce Clause expansion, 14th Amendment incorporation, New Deal regulatory expansion, federal funding leverage. The ratchet toward federal power was unlocked when exit was foreclosed.
+
+**Hirschman's framework — Exit, Voice, and Loyalty:**
+
+- **Exit** = leave the organization (market mechanism — strongest discipline)
+- **Voice** = complain and try to change from within (political mechanism — weaker)
+- **Loyalty** = stay despite problems (inertia)
+
+When exit is blocked, voice is the only remaining lever. But voice (voting, protest, litigation) is dramatically weaker than exit as a disciplinary force. A customer who can leave forces the company to compete on quality. A citizen who can only vote has far less leverage — especially when the feedback cycles are 2-6 years and easily captured.
+
+**This is actually the strongest argument for the REA model** even though it fails on jurisdiction. If you could switch governance providers, the market discipline would prevent the degradation. The state solves the jurisdiction problem but at the cost of making exit nearly impossible — which removes the very feedback mechanism that would keep it honest. The tradeoff is structural: jurisdiction resolution vs. market discipline. The state buys the first and loses the second.
+
 ## The Structure Question — What Government Should Look Like
 
 ### Benevolent Dictator — Theoretical Optimum, Practical Impossibility
