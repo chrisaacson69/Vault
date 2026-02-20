@@ -165,14 +165,75 @@ From the [measurement-causality](../measurement-causality.md) framework: coercio
 
 The NAP standard: government coercion is aggression. The practical concession: some aggression (dispute resolution monopoly, defense) may be a necessary cost of coordination at scale. The constitutional project is to minimize that aggression and prevent its expansion.
 
+## Why Constitutions Degrade — Three Structural Pressures
+
+### 1. Federalism Decay Is the REA Problem in Slow Motion
+
+The same structural pressure that would consolidate competing REAs into a state is exactly what centralizes federal systems. The mechanism is jurisdiction creep:
+
+- A dispute crosses state lines → the federal government adjudicates
+- Each adjudication expands federal scope as precedent
+- Federal funding with strings attached converts state autonomy into federal compliance
+- The ratchet only goes one direction — there's no market mechanism to reverse expansion
+
+Historical vectors of centralization in the US:
+- **Commerce Clause** — originally about interstate trade, now covers nearly all economic activity
+- **14th Amendment incorporation** — applied the Bill of Rights against states, transferring enforcement authority upward
+- **New Deal expansion** — massively expanded federal regulatory scope under crisis conditions (Rahm Emanuel's "never let a crisis go to waste" is the operational version)
+- **Federal funding leverage** — states depend on federal money, which comes with conditions. Highway funding and the drinking age is the textbook example, but the pattern is everywhere
+
+This is the city-state → nation-state consolidation pattern playing out within a federal system. The "meta-arbiter" (federal government) absorbs the jurisdiction of the lower nodes (states) through the same structural logic that makes REAs converge into a state. The Constitution was designed to resist this, but the pressures are structural, not accidental.
+
+### 2. Language as Attack Surface — The Compiler Problem
+
+A constitution is source code written in natural language — inherently ambiguous. Constitutional interpretation is essentially a compiler problem: converting high-level intent into executable rules. But unlike software:
+
+| | Software | Constitutional Law |
+|--|---------|-------------------|
+| Specification | Formal (types, tests, contracts) | Natural language (inherently ambiguous) |
+| Bug cycle time | Days to weeks | Decades of litigation |
+| Patch process | Deploy a fix | Amendment (supermajority, nearly impossible) |
+| Runtime environment | Controlled, versioned | Society changes under the code |
+| Bug exploitation window | Short (hotfix → deploy) | Entire duration until resolution |
+| Attack surface | Can be reduced with formal methods | Every ambiguity is permanent |
+
+"Shall not be infringed" compiles differently depending on who's interpreting. "Regulate commerce among the several states" has been stretched from "prevent interstate trade barriers" to "regulate anything that might conceivably affect interstate commerce." Each reinterpretation is a bug exploit — the text didn't change, but the compiled output did.
+
+And the interpretation process itself becomes a vector for institutional capture. Whoever controls the courts controls the compiler. This is why judicial appointments are existential political fights — they're not about individual cases, they're about who gets to define what the source code means.
+
+**The software developer's frustration applies:** Intent is genuinely hard to encode in language. Anyone who's written a spec knows that edge cases emerge that the spec didn't anticipate, and adversarial users will find every gap. Legal language has the same problem, but with century-long bug cycles and no hotfix mechanism.
+
+### 3. The Missing Feedback Loop — Profit as Dual Signal
+
+Friedman's point (applied by Sowell to education and broadly applicable): profit is a dual-signal feedback mechanism. It says both "do more of this" (profitable activities expand) AND "do less of that" (unprofitable activities contract and die). Markets self-correct because bad ideas run out of money.
+
+Government has no equivalent loss mechanism:
+- A failing government program gets *more* funding, because the failure is attributed to insufficient resources rather than bad design
+- There's no signal that says "stop" — no bankruptcy, no customer attrition, no competitive displacement
+- Programs accumulate indefinitely (Tainter's complexity ratchet)
+- Interest groups form around every program to prevent its removal (Olson's sclerosis)
+
+This is why REAs remain appealing despite failing on jurisdiction — they'd have market feedback. A bad REA loses customers and dies. A bad government agency gets a bigger budget.
+
+**The constitutional approximation:** The Founders tried to build market-like feedback into governance:
+- **Elections** as market signals (vote out bad leaders)
+- **Federalism** as competition between jurisdictions (vote with your feet)
+- **Separation of powers** as error correction (branches check each other)
+
+But these feedback loops are too slow and too easily captured compared to market signals. Elections happen every 2-6 years, not continuously. Federalism erodes as federal power centralizes (pressure #1). Separation of powers degrades as branches cooperate rather than compete (bipartisan spending, judicial deference to executive agencies).
+
+**The structural asymmetry:** Markets adapt in real time because profit/loss is continuous and automatic. Constitutional feedback is periodic, requires active participation, and can be gamed. This speed mismatch means constitutional checks degrade faster than they can self-correct — the same structural asymmetry that makes central planning lose to markets.
+
 ## Open Questions
 
 - **Can the constitutional experiment survive the cycle?** The US is at 250 years — Glubb's average empire lifespan. Constitutional checks have eroded but still function. Is the institutional innovation sufficient, or is it just slowing the inevitable?
-- **Does federalism remain viable at scale?** As federal power has expanded (especially post-New Deal, post-WWII), the distributed architecture has centralized. Is this reversible?
+- **Federalism reversal:** Is federal centralization reversible, or is the ratchet permanent? Historical examples of successful decentralization are rare — most occur only after collapse (post-Soviet states, post-colonial independence).
+- **Constitutional "hotfix" mechanisms:** Could shorter amendment cycles, sunset clauses on legislation, or mandatory program review address the slow feedback problem? Or would these just create new attack surfaces?
 - **AI and governance:** If the knowledge problem is what limits government effectiveness, does AI change the calculus? Or does the [LLM Grounding Problem](../../llm-grounding-problem.md) mean AI governance has the same limitations as central planning?
 - **The succession problem in democracies:** Elections solve peaceful succession but introduce short-term incentives (campaign promises, election cycle thinking). Is there a governance structure that combines democratic legitimacy with long-term orientation?
 - **Competing governance in the digital age:** Crypto, DAOs, and digital jurisdiction may enable something closer to the REA model by reducing the physical jurisdiction problem. If governance is software, does the natural monopoly argument still hold?
 - **The positive vs. negative rights question:** The coercion discussion from measurement-causality left this unresolved. Government that protects negative rights (don't harm me) is minimal; government that provides positive rights (give me healthcare) is expansive. Where's the line, and how does the division of labor argument inform it?
+- **Formal constitutions:** Could a constitution be written in a formal language (closer to software) rather than natural language, reducing ambiguity? What would be lost in the translation from human-readable to machine-verifiable?
 
 ## Tags
 [philosophy](../../../tags/philosophy.md), [libertarian-law](../../../tags/libertarian-law.md), [economics](../../../tags/economics.md), [morality](../../../tags/morality.md)
