@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-12
-**Links:** [Economics](./economics/README.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Praxis](./economics/praxis-agent-teams.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md)
+**Links:** [Economics](./economics/README.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Praxis](./economics/praxis-agent-teams.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Gaming](./gaming/README.md)
 
 ## What "Cyborg" Means
 
@@ -136,6 +136,30 @@ One of the most significant shifts: the distinction between "technical" and "non
 - "Vibe working" — describe outcomes, not process
 
 The new divide isn't technical vs non-technical. It's **people who can clearly articulate intent and evaluate output** vs **people who can't.** Domain expertise and judgment matter more than the ability to write a for-loop.
+
+## Worked Example: Cyborg DJ
+
+The DJ set pipeline is the cyborg model in miniature. Every role in the distribution table above maps cleanly:
+
+**The pipeline:** [Camelot](../projects/camelot-from-youtube/README.md) analyzes tracks → Human writes the [set score](../projects/dj-set-1/README.md) (track order, transitions, EQ notes, energy arcs) → [Mix engine](../projects/set-mastering/README.md) executes the mix from instructions → Light mastering pass → Done.
+
+**Who does what:**
+
+| Cyborg Role | DJ Application |
+|-------------|---------------|
+| **Direction** (Human) | Track selection, set philosophy ("texture over harmony"), energy arc design |
+| **CEO Judgment** (Human) | "Break Camelot intentionally here" — creative risk-taking the AI can't evaluate |
+| **Grounding** (Human) | Knowing what sounds good on a dancefloor, what a crowd responds to |
+| **Quality/Taste** (Human) | Final ear-test — "does this transition actually work?" |
+| **Pattern Recognition** (AI) | Camelot detecting keys, BPM, structural events, beat grids per track |
+| **Cognitive Execution** (AI) | Time-stretching, beat-matching, crossfading, gain staging, rendering |
+| **Tireless Operation** (AI) | Processing 11 tracks × analysis + mixing without fatigue |
+
+**The key insight:** The human initially assumed they needed a mastering tool (LANDR, Dolby.io). But the [DJ Set 1 README](../projects/dj-set-1/README.md) already contained all the mixing instructions — it was a program, not a cheat sheet. The right tool was a [programmatic mix engine](./programmatic-dj-mixing-tools.md) that could execute those instructions. Mastering became trivial because the hard decisions were already encoded.
+
+This is the cyborg model's leverage equation in action: one human's creative judgment (track selection, transition design, energy philosophy) multiplied by AI execution (analysis, mixing, rendering) produces a result neither could achieve alone. The human can't time-stretch 11 tracks to beat-perfect alignment. The AI can't decide to "break Camelot intentionally because the texture matters more than the harmony."
+
+See: [Set Mastering Pipeline](../projects/set-mastering/README.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md), [DJ Set 1](../projects/dj-set-1/README.md)
 
 ## Open Questions
 - What's the optimal agent-to-human ratio for different types of work?

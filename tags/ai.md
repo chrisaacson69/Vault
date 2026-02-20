@@ -12,3 +12,7 @@
 - [Slay-C](../projects/slay-c/README.md)
 - [Measurement, Causality, and Free Will](../research/philosophy/measurement-causality.md)
 - [Computation and Information Theory](../research/computation-and-information.md)
+- [Gaming](../research/gaming/README.md)
+- [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
+- [Working With Claude](../notes/working-with-claude.md)
+- [Set Mastering Pipeline](../projects/set-mastering/README.md)

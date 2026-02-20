@@ -3,3 +3,4 @@
 
 - [Philosophy of Logic and Mathematics](../research/philosophy/logic-and-math/README.md)
 - [Computation and Information Theory](../research/computation-and-information.md)
+- [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)

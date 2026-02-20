@@ -3,7 +3,7 @@
 
 **Status:** active — exploratory
 **Created:** 2026-02-20
-**Links:** [Morality](./morality/README.md), [Measurement, Causality, and Free Will](./measurement-causality.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Civilizational Cycles](./civilizational-cycles.md), [Government Formation](./legal-theory/government-formation.md), [Legal Theory](./legal-theory/README.md)
+**Links:** [Morality](./morality/README.md), [Measurement, Causality, and Free Will](./measurement-causality.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Civilizational Cycles](./civilizational-cycles.md), [Government Formation](./legal-theory/government-formation.md), [Legal Theory](./legal-theory/README.md), [The Multiplayer Coalition Problem](../gaming/multiplayer-coalition-problem.md)
 
 ## The Observation
 
