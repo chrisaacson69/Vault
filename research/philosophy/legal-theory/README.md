@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-17
-**Links:** [Morality](../morality/README.md), [Philosophy](../README.md)
+**Links:** [Morality](../morality/README.md), [Philosophy](../README.md), [Computation and Information Theory](../../computation-and-information.md), [Civilizational Cycles](../civilizational-cycles.md)
 
 ## Framework
 
@@ -30,6 +30,7 @@ These topics are explored through adversarial debate — Chris takes one positio
 ## Debates
 
 - [Mens Rea](./mens-rea.md) — does criminal intent have a place in libertarian law?
+- [Government Formation and Structure](./government-formation.md) — why government forms (division of labor), the ancap challenge, and the Constitution as a distributed system protocol
 
 ## Upcoming Topics
 
