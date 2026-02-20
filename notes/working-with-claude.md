@@ -18,7 +18,10 @@ Chris works with Claude through multiple interfaces. Each has different capabili
 
 ### Claude Code (in Claude App → "Code" tab)
 - **Best for:** Execution — running code, installing packages, pushing to GitHub, anything that needs network access or persistence
-- **Has:** Network access, GitHub integration, can clone/commit/push, can install packages (pip, npm), can run full project pipelines
+- **Has:** Network access (limited — see below), GitHub integration, can clone/commit/push, can install packages (pip, npm), can run full project pipelines
+- **Network restrictions:** The proxy allows GitHub and PyPI but **blocks YouTube, Dropbox, Google Drive, and other media/cloud storage sites**. yt-dlp cannot download directly. Workaround: push audio files to a GitHub repo (100MB file size limit) and clone from here.
+- **No GUI:** No display server — tkinter/matplotlib GUIs won't render. CLI-only analysis works fine.
+- **ffmpeg:** Not pre-installed but available via `pip install imageio-ffmpeg` (ships a static binary). Symlink to `/usr/local/bin/ffmpeg` for yt-dlp and librosa compatibility.
 - **Use for:** Vault updates (create files and push directly), running projects like Camelot (needs librosa, yt-dlp), any task that needs to touch external services
 - **Prompt template for vault work:**
   ```
@@ -45,6 +48,7 @@ Chris works with Claude through multiple interfaces. Each has different capabili
 - **Zip upload for context:** Fastest way to give Claude Chat full vault context is uploading the repo zip. GitHub → Code → Download ZIP → upload to chat.
 - **Prompt for continuity:** When starting a new session, paste a summary of where the last session left off. The container has no memory between sessions.
 - **Division of labor:** Use Chat for thinking and drafting, Code for executing and pushing. This mirrors the cyborg model — Chat is the creative/strategic side, Code is the execution side.
+- **Audio file transfer for Camelot:** Claude Code's proxy blocks YouTube/Dropbox/Drive. To analyze audio: push files to a GitHub repo (e.g., `audio-inbox`), then clone from Claude Code. 100MB limit per file — convert to MP3 first for longer tracks or lossless files.
 
 ## Session History
 
@@ -56,6 +60,9 @@ Chris works with Claude through multiple interfaces. Each has different capabili
 - Drafted `research/gaming/multiplayer-coalition-problem.md` — coalition dynamics across Slay, Risk, and Monopoly; interest rate framework; phase decomposition; Stockfish architecture as template
 - Updated INDEX.md, tag files (games, game-ai, economics, mathematics, simulation, _index)
 - Discussed running Camelot on tablet — needs Claude Code for network access (librosa, yt-dlp)
+- Tested Claude Code network: GitHub/PyPI work, YouTube/Dropbox/Google Drive blocked by proxy
+- Confirmed Camelot can run in Claude Code (CLI mode only, no GUI) — all deps install, ffmpeg available via imageio-ffmpeg
+- Best path for audio files: push to GitHub repo, clone from Claude Code
 
 ## Tags
 [ai](../tags/ai.md), [cyborg](../tags/cyborg.md)
