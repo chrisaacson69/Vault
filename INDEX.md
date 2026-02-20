@@ -23,6 +23,7 @@
   - [Legal Theory](./research/philosophy/legal-theory/README.md) — libertarian law; mens rea debate, government formation, marriage, shared ownership
   - [Measurement, Causality, and Free Will](./research/philosophy/measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
   - [Civilizational Cycles](./research/philosophy/civilizational-cycles.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
+  - [Opposing Forces](./research/philosophy/opposing-forces.md) — why concentrations of power always generate counter-forces; structural principle across physics, computation, evolution, and agency
     - [Rudyard Lynch (Whatifalthist)](./research/philosophy/whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI

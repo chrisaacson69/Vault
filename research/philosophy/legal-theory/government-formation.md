@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-20
-**Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Measurement, Causality, and Free Will](../measurement-causality.md), [Economics](../../economics/README.md), [Computation and Information Theory](../../computation-and-information.md), [Civilizational Cycles](../civilizational-cycles.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
+**Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Measurement, Causality, and Free Will](../measurement-causality.md), [Opposing Forces](../opposing-forces.md), [Economics](../../economics/README.md), [Computation and Information Theory](../../computation-and-information.md), [Civilizational Cycles](../civilizational-cycles.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
 
 ## Why Government Forms — Division of Labor
 
