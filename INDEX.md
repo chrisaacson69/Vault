@@ -7,7 +7,7 @@
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
 - [Camelot From YouTube](./projects/camelot-from-youtube/README.md) — music analysis tool: key, BPM, structure, events, Rekordbox export (active)
 - [DJ Set 1](./projects/dj-set-1/README.md) — 11-track progressive/trance mix, texture-over-harmony philosophy (planning)
-- [Set Mastering Pipeline](./projects/set-mastering/README.md) — structure-aware mastering using Camelot analysis data (planning)
+- [Set Mastering Pipeline — "Cyborg DJ"](./projects/set-mastering/README.md) — automated DJ mix execution from MD instructions + light mastering (planning)
 - [Monopoly](./projects/monopoly/README.md) — Monopoly engine with Markov-chain AI and strategic trading (active)
 - [Order Playlist](./projects/order-playlist/README.md) — DJ playlist optimizer using Camelot harmonic mixing (complete)
 - [PyTorch Learning](./projects/pytorch-learning/README.md) — structured PyTorch fundamentals tutorial (reference)
@@ -37,6 +37,7 @@
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
 - [Cognitive vs. Motor Skills](./research/cognitive-vs-motor.md) — (stub) the architectural split between thinking and moving, in both humans and AI
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
+- [Programmatic DJ Mixing Tools](./research/programmatic-dj-mixing-tools.md) — tools and libraries for executing a DJ mix from written instructions (DawDreamer, pedalboard, pyCrossfade, Reaper)
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

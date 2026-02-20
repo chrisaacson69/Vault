@@ -1,13 +1,77 @@
-# Set Mastering Pipeline
-> Structure-aware mastering for DJ mixes, using Camelot analysis data to drive per-section processing.
+# Set Mastering Pipeline — "Cyborg DJ"
+> Human writes the score, machine executes the mix, light mastering pass finishes it.
 
 **Status:** planning
 **Created:** 2026-02-20
-**Links:** [DJ Set 1](../dj-set-1/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md)
+**Links:** [DJ Set 1](../dj-set-1/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md), [The Cyborg Model](../../research/cyborg-model.md)
 
 ---
 
-## Concept
+## The Cyborg DJ Concept
+
+This project is the [Cyborg Model](../../research/cyborg-model.md) applied to DJ mixing. The human provides creative judgment — track selection, set order, transition philosophy, energy arcs, EQ decisions. The machine provides tireless execution — time-stretching, beat-matching, crossfading, gain staging, rendering. Neither side is complete alone.
+
+### The Paradigm Shift
+
+The original framing of this project was: "How do we master a DJ set?" That was the wrong question. The [DJ Set 1 README](../dj-set-1/README.md) already contains everything needed to **build** the mix — track order, exact bar numbers, BPM targets, overlap lengths, EQ notes, transition strategies. It's not a cheat sheet for a human DJ. It's a **program** that a machine can execute.
+
+The real question is: **"What tool reads a markdown document and produces a mixed DJ set?"**
+
+Mastering is now just the final light polish on an already-well-built mix — a much simpler problem.
+
+### The Full Pipeline
+
+```
+[Camelot From YouTube] — AI analyzes each track (BPM, key, structure, events)
+        |
+        v
+[DJ Set 1 README.md] — Human curates the set (order, transitions, EQ, energy)
+        |
+        v
+[Mix Engine] — Machine executes the mix from MD instructions
+        |    (time-stretch, cue, crossfade with EQ, gain staging)
+        |    See: research/programmatic-dj-mixing-tools.md
+        v
+[dj-set-1-mix.wav] — Continuous mix, built to spec
+        |
+        v
+[Light Mastering Pass] — Final polish (limiter, LUFS normalization)
+        |    Much simpler because the hard decisions are already in the MD
+        v
+[dj-set-1-mastered.wav] — Done
+```
+
+### Division of Labor
+
+| Function | Human | Machine | Why |
+|----------|-------|---------|-----|
+| **Track selection** | Choose the 11 tracks | — | Taste, intent, vibe |
+| **Set order** | Sequence by energy/key/BPM arc | Camelot provides harmonic data | Human judges the flow |
+| **Transition design** | Decide overlap length, type, EQ strategy | — | Creative judgment |
+| **BPM matching** | Specify target BPMs | Time-stretch via Rubber Band | Mechanical execution |
+| **Beat-matching** | Specify cue points (bar numbers) | Align at beat grid | Mechanical execution |
+| **EQ during crossfade** | Write EQ notes ("cut mids/highs") | Apply filters via pedalboard/VST3 | Mechanical execution |
+| **Gain staging** | Set relative levels | Apply gain automation | Mechanical execution |
+| **Rendering** | — | Produce continuous WAV | Mechanical execution |
+| **Quality check** | Listen and approve | — | Taste, the final ear |
+| **Mastering** | — | Light limiter + LUFS target | Mechanical execution |
+
+---
+
+## Why LANDR / Cloud Mastering Isn't the Right Tool
+
+The initial research explored cloud mastering services (LANDR, Dolby.io, etc.) as the primary tool. This was a category error:
+
+- **Mastering tools** process a finished audio file — they polish, they don't build
+- **We need a mixing engine** that builds the audio from instructions first
+- LANDR processing a 90-minute set as "one song" would fight the mix's natural dynamics
+- The MD front-loads the hard decisions (levels, EQ, transitions), making mastering trivial
+
+Cloud mastering may still be useful for the final polish step, but it's step 2 — and a much lighter step than originally conceived. Even just a limiter + LUFS target in the Python pipeline might suffice.
+
+---
+
+## Concept: Structure-Aware Mastering (Step 2)
 
 Standard mastering tools treat a mix as a flat audio file — one set of EQ, compression, and limiting applied uniformly. But a DJ set has structure: breakdowns, builds, drops, transitions, key changes, and energy curves. Camelot already detects all of this. The idea is to feed that structural data into the mastering process so different sections get different treatment.
 
@@ -247,4 +311,4 @@ The gap in the market:
 - [ ] If Ozone 12 path chosen: prototype ReaScript that reads analysis_cache.json and sets Ozone automation
 
 ## Tags
-[music](../../tags/music.md), [python](../../tags/python.md), [ai](../../tags/ai.md), [audio-processing](../../tags/audio-processing.md)
+[music](../../tags/music.md), [python](../../tags/python.md), [ai](../../tags/ai.md), [audio-processing](../../tags/audio-processing.md), [cyborg](../../tags/cyborg.md)

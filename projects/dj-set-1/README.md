@@ -3,7 +3,7 @@
 
 **Status:** planning
 **Created:** 2026-02-17
-**Links:** [Tag: music](../../tags/music.md), [Set Mastering Pipeline](../set-mastering/README.md)
+**Links:** [Tag: music](../../tags/music.md), [Set Mastering Pipeline](../set-mastering/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md)
 **Repo:** `C:\Users\Chris.Isaacson\source\repos\camelot_from_youtube`
 
 ---
@@ -285,6 +285,7 @@ Deep Style    Foss      Alone     AmIDream   Otoño     LadyDanger  YouAreSleep 
 
 - [ ] Ear-test the full set with actual overlaps
 - [x] Explore set mastering tools (potentially AI-aware) that accept analysis data → [Set Mastering Pipeline](../set-mastering/README.md)
+- [x] Research programmatic mixing tools → [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md)
 - [x] Rekordbox export from camelot tool (library management, cue points)
 - [ ] Export to set mastering tools (key timelines, energy profiles, structural events) → see [Set Mastering Pipeline](../set-mastering/README.md)
 - [x] UI fix: losing positioning when clicking across charts and zoom levels in audio_ui

@@ -5,3 +5,4 @@
 - [DJ Set 1](../projects/dj-set-1/README.md)
 - [Order Playlist](../projects/order-playlist/README.md)
 - [Set Mastering Pipeline](../projects/set-mastering/README.md)
+- [Programmatic DJ Mixing Tools](../research/programmatic-dj-mixing-tools.md)
