@@ -393,15 +393,22 @@ The mix engine is the missing middle piece between Camelot's analysis and the ma
 
 ---
 
+## Decision (2026-02-20)
+
+**Chosen approach: Recommendation 2 — Custom Python Stack.** Implemented as [CyborgDJ](https://github.com/chrisaacson69/CyborgDJ).
+
+Rationale: Each library has a simple API, crossfade logic is built from scratch (full control over every sample), and the orchestration code IS the project. DawDreamer remains a fallback if the individual tools give trouble.
+
+Stack: soundfile (I/O) + librosa (beat detection) + pyrubberband (time-stretch) + pedalboard (EQ/effects) + numpy (mixing math).
+
 ## Next Steps
 
-- [ ] Install and test DawDreamer — load a single track, time-stretch it, apply EQ, render
-- [ ] Install and test pedalboard — apply EQ filters to a track, verify quality
-- [ ] Fork pyCrossfade — test a single 2-track transition with pre-computed beat data
-- [ ] Define a JSON schema for mix instructions (parseable from the DJ Set 1 README)
-- [ ] Prototype: mix tracks 1-2 (Deep Style -> Foss) with time-stretch 120->123 and crossfade
-- [ ] Evaluate output quality of each approach
-- [ ] Choose approach and build full pipeline for all 11 tracks
+- [x] ~~Choose approach and build full pipeline for all 11 tracks~~ → CyborgDJ repo scaffolded
+- [x] ~~Define a JSON schema for mix instructions~~ → `specs/dj-set-1.json` with full 11-track spec
+- [ ] Install CyborgDJ on PC with audio files and test first transition (Deep Style -> Foss)
+- [ ] Ear-test and iterate on cue points / overlap lengths via the JSON spec
+- [ ] Evaluate output quality — time-stretch artifacts, crossfade smoothness
+- [ ] If quality issues: investigate DawDreamer as fallback
 
 ---
 
