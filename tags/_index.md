@@ -3,7 +3,7 @@
 
 - [ai](./ai.md) — 10 files
 - [agents](./agents.md) — 7 files
-- [audio-processing](./audio-processing.md) — 1 file
+- [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 4 files
 - [c](./c.md) — 1 file
 - [claude](./claude.md) — 1 file
@@ -26,13 +26,13 @@
 - [machine-learning](./machine-learning.md) — 2 files
 - [mathematics](./mathematics.md) — 3 files
 - [morality](./morality.md) — 2 files
-- [music](./music.md) — 3 files
+- [music](./music.md) — 4 files
 - [natural-law](./natural-law.md) — 1 file
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [philosophy](./philosophy.md) — 5 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
-- [python](./python.md) — 7 files
+- [python](./python.md) — 8 files
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 2 files
 - [simulation](./simulation.md) — 1 file
