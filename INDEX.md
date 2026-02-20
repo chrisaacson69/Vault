@@ -30,8 +30,7 @@
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual
   - [Risk and Entrepreneurship](./research/economics/risk-and-entrepreneurship.md) — uncertainty, time preference, and entrepreneurial judgment
   - [Praxis: Agent Teams vs. Theory](./research/economics/praxis-agent-teams.md) — real-world results tested against the framework
-- [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking (4X, simulation, game AI)
-  - [The Multiplayer Coalition Problem](./research/gaming/multiplayer-coalition-problem.md) — why multiplayer games resist solution; three-player balancing, phase decomposition, Stockfish architecture as template
+- [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
@@ -41,6 +40,7 @@
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action
 - [The Limits of Utopia](./notes/limits-of-utopia.md) — defense of markets, risk, and human nature vs. AI-managed societies (Oct 2025, co-written with Copilot)
+- [Working With Claude](./notes/working-with-claude.md) — device setup, interface capabilities, tips, and session history
 
 ## Tasks & Goals
 - [Active Tasks](./tasks/active.md)

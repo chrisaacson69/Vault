@@ -14,3 +14,4 @@
 - [Computation and Information Theory](../research/computation-and-information.md)
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
+- [Working With Claude](../notes/working-with-claude.md)
