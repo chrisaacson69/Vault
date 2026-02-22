@@ -3,7 +3,7 @@
 
 **Status:** active (literature review added)
 **Created:** 2026-02-17
-**Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Measurement, Causality, and Free Will](../measurement-causality.md)
+**Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Scope Confusion](../morality/scope-confusion.md), [Measurement, Causality, and Free Will](../measurement-causality.md)
 
 ## Positions
 
@@ -223,6 +223,20 @@ The building collapse fits this rule perfectly: no free will agent intervened be
 Even the most committed libertarian thinkers struggle to follow their own principles to their conclusions. This isn't a criticism — it is genuinely hard to imagine a world built on principles you've never seen fully implemented. Chris notes that his experience as a programmer (building systems from axioms) and his autism (reasoning from structure rather than social convention) may make it easier to follow principles past the point where social intuition says "but that can't be right."
 
 This also suggests that these principles may have always existed and are simply being *refined* over time — the same way mathematical truths exist before anyone writes them down. Common law, Rothbard, Hoppe, Kinsella, and this conversation are all successive approximations of the same underlying structure.
+
+## The Scope Confusion Argument (2026-02-22)
+
+The [scope confusion thesis](../morality/scope-confusion.md) provides the meta-framework that explains *why* the mens rea debate is so persistent and *why* removing it from law feels wrong to most people.
+
+**Mens rea is scope confusion.** The desire to examine intent is a moral instinct — we want to judge character, punish evil, distinguish the wicked from the unlucky. That instinct is *correct* at the morality scope (individual conscience) and *appropriate* at the ethics scope (communities judging character). It is a category error at the law scope.
+
+The legal question is: was property violated, and by whom? This is an objective inquiry. Adding "and what was the violator thinking?" imports morality-scope judgment into a system that should be scope-limited to rights protection.
+
+**The pushback is the evidence.** People resist removing mens rea from law because they feel law *should* judge character. The scope confusion thesis predicts exactly this reaction: when you try to move a claim *down* in scope (from law to ethics/morality), it feels like "abandoning standards." The ratchet runs one direction — pushing moral claims into law feels like "doing something," while pulling them back out feels like permissiveness.
+
+**Connection to free speech:** The incitement analysis from the debate below follows the same pattern. "Dangerous speech causes violence" is a morality-scope claim (the speaker bears moral responsibility for inspiring harm) pushed into law (the speaker should be legally liable). The scope confusion thesis predicts this: if you accept that law should judge intent, there is no principled boundary preventing the criminalization of speech that *might* inspire bad acts. Mens rea in criminal law and speech restrictions share the same structural error.
+
+**Connection to the civilizational cycle:** The [master cycle](../civilizational-cycles.md) describes societies moving from voluntary cooperation through institutional capture to coercion. One mechanism: moral claims get codified into law during the consolidation phase ("it works, so mandate it"), become tools for control during the capture phase, and produce the legitimacy crisis during the coercion phase. Mens rea's long history — from Roman law through common law to the Model Penal Code — may be an instance of this ratchet.
 
 ## Open Questions
 

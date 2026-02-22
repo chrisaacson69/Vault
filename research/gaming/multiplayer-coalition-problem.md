@@ -72,6 +72,36 @@ This is an emergent phenomenon — nobody designs it, it arises from rational se
 - **Phase awareness:** the game plays differently at 6 players, 4 players, 3 players (self-balancing), and 2 players (solved)
 - **Counter-offer logic:** when two opponents are negotiating a trade that threatens you, what can you offer to disrupt it?
 
+### The Relative Position Model (2026-02-22)
+
+The local optimum wall revealed the core problem: the AI was evaluating trades in *absolute* terms (does this property make me richer?) rather than *relative* terms (does this trade improve my position against the field?).
+
+**EPT as slope.** Each player's net worth over time can be graphed as a curve. EPT is the slope — the rate at which your position improves per turn. A player with high EPT and low cash is on a steep trajectory; a player with high cash and low EPT is on a flat one. The graph makes the competitive landscape visible.
+
+**The decision criterion changes.** Every action — trade, build, hold cash — should be evaluated by how it changes the *relative slopes*, not the absolute values:
+
+- A trade that increases your EPT by $20/turn is bad if it increases your opponent's EPT by $40/turn
+- A trade that decreases your EPT by $5/turn is good if it decreases the leader's EPT by $30/turn
+- Building houses on a complete monopoly is a slope change — you trade cash (intercept) for higher rent income (slope)
+- The ROI horizon: when your net worth curve crosses another player's curve, that's the payoff point. A steep slope with low intercept eventually overtakes a shallow slope with high intercept — but only if you survive long enough
+
+**Leadership is the reference frame.** Leader identification is easy (EPT calculation is solved math). Once you know who's ahead on the slope chart, every decision becomes: does this action close the gap between me and the leader, or widen it? The three-player self-balancing dynamic falls out naturally — two players with lower slopes have shared incentive to avoid any trade that steepens the leader's curve.
+
+**Why the GA couldn't find this.** The GA optimized fudge factors within a model that evaluated trades in isolation. The relative position framework requires evaluating trades *against the full competitive landscape* — a fundamentally different objective function. Tuning parameters in the wrong model can't discover the right model.
+
+### The Fudge Factor Audit (Next Step)
+
+The Monopoly AI includes several manually tuned parameters ("fudge factors") added to make the AI functional without a complete theoretical framework. Each one marks a place where intuition substituted for theory. The next step is to audit each factor and determine:
+
+1. **What gap does this factor compensate for?** What would the AI do wrong without it?
+2. **Can the relative position framework replace it?** If the factor is approximating "don't make trades that help opponents more than you," the EPT slope model handles it directly.
+3. **Is the factor capturing something the framework doesn't yet explain?** If so, the factor is pointing at a theoretical gap — that's a research lead, not a bug.
+4. **Can the factor be derived from first principles?** A fudge factor that can be computed from game state (board position, player net worth, EPT slopes) rather than tuned by GA is a theory, not a hack.
+
+The goal is not to "fix the AI" but to use the AI as a laboratory: each fudge factor is an empirical observation about what the theory doesn't yet explain. Replacing fudge factors with principled rules derived from the interest rate / relative position framework is the real research output. ELO gains may follow, but they're the lagging indicator — the leading indicator is whether the theory generates the factor's effect naturally.
+
+**Connection to the project pause:** The Monopoly project stalled partly because the web client for testing against real opponents couldn't be built, but more fundamentally because the theoretical framework wasn't developed enough to know *what to test*. The relative position model and the fudge factor audit provide a concrete research path that doesn't require competitive testing — the theory can be developed and validated against the existing AI's behavior before any external play.
+
 ## The Interest Rate Framework
 
 A unifying concept across all three games (and RTS, which makes it real-time):
@@ -159,6 +189,9 @@ This is similar to how chess engines handle openings (book), middlegame (search 
 - What's the minimum information an AI needs about opponents' strategies to make good coalition decisions? Leader identification is easy in these games (they're mostly perfect information — see Phase 2 note above). The real question is what additional modeling of opponent *intent* (not position) is needed to predict coalition shifts.
 - Can the interest rate framework be formalized enough to serve as a meta-heuristic — an AI that explicitly models its effective interest rate and adjusts strategy based on whether it's ahead or behind the compounding curve?
 - Is the Stockfish NN eval + algorithmic search split sufficient for multiplayer, or does the search itself need to be learned?
+- **Relative position as objective function:** If the Monopoly AI is retrained with "maximize relative EPT slope advantage" instead of "maximize absolute win rate," does it escape the local optimum? The GA's convergence may have been an artifact of the wrong objective function, not a fundamental limitation.
+- **Fudge factor analysis:** Which of the Monopoly AI's manually tuned parameters can be derived from the EPT slope / relative position framework? Each replaceable factor is a validation of the theory; each irreplaceable factor points to a gap.
+- **Cross-game generalization:** The relative position model (graph net worth curves, evaluate actions by slope change relative to field) should apply to Risk and Slay as well. In Risk, the slope is territory + card accumulation rate. In Slay, it's territory + income growth. Does a single framework unify trade evaluation (Monopoly), attack targeting (Risk/Slay), and alliance formation (all three)?
 
 ## Suggested Reading
 
