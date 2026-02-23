@@ -124,14 +124,23 @@ This is the coalition problem resurfacing. You cannot evaluate a trade without k
 
 **Why the GA couldn't find this.** The GA optimized fudge factors within a model that evaluated trades in isolation. The relative position framework requires evaluating trades *against the full competitive landscape* — a fundamentally different objective function. Tuning parameters in the wrong model can't discover the right model. The GA also likely didn't distinguish between dice-EPT (which it can't control) and property-EPT (which is the entire strategic lever).
 
-### The Fudge Factor Audit (Next Step)
+### The Fudge Factor Audit and Trade Log Review (Next Step)
 
-The Monopoly AI includes several manually tuned parameters ("fudge factors") added to make the AI functional without a complete theoretical framework. Each one marks a place where intuition substituted for theory. The next step is to audit each factor and determine:
+Before building more theory, look at the data. The Monopoly AI's trade logs and the GA's tuning history contain empirical evidence about what actually happened — and what didn't happen.
 
-1. **What gap does this factor compensate for?** What would the AI do wrong without it?
-2. **Can the relative position framework replace it?** If the factor is approximating "don't make trades that help opponents more than you," the EPT slope model handles it directly.
-3. **Is the factor capturing something the framework doesn't yet explain?** If so, the factor is pointing at a theoretical gap — that's a research lead, not a bug.
-4. **Can the factor be derived from first principles?** A fudge factor that can be computed from game state (board position, player net worth, EPT slopes) rather than tuned by GA is a theory, not a hack.
+**The pricing puzzle:** During GA optimization, trade prices stayed within ~5% of face value across the board. Properties with known EPT advantages (higher landing probability, better rent-to-cost ratios) didn't command premiums. This doesn't sit right — it suggests either the valuation model couldn't express large deviations from face value, or the game states never created enough pressure to move prices.
+
+**The most likely explanation:** Identical AIs reach similar game states. With the same valuation model, both sides agree on what properties are worth, so there's no disagreement to drive prices. Price discovery requires genuine difference in assessment — two copies of the same spreadsheet negotiating will converge on face value every time. Self-play with mirrors doesn't generate the differential needed for price movement.
+
+**What to look for in the logs:**
+1. **When did trades happen?** Probably early, before cash differentials developed. If so, the identical-position problem was at its worst during the trading window.
+2. **Did desperate players make defensive trades?** A player falling behind might trade at unfavorable terms just to stay relevant. If this didn't happen, the AI may have lacked survival instinct — it evaluated trades on absolute merit rather than "I'm dying, any improvement helps."
+3. **Were there cash differential situations?** A cash-rich player completing a monopoly can immediately develop (build houses), making the trade worth far more to them. A cash-poor player completing a monopoly gets base rents only. The same trade has wildly different value depending on cash position — but if identical AIs accumulate similar cash, this differential rarely exists.
+4. **What did the fudge factors actually do?** Each manually tuned parameter marks where intuition substituted for theory. Audit each one:
+   - What gap does this factor compensate for? What would the AI do wrong without it?
+   - Can the relative position framework replace it? If it's approximating "don't make trades that help opponents more than you," the EPT model handles it directly.
+   - Is the factor capturing something the framework doesn't yet explain? If so, it's pointing at a theoretical gap — a research lead, not a bug.
+   - Can the factor be derived from first principles? A fudge factor computable from game state rather than tuned by GA is a theory, not a hack.
 
 The goal is not to "fix the AI" but to use the AI as a laboratory: each fudge factor is an empirical observation about what the theory doesn't yet explain. Replacing fudge factors with principled rules derived from the interest rate / relative position framework is the real research output. ELO gains may follow, but they're the lagging indicator — the leading indicator is whether the theory generates the factor's effect naturally.
 
