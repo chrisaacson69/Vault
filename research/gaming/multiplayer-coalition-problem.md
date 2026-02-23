@@ -108,6 +108,20 @@ Each player's net worth over time can be graphed as a curve. Total EPT (dice + p
 
 **Leadership is the reference frame.** Leader identification is easy (EPT calculation is solved math). Once you know who's ahead on the slope chart, every decision becomes: does this action close the gap between me and the leader, or widen it? The three-player self-balancing dynamic falls out naturally — two players with lower slopes have shared incentive to avoid any trade that steepens the leader's curve.
 
+### The Atomic Trade Evaluation Problem
+
+The relative position model tells you *what to measure* (EPT relative to field average) but not *how to evaluate individual trades* in multiplayer. This is the problem that stalled the Monopoly project.
+
+**The trap:** You evaluate a trade with the leader in isolation — you gain more property-EPT than they do, so your relative position improves. Good trade. But the leader *also* makes individually-favorable trades with player 3 and player 4. Each opponent thinks they got the better end. But the leader accumulates *some* benefit from every trade, and the sum of those small benefits across all trades exceeds any single opponent's gain. The leader traded with the field and came out ahead against the field, even though they "lost" each bilateral exchange.
+
+This is the coalition problem resurfacing. You cannot evaluate a trade without knowing what *other* trades the leader is making or might make. And you cannot coordinate with other players to block the leader's trade strategy without forming a coalition — which is the unsolved problem.
+
+**Why atomic evaluation is insufficient:** In two-player games, bilateral trade evaluation works — there's only one opponent, so the bilateral view IS the full view. In multiplayer, every bilateral trade changes the landscape for every other possible trade. The evaluation space isn't N individual trades — it's the *combination* of all trades the leader could execute in a round. That's combinatorial.
+
+**This is the kingmaker problem expressed through trade.** The classic kingmaker scenario is "player 3 decides whether player 1 or player 2 wins." Here the dynamic is inverted: the leader extracts kingmaker-level advantage from the field by exploiting the fact that no single opponent can see or respond to the full pattern of trades. Each player sees only their bilateral exchange and evaluates it as favorable. The collective result is that the field kingmakes the leader without intending to — and without any single player being "wrong" in their individual assessment.
+
+**This was the wall.** The fudge factors in the Monopoly AI were approximating something about this dynamic — heuristics for "be cautious trading with the leader" or "discount leader-trade gains" — but without the theoretical framework to derive them. The insight is that the solution can't live at the level of individual trade assessment. It has to operate at the level of trade *policy* or *strategy* — rules about patterns of trades, not evaluation of single trades. What that policy looks like is an open problem.
+
 **Why the GA couldn't find this.** The GA optimized fudge factors within a model that evaluated trades in isolation. The relative position framework requires evaluating trades *against the full competitive landscape* — a fundamentally different objective function. Tuning parameters in the wrong model can't discover the right model. The GA also likely didn't distinguish between dice-EPT (which it can't control) and property-EPT (which is the entire strategic lever).
 
 ### The Fudge Factor Audit (Next Step)
