@@ -98,10 +98,10 @@ This means:
 
 Each player's net worth over time can be graphed as a curve. Total EPT (dice + property) is the slope — the rate at which your position changes per turn. A player with high property-EPT and low cash is on a steep trajectory; a player with high cash and low property-EPT is on a flat one. The graph makes the competitive landscape visible.
 
-**The decision criterion changes.** Every action — trade, build, hold cash — should be evaluated by how it changes the *relative slopes*, not the absolute values:
+**The decision criterion changes.** Every action — trade, build, hold cash — should be evaluated by how it changes your EPT *relative to the field average*:
 
-- A trade that increases your property-EPT by $20/turn is bad if it increases your opponent's property-EPT by $40/turn
-- A trade that decreases your property-EPT by $5/turn is good if it decreases the leader's property-EPT by $30/turn
+- **The clean rule:** EPT above average = growing. EPT below average = shrinking. Every decision is about getting above the average and staying there, or pushing the leader below it.
+- A trade doesn't have to go in your favor to be good. If you're in second and you trade with last place where they gain more than you, that's fine — what matters is whether your gain moves you closer to (or past) the leader's EPT. The reference frame is the field average and the leader, not your trade partner.
 - Building houses on a complete monopoly is a slope change — you trade cash (intercept) for higher rent income (slope), capturing a larger share of the redistribution
 - The ROI horizon: when your net worth curve crosses another player's curve, that's the payoff point. A steep slope with low intercept eventually overtakes a shallow slope with high intercept — but only if you survive long enough
 - Dice-EPT is constant across the graph (everyone gets roughly the same baseline). The slopes diverge only because of property-EPT differences.
@@ -130,7 +130,8 @@ A unifying concept across all three games (and RTS, which makes it real-time):
 The **interest rate** is the rate at which invested resources compound into future capability. It's not a fixed number — it's an emergent property of the competitive environment. Your opponent's strategy determines your effective interest rate because they determine when your investments need to start paying off.
 
 - **Boom vs. rush (RTS framing).** Pure boom is a bet that your ROI window is long. A rush calls in the loan early — forcing your opponent to liquidate capital investments before maturity. Defense is a hedge: lower growth rate in exchange for insurance against the rush. The defense investment is the risk premium.
-- **In Risk:** The card escalation curve sets a minimum growth rate. The leader's position sets the urgency. Early game interest rates are high (unclaimed territory compounds fast). Late game rates depend on the balance of power.
+- **In Risk:** Total territory is fixed — conquering territory is redistribution, not growth (same zero-sum structure as Monopoly's property-EPT). The card escalation curve is Risk's equivalent of dice-EPT: exogenous value entering the system. The leader's position sets the urgency. Early game the "interest rate" appears high because unclaimed territory is available cheaply, but this is a one-time redistribution from neutral to player, not compounding.
+- **In Slay:** Purely zero-sum. Total territory is fixed, income derives from territory. There is no exogenous income — no dice-EPT equivalent. Every gain is another player's loss. The interest rate concept still applies in the sense of how efficiently territory converts to military capability, but the pie never grows.
 - **In Monopoly:** The global interest rate is the total dice-EPT — Go salary, Chance/CC income, etc. This is the rate at which new money enters the system. Property development doesn't change this rate; it changes the *distribution* of the flow (see [Dice-EPT vs. Property-EPT](#dice-ept-vs-property-ept) above). The strategic "interest rate" that matters for decision-making is your property-EPT relative to the field — how fast you're capturing redistribution compared to opponents.
 - **In 4X (MOO1, Civilization):** Early colony ships compound because each new colony produces resources for the next expansion. The implicit rate is highest when unclaimed territory exists and drops as the map fills — diminishing marginal returns on capital investment.
 
@@ -212,7 +213,7 @@ This is similar to how chess engines handle openings (book), middlegame (search 
 - Is the Stockfish NN eval + algorithmic search split sufficient for multiplayer, or does the search itself need to be learned?
 - **Relative position as objective function:** If the Monopoly AI is retrained with "maximize relative EPT slope advantage" instead of "maximize absolute win rate," does it escape the local optimum? The GA's convergence may have been an artifact of the wrong objective function, not a fundamental limitation.
 - **Fudge factor analysis:** Which of the Monopoly AI's manually tuned parameters can be derived from the EPT slope / relative position framework? Each replaceable factor is a validation of the theory; each irreplaceable factor points to a gap.
-- **Cross-game generalization:** The relative position model (graph net worth curves, evaluate actions by slope change relative to field) should apply to Risk and Slay as well. In Risk, the slope is territory + card accumulation rate. In Slay, it's territory + income growth. Does a single framework unify trade evaluation (Monopoly), attack targeting (Risk/Slay), and alliance formation (all three)?
+- **Cross-game generalization:** All three games (Monopoly, Risk, Slay) share zero-sum redistribution on the territory/property axis. Monopoly and Risk also have exogenous income (dice-EPT, card escalation). Slay is purely zero-sum. The "EPT above average = growing, below average = shrinking" rule should apply universally — in Risk the "EPT" is territory income rate, in Slay it's territory × income per hex. Does this single framework unify trade evaluation (Monopoly), attack targeting (Risk/Slay), and alliance formation (all three)?
 
 ## Suggested Reading
 
