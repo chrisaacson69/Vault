@@ -72,6 +72,80 @@ This is an emergent phenomenon — nobody designs it, it arises from rational se
 - **Phase awareness:** the game plays differently at 6 players, 4 players, 3 players (self-balancing), and 2 players (solved)
 - **Counter-offer logic:** when two opponents are negotiating a trade that threatens you, what can you offer to disrupt it?
 
+### The Relative Position Model (2026-02-22)
+
+The local optimum wall revealed the core problem: the AI was evaluating trades in *absolute* terms (does this property make me richer?) rather than *relative* terms (does this trade improve my position against the field?).
+
+#### Dice-EPT vs. Property-EPT
+
+A critical distinction for understanding what EPT actually measures:
+
+**Dice-EPT** is exogenous income — Go salary, Chance cards, Community Chest, certain square effects. This is new money entering the system from "outside." If no player owned any property and everyone just rolled dice, dice-EPT is the only income. All players would have roughly the same dice-EPT, and net worth would grow at the same rate for everyone. No differentiation.
+
+**Property-EPT** is endogenous transfer — rent. When someone lands on your property, your net worth increases and theirs decreases by the same amount. Property-EPT is zero-sum. It creates no new value; it redistributes existing value between players.
+
+**The global interest rate** is the sum of all players' dice-EPT — the rate at which total player wealth actually grows. Property development doesn't change this rate. Building a hotel doesn't make the pie bigger; it redirects more of the existing flow to you.
+
+**Relative position** = your total EPT (dice + property) / average EPT of all players. In the no-property baseline, this ratio is 1.0 for everyone — flat, no differentiation. As property gets acquired and developed, the ratios diverge. The whole game is about making your ratio greater than 1.0 at others' expense.
+
+This means:
+- **Buying property** converts cash (which earns nothing) into a claim on future redistribution
+- **Building houses** amplifies your share of the redistribution, not the total flow
+- **Dice-EPT sets the tempo** — it's the clock that determines how many turns the redistribution dynamics have to play out before someone goes bankrupt
+- **Property-EPT is the mechanism for differentiation** — the only way to pull ahead of the field
+
+#### EPT as Slope
+
+Each player's net worth over time can be graphed as a curve. Total EPT (dice + property) is the slope — the rate at which your position changes per turn. A player with high property-EPT and low cash is on a steep trajectory; a player with high cash and low property-EPT is on a flat one. The graph makes the competitive landscape visible.
+
+**The decision criterion changes.** Every action — trade, build, hold cash — should be evaluated by how it changes your EPT *relative to the field average*:
+
+- **The clean rule:** EPT above average = growing. EPT below average = shrinking. Every decision is about getting above the average and staying there, or pushing the leader below it.
+- A trade doesn't have to go in your favor to be good. If you're in second and you trade with last place where they gain more than you, that's fine — what matters is whether your gain moves you closer to (or past) the leader's EPT. The reference frame is the field average and the leader, not your trade partner.
+- Building houses on a complete monopoly is a slope change — you trade cash (intercept) for higher rent income (slope), capturing a larger share of the redistribution
+- The ROI horizon: when your net worth curve crosses another player's curve, that's the payoff point. A steep slope with low intercept eventually overtakes a shallow slope with high intercept — but only if you survive long enough
+- Dice-EPT is constant across the graph (everyone gets roughly the same baseline). The slopes diverge only because of property-EPT differences.
+
+**Leadership is the reference frame.** Leader identification is easy (EPT calculation is solved math). Once you know who's ahead on the slope chart, every decision becomes: does this action close the gap between me and the leader, or widen it? The three-player self-balancing dynamic falls out naturally — two players with lower slopes have shared incentive to avoid any trade that steepens the leader's curve.
+
+### The Atomic Trade Evaluation Problem
+
+The relative position model tells you *what to measure* (EPT relative to field average) but not *how to evaluate individual trades* in multiplayer. This is the problem that stalled the Monopoly project.
+
+**The trap:** You evaluate a trade with the leader in isolation — you gain more property-EPT than they do, so your relative position improves. Good trade. But the leader *also* makes individually-favorable trades with player 3 and player 4. Each opponent thinks they got the better end. But the leader accumulates *some* benefit from every trade, and the sum of those small benefits across all trades exceeds any single opponent's gain. The leader traded with the field and came out ahead against the field, even though they "lost" each bilateral exchange.
+
+This is the coalition problem resurfacing. You cannot evaluate a trade without knowing what *other* trades the leader is making or might make. And you cannot coordinate with other players to block the leader's trade strategy without forming a coalition — which is the unsolved problem.
+
+**Why atomic evaluation is insufficient:** In two-player games, bilateral trade evaluation works — there's only one opponent, so the bilateral view IS the full view. In multiplayer, every bilateral trade changes the landscape for every other possible trade. The evaluation space isn't N individual trades — it's the *combination* of all trades the leader could execute in a round. That's combinatorial.
+
+**This is the kingmaker problem expressed through trade.** The classic kingmaker scenario is "player 3 decides whether player 1 or player 2 wins." Here the dynamic is inverted: the leader extracts kingmaker-level advantage from the field by exploiting the fact that no single opponent can see or respond to the full pattern of trades. Each player sees only their bilateral exchange and evaluates it as favorable. The collective result is that the field kingmakes the leader without intending to — and without any single player being "wrong" in their individual assessment.
+
+**This was the wall.** The fudge factors in the Monopoly AI were approximating something about this dynamic — heuristics for "be cautious trading with the leader" or "discount leader-trade gains" — but without the theoretical framework to derive them. The insight is that the solution can't live at the level of individual trade assessment. It has to operate at the level of trade *policy* or *strategy* — rules about patterns of trades, not evaluation of single trades. What that policy looks like is an open problem.
+
+**Why the GA couldn't find this.** The GA optimized fudge factors within a model that evaluated trades in isolation. The relative position framework requires evaluating trades *against the full competitive landscape* — a fundamentally different objective function. Tuning parameters in the wrong model can't discover the right model. The GA also likely didn't distinguish between dice-EPT (which it can't control) and property-EPT (which is the entire strategic lever).
+
+### The Fudge Factor Audit and Trade Log Review (Next Step)
+
+Before building more theory, look at the data. The Monopoly AI's trade logs and the GA's tuning history contain empirical evidence about what actually happened — and what didn't happen.
+
+**The pricing puzzle:** During GA optimization, trade prices stayed within ~5% of face value across the board. Properties with known EPT advantages (higher landing probability, better rent-to-cost ratios) didn't command premiums. This doesn't sit right — it suggests either the valuation model couldn't express large deviations from face value, or the game states never created enough pressure to move prices.
+
+**The most likely explanation:** Identical AIs reach similar game states. With the same valuation model, both sides agree on what properties are worth, so there's no disagreement to drive prices. Price discovery requires genuine difference in assessment — two copies of the same spreadsheet negotiating will converge on face value every time. Self-play with mirrors doesn't generate the differential needed for price movement.
+
+**What to look for in the logs:**
+1. **When did trades happen?** Probably early, before cash differentials developed. If so, the identical-position problem was at its worst during the trading window.
+2. **Did desperate players make defensive trades?** A player falling behind might trade at unfavorable terms just to stay relevant. If this didn't happen, the AI may have lacked survival instinct — it evaluated trades on absolute merit rather than "I'm dying, any improvement helps."
+3. **Were there cash differential situations?** A cash-rich player completing a monopoly can immediately develop (build houses), making the trade worth far more to them. A cash-poor player completing a monopoly gets base rents only. The same trade has wildly different value depending on cash position — but if identical AIs accumulate similar cash, this differential rarely exists.
+4. **What did the fudge factors actually do?** Each manually tuned parameter marks where intuition substituted for theory. Audit each one:
+   - What gap does this factor compensate for? What would the AI do wrong without it?
+   - Can the relative position framework replace it? If it's approximating "don't make trades that help opponents more than you," the EPT model handles it directly.
+   - Is the factor capturing something the framework doesn't yet explain? If so, it's pointing at a theoretical gap — a research lead, not a bug.
+   - Can the factor be derived from first principles? A fudge factor computable from game state rather than tuned by GA is a theory, not a hack.
+
+The goal is not to "fix the AI" but to use the AI as a laboratory: each fudge factor is an empirical observation about what the theory doesn't yet explain. Replacing fudge factors with principled rules derived from the interest rate / relative position framework is the real research output. ELO gains may follow, but they're the lagging indicator — the leading indicator is whether the theory generates the factor's effect naturally.
+
+**Connection to the project pause:** The Monopoly project stalled partly because the web client for testing against real opponents couldn't be built, but more fundamentally because the theoretical framework wasn't developed enough to know *what to test*. The relative position model and the fudge factor audit provide a concrete research path that doesn't require competitive testing — the theory can be developed and validated against the existing AI's behavior before any external play.
+
 ## The Interest Rate Framework
 
 A unifying concept across all three games (and RTS, which makes it real-time):
@@ -79,8 +153,9 @@ A unifying concept across all three games (and RTS, which makes it real-time):
 The **interest rate** is the rate at which invested resources compound into future capability. It's not a fixed number — it's an emergent property of the competitive environment. Your opponent's strategy determines your effective interest rate because they determine when your investments need to start paying off.
 
 - **Boom vs. rush (RTS framing).** Pure boom is a bet that your ROI window is long. A rush calls in the loan early — forcing your opponent to liquidate capital investments before maturity. Defense is a hedge: lower growth rate in exchange for insurance against the rush. The defense investment is the risk premium.
-- **In Risk:** The card escalation curve sets a minimum growth rate. The leader's position sets the urgency. Early game interest rates are high (unclaimed territory compounds fast). Late game rates depend on the balance of power.
-- **In Monopoly:** The interest rate is property development speed. Houses and hotels are capital investments with compounding returns (higher rents). The implicit rate depends on how quickly opponents are developing — if they're building faster, you're falling behind on the curve.
+- **In Risk:** Total territory is fixed — conquering territory is redistribution, not growth (same zero-sum structure as Monopoly's property-EPT). The card escalation curve is Risk's equivalent of dice-EPT: exogenous value entering the system. The leader's position sets the urgency. Early game the "interest rate" appears high because unclaimed territory is available cheaply, but this is a one-time redistribution from neutral to player, not compounding.
+- **In Slay:** Purely zero-sum. Total territory is fixed, income derives from territory. There is no exogenous income — no dice-EPT equivalent. Every gain is another player's loss. The interest rate concept still applies in the sense of how efficiently territory converts to military capability, but the pie never grows.
+- **In Monopoly:** The global interest rate is the total dice-EPT — Go salary, Chance/CC income, etc. This is the rate at which new money enters the system. Property development doesn't change this rate; it changes the *distribution* of the flow (see [Dice-EPT vs. Property-EPT](#dice-ept-vs-property-ept) above). The strategic "interest rate" that matters for decision-making is your property-EPT relative to the field — how fast you're capturing redistribution compared to opponents.
 - **In 4X (MOO1, Civilization):** Early colony ships compound because each new colony produces resources for the next expansion. The implicit rate is highest when unclaimed territory exists and drops as the map fills — diminishing marginal returns on capital investment.
 
 The interest rate dictates **input/output matching**. A high effective interest rate means you need tight, efficient production chains with minimal waste — every turn's output must feed next turn's input cleanly. A low rate gives you slack to be inefficient. The interest rate and the input/output matching problem are two faces of the same underlying dynamic: how efficiently does invested capital compound in a competitive environment?
@@ -159,6 +234,9 @@ This is similar to how chess engines handle openings (book), middlegame (search 
 - What's the minimum information an AI needs about opponents' strategies to make good coalition decisions? Leader identification is easy in these games (they're mostly perfect information — see Phase 2 note above). The real question is what additional modeling of opponent *intent* (not position) is needed to predict coalition shifts.
 - Can the interest rate framework be formalized enough to serve as a meta-heuristic — an AI that explicitly models its effective interest rate and adjusts strategy based on whether it's ahead or behind the compounding curve?
 - Is the Stockfish NN eval + algorithmic search split sufficient for multiplayer, or does the search itself need to be learned?
+- **Relative position as objective function:** If the Monopoly AI is retrained with "maximize relative EPT slope advantage" instead of "maximize absolute win rate," does it escape the local optimum? The GA's convergence may have been an artifact of the wrong objective function, not a fundamental limitation.
+- **Fudge factor analysis:** Which of the Monopoly AI's manually tuned parameters can be derived from the EPT slope / relative position framework? Each replaceable factor is a validation of the theory; each irreplaceable factor points to a gap.
+- **Cross-game generalization:** All three games (Monopoly, Risk, Slay) share zero-sum redistribution on the territory/property axis. Monopoly and Risk also have exogenous income (dice-EPT, card escalation). Slay is purely zero-sum. The "EPT above average = growing, below average = shrinking" rule should apply universally — in Risk the "EPT" is territory income rate, in Slay it's territory × income per hex. Does this single framework unify trade evaluation (Monopoly), attack targeting (Risk/Slay), and alliance formation (all three)?
 
 ## Suggested Reading
 

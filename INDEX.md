@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-02-20
+**Last updated:** 2026-02-22
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -20,6 +20,7 @@
 ## Research
 - [Philosophy](./research/philosophy/README.md) — first-principles exploration of foundational philosophical questions
   - [Morality](./research/philosophy/morality/README.md) — naturalistic moral framework built from bedrock concepts
+    - [Scope Confusion](./research/philosophy/morality/scope-confusion.md) — why most political disagreements are scope assignment errors; enforceability gradient; mens rea as case study
   - [Logic and Mathematics](./research/philosophy/logic-and-math/README.md) — structural realism; formalisms as maps, not territory
   - [Epistemology](./research/philosophy/epistemology/README.md) — (stub) how we know what we know; Objectivist engagement
   - [Legal Theory](./research/philosophy/legal-theory/README.md) — libertarian law; mens rea debate, government formation, marriage, shared ownership

@@ -17,7 +17,7 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 
 ## Sub-Topics
 
-- [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) — why multiplayer games resist solution, the self-balancing three-player dynamic, phase decomposition, the Stockfish architecture as template, and the interest rate framework
+- [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) — why multiplayer games resist solution, the self-balancing three-player dynamic, phase decomposition, the Stockfish architecture as template, the interest rate framework, and the relative position model (EPT as slope)
 
 ## Genres and What They Teach
 

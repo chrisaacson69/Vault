@@ -3,7 +3,7 @@
 
 **Status:** active — exploratory
 **Created:** 2026-02-16
-**Links:** [Philosophy](../README.md), [Economics — Value and Profit](../../economics/value-and-profit.md), [The Limits of Utopia](../../../notes/limits-of-utopia.md)
+**Links:** [Philosophy](../README.md), [Economics — Value and Profit](../../economics/value-and-profit.md), [The Limits of Utopia](../../../notes/limits-of-utopia.md), [Scope Confusion](./scope-confusion.md)
 
 ## Starting Definitions
 
@@ -87,6 +87,10 @@ Lewis's Tao captures the medium-to-broad scope well. The narrow scope is where u
 **Implication:** Change the creature, change the Tao. An alien species with no parental bond would not converge on "nurture your children." The moral law reflects what the agents *are*, not some law independent of them. This is naturalistic, not Platonic.
 
 **Open problem with scope:** Without a criterion for which scope applies when, scope-shifting becomes a tool for justification. "Murder is wrong at the individual scope, but at the civilizational scope, this war is necessary" — every historical atrocity used this move. The scope model needs rules for when zoom-in vs. zoom-out is legitimate. (See: philosophy of logic, planned.)
+
+## Sub-Topics
+
+- [The Scope Confusion Thesis](./scope-confusion.md) — formalizing why most political disagreements are scope assignment errors, not value disagreements. Connects to mens rea, civilizational cycles, and the enforceability gradient.
 
 ## Open Questions
 
