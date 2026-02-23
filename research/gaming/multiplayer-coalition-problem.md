@@ -76,18 +76,39 @@ This is an emergent phenomenon — nobody designs it, it arises from rational se
 
 The local optimum wall revealed the core problem: the AI was evaluating trades in *absolute* terms (does this property make me richer?) rather than *relative* terms (does this trade improve my position against the field?).
 
-**EPT as slope.** Each player's net worth over time can be graphed as a curve. EPT is the slope — the rate at which your position improves per turn. A player with high EPT and low cash is on a steep trajectory; a player with high cash and low EPT is on a flat one. The graph makes the competitive landscape visible.
+#### Dice-EPT vs. Property-EPT
+
+A critical distinction for understanding what EPT actually measures:
+
+**Dice-EPT** is exogenous income — Go salary, Chance cards, Community Chest, certain square effects. This is new money entering the system from "outside." If no player owned any property and everyone just rolled dice, dice-EPT is the only income. All players would have roughly the same dice-EPT, and net worth would grow at the same rate for everyone. No differentiation.
+
+**Property-EPT** is endogenous transfer — rent. When someone lands on your property, your net worth increases and theirs decreases by the same amount. Property-EPT is zero-sum. It creates no new value; it redistributes existing value between players.
+
+**The global interest rate** is the sum of all players' dice-EPT — the rate at which total player wealth actually grows. Property development doesn't change this rate. Building a hotel doesn't make the pie bigger; it redirects more of the existing flow to you.
+
+**Relative position** = your total EPT (dice + property) / average EPT of all players. In the no-property baseline, this ratio is 1.0 for everyone — flat, no differentiation. As property gets acquired and developed, the ratios diverge. The whole game is about making your ratio greater than 1.0 at others' expense.
+
+This means:
+- **Buying property** converts cash (which earns nothing) into a claim on future redistribution
+- **Building houses** amplifies your share of the redistribution, not the total flow
+- **Dice-EPT sets the tempo** — it's the clock that determines how many turns the redistribution dynamics have to play out before someone goes bankrupt
+- **Property-EPT is the mechanism for differentiation** — the only way to pull ahead of the field
+
+#### EPT as Slope
+
+Each player's net worth over time can be graphed as a curve. Total EPT (dice + property) is the slope — the rate at which your position changes per turn. A player with high property-EPT and low cash is on a steep trajectory; a player with high cash and low property-EPT is on a flat one. The graph makes the competitive landscape visible.
 
 **The decision criterion changes.** Every action — trade, build, hold cash — should be evaluated by how it changes the *relative slopes*, not the absolute values:
 
-- A trade that increases your EPT by $20/turn is bad if it increases your opponent's EPT by $40/turn
-- A trade that decreases your EPT by $5/turn is good if it decreases the leader's EPT by $30/turn
-- Building houses on a complete monopoly is a slope change — you trade cash (intercept) for higher rent income (slope)
+- A trade that increases your property-EPT by $20/turn is bad if it increases your opponent's property-EPT by $40/turn
+- A trade that decreases your property-EPT by $5/turn is good if it decreases the leader's property-EPT by $30/turn
+- Building houses on a complete monopoly is a slope change — you trade cash (intercept) for higher rent income (slope), capturing a larger share of the redistribution
 - The ROI horizon: when your net worth curve crosses another player's curve, that's the payoff point. A steep slope with low intercept eventually overtakes a shallow slope with high intercept — but only if you survive long enough
+- Dice-EPT is constant across the graph (everyone gets roughly the same baseline). The slopes diverge only because of property-EPT differences.
 
 **Leadership is the reference frame.** Leader identification is easy (EPT calculation is solved math). Once you know who's ahead on the slope chart, every decision becomes: does this action close the gap between me and the leader, or widen it? The three-player self-balancing dynamic falls out naturally — two players with lower slopes have shared incentive to avoid any trade that steepens the leader's curve.
 
-**Why the GA couldn't find this.** The GA optimized fudge factors within a model that evaluated trades in isolation. The relative position framework requires evaluating trades *against the full competitive landscape* — a fundamentally different objective function. Tuning parameters in the wrong model can't discover the right model.
+**Why the GA couldn't find this.** The GA optimized fudge factors within a model that evaluated trades in isolation. The relative position framework requires evaluating trades *against the full competitive landscape* — a fundamentally different objective function. Tuning parameters in the wrong model can't discover the right model. The GA also likely didn't distinguish between dice-EPT (which it can't control) and property-EPT (which is the entire strategic lever).
 
 ### The Fudge Factor Audit (Next Step)
 
@@ -110,7 +131,7 @@ The **interest rate** is the rate at which invested resources compound into futu
 
 - **Boom vs. rush (RTS framing).** Pure boom is a bet that your ROI window is long. A rush calls in the loan early — forcing your opponent to liquidate capital investments before maturity. Defense is a hedge: lower growth rate in exchange for insurance against the rush. The defense investment is the risk premium.
 - **In Risk:** The card escalation curve sets a minimum growth rate. The leader's position sets the urgency. Early game interest rates are high (unclaimed territory compounds fast). Late game rates depend on the balance of power.
-- **In Monopoly:** The interest rate is property development speed. Houses and hotels are capital investments with compounding returns (higher rents). The implicit rate depends on how quickly opponents are developing — if they're building faster, you're falling behind on the curve.
+- **In Monopoly:** The global interest rate is the total dice-EPT — Go salary, Chance/CC income, etc. This is the rate at which new money enters the system. Property development doesn't change this rate; it changes the *distribution* of the flow (see [Dice-EPT vs. Property-EPT](#dice-ept-vs-property-ept) above). The strategic "interest rate" that matters for decision-making is your property-EPT relative to the field — how fast you're capturing redistribution compared to opponents.
 - **In 4X (MOO1, Civilization):** Early colony ships compound because each new colony produces resources for the next expansion. The implicit rate is highest when unclaimed territory exists and drops as the map fills — diminishing marginal returns on capital investment.
 
 The interest rate dictates **input/output matching**. A high effective interest rate means you need tight, efficient production chains with minimal waste — every turn's output must feed next turn's input cleanly. A low rate gives you slack to be inefficient. The interest rate and the input/output matching problem are two faces of the same underlying dynamic: how efficiently does invested capital compound in a competitive environment?
