@@ -38,6 +38,7 @@ The price system's advantages are structural, not incidental: massive parallelis
 
 ### Data
 - [US Spending Per Student](./us-spending-per-student.md) — inflation-adjusted K-12 per-pupil expenditure over time, cross-verified across federal and independent sources
+- [K-12 Instruction vs. Administration Spending](./k12-instruction-vs-administration.md) — breakdown of where school dollars go: instruction, administration, support services, staffing trends, and what actually drives cost growth
 
 ### Planned
 - Business Models — how value is captured and sustained

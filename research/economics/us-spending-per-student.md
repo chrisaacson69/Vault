@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-24
-**Links:** [Economics](./README.md), [Vault Index](../../INDEX.md)
+**Links:** [Economics](./README.md), [Vault Index](../../INDEX.md), [Instruction vs. Administration Breakdown](./k12-instruction-vs-administration.md)
 
 ## Summary
 
