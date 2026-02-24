@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-02-22
+**Last updated:** 2026-02-24
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -32,15 +32,18 @@
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual
   - [Risk and Entrepreneurship](./research/economics/risk-and-entrepreneurship.md) — uncertainty, time preference, and entrepreneurial judgment
+  - [Insurance](./research/economics/insurance.md) — catastrophic tail hedging is the only legitimate function; critique of mission creep, free riders, risk class paradox
   - [Praxis: Agent Teams vs. Theory](./research/economics/praxis-agent-teams.md) — real-world results tested against the framework
   - [US Spending Per Student](./research/economics/us-spending-per-student.md) — inflation-adjusted K-12 per-pupil expenditure over time, multi-source verification
 - [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
+  - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
 - [Cognitive vs. Motor Skills](./research/cognitive-vs-motor.md) — (stub) the architectural split between thinking and moving, in both humans and AI
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
 - [Programmatic DJ Mixing Tools](./research/programmatic-dj-mixing-tools.md) — tools and libraries for executing a DJ mix from written instructions (DawDreamer, pedalboard, pyCrossfade, Reaper)
+- [DJ EQ Blending Technique](./research/dj-eq-blending.md) — how pro DJs use EQ as the primary transition tool; technique breakdowns mapped to automation lanes
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

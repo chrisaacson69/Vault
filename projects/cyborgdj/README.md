@@ -4,7 +4,7 @@
 **Status:** active
 **Created:** 2026-02-20
 **Repo:** [cyborgdj](https://github.com/chrisaacson69/cyborgdj)
-**Links:** [DJ Set 1](../dj-set-1/README.md), [Set Mastering](../set-mastering/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md), [The Cyborg Model](../../research/cyborg-model.md)
+**Links:** [DJ Set 1](../dj-set-1/README.md), [Set Mastering](../set-mastering/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md), [The Cyborg Model](../../research/cyborg-model.md), [DJ EQ Blending Technique](../../research/dj-eq-blending.md)
 
 ## Overview
 
@@ -29,10 +29,25 @@ cyborgdj/
 ├── loader.py        # Audio I/O, beat detection, bar grid computation
 ├── stretcher.py     # Time-stretch via pyrubberband
 ├── crossfader.py    # Crossfade math — fade curves, overlap mixing
-├── effects.py       # EQ and gain via pedalboard
+├── effects.py       # EQ and gain via scipy (split_3band, apply_eq, etc.)
 ├── engine.py        # Orchestrator — reads spec, coordinates everything
 └── cli.py           # Command-line interface
 ```
+
+## Transition Features
+
+| Feature | Spec key | Notes |
+|---------|----------|-------|
+| Crossfade curves | `fade_type`, `fade_power` | linear, equal_power, exp, s_curve |
+| Fader automation | `automation.outgoing/incoming` | `[[bar, value], ...]` breakpoints |
+| Per-band EQ automation | `automation.outgoing_low/mid/high`, `incoming_low/mid/high` | Independent gain envelopes per frequency band. See [EQ Blending Research](../../research/dj-eq-blending.md) |
+| 3-band EQ ramp | `eq_3band_outgoing/incoming` | Start/end gains per band with power curve |
+| Parametric EQ | `eq_outgoing/incoming` | Highpass, lowpass, shelf, peak filters |
+| Tempo ramp | `tempo_ramp` | Gradual BPM matching across overlap |
+| Decoupled fader | `fade_offset_bars`, `fade_bars` | EQ spans full overlap, fader moves in sub-region |
+| Outgoing hold | `outgoing_hold` | Keep outgoing at full volume, slam cut |
+
+Per-band EQ automation subsumes fader automation, 3-band EQ ramp, decoupled fader, and outgoing hold into a single general model. When EQ lanes are present, legacy features are ignored with a warning. See the [implementation results](../../research/dj-eq-blending.md#step-1-implementation-results-2026-02-22) for practical findings.
 
 ## Pipeline Position
 
