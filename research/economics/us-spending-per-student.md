@@ -48,6 +48,47 @@ The figures below are drawn from NCES, Census Bureau, Reason Foundation, and OEC
 | 2005-2016 | 8% | OECD |
 | 2010-2019 | 6% | OECD |
 
+## Funding Sources: Local vs. State vs. Federal (NCES / Census / CRS)
+
+The total per-pupil figures above combine **all** funding sources. Here's how the money breaks down by level of government over time:
+
+### Revenue Share by Source (approximate %, NCES Table 235.10 / Census / CRS)
+
+| Decade | Local | State | Federal | Key Context |
+|---|---|---|---|---|
+| ~1920 | 83% | 17% | <1% | Almost entirely local property taxes |
+| ~1970 | 52% | 40% | 8% | Local still dominant |
+| ~1980 | 43% | 47% | 10% | States take the lead (post-Serrano v. Priest equity lawsuits) |
+| ~1990 | 47% | 47% | 6% | Federal share at modern low; local share rebounds |
+| ~2000 | 45% | 47% | 8% | Roughly stable split |
+| ~2010 | 44% | 44% | 12% | Federal share peaks (ARRA stimulus after Great Recession) |
+| ~2020 | 44% | 46% | 11% | COVID relief (CARES/ARP) inflates federal share again |
+| FY 2022 | 42.7% | 43.7% | 13.6% | ESSER funds still flowing; $119.1B federal |
+| FY 2023 | 42.0% | 45.1% | 12.9% | Federal share begins to decline as COVID funds expire |
+
+### Absolute Dollars (FY 2022, NCES CCD)
+
+- **Total revenues per pupil:** $18,461
+- **State:** $383.9 billion (43.7%)
+- **Local:** $375.2 billion (42.7%) — primarily property taxes
+- **Federal:** $119.1 billion (13.6%)
+
+### Historical Shift
+
+The biggest structural change is the **century-long transfer from local to state funding**:
+- In the early 1900s, local property taxes funded ~83% of schools
+- By the 1980s, states had overtaken local as the largest single source
+- This shift was driven largely by school finance equity lawsuits (Serrano v. Priest, 1971, and its successors), which forced states to equalize funding across property-poor and property-rich districts
+
+The federal share has historically been small (6-13%), spiking only during recessions and emergencies:
+- **2009-10:** peaked at ~13% due to ARRA stimulus
+- **2020-22:** peaked at ~14% due to CARES/CRRSA/ARP COVID relief ($190B total in ESSER funds)
+- As COVID funds expire, the federal share is returning toward its historical ~8-9% baseline
+
+### Important Note on "Total Spending"
+
+The per-pupil figures in the main table above represent **total current expenditures from all sources combined** — local + state + federal. They are not limited to any single funding stream. This was confirmed across NCES (which collects via the National Public Education Financial Survey), the Census Bureau's Annual Survey of School System Finances, and the Reason Foundation's analysis (which merges both).
+
 ## Where the Money Goes (2002-2023, Reason Foundation)
 
 - **Employee benefits** (pensions, health insurance): up 81.1% ($2,221 → $4,022 per student)
@@ -104,6 +145,12 @@ The EPI raises an important point: using the standard CPI-U to deflate education
 - [EPI: Where's the Money Gone?](https://www.epi.org/publication/books_wheremoneygone/)
 - [Statista: Average Expenditures Per Pupil 1980-2021](https://www.statista.com/statistics/185135/average-expenditures-per-pupil-in-public-schools/)
 - [Education Data Initiative: Public Education Spending Statistics](https://educationdata.org/public-education-spending-statistics)
+- [NCES: Public School Revenue Sources (COE Indicator CMA)](https://nces.ed.gov/programs/coe/indicator/cma/public-school-revenue)
+- [NCES Digest Table 235.10: Revenues by Source (1919-2018)](https://nces.ed.gov/programs/digest/d20/tables/dt20_235.10.asp)
+- [Urban Institute: How Has Education Funding Changed Over Time?](https://apps.urban.org/features/education-funding-trends/)
+- [EdChoice: History of School Funding in the United States](https://www.edchoice.org/wp-content/uploads/2019/09/PDF-Primer_School-Funding-in-US-v8-.pdf)
+- [CRS: State and Local Financing of Public Schools](https://www.everycrsreport.com/reports/R45827.html)
+- [Census Bureau: Public School Spending Per Pupil (2024)](https://www.census.gov/newsroom/press-releases/2024/public-school-spending-per-pupil.html)
 
 ## Tags
 [economics](../../tags/economics.md), [education](../../tags/education.md)
