@@ -36,6 +36,9 @@ Framed in computational terms (see [Computation and Information Theory](../compu
 
 The price system's advantages are structural, not incidental: massive parallelism, zero-latency proximity between information source and decision maker, distributed computational cost, and bandwidth compression (one price encodes what no report can).
 
+### Data
+- [US Spending Per Student](./us-spending-per-student.md) — inflation-adjusted K-12 per-pupil expenditure over time, cross-verified across federal and independent sources
+
 ### Planned
 - Business Models — how value is captured and sustained
 - Architecture & Guardrails — how system design protects the profit signal (bridges to AI agent architecture)

@@ -10,3 +10,4 @@
 - [Monopoly](../projects/monopoly/README.md)
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
+- [US Spending Per Student](../research/economics/us-spending-per-student.md)
