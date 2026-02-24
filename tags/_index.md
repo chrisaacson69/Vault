@@ -11,7 +11,8 @@
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 1 file
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 9 files
+- [economics](./economics.md) — 10 files
+- [education](./education.md) — 1 file
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 1 file
 - [free-will](./free-will.md) — 3 files
