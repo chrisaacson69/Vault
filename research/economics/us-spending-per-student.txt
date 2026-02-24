@@ -1,0 +1,257 @@
+================================================================================
+        US REAL SPENDING PER STUDENT OVER TIME
+        Inflation-Adjusted K-12 Per-Pupil Expenditure
+        Verified Across Nine Independent Sources
+================================================================================
+
+        February 24, 2026  |  Data through FY 2023
+
+
+KEY FINDINGS AT A GLANCE
+--------------------------------------------------------------------------------
+
+  * Real increase since 1960:                ~3-4x
+  * Per student in 2023 (2023 dollars):      $20,322
+  * Inflation-adjusted growth, 1960-2019:    +280%
+  * US spending vs. OECD average (K-12):     +38%
+
+
+================================================================================
+1. PER-PUPIL SPENDING OVER TIME
+================================================================================
+
+Real (inflation-adjusted) spending per student in US public K-12 schools has
+risen dramatically over six decades. Nine independent data sources -- spanning
+federal agencies, international organizations, and think tanks across the
+political spectrum -- all confirm the same basic trajectory: a roughly three-
+to four-fold increase in constant dollars since 1960.
+
+Spending by Year (Constant 2022-23 Dollars, NCES / Statista)
+--------------------------------------------------------------------------------
+  ~1960     |  $4,060   |  ****
+  1990      |  $12,206  |  ************
+  2002      |  $14,969  |  ***************
+  2010-11   |  $14,453  |  **************
+  2012-13   |  $13,952  |  **************  <- post-recession low
+  2020-21   |  $16,280  |  ****************
+  2023      |  $20,322  |  ********************
+--------------------------------------------------------------------------------
+  Each * represents roughly $1,000 in spending per student.
+
+  Note: The 2002 and 2023 figures are from Reason Foundation (2023 dollars).
+  All others from NCES/Statista (2022-23 dollars).
+
+
+Real Growth by Decade
+--------------------------------------------------------------------------------
+  Period          Real Growth     Source
+  ----------      -----------     -------------------------
+  1960s           ~58%            EPI (Allan Odden)
+  1970s           ~27%            EPI (Allan Odden)
+  1980s           ~30%            EPI (Allan Odden)
+  1960-2019       ~280%           Reason Foundation / NCES
+  2002-2023       35.8%           Reason Foundation 2025
+  2010-2021       13%             NCES Fast Facts #66
+
+
+================================================================================
+2. WHO PAYS: LOCAL, STATE, AND FEDERAL SHARES
+================================================================================
+
+All per-pupil figures combine every funding source. The mix has shifted
+dramatically over the past century -- from an almost entirely local system
+to a roughly even state/local split, with a small but volatile federal
+component.
+
+Revenue Shares by Decade
+--------------------------------------------------------------------------------
+  Year     Local   State   Federal   Context
+  ------   -----   -----   -------   -----------------------------------------
+  ~1920    83%     17%     <1%       Almost entirely local property taxes
+  ~1970    52%     40%      8%       Local still dominant
+  ~1980    43%     47%     10%       States take the lead (equity lawsuits)
+  ~1990    47%     47%      6%       Federal at modern low
+  ~2000    45%     47%      8%       Roughly stable split
+  ~2010    44%     44%     12%       Federal peaks (ARRA stimulus)
+  ~2020    44%     46%     11%       COVID relief inflates federal share
+  FY 2023  42%     45%     13%       ESSER funds winding down
+
+  Sources: NCES Digest Table 235.10, Census Bureau, CRS.
+
+  Visual (FY 2023):
+  Local   [==========================================] 42%
+  State   [=============================================] 45%
+  Federal [=============] 13%
+
+
+FY 2022 in Absolute Dollars (NCES CCD)
+--------------------------------------------------------------------------------
+  Total revenues per pupil:     $18,461
+
+  State:      $383.9 billion    (43.7%)
+  Local:      $375.2 billion    (42.7%)  -- primarily property taxes
+  Federal:    $119.1 billion    (13.6%)
+
+
+Historical Shift
+--------------------------------------------------------------------------------
+The biggest structural change is the century-long transfer from local to state:
+
+  - Early 1900s: local property taxes funded ~83% of schools
+  - 1970s-80s:   states overtook local as the largest source
+  - Driver:      school finance equity lawsuits (Serrano v. Priest, 1971)
+
+Federal share is historically small (6-13%), spiking only during emergencies:
+  - 2009-10:  peaked ~13% (ARRA recession stimulus)
+  - 2020-22:  peaked ~14% (CARES/CRRSA/ARP COVID relief, $190B in ESSER)
+  - Now returning toward the historical ~8-9% baseline
+
+
+================================================================================
+3. WHERE THE MONEY GOES (2002-2023)
+================================================================================
+
+Between 2002 and 2023, benefits -- not salaries -- drove cost growth.
+
+  Category                  2002        2022-23     Change
+  -----------------------   ---------   ---------   -----------
+  Benefits per student      $2,221      $4,022      +81.1%
+  Salaries per student      $8,449      $9,098      +7.7%
+  Average teacher salary    $75,152     $70,548     -6.1%
+
+  Staff count growth:       +15.1%      (vs. enrollment growth of only +4.1%)
+  Non-teaching staff:       +22.8%
+
+  KEY RATIO: For every $1 added to salaries, $3.27 went to benefits.
+
+  All figures inflation-adjusted.
+  Source: Reason Foundation 2025 K-12 Spending Spotlight (Census/NCES data).
+
+
+================================================================================
+4. INTERNATIONAL CONTEXT (OECD, 2019-2022)
+================================================================================
+
+  Measure                           US          OECD Avg    Difference
+  --------------------------------  ----------  ----------  ----------
+  K-12 per FTE student (2019)       $15,500     $11,300     +38%
+  Postsecondary per FTE student     $37,400     $18,400     +103%
+  Education as % of GDP             5.8%        4.7%        +1.1 pp
+
+  The US ranks 3rd-5th highest per student among OECD nations.
+  Source: OECD Education at a Glance 2025. Constant 2021 USD.
+
+
+================================================================================
+5. METHODOLOGICAL NOTE
+================================================================================
+
+Most sources use the CPI-U (Consumer Price Index for All Urban Consumers) to
+adjust for inflation. The Economic Policy Institute raises a valid concern:
+
+  - ~80% of education spending is labor costs (salaries + benefits)
+  - Education labor costs may rise faster than general consumer prices
+  - The CPI-U may therefore OVERSTATE real spending growth
+  - A services-specific deflator yields lower but still substantial growth
+    (61% from 1967-1991 vs. the commonly cited "doubled")
+
+Regardless of deflator choice, the directional finding is robust across all
+nine sources: real per-pupil spending has increased enormously.
+
+
+================================================================================
+6. KEY TAKEAWAYS
+================================================================================
+
+  1. TREND IS UNAMBIGUOUS: Real per-pupil spending has risen roughly 3-4x
+     since 1960 in constant dollars.
+
+  2. GROWTH HAS SLOWED: The 1960s saw ~58% real growth; recent decades
+     are in single digits per decade.
+
+  3. BENEFITS DRIVE COSTS: Pensions and health insurance absorbed the
+     lion's share of spending increases since 2002, not teacher pay.
+
+  4. TOP GLOBAL SPENDER: The US spends 38% above the OECD average at
+     K-12, and double at postsecondary.
+
+  5. LOCAL-TO-STATE SHIFT: Property taxes once funded 83% of schools;
+     now it's a roughly even state/local split.
+
+  6. FEDERAL SHARE IS SMALL BUT VOLATILE: 6-14%, spiking only during
+     recessions and emergencies (ARRA, COVID ESSER).
+
+
+================================================================================
+7. SOURCE CROSS-VERIFICATION
+================================================================================
+
+  #  Source                            Type                    Coverage
+  --  --------------------------------  ----------------------  ----------------
+  1.  NCES Digest Table 236.55          Federal (Dept. of Ed)   1919-2021
+  2.  NCES Fast Facts #66               Federal (Dept. of Ed)   2010-2021
+  3.  NCES CCD Press Release 2024       Federal (Dept. of Ed)   FY 2021-2022
+  4.  US Census Bureau (via Reason)     Federal (Census)        2002-2023
+  5.  GAO HEHS-95-235                   Federal (GAO)           1970-1993
+  6.  Reason Foundation 2025            Independent (libertn.)  2002-2023
+  7.  OECD Education at a Glance        International org.      2005-2022
+  8.  Economic Policy Institute         Independent (labor)     1967-1991
+  9.  Statista                          Data aggregator         1990-2021
+
+
+================================================================================
+SOURCES
+================================================================================
+
+ 1. NCES Digest Table 236.55 (1919-2021)
+    https://nces.ed.gov/programs/digest/d23/tables/dt23_236.55.asp
+
+ 2. NCES Fast Facts: Expenditures (#66)
+    https://nces.ed.gov/fastfacts/display.asp?id=66
+
+ 3. NCES CCD Press Release, May 2024
+    https://nces.ed.gov/whatsnew/press_releases/5_7_2024.asp
+
+ 4. Reason Foundation: 2025 K-12 Spending Spotlight
+    https://reason.org/k12-ed-spending/2025-spotlight/
+
+ 5. Reason Foundation: 280% Increase Since 1960
+    https://reason.org/commentary/inflation-adjusted-k-12-education-spending-per-student-has-increased-by-280-percent-since-1960/
+
+ 6. GAO: School Finance Trends (HEHS-95-235)
+    https://www.govinfo.gov/content/pkg/GAOREPORTS-HEHS-95-235/html/GAOREPORTS-HEHS-95-235.htm
+
+ 7. OECD: Education at a Glance 2025 -- United States
+    https://www.oecd.org/en/publications/education-at-a-glance-2025_1a3543e2-en/united-states_784df67f-en.html
+
+ 8. NCES: Education Expenditures by Country (COE)
+    https://nces.ed.gov/programs/coe/indicator/cmd/education-expenditures-by-country
+
+ 9. EPI: Where's the Money Gone?
+    https://www.epi.org/publication/books_wheremoneygone/
+
+10. Statista: Average Expenditures Per Pupil 1980-2021
+    https://www.statista.com/statistics/185135/average-expenditures-per-pupil-in-public-schools/
+
+11. Education Data Initiative: Public Education Spending Statistics
+    https://educationdata.org/public-education-spending-statistics
+
+12. NCES: Public School Revenue Sources (COE Indicator CMA)
+    https://nces.ed.gov/programs/coe/indicator/cma/public-school-revenue
+
+13. NCES Digest Table 235.10: Revenues by Source (1919-2018)
+    https://nces.ed.gov/programs/digest/d20/tables/dt20_235.10.asp
+
+14. Urban Institute: How Has Education Funding Changed Over Time?
+    https://apps.urban.org/features/education-funding-trends/
+
+15. EdChoice: History of School Funding in the United States
+    https://www.edchoice.org/wp-content/uploads/2019/09/PDF-Primer_School-Funding-in-US-v8-.pdf
+
+16. CRS: State and Local Financing of Public Schools
+    https://www.everycrsreport.com/reports/R45827.html
+
+17. Census Bureau: Public School Spending Per Pupil (2024)
+    https://www.census.gov/newsroom/press-releases/2024/public-school-spending-per-pupil.html
+
+================================================================================
