@@ -129,7 +129,88 @@ Between 2002 and 2023, benefits -- not salaries -- drove cost growth.
 
 
 ================================================================================
-4. INTERNATIONAL CONTEXT (OECD, 2019-2022)
+4. INSTRUCTION VS. ADMINISTRATION: THE "BLOAT" QUESTION
+================================================================================
+
+A common claim is that "administrative bloat" is the primary driver of rising
+costs. The data tells a more nuanced story.
+
+How the Dollar Breaks Down (FY 2022, % of Current Expenditures)
+--------------------------------------------------------------------------------
+  Instruction            [============================================================] 59.5%
+  Ops & Maintenance      [=========] 9.3%
+  Student Support        [=======] 6.7%
+  School Admin (princ.)  [======] 5.6%
+  Instr. Staff Support   [=====] 5.0%
+  Food Services          [=====] ~4.5%
+  Transportation         [====] ~4%
+  General Admin (supt.)  [==] ~2%
+
+  "General Admin" = superintendent/board. "School Admin" = principals.
+  Combined administration is ~7-8% of current expenditures.
+  Instruction has held steady at 60-61% for decades.
+  Source: NCES CCD FY 2022.
+
+
+Per-Pupil Growth by Function (2002-2020, Constant Dollars)
+--------------------------------------------------------------------------------
+  Category                      2002        2020        Change
+  ----------------------------  ---------   ---------   -----------
+  Instruction                   $6,818      $8,176      +19.9%
+  School admin (principals)     $629        $758        +20.5%
+  General admin (supt/board)    $224        $265        +18.3%
+  PUPIL SUPPORT SERVICES        $566        $864        +52.7%  <<<
+
+  Administration grew at roughly the same rate as instruction (~18-20%).
+  The real outlier is PUPIL SUPPORT SERVICES (+52.7%), driven by mandated
+  special education, counseling, psychology, and health services.
+  Source: Reason Foundation Crossroads Report (Census/NCES data).
+
+
+Staffing: Teachers vs. Everyone Else
+--------------------------------------------------------------------------------
+  Since 1950:  enrollment +96%, teachers +252%, non-teaching staff +702%
+  Since 2002:  enrollment +4.1%, teachers +7.6%, non-teaching staff +22.8%
+  District admin (2000-2017):   +74.9% vs. teachers +7.7%
+
+  Non-teaching staff now = 52.5% of all school employees (majority since ~2015).
+
+  Year       Teachers as % of Staff    Student-to-Teacher Ratio
+  ------     ----------------------    ------------------------
+  ~1950      ~70%                      ~27:1
+  ~1970      ~60%                      ~22:1
+  ~2000      ~52%                      15.9:1
+  ~2010      ~50%                      15.4:1
+  2023       47.5%                     15.4:1
+
+  Sources: NCES Table 213.10 (staff), Table 208.20 (ratios), AEI, Reason.
+
+
+What's Actually Driving Costs (Ranked by Magnitude)
+--------------------------------------------------------------------------------
+  #  Driver                                Impact
+  --  ------------------------------------  ----------------------------------------
+  1.  Employee benefits (pensions, health)  +81.1%/pupil. $3.27 in benefits per $1
+                                            in salary increases.
+  2.  Pupil support / special ed mandates   +52.7%/pupil. Spec. ed. = $13,127/student;
+                                            IDEA covers only ~12%.
+  3.  Staffing growth beyond enrollment     +15.1% staff for +4.1% students.
+                                            Est. $24.3B/yr excess (Friedman Fdn).
+  4.  Class size reduction                  Ratio halved from ~27:1 to ~15:1,
+                                            roughly doubling teacher workforce.
+  5.  Administration (narrow)               ~7-8% of spending. Growth rate (~18-20%)
+                                            roughly matches instruction.
+
+  BOTTOM LINE: The "administrative bloat" narrative is PARTIALLY TRUE, MOSTLY
+  MISLEADING. Non-teaching staff have genuinely proliferated (+702% since 1950),
+  but most are counselors, social workers, speech pathologists, and instructional
+  aides -- many legally mandated. Administration's share of spending has not
+  meaningfully grown. The dominant cost drivers are benefits, mandated support
+  services, and staffing growth that outpaces enrollment.
+
+
+================================================================================
+5. INTERNATIONAL CONTEXT (OECD, 2019-2022)
 ================================================================================
 
   Measure                           US          OECD Avg    Difference
@@ -143,7 +224,7 @@ Between 2002 and 2023, benefits -- not salaries -- drove cost growth.
 
 
 ================================================================================
-5. METHODOLOGICAL NOTE
+6. METHODOLOGICAL NOTE
 ================================================================================
 
 Most sources use the CPI-U (Consumer Price Index for All Urban Consumers) to
@@ -160,7 +241,7 @@ nine sources: real per-pupil spending has increased enormously.
 
 
 ================================================================================
-6. KEY TAKEAWAYS
+7. KEY TAKEAWAYS
 ================================================================================
 
   1. TREND IS UNAMBIGUOUS: Real per-pupil spending has risen roughly 3-4x
@@ -172,18 +253,22 @@ nine sources: real per-pupil spending has increased enormously.
   3. BENEFITS DRIVE COSTS: Pensions and health insurance absorbed the
      lion's share of spending increases since 2002, not teacher pay.
 
-  4. TOP GLOBAL SPENDER: The US spends 38% above the OECD average at
+  4. "ADMIN BLOAT" IS REAL BUT OVERSTATED: Non-teaching staff are up
+     702% since 1950, but most are mandated support roles, not
+     administrators. Administration's ~7-8% share hasn't grown.
+
+  5. TOP GLOBAL SPENDER: The US spends 38% above the OECD average at
      K-12, and double at postsecondary.
 
-  5. LOCAL-TO-STATE SHIFT: Property taxes once funded 83% of schools;
+  6. LOCAL-TO-STATE SHIFT: Property taxes once funded 83% of schools;
      now it's a roughly even state/local split.
 
-  6. FEDERAL SHARE IS SMALL BUT VOLATILE: 6-14%, spiking only during
+  7. FEDERAL SHARE IS SMALL BUT VOLATILE: 6-14%, spiking only during
      recessions and emergencies (ARRA, COVID ESSER).
 
 
 ================================================================================
-7. SOURCE CROSS-VERIFICATION
+8. SOURCE CROSS-VERIFICATION
 ================================================================================
 
   #  Source                            Type                    Coverage
@@ -253,5 +338,26 @@ SOURCES
 
 17. Census Bureau: Public School Spending Per Pupil (2024)
     https://www.census.gov/newsroom/press-releases/2024/public-school-spending-per-pupil.html
+
+18. NCES Digest Table 236.60: Per-Pupil Expenditures by Function (1990-2021)
+    https://nces.ed.gov/programs/digest/d23/tables/dt23_236.60.asp
+
+19. NCES Digest Table 213.10: Staff by Assignment (1949-2022)
+    https://nces.ed.gov/programs/digest/d23/tables/dt23_213.10.asp
+
+20. Reason Foundation: Crossroads Revenue & Expenditure Trends
+    https://reason.org/k12-ed-spending/crossroads-report/revenue-expenditure-trends/
+
+21. AEI: The Staffing Surge / Educratification
+    https://www.aei.org/carpe-diem/the-staffing-surge-educratification-in-americas-public-schools-educrats-now-outnumber-teachers-in-25-states/
+
+22. Education Next: Administrative Staff Growth Outpaces Teacher Hiring
+    https://www.educationnext.org/growth-administrative-staff-assistant-principals-far-outpaces-teacher-hiring/
+
+23. FEE (Tabarrok): Rising Costs Stem from Teachers, Not Administrative Bloat
+    https://fee.org/articles/rising-education-costs-stem-primarily-from-more-teachers-and-bigger-salaries-not-administrative-bloat/
+
+24. AASA: Are There Too Many Administrators?
+    https://www.aasa.org/resources/resource/are-there-too-many-administrators
 
 ================================================================================
