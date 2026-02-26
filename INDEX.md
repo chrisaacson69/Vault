@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-02-22
+**Last updated:** 2026-02-26
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -42,6 +42,7 @@
 - [Cognitive vs. Motor Skills](./research/cognitive-vs-motor.md) — (stub) the architectural split between thinking and moving, in both humans and AI
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
 - [Programmatic DJ Mixing Tools](./research/programmatic-dj-mixing-tools.md) — tools and libraries for executing a DJ mix from written instructions (DawDreamer, pedalboard, pyCrossfade, Reaper)
+- [Kashrut and the Food-Safety Hypothesis](./research/kashrut-food-safety.md) — balanced survey: were kosher laws practical food-safety warnings? Evidence for, against, and alternative explanations (Douglas, Milgrom, Harris, Maimonides)
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

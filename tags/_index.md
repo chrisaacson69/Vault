@@ -15,11 +15,12 @@
 - [education](./education.md) — 1 file
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 1 file
+- [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 3 files
 - [game-ai](./game-ai.md) — 5 files
 - [games](./games.md) — 5 files
 - [grounding](./grounding.md) — 1 file
-- [history](./history.md) — 2 files
+- [history](./history.md) — 3 files
 - [javascript](./javascript.md) — 1 file
 - [libertarian-law](./libertarian-law.md) — 2 files
 - [llm-limitations](./llm-limitations.md) — 2 files
@@ -30,10 +31,11 @@
 - [music](./music.md) — 4 files
 - [natural-law](./natural-law.md) — 1 file
 - [opus-4-6](./opus-4-6.md) — 1 file
-- [philosophy](./philosophy.md) — 5 files
+- [philosophy](./philosophy.md) — 6 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 8 files
+- [religion](./religion.md) — 1 file
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 2 files
 - [simulation](./simulation.md) — 1 file
