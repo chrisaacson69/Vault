@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-12
-**Links:** [Economics](./README.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md)
+**Links:** [Economics](./README.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md), [The Nash Bargaining Problem](../gaming/nash-bargaining-problem.md)
 
 ## Core Principle
 
@@ -118,9 +118,10 @@ The question is no longer "can AI run a business?" It's "what's the right team s
 - How do you encode utility awareness into an AI agent without hardcoding prices?
 - Can an AI learn to estimate the buyer's utility curve from behavior?
 - What's the minimum viable agent team for a simple business? (Sales, Finance, Lead — or more?)
-- How do agent teams negotiate internally when their utility functions conflict?
+- How do agent teams negotiate internally when their utility functions conflict? (See [The Nash Bargaining Problem](../gaming/nash-bargaining-problem.md) — surplus division is indeterminate without knowing each agent's leverage and outside options)
 - At what point does an agent team need a human in the loop, and for what role?
 - How do the economics of agent teams (compute cost per agent) compare to the value they create?
+- This framework establishes *that* trade creates surplus. But *how is surplus divided?* The [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md) shows this is fundamentally indeterminate — it depends on player-specific leverage, patience, and outside options, not properties of the goods. The economics framework needs both halves: surplus existence (here) and surplus division (bargaining theory).
 
 ## Tags
 [economics](../../tags/economics.md), [profit](../../tags/profit.md), [utility](../../tags/utility.md), [agents](../../tags/agents.md)

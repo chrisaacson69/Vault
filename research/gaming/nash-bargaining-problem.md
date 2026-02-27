@@ -149,6 +149,26 @@ The Nash bargaining problem is two-player by construction. The moment you add a 
 
 This is why the [atomic trade evaluation problem](./multiplayer-coalition-problem.md#the-atomic-trade-evaluation-problem) is so hard. You can't evaluate a Monopoly trade bilaterally because the disagreement point isn't bilateral — it's determined by the full graph of possible trades across all players. The Nash bargaining solution assumes an exogenous disagreement point. In multiplayer games, the disagreement point is itself a game.
 
+## The Missing Piece in the Economics Framework
+
+The vault's [Value and Profit](../economics/value-and-profit.md) framework establishes that all voluntary trade creates mutual surplus — both sides profit, or the trade doesn't happen. That's true, and it's foundational. But it's silent on a critical question: **how is that surplus divided?**
+
+The Nash Bargaining Problem is the answer, and the answer is: *it's indeterminate.*
+
+Trade creates surplus. But nothing in the structure of the trade itself determines who captures 90% of that surplus and who captures 10%. The division depends entirely on bargaining dynamics — leverage, patience, outside options, credible threats — none of which are properties of the goods being traded. They're properties of the *players and their situation*.
+
+This has consequences across the vault:
+
+- **Consumer and producer surplus.** Value and Profit notes that both exist simultaneously in every trade. But the *ratio* between them — how much of the surplus the buyer captures vs. the seller — is a bargaining outcome, not a property of the product. A bottle of water in the desert has enormous consumer surplus potential, but the seller with the only water for miles captures most of it. The same bottle at a convenience store next to three competitors? The consumer captures more. Same good, same utility, completely different surplus division — because the bargaining dynamics changed.
+
+- **The price system.** Market prices are the emergent output of millions of simultaneous bargaining problems. Each transaction is a Nash bargaining game where the "agreed split" is the price. Competition works by changing players' outside options (BATNAs) — if I can buy from your competitor, your disagreement point shifts, and you capture less surplus. The price system doesn't determine value; it determines *the division of surplus* across an entire economy. Hayek's insight about distributed knowledge (see [Economics README](../economics/README.md)) is really about distributed *bargaining* — each price encodes the local resolution of a local bargaining problem, and the aggregate result is a surplus-division map no central planner could compute.
+
+- **Agent team negotiation.** When AI agents within a team negotiate (sales wants to close, finance wants to cut costs — see [Value and Profit](../economics/value-and-profit.md)), the internal "surplus" is organizational value. How that surplus gets allocated between departments is a bargaining problem. The team architecture (who has veto power, who moves first, who has patience) determines the split, not the value of the deal itself.
+
+- **Monopoly trade, restated.** The EPT model tells you a trade creates surplus (combined EPT gain). It does *not* tell you how much of that surplus each player should capture via cash sweeteners. That's the bargaining problem — and with identical AIs, there's no asymmetry to resolve it.
+
+**The framework gap:** Value and Profit → surplus exists. Nash Bargaining → surplus division is indeterminate without knowing player-specific leverage. The economics framework needs both halves. Knowing that trade is mutually beneficial tells you *that* it should happen. Knowing the bargaining dynamics tells you *at what price*.
+
 ## Implications for AI Agent Negotiation
 
 The Nash framework has direct implications for how AI agents should negotiate — whether in games or in real-world agent teams (see [Value and Profit](../economics/value-and-profit.md)):
