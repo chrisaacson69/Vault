@@ -13,3 +13,4 @@
 - [Rudyard Lynch (Whatifalthist)](../research/philosophy/whatifalthist.md)
 - [Measurement, Causality, and Free Will](../research/philosophy/measurement-causality.md)
 - [Computation and Information Theory](../research/computation-and-information.md)
+- [Kashrut and the Food-Safety Hypothesis](../research/kashrut-food-safety.md)

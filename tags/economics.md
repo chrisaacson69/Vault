@@ -12,3 +12,4 @@
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
 - [US Spending Per Student](../research/economics/us-spending-per-student.md)
 - [K-12 Instruction vs. Administration](../research/economics/k12-instruction-vs-administration.md)
+- [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)

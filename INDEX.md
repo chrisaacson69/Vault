@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-02-26
+**Last updated:** 2026-02-27
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -40,6 +40,7 @@
   - [US Spending Per Student](./research/economics/us-spending-per-student.md) — inflation-adjusted K-12 per-pupil expenditure over time, multi-source verification
   - [K-12 Instruction vs. Administration](./research/economics/k12-instruction-vs-administration.md) — where school dollars go: instruction, administration, support services, staffing trends, and the "administrative bloat" debate
 - [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
+  - [The Nash Bargaining Problem](./research/gaming/nash-bargaining-problem.md) — two players, $100, agree or get nothing: Nash's axiomatic solution, patience as leverage, and why identical agents can't trade
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
   - [BattleValue](./research/gaming/battle-value.md) — BV = sqrt(Attack × HP): universal combat comparison metric; Lanchester's Square Law for individual units
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
@@ -48,6 +49,7 @@
 - [Cognitive vs. Motor Skills](./research/cognitive-vs-motor.md) — (stub) the architectural split between thinking and moving, in both humans and AI
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
 - [Programmatic DJ Mixing Tools](./research/programmatic-dj-mixing-tools.md) — tools and libraries for executing a DJ mix from written instructions (DawDreamer, pedalboard, pyCrossfade, Reaper)
+- [Kashrut and the Food-Safety Hypothesis](./research/kashrut-food-safety.md) — balanced survey: were kosher laws practical food-safety warnings? Evidence for, against, and alternative explanations (Douglas, Milgrom, Harris, Maimonides)
 - [DJ EQ Blending Technique](./research/dj-eq-blending.md) — how pro DJs use EQ as the primary transition tool; technique breakdowns mapped to automation lanes
 - [Online Debates](./research/debates/README.md) — analysis of online "bloodsports" debates; extracting signal from spectacle
 
