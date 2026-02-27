@@ -20,7 +20,8 @@
 - [game-ai](./game-ai.md) — 6 files
 - [games](./games.md) — 6 files
 - [grounding](./grounding.md) — 1 file
-- [history](./history.md) — 3 files
+- [history](./history.md) — 2 files
+- [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
 - [libertarian-law](./libertarian-law.md) — 2 files
 - [llm-limitations](./llm-limitations.md) — 2 files
@@ -37,6 +38,6 @@
 - [python](./python.md) — 8 files
 - [religion](./religion.md) — 1 file
 - [pytorch](./pytorch.md) — 2 files
-- [risk](./risk.md) — 2 files
+- [risk](./risk.md) — 3 files
 - [simulation](./simulation.md) — 1 file
 - [utility](./utility.md) — 1 file

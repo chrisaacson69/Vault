@@ -8,12 +8,12 @@
 
 ## Overview
 
-Full Monopoly implementation in JavaScript with a deep AI stack. The engine models the complete game (properties, auctions, trades, jail, chance/community chest) and the AI uses Markov-chain positional analysis to compute Earnings Per Turn (EPT) for every property, driving trade evaluation and strategic decisions.
+Full Monopoly implementation in JavaScript with a deep AI stack. The engine models the complete game (properties, auctions, trades, jail, chance/community chest) and the AI uses Markov-chain positional analysis to compute Earnings Per Ply (EPT) for every property, driving trade evaluation and strategic decisions.
 
 ### AI Architecture
 
 - **Markov Engine** — steady-state landing probabilities for all 40 tiles
-- **Property Valuator** — EPT (Earnings Per Turn) based on landing probability x rent, accounting for monopoly/house multipliers
+- **Property Valuator** — EPT (Earnings Per Ply) based on landing probability x rent, accounting for monopoly/house multipliers. EPT is per-ply (single opponent's move), not per-turn — this is why EPT charts are player-count-independent. The `× opponents` factor converts ply→round where needed.
 - **Monte Carlo Validation** — empirical verification of Markov predictions
 - **Strategic Trade AI** — trade filtering based on empirical monopoly win rates
 - **20+ AI variants** in `simulation/` for comparative testing

@@ -19,6 +19,7 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 
 - [The Nash Bargaining Problem](./nash-bargaining-problem.md) — the atomic unit of negotiation: two players, $100, agree or get nothing; Nash's axiomatic solution, Rubinstein's patience model, ultimatum game behavior, and why identical agents can't trade
 - [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) — why multiplayer games resist solution, the self-balancing three-player dynamic, phase decomposition, the Stockfish architecture as template, the interest rate framework, and the relative position model (EPT as slope)
+- [Bilateral Trade Valuation](./bilateral-trade-valuation.md) — why trade evaluation requires simulating both players simultaneously; trajectory divergence, the patient predator exploit, and Nash equilibrium pricing
 
 ## Genres and What They Teach
 

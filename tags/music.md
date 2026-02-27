@@ -6,3 +6,5 @@
 - [Order Playlist](../projects/order-playlist/README.md)
 - [Set Mastering Pipeline](../projects/set-mastering/README.md)
 - [Programmatic DJ Mixing Tools](../research/programmatic-dj-mixing-tools.md)
+- [DJ EQ Blending Technique](../research/dj-eq-blending.md)
+- [CyborgDJ](../projects/cyborgdj/README.md)
