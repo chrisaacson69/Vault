@@ -5,3 +5,4 @@
 - [Slay-C](../projects/slay-c/README.md) — C port of Slay engine for performance
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
+- [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)

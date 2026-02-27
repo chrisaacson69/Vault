@@ -11,14 +11,14 @@
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 1 file
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 10 files
+- [economics](./economics.md) — 11 files
 - [education](./education.md) — 1 file
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 1 file
 - [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 3 files
-- [game-ai](./game-ai.md) — 5 files
-- [games](./games.md) — 5 files
+- [game-ai](./game-ai.md) — 6 files
+- [games](./games.md) — 6 files
 - [grounding](./grounding.md) — 1 file
 - [history](./history.md) — 3 files
 - [javascript](./javascript.md) — 1 file
@@ -26,7 +26,7 @@
 - [llm-limitations](./llm-limitations.md) — 2 files
 - [logic](./logic.md) — 1 file
 - [machine-learning](./machine-learning.md) — 2 files
-- [mathematics](./mathematics.md) — 3 files
+- [mathematics](./mathematics.md) — 4 files
 - [morality](./morality.md) — 2 files
 - [music](./music.md) — 4 files
 - [natural-law](./natural-law.md) — 1 file
