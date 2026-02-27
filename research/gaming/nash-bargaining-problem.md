@@ -13,6 +13,18 @@ That's the entire game. No turns, no cards, no dice. Just negotiation.
 
 And yet this simple structure — Nash's bargaining problem (1950) — generates most of the deep questions about how rational agents divide surplus. It's the atomic unit of negotiation: everything in the [Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) and [Monopoly](../../projects/monopoly/README.md) trade dynamics is built from repeated instances of this game.
 
+## The Infinite Equilibrium Problem
+
+Here's the critical insight: **this game has no unique Nash equilibrium.** In fact, it has infinitely many.
+
+Consider any pair of demands that sum to $100 or less. If Player 1 demands $60 and Player 2 demands $40, neither can unilaterally improve — if Player 1 demands $61, the demands exceed $100, negotiation fails, and they get nothing. The same logic holds for ($1, $99), ($50, $50), ($73.28, $26.72) — every split where both players get a non-negative amount and the total doesn't exceed $100 is a Nash equilibrium. No player can deviate and do better.
+
+If the $100 is infinitely divisible (real-valued, not pennies), this is a *continuum* of equilibria — uncountably infinite. Even in the practical case (divisible to the penny), that's 10,001 equilibria. Standard game theory — "find the Nash equilibrium" — gives you no way to pick among them. The concept of Nash equilibrium, which works so well for identifying stable outcomes in many games, is essentially useless here precisely because *everything* is stable.
+
+**This is why Nash needed axioms.** The bargaining problem isn't a failure of the players to find equilibrium — it's a failure of equilibrium to select an outcome. Nash's solution (below) is a *refinement*: it doesn't find the equilibrium, it imposes external rationality constraints to pick one point from the infinite set. The axioms are doing the work that the equilibrium concept can't.
+
+This also explains why bargaining is hard in practice. There's no gravitational pull toward any particular split. Both players know that every split is equally "stable" in game-theoretic terms. The negotiation isn't about finding the equilibrium — it's about *which* equilibrium, and that depends on leverage, patience, outside options, credible threats, and social norms. All the interesting stuff lives in the selection problem, not the existence problem.
+
 ## Why It's Hard
 
 At first glance, it seems trivially obvious: split 50/50. Both players know that $50 > $0, so why would either refuse?
