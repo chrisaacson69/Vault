@@ -73,4 +73,18 @@ Change is HARD, even when it looks easy. The libertarian law problem is a perfec
 
 ---
 
+### "You get what you pay for."
+
+Not the common meaning (quality correlates with price). The incentive meaning: **subsidizing something produces more of it.** Pay for illness, get more illness. Pay for unemployment, get more unemployment. Pay for homelessness, get more homelessness. Pay for dying, get more dying.
+
+This is not cynicism — it's mechanism. Incentives don't care about intentions. A program designed with genuine compassion to help the homeless still *structurally rewards* being homeless. The subsidy signal is stronger than the compassion signal because the subsidy is measurable and the compassion isn't. People respond to what they can measure.
+
+Mises saw this in 1922: social insurance "weakens the will to health" and "produces illness by subsidizing it." He was talking about people staying home from work. The same mechanism scales to every level — staying sick, staying unemployed, staying alive vs. choosing MAID. The incentive structure doesn't care about magnitude. It operates identically at every scale.
+
+The pattern is universal: if you make X easier than not-X, you get more X. Full stop. The only question is whether you've correctly identified what X is. Most policy debates are people arguing about intentions while the incentive structure quietly produces the opposite of what was intended.
+
+*See also:* [Insurance](../research/economics/insurance.md), [Scope Confusion](../research/philosophy/morality/scope-confusion.md)
+
+---
+
 *More to come.*

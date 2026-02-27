@@ -9,6 +9,9 @@
 
 Both the morality and logic/math frameworks rest on epistemological claims (structural realism, convergence as evidence, empirical discovery of moral patterns). Those claims need their own examination.
 
+## Pages
+- [The Weighting Problem](./weighting-problem.md) — objective measurements do not produce objective composite judgments; the aggregation function is always subjective
+
 ## Threads to Explore
 
 ### Structural Realism as Foundation

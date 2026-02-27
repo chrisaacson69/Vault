@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-02-24
+**Last updated:** 2026-02-26
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -15,14 +15,17 @@
 - [PyTorch Audio Learning](./projects/pytorch-audio-learning/README.md) — TorchAudio tutorial: spectrograms, MFCC, speech recognition (reference)
 - [Slay](./projects/slay/README.md) — hex strategy game recreation with AI player (active)
 - [Slay-C](./projects/slay-c/README.md) — C port of Slay engine for performance and deep search (active)
+- [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
+- [YouTube Migration](./projects/youtube-migration/README.md) — pipeline for turning vault research into YouTube scripts with references and examples (planning)
 
 ## Research
 - [Philosophy](./research/philosophy/README.md) — first-principles exploration of foundational philosophical questions
   - [Morality](./research/philosophy/morality/README.md) — naturalistic moral framework built from bedrock concepts
     - [Scope Confusion](./research/philosophy/morality/scope-confusion.md) — why most political disagreements are scope assignment errors; enforceability gradient; mens rea as case study
   - [Logic and Mathematics](./research/philosophy/logic-and-math/README.md) — structural realism; formalisms as maps, not territory
-  - [Epistemology](./research/philosophy/epistemology/README.md) — (stub) how we know what we know; Objectivist engagement
+  - [Epistemology](./research/philosophy/epistemology/README.md) — how we know what we know; Objectivist engagement
+    - [The Weighting Problem](./research/philosophy/epistemology/weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is subjective
   - [Legal Theory](./research/philosophy/legal-theory/README.md) — libertarian law; mens rea debate, government formation, marriage, shared ownership
   - [Measurement, Causality, and Free Will](./research/philosophy/measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
   - [Civilizational Cycles](./research/philosophy/civilizational-cycles.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
@@ -38,6 +41,7 @@
   - [K-12 Instruction vs. Administration](./research/economics/k12-instruction-vs-administration.md) — where school dollars go: instruction, administration, support services, staffing trends, and the "administrative bloat" debate
 - [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
+  - [BattleValue](./research/gaming/battle-value.md) — BV = sqrt(Attack × HP): universal combat comparison metric; Lanchester's Square Law for individual units
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
@@ -45,6 +49,7 @@
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
 - [Programmatic DJ Mixing Tools](./research/programmatic-dj-mixing-tools.md) — tools and libraries for executing a DJ mix from written instructions (DawDreamer, pedalboard, pyCrossfade, Reaper)
 - [DJ EQ Blending Technique](./research/dj-eq-blending.md) — how pro DJs use EQ as the primary transition tool; technique breakdowns mapped to automation lanes
+- [Online Debates](./research/debates/README.md) — analysis of online "bloodsports" debates; extracting signal from spectacle
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

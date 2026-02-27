@@ -1,0 +1,1142 @@
+
+[0:00:01]
+I want to talk
+about um the difference between two
+types of
+surprises or two types of
+contingencies um the one type of
+surprise is what is referred to as risks
+and risks we can ensure against and the
+other type of surprise are
+uncertainties uncertain
+events uh against which we can not
+ensure
+ourselves this distinction
+between uh risks on the one hand and
+uncertainty on the other hand um was
+introduced in the economics
+literature by Frank
+knight uh
+a famous book uh risk
+uncertainty and profit that appeared in
+the early
+1920s Frank Knight was one of the big
+men of the Chicago school but has in
+fact when it comes to this distinction
+little in common anymore with what came
+after after him um and uh later on lud
+Fon
+mes um made the same type of
+Distinction um he didn't call it risk
+and uncertainty he called it there are
+two types
+of probable statements one that he
+referred to as class
+probability and the other one that he
+referred to as case
+probability and this distinction that
+
+[0:02:01]
+both of these economists
+made um has its foundation in some work
+that was done by ludic Fon mises's
+brother uh Richard F mes who was a
+famous mathematician was also a member
+of the Vienna Circle the schlick K that
+I mentioned in my
+introductory lecture just let me say a
+few few words just to introduce Richard
+F mes uh to you um Le had for misus was
+two years younger than his brother but
+uh was born in 1883 misus was lud was
+born in
+1881 and Richard died in 1953 in my
+introductory lecture I missed lud
+forus year of of his death I dated that
+at
+1981 in that case misus would have been
+100 years old um and actually he died in
+uh in
+1973 the 81 was just his birthday but
+100 years before that's why I missed up
+on uh messed up on that um so rard forus
+was a professor of mathematics at the
+University of Strasburg from
+1909 to
+1919 Strasburg at that time uh was part
+of Germany and was then lost to France
+after World War I and became a French
+city but it is still in character a
+German City I will not blame gilo Hilman
+for this uh event that happened
+um obviously he had nothing to do with
+this um and then in so he had to leave
+
+[0:04:02]
+Strasburg because it became French and
+then in
+1921 he was appointed professor of
+mathematics and director of The
+Institute of Applied Mathematics at the
+University of Berlin which was at that
+time probably the world's foremost
+University uh he was a colleague of
+Albert Einstein who had the Institute
+was the head of the Institute of physics
+and he was the head of the Institute of
+mathematics and when when the National
+Socialist dismissed rard Fus from his
+post because he was
+Jewish um actually at that time he had
+already converted to Catholicism but
+nonetheless um the Nazis did not
+recognize something like this I guess um
+so then he in 1933 Richard Fon mes went
+to uh Istanbul in Turkey um where again
+he worked until
+1939 uh at the professor of mathematics
+and then he immigrated to the United
+States um where he finished his career
+as professor of aerodynamics and Applied
+Mathematics at at Harvard um and um his
+most important book dealing with
+probability
+Theory um was initially published in
+German then translated into English is
+called probability statistics and Truth
+um I should mention that for the
+theoretical part that I'm covering here
+I have also an article uh that was
+published a few years ago in the
+quarterly Journal of Austrian economics
+uh with the title the limits of
+numerical probability so if you want to
+uh deepen your understanding of what I'm
+going to say here I simply refer for you
+to this um to this article
+
+[0:06:05]
+um I
+have some sort of
+theoretical problems that I want to
+discuss and then I want to
+apply um apply these theoretical
+considerations in particular to the
+problem of uh Health in health insurance
+so I begin with the slightly more
+difficult theoretical things and then I
+hope the things will become clearer uh
+as I apply them to the case of
+um of health of health
+insurance
+um let me Begin by giving you an
+intuitive understanding of uh the
+workings of
+insurance uh and then delve into some
+theoretical problems a little bit more
+deeply um
+any type of insurance involves the
+pooling of individual
+risks um and it implies that to some of
+the
+insured more will be paid out than what
+they paid in uh in terms of insurance
+premiums and to others uh less will be
+paid out uh than they paid in in terms
+of uh insurance
+premiums um but the decisive Mark of
+insurance is that no one of the people
+who takes out insurance knows in advance
+who the winners will be the winner being
+those of course who get paid out more
+than they paid in um and no one knows if
+he will be a loser that is if he will be
+one of those that paid premiums but
+nothing happened to them um so the
+winners and the losers are distributed
+
+[0:08:07]
+so to speak
+randomly and every every insurance does
+involve obviously some income
+redistribution uh but the income
+redistribution is random it is
+unpredictable no one knows well whether
+he will be on the winner side or on um
+on the losers side
+otherwise if the winners or the losers
+could be systematically
+predicted uh the losers would not want
+to pull their risk with the winners but
+only with other losers um to give you an
+example let's say you are a professional
+football player um and another person is
+uh like myself sitting behind a desk and
+and
+writing um and look at the example let's
+say of an accident
+insurance now if an insurance would pull
+the risk of professional football
+players with the risk of those people
+who work behind a desk um then you can
+automatically predict who the winners
+will be and who the losers uh will be
+the losers will obviously be the people
+who sit behind the desk because very
+unfrequently uh do they fall over uh and
+break their neck whereas in the whereas
+in the case of professional football
+players that happens to be some daily
+risk that that can occur so in that case
+it is easy to predict that uh that the
+desk worker so to speak would say I
+don't want to pull my risk with the risk
+of a professional football player I
+rather pull my risk only with somebody
+who
+had does a similar occupation that is
+similarly non dangerous as my U as my
+
+[0:10:11]
+own now in if we look at the market of
+insurance um we would see that
+competition uh defined as free entry
+into the line of the insurance business
+competition between insurers would
+eliminate all systematic redistribution
+should it somehow
+exist um unless of course a motive of
+voluntary subsidies on the part of the
+losers would be involved that is to say
+if I love professional football so much
+and uh they are so dear to me uh that I
+want to support them then I might want
+to ensure myself with professional
+football players also
+but if this motive is not
+present then obviously uh what would
+happen would be that affirm that wrongly
+grouped people with different group
+risks into the same group uh that is
+that mixed people with objectively
+different risks in the same group would
+be outco competed by other companies
+that realize that some misg grouping has
+has occurred
+because the other insurance company
+noticing hey there are obviously
+significantly different risk groups
+involved here would be able to offer
+lower insurance premiums to the losers
+and the losers then would shift from uh
+the wrongly classifying insurer to the
+insurance that classifies people in the
+correct way and those football players
+would then be left only with other
+football players having to pay a higher
+insurance premium reflecting the higher
+risk of um of these
+
+[0:12:11]
+people
+um so comp what we can say then is
+competition between insurers would lead
+to ever more and refined
+subgrouping
+um discriminate in according to the
+actual group risk uh and the premiums
+that they would charge would reflect
+this genuine Insurance risk of people
+who fall in the same group and the price
+differentials that is the different
+types of Premium uh charged um would uh
+would reflect this difference in risk
+that these various groups represent on
+the average prices would tend to
+before uh and the
+Discrimination could be based on all
+sorts of criteria that is something that
+uh insurance companies would have to
+learn in the course of time uh finding
+out that they made mistakes there are
+other insurance companies entering the
+market doing different types of
+discriminations charging lower rates or
+higher rates um and so for and so forth
+so this is as a preliminary introduction
+into how Insurance uh works now I want
+to come to the question of uh what type
+of risks are
+insurable uh what type of contingencies
+what types of uh events what types of
+contingency surprises are insurable and
+what types of
+uh contingency surprises are un are
+uninsurable and I begin with what is
+necessary in order to ensure something
+
+[0:14:12]
+what type of surprises can be
+ensured um and there I want to begin
+by um giving you first the definition
+of Richard F mes
+um
+the theory of probability that Richard
+F's
+formulated is usually referred to as a
+frequency
+interpretation of
+probability and he defines it in the
+following
+way
+um
+first it is possible to speak about
+probabilities only in reference to a
+properly defined
+Collective Collective means nothing else
+but a group uh a class of
+individuals second so unless you have a
+group unless you have a class every talk
+about probability is nonsense according
+to Richard
+FES uh second
+a collective appropriate for the
+application of the theory of probability
+must fulfill two
+conditions the first condition is the
+relative
+frequencies of particular attributes
+that is attributes are this occurs or
+this does not occur uh person dies or
+doesn't die a roller six or a roller
+seven or five Mr a dice um my my dice
+sometimes have seven things on it um so
+as a relative frequency of particular
+attributes within the collective tend to
+
+[0:16:12]
+fixed limits I'll explain it in a second
+and the second condition is these fixed
+limits are not affected by any place
+selection I will explain that term in a
+second also that is to say if we
+calculate the relative frequency of some
+attribute not in the original sequence
+but in a partial set selected According
+to some fixed rule then we require that
+the relative frequency so calculated
+should tend to be the same should tend
+to the same limit as it does in the
+original set and then he
+says condition three is the Fulfillment
+of condition two will be described as
+the principle of Randomness or the
+principle of the impossibility of a
+gambling system and now I come to an
+explanation of this that makes clearer
+what he has in mind
+here there he
+says
+um imagine for instance a road along
+which Milestones are placed like large
+ones for whole miles and small ones for
+T of a mile if we walk along enough if
+you walk long enough along this road
+calculating the relative frequencies of
+large Stones the value found in this way
+um will lie around
+one10 the deviations from the
+value1 will become smaller and smaller
+as the number of stones pass
+increases in other words the relative
+frequency tends toward the limiting
+value of
+
+[0:18:14]
+0.1 this is the first condition that he
+has but then he says that is condition
+one is
+fulfilled however absent in this case is
+condition two
+because the sequence of observations of
+large or small stones differs
+essentially from the sequence of
+observations for instance of the results
+of a game of chance which is of throwing
+the dice in that the first sequence
+obeys an easily recognizable
+law exactly every T observation leads to
+the attribute large and all others to
+the attribute
+small the essential difference between
+the sequence of the results obtained by
+casting Dice and the regular sequence of
+large and small Milestones consists in
+the possibility of devising a method of
+selecting the elements so as to produce
+a fundamental change in the relative
+frequencies we begin for for instance
+with a large Stone and register only
+every second Stone
+passed the relation of the relative
+frequencies of small and large stones
+will then converge toward one fths
+instead of
+one1 the impossibility of affecting the
+chances of a game by a system of
+selection this uselessness of all
+systems of gambling is a characteristic
+and decisive property common to all
+sequences of observations or mass
+phenomena which form the proper subject
+of probability calculus the limiting
+
+[0:20:14]
+values of the relative frequencies in a
+collective must be independent of all
+possible place selections so you realize
+with a milestone example if you choose a
+certain selection mechanism of using the
+members you get different limiting
+values uh and because of that there are
+so to speak laws that we can discover
+about the behavior of small stones and
+large Stones whereas we could not
+observe anything like this when it comes
+to throwing throwing a
+dice um
+now for my
+purposes uh I want to just summarize
+quickly the fundamental statements that
+Richard Fus makes now as a consequence
+of this definition of the range of
+applicability of the probability
+calculus first he
+says
+um and is quite emphatic about it that
+the application of the term
+probability to a single event such as
+the probability of Mr X uh dying in the
+course of the next year for instance is
+utter
+nonsense um there is no class defined at
+all um you can obviously not form
+ratios uh say one in 10 or one in 20 if
+some refers if we are dealing with an
+individual case uh you should realize
+from the outset that when you listen to
+TV and various economists talk about the
+probability of such occurring the
+probability of such occurring like the
+
+[0:22:14]
+probability of will the Deb ceiling be
+increased or will it not be increased
+they give you
+numbers uh obviously they have not the
+faintest idea of what probability Theory
+uh is uh is all about this is just
+um
+I there is of course a way to say
+something about how probable this sort
+of thing is but it is not based on
+probability calculus I can tell you the
+probability is 100% that the dam thing
+will be raised because they have done
+that all the time before but this is not
+based on long run frequency observation
+that I that I have made but simply by
+understanding how politics
+Works
+um and then he says the theory of
+probability can never lead to a definite
+statement concerning a single
+event uh second uh misus is then rard
+from Mis is equally insistent that the
+probabilities of the probability
+calculus are objective things empirical
+properties and magnitudes rather than
+subjective beliefs or degrees of
+confidence they are based on experience
+and further additional experience may
+lead you to revise the measurements and
+may lead you to a
+reclassification of various singular
+events into various
+collectives um however only in referring
+to OB objective probabilities can the
+probability calculus ever be of any
+practical use and third and this is an
+implication of this he says um he
+categorically rejects the notion of a
+
+[0:24:14]
+prior
+probabilities no such thing as a priori
+probabilities exist again let
+me make
+clear what his criticism is
+of conceiving of probabilities not as
+something objective
+observable uh but of just uh degrees of
+subjective uh confidence um as regard
+the subjective uh element He says
+um criticizes John Mayor canes who is a
+subjective probability theorist um KES
+for instance fails to recognize that if
+we know nothing about a thing we cannot
+say anything about it and it's its
+probability and then he notes that the
+peculiar approach of the
+subjectivists lies in the fact that they
+consider the statement I presume that
+these cases are equally probable to be
+equivalent to the statement these cases
+are equally probable since for them
+probability is only a subjective notion
+so there is obviously a difference
+between I think they are equally
+probable and they are equally probable
+and in order to find out whether they
+are equally probable we have to make
+observations we have to have data that
+show that they
+are um and as far as the idea of a
+priori probabilities are concerned he
+says it is frequently held that if one
+plays with a perfect or correct coin
+heads or
+tails um and make sufficiently large
+numbers of throws it is almost certain
+
+[0:26:15]
+that the proportion of heads will
+deviate by less than one per Mill uh
+from one/ half of all cases now with
+regard to this we only note that trans I
+from the arithmetic proposition to this
+empirical proposition can be made only
+in declaring a perfect coin to be one
+for which the probability of both
+outcomes is one half and thus defining
+probability precisely in the way
+suggested by us namely as relative
+empirical frequency in Long sequences
+so whether something is a perfect
+coin must be shown also by engaging in
+some sort of experimentation we cannot a
+priori know that the coin is or the dice
+is indeed a perfect coin or a perfect uh
+um a per a perfect coin or a perfect U
+perfect
+dice
+um now
+getting a little little bit easier um
+Frank Knight on on this
+question uh again Frank
+Knight
+explaining what risks are to which the
+probability calculus can be applied and
+which refer to events against which
+insurance is possible Frank Knight
+says um
+if all changes were to take place in
+accordance with invariably and
+universally known
+laws they could be
+foreseen for an indefinite period in
+advance of their occurrence and would
+
+[0:28:16]
+not upset the perfect apportionment of
+product values among contributing
+agencies and profit and loss would not
+arise now this is the same Insight that
+you find also in misus when he talks
+about uh General equilibrium or what he
+calls the evenly rotating economy I'm
+not sure if you have encountered this so
+far in the lectures but Mis there
+assumes what would happen if there is no
+change occurring anymore whatsoever and
+all future events could be perfectly
+predicted would there then be profits
+and losses and the answer that he gives
+no profits and losses would then
+disappear uh there would be still
+uniform interest payment but profit and
+losses are no longer in place uh if
+there is no
+uncertainty and no uncertainty in the
+world and then Knight continues however
+perfect foresight need not involves the
+ability to forecast every singular event
+and the absence of any kind of
+contingency or surprise for profits and
+losses to
+disappear Knight explains then it is
+unnecessary to perfect profitless
+imputation that particular occurrences
+be foreseeable if only all the
+alternative possibilities are known and
+the probability of the occurrence of
+each can be accurately ascertained even
+though the businessmen could not know in
+advance the result of individual
+Ventures he could operate and base his
+competitive offers upon accurate for
+knowledge of the future if quantitative
+knowledge of the probability of every
+possible outcome can be had for by
+
+[0:30:18]
+figuring on the basis of a large number
+of Ventures whether of his own business
+alone or that of business in general the
+losses could be converted into fixed
+costs thus for example the example will
+make it clear what he has in mind the
+bursting of B bottles when produce
+champagne or so uh the bursting of B
+bottles does not introduce an
+uncertainty or Hazard into the business
+of producing champagne since in the
+operations of any producer a practically
+constant and known proportion of B
+bur it does not especially matter even
+whether the proportion is large or small
+these losses become a fixed cost and
+even if a single producer does not deal
+with a sufficiently large number of
+cases of the contingency in question to
+secure constanty in its effect the same
+result May easily be realized through an
+organization taking in large numbers of
+producers this of course is the
+principle of insurance as familiarly
+illustrated by the chance of fire loss
+no one can say whether a particular
+building will burn and most building
+owners do not operate on a sufficiently
+large scale to reduce the cost to
+constancy but it is well known the
+effect uh of insurance is to extend the
+space and to cover the operations of a
+large number of persons and convert the
+contingency into a fixed
+cost so this is Knight nowhere refers to
+uh R for mes um Knight could read German
+
+[0:32:18]
+um but I don't think Knight was
+interested in uh in mathematics that
+much and Richard F mes had come out with
+his uh main articles on the subject just
+a few years before uh Knight published
+uh Knight published his book but the
+idea is precise precisely the same only
+where the probability calculus can be
+applied where we have a collective uh
+where Place selection is impossible only
+those things are
+insurable um now lud
+mes um
+lud for mea
+says
+um in order to be
+insurable uh something must be given
+that he calls class probability class
+probability obviously related to this
+idea of a collective that uh rard
+mentioned interestingly even though lud
+forus wrote his stuff much later than
+his brother did um he does not refer in
+the sections that deal with his problems
+to his brother at all
+um I I indicated the two brothers had
+some sort of difficult relationship with
+each other so they might not have likeed
+to site each
+other
+um he says the condition that must be
+fulfilled is uh the
+following um I the insurer and the
+insured as assume to know with regard to
+the risk
+concerned everything about the behavior
+of the whole class or the group or the
+collective of
+events but about the singular event me
+dying tomorrow you dying tomorrow uh
+
+[0:34:20]
+about the singular event we know
+nothing but that they are elements of
+this class that is we know uh everything
+about the class of males at age 62 for
+instance but about the risk applying to
+me as an individual falling into this
+class we know nothing except that I'm
+also 62 and are a member of this
+group
+um for example I assume to know
+everything based on objective long run
+frequency distributions about the risk
+of hurricane damage to the residents of
+some specified territory but about any
+particular individual and his particular
+risk I know nothing except that I'm a
+resident of this territory for which we
+do have uh these uh uh frequencies
+calculated now you you note the
+character of this definition the
+definition that Mees here gives first
+implies the absence of any systematic
+redistribution that takes place what I
+pointed out at the beginning about
+insurance if I know nothing about any
+particular person's risk except that he
+is a member of a group with such and
+such a group risk then all
+redistribution must be random must be
+unpredictable um it also imply so to
+speak the homogeneity of all cases I
+know nothing that distinguishes other
+people who are 62 from me who are
+62 as far as uh our likelihood of
+being dying this in the next year is uh
+
+[0:36:20]
+is concerned um and even in so far as I
+know nothing about a particular
+individual within a group except that it
+belongs to this group then and in so far
+as they are homogeneous this also
+implies that things that are insurable
+must have the character of an
+accident um in order to be insurable
+events now then the
+question what types of surprises what
+types of contingencies are
+uninsurable
+um and there Misa says that is the
+case if I
+know with regard to a particular
+risk some or all of the factors
+determining its
+outcome if I do know something about an
+individual
+case only about this individual case
+that has some
+influence
+or total influence on the outcome then
+we have a case of case
+probability in front in front of us and
+as far as case probability is concerned
+we can never make numerical statements
+because it is just an individual case
+um now if we raise the question what
+types of events are of this nature that
+is cannot be insured because we know
+something about individual cases then
+misus is not always perfectly clear on
+this but the answer is that when it
+comes to human
+
+[0:38:21]
+actions then we can say human actions
+are indeed always singular event
+why are they always singular events why
+can we not classify human actions into
+classes of events about which we have uh
+objective probabilities collected and
+the answer is for individual actions of
+course we always do know what the motive
+of this guy was what the reason of this
+guy was what the knowledge was that he
+had at this point in time what the
+knowledge was that he had at another
+point in time that is we have a method
+of place selection that is the method of
+place selection is the method of
+understanding people we can understand
+individual
+situations I can distinguish your
+action uh from the action of somebody
+else by knowing you by knowing your
+motives I cannot distinguish one stone
+falling from another Stone falling uh
+because there is no way of me to
+understand what the stone is thinking if
+he is thinking anything at all um so
+while accidents can
+be insured
+against
+actions that are individually motive
+motivated and driven by individual
+knowledge uh actually
+can and the results of actions cannot be
+um uh cannot be insured against um but
+are something that falls into the realm
+of individual responsibility and this is
+a task of entrepreneurs so to speak to
+predict these sorts of things but not
+predict them according to objective
+
+[0:40:22]
+probabilities now now to Applications
+as I said I have control over my actions
+you have control over your actions hence
+every risk that may be influenced by my
+actions is
+uninsurable and what is not controllable
+through individual actions is insurable
+provided long run objective frequency
+distributions exist and if something
+that was not controllable becomes
+controllable then it loses its
+insurability status with respect to
+risks of the type of natural disasters
+floods hurricanes earthquakes fires
+insurance is obviously possible um
+because these events are outside of
+individual control I know nothing about
+my individual risk except that I'm a
+member of a certain group of individuals
+on the other hand take risks like
+suicide um or arson or unemployment or
+not getting up in the morning um these
+are uninsurable events because I do have
+control over this I cannot ensure myself
+against burning my own house down
+because I obviously do have control over
+this I cannot ensure myself against
+becoming unemployed because I also have
+control over this whether it is Big
+control or small control does not matter
+all that much um you can always accept a
+lower wage rate for instance and you did
+before and you can become instantly
+unemployed if you kick your boss in the
+behind
+um so there are many ways that you can
+affect the likelihood of being
+unemployed or being uh or being employed
+for that reason unemployment insurance
+is impossible that we have something
+that is called unemployment insurance uh
+means nothing uh governments always find
+nice words for things that are obviously
+
+[0:42:22]
+completely different from what they
+really from what they really are uh
+Social Security is another example that
+is obv um that is obviously precisely
+social insecurity but they call it of
+course Social Security um I obviously uh
+cannot ensure myself against feeling ill
+in the morning and not wanting to get
+out of out of bed if I could ensure
+myself against it I would pay the
+premium I would always feel ill and not
+get out of uh not get out of bed
+um I cannot Ure myself against
+committing suicide
+tomorrow um because if that were my
+intention to kill myself I pay the
+premium my wife will be a millionaire
+tomorrow and I'm dead insurance
+companies that do this sort of stuff
+will not last for very long in um in the
+market um in all of these cases we we
+cannot really say um you know um that
+that
+um all I'm a person and like all other
+persons I'm afflicted by this risk of
+not feeling good in the morning and not
+getting up we know that we have control
+over this and we know that people do not
+fall into one and the same class but are
+different individuals and this sort of
+stuff belongs into the realm of
+individual
+responsibility and is unin
+uninsurable I can also not ensure myself
+against making business
+losses uh because obviously it is easy
+as pie to make losses if I ensure myself
+make losses and then I collect uh from
+the insurance company I can also not
+insure myself against fractional Reserve
+banking uh because if I can ensure
+
+[0:44:24]
+myself I have hold EX I will hold zero
+reserves uh and in that case my
+bankruptcy is guaranteed uh so no
+insurance company would ever take on a
+risk such uh such as uh such as
+this um so now applying this further to
+health
+insurance
+um the immediate Insight is obviously
+that health insurance insurance is
+insurable only in so far as the health
+risk for a given group is
+accidental such as maybe accident
+Insurance uh being stricken by cancer
+some bodily melt functioning and so
+forth but since most health risks and
+with the advance of medical technology
+more and more of such risks fall within
+the province of individual control very
+little in this field is actually
+insurable um such risks again must be
+assumed individually and paid out of
+pocket or out of individual
+savings um now it is
+noteworthy um that uh in all recent
+discussions about uh Health Care
+reform uh this has been almost
+completely overlooked is that there is
+no way that we can this type of stuff
+well most of it at least except for
+misus early on in his career in his book
+socialism uh he wrote he wrote this
+great foresight he said to the
+intellectual champions of social
+insurance and to the politicians and
+statemen who enacted it illness and
+health appeared as two conditions of the
+human body sharply separated from each
+
+[0:46:24]
+other and always recognizable ible
+without difficult or doubt any doctor
+could diagnose the characteristics of
+health and illness was a Bly phenomenon
+which showed itself independent of the
+human will and was not susceptible to
+influence by will now every statement in
+this theory is false he says there is no
+clear defined Frontier between health
+and illness being ill is not a
+phenomenon independent of conscious will
+and of forces working in the
+subconscious a man's efficiency is not
+merely the result of his physical
+condition it depends largely on his mind
+and will thus the whole idea of being
+able to separate by medical examination
+the unfit from the fit and from the
+malingerers and those able to work from
+those unable to work proves to be
+untenable those who believed that
+accident in health insurance could be
+based on completely effective means of
+ascertaining illnesses and injuries and
+their consequences were very much
+mistaken the destruiste of accident and
+health insurance lies above all in the
+fact that such institutions promote
+accidents and illness hinder recovery
+and very often create or at least
+intensify and lengthen the functional
+disorders which follow from illness or
+accidents I should mention
+to underline this Insight uh that if you
+look simply at um self-employed people
+on the one hand as compared with let's
+say 10 yard University professors or in
+the German system B that are uh have
+life guaranteed jobs if you look at how
+frequently they are sick uh you find a
+
+[0:48:27]
+clear difference between them
+self-employed people keep working under
+circumstances where all 10 yard
+University professors would long have
+turned in an application that for five
+six weeks they would be unable to
+perform their duties which might be
+actually better sometimes if they
+wouldn't
+do so as regard Health one would expect
+that most risks are assumed individual
+in individual and insurance would be
+limit to the strict accident variety of
+risk with strictly limited coverage and
+so
+forth now if we look at the present
+world then however we find some
+fundamental
+difference um and to make it to make it
+brief I'm running almost out of time
+here
+um to explain what what has happened in
+the current world is
+this due to various regulations of
+insurance companies two things have
+happened first insurance companies are
+by law
+prohibited from discriminating groups
+correctly that is people are pulled in
+groups who clearly belong into different
+groups um in Europe if I remember
+correctly there was just some uh law
+past that any type of difference in
+health insurance premiums for males and
+females would be outlawed despite the
+fact that there are significantly
+different health risks for males and
+females in existence which every
+Actuarial would be able to uh to tell
+you so and I'll give you a few examples
+of what sort of nonsense regulations
+
+[0:50:29]
+there um exist in this uh in this Regard
+in a in a moment and the second thing
+is that insurance companies are not only
+legally required not to discriminate
+even though they know it they should
+discriminate and group people into
+different groups the second thing is
+that insurance companies are also
+obliged to insure people against
+uninsurable risks
+a few examples of
+this there huge amount of mandates I
+have not followed this sort of stuff
+closely anymore just years ago that I
+looked into this
+um in 1991 for instance there existed
+992 regulations that insurance companies
+had to follow in order to be allowed to
+operate as an insurance company give you
+some examples here
+um treatment of alcoholism must be
+covered by insurance companies in 49
+states even though obviously that
+doesn't apply to everyone in the same
+way uh Islamic PE people for instance
+drink very little alcohol they would not
+need this sort of stuff um drug
+addiction in 27 states in the meantime
+I'm sure the numbers are even higher uh
+use of chiropractors in 45 of pod
+podiatrist this the foot doctors 37
+psych shrinks in 36 States um I mean I
+know people who love to go to shrinks
+because they always think that they have
+some some some ailment and I know other
+I know other people would never in in
+their entire life see the see the office
+of a shrink but the price must be
+covered of course for those who do go to
+shrinks all the time um social social
+workers the same thing in 27 in 22
+States in
+1991 um in Georgia heart transplants
+
+[0:52:31]
+must be must be covered by insurance
+companies despite the fact that again
+not all people are equally likely
+requiring a heart
+transplant uh in Illinois liver
+transplant uh in Minnesota very nice
+hair pieces um even though it should be
+perfectly clear that I mean I know my
+father never lost his hair my
+grandfather never lost his hair I will
+not lose my hair so I don't need this
+but I if I I'm insured I must cover that
+cost
+also um in uh California marriage
+counseling that is of of course a state
+where that is really very urgent uh very
+urgent topic um pastoral Counseling in
+Vermont and sperm banking in
+Massachusetts uh um California also
+Outlaws any type of genetic testing in
+order to determine whether you belong in
+this risk group or that risk group even
+though in many cases of course you can
+very easily determine U by simple tests
+that this guy must be in this group and
+that guy must be in that group there
+exist certain disease certain diseases
+that occur only if certain people have
+uh things that can be uh can be
+immediately determined by a genetic uh
+uh
+examination um now what is the
+consequence of these
+mandates now what you can imagine is of
+course the
+price for medical insurance continuously
+Rises as a consequence of this because
+all that nonsense has to be covered they
+are required to cover all of this um
+what is then the consequence of
+prices for insurance premiums
+continually going
+
+[0:54:32]
+up it is that more and more people will
+opt to drop out of insurance entirely
+because they say look this doesn't apply
+to me why in the world should I just
+ensure myself against uh having uh
+getting a wig uh paid by the insurance
+company why in the world should I insure
+myself against alcoholism if I'm uh if
+I'm not drinking a a drop of alcohol not
+that that applies to me but uh there are
+people like this obviously um so more
+and more people come to the
+conclusion hey I I have to pay for all
+sorts of nonsense none of that applies
+to me and they drop out entirely what is
+then the consequence now those people
+who remain in the system of course must
+then pay still higher premium
+so here we have a case of uh the what
+what misus describes in the Dynamics of
+interventionism one intervention leads
+to the next intervention and that leads
+to the next intervention so what do you
+do if people drop out prices even go up
+higher then you have to introduce
+compulsory
+Insurance um that is people are no
+longer allowed to drop out of this
+nonsense system they must be in there
+um and what happens if the prices then
+continue to go up what then happens is
+eventually they will introduce some sort
+of rationing system um that is then
+politicians will be the ones that
+determine what are good diseases that
+deserve to be treated and what are bad
+diseases that do not uh deserve to be
+treated um that is the government then
+becomes like Dr Koran um determining who
+can live and who must and who must die
+
+[0:56:35]
+um and as you can see in the United
+States we are approaching this type of
+system uh quickly where it will be uh
+our beloved members of Congress and
+Senate and presidents and whatever they
+are who determine who is a good guy and
+is allowed to be treated uh and relieved
+of his ailments and who are the bad guys
+and who deserve to die thank you very
+much
+[Applause]
+[Music]

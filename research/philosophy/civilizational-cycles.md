@@ -944,5 +944,27 @@ And even if the cycle does turn — even if the 2020s-2030s convergence produces
 
 ---
 
+## XI. The Kohlberg Interpretation: Civilizational Decay as Developmental Regression
+
+Lawrence Kohlberg's stages of moral development provide a psychological lens on the cycle that complements the structural-institutional analysis above:
+
+- **Pre-conventional:** Obey rules to avoid punishment (externally enforced — law-like)
+- **Conventional:** Follow social expectations to maintain group membership (socially enforced — ethics-like)
+- **Post-conventional:** Act on self-determined universal principles (self-enforced — morality-like)
+
+Kohlberg's ordering maps *inversely* to the [scope confusion](./morality/scope-confusion.md) enforcement regime gradient. Moral maturity means *internalizing* enforcement — needing less external structure to behave well. A person who doesn't steal because of conscience is more mature than one who doesn't steal because of reputation, who is more mature than one who doesn't steal because of jail. Same norm, different enforcement, different developmental stage.
+
+**The civilizational decay ratchet is a regression on Kohlberg's scale.** Pushing norms up the enforcement gradient (morality → ethics → law) means a society is becoming *less mature*, not more governed. A healthy society operates largely at the post-conventional level: people self-enforce norms, communities handle social enforcement, and institutional enforcement is reserved for the narrow domain where it's genuinely needed. A decaying society demands institutional enforcement for everything — a regression to the pre-conventional stage where order exists only because punishment exists.
+
+**The monopoly case illustrates this:** A mature society says "the market will correct the monopoly; we'll endure the discomfort." An immature society says "fix it now; I don't care how." The clamor for government intervention is the pre-conventional response (demand external authority) when the post-conventional response would be to trust the mechanism and accept the timeline. The impatience that drives the intervention is a developmental failure, not a policy insight.
+
+**This reframes the entire cycle:** Ibn Khaldun's asabiyyah (voluntary solidarity) is a post-conventional phenomenon — people cooperate because they share internalized principles. The decay of asabiyyah into coercion is a regression to pre-conventional enforcement. Toynbee's creative minority leads through inspiration (post-conventional); the dominant minority leads through compulsion (pre-conventional). Olson's rent-seekers exploit institutional enforcement for private gain (pre-conventional self-interest wearing conventional clothing).
+
+The cycle may not be inevitable. But *when* it occurs, the mechanism is developmental regression: societies losing the capacity for self-enforcement and demanding ever-higher levels of external enforcement. The friction structure (constitutions, separation of powers) exists to slow this regression. The principled gate exists to prevent it from completing.
+
+*See: [Scope Confusion](./morality/scope-confusion.md) for the enforcement regime framework, [Opposing Forces](./opposing-forces.md) for why intervention in natural mechanisms often backfires.*
+
+---
+
 ## Tags
 [philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md), [history](../../tags/history.md), [civilizational-cycles](../../tags/civilizational-cycles.md)
