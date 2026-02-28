@@ -21,10 +21,42 @@ Moved all `source/repos/` projects to GitHub under `chrisaacson69`. Vault is its
 - [pytorch-audio-learning](https://github.com/chrisaacson69/pytorch-audio-learning) — TorchAudio tutorial series
 
 ## In Progress
-_Nothing active._
+
+### Is-Ought Bridge / Grounding Morality
+The central open question: does "you exist and must act" ground morality empirically, or does Agrippa's trilemma always produce infinite regress? Connected to the weighting problem's "conditional-ought escape" and the debate analyses. Resolving this shapes everything downstream (scope confusion, civilizational cycles, legal theory).
+- [Morality Framework](../research/philosophy/morality/README.md)
+- [Weighting Problem](../research/philosophy/epistemology/weighting-problem.md)
+- [Agrippa Debate](../research/debates/agrippa-axioms-wilson-whatever.md)
+- [Moral Foundations Debate](../research/debates/moral-foundations-wilson-whatever.md)
 
 ## Up Next
-_Nothing yet._
+
+### Epistemology — develop from stub
+The vault's epistemological foundation (structural realism, convergence-as-evidence) hasn't been examined on its own terms. Everything depends on this.
+- [Epistemology](../research/philosophy/epistemology/README.md)
+
+### Define "flourishing" (even provisionally)
+The morality framework's dependent variable. Needed to complete the is-ought bridge.
+
+### Coercion boundary analysis
+Where does "limiting choices" (aggression) end and "merely not providing choices" begin? A NAP question from the measurement-causality and government-formation work.
+- [Measurement, Causality](../research/philosophy/measurement-causality.md) (line ~92)
+- [Government Formation](../research/philosophy/legal-theory/government-formation.md) (line ~265)
+
+### Cognitive vs. Motor Skills — develop from stub
+Referenced by cyborg model, measurement-causality, and LLM grounding problem. Needs architecture comparison, latency argument, embodied cognition.
+- [Cognitive vs. Motor](../research/cognitive-vs-motor.md)
+
+### Scope legitimacy criteria
+Rules for when zoom-in vs. zoom-out is legitimate in the morality framework's scope model. Without this, scope-shifting is a tool for justification.
 
 ## Someday / Maybe
-_Nothing yet._
+
+- Constitutional analysis (dedicated page unifying all Constitutional threads)
+- Free speech / 1A analysis
+- 2nd Amendment analysis
+- Fraud as aggression (without mens rea) + serial fraud problem
+- Marriage / shared ownership under natural law
+- Restitution for death
+- Business models + agent team economics
+- Money, competition, and capital theory

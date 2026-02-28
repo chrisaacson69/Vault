@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-17
-**Links:** [Philosophy](./README.md), [Economics](../economics/README.md), [Limits of Utopia](../../notes/limits-of-utopia.md), [Words of Wisdom](../../notes/words-of-wisdom.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Legal Theory](./legal-theory/README.md), [Rudyard Lynch (Whatifalthist)](./whatifalthist.md), [The Multiplayer Coalition Problem](../gaming/multiplayer-coalition-problem.md)
+**Links:** [Philosophy](./README.md), [Economics](../economics/README.md), [Limits of Utopia](../../notes/limits-of-utopia.md), [Words of Wisdom](../../notes/words-of-wisdom.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Legal Theory](./legal-theory/README.md), [Rudyard Lynch (Whatifalthist)](./whatifalthist.md), [The Multiplayer Coalition Problem](../gaming/multiplayer-coalition-problem.md), [Scope Confusion](./morality/scope-confusion.md)
 
 ---
 

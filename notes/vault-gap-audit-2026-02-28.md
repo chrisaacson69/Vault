@@ -52,9 +52,9 @@ These are threads opened in existing files that were left hanging. They weaken t
 - **File:** [research/philosophy/morality/README.md](../research/philosophy/morality/README.md) (line ~101)
 - **Problem:** Cross-cultural convergence is used as evidence for moral objectivity, but civilizations also converged on slavery, patriarchy, and out-group violence. Error-correction over centuries is proposed as the filter, but the timescale problem ("what does a person living inside an uncorrected error do?") is unresolved.
 
-### 2.4 Positive vs. negative rights — referenced but never developed
+### 2.4 The coercion boundary — where does aggression begin?
 - **Files:** [research/philosophy/measurement-causality.md](../research/philosophy/measurement-causality.md) (line ~92), [research/philosophy/legal-theory/government-formation.md](../research/philosophy/legal-theory/government-formation.md) (line ~265)
-- **Problem:** The coercion analysis distinguishes "limiting choices" from "not providing choices" and flags this as mapping onto positive vs. negative rights. The government formation page lists it as an open question. Neither develops it. This is a critical boundary for the legal theory — it determines how minimal the minimal state should be.
+- **Problem:** The coercion analysis distinguishes "limiting choices" (active aggression, NAP violation) from "merely not providing choices" (absence of charity). Both files flag this as an unresolved boundary. This is a NAP question, not a rights-taxonomy question — it determines where the line sits between what government can legitimately compel and what it can't.
 
 ### 2.5 "Best system so far" — the strongest pragmatic defense, underdeveloped
 - **File:** [research/debates/moral-foundations-wilson-whatever.md](../research/debates/moral-foundations-wilson-whatever.md)
@@ -157,7 +157,7 @@ These are topics the vault's own files explicitly call for but that haven't been
 
 ### Tier 2 — Load-Bearing Gaps (referenced by multiple files)
 4. Develop cognitive-vs-motor from stub
-5. Resolve positive vs. negative rights
+5. Resolve the coercion boundary (where does aggression begin?)
 6. Write scope legitimacy criteria
 7. Write constitutional analysis page
 
