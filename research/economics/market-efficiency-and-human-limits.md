@@ -70,44 +70,65 @@ Even the professional class trained to understand markets — economists — fai
 
 **The market doesn't fail. The participants fail the market.** And the gap between what the market requires of us and what we're capable of — that gap is where every problem lives.
 
-## Case Study: Education, Vouchers, and Student Loans
+## The Government-Guaranteed Revenue Distortion
 
-Education policy is the cleanest demonstration of how guaranteed government money distorts a market, because we can see the same mechanism play out at two levels — K-12 and higher education — with decades of data.
+Whenever government guarantees revenue to an industry — through subsidies, loan backstops, mandatory participation, or tax-funded allocation — the same distortion plays out. The mechanism is general. Education, healthcare, housing, and retirement are all instances of the same law.
 
-### The Voucher Half-Step
+### The Three Steps
+
+1. **Government guarantees revenue to an industry** — subsidy, loan backstop, compulsory participation, per-capita allocation. The money arrives whether or not the recipient delivers value.
+2. **The industry optimizes for capturing the guaranteed revenue** — not for delivering value to the end consumer. The consumer isn't the one paying, or can't opt out, so their preferences stop mattering at the margin.
+3. **Costs rise, quality decouples from price** — because the feedback loop between "this isn't worth what I'm paying" and "I'll stop paying" has been severed. The normal market correction — consumers walking away — is structurally impossible.
+
+That's the whole law. Every industry that receives guaranteed government revenue follows this path. The specifics differ; the mechanism doesn't.
+
+### Case Study 1: Education
+
+Education is the cleanest demonstration because we can see the same mechanism at two levels — K-12 and higher education — with decades of data.
+
+#### K-12: The Voucher Half-Step
 
 School vouchers fix one problem and leave a bigger one untouched:
 
 - **What they fix:** The captive audience. Families can choose where to send their children instead of being assigned by zip code. Competition enters the system.
 - **What they don't fix:** The price signal. Every family walks in with ~$20k of government money ([see spending data](./us-spending-per-student.md)). That's a price floor disconnected from value delivered. Schools compete for students, but they're competing for a guaranteed $20k, not for what education is actually worth to each family at the margin.
 
-The distortion chain remains:
-1. Compulsory taxation removes the opt-out — you pay whether you use it or not
-2. Per-pupil allocation sets an artificial price disconnected from value delivered
-3. Vouchers redirect the money but don't change the amount or the compulsion
-4. Schools optimize for capturing the voucher, not for delivering value proportional to cost
+The three steps at K-12:
+1. **Guaranteed revenue:** Compulsory taxation funds ~$20k per pupil. You pay whether you use it or not.
+2. **Industry captures it:** Schools optimize for enrollment counts and compliance, not value delivered. Per-pupil allocation sets an artificial price disconnected from outcomes.
+3. **Costs rise, quality decouples:** Spending up 3-4x in real terms since 1960. Test scores flat. Benefits spending up 81% while salaries up 8%. The money goes where the consumer can't see it.
 
-You still end up with costs rising faster than outcomes — just with more competition around the margins.
+Vouchers redirect the money but don't change the amount or the compulsion. You still end up with costs rising faster than outcomes — just with more competition around the margins.
 
-### Government-Backed Student Loans: The Same Mechanism, Worse Outcomes
+#### Higher Education: Government-Backed Student Loans
 
-Federal student loans are the college-level version of the same distortion, and we have 30+ years of data on the results:
+Federal student loans are the college-level version, and we have 30+ years of data:
 
-1. **Guaranteed money enters the system** — federally backed loans that can't be discharged in bankruptcy
-2. **Schools optimize for capturing the money** — tuition rises to absorb whatever loans make available
-3. **The price signal is destroyed** — students don't price-shop because it's "future money"; lenders don't care because the government backstops default
-4. **Supply expands to meet artificial demand** — degree programs multiply; enrollment is pushed on everyone regardless of fit
-5. **People who should have been in vocational tracks at 16 are $80k in debt at 24** with a degree the market doesn't value
+1. **Guaranteed revenue:** Federally backed loans that can't be discharged in bankruptcy. Schools get paid regardless of whether the degree delivers value.
+2. **Industry captures it:** Tuition rises to absorb whatever loans make available. Some schools became, functionally, loan procurement operations — marketing degrees to people who saw the upside (credential, career change) but couldn't process the downside (debt load, opportunity cost, degree devaluation from oversupply). One-sided analysis by the participants, exactly as predicted.
+3. **Costs rise, quality decouples:** Degree programs multiply. Enrollment is pushed on everyone regardless of fit. People who should have been in vocational tracks at 16 are $80k in debt at 24 with a degree the market doesn't value.
 
-The schools adapted to the money structure. Some became, functionally, loan procurement operations — marketing continued education to working adults who saw the upside (degree, credential, career change) but couldn't process the downside (debt load, opportunity cost, degree devaluation from oversupply). One-sided analysis by the participants, exactly as predicted.
-
-### The Death of Vocational Tracking
+#### The Death of Vocational Tracking
 
 In the 1980s, public schools still guided students toward vocational training as early as high school. This was closer to a market outcome — it recognized that people have different comparative advantages and matched them accordingly.
 
 That system was dismantled by a narrative: "everyone deserves college." It sounded moral but ignored supply and demand. The trades now face severe labor shortages *because we told an entire generation that plumbing is beneath them*. Meanwhile a master plumber out-earns most liberal arts graduates and carries no debt.
 
 The pattern: a well-intentioned narrative overrode the market signal, backed by government money that made the bad decision feel free at the point of purchase. By the time the bill came due, the decision was irreversible.
+
+**TODO:** Add data and references — tuition inflation vs. CPI, vocational enrollment trends 1970s–present, trade salary comparisons, student loan default rates, comparative international models (German apprenticeship system).
+
+### Case Study 2: Forced Savings (Social Security)
+
+Social Security is the purest instance of the three steps because there's not even a pretense of consumer choice.
+
+1. **Guaranteed revenue:** Mandatory payroll tax. You cannot opt out, redirect the funds, or choose your provider. The "industry" receiving the guaranteed revenue *is* the government itself.
+2. **The operator captures it:** Politicians optimize Social Security for electoral incentives — expanding benefits, resisting reform — not for delivering returns to the contributor. There is no competitor. There is no exit.
+3. **Costs rise, returns decouple:** The same dollars invested in an index fund would produce dramatically higher returns. But the contributor can't make that comparison at the point of purchase because there is no purchase — there's a payroll deduction. The feedback loop isn't just severed; it was never wired.
+
+Social Security proves the law generalizes beyond industries that *receive* government money to any system where government *intermediates* between the earner and the outcome. The mechanism is identical: guaranteed revenue, capture by the operator, and the death of the price signal.
+
+**TODO:** Add data — Social Security ROI vs. index fund returns by cohort, trust fund depletion projections, international comparisons (Singapore CPF, Chile AFP).
 
 ### The Circular Dependency
 
@@ -116,8 +137,6 @@ Removing these distortions through democratic means requires an electorate that 
 This may be the deepest version of the human-limits problem: you can't get *to* free markets from *here* through the democratic process, because the voters have been shaped by the very distortions you're trying to remove.
 
 The market will likely find solutions anyway — it always does, working around the distortions. But the path and the timeline are open questions.
-
-**TODO:** Add data and references — tuition inflation vs. CPI, vocational enrollment trends 1970s–present, trade salary comparisons, student loan default rates, comparative international models (German apprenticeship system).
 
 ## What to Do About It
 
