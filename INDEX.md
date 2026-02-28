@@ -23,6 +23,7 @@
 - [Philosophy](./research/philosophy/README.md) — first-principles exploration of foundational philosophical questions
   - [Morality](./research/philosophy/morality/README.md) — naturalistic moral framework built from bedrock concepts
     - [Scope Confusion](./research/philosophy/morality/scope-confusion.md) — why most political disagreements are scope assignment errors; enforceability gradient; mens rea as case study
+    - [Performative Grounding — Philosophical Lineage](./research/philosophy/morality/performative-grounding-lineage.md) — the 2,400-year tradition behind the performative contradiction move; Aristotle through Korsgaard; comprehensive reading list
   - [Logic and Mathematics](./research/philosophy/logic-and-math/README.md) — structural realism; formalisms as maps, not territory
   - [Epistemology](./research/philosophy/epistemology/README.md) — how we know what we know; Objectivist engagement
     - [The Weighting Problem](./research/philosophy/epistemology/weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is subjective

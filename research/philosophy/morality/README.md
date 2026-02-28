@@ -147,6 +147,7 @@ Lewis's Tao captures the medium-to-broad scope well. The narrow scope is where u
 ## Sub-Topics
 
 - [The Scope Confusion Thesis](./scope-confusion.md) — formalizing why most political disagreements are scope assignment errors, not value disagreements. Connects to mens rea, civilizational cycles, and the enforceability gradient.
+- [Performative Grounding — Philosophical Lineage](./performative-grounding-lineage.md) — the 2,400-year tradition behind the performative contradiction move: Aristotle, Apel, Habermas, Gewirth, Korsgaard, Hoppe, Wittgenstein, existentialists, Finnis. Comprehensive reading list.
 
 ## Open Questions
 
@@ -176,6 +177,12 @@ Thinkers and works that either support, challenge, or refine this framework:
 | *A Treatise of Human Nature* | David Hume | The is-ought gap — the opposition case |
 | *Groundwork of the Metaphysics of Morals* | Immanuel Kant | Hypothetical vs. categorical imperatives |
 | *Antifragile* / *Skin in the Game* | Nassim Taleb | Lindy, heuristics, skin in the game as ethical principle |
+| *Towards a Transformation of Philosophy* | Karl-Otto Apel | The ur-text for performative contradiction as ultimate justification (*Letztbegründung*) |
+| *Reason and Morality* | Alan Gewirth | Closest structural parallel to performative grounding — rights from agency |
+| *The Sources of Normativity* | Christine Korsgaard | Best contemporary defense of normativity-from-agency |
+| *Natural Law and Natural Rights* | John Finnis | Parallel retorsive strategy from natural law tradition |
+
+See also: [Performative Grounding — Philosophical Lineage](./performative-grounding-lineage.md) for the full reading list.
 
 ## Tags
 [philosophy](../../../tags/philosophy.md), [morality](../../../tags/morality.md), [natural-law](../../../tags/natural-law.md), [economics](../../../tags/economics.md)

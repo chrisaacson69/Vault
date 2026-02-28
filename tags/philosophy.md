@@ -14,3 +14,4 @@
 - [Measurement, Causality, and Free Will](../research/philosophy/measurement-causality.md)
 - [Computation and Information Theory](../research/computation-and-information.md)
 - [Kashrut and the Food-Safety Hypothesis](../research/kashrut-food-safety.md)
+- [Performative Grounding — Philosophical Lineage](../research/philosophy/morality/performative-grounding-lineage.md)
