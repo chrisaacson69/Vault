@@ -97,7 +97,7 @@ These aren't mutually exclusive. The answer might be: outcome 3 for the core, ou
 - Is the weighting problem the *same* problem as the is-ought gap, or a sibling?
 - Can machine learning find "natural" weighting functions from data? If an algorithm trained on all human art judgments converges on stable weights, does that constitute objectivity or just aggregated subjectivity?
 - Does the weighting problem apply to single-metric domains? Or only multi-attribute ones? (Murder is wrong — is this a single-metric judgment or does it have hidden weights?)
-- Where does the weighting problem sit relative to Agrippa's trilemma? Is the weighting function itself subject to the regress? (Why these weights? Because of these meta-weights. Why those meta-weights? ...)
+- Where does the weighting problem sit relative to Agrippa's trilemma? Is the weighting function itself subject to the regress? (Why these weights? Because of these meta-weights. Why those meta-weights? ...) **Partial resolution:** The core weighting (convergent norms) escapes the regress via [performative grounding](../morality/README.md#the-resolution-performative-grounding-2026-02-28) — the actor questioning the weighting is already demonstrating it. The marginal weightings remain genuinely subjective, which is consistent with outcome 3 above.
 
 ## Tags
 [philosophy](../../../tags/philosophy.md), [epistemology](../../../tags/epistemology.md), [economics](../../../tags/economics.md), [morality](../../../tags/morality.md)

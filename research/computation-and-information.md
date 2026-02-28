@@ -3,7 +3,7 @@
 
 **Status:** stub — connections mapped, detail to follow
 **Created:** 2026-02-19
-**Links:** [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md), [Economics](./economics/README.md)
+**Links:** [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md), [Economics](./economics/README.md), [Opposing Forces](./philosophy/opposing-forces.md)
 
 ## Why This Matters
 

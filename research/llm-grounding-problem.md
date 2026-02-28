@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-12
-**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md)
+**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md)
 
 ## The Core Problem
 
