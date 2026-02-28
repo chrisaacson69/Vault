@@ -45,6 +45,7 @@ The price system's advantages are structural, not incidental: massive parallelis
 
 ### Theory
 - [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md) — the market gives society what it wants, but humans may not be smart enough to be good market participants; supply-and-demand analysis failures; GDP per capita as the real measure
+- [Externalities: Fact-Check of the Decomposition Thesis](./externalities-fact-check.md) — do externalities decompose into information and coercion problems, or are they a genuine third category? Sourced review of Coase, Dahlman, Rothbard, Block, Winston
 
 ### Planned
 - Business Models — how value is captured and sustained
