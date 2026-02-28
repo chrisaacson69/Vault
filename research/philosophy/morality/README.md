@@ -77,6 +77,30 @@ It does *not* ground the margins: short and intense vs. long and cautious, art p
 
 **Connection to the weighting problem:** This maps to outcome 3 from the [weighting problem analysis](../epistemology/weighting-problem.md#what-this-might-prove) — convergence of weightings at the core tracks real patterns in survival and flourishing (grounded by performative contradiction), while subjectivity persists at the margins where multiple weightings are compatible with continued existence. The conditional-ought escape (outcome 2) serves as the bridging principle.
 
+**Philosophical lineage:** This move has independent precedent across several traditions, reinforcing the convergence argument — multiple thinkers arrived at the same structure from different starting points:
+
+| Thinker | Move | Key Work | Year |
+|---------|------|----------|------|
+| **Aristotle** | *Retortion* — denying the Law of Non-Contradiction is a performative contradiction; you presuppose it in the act of denying it | *Metaphysics* Gamma 3–4 | ~350 BC |
+| **Karl-Otto Apel** | *Letztbegründung* (ultimate justification) via transcendental pragmatics — explicitly proposed as a **fourth option** escaping the Münchhausen/Agrippa trilemma. Argumentation presupposes normative commitments; denying them is a performative self-contradiction | *Towards a Transcendental Semiotics* (Selected Essays Vol. 1); "The Problem of Philosophical Foundations in Light of a Transcendental Pragmatics of Language" (*Man and World*, 1975) | 1973–1998 |
+| **Jürgen Habermas** | Discourse ethics — the presuppositions of argumentation (inclusion, sincerity, equal standing) are normative and undeniable. Acknowledged Apel "refuted" the trilemma, though took a more fallibilistic position than Apel's *Letztbegründung* | *Moral Consciousness and Communicative Action* | 1983 |
+| **Alan Gewirth** | *Principle of Generic Consistency* — any agent who acts presupposes freedom and well-being as necessary conditions of agency; denying rights to these is a self-contradiction *within the agent's own commitments* | *Reason and Morality* | 1978 |
+| **Hans-Hermann Hoppe** | *Argumentation ethics* — the libertarian application. Engaging in argument presupposes self-ownership; advocating against it is a performative contradiction. Closest to our framework's NAP grounding | *A Theory of Socialism and Capitalism*; "The Economics and Ethics of Private Property" | 1989 |
+| **Vittorio Hösle** | Self-referential critique — the trilemma itself is self-refuting; claiming "no ultimate justification is possible" is itself an ultimately justified claim | Referenced in Apel's and Albert's debates | 1990s |
+
+**How our formulation differs:** Most of these thinkers ground the argument in the *presuppositions of argumentation specifically* — you must be arguing to deny it, so the norms of argument are self-validating. Our formulation is broader: it grounds in the *presuppositions of existence and action*, not just discourse. You don't need to be arguing — you just need to be alive and acting, which is a weaker (and therefore stronger) requirement. This sidesteps the main objection to Hoppe (that argumentation only presupposes *use* of the body, not *ownership*) and to Apel (that discourse norms are too narrow to generate full moral content). We're not claiming that discourse has presuppositions; we're claiming that *being an agent at all* has presuppositions, and the agent demonstrates them by existing.
+
+**Recommended reading for this section:**
+
+| Work | Author | Relevance |
+|------|--------|-----------|
+| *Reason and Morality* | Alan Gewirth (1978) | Most rigorous version of the agency → self-contradiction → moral rights argument |
+| *The Dialectical Necessity of Morality* | Deryck Beyleveld (1991) | Definitive defense and reconstruction of Gewirth's argument |
+| *Towards a Transcendental Semiotics* | Karl-Otto Apel (1994) | The "fourth option" against the trilemma, fully developed |
+| *A Theory of Socialism and Capitalism* | Hans-Hermann Hoppe (1989) | Libertarian application — closest to the NAP grounding in our framework |
+| *Ancient Self-Refutation* | Luca Castagnoli (2010) | Exhaustive scholarly treatment of retortion from Democritus to Augustine |
+| *Metaphysics* Gamma 3–4 | Aristotle | The original — retortion against denial of non-contradiction |
+
 ## Moral Content — What Makes a Choice Good?
 
 **Working hypothesis:** Morality is *probabilistic heuristics for human flourishing*, discovered empirically across millennia of civilizational experience.
