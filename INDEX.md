@@ -42,6 +42,7 @@
 - [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
   - [The Nash Bargaining Problem](./research/gaming/nash-bargaining-problem.md) — two players, $100, agree or get nothing: Nash's axiomatic solution, patience as leverage, and why identical agents can't trade
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
+  - [The Multiplayer Coalition Problem](./research/gaming/multiplayer-coalition-problem.md) — why multiplayer games resist solution; self-balancing dynamics, phase decomposition, interest rate framework, EPT as slope
   - [BattleValue](./research/gaming/battle-value.md) — BV = sqrt(Attack × HP): universal combat comparison metric; Lanchester's Square Law for individual units
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
@@ -57,6 +58,7 @@
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action
 - [The Limits of Utopia](./notes/limits-of-utopia.md) — defense of markets, risk, and human nature vs. AI-managed societies (Oct 2025, co-written with Copilot)
 - [Working With Claude](./notes/working-with-claude.md) — device setup, interface capabilities, tips, and session history
+- [Vault Gap Audit](./notes/vault-gap-audit-2026-02-28.md) — comprehensive audit of holes, stubs, underdeveloped arguments, and missing cross-links (2026-02-28)
 
 ## Tasks & Goals
 - [Active Tasks](./tasks/active.md)
