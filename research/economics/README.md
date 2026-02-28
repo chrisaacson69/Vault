@@ -43,6 +43,9 @@ The price system's advantages are structural, not incidental: massive parallelis
 - [US Spending Per Student](./us-spending-per-student.md) — inflation-adjusted K-12 per-pupil expenditure over time, cross-verified across federal and independent sources
 - [K-12 Instruction vs. Administration Spending](./k12-instruction-vs-administration.md) — breakdown of where school dollars go: instruction, administration, support services, staffing trends, and what actually drives cost growth
 
+### Theory
+- [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md) — the market gives society what it wants, but humans may not be smart enough to be good market participants; supply-and-demand analysis failures; GDP per capita as the real measure
+
 ### Planned
 - Business Models — how value is captured and sustained
 - Architecture & Guardrails — how system design protects the profit signal (bridges to AI agent architecture)

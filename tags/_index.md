@@ -12,8 +12,9 @@
 - [cyborg](./cyborg.md) — 1 file
 - [debates](./debates.md) — 1 file
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 11 files
-- [education](./education.md) — 1 file
+- [economics](./economics.md) — 12 files
+- [education](./education.md) — 3 files
+- [free-markets](./free-markets.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 1 file
 - [food-safety](./food-safety.md) — 1 file
