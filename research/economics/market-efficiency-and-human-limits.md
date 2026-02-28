@@ -70,6 +70,55 @@ Even the professional class trained to understand markets — economists — fai
 
 **The market doesn't fail. The participants fail the market.** And the gap between what the market requires of us and what we're capable of — that gap is where every problem lives.
 
+## Case Study: Education, Vouchers, and Student Loans
+
+Education policy is the cleanest demonstration of how guaranteed government money distorts a market, because we can see the same mechanism play out at two levels — K-12 and higher education — with decades of data.
+
+### The Voucher Half-Step
+
+School vouchers fix one problem and leave a bigger one untouched:
+
+- **What they fix:** The captive audience. Families can choose where to send their children instead of being assigned by zip code. Competition enters the system.
+- **What they don't fix:** The price signal. Every family walks in with ~$20k of government money ([see spending data](./us-spending-per-student.md)). That's a price floor disconnected from value delivered. Schools compete for students, but they're competing for a guaranteed $20k, not for what education is actually worth to each family at the margin.
+
+The distortion chain remains:
+1. Compulsory taxation removes the opt-out — you pay whether you use it or not
+2. Per-pupil allocation sets an artificial price disconnected from value delivered
+3. Vouchers redirect the money but don't change the amount or the compulsion
+4. Schools optimize for capturing the voucher, not for delivering value proportional to cost
+
+You still end up with costs rising faster than outcomes — just with more competition around the margins.
+
+### Government-Backed Student Loans: The Same Mechanism, Worse Outcomes
+
+Federal student loans are the college-level version of the same distortion, and we have 30+ years of data on the results:
+
+1. **Guaranteed money enters the system** — federally backed loans that can't be discharged in bankruptcy
+2. **Schools optimize for capturing the money** — tuition rises to absorb whatever loans make available
+3. **The price signal is destroyed** — students don't price-shop because it's "future money"; lenders don't care because the government backstops default
+4. **Supply expands to meet artificial demand** — degree programs multiply; enrollment is pushed on everyone regardless of fit
+5. **People who should have been in vocational tracks at 16 are $80k in debt at 24** with a degree the market doesn't value
+
+The schools adapted to the money structure. Some became, functionally, loan procurement operations — marketing continued education to working adults who saw the upside (degree, credential, career change) but couldn't process the downside (debt load, opportunity cost, degree devaluation from oversupply). One-sided analysis by the participants, exactly as predicted.
+
+### The Death of Vocational Tracking
+
+In the 1980s, public schools still guided students toward vocational training as early as high school. This was closer to a market outcome — it recognized that people have different comparative advantages and matched them accordingly.
+
+That system was dismantled by a narrative: "everyone deserves college." It sounded moral but ignored supply and demand. The trades now face severe labor shortages *because we told an entire generation that plumbing is beneath them*. Meanwhile a master plumber out-earns most liberal arts graduates and carries no debt.
+
+The pattern: a well-intentioned narrative overrode the market signal, backed by government money that made the bad decision feel free at the point of purchase. By the time the bill came due, the decision was irreversible.
+
+### The Circular Dependency
+
+Removing these distortions through democratic means requires an electorate that understands markets well enough to vote for market solutions. But the current education system — the one shaped by the distortions — doesn't produce that electorate.
+
+This may be the deepest version of the human-limits problem: you can't get *to* free markets from *here* through the democratic process, because the voters have been shaped by the very distortions you're trying to remove.
+
+The market will likely find solutions anyway — it always does, working around the distortions. But the path and the timeline are open questions.
+
+**TODO:** Add data and references — tuition inflation vs. CPI, vocational enrollment trends 1970s–present, trade salary comparisons, student loan default rates, comparative international models (German apprenticeship system).
+
 ## What to Do About It
 
 The tempting answer is intervention — regulation, mandates, expert panels. But this runs headfirst into Hayek's knowledge problem: the interveners know less than the distributed market, and they have their own incentive distortions.
