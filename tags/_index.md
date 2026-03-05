@@ -12,11 +12,12 @@
 - [cyborg](./cyborg.md) — 1 file
 - [debates](./debates.md) — 1 file
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 12 files
+- [economics](./economics.md) — 13 files
 - [education](./education.md) — 3 files
-- [free-markets](./free-markets.md) — 3 files
+- [free-markets](./free-markets.md) — 4 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 1 file
+- [externalities](./externalities.md) — 3 files
 - [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 3 files
 - [game-ai](./game-ai.md) — 6 files
@@ -25,7 +26,7 @@
 - [history](./history.md) — 2 files
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
-- [libertarian-law](./libertarian-law.md) — 2 files
+- [libertarian-law](./libertarian-law.md) — 3 files
 - [llm-limitations](./llm-limitations.md) — 2 files
 - [logic](./logic.md) — 1 file
 - [machine-learning](./machine-learning.md) — 2 files

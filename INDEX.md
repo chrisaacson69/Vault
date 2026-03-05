@@ -41,6 +41,7 @@
   - [US Spending Per Student](./research/economics/us-spending-per-student.md) — inflation-adjusted K-12 per-pupil expenditure over time, multi-source verification
   - [K-12 Instruction vs. Administration](./research/economics/k12-instruction-vs-administration.md) — where school dollars go: instruction, administration, support services, staffing trends, and the "administrative bloat" debate
   - [Market Efficiency and Human Limits](./research/economics/market-efficiency-and-human-limits.md) — the market gives society what it wants, but humans may not be smart enough to be good participants; supply-and-demand analysis; GDP per capita
+  - [Externalities: Fact-Check](./research/economics/externalities-fact-check.md) — do externalities decompose into information + coercion problems? Sourced review of Coase, Dahlman, Rothbard, Block, Winston; verdict: minority position, empirically weak on information half
 - [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
   - [The Nash Bargaining Problem](./research/gaming/nash-bargaining-problem.md) — two players, $100, agree or get nothing: Nash's axiomatic solution, patience as leverage, and why identical agents can't trade
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop

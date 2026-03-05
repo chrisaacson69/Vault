@@ -14,3 +14,4 @@
 - [K-12 Instruction vs. Administration](../research/economics/k12-instruction-vs-administration.md)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [Market Efficiency and Human Limits](../research/economics/market-efficiency-and-human-limits.md)
+- [Externalities: Fact-Check of the Decomposition Thesis](../research/economics/externalities-fact-check.md)
