@@ -143,6 +143,43 @@ Markets fail to self-correct when:
 
 ---
 
+## 6. The Reframing: Externalities as Internalization Lag, Not Market Failure
+
+The fact-check above evaluates the decomposition thesis against the literature and finds it empirically weak in places. But there's a stronger version of the argument that the decomposition thesis doesn't quite make — one that reframes what externalities *are* rather than arguing they decompose into other categories.
+
+### The Causality Argument
+
+**All trade has externalities by definition.** Causality doesn't stop at the transaction boundary. Every exchange ripples outward — my lawnmower purchase imposes noise on my neighbor, a trade in Monopoly shifts the competitive landscape for every other player, a factory's output affects downstream water quality. Due to causality, nothing exists in a vacuum, and any transaction will always impact third-plus parties.
+
+This means "externality" isn't a special failure category — it's a **description of how causality works across transaction boundaries**. Calling externalities a "market failure" is like calling gravity a "flight failure." It's not a bug in the system; it's the medium the system operates in.
+
+### The Internalization Lag
+
+Markets price 1st-order consequences because those are what transacting parties care about and have information on. Higher-order effects are diffuse, uncertain, and often unmeasurable at the time of transaction. But they're not *ignored forever* — they get internalized over time as they become visible and someone has incentive to price them.
+
+What economists call "market failure" is often just **internalization lag** — the market hasn't priced this *yet*. The lag is a function of two variables:
+
+1. **Measurability** — can the externality be observed and attributed?
+2. **Property rights clarity** — is there an owner who can demand compensation?
+
+When both are high (noise from a lawnmower → identifiable neighbor → identifiable source), the externality is trivially managed. When both are low (diffuse pollution → millions of affected parties → cumulative sources), internalization takes longer. The empirical cases where markets "failed" (lead, asbestos, etc.) are cases where measurability was low *and* producers actively suppressed information, extending the lag artificially.
+
+### The Positive Externality Problem
+
+If externalities can be **positive** — and obviously they can (planting a flower garden brightens the neighborhood, a beekeeper's bees pollinate surrounding farms, an educated workforce benefits employers who didn't pay for the education) — then calling them "market failures" is incoherent on its face. A "failure" that makes everyone better off?
+
+The asymmetry in how the term is applied reveals the bias: economists invoke "externalities" almost exclusively when they want to justify intervention for *negative* spillovers. Nobody proposes a government program to ensure optimal flower planting. But structurally, positive and negative externalities are identical — a third party affected by a transaction they weren't part of. The selective application shows that "market failure" is a **policy conclusion disguised as an analytical category**.
+
+### What This Reframing Does and Doesn't Do
+
+**It does:** Reframe externalities from a failure category into a feature of causality that markets process over time. This removes the presumption that externalities require intervention and shifts the burden to demonstrating that intervention internalizes faster than the market would — accounting for the state's own externalities (scope creep, regulatory capture, compliance costs).
+
+**It doesn't:** Solve the hard cases. Latent harms with information suppression (asbestos, lead) represent genuine internalization failures where the lag was artificially extended. The reframing doesn't deny these cases exist — it argues they're better understood as measurability + property rights problems than as a fundamental category of market failure.
+
+**Connection to the vault:** The [Multiplayer Coalition Problem](../gaming/multiplayer-coalition-problem.md) already uses this framing — "trades have externalities... every trade has parties to the deal and parties affected by the deal." In Monopoly, nobody calls third-party effects a "game failure." The affected players respond, adapt, counter-trade. The system processes the externality through subsequent moves. The market works the same way — it just isn't instantaneous.
+
+---
+
 ## Overall Assessment
 
 The decomposition thesis has identifiable intellectual roots and is not fringe, but:
