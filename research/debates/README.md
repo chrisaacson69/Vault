@@ -54,6 +54,8 @@ Links to related research pages.
 - [Moral Foundations: Are All Worldviews Equally Unjustified?](./moral-foundations-wilson-whatever.md) — Agrippa's trilemma, secular vs religious morality, Christian nationalism (part 2 of 3)
 - [Can Liberalism Be Used to Destroy Itself?](./liberalism-self-defeat-wilson-whatever.md) — amendment process, self-defeating democracy, Christian nationalism vs liberty (part 3 of 3)
 - [Is Art Purely Objective?](./art-objectivity-noerr-strange.md) — 6-hour no-prep debate; really about epistemology, value theory, Agrippa's trilemma, and the is-ought gap (Rob Noerr vs Chris Strange)
+- [Property, Rights, and the God Question](./pool-dyer-review-wilson.md) — Wilson reviews Pool vs Dyer on company towns, communism definitions, predatory lending, grounding of rights, and Pool's incoherent moral pragmatism
+- [The Sheriff Problem: Why Utilitarianism Fails](./utilitarianism-sheriff-counterexample.md) — McCloskey's counterexample, Smart's defense, and four independent vault arguments for why aggregation-based morality breaks
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md)

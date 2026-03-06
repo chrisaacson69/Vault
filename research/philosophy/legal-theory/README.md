@@ -32,6 +32,12 @@ These topics are explored through adversarial debate — Chris takes one positio
 - [Mens Rea](./mens-rea.md) — does criminal intent have a place in libertarian law?
 - [Government Formation and Structure](./government-formation.md) — why government forms (division of labor), the ancap challenge, and the Constitution as a distributed system protocol
 
+## Analysis
+
+- [Registration, Rights, and Government Scope Creep](./registration-and-scope-creep.md) — why the vehicle/gun registration comparison fails, why the constitutional counter is unsatisfying, and the structural pattern of regulatory expansion beyond original justification
+- [Defensive Force and Collateral Damage](./defensive-force-and-collateral-damage.md) — causationism, the defense/retribution distinction, the gentleness principle, and why the state monopoly can't meet its own standard of justified force
+- [Self-Ownership and Property Rights](./self-ownership-and-property-rights.md) — why the standard self-ownership→property-rights derivation chain is the weak link in libertarian theory, and how conflict avoidance grounds both independently
+
 ## Upcoming Topics
 
 - **Marriage under natural law** — can marriage exist in a NAP framework, or does it require fundamental restructuring?

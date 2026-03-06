@@ -254,6 +254,14 @@ But these feedback loops are too slow and too easily captured compared to market
 
 **The structural asymmetry:** Markets adapt in real time because profit/loss is continuous and automatic. Constitutional feedback is periodic, requires active participation, and can be gamed. This speed mismatch means constitutional checks degrade faster than they can self-correct — the same structural asymmetry that makes central planning lose to markets.
 
+## Why Two Parties: Duverger's Law
+
+Winner-take-all, single-member-district elections mathematically converge on two parties. This is Duverger's Law, and it's a game-theoretic inevitability, not a contingent feature of American politics. A binary outcome (win/lose) forces binary coalitions. Third parties are vote-splitters that hurt the ideologically closest major party, so strategic voters abandon them, so they die.
+
+Multi-party systems (ranked choice, proportional representation) require a different payoff structure — multiple winning positions filled from a single election. If there are N seats and RCV fills them, suddenly third-party votes aren't wasted. But single-seat races with a single winner will always collapse to two viable options.
+
+**The deeper point:** changing the voting system doesn't solve the governance problem. Multi-party systems (Germany, Israel, Italy) produce coalition governments that horse-trade their way to the same scope creep. More parties, same ratchet. The issue isn't how many parties capture the state — it's that the state is capturable. Better voting systems rearrange who holds the monopoly; they don't dissolve it. The exit problem remains: voice, however many parties it's distributed across, is still dramatically weaker than exit as a feedback mechanism.
+
 ## Open Questions
 
 - **Can the constitutional experiment survive the cycle?** The US is at 250 years — Glubb's average empire lifespan. Constitutional checks have eroded but still function. Is the institutional innovation sufficient, or is it just slowing the inevitable?

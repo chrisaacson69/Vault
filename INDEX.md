@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-02-28
+**Last updated:** 2026-03-05
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -18,6 +18,7 @@
 - [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
 - [YouTube Migration](./projects/youtube-migration/README.md) — pipeline for turning vault research into YouTube scripts with references and examples (planning)
+- [New Cycle](./projects/new-cycle/README.md) — philosophy-as-fiction; post-apocalyptic covenant communities rebuilding civilization, dramatizing the vault's frameworks over 100 years (concept)
 
 ## Research
 - [Philosophy](./research/philosophy/README.md) — first-principles exploration of foundational philosophical questions
@@ -28,9 +29,14 @@
   - [Epistemology](./research/philosophy/epistemology/README.md) — how we know what we know; Objectivist engagement
     - [The Weighting Problem](./research/philosophy/epistemology/weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is subjective
   - [Legal Theory](./research/philosophy/legal-theory/README.md) — libertarian law; mens rea debate, government formation, marriage, shared ownership
+    - [Registration and Scope Creep](./research/philosophy/legal-theory/registration-and-scope-creep.md) — vehicle/gun registration comparison; structural pattern of regulatory expansion beyond original justification
+    - [Defensive Force and Collateral Damage](./research/philosophy/legal-theory/defensive-force-and-collateral-damage.md) — causationism, defense/retribution distinction, gentleness principle, state monopoly's inability to meet justified force standards
+    - [Self-Ownership and Property Rights](./research/philosophy/legal-theory/self-ownership-and-property-rights.md) — self-ownership→property-rights chain is the weak link; conflict avoidance grounds both independently
   - [Measurement, Causality, and Free Will](./research/philosophy/measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
   - [Civilizational Cycles](./research/philosophy/civilizational-cycles.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
   - [Opposing Forces](./research/philosophy/opposing-forces.md) — why concentrations of power always generate counter-forces; structural principle across physics, computation, evolution, and agency
+  - [The Godel Governance Problem](./research/philosophy/the-godel-governance-problem.md) — can a system prevent monopoly without becoming one? The central unsolved problem: state (inconsistent), ancap (incomplete), constitution (both)
+  - [The Technology-Governance Gap](./research/philosophy/technology-governance-gap.md) — when systems exceed human comprehension; the good fork (forced decentralization) vs the bad fork (informational monopoly); possible way out of the cycle
     - [Rudyard Lynch (Whatifalthist)](./research/philosophy/whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI
@@ -56,6 +62,8 @@
 - [Kashrut and the Food-Safety Hypothesis](./research/kashrut-food-safety.md) — balanced survey: were kosher laws practical food-safety warnings? Evidence for, against, and alternative explanations (Douglas, Milgrom, Harris, Maimonides)
 - [DJ EQ Blending Technique](./research/dj-eq-blending.md) — how pro DJs use EQ as the primary transition tool; technique breakdowns mapped to automation lanes
 - [Online Debates](./research/debates/README.md) — analysis of online "bloodsports" debates; extracting signal from spectacle
+  - [Property, Rights, and the God Question](./research/debates/pool-dyer-review-wilson.md) — Wilson reviews Pool vs Dyer; company towns, communism labels, predatory lending, grounding of rights
+  - [The Sheriff Problem](./research/debates/utilitarianism-sheriff-counterexample.md) — McCloskey's counterexample to utilitarianism; four independent vault arguments for why aggregation-based morality breaks
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

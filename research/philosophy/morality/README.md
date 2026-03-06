@@ -1,7 +1,7 @@
 # Morality — First Principles Exploration
 > Building a naturalistic moral framework from bedrock concepts upward.
 
-**Status:** active — exploratory
+**Status:** active — core framework established, open questions remain
 **Created:** 2026-02-16
 **Links:** [Philosophy](../README.md), [Economics — Value and Profit](../../economics/value-and-profit.md), [The Limits of Utopia](../../../notes/limits-of-utopia.md), [Scope Confusion](./scope-confusion.md)
 
@@ -39,9 +39,9 @@ The spectrum of constraints:
 - **Tight:** "If you want to not die today, eat." Nearly universal, but a hunger striker opts out.
 - **Loose:** "If you're a social creature, cooperate." Broad, but a hermit rejects the premise.
 - **Very loose:** "If you're alive, preserve your life." Most organisms default to this, but suicide exists.
-- **Inescapable?:** "You exist and must act." — Can this be opted out of?
+- **Inescapable:** "You exist and must act."
 
-The natural law play: find a constraint so fundamental to being a conscious agent that rejecting it is incoherent. The "thrown into existence" argument — you are a conscious agent in a physical universe with fixed rules, you *must* act, even inaction is a choice. The structure of reality is not optional.
+**The bridge is closed. Here's how:**
 
 This gets us to "you must choose." The remaining question was whether it gets all the way to "some choices are objectively better."
 
@@ -60,14 +60,21 @@ Agrippa says every justification chain terminates in one of three ways:
 
 Performative grounding is none of these. An axiom is "I assert this, take it or leave it." Performative grounding is "your own actions demonstrate this whether you assert it or not." You cannot opt out of acting. Even refusing to act is an act. The regress stops not because you hit a logical floor, but because you hit **reality** — and reality doesn't need justification, it just is. "Ought the moon exist?" is not an unsolved problem; it's a category error. The moon doesn't need justification. Human existence, human action, human preference-for-continued-existence — same thing.
 
+Every chain of "why ought X?" questions eventually bottoms out to an "is" claim. The performative contradiction seals it — denying your existence, consciousness, or agency requires using all three. These are brute facts, not "ought" claims, and they are inescapable:
+
+1. **You exist** (is) — denying this is a performative contradiction
+2. **You are conscious** (is) — you are experiencing the denial
+3. **You must act** (is) — even inaction is a choice; even asking "must I act?" is an act
+4. **Reality has causal structure** (is) — your actions have consequences determined by physics, not wishes
+5. **Actions have probabilistic consequences observable in aggregate** (is) — certain patterns reliably produce certain outcomes across populations and civilizations
+
+None of these are "ought" claims. They are brute facts. And from brute facts + observable probabilistic tendencies, moral reasoning follows — not as metaphysical commandment, but as the same kind of knowledge as "bridges built with these engineering principles stand up, and bridges built without them fall down." The individual is free to choose; the aggregate data shows which choices tend toward which outcomes.
+
+This also breaks [Agrippa's trilemma](../../debates/agrippa-axioms-wilson-whatever.md). The axioms above are unjustifiable in the trilemma's sense — but they are not arbitrary, because denying them is self-defeating. And the systems built on them are evaluable by coherence, predictive power, and observed outcomes, just as math's axioms are unjustifiable but 2+2=4 still works and bridges don't fall down.
+
 **Why Hume was right but incomplete:**
 
 Hume was correct that you cannot derive ought from is *through logic alone*. But he was looking for a logical bridge when the questioner is already standing on the other side. Existence isn't a premise in a syllogism — it's the condition that makes syllogisms possible. The "ought" isn't derived from the "is." The "is" already contains the "ought" because actors who exist *are already acting*, and acting is choosing, and choosing presupposes valuation.
-
-**The grounding chain:**
-1. **You exist and must act** — empirical fact, undeniable
-2. **Some actions demonstrably destroy the actor** — empirical fact, observable via [measurement chains](../../philosophy/epistemology/README.md) from reality (fire burns, betrayal isolates, self-destruction terminates agency)
-3. **"Why avoid self-destruction?"** — the asker is demonstrating the answer by asking; the question is a performative contradiction
 
 **What this grounds and what it doesn't:**
 
@@ -103,7 +110,7 @@ It does *not* ground the margins: short and intense vs. long and cautious, art p
 
 ## Moral Content — What Makes a Choice Good?
 
-**Working hypothesis:** Morality is *probabilistic heuristics for human flourishing*, discovered empirically across millennia of civilizational experience.
+**Working hypothesis:** Morality is *probabilistic heuristics*, discovered empirically across millennia of civilizational experience. The individual chooses freely; the aggregate data shows which choices tend toward which outcomes.
 
 Key observations:
 
@@ -115,7 +122,7 @@ Key observations:
 
 4. **History is error-correcting.** Slavery was competitively advantageous short-term (Rome conquered the world) but bred contempt that couldn't be controlled. Immoral strategies can win for centuries, but the arc bends. Convergent moral intuitions are the *leading indicator*; civilizational outcomes are the *lagging indicator* that confirms or disconfirms them.
 
-5. **Morality is probabilistic, not absolute.** You can't calculate that turning left will cause a fatal accident a mile ahead. But you can know that certain patterns of living reliably lead toward flourishing or degradation. Morality operates at the level of expected value over a lifetime, not certainty about individual choices.
+5. **Morality is probabilistic, not absolute.** You can't calculate that turning left will cause a fatal accident a mile ahead. But you can observe that certain patterns of living reliably produce certain outcomes in aggregate. Morality operates at the level of expected value over a lifetime, not certainty about individual choices. The individual chooses; the statistics speak for themselves.
 
 ## The Scope Model — Reconciling Updates with Universals
 
@@ -149,19 +156,23 @@ Lewis's Tao captures the medium-to-broad scope well. The narrow scope is where u
 - [The Scope Confusion Thesis](./scope-confusion.md) — formalizing why most political disagreements are scope assignment errors, not value disagreements. Connects to mens rea, civilizational cycles, and the enforceability gradient.
 - [Performative Grounding — Philosophical Lineage](./performative-grounding-lineage.md) — the 2,400-year tradition behind the performative contradiction move: Aristotle, Apel, Habermas, Gewirth, Korsgaard, Hoppe, Wittgenstein, existentialists, Finnis. Comprehensive reading list.
 
+## Resolved Questions
+
+These were previously open frontiers. They've been closed:
+
+1. ~~**Defining "flourishing."**~~ **Dissolved.** The framework doesn't need a definition of "flourishing" — that word smuggles in the same subjective weighting problem it was supposed to solve (see [The Weighting Problem](../epistemology/weighting-problem.md)). Instead: the individual chooses freely, and the aggregate data shows which choices tend toward which outcomes. You don't need to define a loaded term; you need statistics. The data speaks for itself.
+
+2. ~~**Completing the is-ought bridge.**~~ **Closed.** Every chain of "why ought X?" questions bottoms out to an "is" claim. The performative contradiction seals it: denying your existence, consciousness, or agency requires using all three. The brute facts (you exist, you're conscious, you must act, reality has causal structure, actions have observable probabilistic consequences) are not "ought" claims — they're "is" claims that are inescapable on pain of self-contradiction. Moral reasoning follows from these in the same way engineering follows from physics. See the is-ought section above.
+
 ## Open Questions
 
-These are the frontiers — where the framework is incomplete or under pressure:
+These are the remaining frontiers — where the framework is incomplete or under pressure:
 
-1. **Defining "flourishing."** The framework says good choices tend toward flourishing, but what *is* flourishing? Is a short happy life better than a long dreary one? Who decides? This connects to utility theory — and the reason we reject utilitarianism is that group utility can't be maximized or interpersonally compared.
+1. **The filter problem.** Cross-cultural convergence includes bad patterns too (slavery, patriarchy, out-group violence). If convergence validates "don't steal," does it validate "subjugate your enemies"? Directionality (error-correction over time) is the proposed filter, but the timescale can be centuries. What does a person living inside an uncorrected error do?
 
-2. **The filter problem.** Cross-cultural convergence includes bad patterns too (slavery, patriarchy, out-group violence). If convergence validates "don't steal," does it validate "subjugate your enemies"? Directionality (error-correction over time) is the proposed filter, but the timescale can be centuries. What does a person living inside an uncorrected error do?
+2. **Naming an absolute moral truth.** "Murder is wrong" begs the question (murder = wrongful killing by definition). Theistic "God is good" pushes the is-ought gap to the deity. Can a non-theological absolute be identified? This remains the hardest test — though the framework may not need one if probabilistic heuristics evaluated by aggregate outcomes are sufficient.
 
-3. **Naming an absolute moral truth.** "Murder is wrong" begs the question (murder = wrongful killing by definition). Theistic "God is good" pushes the is-ought gap to the deity. Can a non-secular absolute be identified? This remains the hardest test.
-
-4. **The timescale problem.** Immoral strategies can dominate for generations. Error correction is a civilizational process, not an individual one. How does an individual navigate when the lagging indicators haven't caught up yet?
-
-5. **~~Completing the is-ought bridge.~~** Resolved via performative grounding (see above). The bridge isn't logical — it's performative. The actor who questions value is already demonstrating it. This grounds the core (convergent norms) while leaving the margins genuinely subjective, which is the correct result for the scope confusion enforceability gradient.
+3. **The timescale problem.** Immoral strategies can dominate for generations. Error correction is a civilizational process, not an individual one. How does an individual navigate when the lagging indicators haven't caught up yet?
 
 ## Suggested Reading for Next Phase
 
