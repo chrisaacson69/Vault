@@ -53,6 +53,7 @@
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
   - [The Multiplayer Coalition Problem](./research/gaming/multiplayer-coalition-problem.md) — why multiplayer games resist solution; self-balancing dynamics, phase decomposition, interest rate framework, EPT as slope
   - [BattleValue](./research/gaming/battle-value.md) — BV = sqrt(Attack × HP): universal combat comparison metric; Lanchester's Square Law for individual units
+  - [MOO1 Optimal Strategy](./research/gaming/moo1-optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage

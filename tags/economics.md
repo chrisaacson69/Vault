@@ -15,3 +15,4 @@
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [Market Efficiency and Human Limits](../research/economics/market-efficiency-and-human-limits.md)
 - [Externalities: Fact-Check of the Decomposition Thesis](../research/economics/externalities-fact-check.md)
+- [MOO1 Optimal Strategy](../research/gaming/moo1-optimal-strategy.md)
