@@ -90,6 +90,19 @@ Distill simulation results into actionable rules:
 
 Extend to the full opening: when to build the 2nd, 3rd, 4th colony ships. When to start sending transports. When to switch from expansion to consolidation. This is where the DP approach from the strategy doc would apply — the state space grows but is still tractable with pruning.
 
+### Phase 5 (Stretch): Military Pressure & Adaptive Strategy
+
+Phases 1–4 assume you're expanding in a vacuum. Real games break that assumption fast — map generation is highly random, and you might find Bulrathi two parsecs away instead of open space. The interesting question shifts from "what's the optimal expansion rate?" to "when do you abandon the optimal expansion rate?"
+
+The expansion rate *is* the initial interest rate of the game. Every turn you spend building military instead of colony ships or factories, you're paying a premium on an insurance policy against losing everything. The ROI of a missile base is zero in a peaceful game and infinite when the Bulrathi show up on turn 15.
+
+This creates a decision boundary problem:
+
+- **Map topology matters:** Tight clusters of starting positions (Bulrathi surrounded by close neighbors) force early military. Wide-open maps reward pure economic play for 30+ turns. The simulator would need to model map archetypes.
+- **Scouting as information:** The first scout ship resolves enormous uncertainty. Knowing your neighbors lets you pick the right branch. The value of that information might be higher than the first factory it displaces.
+- **The ~20-turn adaptation window:** You can probably game the first 15–20 turns with a fixed opening regardless of map. After that, the game demands adaptation. The optimizer's real value is making those first 20 turns automatic so the player's decision bandwidth is free for the adaptive phase.
+- **Race personality modeling:** Aggressive AIs (Bulrathi, Sakkra) create military pressure early. Passive AIs (Psilon, Darlok) give you breathing room. The optimal response differs — which means the optimal opening is partially a function of *who* your neighbors are, not just *where* they are.
+
 ## Technical Notes
 
 - **Language:** Python. This is an economic sim, not a performance-critical combat sim. Thousands of 100-turn simulations run in seconds.
@@ -108,6 +121,8 @@ The underlying economic reasoning — compound returns vs. linear returns, oppor
 - **Research interaction:** Early research spending competes with factory building and colony ships. When should you start putting points into propulsion/planetology? This interacts with the colony ship question because better range tech opens more colony targets.
 - **Difficulty scaling:** Starting conditions change by difficulty level (more/fewer starting factories and population). Does the optimal strategy shift, or just the timing?
 - **Multi-player extrapolation:** The sim ignores opponents. In a real game, the AI is also expanding. How does competition for planets change the calculus? (Answer: it makes early colonization even more important, pushing optimal colony ship timing earlier.)
+- **Military breakpoint:** At what point does neighbor proximity flip the optimal strategy from "colony ship first" to "missile base first"? Is there a clean distance/aggression threshold, or is it fuzzy? The Bulrathi-surrounded-by-close-races scenario is the extreme case — what does the gradient look like?
+- **Information value of scouting:** Can you quantify the expected value of an early scout ship in terms of reduced uncertainty over the strategy tree? In a high-variance map generator, the first scout might be the highest-ROI "investment" in the game.
 
 ## Tags
 
