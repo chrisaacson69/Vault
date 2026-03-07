@@ -16,6 +16,7 @@
 - [Slay](./projects/slay/README.md) — hex strategy game recreation with AI player (active)
 - [Slay-C](./projects/slay-c/README.md) — C port of Slay engine for performance and deep search (active)
 - [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
+- [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
 - [YouTube Migration](./projects/youtube-migration/README.md) — pipeline for turning vault research into YouTube scripts with references and examples (planning)
 - [New Cycle](./projects/new-cycle/README.md) — philosophy-as-fiction; post-apocalyptic covenant communities rebuilding civilization, dramatizing the vault's frameworks over 100 years (concept)

@@ -349,7 +349,7 @@ This is a **dynamic programming problem** with a small enough state space to sol
 
 A simpler Monte Carlo approach: randomly sample 1000 opening strategies (vary colony ship build start from turn 1 to turn 20), simulate each for 100 turns, and plot total empire production at turn 100 as a function of colony ship build start turn.
 
-**This is a tractable problem. The opening can likely be solved.**
+**This is a tractable problem. The opening can likely be solved.** See [MOO1 Opening Optimizer](../../projects/moo1-opening-optimizer/README.md) for the simulation project that will answer this definitively.
 
 ## Open Questions
 

@@ -67,6 +67,7 @@ Building game-playing AI forces you to express intuitions as algorithms. This is
 
 - [Slay](../../projects/slay/README.md) / [Slay-C](../../projects/slay-c/README.md) — Hex territory control. Alpha-beta search, heuristic evaluation, the tradeoff between search depth and evaluation quality.
 - [Monopoly](../../projects/monopoly/README.md) — Markov chains for positional analysis, EPT valuation, strategic trading. The AI has to model other players' utilities to trade well — which is the economic framework in code.
+- [MOO1 Opening Optimizer](../../projects/moo1-opening-optimizer/README.md) — Economic sim for the colony ship timing problem. Simulates the first 50–100 turns to derive optimal expansion timing across race, planet quality, and distance.
 
 **The multiplayer challenge:** Both Slay (simplified to 2 players) and Monopoly (3+ player trade dynamics never fully solved) hit the same wall — the coalition problem. See [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) for the full analysis.
 
