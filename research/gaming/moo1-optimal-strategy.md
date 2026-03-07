@@ -197,9 +197,163 @@ In MOO1, the default alternative is *growth*. Every resource spent on military i
 
 Military spending is justified only when the expected return (conquered territory, eliminated threat, stolen tech) exceeds the opportunity cost of that same production invested in growth. This is why early wars are usually wrong — the growth rate is highest early, so the opportunity cost of diverting to military is highest. And why late-game wars are usually right — growth has plateaued, and the marginal return on conquest exceeds the marginal return on internal investment.
 
+## Mathematical Opening Theory — When to Build the 2nd Colony Ship
+
+The opening is the most analyzable phase of MOO1 because it has the fewest variables. Can we derive the optimal turn to begin building the second colony ship?
+
+### The Core Mechanics (Extracted from Game Data)
+
+**Production formula:**
+
+```
+Total_Production = (Pop × worker_output) + (Factories_manned × 1.0)
+worker_output = 0.5 + (planetology_level × 1.5 / 50)   # starts at 0.5 BC/colonist
+Factories_manned = min(Factories, Pop × factory_controls)  # starts at 2 per colonist
+```
+
+Klackons double the worker_output term (1.0 BC/colonist at start).
+
+**Population growth (discrete logistic):**
+
+```
+ΔP = 0.1 × P × (1 - P/C) + (eco_spending - eco_minimum) / 20
+```
+
+Where P = population, C = planet capacity, eco_minimum = waste cleanup cost. Growth peaks at P = C/2 and is rounded to nearest 0.1.
+
+**Key costs:**
+
+| Item | Cost (BC) |
+|------|-----------|
+| Factory | 10 |
+| Colonist (via eco) | 20 |
+| Colony ship | ~590 |
+| Scout | 10 |
+| Missile base | ~50 (varies with tech) |
+
+**Starting conditions (Impossible difficulty):**
+
+- 40 population, 30 factories on homeworld
+- Starting production: 40 × 0.5 + 30 × 1.0 = 50 BC
+- Fleet: 1 colony ship (590 BC), 2 scouts (10 BC each) → 610 BC fleet value
+- Fleet maintenance: ~20% of production (~10 BC/turn lost to maintenance)
+
+**Net usable production:** ~40 BC/turn on turn 1.
+
+### The Colony Ship Investment Problem
+
+Building a colony ship costs ~590 BC. The question is: **at what turn does diverting production from factory-building to colony-ship-building maximize total empire production at some future horizon T?**
+
+This is a classic **investment timing problem** — identical in structure to the entrepreneurial judgment framework in [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md).
+
+#### Model Setup
+
+Let's define two strategies and compare them:
+
+- **Strategy A (Early Ship):** Start building the 2nd colony ship immediately (turn 1). At ~40 BC/turn net production, it takes ~15 turns. Colony lands around turn 18 (15 build + 3 transit). New colony starts at 2 pop, 0 factories.
+- **Strategy B (Factories First):** Spend the first N turns building factories on the homeworld, then build the colony ship. The ship is faster to build (higher production), but the colony starts later.
+
+#### Factory ROI Analysis
+
+Each factory costs 10 BC, produces 1 BC/turn, costs 0.5 BC/turn in waste cleanup = **0.5 BC/turn net**.
+
+**Factory payback period:** 10 / 0.5 = **20 turns**.
+
+This means a factory built on turn 1 breaks even on turn 21. A factory built on turn 5 breaks even on turn 25. The ROI is fixed at 5% per turn.
+
+#### Colony ROI Analysis
+
+A new colony starts at 2 pop, 0 factories. Its first-turn production is 2 × 0.5 = **1 BC**. But unlike a single factory, a colony is a **compound growth engine** — it grows population, builds factories, and its output accelerates.
+
+Modeling the new colony's growth (assuming all production goes to factories, eco stays at minimum):
+
+| Turn after landing | Pop | Factories | Production | Cumulative |
+|-------------------|-----|-----------|------------|------------|
+| 0 | 2 | 0 | 1.0 | 0 |
+| 5 | 3 | 4 | 5.5 | ~15 |
+| 10 | 4 | 8 | 10.0 | ~55 |
+| 15 | 6 | 12 | 15.0 | ~120 |
+| 20 | 9 | 18 | 22.5 | ~225 |
+| 25 | 13 | 26 | 32.5 | ~365 |
+| 30 | 18 | 36 | 45.0 | ~560 |
+
+(Population growth uses ΔP = 0.1 × P × (1 - P/C) with C ≈ 50 for a standard planet; factory build rate = production allocated to industry / 10.)
+
+**Colony payback:** The colony ship cost (590 BC) plus the lost production from the homeworld during build. At ~40 BC/turn, building the ship costs 15 turns × 40 BC = 600 BC of homeworld production opportunity cost, plus the 590 BC ship cost is an accounting identity (the production *is* the ship). The real opportunity cost is the ~15 turns of factories not built.
+
+15 turns of factory-building at 40 BC/turn = ~60 factories. Each producing 0.5 BC/turn net = 30 BC/turn permanently.
+
+**The crossover question:** When does the new colony's cumulative production exceed what those 60 factories would have produced?
+
+- 60 factories produce 30 BC/turn starting immediately
+- The colony produces ~0 initially, ramping to ~45 BC/turn by turn 30
+
+**Rough crossover: ~35–40 turns after the colony ship build decision.**
+
+#### The Key Insight: Time Horizon Determines the Answer
+
+If you're optimizing for production at turn 50 (short game), factories first is better — the colony hasn't paid back yet.
+
+If you're optimizing for turn 100+ (which you are in any serious game), the colony wins decisively because:
+
+1. The colony's growth is **compound** (logistic, not linear)
+2. The colony becomes a second production center that can build *its own* colony ships
+3. Each planet adds population, which adds research, which accelerates tech, which boosts *everything*
+
+This is the same reason compounding investments beat fixed-rate returns in [Value and Profit](../economics/value-and-profit.md) — the exponent always wins given enough time.
+
+#### Optimal Timing Formula
+
+The optimal turn T* to start building the colony ship satisfies:
+
+```
+Marginal factory production at T* = Colony NPV per turn delayed
+```
+
+In words: **build the colony ship when the marginal value of one more turn of factory-building on the homeworld equals the marginal value of the colony arriving one turn sooner.**
+
+Since colonies compound and factories don't, this crossover happens early. The approximate answer:
+
+- **Standard race:** Build 2nd colony ship as soon as your homeworld has enough factories to man all colonists (Pop × 2 factories). Beyond that, excess factory-building has diminishing returns because you need population to man them, and population growth is slow without eco spending.
+- **Klackon:** Even earlier, because their doubled worker output means factories are relatively less important (the pop-to-factory ratio matters less when each colonist produces 1 BC instead of 0.5).
+- **Numerical estimate:** For a standard race starting with 40 pop / 30 factories (10 unmanned factory slots), fill those 10 slots (~100 BC = 2.5 turns), then immediately start the colony ship. **Optimal build start: turn 3–5.**
+
+#### The "Factories First" Fallacy
+
+The popular advice to "build factories for at least 10 turns before your first colony ship" is suboptimal. It's correct that factories have a faster *short-term* payback (20 turns vs. 35+ for a colony), but it ignores:
+
+1. **Population caps your factory utility** — you can only man 2 factories per colonist. Once all colonists are manning factories, excess factories sit idle until pop grows.
+2. **Compound returns dominate** — the colony creates a second growth engine; factories at home are purely linear.
+3. **Map control is nonlinear** — colonizing a planet denies it to opponents. Delay means the AI takes it. The opportunity cost of losing a planet is much harder to quantify but potentially enormous.
+4. **Fleet maintenance burns every turn** — your starting colony ship costs ~10 BC/turn in maintenance while it sits. Landing it and building the 2nd ship saves that overhead.
+
+#### The Real Formula You'd Want to Solve
+
+For a fully rigorous answer, you'd simulate:
+
+```
+maximize: Σ(t=0 to T) Empire_Production(t)
+
+where Empire_Production(t) = Σ over all planets of Planet_Production(planet, t)
+
+subject to:
+  - colony ship build requires ~590 BC accumulated from a single planet
+  - new colony starts at 2 pop, 0 factories
+  - population follows logistic growth ΔP = 0.1 × P × (1 - P/C)
+  - factory build rate = production_allocated / 10
+  - production = pop × worker_output + min(factories, pop × 2)
+  - fleet maintenance proportional to total fleet value / total empire production
+```
+
+This is a **dynamic programming problem** with a small enough state space to solve exactly for fixed map configurations. The state is (homeworld_pop, homeworld_factories, colony_pop, colony_factories, turn) — maybe 50 × 100 × 50 × 100 × 100 = 2.5 billion states, which is large but within reach of a focused DP implementation with pruning.
+
+A simpler Monte Carlo approach: randomly sample 1000 opening strategies (vary colony ship build start from turn 1 to turn 20), simulate each for 100 turns, and plot total empire production at turn 100 as a function of colony ship build start turn.
+
+**This is a tractable problem. The opening can likely be solved.**
+
 ## Open Questions
 
-- **Can the opening be solved?** Given a fixed map and race, is there a provably optimal turn sequence for the first 20 turns? The state space is small enough that brute-force search might be feasible — unlike the full game, which is combinatorially intractable.
+- **Can the opening be solved?** Given a fixed map and race, is there a provably optimal turn sequence for the first 20 turns? The state space is small enough that brute-force search might be feasible — unlike the full game, which is combinatorially intractable. The mathematical analysis above suggests the answer is yes, at least for the colony ship timing subproblem.
 - **BV validation:** Do the BV predictions hold for MOO1's specific combat system? MOO1 has initiative, range bands, and defensive fire that complicate pure BV comparison. Worth simulating.
 - **Remnants of the Precursors (RotP):** Ray Greer's Java remake modernizes MOO1's mechanics. How do the balance changes affect this strategy? Does the tier list hold?
 - **AI exploits:** The AI's diplomatic logic has known quirks (the council spite-vote, the population-triggered alliance flip). Can these be modeled formally to predict and manipulate AI behavior?
