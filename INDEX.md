@@ -16,6 +16,7 @@
 - [Slay](./projects/slay/README.md) — hex strategy game recreation with AI player (active)
 - [Slay-C](./projects/slay-c/README.md) — C port of Slay engine for performance and deep search (active)
 - [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
+- [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
 - [YouTube Migration](./projects/youtube-migration/README.md) — pipeline for turning vault research into YouTube scripts with references and examples (planning)
 - [New Cycle](./projects/new-cycle/README.md) — philosophy-as-fiction; post-apocalyptic covenant communities rebuilding civilization, dramatizing the vault's frameworks over 100 years (concept)
@@ -53,6 +54,7 @@
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
   - [The Multiplayer Coalition Problem](./research/gaming/multiplayer-coalition-problem.md) — why multiplayer games resist solution; self-balancing dynamics, phase decomposition, interest rate framework, EPT as slope
   - [BattleValue](./research/gaming/battle-value.md) — BV = sqrt(Attack × HP): universal combat comparison metric; Lanchester's Square Law for individual units
+  - [MOO1 Optimal Strategy](./research/gaming/moo1-optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage

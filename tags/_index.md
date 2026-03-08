@@ -12,7 +12,7 @@
 - [cyborg](./cyborg.md) — 1 file
 - [debates](./debates.md) — 1 file
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 13 files
+- [economics](./economics.md) — 14 files
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 4 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
@@ -21,7 +21,8 @@
 - [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 3 files
 - [game-ai](./game-ai.md) — 6 files
-- [games](./games.md) — 6 files
+- [game-theory](./game-theory.md) — 4 files
+- [games](./games.md) — 7 files
 - [grounding](./grounding.md) — 1 file
 - [history](./history.md) — 2 files
 - [insurance](./insurance.md) — 1 file
@@ -43,4 +44,5 @@
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 3 files
 - [simulation](./simulation.md) — 1 file
+- [strategy](./strategy.md) — 3 files
 - [utility](./utility.md) — 1 file
