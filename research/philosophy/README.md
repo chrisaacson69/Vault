@@ -16,6 +16,7 @@
 - [Opposing Forces](./opposing-forces.md) — why every concentration of power generates counter-forces; thermodynamic, computational, game-theoretic, evolutionary, and agential explanations
 - [The Fallacy Fallacy](./the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; the "why" requirement; misapplied fallacy labels; strange loops in fallacy hunting
 - [Newcomb's Paradox](./newcombs-paradox.md) — pre-commitment, decision theory, agent type; EDT vs CDT; connections to governance, performative grounding, and the prisoner's dilemma
+- [Press Freedom and Governance](./press-freedom-and-governance.md) — free press as pre-commitment enforcement; the observation problem; market competition in information; the Gödel classification problem
 
 ## Notes
 

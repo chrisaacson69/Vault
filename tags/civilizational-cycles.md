@@ -6,3 +6,4 @@
 - [Words of Wisdom](../notes/words-of-wisdom.md)
 - [Rudyard Lynch (Whatifalthist)](../research/philosophy/whatifalthist.md)
 - [The SAVE Act and the Suffrage Question](../research/debates/save-act-suffrage-hoppian.md)
+- [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)

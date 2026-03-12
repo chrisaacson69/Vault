@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-03-11
+**Last updated:** 2026-03-12
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -29,6 +29,7 @@
   - [Logic and Mathematics](./research/philosophy/logic-and-math/README.md) — structural realism; formalisms as maps, not territory
   - [Epistemology](./research/philosophy/epistemology/README.md) — how we know what we know; Objectivist engagement
     - [The Weighting Problem](./research/philosophy/epistemology/weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is subjective
+    - [Relational Objectivity](./research/philosophy/epistemology/relational-objectivity.md) — four-category ontology of facts; formalizes why "relational" ≠ "subjective"; connects morality, weighting problem, structural realism, and measurement-causality
   - [Legal Theory](./research/philosophy/legal-theory/README.md) — libertarian law; mens rea debate, government formation, marriage, shared ownership
     - [Registration and Scope Creep](./research/philosophy/legal-theory/registration-and-scope-creep.md) — vehicle/gun registration comparison; structural pattern of regulatory expansion beyond original justification
     - [Defensive Force and Collateral Damage](./research/philosophy/legal-theory/defensive-force-and-collateral-damage.md) — causationism, defense/retribution distinction, gentleness principle, state monopoly's inability to meet justified force standards
@@ -41,6 +42,7 @@
   - [The Technology-Governance Gap](./research/philosophy/technology-governance-gap.md) — when systems exceed human comprehension; the good fork (forced decentralization) vs the bad fork (informational monopoly); possible way out of the cycle
     - [Rudyard Lynch (Whatifalthist)](./research/philosophy/whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
   - [Newcomb's Paradox](./research/philosophy/newcombs-paradox.md) — pre-commitment, decision theory, agent type; EDT vs CDT; connections to governance, performative grounding, and the prisoner's dilemma
+  - [Press Freedom and Governance](./research/philosophy/press-freedom-and-governance.md) — free press as pre-commitment enforcement; the observation problem; market competition in information; the Gödel classification problem
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual

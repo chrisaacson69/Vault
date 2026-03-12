@@ -1,7 +1,7 @@
 # Active Tasks & Goals
 > Current things to do, tracked and linked.
 
-**Updated:** 2026-03-11
+**Updated:** 2026-03-12
 
 ## Completed
 
@@ -28,6 +28,11 @@ The central open question: does "you exist and must act" ground morality empiric
 - [Weighting Problem](../research/philosophy/epistemology/weighting-problem.md)
 - [Agrippa Debate](../research/debates/agrippa-axioms-wilson-whatever.md)
 - [Moral Foundations Debate](../research/debates/moral-foundations-wilson-whatever.md)
+
+### Debate Prep: Press Freedom (Topic #6)
+Accepted invite. Affirmative: "Free access of the press is critical to a healthy, functioning democracy." Date TBD. Prep sheet and opening script complete. Research page written.
+- [Debate Prep](../notes/debate-prep-press-freedom.md)
+- [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)
 
 ## Up Next
 
@@ -65,7 +70,7 @@ The vault commits to evaluating systems by outcomes, not intentions, across mult
 ## Someday / Maybe
 
 - Constitutional analysis (dedicated page unifying all Constitutional threads)
-- Free speech / 1A analysis (press freedom, absolutist position, connection to opposing forces and technology-governance gap)
+- ~~Free speech / 1A analysis~~ — initial treatment in [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md); broader 1A analysis still needed
 - 2nd Amendment analysis
 - Fraud as aggression (without mens rea) + serial fraud problem
 - Marriage / shared ownership under natural law

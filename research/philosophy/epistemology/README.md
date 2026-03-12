@@ -11,6 +11,7 @@ Both the morality and logic/math frameworks rest on epistemological claims (stru
 
 ## Pages
 - [The Weighting Problem](./weighting-problem.md) — objective measurements do not produce objective composite judgments; the aggregation function is always subjective
+- [Relational Objectivity](./relational-objectivity.md) — the four-category ontology of facts: intrinsic, relational mind-independent, agent-relative, mind-dependent; formalizes why "relational" ≠ "subjective"
 
 ## Threads to Explore
 

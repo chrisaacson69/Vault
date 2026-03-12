@@ -5,3 +5,4 @@
 - [Mens Rea Debate](../research/philosophy/legal-theory/mens-rea.md)
 - [Externalities: Fact-Check of the Decomposition Thesis](../research/economics/externalities-fact-check.md)
 - [The SAVE Act and the Suffrage Question](../research/debates/save-act-suffrage-hoppian.md)
+- [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)

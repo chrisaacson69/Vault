@@ -19,3 +19,5 @@
 - [TAG Debunks Atheism (Nicks vs Peterson)](../research/debates/tag-debunks-atheism-nicks-peterson.md)
 - [The SAVE Act and the Suffrage Question](../research/debates/save-act-suffrage-hoppian.md)
 - [Newcomb's Paradox](../research/philosophy/newcombs-paradox.md)
+- [Relational Objectivity](../research/philosophy/epistemology/relational-objectivity.md)
+- [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)

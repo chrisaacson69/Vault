@@ -208,7 +208,7 @@ Several patterns from this debate apply directly:
 
 ## Open Questions
 
-1. Can the "taller than you" analogy be formalized? Is there a clean philosophical category for "relational but objective" facts that would give ProphetDivinityy's intuition rigorous backing?
+1. ~~Can the "taller than you" analogy be formalized?~~ **Resolved.** See [Relational Objectivity](../philosophy/epistemology/relational-objectivity.md) — the four-category ontology (intrinsic, relational mind-independent, agent-relative, mind-dependent) formalizes ProphetDivinityy's intuition. Agent-relative facts are relational and objective; the "taller than" analogy is actually category 2 (relational mind-independent), and moral facts are category 3 (agent-relative). Both are objective; adding agents to the relation doesn't degrade factuality.
 2. How does the Objectivist "kind vs. group" distinction relate to the vault's scope model? Is "mankind as kind" a scope level, and if so, where does it sit on the enforceability gradient?
 3. Wilson never offers his own positive account of moral grounding in this debate. In previous Wilson debates (see the [three-part series](./agrippa-axioms-wilson-whatever.md)), he defaults to "God's nature is the standard." How does this compare to ProphetDivinityy's "human nature is the standard"? Both are nature-based groundings — the question is whose nature and why.
 4. **Property rights grounding.** Labor-mixing (Locke → Rothbard → Objectivism) fails at the family unit and bakes "justified" into the definition. Conflict avoidance is the vault's leading candidate. Needs its own page with formal treatment.

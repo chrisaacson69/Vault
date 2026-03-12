@@ -6,3 +6,4 @@
 - [The Limits of Utopia](../notes/limits-of-utopia.md)
 - [Externalities: Fact-Check of the Decomposition Thesis](../research/economics/externalities-fact-check.md)
 - [Andrew Wilson vs Objectivism: Stance Dependence](../research/debates/wilson-objectivism-stance-dependence.md)
+- [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)
