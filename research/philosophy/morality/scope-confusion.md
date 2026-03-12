@@ -3,7 +3,7 @@
 
 **Status:** active — formalizing
 **Created:** 2026-02-22
-**Links:** [Morality](./README.md), [Legal Theory](../legal-theory/README.md), [Mens Rea](../legal-theory/mens-rea.md), [Opposing Forces](../opposing-forces.md), [Civilizational Cycles](../civilizational-cycles.md), [Demolition Man Analysis](../../demolition-man-analysis.md), [Insurance](../../economics/insurance.md), [The Weighting Problem](../epistemology/weighting-problem.md)
+**Links:** [Morality](./README.md), [Legal Theory](../legal-theory/README.md), [Mens Rea](../legal-theory/mens-rea.md), [Opposing Forces](../opposing-forces.md), [Civilizational Cycles](../civilizational-cycles.md), [Demolition Man Analysis](../../demolition-man-analysis.md), [Insurance](../../economics/insurance.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
 
 ## The Key Insight: Enforcement Regimes, Not Content Categories
 

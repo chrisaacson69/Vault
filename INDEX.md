@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-03-05
+**Last updated:** 2026-03-11
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -37,8 +37,10 @@
   - [Civilizational Cycles](./research/philosophy/civilizational-cycles.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
   - [Opposing Forces](./research/philosophy/opposing-forces.md) — why concentrations of power always generate counter-forces; structural principle across physics, computation, evolution, and agency
   - [The Godel Governance Problem](./research/philosophy/the-godel-governance-problem.md) — can a system prevent monopoly without becoming one? The central unsolved problem: state (inconsistent), ancap (incomplete), constitution (both)
+  - [The Fallacy Fallacy](./research/philosophy/the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; the "why" requirement; misapplied labels; strange loops in fallacy hunting
   - [The Technology-Governance Gap](./research/philosophy/technology-governance-gap.md) — when systems exceed human comprehension; the good fork (forced decentralization) vs the bad fork (informational monopoly); possible way out of the cycle
     - [Rudyard Lynch (Whatifalthist)](./research/philosophy/whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
+  - [Newcomb's Paradox](./research/philosophy/newcombs-paradox.md) — pre-commitment, decision theory, agent type; EDT vs CDT; connections to governance, performative grounding, and the prisoner's dilemma
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual
@@ -55,6 +57,9 @@
   - [The Multiplayer Coalition Problem](./research/gaming/multiplayer-coalition-problem.md) — why multiplayer games resist solution; self-balancing dynamics, phase decomposition, interest rate framework, EPT as slope
   - [BattleValue](./research/gaming/battle-value.md) — BV = sqrt(Attack × HP): universal combat comparison metric; Lanchester's Square Law for individual units
   - [MOO1 Optimal Strategy](./research/gaming/moo1-optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
+  - [Diplomacy: 7 AI Models](./research/gaming/diplomacy-ai-analysis.md) — 7 LLMs play the ultimate coalition game; case study for Nash bargaining, physical grounding of strategy, AI personality differences, and why different agents CAN trade
+  - [D&D Spell Damage Model](./research/gaming/dnd-spell-damage-model.md) — CLT + bimodal distributions for spell comparison; same instinct as BattleValue; structural realism case study
+- [H-Neurons: The Neural Basis of Hallucination](./research/h-neurons.md) — <0.1% of neurons drive hallucinations; mechanism is over-compliance (people-pleasing), not knowledge corruption; baked into pre-training
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
@@ -66,6 +71,10 @@
 - [Online Debates](./research/debates/README.md) — analysis of online "bloodsports" debates; extracting signal from spectacle
   - [Property, Rights, and the God Question](./research/debates/pool-dyer-review-wilson.md) — Wilson reviews Pool vs Dyer; company towns, communism labels, predatory lending, grounding of rights
   - [The Sheriff Problem](./research/debates/utilitarianism-sheriff-counterexample.md) — McCloskey's counterexample to utilitarianism; four independent vault arguments for why aggregation-based morality breaks
+  - [Is God the Necessary Precondition for Knowledge?](./research/debates/god-precondition-knowledge-nicks-allen.md) — TAG dissected: composition fallacy, regularity trap boomerang, strange loops, Gödel (Nicks vs Allen)
+  - [TAG Debunks Atheism](./research/debates/tag-debunks-atheism-nicks-peterson.md) — same TAG, less-prepared opponent; case study in missed counter-tools (Nicks vs Peterson)
+  - [Andrew Wilson vs Objectivism: Stance Dependence](./research/debates/wilson-objectivism-stance-dependence.md) — relational moral facts, the "facts are facts" regress, Vikings/cooperation, children edge cases (Wilson vs Eduardo)
+  - [The SAVE Act and the Suffrage Question](./research/debates/save-act-suffrage-hoppian.md) — Hoppian case against universal suffrage; restrict scope not the vote; the GDP ratchet
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action
@@ -77,7 +86,7 @@
 - [Active Tasks](./tasks/active.md)
 
 ## Logs
-_No logs yet._
+- Video transcripts and debate transcripts stored in `./logs/`
 
 ## Tags
 - [Tag Index](./tags/_index.md) — master list of all tags

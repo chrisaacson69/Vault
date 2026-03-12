@@ -7,3 +7,4 @@
 - [The LLM Grounding Problem](../research/llm-grounding-problem.md)
 - [Praxis: Agent Teams vs. Theory](../research/economics/praxis-agent-teams.md)
 - [The Cyborg Model](../research/cyborg-model.md)
+- [H-Neurons: The Neural Basis of Hallucination](../research/h-neurons.md)

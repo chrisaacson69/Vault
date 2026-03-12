@@ -56,6 +56,10 @@ Links to related research pages.
 - [Is Art Purely Objective?](./art-objectivity-noerr-strange.md) — 6-hour no-prep debate; really about epistemology, value theory, Agrippa's trilemma, and the is-ought gap (Rob Noerr vs Chris Strange)
 - [Property, Rights, and the God Question](./pool-dyer-review-wilson.md) — Wilson reviews Pool vs Dyer on company towns, communism definitions, predatory lending, grounding of rights, and Pool's incoherent moral pragmatism
 - [The Sheriff Problem: Why Utilitarianism Fails](./utilitarianism-sheriff-counterexample.md) — McCloskey's counterexample, Smart's defense, and four independent vault arguments for why aggregation-based morality breaks
+- [Is God the Necessary Precondition for Knowledge?](./god-precondition-knowledge-nicks-allen.md) — TAG dissected: composition fallacy in premise 2, the regularity trap boomerang, strange loops, sorites paradox vs continuum fallacy, Gödel's incompleteness as structural defeat (Eli Nicks vs Kurt Allen)
+- [TAG Debunks Atheism](./tag-debunks-atheism-nicks-peterson.md) — same TAG, less-prepared opponent; case study in what happens without the right counter-tools; maps every missed opportunity to a vault framework (Eli Nicks vs Planet Peterson)
+- [Andrew Wilson vs Objectivism: Stance Dependence](./wilson-objectivism-stance-dependence.md) — can relational moral facts be objective? The Objectivist says yes but can't seal the regress; Wilson exploits the gap but faces the same problem himself (Andrew Wilson vs ProphetDivinityy on Eduardo's panel)
+- [The SAVE Act and the Suffrage Question](./save-act-suffrage-hoppian.md) — voter ID is the easy part; the Hoppian case against universal suffrage, the free-rider problem, and why restricting scope beats restricting the vote
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md)

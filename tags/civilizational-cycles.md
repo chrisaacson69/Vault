@@ -5,3 +5,4 @@
 - [The Limits of Utopia](../notes/limits-of-utopia.md)
 - [Words of Wisdom](../notes/words-of-wisdom.md)
 - [Rudyard Lynch (Whatifalthist)](../research/philosophy/whatifalthist.md)
+- [The SAVE Act and the Suffrage Question](../research/debates/save-act-suffrage-hoppian.md)

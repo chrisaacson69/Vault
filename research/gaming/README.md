@@ -22,6 +22,8 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 - [Bilateral Trade Valuation](./bilateral-trade-valuation.md) — why trade evaluation requires simulating both players simultaneously; trajectory divergence, the patient predator exploit, and Nash equilibrium pricing
 - [BattleValue](./battle-value.md) — BV = sqrt(Attack × HP): a universal combat comparison metric derived from Lanchester's Square Law; BV/Cost as the army composition ROI metric
 - [MOO1 Optimal Strategy](./moo1-optimal-strategy.md) — Master of Orion optimal play strategy: race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
+- [Diplomacy: 7 AI Models](./diplomacy-ai-analysis.md) — analysis of 7 LLMs playing Diplomacy; case study for the coalition problem, Nash bargaining, physical grounding of strategy, and why different agents CAN trade
+- [D&D Spell Damage Model](./dnd-spell-damage-model.md) — using CLT, proof by induction, and bimodal distributions to build a spell comparison metric; same instinct as BattleValue, different game
 
 ## Genres and What They Teach
 

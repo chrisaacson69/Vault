@@ -16,3 +16,5 @@
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
 - [Working With Claude](../notes/working-with-claude.md)
 - [Set Mastering Pipeline](../projects/set-mastering/README.md)
+- [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)
+- [H-Neurons: The Neural Basis of Hallucination](../research/h-neurons.md)

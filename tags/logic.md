@@ -2,3 +2,7 @@
 > Files exploring the philosophy and foundations of logic.
 
 - [Philosophy of Logic and Mathematics](../research/philosophy/logic-and-math/README.md)
+- [Is God the Necessary Precondition for Knowledge?](../research/debates/god-precondition-knowledge-nicks-allen.md)
+- [The Fallacy Fallacy](../research/philosophy/the-fallacy-fallacy.md)
+- [TAG Debunks Atheism (Nicks vs Peterson)](../research/debates/tag-debunks-atheism-nicks-peterson.md)
+- [Newcomb's Paradox](../research/philosophy/newcombs-paradox.md)

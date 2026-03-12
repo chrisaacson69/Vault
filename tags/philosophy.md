@@ -15,3 +15,7 @@
 - [Computation and Information Theory](../research/computation-and-information.md)
 - [Kashrut and the Food-Safety Hypothesis](../research/kashrut-food-safety.md)
 - [Performative Grounding — Philosophical Lineage](../research/philosophy/morality/performative-grounding-lineage.md)
+- [The Fallacy Fallacy](../research/philosophy/the-fallacy-fallacy.md)
+- [TAG Debunks Atheism (Nicks vs Peterson)](../research/debates/tag-debunks-atheism-nicks-peterson.md)
+- [The SAVE Act and the Suffrage Question](../research/debates/save-act-suffrage-hoppian.md)
+- [Newcomb's Paradox](../research/philosophy/newcombs-paradox.md)

@@ -1,0 +1,429 @@
+0s: If you've ever played D and D, I'm sure
+2s: you're familiar with the pressure of
+4s: trying to pick the best possible move in
+6s: combat. And when you're playing a caster
+8s: like a wizard or a warlock, this can
+10s: just be totally overwhelming. So, you do
+13s: what any good wizard does and you cast
+15s: fireball and move on with your life.
+17s: That is, of course, unless you're me.
+19s: What I want by the end of this video is
+21s: a model that you understand that we can
+23s: use to determine what spell will be best
+26s: in a given situation. And this model
+28s: will not be perfect. There is so much
+30s: complexity in Dn D, especially in
+32s: combat. So, as I'm going through this,
+34s: have a think to yourself about what are
+36s: the other conditions that we could add
+38s: to this model to make it more exact. The
+41s: first thing we need to do is define a
+43s: couple of terms just so that you know
+45s: what I'm talking about. In Dn D, we'll
+47s: often use the phrase roll N Ds, where N
+51s: is the number of dice and S is the
+53s: number of sides for these dice. So, for
+56s: example, fireball does 8 d6 damage. So,
+59s: in this notation, n is 8 and s is six.
+63s: And this will be useful later on when
+64s: we're looking at the statistics of these
+66s: dice rolls. I'm also going to use these
+69s: two Greek letters a lot, mu and sigma.
+71s: And they're going to stand for the mean
+73s: and the standard deviation of any
+76s: distribution we're looking at. And the
+78s: reason we use these two terms is because
+80s: they can help us define something called
+81s: a normal distribution, which is this
+83s: bell-shaped curve I'm plotting here,
+85s: which is given by the function to the
+87s: left. The mean tells us where the center
+89s: of this bell shape will be, and the
+91s: standard deviation tells us how wide it
+93s: will be. It's important to note that on
+95s: the y-axis, we don't have the
+96s: probability, we have the probability
+98s: density. This is sort of a technical
+101s: detail, but it just means that the area
+103s: under this curve is all one. And if you
+105s: want to know the probability of a
+107s: certain range of possibilities on the
+109s: x-axis, it is given by the total area
+112s: under the curve for that range on the
+114s: x-axis. A common example of where we
+116s: might see the normal distribution in
+118s: real life is something like height. On
+121s: average, most people sit within one
+123s: range of heights. And as you go to the
+126s: extreme ends on the left and the right,
+127s: you're going to get fewer and fewer
+129s: people. So, let's talk about how we can
+131s: use this normal distribution to model
+133s: the damage that's going to be done by
+135s: our spells. In statistics, there is this
+137s: really cool theorem called the central
+139s: limit theorem. I don't really have the
+141s: time to get into it today, but what we
+143s: need to know for dice is that as the
+145s: number of dice tends to infinity, the
+148s: distribution of our outcomes of the sum
+150s: of those dice will tend to a normal
+153s: distribution. when we roll the damage of
+155s: spells, we roll a number of dice and
+158s: then add up the results. So here I'm
+160s: going to plot 8d6 along with a normal
+163s: distribution. And you can see that we
+164s: actually match it pretty close. So in
+167s: blue we have the results of a million
+169s: different dice rolls. And then in orange
+171s: I've got the normal distribution as
+173s: fitted by the mean and the standard
+175s: deviation. So when making this model of
+177s: spell damage, we need to try and figure
+179s: out can we get these values of the mean
+182s: and the standard deviation from NDS
+185s: because here I've just figured it out by
+188s: doing a simulation and in combat we
+190s: don't have time for that. And we're
+191s: going to build this up with very gradual
+194s: building blocks. So we're going to start
+195s: very simple and then we're going to
+197s: slowly add all these formulas in
+199s: together. The first block that we need
+201s: is the mean for a single die. The mean
+204s: of any distribution is given by the sum
+206s: of all the possible outcomes multiplied
+209s: by the weight of that outcome. For a
+211s: fair die, we can assume that the weight
+213s: will be the same for every side. So our
+215s: weight becomes 1 / s for every outcome.
+218s: So we can take this out of the
+219s: summation. So all we have left inside
+221s: the summation is x i where x i is just
+225s: all the possible outcomes from this die
+227s: which as we know will just be the
+229s: numbers 1 through s. So we can rewrite
+232s: this summation as 1 + 2 + 3 all the way
+236s: up to s. And for a trick that we're
+239s: going to do in a second, we can write
+240s: the number before s as s -1 and the
+244s: number before that will be sus 2 and so
+246s: on. And a cool trick we can do for
+248s: summing up one to any number is spot
+251s: that we can actually add the very last
+254s: number to the first. So 1 + s. And then
+257s: we can also add the second number to the
+259s: second last. So 2 + s -1 and the third
+263s: to the 3 last and so on. So that each of
+266s: these many summations gives us s + 1. If
+270s: s is even then every number in this
+273s: summation will be matched up to some
+274s: other one that gives us s + 1. So we
+278s: will have s / 2 * s + 1. Which means the
+282s: mean for a single die is going to be s +
+284s: 1 / 2. if instead we have an odd number
+288s: of sides, which isn't really realistic
+290s: for a physical die, but like why would
+292s: that ever stop mathematicians from doing
+294s: stuff? Anyway, the point is we will then
+296s: have s minus one over two of these s +
+300s: one additions and then we'll have some
+302s: number in the middle of this list 1
+304s: through 2 s that doesn't have a pairing
+307s: that gives s+ one. But the cool fact is
+310s: that this number will have a value of
+312s: half s + 1. So if we include that we get
+316s: the same formula again. So if we have n
+319s: ssided dice we can calculate the mean as
+322s: n / 2 * s + 1. So now we need to build
+326s: up another brick which is to get the
+328s: standard deviation of a single die. The
+331s: standard deviation is just a measure of
+333s: how much we expect a result to vary. If
+336s: the standard deviation is very high, we
+338s: expect a lot of variance. If it's very
+340s: low, we expect things to be a lot more
+342s: certain. And one of the ways we can
+343s: define it is as the mean of all our
+346s: results squared minus the mean of our
+349s: results squared. This might sound like
+351s: the same thing, but note that in one of
+353s: them we're doing the squaring before we
+355s: take the mean and then the other one
+357s: we're squaring the mean. Lucky for us,
+359s: we already figured out what the mean of
+361s: a single die should be. So we can just
+363s: plug that in there. And now what we need
+365s: is to get the mean of all of our values
+368s: squared. Same as before, we have 1 / s
+371s: multiplied by the sum of all of our
+374s: individual results squared. And the sum
+376s: of 1 2 + 2 2 + 3 2 all the way up to s^2
+381s: is given by this formula here. Now this
+383s: time instead of deriving it, I'm going
+385s: to prove it. And proofs in maths are
+387s: these really powerful ways of saying
+389s: this is true all the time for these
+391s: given conditions. So to prove that this
+394s: statement is true for all the integers 1
+396s: through infinity, I'm going to use
+398s: something called proof by induction. The
+401s: way proof by induction works is that
+403s: first we need to show that if something
+405s: is true for a value s, it will also be
+409s: true for s + one. So if we assume this
+412s: formula is true, we should have that the
+415s: summation 2 s + 1 is going to be equal
+418s: to the summation 2 s plus s + 1 all^
+422s: squared. So on the left I'm going to put
+424s: the formula we expect to get if this is
+426s: true, which is just the same as this
+429s: formula I've given at the top, but
+431s: instead of an s, we have an s + one. And
+433s: then on the right, we're going to sub in
+436s: for our summation of k^ 2 all the way to
+438s: s. We're going to put in this formula
+440s: and then add on s + one all squared. And
+444s: as we work through this, we can see that
+446s: we'll eventually get to the same result
+448s: as we have on the left. And it's really
+450s: cool what we've shown there in a few
+452s: very simple steps. We have shown that if
+455s: this statement is true for any value s,
+458s: it will also be true for the value s +
+460s: one. So this means whatever the smallest
+463s: value we find this to be true for we are
+466s: then able to say that every integer
+468s: value greater than that this
+470s: relationship will be true for. So this
+472s: brings us to the other step of proof by
+475s: induction. And as a mental exercise and
+477s: not at all because I can't be bothered
+478s: animating it. Have a think and see if
+481s: this is true if S equals 1 which is the
+484s: same as saying we're rolling a one-sided
+486s: die which I'm pretty sure is just a ball
+489s: with a one drawn on it. But do that in
+491s: your heads and you will see that it is
+493s: true for s= 1. And because of what we
+496s: derived earlier, we know that if it's
+498s: true for one, it'll be true for 1 + 1.
+501s: So it'll be true for two. And then since
+503s: it's true for two, we know that it'll be
+505s: true for 2 + 1 or three. And so we can
+509s: say that this is true for all integer
+511s: values, which is really useful for us
+513s: and our dice since they can only return
+516s: integer values. So we can plug this
+518s: summation now that we know it's true
+520s: into our original formula for the
+522s: standard deviation of a single die. And
+524s: then to get the formula for n dice, we
+526s: will then just multiply it by n. So now
+529s: we have these two formulas for the mean
+531s: of a die and the standard deviation. So
+533s: let's run another set of simulations and
+536s: try and fit this with a normal
+537s: distribution defined by these formulas.
+540s: And what we can see here is that it has
+542s: fitted one part of the distribution very
+545s: well. It's in the right space. It looks
+547s: like it's the right width, but the
+548s: height is wrong. Okay, I need to fess
+551s: up. I added something to the simulation
+553s: that isn't in our mathematical model
+555s: yet. Because you see, in Dn D, when we
+557s: try and hit our hated enemies with our
+559s: spells, they often get a chance to
+561s: negate half the damage by doing a saving
+564s: throw. And if they succeed on the saving
+566s: throw, they will get half damage. The
+568s: good news for us is that means the mean
+570s: and the standard deviation of missing
+572s: are just going to be half of when we hit
+575s: and they don't save. So our full
+577s: probability density function is actually
+580s: biodal where we can represent it as the
+582s: weighted sum of two normal distributions
+586s: where the first tells us the damage when
+588s: we hit and they don't save against our
+590s: spell and the second tells us the damage
+592s: if they do manage to succeed and save
+594s: against our spell. And what's cool is
+596s: this is true for any amount of damage
+598s: that we're doing. So here I'm just
+600s: moving it around to make that point. Can
+602s: you tell I animated it before I started
+604s: speaking? So I don't know what I
+605s: originally thought I would say during
+607s: this bit, but you know, enjoy the
+609s: visuals, I guess. So the real question
+612s: now is how do we know what height these
+614s: two different normal distributions
+616s: should be? And this is related to the
+618s: probability that the enemy is going to
+620s: be able to save against your spell. If
+622s: they're less likely to save, we would
+624s: expect this higher up normal
+625s: distribution to be more prominent and a
+627s: lot taller. But if they've got a really
+629s: good chance of saving against your
+631s: damage, we would expect this one on the
+633s: left to be a lot higher. Basically
+635s: saying that low damage is more likely to
+637s: happen than high damage. So to determine
+640s: this, I'm first going to introduce
+642s: something I call the hit rate, which I
+644s: notate with this little H. As your hit
+646s: rate increases, we will see that
+648s: distribution on the right getting taller
+650s: and the one on the left getting smaller
+652s: as you do more damage more often as you
+654s: hit the target more often. And then
+657s: conversely, oh my god, kids, drink water
+660s: regularly. I forgot to do that for a
+662s: bit. And woof, oh, what was I saying?
+664s: Yes, conversely, if the hit rate is
+667s: going down, you will expect less damage
+670s: to be done. And so we'll see this
+672s: distribution on the left getting taller
+673s: and the one on the right getting
+675s: smaller. And for most casters and most
+677s: spells, this will relate to your spell
+679s: save DC. If you haven't played D and D
+681s: before, which honestly it's baffling you
+683s: made it this far in the video, but I'm
+685s: so glad you're here. You're just here
+686s: for the maths. Even that's so good. Yes.
+688s: Stay. The DC or the difficulty class is
+692s: the value that your opponent has to roll
+694s: at or higher than in order to make the
+697s: save. So typically we would roll a
+699s: 20-sided die and then depending on what
+702s: stats your character has, you will get a
+704s: bonus on the saving throw. So for an
+706s: example, let's say that you have a save
+708s: bonus of plus one. There are 20 things
+711s: that you could roll 1 through 20 all +
+714s: one of which there will be six that are
+717s: greater than or equal to the difficulty
+719s: class because of this plus one. So for
+721s: this exact case, our hit rate will be 14
+724s: over 20 or 7 out of 10. And the general
+727s: formula for this is that the hit rate is
+729s: equal to your DC minus their save minus
+733s: one divided by 20. And so the way you
+736s: can see this is that as your DC
+738s: increases, the hit rate should go up.
+741s: But similarly, as they're saving bonuses
+743s: going up, we'll see the hit rate go
+746s: down. So let's take all these different
+748s: things that we've got and put them all
+750s: together. And for this, we're going to
+752s: compare Fireball and Cloud Kill. And at
+754s: the top there, you can see the DC and
+757s: then all the different bonuses of this
+759s: enemy that we're attacking. If I start
+762s: changing these stats, we can see these
+764s: distributions also changing. And what
+766s: we're interested in is the overall mean
+768s: of this entire distribution. The higher
+771s: mean, the better the spell will do on
+773s: average. Individual results may vary.
+776s: The Gorilla of Destiny takes no
+777s: liability for poor rolling. So, how can
+779s: we calculate this overall average? And
+782s: this is the bit of the video where all
+784s: these formulas that we've been deriving
+785s: and working on are all going to come
+787s: back and unify into one beautiful model.
+791s: The mean is fairly simple. It is just a
+793s: weighted sum of the means of our hitting
+795s: and our missing distributions where the
+798s: weight is the hit rate for the hitting
+800s: distribution and it's going to be one
+802s: minus the hit rate for the missing one.
+804s: And so we get this nice formula. But
+806s: since we've been considering it the
+808s: whole time as well, let's also look at
+810s: the standard deviation. So how much this
+812s: varies? Just like the mean, we will take
+814s: a weighted sum of our standard deviation
+817s: squared. But we also have to add in a
+819s: quick correction which accounts for the
+821s: distance in our means between our
+823s: distributions. Because if our means are
+826s: really far apart, we would then expect a
+828s: very high standard deviation, even if
+831s: the individual standard deviations of
+833s: these two distributions is very small.
+835s: And so we now have formulas that can
+838s: tell us how well our spell will perform,
+841s: which means we casters can finally make
+843s: good decisions. Okay, not a good
+846s: decision, but probably the best
+848s: decision. I think this is really cool.
+851s: What this means is if you're wanting to
+853s: roleplay the very kind of traditional
+855s: sciency wizard archetype, if you're
+858s: going into a big fight, you can try and
+860s: learn some of the stats of the enemy
+862s: you'll be fighting to help you make a
+864s: better model for what you should be
+866s: doing. Or as the fight goes on and you
+868s: start learning more and more about their
+869s: stats, you can start making better
+871s: decisions with these models. I think it
+874s: opens up a really cool amount of
+875s: roleplay for this type of wizard in the
+878s: way that it lets you be prepared for a
+880s: fight in a way that should be helpful.
+883s: But I should also say that D and D is a
+885s: game and if everyone isn't into this
+887s: level of maths, don't show it to them.
+889s: Do this for yourself and yourself only.
+892s: Dn D is about fun with your friends. I'm
+894s: doing this as a fun little project, like
+896s: a video to show you some cool maths and
+899s: quite a cool idea, I think. But I'm
+901s: going to be for real in a session. I'm
+903s: going to be doing this in the background
+904s: or I'm not going to be doing it at all.
+906s: I might reference it in character maybe
+908s: or I might tell people that this is
+910s: something I'm doing, but I'm not going
+912s: to explain all of the intricacies. I
+914s: just have to add that so that I can
+916s: release this video in good conscience. I
+918s: will not be responsible for 15 minutes
+920s: of session time being taken up by a
+922s: maths lecture. Unless you're all into
+925s: that, in which case, have fun. Well
+927s: done, folks. We made it to the end of
+928s: the video. I am so proud of you. If you
+930s: like what I do, I have a series of books
+932s: out. Some are about D and D science,
+934s: some are about how you can write spells.
+936s: The links on where to find them are all
+938s: on my website, which I link below. My
+940s: most recent one is the Warlock
+941s: spellwriting system. And oh, I love it
+944s: so much. There's also just like a silly
+946s: amount of science and maths in that one
+949s: of all things. And also a bit of a short
+951s: story just if you're interested. I don't
+953s: have a Patreon or anything like that,
+955s: though I probably should set one up at
+957s: some point. I'm kind of waiting till
+959s: after I've done my PhD thesis to start
+961s: thinking about things like that. And
+962s: hopefully my next video will be my big
+965s: huge video about how to write spells in
+967s: Dn D. But with that, thank you very much
+970s: for watching. Feedback is always really
+972s: welcome on these videos. I'm still kind
+973s: of learning a process and how to use the
+976s: animation software and do these kind of
+978s: voiceovers and explaining stuff. So
+980s: that's greatly appreciated. Have a
+982s: lovely day. Okay. Thank you. Bye.

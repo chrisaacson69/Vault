@@ -1,0 +1,406 @@
+0s: - There is a problem that I can't bring up
+2s: without starting a fight.
+3s: - No, what?
+4s: - It just seems so obvious to me.
+6s: - Now I'm all screwed up, man.
+7s: (Casper laughs)
+11s: in the last two months.
+12s: - It's trivial. (laughs)
+15s: - Just makes sense.
+18s: - And I even argued with Derek about it.
+23s: I don't care.
+24s: - So, here's the setup.
+26s: You walk into a room,
+35s: You know it's $1,000.
+41s: You also know that this supercomputer
+43s: is very good at predicting people.
+45s: It has correctly predicted the choices
+47s: of thousands of people
+48s: in the exact problem you're about to face.
+61s: that is the mystery box and the $1,000,
+64s: or you can just take the mystery box.
+67s: So, what's in that mystery box?
+69s: Well, the supercomputer tells you
+70s: that before you walked into the room,
+73s: it made a prediction about your choice.
+76s: If the supercomputer predicted
+77s: you would just take the mystery box
+79s: and you'd leave the $1,000 on the table,
+84s: into the mystery box.
+85s: But if the supercomputer predicted
+87s: that you would take both boxes,
+90s: then it put nothing in the mystery box.
+93s: The supercomputer made its prediction
+95s: before you knew about the problem
+97s: and it has already set up the boxes.
+99s: It's not trying to trick you,
+107s: So, what do you do?
+112s: Don't worry about how the supercomputer
+114s: is making its prediction.
+116s: Instead of a computer,
+119s: a cunning demon,
+124s: It really doesn't matter who
+125s: or what is making the prediction.
+131s: and that they made that prediction
+132s: before you walked into the room.
+137s: (soft playful music)
+141s: Got your answer?
+148s: and go with it.
+149s: - Of course you take two boxes!
+151s: - I would pick both boxes, I think.
+152s: - I would not get the two boxes.
+154s: - I think I'm taking both boxes.
+155s: - Let's go!
+163s: - No!
+165s: What?
+166s: - There are two camps,
+171s: and two-boxers who take both.
+176s: "To almost everyone, it is perfectly clear
+178s: and obvious what should be done.
+180s: The difficulty is that these people seem
+182s: to divide almost evenly on the problem,
+187s: is just being silly."
+189s: This is known as Newcomb's paradox,
+191s: named for its inventor, William Newcomb.
+197s: about this problem in 2016.
+199s: 53.5% were one-boxers
+202s: and 46.5% were two-boxers.
+205s: Now, if you find it hard to see
+207s: why anyone would pick the opposite side,
+222s: First, I'm gonna say that the probability
+229s: And because of that,
+236s: There is a C chance of me getting $1,000
+243s: If I add these two together,
+250s: This is also known as expected utility
+252s: or the EU of two-boxing.
+265s: So, we can cancel this out,
+267s: simplify this to just $1 million times C.
+271s: If I equate these two expressions,
+273s: I'm gonna get the C
+279s: is 0.5005, or 50.05%,
+284s: which means if the computer is better
+298s: thousands of people before me,
+300s: which means I'm sticking with my one box.
+304s: Here's my $1 million.
+305s: Take that, Casper.
+307s: Thank you very much.
+310s: and leave the other.
+313s: it's a supercomputer.
+317s: because the choice is obvious.
+318s: I'm very surprised.
+320s: the answer is also obvious,
+325s: So, here's how I think about the problem
+326s: in a way that actually makes sense.
+328s: You know that the supercomputer
+330s: has already set up the boxes,
+331s: so whatever I decide to do now,
+333s: it doesn't change whether there's zero
+335s: or $1 million in that mystery box,
+338s: and that gives us four possible options
+340s: that I've written down here.
+341s: If there is $0 in a mystery box,
+344s: then I could one-box and get $0
+346s: or I could two-box and get $1,000,
+356s: or I would get $1,001,000 if I two-box.
+363s: This is known as strategic dominance
+365s: where I always pick the dominant strategy,
+368s: which in this case is to two-box.
+371s: So, give me those boxes.
+376s: Once you explain it, I'm like,
+381s: But I can also see that just having
+384s: those thoughts in your brain
+395s: to go two box.
+396s: - No way.
+397s: No way, man.
+404s: and that's because your choice
+406s: actually reveals something fundamental
+408s: about how you make decisions.
+410s: It comes down to these two statements.
+424s: before you even knew about the problem.
+427s: The boxes are already set up,
+429s: so your decision now can't change
+431s: if the million is in there or not.
+434s: Both of these statements are true,
+443s: - You just get the $1,000.
+446s: - Just the mystery box, probably.
+449s: the mystery box.
+450s: - Just the mystery box?
+451s: - Yeah, it might be.
+452s: - Okay, why?
+460s: My expected utility calculations
+465s: of how accurate the supercomputer is,
+468s: because the thousands of people
+469s: that it accurately predicted before me
+478s: This is based on something
+480s: called evidential decision theory.
+482s: And using this decision theory,
+484s: you get these expected utilities,
+486s: and my choice is obvious from there.
+499s: - I know, it's crazy.
+501s: I don't trust this.
+502s: - It's looking to be like you're less
+510s: and you'll walk out with the money.
+512s: That is pretty convincing.
+514s: Casper, I'm starting to really doubt
+515s: this two box side of things.
+516s: - How could you not be a two-boxer?
+525s: something a little more rational
+526s: because I believe that whatever I do now
+529s: can't influence and change the past.
+532s: I only take into account things
+533s: that I can actually influence.
+541s: is gonna be in the mystery box or not
+543s: because it was already set up
+544s: before I learned about the problem.
+547s: This is known as causal decision theory,
+549s: where you only take into account things
+550s: that you can actually cause.
+552s: And so, with this,
+553s: your expected utility calculation changes,
+562s: to be in the mystery box or not.
+567s: there was some probability that it thought
+570s: I was going to one-box.
+572s: I know, it's weird, but bear with me.
+574s: So, let's say that probability is P,
+579s: in my expected utility calculation.
+581s: And the expected utility to one-box
+583s: is just gonna be 0 + $1 million times P.
+588s: That's pretty good,
+589s: but the expected utility for two-boxing
+591s: is gonna be $1,000 + $1 million times P.
+599s: for one-boxing plus an extra $1,000.
+602s: So, no matter what the computer predicted,
+609s: So, of course, you're gonna two-box.
+618s: it actually doesn't really matter.
+620s: I think you guys are imposing
+622s: - He's cooking, bro.
+629s: That's called wishful thinking.
+630s: - Yeah, like, come on, I'm two boxes.
+632s: I'm two boxes.
+633s: It only makes sense.
+634s: I'm back with Casper.
+639s: - I'm not losing $1 million.
+640s: It was never in the room, man.
+641s: You're gonna walk into a room
+642s: and there's either money in the room
+643s: or there isn't money in the room.
+644s: Your question is, do you pick it up?
+645s: - Of course.
+646s: - We're trying to do you a favor here!
+648s: - You're not doing me a favor
+658s: you've convinced the machine.
+660s: - I don't believe that.
+661s: - What do you mean you don't-
+662s: - I don't believe you convincing yourself
+667s: and it's already made the prediction.
+668s: You can't impact it, you know?
+684s: both camps have valid answers.
+686s: But if there's no right answer,
+688s: then is this just a meaningless problem?
+690s: Well, not really.
+694s: about three important questions.
+697s: Does free will exist?
+698s: What does it mean to be rational?
+700s: And is there an ideal way to act in life?
+724s: then that's not even possible.
+726s: Would you say that's true?
+727s: - Yeah.
+729s: - Then a follow-up question is,
+731s: if such a perfect predictor would exist,
+747s: - That's right, and maybe this reveals
+749s: where I'm coming from,
+750s: and I think where I'm coming from
+751s: is maybe free will doesn't exist.
+756s: but our world operates in a way
+766s: as though it's 100% real.
+769s: - Interesting.
+770s: - If we think that free will is not real
+772s: and it's an illusion,
+776s: and then you wanna say,
+777s: "Well, that's not his fault."
+778s: Therefore, instead of putting, you know,
+781s: murderers in jail for 25 years,
+789s: where everyone knows you can kill someone
+791s: and you can go to, like, do the gardening.
+793s: So, you can't change the system
+796s: Whether we do or don't have free will,
+798s: you have to live as though it exists.
+800s: - So, you've still gotta make a choice,
+802s: one box or two boxes?
+805s: Which brings us to our second question,
+808s: what does it mean to be rational?
+810s: I'm the guy who acted rationally
+819s: - I know, yeah, it's tough.
+820s: It's tough.
+824s: None of these look great.
+825s: I think we can be more creative.
+826s: Private island sounds pretty nice.
+830s: with 1,000, man?
+833s: - [Casper] This is known
+833s: as the "Why Ain'cha Rich?" argument,
+839s: if you're so smart, then why ain'cha rich?
+844s: then of course the one-boxers
+848s: But maybe it's not about who wins,
+850s: but about what's rational.
+863s: They instead say that the game is rigged.
+874s: But I think that's a bit of a cop out,
+876s: because really, Newcomb's paradox
+878s: reveals something surprising,
+883s: you must act irrationally.
+894s: sometimes they just don't.
+895s: And I think this is analogous
+901s: - [Casper] In the prisoner's dilemma,
+903s: you and another player compete for money
+905s: by either cooperating or defecting.
+912s: and your opponent cooperates,
+915s: and they get nothing.
+919s: So, no matter what your opponent does,
+921s: you are always better off by defecting.
+924s: But if you play this game not once,
+926s: but repeatedly, then everything changes.
+932s: - What's a rational society?
+934s: A rational society is full of cooperators.
+937s: What's a rational person?
+939s: Maybe a rational person is a defector.
+944s: is made up of rational people,
+957s: Now, I'm a fervent two-boxer,
+963s: The first is if my choices now
+965s: can actually change the past.
+974s: that actually causes the $1 million
+979s: Second, if there are multiple trials,
+982s: because now with every game,
+989s: and so I get the $1 million
+991s: either in this round or a later one.
+993s: And third is, if I can pre-commit.
+994s: If I can talk to the computer
+999s: then I will 100% one-box
+1003s: and the supercomputer would know that.
+1007s: - Yeah, 100% one box, yeah.
+1010s: - But there are some realistic scenarios
+1012s: where staying true to a worse option
+1014s: could have deadly consequences.
+1016s: On the 29th of August, 1949,
+1018s: the Soviet Union detonated the RDS-1 bomb
+1033s: and the USSR had just over 6,000.
+1036s: Both sides were more than capable
+1043s: didn't advocate for disarmament.
+1049s: where the US should be able
+1050s: to deter a deliberate nuclear attack
+1053s: by "maintaining a highly reliable ability
+1055s: to inflict an unacceptable degree
+1057s: of damage upon any single aggressor."
+1060s: This strategy eventually became known
+1062s: as mutually assured destruction, or MAD.
+1065s: If either country attacked first,
+1067s: the other would surely retaliate
+1069s: and lead to total annihilation
+1083s: You have publicly committed to retaliate
+1085s: if the US is ever attacked.
+1087s: But you've just received word
+1094s: So, what do you do?
+1095s: If you launch now, then at best,
+1097s: everyone in the US and USSR dies.
+1100s: And at worst, you get a nuclear winter
+1102s: that kills nearly everyone on the planet.
+1104s: - Everyone in the whole world dies,
+1106s: then I probably don't launch.
+1108s: - But you did pre-commit.
+1110s: - Yep.
+1111s: I don't like the outcome.
+1120s: which leader do you want to elect?
+1122s: Do you want to elect someone who's crazy
+1124s: and is always gonna press that button,
+1126s: or do you wanna elect someone
+1131s: and not press that button?
+1136s: of always pushing that button.
+1143s: - There is an inherent risk there,
+1151s: the game they call chicken.
+1156s: because then you both die,
+1161s: The best strategy in this game
+1167s: and throw it out the window
+1170s: Now they know you cannot swerve.
+1176s: And now they realize,
+1177s: "Now my best action is just to swerve."
+1179s: And that similarly, like what you want
+1181s: with the nuclear deterrent
+1183s: as they set up in "Dr. Strangelove."
+1185s: - In the 1963 film, "Dr. Strangelove or:
+1200s: to kill everyone on the planet.
+1202s: The tampering kill switch isn't there
+1204s: to prevent enemies from disabling it.
+1206s: It's to prevent the Russians themselves
+1208s: from having second thoughts.
+1216s: about launching an attack.
+1218s: But this only works if everyone knows
+1220s: that the device exists,
+1222s: which is the whole point of the movie.
+1224s: - In both Newcomb's paradox and MAD,
+1229s: to a worse option.
+1236s: It's the commitment that's important.
+1238s: So, maybe being rational isn't deciding
+1240s: about what to choose in the moment,
+1246s: - The question isn't how to act.
+1248s: The question is what rules one ought to follow,
+1254s: Sometimes it's put in the form of,
+1269s: the question is, what sort of rules
+1270s: would you wire yourself to obey?
+1282s: had you even known about the problem.
+1286s: you would end up finding yourself think,
+1293s: The good pre-commitment to make
+1295s: would've been to be a one-boxer.
+1297s: And since I've already wired myself up
+1300s: to be the kind of person that lives up
+1308s: even though I didn't realize it."
+1310s: - I love this approach, because for me,
+1311s: that kind of makes it an iterated problem,
+1318s: If I don't look at it as a single case
+1321s: and I sort of almost think about it
+1329s: - Exactly.
+1330s: - Like, you always wanna live up
+1331s: to the commitments you've made,
+1333s: so even if you haven't heard of it before,
+1339s: so that you are acting in line
+1341s: with the best version of yourself.
+1346s: - It's rare to convince anyone
+1347s: to switch on the Newcomb problem. (laughs)
+1350s: - The thing is, even if I never run
+1352s: into another generous supercomputer again,
+1359s: in a one-shot prisoners dilemma
+1360s: because I can only gain
+1369s: Suddenly, it pays to cooperate.
+1371s: So, being the kind of person that sticks
+1373s: to an ideal pre-commitment is beneficial.
+1383s: (screen beeping and chirping)
+1392s: should matter in your decision.
+1394s: - So, the question is, what do you do?
+1399s: - Might be taking the mystery box.
+1401s: - Mystery box.
+1402s: - I would pick both boxes, I think.
+1403s: - I also pick both boxes, so. (laughs)
+1405s: - I'll take the mystery box.
+1407s: - Okay, why?
+1411s: and probably get the $1 million.
+1416s: so there's this correlation.
+1425s: and what's just correlation?
+1429s: far beyond thought experiments.
+1434s: or if any beneficial effects are simply
+1454s: with step-by-step interactive lessons.
+1456s: You're not just watching,
+1457s: you're actively solving problems
+1459s: and testing your ideas as you go.
+1464s: So, whether you want to explore
+1465s: how to master the math of probability,
+1467s: start coding in Python,
+1469s: or really understand how AI works,
+1472s: Brilliant will help you achieve
+1476s: based on your background,
+1478s: so no matter if you're 10 or 110,
+1483s: to help you advance at your ideal pace.
+1492s: goes through that exact problem,
+1496s: while you figure out the answer.
+1498s: By training your problem solving muscles,
+1500s: you can take what you learn on Brilliant
+1515s: For viewers of this channel,
+1520s: That gives you unlimited daily access
+1522s: to everything on the site.
+1527s: and I wanna thank you for watching.

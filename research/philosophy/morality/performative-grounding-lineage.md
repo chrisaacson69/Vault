@@ -3,7 +3,7 @@
 
 **Status:** active — reference / reading list
 **Created:** 2026-02-28
-**Links:** [Morality Framework](./README.md), [Epistemology](../epistemology/README.md), [Scope Confusion](./scope-confusion.md), [The Weighting Problem](../epistemology/weighting-problem.md)
+**Links:** [Morality Framework](./README.md), [Epistemology](../epistemology/README.md), [Scope Confusion](./scope-confusion.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md), [TAG Debate (Nicks vs Allen)](../../debates/god-precondition-knowledge-nicks-allen.md)
 
 ---
 
@@ -340,6 +340,17 @@ Finnis explicitly avoids the is-ought derivation: the basic goods are not deduce
 4. **Habermas's retreat is significant.** If Habermas — who helped develop the concept — ultimately decided performative contradiction is heuristic rather than justificatory, this should give pause. What does Chris's argument claim to do that Habermas decided couldn't be done?
 
 5. **The ontological vs. transcendental ambiguity.** Does performative grounding show that values are *real features of reality*, or only that *we cannot help presupposing them when we act*? Aristotle faced this about LNC; Chris faces it about valuation. The morality framework seems to want the realist answer, but the argument as stated may only deliver the transcendental one.
+
+### Relationship to theism
+
+Performative grounding is theism-compatible by design. The framework makes no claim about God's existence or non-existence — it grounds morality in the inescapable structure of agency, full stop. A theist can layer God on top: "God created agents, therefore God created moral beings." The framework accommodates this without requiring it.
+
+This matters because the framework is often pattern-matched to anti-theism. It is not. It is *God-optional* — which is a stronger position than either "morality requires God" (TAG) or "morality disproves God" (strong atheism). Compared to the Transcendental Argument for God (see [TAG debate](../../debates/god-precondition-knowledge-nicks-allen.md)), the contrast is instructive:
+
+- **TAG** claims God is *logically necessary* for knowledge — pulling God into the logic arena where He can be stress-tested by Godel, strange loops, and the composition fallacy. This *exposes* God to attack.
+- **Performative grounding** claims agency is sufficient for morality — leaving God in the faith realm where belief operates on its own terms. This *protects* faith by not making it load-bearing for something that stands on its own.
+
+The framework's neutrality is not a weakness or a diplomatic hedge. It follows from the argument's structure: if morality grounds out in agency, then the question of *who or what created agents* is a separate question. Important, perhaps — but separate.
 
 ### Open questions for further research
 

@@ -7,3 +7,4 @@
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
+- [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)

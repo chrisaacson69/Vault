@@ -5,3 +5,4 @@
 - [Computation and Information Theory](../research/computation-and-information.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
+- [D&D Spell Damage Model](../research/gaming/dnd-spell-damage-model.md)

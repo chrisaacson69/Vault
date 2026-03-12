@@ -1,7 +1,7 @@
 # Active Tasks & Goals
 > Current things to do, tracked and linked.
 
-**Updated:** 2026-02-19
+**Updated:** 2026-03-11
 
 ## Completed
 
@@ -38,6 +38,11 @@ The vault's epistemological foundation (structural realism, convergence-as-evide
 ### Define "flourishing" (even provisionally)
 The morality framework's dependent variable. Needed to complete the is-ought bridge.
 
+### Property Rights — dedicated page
+Labor-mixing (Locke → Rothbard → Objectivism) fails at the family unit, bakes "justified" into the definition. Conflict avoidance is the leading alternative ground. Needs formal treatment covering: labor-mixing critique, family counterexample, conflict avoidance grounding, the "justified" circularity, connection to self-ownership debate, trade-vs-conquest economics.
+- [Self-Ownership and Property Rights](../research/philosophy/legal-theory/self-ownership-and-property-rights.md)
+- [Wilson vs Objectivism debate](../research/debates/wilson-objectivism-stance-dependence.md)
+
 ### Coercion boundary analysis
 Where does "limiting choices" (aggression) end and "merely not providing choices" begin? A NAP question from the measurement-causality and government-formation work.
 - [Measurement, Causality](../research/philosophy/measurement-causality.md) (line ~92)
@@ -50,10 +55,17 @@ Referenced by cyborg model, measurement-causality, and LLM grounding problem. Ne
 ### Scope legitimacy criteria
 Rules for when zoom-in vs. zoom-out is legitimate in the morality framework's scope model. Without this, scope-shifting is a tool for justification.
 
+### Measurement Over Sentiment — unifying principle
+The vault commits to evaluating systems by outcomes, not intentions, across multiple domains: morality (agency over intention), law (consequence over mens rea), economics (revealed preference over stated preference), merit (system outcomes over moral worth of inputs). This principle is implicit across four+ pages but has no dedicated articulation. Pull together as a cross-cutting vault page.
+- [Morality](../research/philosophy/morality/README.md)
+- [Mens Rea](../research/philosophy/legal-theory/mens-rea.md)
+- [Value and Profit](../research/economics/value-and-profit.md)
+- [Market Efficiency and Human Limits](../research/economics/market-efficiency-and-human-limits.md)
+
 ## Someday / Maybe
 
 - Constitutional analysis (dedicated page unifying all Constitutional threads)
-- Free speech / 1A analysis
+- Free speech / 1A analysis (press freedom, absolutist position, connection to opposing forces and technology-governance gap)
 - 2nd Amendment analysis
 - Fraud as aggression (without mens rea) + serial fraud problem
 - Marriage / shared ownership under natural law
