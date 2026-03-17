@@ -5,4 +5,5 @@
 - [Computation and Information Theory](../research/computation-and-information.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
+- [Subgraph Investment Optimization](../research/gaming/subgraph-investment-optimization.md)
 - [D&D Spell Damage Model](../research/gaming/dnd-spell-damage-model.md)
