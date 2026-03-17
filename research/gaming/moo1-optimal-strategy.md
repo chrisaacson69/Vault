@@ -351,6 +351,89 @@ A simpler Monte Carlo approach: randomly sample 1000 opening strategies (vary co
 
 **This is a tractable problem. The opening can likely be solved.** See [MOO1 Opening Optimizer](../../projects/moo1-opening-optimizer/README.md) for the simulation project that will answer this definitively.
 
+## The Bad-Start Adaptation Problem
+
+The analysis above optimizes the *good-start* case: open space, colonizable planets in range, no immediate military threat. The numbers are clear — factory ROI is 5%/turn, colonies compound, expand early, factories first is a fallacy.
+
+But map generation is highly random. Bad starts are common: Ultra-Poor homeworld neighbors, Bulrathi two parsecs away, no colonizable planets within range, critical propulsion tech missing from the tree. When this happens, the good-start numbers don't apply, and the decision framework collapses because **the ROI of each investment option changes and the new numbers don't exist yet.**
+
+### The Investment Menu Under Adversity
+
+At any turn, production can go to one of five buckets:
+
+| Investment | Good-Start ROI | Bad-Start ROI | Status |
+|-----------|---------------|---------------|--------|
+| Factory | 5%/turn (known) | Same, but population-capped sooner on small/poor worlds | **Known** |
+| Colony ship | ~3% compound (known) | Depends on target quality; may be negative if only Poor planets available | **Partially known** |
+| Missile base | 0% in peacetime | Unknown — depends on threat proximity, neighbor aggression, fleet strength | **Unknown** |
+| Research | Varies by tech | Varies more — propulsion to reach better planets? Planetology to colonize hostile worlds? | **Unknown** |
+| Military fleet | 0% in peacetime | Unknown — deterrence value? Conquest value? | **Unknown** |
+
+The good-start case has two unknowns (research, military) that don't matter because they're dominated by expansion. The bad-start case has *three or four* unknowns that are suddenly the only viable options. You can't iterate to convergence when most of the ROI figures are missing.
+
+### What Numbers Are Needed
+
+**1. Missile Base ROI as a Function of Threat**
+
+A missile base costs ~50 BC and produces 0 BC/turn in peacetime. In wartime, it prevents the loss of a planet worth potentially thousands of BC in accumulated infrastructure. The ROI is:
+
+```
+ROI(base) = P(attack) × E[damage_prevented] / cost
+```
+
+`P(attack)` depends on: neighbor distance, neighbor aggression (Bulrathi high, Psilon low), your relative fleet strength, diplomatic state. `E[damage_prevented]` depends on: what you'd lose if the planet falls (pop + factories + strategic position).
+
+Neither term has been quantified. The [opening optimizer](../../projects/moo1-opening-optimizer/README.md) Phase 5 identifies this gap but doesn't fill it.
+
+**2. Research ROI Under Constraint**
+
+When the map is bad, research may be the highest-ROI investment because it *changes what's available*:
+
+- Propulsion tech → new planets in range (converts a dead subgraph to a live one)
+- Planetology tech → hostile worlds become colonizable (adds nodes to the graph)
+- Force fields → missile bases become more effective (multiplies defense ROI)
+
+The ROI of research depends on what tech you'll actually get (randomized tree), how soon it pays off, and what alternatives exist. This is a multi-armed bandit problem — explore (research) vs exploit (build with current tech).
+
+**3. Information Value of Scouting**
+
+The first scout resolves enormous uncertainty about which investment path to take. Knowing your neighbors' identity, distance, and disposition lets you pick the right branch. The expected value of scouting is the difference between:
+
+- Average payoff of the optimal strategy *given perfect information* about neighbors
+- Average payoff of the best *unconditional* strategy (blind to neighbors)
+
+This difference is likely highest in the first 10 turns, when uncertainty is maximum and the cost of misallocation compounds furthest.
+
+**4. The Adaptation Trigger**
+
+The hardest number to derive: **when should you abandon the expansion plan?** The subgraph optimization framework ([Subgraph Investment Optimization](./subgraph-investment-optimization.md)) says: take the action with highest risk-adjusted EV from your current position. But identifying the crossover point — the turn where military/research ROI exceeds expansion ROI — requires all the numbers above.
+
+### Connection to Subgraph Optimization
+
+This is the same problem as Monopoly's build-vs-trade decision, translated to 4X:
+
+| Monopoly | MOO1 |
+|----------|------|
+| Your properties (subgraph) | Your planets and tech |
+| Build houses (deepen) | Build factories / bases (deepen) |
+| Trade for monopoly (restructure) | Colonize / conquer (restructure) |
+| Opponent's rent drain | Military threat / lost planets |
+| Dominance pruning | Most investments dominated at any given state |
+| BATNA = build what you have | BATNA = develop existing planets |
+
+The pattern holds: real constraints reduce the decision space. Even with a bad start, the number of non-dominated actions is small — probably 2-3 at any given turn. The missing piece isn't the framework; it's the numbers that go into the framework. Without ROI figures for missile bases, research paths, and military deterrence, the dominance pruning can't operate. You can't tell which options are dominated if you don't know their values.
+
+### Path Forward
+
+The [opening optimizer](../../projects/moo1-opening-optimizer/README.md) Phase 5 is where these numbers would come from. The approach:
+
+1. **Simulate bad starts**: Generate maps with hostile neighbors at various distances, poor planet quality, missing tech. Run the same sweep as Phase 2 (vary investment allocation across the 5 buckets).
+2. **Measure military ROI empirically**: Run simulations where the AI attacks at various timings. Compare outcomes with 0, 1, 2, 3 missile bases. Derive `P(survival)` as a function of base count and threat level.
+3. **Measure research ROI**: For each race, compute the expected value of the first propulsion/planetology tech given the randomized tree. How much does "access to one more planet" change the 100-turn production integral?
+4. **Derive adaptation triggers**: Find the map conditions (neighbor distance, planet quality, available tech) where each investment bucket becomes dominant. Express as rules: "if nearest planet is Poor and neighbor is within 4 parsecs, missile base before colony ship."
+
+The convergence principle should still apply — once the numbers exist, the constraints are tight enough that iteration should find the right answer. The problem right now is that iteration has nothing to iterate *on*.
+
 ## Open Questions
 
 - **Can the opening be solved?** Given a fixed map and race, is there a provably optimal turn sequence for the first 20 turns? The state space is small enough that brute-force search might be feasible — unlike the full game, which is combinatorially intractable. The mathematical analysis above suggests the answer is yes, at least for the colony ship timing subproblem.
