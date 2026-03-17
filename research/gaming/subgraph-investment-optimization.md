@@ -172,6 +172,22 @@ This is dynamic programming on a state graph where:
 
 The Markov landing probabilities feed into the reward calculation. The bilateral simulation computes the reward. The graph structure determines the action space. Each piece of existing theory slots into the framework.
 
+## Convergence Under Constraints
+
+The full subgraph optimization problem isn't analytically solvable — you can't prove that "build the 3rd house on Orange" is the Nash equilibrium move from a given state. But the pattern across this vault's game research is that **real-world constraints and dominant strategies reduce the problem space until iterative convergence finds the right answer anyway.**
+
+This is visible in the existing results:
+
+- The **1.0x reserve multiplier** (from [insurance](../economics/insurance.md)) was empirically calibrated, not derived. It turned out to match the theoretically correct value. The constraint structure (convex liquidity cost, bounded rent distribution) left only a narrow band of workable multipliers, and iteration found it.
+- The **bilateral model's simplification** (ignore other players' development) "shouldn't" work for a 4-player game. It produced Z=10.25. The constraint (other players' development is slow relative to the two traders' post-trade trajectories) makes the N-body correction terms small enough to ignore.
+- The **convergence-point Nash price** and the **area-equality Nash price** gave nearly identical results (33.8% vs 33.6%). Two different formulations converged to the same answer because the constraint structure (finite horizon, bounded cash, discrete house levels) collapses the space of possible prices to a narrow range.
+
+The pattern: when constraints are tight enough, multiple reasonable approaches converge to the same solution. You don't need mathematical rigor to find it — you need a model that respects the constraints and an iteration loop.
+
+This connects directly to [computational irreducibility](../computation-and-information.md). The full game state space is irreducible — no shortcut to the optimal play sequence. But the *decision at each node* is reducible because dominance pruning, constraint satisfaction, and convergence dynamics collapse the choice set. The game is irreducible globally but tractable locally. You can't solve the whole DAG, but you can navigate it one node at a time, and convergence ensures that local greedy decisions approximate the global optimum.
+
+The practical implication for implementation: don't try to solve the framework analytically. Build the bilateral simulation, apply the dominance pruning, iterate. If the result converges (as it has at every prior step), the solution is correct enough. The constraints do the mathematical work that closed-form solutions would otherwise require.
+
 ## Open Questions
 
 - **Housing scarcity as strategic weapon:** When should you build specifically to deny housing to opponents, even if the ROI of that house is suboptimal for your own position? This is a blocking play on the shared constraint — the graph equivalent of occupying a chokepoint.
