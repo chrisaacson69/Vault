@@ -89,6 +89,33 @@ The enforcement bypass problem makes the Godel analogy more precise. It's not ju
 
 Each proposed fix recreates the Godel problem at a new level. The enforcement of enforcement requires its own enforcement. The regress is structural.
 
+### Breaking the Recursion: Friction vs. Feedback
+
+The infinite regress exists because **friction requires enforcement, and enforcement requires friction.** Every layer is a new dam that needs its own dam. The only way to break an infinite regress is to find a base case — something self-enforcing that doesn't need a layer above it.
+
+The distinction is between two architectures:
+
+| | Friction Systems | Feedback Systems |
+|--|-----------------|-----------------|
+| **Mechanism** | Prevent bad outcomes by making change hard | Correct bad outcomes by making consequences automatic |
+| **Enforcement** | Requires external enforcement at every level | Self-enforcing — the mechanism IS the consequence |
+| **Bypass incentive** | High — the friction itself motivates circumvention | Low — there's nothing to route around |
+| **Failure mode** | Catastrophic (dam breaks) | Graceful (degradation, not collapse) |
+| **Recursion** | Infinite — who enforces the enforcer? | Terminates — the feedback loop is its own enforcer |
+| **Example** | Constitution (hard to amend) | Market (bad products lose customers) |
+
+A market doesn't *prevent* bad products with friction. It *punishes* them with losses. Nobody enforces "serve your customers well" — the business dies if it doesn't. The enforcement is the system itself. No recursion needed.
+
+The Constitution is a friction system. It tries to *prevent* bad governance by making change hard. The alternative would be a system that *punishes* bad governance with automatic consequences — which is exactly what **exit** does. If citizens can leave, bad governance loses its tax base, its workforce, its legitimacy. No enforcement layer required. The feedback is self-correcting.
+
+This is why the "missing feedback loop" identified in Option C's failure analysis is the deepest structural flaw, not just one of three. The other two (federalism decay, language as attack surface) are *symptoms* of the missing feedback loop. If governance had a profit/loss signal — if bad governance was automatically punished the way bad business is — the friction structure wouldn't need to do the heavy lifting, and the enforcement regress wouldn't exist.
+
+**The synthesis:** Maybe the friction structure's job isn't to constrain governance directly (which generates the recursion) but to **protect the one mechanism that is self-enforcing: exit.** One inviolable rule — you can leave — and market discipline handles everything downstream. Instead of a constitution with thousands of interpretable clauses (thousands of attack surfaces for the enforcement bypass), you protect one thing.
+
+This still has a Godel residue — who enforces the exit right? — but it *minimizes the recursion depth*. One enforcement problem instead of thousands. And exit has a natural ally that other constitutional provisions lack: the [opposing forces](./opposing-forces.md) principle. Every attempt to foreclose exit generates pressure to restore it (emigration, black markets, underground railroads, secession movements). Exit is the one right that generates its own opposing force when violated, because the people who want to leave are *exactly* the people motivated to fight for the ability to leave. The enforcement problem doesn't disappear, but it has a structural tailwind that other constitutional provisions don't.
+
+The question is whether this minimal recursion is livable — whether a system with one Godel vulnerability (exit enforcement) is stable enough to outlast a system with thousands (traditional constitution). The vault doesn't have an answer yet, but the framing shifts the search: stop looking for a better dam. Look for a system that doesn't need one.
+
 ## Why This Is Godel, Not Just Political Science
 
 The three options don't fail for contingent reasons (bad leaders, poor design, historical accident). They fail for structural reasons analogous to Godel's incompleteness:
