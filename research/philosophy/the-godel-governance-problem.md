@@ -55,6 +55,40 @@ The [scope confusion](./morality/scope-confusion.md) framework adds: the frictio
 
 **Timescale:** Constitutional systems last centuries but degrade continuously. The US Constitution has been in continuous drift toward centralization since 1789, with major inflection points (Civil War foreclosed exit, New Deal expanded federal power, post-9/11 expanded executive power).
 
+## The Enforcement Bypass Problem
+
+Option C assumes the friction structure (the amendment process) is the primary path for constitutional change. But rational actors don't attack the strongest point of a system — they attack the weakest. The amendment process is the front door, and it's hard: averaging roughly one amendment every 15 years. So change-seekers discovered three side doors:
+
+1. **Legislative bypass** — Congress passes laws that contradict constitutional principles without formally amending them. The Patriot Act didn't amend the 4th Amendment; it just ignored the spirit of it through statutory authority.
+2. **Executive bypass** — Presidents use executive orders and emergency powers to accomplish what Congress won't legislate and the amendment process won't permit. Executive power expands because the friction of passing legislation (let alone amendments) makes unilateral action the path of least resistance.
+3. **Judicial bypass** — SCOTUS reinterprets the Constitution's language to mean something the framers didn't intend. The Commerce Clause didn't change; five justices decided it meant something broader. This is the most powerful bypass because it has the appearance of constitutional legitimacy — it's not "violating" the Constitution, it's "interpreting" it.
+
+The judicial bypass is the deepest cut because it attacks the friction structure from *within*. An amendment requires supermajorities across Congress and state legislatures. A reinterpretation requires five votes on the Supreme Court. The cost differential is enormous, so anyone who wants constitutional change has an overwhelming incentive to pursue reinterpretation over amendment. The hard process exists, but the easy process is *right there*.
+
+### The General Principle
+
+This reveals a structural law about friction systems: **friction applied unevenly creates a pressure gradient toward the path of least resistance.** The Constitution applied heavy friction to the amendment process but lighter friction to enforcement. The result was predictable — change flows through enforcement, not amendment.
+
+This is the same pattern as water finding cracks in a dam. The dam (amendment process) can be arbitrarily strong, but if the foundation (enforcement mechanisms) is weaker, the water routes around the dam entirely. The strength of the friction structure is determined by its *weakest* enforcement point, not its strongest barrier.
+
+### The Flexibility Dilemma
+
+This also surfaces a design tension: a system must be flexible enough to accommodate legitimate change, or actors will bypass the friction entirely to get it. The amendment process may be *too* rigid — 15-year average cycle time means the system can't adapt to genuine needs at the speed reality demands. When the legitimate path is too slow, illegitimate paths become rational.
+
+But making the legitimate path easier (lowering amendment friction) risks the opposite failure — temporary madness passes through too quickly, and the system loses its protective function. The Constitution's value is precisely that it's hard to change. Make it easy and you lose the protection; make it too hard and people route around it.
+
+This is a Goldilocks problem with no stable solution: any fixed level of friction is either too much (generating bypass incentives) or too little (failing to filter bad changes) depending on the rate of change in the external environment. And that rate isn't constant — it accelerates with technology (see [The Technology-Governance Gap](./technology-governance-gap.md)).
+
+### Implications for the Unsolved Question
+
+The enforcement bypass problem makes the Godel analogy more precise. It's not just that the Constitution "contains the tools for its own subversion" in the abstract — the specific tool is that *enforcement is cheaper to subvert than amendment*. Any future friction structure would need to address this directly:
+
+- **Equal friction across all paths** — if you can't change the document without supermajorities, you shouldn't be able to reinterpret it without equivalent consensus. (But who enforces *that* rule? The enforcement regress is infinite.)
+- **Enforcement transparency** — make bypass visible and costly. If SCOTUS reinterpretation is functionally equivalent to amendment, it should require equivalent process. (But SCOTUS's legitimacy depends on the fiction that interpretation isn't legislation.)
+- **Adaptive friction** — friction that adjusts to the rate of external change, tighter during periods of stability and more permissive during genuine crises. (But who decides when a crisis is "genuine"? The same actors who benefit from declaring crises.)
+
+Each proposed fix recreates the Godel problem at a new level. The enforcement of enforcement requires its own enforcement. The regress is structural.
+
 ## Why This Is Godel, Not Just Political Science
 
 The three options don't fail for contingent reasons (bad leaders, poor design, historical accident). They fail for structural reasons analogous to Godel's incompleteness:
