@@ -4,3 +4,4 @@
 - [Risk and Entrepreneurship](../research/economics/risk-and-entrepreneurship.md)
 - [Insurance](../research/economics/insurance.md)
 - [The Limits of Utopia](../notes/limits-of-utopia.md)
+- [Business Cycles](../research/economics/business-cycles.md)

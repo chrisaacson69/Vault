@@ -3,7 +3,7 @@
 
 **Status:** active — formalizing
 **Created:** 2026-02-25
-**Links:** [Epistemology](./README.md), [Value and Profit](../../economics/value-and-profit.md), [Scope Confusion](../morality/scope-confusion.md), [Art Objectivity Debate](../../debates/art-objectivity-noerr-strange.md)
+**Links:** [Epistemology](./README.md), [Value and Profit](../../economics/value-and-profit.md), [Scope Confusion](../morality/scope-confusion.md), [Art Objectivity Debate](../../debates/art-objectivity-noerr-strange.md), [Value/Utility via Evolutionary Game Theory (Evo-Cap)](../../evolutionary-capitalist/value-utility-evolutionary-game-theory.md), [Gauge Theory Applied to Economics (Weinstein x Murphy)](../../debates/weinstein-murphy-gauge-theory-economics.md)
 
 ## The Principle
 

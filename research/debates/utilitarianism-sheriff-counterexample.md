@@ -5,7 +5,7 @@
 **Source:** [YouTube](https://www.youtube.com/watch?v=HcX0LNmwfMk)
 **Participants:** Philosophy lecturer (academic presentation of McCloskey vs Smart)
 **Duration:** ~10 min
-**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [the weighting problem](../../research/philosophy/epistemology/weighting-problem.md), [opposing forces](../../research/philosophy/opposing-forces.md)
+**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [the weighting problem](../../research/philosophy/epistemology/weighting-problem.md), [opposing forces](../../research/philosophy/opposing-forces.md), [Comparative Advantage Bidding (Evo-Cap)](../evolutionary-capitalist/comparative-advantage-bidding.md)
 
 ## Context
 

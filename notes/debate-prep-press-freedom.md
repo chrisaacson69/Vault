@@ -112,6 +112,16 @@ The Nazis' first institutional act was the Editors Law (1933). The Soviets contr
 
 **Response:** All of them require information to function. Courts need evidence that reaches them. Elections need voters who know what happened. Internal oversight is, by definition, the system auditing itself — which is the Gödel problem. The press is what feeds information to all the other checking mechanisms. It's the input, not just another check.
 
+### "'Access' means physical access — press credentials, briefing rooms. That's guild privilege, not democracy."
+
+**Response:** Physical access is logistics, not the right. You can't fit 330 million people in the briefing room — someone has to be there as a proxy. The test isn't who sits in the chair, it's whether the information flows outward to the public. And this actually strengthens the affirmative case: the danger is when government uses credential revocation as information control — pulling passes from hostile outlets. That's precisely why "free" access matters. "Free" means the government can't weaponize the credential.
+
+**If they press:** "But who decides who gets credentials? That's a privileged class."
+
+**Response:** "That's a real problem — and it's a Gödel problem again. If the government credentials the press, it gatekeeps the watchdog. If the press self-credentials, you risk guild capture. But the answer isn't to abolish access — it's to keep the credentialing process transparent and the barrier to entry low. The internet has already done this at the information level. Anyone can publish. Physical access to a room is the thinnest slice of what 'free access' means."
+
+**The one-liner:** "The chair is logistics. The microphone is the right."
+
 ---
 
 ## Key One-Liners (memorize these)
@@ -130,6 +140,10 @@ The Nazis' first institutional act was the Editors Law (1933). The Soviets contr
 
 7. "The Pentagon Papers were classified. They revealed the government lied about Vietnam for years. Should that have stayed hidden?"
 
+8. "The chair is logistics. The microphone is the right."
+
+9. "The Federalists told us a Bill of Rights was unnecessary. Seven years later they passed the Sedition Act and jailed editors who criticized the President. That's why we write it down."
+
 ---
 
 ## Closing Script (~2 minutes)
@@ -145,6 +159,65 @@ The Nazis' first institutional act was the Editors Law (1933). The Soviets contr
 > The resolution says "critical to a healthy, functioning democracy." I'd go further. Free information access is critical to any system where the government answers to the governed. Democracy is one such system. But the principle is deeper than any particular form of government. It's about whether citizens can see what their government is doing. The press is how they see.
 >
 > You can have a free press and still have problems. You cannot have no free press and fix them.
+
+---
+
+## Founding Fathers on the Free Press
+
+### The Quotes (deploy in debate — these land hard)
+
+**George Mason** — Virginia Declaration of Rights (June 12, 1776):
+> "The freedom of the press is one of the great bulwarks of liberty, and can never be restrained but by despotic governments."
+
+This was the *first* declaration of rights in American history to call for a free press — 15 years before the Bill of Rights. It became the template for the First Amendment.
+
+**Thomas Jefferson** — Letter to Dr. James Currie (1786):
+> "Our liberty depends on the freedom of the press, and that cannot be limited without being lost."
+
+**Thomas Jefferson** — Letter to Edward Carrington (1787):
+> "Were it left to me to decide whether we should have a government without newspapers or newspapers without a government, I should not hesitate a moment to prefer the latter."
+
+**James Madison** — Letter to W.T. Barry (1822):
+> "A popular Government, without popular information, or the means of acquiring it, is but a Prologue to a Farce or a Tragedy; or, perhaps both. Knowledge will forever govern ignorance: And a people who mean to be their own Governors, must arm themselves with the power which knowledge gives."
+
+This is the killer quote for the debate. Madison is saying *exactly* your pre-commitment argument: without information flow, self-governance is theater.
+
+**James Madison** — Virginia Report (1800):
+> "To the press alone, chequered as it is with abuses, the world is indebted for all the triumphs which have been gained by reason and humanity over error and oppression."
+
+Note: "chequered as it is with abuses" — Madison *concedes* the press is flawed and *still* affirms it. Pre-emptively answers the negative's "but the press is biased" attack.
+
+**James Madison** — Virginia Resolutions (1798), on the power of censorship:
+> "[A power] which more than any other, ought to produce universal alarm, because it is levelled against that right of freely examining public characters and measures, and of free communication among the people thereon, which has ever been justly deemed, the only effectual guardian of every other right."
+
+"The only effectual guardian of every other right." That's your Argument 1 (the observation mechanism) in Madison's own words.
+
+**Benjamin Franklin** — The Pennsylvania Gazette:
+> "Freedom of speech is a principal pillar of a free government: When this support is taken away, the constitution of a free society is dissolved."
+
+### The Federalist / Anti-Federalist Split
+
+This is useful because it shows the founders *themselves* debated this — and history settled it.
+
+**Anti-Federalists** (Mason, Patrick Henry, others) argued the Constitution *needed* explicit press freedom protection. The omission was one of their **leading objections** to ratification. Their fear: the supremacy clause combined with the necessary and proper clause would allow implied powers that could crush press freedom without an explicit prohibition.
+
+**Federalists** (Hamilton, others) argued a Bill of Rights was **unnecessary** because the federal government only had enumerated powers — everything not granted was reserved to the states and people. Hamilton in Federalist No. 84 even argued listing rights could be *dangerous* because it implied the government had powers it didn't.
+
+**The compromise:** To secure ratification, Federalists agreed to add amendments. Madison introduced the proposals in 1789; the Bill of Rights was ratified in 1791.
+
+### The Sedition Act of 1798 — The Founders Proved Themselves Right
+
+Here's the historical killshot: **the same Federalists who said a Bill of Rights was unnecessary passed the Sedition Act just 7 years later.**
+
+- Federalist-controlled Congress under President John Adams passed a law making it illegal to publish "false, scandalous, or malicious writing" against the government
+- Over two dozen editors — mostly Republican-leaning — were arrested and charged
+- Benjamin Franklin's own grandson, Benjamin Franklin Bache, was among those prosecuted
+- Jefferson and Madison wrote the Kentucky and Virginia Resolutions declaring the Act unconstitutional
+- Jefferson won the 1800 election partly on backlash to the Act, and issued blanket pardons to all convicted
+
+**Why this matters for your debate:** The Sedition Act is *exactly* your Argument 1 in real-time. The government passed a law to silence criticism, framed it as protecting truth, and used it exclusively against political opponents. The "false, scandalous, or malicious" standard — which sounds reasonable — was applied as a political weapon within months. The censor *always* grows. This isn't hypothetical. The founders did it to each other.
+
+**The one-liner:** "The Federalists told us a Bill of Rights was unnecessary. Seven years later they passed the Sedition Act and jailed editors who criticized the President. That's why we write it down."
 
 ---
 

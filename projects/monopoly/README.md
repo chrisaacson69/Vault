@@ -4,7 +4,7 @@
 **Status:** active
 **Created:** 2026-02
 **Repo:** `https://github.com/chrisaacson69/monopoly`
-**Links:** [Economics](../../research/economics/README.md)
+**Links:** [Economics](../../research/economics/README.md), [Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md), [Nash Bargaining](../../research/gaming/nash-bargaining-problem.md), [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md)
 
 ## Overview
 
@@ -27,6 +27,10 @@ Full Monopoly implementation in JavaScript with a deep AI stack. The engine mode
 ### External Interface
 
 Uses [Monopoly-Bot-Richup.io](https://github.com) (foreign repo in `source/repos/`) to interface bots with the Richup.io online platform.
+
+## Research
+
+- [Efficient Frontier Trade Theory](./frontier-trade-theory.md) — using EPT frontier curves to solve 3+ player trade valuation; properties as liquidity tools; game horizon dynamics; the brown trap confirmed by simulation
 
 ## Tags
 [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [javascript](../../tags/javascript.md)

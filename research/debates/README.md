@@ -60,6 +60,11 @@ Links to related research pages.
 - [TAG Debunks Atheism](./tag-debunks-atheism-nicks-peterson.md) — same TAG, less-prepared opponent; case study in what happens without the right counter-tools; maps every missed opportunity to a vault framework (Eli Nicks vs Planet Peterson)
 - [Andrew Wilson vs Objectivism: Stance Dependence](./wilson-objectivism-stance-dependence.md) — can relational moral facts be objective? The Objectivist says yes but can't seal the regress; Wilson exploits the gap but faces the same problem himself (Andrew Wilson vs ProphetDivinityy on Eduardo's panel)
 - [The SAVE Act and the Suffrage Question](./save-act-suffrage-hoppian.md) — voter ID is the easy part; the Hoppian case against universal suffrage, the free-rider problem, and why restricting scope beats restricting the vote
+- [The Fake Science of Economics (Yarvin x McCormack)](./yarvin-mccormack-fake-science-economics.md) — Austrian + mercantilist synthesis (Friedrich List); Z1 as inflation; Nash equilibrium of money origin; inelastic supply argument for Bitcoin over gold
+- [The End of the End of History (Yarvin x Starkey)](./yarvin-starkey-end-of-history.md) — Oxford lecture: meritocracy (expertise + power) and populism (weak demos) both failed; monarchy proposal; Starkey's "little platoons" and Burke counter; maps directly to Gödel Governance Problem
+- [Gauge Theory Applied to Economics (Weinstein x Murphy)](./weinstein-murphy-gauge-theory-economics.md) — the Weighting Problem formalized via differential geometry; principal bundle between cardinal and ordinal utility; all index numbers agree under the correct derivative; path dependence as the Cantillon effect; Boskin Commission as politics disguised as economics
+- [Transhumanism vs Christianity (Wilson x Istvan)](./wilson-istvan-transhumanism-christianity.md) — transhumanism has no normative foundation; borrows 80% of Christian ethics and can't justify the 20% it discards; designer baby trap exposes the Weighting Problem; ability ≠ freedom distinction
+- [Would a Perfectly Logical Society Be Less Humane? (Noerr)](./noerr-logic-feelings-humane.md) — definitional control as debate strategy; "less, not zero" frame; scope confusion over suffering; concession cascade
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md)

@@ -3,7 +3,7 @@
 
 **Status:** active — open problem (possibly the central unsolved problem of political philosophy)
 **Created:** 2026-03-04
-**Links:** [Opposing Forces](./opposing-forces.md), [Government Formation](./legal-theory/government-formation.md), [Scope Confusion](./morality/scope-confusion.md), [Civilizational Cycles](./civilizational-cycles.md), [Registration and Scope Creep](./legal-theory/registration-and-scope-creep.md), [Morality](./morality/README.md), [Computation and Information Theory](../computation-and-information.md), [New Cycle (fiction project)](../../projects/new-cycle/README.md)
+**Links:** [Opposing Forces](./opposing-forces.md), [Government Formation](./legal-theory/government-formation.md), [Scope Confusion](./morality/scope-confusion.md), [Civilizational Cycles](./civilizational-cycles.md), [Registration and Scope Creep](./legal-theory/registration-and-scope-creep.md), [Morality](./morality/README.md), [Computation and Information Theory](../computation-and-information.md), [New Cycle (fiction project)](../../projects/new-cycle/README.md), [The End of the End of History (Yarvin x Starkey)](../debates/yarvin-starkey-end-of-history.md)
 
 ## The Problem
 

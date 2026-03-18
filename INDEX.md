@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-03-12
+**Last updated:** 2026-03-16
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -43,6 +43,13 @@
     - [Rudyard Lynch (Whatifalthist)](./research/philosophy/whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
   - [Newcomb's Paradox](./research/philosophy/newcombs-paradox.md) — pre-commitment, decision theory, agent type; EDT vs CDT; connections to governance, performative grounding, and the prisoner's dilemma
   - [Press Freedom and Governance](./research/philosophy/press-freedom-and-governance.md) — free press as pre-commitment enforcement; the observation problem; market competition in information; the Gödel classification problem
+  - [History of Philosophy — Peikoff](./research/philosophy/history-of-philosophy/README.md) — 50-lecture survey from Thales to Kant; lecture-by-lecture analysis
+    - [Ep 1: Introduction](./research/philosophy/history-of-philosophy/01-introduction.md) — why philosophy matters, the five branches, the 2,400-year map
+    - [Ep 2: Thales](./research/philosophy/history-of-philosophy/02-thales.md) — why Greece, naturalism vs supernaturalism, monism, "the one in the many"
+    - [Ep 3: Heraclitus](./research/philosophy/history-of-philosophy/03-heraclitus.md) — change requires contradiction, no entities, senses invalid, "everything flows"
+    - [Ep 4: Parmenides](./research/philosophy/history-of-philosophy/04-parmenides.md) — what is, is; change and multiplicity impossible; Zeno's paradoxes; the One
+    - [Ep 5: Pythagoras](./research/philosophy/history-of-philosophy/05-pythagoras.md) — Orphic religion, soul/body split, "all things are numbers," two-world metaphysics
+    - [Ep 6: Pluralists & Atomists](./research/philosophy/history-of-philosophy/06-pluralists-atomists.md) — materialism, primary/secondary qualities, determinism, the self-refutation of materialism
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual
@@ -53,6 +60,9 @@
   - [K-12 Instruction vs. Administration](./research/economics/k12-instruction-vs-administration.md) — where school dollars go: instruction, administration, support services, staffing trends, and the "administrative bloat" debate
   - [Market Efficiency and Human Limits](./research/economics/market-efficiency-and-human-limits.md) — the market gives society what it wants, but humans may not be smart enough to be good participants; supply-and-demand analysis; GDP per capita
   - [Externalities: Fact-Check](./research/economics/externalities-fact-check.md) — do externalities decompose into information + coercion problems? Sourced review of Coase, Dahlman, Rothbard, Block, Winston; verdict: minority position, empirically weak on information half
+  - [Business Cycles](./research/economics/business-cycles.md) — boom-bust cycles are natural (entrepreneurial error clusters, innovation waves, time preference shifts); government amplifies via political ratchet, moral hazard, prevented liquidation, Cantillon distortion
+  - [Inflation](./research/economics/inflation.md) — many causes, only one permanent; monetary expansion is the ratchet; supply shocks, demand shifts, velocity, productivity, and tech-driven demand are real but transient
+  - [The Equation of Exchange and the Transaction Multiplier](./research/economics/equation-of-exchange.md) — MV = PT decomposed through C+I+G+NX; each component has a different transaction multiplier k; resolves the velocity puzzle, explains Cantillon routing, financialization as T_financial dominance
 - [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
   - [The Nash Bargaining Problem](./research/gaming/nash-bargaining-problem.md) — two players, $100, agree or get nothing: Nash's axiomatic solution, patience as leverage, and why identical agents can't trade
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
@@ -69,6 +79,11 @@
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
 - [Programmatic DJ Mixing Tools](./research/programmatic-dj-mixing-tools.md) — tools and libraries for executing a DJ mix from written instructions (DawDreamer, pedalboard, pyCrossfade, Reaper)
 - [Kashrut and the Food-Safety Hypothesis](./research/kashrut-food-safety.md) — balanced survey: were kosher laws practical food-safety warnings? Evidence for, against, and alternative explanations (Douglas, Milgrom, Harris, Maimonides)
+- [Evolutionary Capitalist](./research/evolutionary-capitalist/README.md) — YouTube channel critiquing libertarianism; proposes "Evolutionary Capitalism" with high-bidder property allocation
+  - [The Hierarchy of Ownership](./research/evolutionary-capitalist/hierarchy-of-ownership.md) — Rothbard's contradiction between self-ownership and land ownership; vault cross-check
+  - [Comparative Advantage Bidding](./research/evolutionary-capitalist/comparative-advantage-bidding.md) — property via opportunity-cost bidding; reinvents the price system, hides a central planner
+  - [Value/Utility via Evolutionary Game Theory](./research/evolutionary-capitalist/value-utility-evolutionary-game-theory.md) — objective value as evolutionary payoff; Perfect Evolutionary Being; foundational video
+  - [Optimal Money Supply Growth](./research/evolutionary-capitalist/optimal-money-supply.md) — reputation money via profit/loss amplification; Cantillon critique meets central planning
 - [DJ EQ Blending Technique](./research/dj-eq-blending.md) — how pro DJs use EQ as the primary transition tool; technique breakdowns mapped to automation lanes
 - [Online Debates](./research/debates/README.md) — analysis of online "bloodsports" debates; extracting signal from spectacle
   - [Property, Rights, and the God Question](./research/debates/pool-dyer-review-wilson.md) — Wilson reviews Pool vs Dyer; company towns, communism labels, predatory lending, grounding of rights
@@ -77,6 +92,11 @@
   - [TAG Debunks Atheism](./research/debates/tag-debunks-atheism-nicks-peterson.md) — same TAG, less-prepared opponent; case study in missed counter-tools (Nicks vs Peterson)
   - [Andrew Wilson vs Objectivism: Stance Dependence](./research/debates/wilson-objectivism-stance-dependence.md) — relational moral facts, the "facts are facts" regress, Vikings/cooperation, children edge cases (Wilson vs Eduardo)
   - [The SAVE Act and the Suffrage Question](./research/debates/save-act-suffrage-hoppian.md) — Hoppian case against universal suffrage; restrict scope not the vote; the GDP ratchet
+  - [The Fake Science of Economics (Yarvin x McCormack)](./research/debates/yarvin-mccormack-fake-science-economics.md) — Austrian + mercantilist synthesis; Z1 as inflation; Nash equilibrium of money; Bitcoin vs gold
+  - [The End of the End of History (Yarvin x Starkey)](./research/debates/yarvin-starkey-end-of-history.md) — meritocracy and populism both failed; monarchy as third option; Starkey's "little platoons" rebuttal; maps to Gödel Governance Problem
+  - [Gauge Theory Applied to Economics (Weinstein x Murphy)](./research/debates/weinstein-murphy-gauge-theory-economics.md) — "the price level" is a fiction; principal fiber bundle structure in economics; correct derivative makes all index numbers agree; Weighting Problem formalized
+  - [Transhumanism vs Christianity (Wilson x Istvan)](./research/debates/wilson-istvan-transhumanism-christianity.md) — transhumanism has no normative foundation; the 80/20 concession; designer baby trap; ability ≠ freedom
+  - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](./research/debates/noerr-logic-feelings-humane.md) — definitional control as debate strategy; "less, not zero" frame; scope confusion over suffering
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

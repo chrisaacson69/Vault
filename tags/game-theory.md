@@ -8,3 +8,4 @@
 - [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)
 - [D&D Spell Damage Model](../research/gaming/dnd-spell-damage-model.md)
 - [Newcomb's Paradox](../research/philosophy/newcombs-paradox.md)
+- [The Fake Science of Economics (Yarvin x McCormack)](../research/debates/yarvin-mccormack-fake-science-economics.md)

@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-27
-**Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Economics](../economics/README.md), [Monopoly](../../projects/monopoly/README.md)
+**Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Economics](../economics/README.md), [Monopoly](../../projects/monopoly/README.md), [Comparative Advantage Bidding (Evo-Cap)](../evolutionary-capitalist/comparative-advantage-bidding.md)
 
 ## The Setup
 

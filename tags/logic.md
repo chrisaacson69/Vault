@@ -6,3 +6,5 @@
 - [The Fallacy Fallacy](../research/philosophy/the-fallacy-fallacy.md)
 - [TAG Debunks Atheism (Nicks vs Peterson)](../research/debates/tag-debunks-atheism-nicks-peterson.md)
 - [Newcomb's Paradox](../research/philosophy/newcombs-paradox.md)
+- [HoP Ep 3: Heraclitus](../research/philosophy/history-of-philosophy/03-heraclitus.md)
+- [HoP Ep 4: Parmenides](../research/philosophy/history-of-philosophy/04-parmenides.md)
