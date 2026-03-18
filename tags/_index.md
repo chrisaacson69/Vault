@@ -1,7 +1,7 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 12 files
+- [ai](./ai.md) — 13 files
 - [agents](./agents.md) — 8 files
 - [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 8 files
@@ -16,7 +16,7 @@
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 8 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
-- [epistemology](./epistemology.md) — 14 files
+- [epistemology](./epistemology.md) — 15 files
 - [externalities](./externalities.md) — 3 files
 - [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 5 files
@@ -28,7 +28,7 @@
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
 - [libertarian-law](./libertarian-law.md) — 10 files
-- [llm-limitations](./llm-limitations.md) — 4 files
+- [llm-limitations](./llm-limitations.md) — 5 files
 - [logic](./logic.md) — 7 files
 - [machine-learning](./machine-learning.md) — 3 files
 - [mathematics](./mathematics.md) — 8 files
@@ -38,7 +38,7 @@
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 7 files
 - [peikoff](./peikoff.md) — 7 files
-- [philosophy](./philosophy.md) — 30 files
+- [philosophy](./philosophy.md) — 31 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 8 files

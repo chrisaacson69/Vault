@@ -30,6 +30,7 @@
   - [Epistemology](./research/philosophy/epistemology/README.md) — how we know what we know; Objectivist engagement
     - [The Weighting Problem](./research/philosophy/epistemology/weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is subjective
     - [Relational Objectivity](./research/philosophy/epistemology/relational-objectivity.md) — four-category ontology of facts; formalizes why "relational" ≠ "subjective"; connects morality, weighting problem, structural realism, and measurement-causality
+    - [The Birthmark and the Search for Truth](./research/philosophy/epistemology/the-birthmark.md) — Hawthorne parable for epistemic imperfection; five principles for approaching truth; realist correction to postmodernism; why LLMs lack grounding
   - [Legal Theory](./research/philosophy/legal-theory/README.md) — libertarian law; mens rea debate, government formation, marriage, shared ownership
     - [Registration and Scope Creep](./research/philosophy/legal-theory/registration-and-scope-creep.md) — vehicle/gun registration comparison; structural pattern of regulatory expansion beyond original justification
     - [Defensive Force and Collateral Damage](./research/philosophy/legal-theory/defensive-force-and-collateral-damage.md) — causationism, defense/retribution distinction, gentleness principle, state monopoly's inability to meet justified force standards
