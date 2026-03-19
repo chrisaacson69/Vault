@@ -3,7 +3,7 @@
 
 **Status:** active — theory phase
 **Created:** 2026-03-15
-**Links:** [Monopoly](./README.md), [The Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md), [Nash Bargaining Problem](../../research/gaming/nash-bargaining-problem.md), [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md)
+**Links:** [Monopoly](./README.md), [The Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md), [Nash Bargaining Problem](../../research/gaming/nash-bargaining-problem.md), [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md), [Subgraph Investment Optimization](../../research/gaming/subgraph-investment-optimization.md)
 
 ## The Problem
 

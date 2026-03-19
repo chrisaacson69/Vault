@@ -31,6 +31,7 @@ Uses [Monopoly-Bot-Richup.io](https://github.com) (foreign repo in `source/repos
 ## Research
 
 - [Efficient Frontier Trade Theory](./frontier-trade-theory.md) — using EPT frontier curves to solve 3+ player trade valuation; properties as liquidity tools; game horizon dynamics; the brown trap confirmed by simulation
+- [Subgraph Investment Optimization](../../research/gaming/subgraph-investment-optimization.md) — formalizes the "build vs trade" decision as graph optimization; dominance pruning collapses the combinatorial space; DAG of reachable states
 
 ## Tags
 [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [javascript](../../tags/javascript.md)
