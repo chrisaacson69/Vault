@@ -71,6 +71,7 @@
   - [BattleValue](./research/gaming/battle-value.md) — BV = sqrt(Attack × HP): universal combat comparison metric; Lanchester's Square Law for individual units
   - [MOO1 Optimal Strategy](./research/gaming/moo1-optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
   - [Diplomacy: 7 AI Models](./research/gaming/diplomacy-ai-analysis.md) — 7 LLMs play the ultimate coalition game; case study for Nash bargaining, physical grounding of strategy, AI personality differences, and why different agents CAN trade
+  - [Subgraph Investment Optimization](./research/gaming/subgraph-investment-optimization.md) — each player owns a subgraph; build vs trade decision via Pareto dominance, graph matching, and dynamic programming on reachable states
   - [D&D Spell Damage Model](./research/gaming/dnd-spell-damage-model.md) — CLT + bimodal distributions for spell comparison; same instinct as BattleValue; structural realism case study
 - [H-Neurons: The Neural Basis of Hallucination](./research/h-neurons.md) — <0.1% of neurons drive hallucinations; mechanism is over-compliance (people-pleasing), not knowledge corruption; baked into pre-training
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
