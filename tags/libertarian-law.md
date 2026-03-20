@@ -11,3 +11,4 @@
 - [Comparative Advantage Bidding (Evo-Cap)](../research/evolutionary-capitalist/comparative-advantage-bidding.md)
 - [The Fake Science of Economics (Yarvin x McCormack)](../research/debates/yarvin-mccormack-fake-science-economics.md)
 - [The End of the End of History (Yarvin x Starkey)](../research/debates/yarvin-starkey-end-of-history.md)
+- [Force Doctrine and Pragmatism (Wilson)](../research/debates/wilson-force-doctrine-pragmatism.md)

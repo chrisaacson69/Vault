@@ -9,3 +9,4 @@
 - [Hierarchy of Ownership (Evo-Cap)](../research/evolutionary-capitalist/hierarchy-of-ownership.md)
 - [Value/Utility via Evolutionary Game Theory (Evo-Cap)](../research/evolutionary-capitalist/value-utility-evolutionary-game-theory.md)
 - [Transhumanism vs Christianity (Wilson x Istvan)](../research/debates/wilson-istvan-transhumanism-christianity.md)
+- [Force Doctrine and Pragmatism (Wilson)](../research/debates/wilson-force-doctrine-pragmatism.md)

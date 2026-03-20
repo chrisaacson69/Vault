@@ -65,6 +65,7 @@ Links to related research pages.
 - [Gauge Theory Applied to Economics (Weinstein x Murphy)](./weinstein-murphy-gauge-theory-economics.md) — the Weighting Problem formalized via differential geometry; principal bundle between cardinal and ordinal utility; all index numbers agree under the correct derivative; path dependence as the Cantillon effect; Boskin Commission as politics disguised as economics
 - [Transhumanism vs Christianity (Wilson x Istvan)](./wilson-istvan-transhumanism-christianity.md) — transhumanism has no normative foundation; borrows 80% of Christian ethics and can't justify the 20% it discards; designer baby trap exposes the Weighting Problem; ability ≠ freedom distinction
 - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](./noerr-logic-feelings-humane.md) — definitional control as debate strategy; "less, not zero" frame; scope confusion over suffering; concession cascade
+- [Force Doctrine and the Rehabilitation of Pragmatism (Wilson)](./wilson-force-doctrine-pragmatism.md) — Wilson's descriptor is true but doesn't ground Christian morality; the real lesson is pragmatism is a legitimate philosophical tool; theories ungrounded in reality are wrong
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md)
