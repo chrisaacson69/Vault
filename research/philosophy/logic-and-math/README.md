@@ -97,6 +97,7 @@ All three are maps tracking real territory. All three converge across cultures b
 - [Gödel's Incompleteness Theorems](./godel-incompleteness.md) — no sufficiently powerful system can be both complete and consistent; the proof, what it means, what it doesn't mean; connections to Turing's halting problem, TAG rebuttal, governance, and emergence
 - [Intuitionistic Logic](./intuitionistic-logic.md) — drop excluded middle, require constructive proof; Brouwer/Heyting/BHK interpretation; Curry-Howard correspondence (proofs = programs); the boundary between logic and computation
 - [Non-Classical Logics](./non-classical-logics.md) — paraconsistent (tolerate contradictions), fuzzy (truth in degrees), relevance (premises must connect), many-valued (beyond binary), linear (resources consumed); each fixes a classical failure point
+- [Quantum Logic](./quantum-logic.md) — the distributive law fails experimentally; logic is empirical, not a priori; classical logic is the macro-scale approximation; Birkhoff/von Neumann lattice structure; TAG falsified by physics
 
 ## Suggested Reading
 

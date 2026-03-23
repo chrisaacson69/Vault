@@ -206,6 +206,8 @@ Classical logic: a proposition is true (1) or false (0). Fuzzy logic: a proposit
 
 ### Quantum Logic (Birkhoff, von Neumann — 1936)
 
+*Main article: [Quantum Logic](./quantum-logic.md)*
+
 **What it drops:** The distributive law.
 
 In classical logic: A AND (B OR C) = (A AND B) OR (A AND C). Always. In quantum mechanics: this fails. A particle can pass through slit A AND (slit B OR slit C) without it being the case that it passes through (slit A AND slit B) OR (slit A AND slit C).
