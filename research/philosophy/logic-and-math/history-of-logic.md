@@ -216,6 +216,8 @@ Quantum logic is not a philosophical curiosity — it's required by the experime
 
 ## IV. Eastern Logical Traditions
 
+*Main article: [Eastern Logical Traditions](./eastern-logic.md)*
+
 Western logic has a 2,400-year history. Eastern traditions have independent logical histories, some of which anticipated non-classical Western developments by centuries.
 
 ### Indian Logic — Nagarjuna's Catuskoti (c. 150 AD)
