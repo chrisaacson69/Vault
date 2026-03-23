@@ -27,6 +27,7 @@
     - [Scope Confusion](./research/philosophy/morality/scope-confusion.md) — why most political disagreements are scope assignment errors; enforceability gradient; mens rea as case study
     - [Performative Grounding — Philosophical Lineage](./research/philosophy/morality/performative-grounding-lineage.md) — the 2,400-year tradition behind the performative contradiction move; Aristotle through Korsgaard; comprehensive reading list
   - [Logic and Mathematics](./research/philosophy/logic-and-math/README.md) — structural realism; formalisms as maps, not territory
+    - [A History of Logic](./research/philosophy/logic-and-math/history-of-logic.md) — Aristotle → Boole → Frege → Gödel → non-classical logics; 2,400 years of evolution; not settled, not singular; TAG rebuttal
   - [Epistemology](./research/philosophy/epistemology/README.md) — how we know what we know; Objectivist engagement
     - [The Weighting Problem](./research/philosophy/epistemology/weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is subjective
     - [Relational Objectivity](./research/philosophy/epistemology/relational-objectivity.md) — four-category ontology of facts; formalizes why "relational" ≠ "subjective"; connects morality, weighting problem, structural realism, and measurement-causality

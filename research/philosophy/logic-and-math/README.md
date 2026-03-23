@@ -88,6 +88,10 @@ All three are maps tracking real territory. All three converge across cultures b
 
 4. **The "new math" pattern.** We keep building new formalisms when old ones fail. Does the *process* of building-and-testing formalisms converge on something, even if individual formalisms are constructions? Is there a meta-pattern?
 
+## Pages
+
+- [A History of Logic](./history-of-logic.md) — 2,400 years from Aristotle through Gödel to quantum logic; logic is not settled, not singular, and not God-given; Eastern traditions anticipated non-classical Western developments by centuries
+
 ## Suggested Reading
 
 | Work | Author | Relevance |

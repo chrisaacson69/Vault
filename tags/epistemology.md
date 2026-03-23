@@ -17,3 +17,4 @@
 - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](../research/debates/noerr-logic-feelings-humane.md)
 - [The Birthmark and the Search for Truth](../research/philosophy/epistemology/the-birthmark.md)
 - [Force Doctrine and Pragmatism (Wilson)](../research/debates/wilson-force-doctrine-pragmatism.md)
+- [A History of Logic](../research/philosophy/logic-and-math/history-of-logic.md)

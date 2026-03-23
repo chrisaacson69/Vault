@@ -39,3 +39,4 @@
 - [HoP Ep 6: Pluralists & Atomists](../research/philosophy/history-of-philosophy/06-pluralists-atomists.md)
 - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](../research/debates/noerr-logic-feelings-humane.md)
 - [The Birthmark and the Search for Truth](../research/philosophy/epistemology/the-birthmark.md)
+- [A History of Logic](../research/philosophy/logic-and-math/history-of-logic.md)
