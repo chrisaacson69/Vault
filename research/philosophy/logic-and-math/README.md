@@ -93,6 +93,7 @@ All three are maps tracking real territory. All three converge across cultures b
 - [A History of Logic](./history-of-logic.md) — 2,400 years from Aristotle through Gödel to quantum logic; logic is not settled, not singular, and not God-given; Eastern traditions anticipated non-classical Western developments by centuries
 - [Aristotelian Logic](./aristotelian-logic.md) — the three laws, the syllogism, the square of opposition; what Aristotle got right, what he missed, and where his framework breaks down
 - [The Formal Revolution (1847–1931)](./formal-revolution.md) — Boole (logic as algebra), Frege (predicate logic), Russell (paradox + Principia), Vienna Circle (operator expansion), Shannon (Boolean gates = circuits); the 84 years that turned logic into computation
+- [The Translation Problem](./the-translation-problem.md) — logic operates downstream of interpretation; the biconditional collapse, cross-language identity, ambiguity, material conditional's indifference to connection, scope ambiguity; the pre-logical layer most debaters skip
 
 ## Suggested Reading
 
