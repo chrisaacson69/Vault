@@ -179,6 +179,8 @@ Each branch adds operators to the classical toolkit. None existed in Aristotle's
 
 ### Paraconsistent Logic (da Costa, Priest — 1960s–present)
 
+*Main article: [Non-Classical Logics](./non-classical-logics.md) (covers paraconsistent, fuzzy, relevance, many-valued, and linear logic)*
+
 **What it drops:** The Law of Non-Contradiction (or rather, its explosive consequences).
 
 In classical logic, if you have a contradiction (P and not-P), you can prove ANYTHING (the principle of explosion: *ex falso quodlibet*). Paraconsistent logic blocks this — contradictions can exist without the entire system collapsing.

@@ -96,6 +96,7 @@ All three are maps tracking real territory. All three converge across cultures b
 - [The Translation Problem](./the-translation-problem.md) — logic operates downstream of interpretation; the biconditional collapse, cross-language identity, ambiguity, material conditional's indifference to connection, scope ambiguity; the pre-logical layer most debaters skip
 - [Gödel's Incompleteness Theorems](./godel-incompleteness.md) — no sufficiently powerful system can be both complete and consistent; the proof, what it means, what it doesn't mean; connections to Turing's halting problem, TAG rebuttal, governance, and emergence
 - [Intuitionistic Logic](./intuitionistic-logic.md) — drop excluded middle, require constructive proof; Brouwer/Heyting/BHK interpretation; Curry-Howard correspondence (proofs = programs); the boundary between logic and computation
+- [Non-Classical Logics](./non-classical-logics.md) — paraconsistent (tolerate contradictions), fuzzy (truth in degrees), relevance (premises must connect), many-valued (beyond binary), linear (resources consumed); each fixes a classical failure point
 
 ## Suggested Reading
 
