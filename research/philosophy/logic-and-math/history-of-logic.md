@@ -69,6 +69,8 @@ He never built it. But the dream — formalizing all reasoning as mechanical sym
 
 ## II. The Formal Revolution (1847–1931)
 
+*Main article: [The Formal Revolution](./formal-revolution.md)*
+
 ### Boole — Logic as Algebra (1847/1854)
 
 George Boole's *The Mathematical Analysis of Logic* (1847) and *An Investigation of the Laws of Thought* (1854) transformed logic from a branch of philosophy into a branch of mathematics.
