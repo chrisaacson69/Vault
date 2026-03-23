@@ -21,6 +21,8 @@ The vault's position: logic is a family of formal systems that humans have devel
 
 ### Aristotle (c. 350 BC) — The Starting Point
 
+*Main article: [Aristotelian Logic](./aristotelian-logic.md)*
+
 Aristotle didn't invent reasoning. He was the first to *formalize* it — to write down the rules that valid arguments follow.
 
 **The Organon** (Aristotle's logical works):

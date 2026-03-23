@@ -91,6 +91,7 @@ All three are maps tracking real territory. All three converge across cultures b
 ## Pages
 
 - [A History of Logic](./history-of-logic.md) — 2,400 years from Aristotle through Gödel to quantum logic; logic is not settled, not singular, and not God-given; Eastern traditions anticipated non-classical Western developments by centuries
+- [Aristotelian Logic](./aristotelian-logic.md) — the three laws, the syllogism, the square of opposition; what Aristotle got right, what he missed, and where his framework breaks down
 
 ## Suggested Reading
 
