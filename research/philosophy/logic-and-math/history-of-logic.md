@@ -125,6 +125,8 @@ The Vienna Circle expanded the logical toolkit far beyond Aristotle's original t
 
 ### Gödel's Incompleteness Theorems (1931)
 
+*Main article: [Gödel's Incompleteness Theorems](./godel-incompleteness.md)*
+
 Kurt Gödel destroyed the Principia project — and with it, the dream of a single complete logical foundation for all knowledge.
 
 **First Incompleteness Theorem:** Any consistent formal system powerful enough to express basic arithmetic contains true statements that cannot be proven within the system.
