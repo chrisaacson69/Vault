@@ -99,6 +99,7 @@ All three are maps tracking real territory. All three converge across cultures b
 - [Non-Classical Logics](./non-classical-logics.md) — paraconsistent (tolerate contradictions), fuzzy (truth in degrees), relevance (premises must connect), many-valued (beyond binary), linear (resources consumed); each fixes a classical failure point
 - [Quantum Logic](./quantum-logic.md) — the distributive law fails experimentally; logic is empirical, not a priori; classical logic is the macro-scale approximation; Birkhoff/von Neumann lattice structure; TAG falsified by physics
 - [Eastern Logical Traditions](./eastern-logic.md) — the convergence proof: Nyaya syllogism, Nagarjuna's catuskoti (1,800 years before paraconsistency), Jain seven-valued logic (2,500 years before relational objectivity), Mohist pragmatic test; same structural insights, no shared source
+- [Emergence, Convergence, and the Strange Loop](./emergence-and-convergence.md) — the vault's metaphysical position stated explicitly: Platonism, constructivism, and theism all fail; emergence + convergence is the answer; the vault's own Gödel sentence is "this process converges on truth" — expressible but unprovable from within; the birthmark stays
 
 ## Suggested Reading
 
