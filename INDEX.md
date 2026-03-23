@@ -25,6 +25,7 @@
 - [Philosophy](./research/philosophy/README.md) — first-principles exploration of foundational philosophical questions
   - [Morality](./research/philosophy/morality/README.md) — naturalistic moral framework built from bedrock concepts
     - [Scope Confusion](./research/philosophy/morality/scope-confusion.md) — why most political disagreements are scope assignment errors; enforceability gradient; mens rea as case study
+    - [Deontology vs. Consequentialism](./research/philosophy/morality/deontology-consequentialism.md) — false dichotomy: deontology is cached consequentialism; rules come from testing against reality; objective morality within current constraints; the bridge between logic series and moral framework
     - [Performative Grounding — Philosophical Lineage](./research/philosophy/morality/performative-grounding-lineage.md) — the 2,400-year tradition behind the performative contradiction move; Aristotle through Korsgaard; comprehensive reading list
   - [Logic and Mathematics](./research/philosophy/logic-and-math/README.md) — structural realism; formalisms as maps, not territory
     - [A History of Logic](./research/philosophy/logic-and-math/history-of-logic.md) — Aristotle → Boole → Frege → Gödel → non-classical logics; 2,400 years of evolution; not settled, not singular; TAG rebuttal
