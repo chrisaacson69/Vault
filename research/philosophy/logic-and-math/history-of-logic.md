@@ -153,6 +153,8 @@ Once Gödel showed that classical logic has limits, and the Vienna Circle showed
 
 ### Intuitionistic Logic (Brouwer, Heyting — 1920s–1930s)
 
+*Main article: [Intuitionistic Logic](./intuitionistic-logic.md)*
+
 **What it drops:** The Law of Excluded Middle.
 
 L.E.J. Brouwer argued that a mathematical statement isn't true until you can *construct* a proof of it. "Either P or not-P" is not automatically valid — you need to actually demonstrate which one. Arend Heyting formalized this into a complete logical system.
