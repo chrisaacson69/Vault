@@ -408,6 +408,158 @@ This difference is likely highest in the first 10 turns, when uncertainty is max
 
 The hardest number to derive: **when should you abandon the expansion plan?** The subgraph optimization framework ([Subgraph Investment Optimization](./subgraph-investment-optimization.md)) says: take the action with highest risk-adjusted EV from your current position. But identifying the crossover point — the turn where military/research ROI exceeds expansion ROI — requires all the numbers above.
 
+## MIRR: The Generalized Decision Framework
+
+### The Thesis
+
+**Optimal play in a 4X is finding the highest-return investment each turn.** This is the same thesis that drives the Monopoly subgraph trade engine and the vault's economics framework — the player is an entrepreneur making investment decisions under uncertainty. Each turn's production is capital to allocate. The question is always: what gives the best risk-adjusted return?
+
+Simple ROI fails because it ignores time. A factory's 5%/turn ROI looks worse than a colony's ~12% eventual ROI, but the factory's returns arrive immediately and compound into everything you build afterward. The colony's returns are delayed, and during the delay your empire is growing at the pre-colony rate.
+
+The framework from finance that handles this: **Modified Internal Rate of Return (MIRR).**
+
+### What MIRR Captures That ROI Doesn't
+
+| Metric | What it measures | Blind spot |
+|--------|-----------------|-----------|
+| ROI | Return per unit invested | No time dimension — when do returns arrive? |
+| NPV | All returns discounted to present | Requires choosing a discount rate (arbitrary) |
+| IRR | Rate that makes NPV zero | Assumes reinvestment at the IRR itself (unrealistic) |
+| **MIRR** | Effective return assuming reinvestment at your ACTUAL growth rate | Requires estimating your empire's growth rate |
+
+MIRR's formula:
+
+```
+MIRR = (FV_returns / PV_costs)^(1/N) - 1
+
+where:
+  FV_returns = future value of all returns, compounded at your reinvestment rate
+  PV_costs = present value of all costs
+  N = number of turns
+  reinvestment rate = your empire's current production growth rate
+```
+
+The key insight: **the reinvestment rate is YOUR empire's growth rate, not the investment's own return.** A factory's 0.5 BC/turn gets reinvested at whatever rate your empire is currently growing. A colony ship's delayed returns also get reinvested at that rate once they arrive. MIRR normalizes everything to your actual situation.
+
+### The Investment Menu with MIRR
+
+For each investment option available on a given turn, estimate:
+
+**1. Factories (known, calculable)**
+```
+Cost: 10 BC per factory
+Returns: 0.5 BC/turn net (1.0 gross minus 0.5 waste), starting immediately
+Constraint: only useful up to pop × factory_controls
+MIRR: high early (immediate returns), falls off as you hit the manning cap
+```
+
+**2. Colony Ship (known, calculable)**
+```
+Cost: ~590 BC + opportunity cost of turns spent building
+Returns: compound growth curve (logistic), delayed by transit + development
+Data available: population growth model, factory build rates from vault page
+MIRR: low short-term (delay), high long-term (compound), depends on target planet quality
+Calculable: yes — simulate colony development curve, compute MIRR at your reinvestment rate
+```
+
+**3. Research (partially calculable)**
+```
+Cost: production diverted from other uses (turns × research allocation)
+Returns: tech payoff — varies by category and what you get
+Data available: tech costs are roughly known (base costs × field cost modifier × randomization)
+    - Propulsion: unlocks new planets (step function — suddenly new colonies possible)
+    - Planetology: colonize hostile worlds (new nodes in the subgraph)
+    - Construction: reduce factory/ship costs (multiplier on all future production)
+    - Computers: better targeting + spy defense (situational)
+    - Force Fields: better shields + missile bases (defensive multiplier)
+    - Weapons: better offense (military multiplier)
+Expected value: calculable if you know the tech tree probabilities for your race
+MIRR: highly variable. Propulsion when you have no reachable planets = extremely high.
+       Weapons when at peace with no neighbors = near zero.
+Simplification: categorize as "unlocks new capability" (high MIRR) vs "improves existing
+                capability" (moderate MIRR) vs "situational" (calculate only when relevant)
+```
+
+**4. Missile Bases (calculable with threat estimate)**
+```
+Cost: ~50 BC per base (scales with tech)
+Returns: 0 BC/turn in peacetime. In wartime: prevents planet loss.
+    Expected value = P(attack) × E[value_of_planet_preserved]
+    P(attack) ≈ f(neighbor_distance, neighbor_aggression, relative_fleet_strength, diplomacy)
+    E[value_preserved] ≈ accumulated_factories × factory_cost + population_value + strategic_position
+MIRR: zero in guaranteed peace, potentially infinite if planet would be lost without it
+Simplification: compute break-even P(attack). If your estimate of attack probability exceeds
+                break-even, build the base. Otherwise, skip.
+```
+
+**5. Military Fleet (highest variance)**
+```
+Cost: ship_design_cost × quantity + maintenance_per_turn ongoing
+Returns:
+    Offensive: E[planets_conquered] × E[planet_value] - E[fleet_losses]
+    Defensive/Deterrent: reduction in P(attack) on border worlds
+    Value of conquest: factories + population + tech stealing (Bulrathi specialty)
+Data available: ship costs calculable from BattleValue framework
+    BattleValue([your fleet]) vs BattleValue([their fleet]) gives win probability
+    Planet value calculable from production model
+MIRR: heavily situation-dependent. Weak neighbor with good planets = high.
+       Strong neighbor with nothing worth taking = negative.
+Simplification: only compute when military action is being considered.
+                Default: military MIRR ≈ 0 until a specific opportunity presents.
+```
+
+### The Decision Algorithm
+
+```
+Each turn:
+    1. Assess game state (map, neighbors, tech tree, current production)
+    2. For each investment category:
+        Estimate MIRR given current state
+        Attach confidence level (high for factories/colonies, lower for military)
+    3. Rank by MIRR
+    4. Allocate production to highest-MIRR option
+        - Exception: mandatory minimums (some research always, some defense always)
+        - Exception: if top 2 are close, split production (diversification against uncertainty)
+    5. Next turn: reassess (game state changed, re-rank)
+```
+
+This is the **entrepreneurial judgment framework** from [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md) applied to 4X: each turn is an investment decision under uncertainty. The player who consistently finds the highest-MIRR option — accounting for risk, timing, and reinvestment — wins.
+
+### Data Collection Plan
+
+Much of the data needed to compute MIRR for each category is derivable from the game mechanics without exhaustive simulation:
+
+**Already known (from vault + game mechanics):**
+- Factory cost and return curve
+- Colony development curve (logistic growth model)
+- Ship costs (calculable from design + BattleValue)
+- Missile base costs (scale with tech level)
+- Tech base costs per field per race (race field modifiers are known)
+
+**Needs estimation but is bounded:**
+- Tech payoff: categorize techs by type (unlocking vs multiplier vs situational), estimate the production impact of each type. Doesn't need to be exact — the RANKING is what matters, not the precise number.
+- Attack probability: model as a function of (distance, aggression_trait, fleet_ratio). Even a rough model beats the current approach of guessing.
+- Conquest value: planet value is calculable (population × production + factories). The unknown is fleet loss, which BattleValue can estimate.
+
+**The key simplification:** You don't need precise MIRR to the decimal. You need the RANKING to be correct. If factory MIRR ≈ 8%, colony MIRR ≈ 6%, research MIRR ≈ 15% (because propulsion unlocks 3 new planets), you don't need the exact numbers — you need to know research is the top priority this turn. Order-of-magnitude estimates are sufficient for correct decision ordering.
+
+### The Thesis Restated
+
+Optimal 4X play reduces to the same problem as optimal business management: **allocate scarce capital (production) to the investment with the highest risk-adjusted return (MIRR) each period (turn), reassessing as conditions change.** This is not a metaphor — the mathematical structure is identical:
+
+| Business concept | 4X equivalent |
+|-----------------|---------------|
+| Revenue | Production per turn |
+| Capital expenditure | Factory/colony ship/research investment |
+| R&D spending | Tech research |
+| Market expansion | Colony ships |
+| Defense/insurance | Missile bases |
+| Acquisitions | Conquest |
+| Opportunity cost | What you DIDN'T build this turn |
+| MIRR | Your tool for comparing all of the above |
+
+The player who internalizes this — who sees each turn as a capital allocation decision and evaluates options by their time-adjusted, risk-adjusted return — will consistently outperform players who rely on cached heuristics ("always build factories first," "rush colony ships," "tech up before expanding"). The heuristics are the deontological cache. The MIRR calculation is the consequentialist testing phase. The best players do both: follow heuristics by default, calculate when the situation deviates from the default.
+
 ### Connection to Subgraph Optimization
 
 This is the same problem as Monopoly's build-vs-trade decision, translated to 4X:
