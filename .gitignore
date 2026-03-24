@@ -1,0 +1,6 @@
+
+# OAuth credentials - never commit
+client_secret*.json
+request.token
+*.zip
+youtubeuploader.exe
