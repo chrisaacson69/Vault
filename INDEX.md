@@ -104,6 +104,7 @@
   - [Transhumanism vs Christianity (Wilson x Istvan)](./research/debates/wilson-istvan-transhumanism-christianity.md) — transhumanism has no normative foundation; the 80/20 concession; designer baby trap; ability ≠ freedom
   - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](./research/debates/noerr-logic-feelings-humane.md) — definitional control as debate strategy; "less, not zero" frame; scope confusion over suffering
   - [Force Doctrine and the Rehabilitation of Pragmatism (Wilson)](./research/debates/wilson-force-doctrine-pragmatism.md) — descriptor is true, conclusion doesn't follow; pragmatism is legitimate; theories ungrounded in reality are wrong
+  - [Suffrage, Stakeholdership, and the Scope Problem (Pool vs Kyla)](./research/debates/pool-kyla-suffrage-taxation.md) — uninformed ≠ unstaked; restricted suffrage just changes who exercises tyranny; the problem is scope not franchise; agency and the Hayekian knowledge problem
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action
