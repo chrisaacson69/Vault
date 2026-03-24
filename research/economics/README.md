@@ -52,6 +52,9 @@ The price system's advantages are structural, not incidental: massive parallelis
 - [Inflation](./inflation.md) — inflation has many causes; only monetary expansion is permanent; supply shocks, demand shifts, velocity, productivity, and technology-driven demand are real but transient
 - [The Equation of Exchange and the Transaction Multiplier](./equation-of-exchange.md) — MV = PT decomposed through C+I+G+NX; each GDP component has a different transaction multiplier; explains the velocity puzzle, Cantillon routing, and financialization
 
+### Taxation
+- [Taxation and Unrealized Gains](./taxation-and-unrealized-gains.md) — you can't tax what doesn't exist yet; the double taxation of homeowners (property tax + capital gains); imputed rent as GDP fiction; LVT critique; tax transactions, not assessments
+
 ### Planned
 - Business Models — how value is captured and sustained
 - Architecture & Guardrails — how system design protects the profit signal (bridges to AI agent architecture)
