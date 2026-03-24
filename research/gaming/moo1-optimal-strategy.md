@@ -560,6 +560,109 @@ Optimal 4X play reduces to the same problem as optimal business management: **al
 
 The player who internalizes this — who sees each turn as a capital allocation decision and evaluates options by their time-adjusted, risk-adjusted return — will consistently outperform players who rely on cached heuristics ("always build factories first," "rush colony ships," "tech up before expanding"). The heuristics are the deontological cache. The MIRR calculation is the consequentialist testing phase. The best players do both: follow heuristics by default, calculate when the situation deviates from the default.
 
+### Research Allocation: Portfolio Theory in a Tech Tree
+
+The research system adds a layer of complexity that makes the MIRR calculation more interesting — and maps directly to portfolio theory from finance.
+
+#### The Discovery Mechanic
+
+Research isn't deterministic. The process:
+
+1. **Fill the lightbulb:** Spend RP equal to the tech's base cost. This is deterministic.
+2. **Discovery rolls:** Once the lightbulb is full, overflow RP adds to a discovery percentage. Each turn, the game rolls against this percentage. If the roll succeeds, you discover the tech. If not, the percentage increases and you roll again next turn.
+
+This is a geometric distribution with increasing probability — front-loaded uncertainty with guaranteed eventual completion. For 10% increments:
+
+| Turn after lightbulb | Chance | P(still waiting) | Expected discovery |
+|---------------------|--------|------------------|-------------------|
+| 1 | 10% | 100% | 10.0% |
+| 2 | 20% | 90% | 18.0% |
+| 3 | 30% | 72% | 21.6% |
+| 4 | 40% | 50.4% | 20.2% |
+| 5 | 50% | 30.2% | 15.1% |
+
+Expected turns after lightbulb ≈ 3.6 turns (for 10% increments). The 90th percentile is ~5 turns. Worst case (10 turns) has <0.05% probability. For MIRR estimation, the EV is a solid approximation.
+
+Higher RP overflow → larger increments → faster expected discovery → higher MIRR. There's a sweet spot where additional RP stops meaningfully accelerating discovery — that's where marginal research MIRR equals the MIRR of whatever else you'd spend that production on.
+
+#### The Split Research Bonus
+
+The game penalizes solo research paths and rewards splitting across multiple fields. This produces more total RP when funding multiple fields simultaneously. The effect:
+
+```
+Early game:  CONCENTRATE → one critical capability (range/planetology)
+             Like a startup: all resources on the one thing that unblocks growth
+
+Mid game:    TRANSITION → 2-3 fields as critical needs are met
+             Like a growing company: diversify once core capability exists
+
+Late game:   DIVERSIFY → even split across all 6 fields
+             Like a mature economy: broad R&D portfolio captures the split bonus
+```
+
+This mirrors real economics: diminishing returns on specialization. The first dollar of R&D in a field is worth more than the hundredth. MOO1 mechanically enforces what reality naturally produces — past a certain point, diversification outperforms concentration in total output.
+
+The optimal research allocation shifts naturally as the MIRR rankings change. Early on, propulsion MIRR is sky-high (unlocks planets = compound growth engines). As propulsion techs are acquired, their marginal MIRR drops (range 8 vs range 9 barely matters), while the diversification bonus raises the MIRR of neglected fields. The crossover from concentration to diversification is itself a MIRR calculation.
+
+#### Tech Tree Randomness as Risk Management
+
+The tech tree is partially randomized — you might not get range 5. But techs within a field have heavy duplication: range 6 or 7 will solve the same problem as range 5, just later. This is **portfolio theory applied to a tech tree:**
+
+| Finance concept | MOO1 tech equivalent |
+|----------------|---------------------|
+| Diversification reduces risk | Split research bonus |
+| Individual stocks are random, portfolios are stable | Individual tech rolls are random, but across 6 fields you'll get something useful |
+| Concentrated bets: higher upside AND downside | Solo propulsion: range 5 on turn 20 (great!) or turn 40 (disaster) |
+| Hedging reduces variance at a small cost to expected return | 2/3 propulsion + 1/3 planetology: slightly slower but two paths to new planets |
+
+The 2/3 propulsion + 1/3 planetology split is buying insurance — sacrificing some speed on propulsion to hedge against bad propulsion rolls by opening a second path to the same goal (access to new planets via hostile colonization instead of range). This connects directly to the vault's [insurance framework](../economics/insurance.md): hedge the catastrophic downside (no range tech at all) at a small cost to expected return.
+
+#### Data Needed for Research MIRR
+
+The computation is tractable once the game mechanics are known:
+
+| Data point | Type | Status |
+|-----------|------|--------|
+| Base tech costs per field | Deterministic | Derivable from game data |
+| Race field cost modifiers | Deterministic | Known (e.g., Psilons 0.8× all fields) |
+| Overflow-to-percentage conversion rate | Deterministic | Needs extraction from game mechanics |
+| Split research bonus formula | Deterministic | Needs extraction from game mechanics |
+| Tech tree probabilities per race | Probabilistic | Partially known (guaranteed techs vs random) |
+| Production impact per tech category | Estimated | Order-of-magnitude sufficient for MIRR ranking |
+
+Items 1-4 are game mechanics — deterministic once the formulas are known. The optimization over research allocation splits (solo, 2-field, 3-field, even split) is a small search space with known probability distributions. This is a tractable module for the MOO1 Opening Optimizer.
+
+### The Big Picture: Complexity Stacks But Remains Tractable
+
+The full decision framework has multiple interacting layers:
+
+```
+Layer 1: PRODUCTION ALLOCATION (factory/colony/research/defense/military)
+    → MIRR comparison across categories
+    → Pick highest risk-adjusted return
+
+Layer 2: RESEARCH ALLOCATION (which fields, what split)
+    → Portfolio optimization within the research budget
+    → Concentration vs diversification based on game phase
+    → Tech tree probabilities inform expected returns
+
+Layer 3: MILITARY DECISIONS (when to build, what to build, who to attack)
+    → BattleValue framework for fleet comparison
+    → Conquest MIRR vs expansion MIRR
+    → Threat assessment for defensive spending
+
+Layer 4: DIPLOMATIC DECISIONS (trade, alliances, war declarations)
+    → Multiplayer coalition dynamics from vault framework
+    → Trade treaties as passive income (Human specialty)
+    → Alliance value as threat reduction (lowers defensive MIRR threshold)
+```
+
+Each layer has its own optimization, but they interact: research allocation affects what techs you get, which affects military MIRR, which affects whether you should be spending on military vs expansion. The layers can't be solved independently.
+
+But they don't need to be. The MIRR framework provides a **common currency** for comparing across layers. "Should I spend 50 BC on a factory, a research allocation, or a missile base?" becomes "which has the highest MIRR given my current game state?" The comparison is apples-to-apples because MIRR normalizes everything to the same time-adjusted, risk-adjusted return metric.
+
+**This is the thesis fully stated: 4X play is capital allocation under uncertainty, layered but tractable, solvable by estimating MIRR at each layer and picking the highest return. The data to compute it is mostly derivable from game mechanics. The remaining unknowns (threat levels, diplomacy) are estimable at order-of-magnitude, which is sufficient for correct decision ordering. The framework doesn't give you THE answer — it gives you a TOOL for finding the answer in any specific situation.**
+
 ### Connection to Subgraph Optimization
 
 This is the same problem as Monopoly's build-vs-trade decision, translated to 4X:
