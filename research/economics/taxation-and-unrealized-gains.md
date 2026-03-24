@@ -60,14 +60,19 @@ The double taxation is built on a measurement fiction that runs all the way up t
 
 This isn't real economic activity. No money changes hands. It's a statistical adjustment designed to make GDP comparable between countries with different homeownership rates (otherwise, a country where everyone rents would appear to have higher GDP than one where everyone owns, even if real living standards are identical).
 
-**The chain of fictions:**
-1. GDP needs homeownership to "count" → invents imputed rent
-2. Property tax needs a "value" to tax → uses assessed value (an estimate)
-3. The assessed value is influenced by comparable sales → which are influenced by... assessed values (circular)
-4. Capital gains tax at sale taxes the REAL transaction
-5. The annual property tax has ALREADY been taxing you on the same value trajectory
+**How big is the fiction?** According to the [Richmond Fed (2025)](https://www.richmondfed.org/publications/research/economic_brief/2025/eb_25-04), imputed rent from owner-occupied housing accounts for approximately **12% of GDP**. Twelve percent of the entire measured economy is a statistical fiction — homeowners "renting to themselves." No transaction occurs. No money changes hands. One-eighth of GDP is made up.
 
-The homeowner pays taxes on the fictional annual "rent" their property generates (it doesn't), AND on the real gain when they sell. The fiction and the reality are taxing the same underlying appreciation.
+And it distorts monetary policy: the Richmond Fed's own research shows that imputed rent is a **key driver of inflation persistence** in CPI and PCE. After COVID, goods, energy, and food prices normalized relatively quickly. Housing inflation stayed elevated for years — because the imputed rent calculation lags behind real-world changes. The Fed is partially reacting to a fictional inflation signal when it sets interest rates. The fiction doesn't just inflate GDP — it distorts the monetary policy that affects every borrower and saver in the economy.
+
+**The chain of fictions:**
+1. GDP needs homeownership to "count" → invents imputed rent (12% of GDP)
+2. Imputed rent lags reality → creates fictional inflation persistence → distorts Fed policy
+3. Property tax needs a "value" to tax → uses assessed value (an estimate)
+4. The assessed value is influenced by comparable sales → which are influenced by... assessed values (circular)
+5. Capital gains tax at sale taxes the REAL transaction
+6. The annual property tax has ALREADY been taxing you on the same value trajectory
+
+The homeowner pays taxes on the fictional annual "rent" their property generates (it doesn't), AND on the real gain when they sell. The fiction and the reality are taxing the same underlying appreciation. And the Fed sets interest rates partly based on the same fiction, which affects the homeowner's mortgage rate. The fiction compounds at every level.
 
 ## The Georgist/LVT Argument and Its Problems
 
