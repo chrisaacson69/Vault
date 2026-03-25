@@ -34,6 +34,20 @@ Accepted invite. Affirmative: "Free access of the press is critical to a healthy
 - [Debate Prep](../notes/debate-prep-press-freedom.md)
 - [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)
 
+### YouTube Animation Studio — Infrastructure
+Custom Docker image for RunPod deployed. Three repos:
+- [animation-studio-pod](https://github.com/chrisaacson69/animation-studio-pod) — Docker image + CI (`ghcr.io/chrisaacson69/animation-studio-pod:1.1.0`)
+- [animation-studio](https://github.com/chrisaacson69/animation-studio) — episode scripts, studio tools, assets
+- ComfyUI + Manim + Fish Speech TTS + Claude Code baked in. Media server on port 8080.
+- **Next:** Test on GPU pod when available; first-time auth setup (`claude login` → `gh auth login` → `save-auth`)
+
+### Bridge Pages: Logic → Morality (Sketched, Waiting on Logic Series)
+Two vault pages that connect the YouTube logic grounding to the morality framework. Write after logic series is complete.
+1. **"Counting Requires Agents"** — numbers as agent-imposed abstraction (shepherd, clouds, height, Planck)
+2. **"Agency as Moral Ground"** — TAG killer; morality presupposes agency, not God
+- Full sketches: [Bridge Planning Note](../notes/bridge-logic-to-morality.md)
+- Content pipeline: YouTube logic series → Page 1 → Page 2 → YouTube morality series
+
 ## Up Next
 
 ### Epistemology — develop from stub

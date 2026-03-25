@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-03-16
+**Last updated:** 2026-03-25
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -19,6 +19,8 @@
 - [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
 - [YouTube Migration](./projects/youtube-migration/README.md) — pipeline for turning vault research into YouTube scripts with references and examples (planning)
+- [Animation Studio](https://github.com/chrisaacson69/animation-studio) — YouTube episode production: Manim + ComfyUI + Fish Speech TTS on RunPod (active)
+  - [Bridge: Logic → Morality](./notes/bridge-logic-to-morality.md) — two planned pages connecting YouTube logic series to morality series (sketch)
 - [New Cycle](./projects/new-cycle/README.md) — philosophy-as-fiction; post-apocalyptic covenant communities rebuilding civilization, dramatizing the vault's frameworks over 100 years (concept)
 
 ## Research
