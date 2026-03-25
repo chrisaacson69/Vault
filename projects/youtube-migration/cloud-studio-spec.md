@@ -1,7 +1,7 @@
 # Cloud Studio — RunPod VM Setup Spec
 > One VM, every tool, every device. The complete YouTube production environment.
 
-**Status:** planning — implement next session
+**Status:** active — VM live, core pipeline verified
 **Created:** 2026-03-23
 **Links:** [YouTube Migration](./README.md), [Episode 1 Script](./scripts/ep01-you-dont-know-what-logic-is.md)
 
@@ -316,16 +316,16 @@ The `/workspace/` on RunPod persists within the container. For data that MUST su
 
 ## First Session Checklist
 
-1. [ ] Spin up RTX 3090 community instance
-2. [ ] Run Phase 1 install (core environment)
-3. [ ] Verify Claude Code works via SSH
-4. [ ] Clone vault, verify git push works
-5. [ ] Install Manim, render ep01_syllogism.py — verify MP4 output
-6. [ ] Run Phase 2 install (ComfyUI + download one SD model)
-7. [ ] Generate a test character image — verify GPU works for SD
-8. [ ] Install rhubarb-lip-sync, test with a sample audio file
-9. [ ] Test MoviePy character compositing with a simple script
-10. [ ] Install youtubeuploader, do OAuth setup
+1. [x] Spin up RTX 3090 community instance — NVIDIA driver 580, CUDA 13.0
+2. [x] Run Phase 1 install (core environment) — Manim 0.20.1, ffmpeg 4.4.2, Python 3.11, Node 20
+3. [x] Verify Claude Code works via SSH
+4. [x] Clone vault, verify git push works
+5. [x] Install Manim, render ep01_syllogism.py — all 3 scenes rendered (Syllogism, ThreeLaws, LightSwitchDimmer)
+6. [x] Run Phase 2 install (ComfyUI + download one SD model) — SDXL base 1.0 downloaded
+7. [x] Generate a test character image — test_aristotle.png generated via SDXL
+8. [x] Install rhubarb-lip-sync, test with a sample audio file
+9. [x] Test MoviePy character compositing with a simple script — test_composite.mp4 produced
+10. [x] Install youtubeuploader, do OAuth setup — client_secrets.json + request.token present
 11. [ ] Record a 10-second test voiceover, upload to VM, composite with a Manim scene
 12. [ ] Upload test video to YouTube (unlisted)
 13. [ ] Celebrate — the pipeline works
