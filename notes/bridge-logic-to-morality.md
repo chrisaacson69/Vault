@@ -32,18 +32,34 @@
 
 ### Key Examples
 
-**The Shepherd:** Doesn't know "13." Has notches on a staff. Each notch corresponds to a sheep. All notches checked = all sheep present. Counting is correspondence, not discovery.
+**The Shepherd:** Doesn't know "13." Has notches on a staff. Each notch corresponds to a sheep. All notches checked = all sheep present. Counting is correspondence, not discovery. Ancient people didn't abstract numbers — they built physical maps. The abstraction came later and is so useful we forgot it's an abstraction.
 
-**The Clouds:** Count the clouds in the sky. Where does one end and another begin? Merging = 2→1? Splitting = 1→2? Reality is continuous water vapor density. The "count" is YOUR boundary, imposed on reality.
+**The Height Sticks:** You CAN measure — one stick IS taller. But you haven't quantified anything. Comparison (ordinal) is more fundamental than counting (cardinal). Numbers aren't required for measurement. This shows measurement and quantification are different things.
 
-**The Height Sticks:** You CAN measure — one stick IS taller. But you haven't quantified anything. Comparison (ordinal) is more fundamental than counting (cardinal). Numbers aren't required.
+**The Clouds:** Count the clouds in the sky. Where does one end and another begin? Merging = 2→1? Splitting = 1→2? Reality is continuous water vapor density. The "count" is YOUR boundary, imposed on reality. This is the intuitive crack — everyone has looked at a sky and felt the ambiguity. You don't need physics to feel it.
 
-**The Planck Argument:** Even at the physical level, measurement is sequential. Measuring from one end to the other takes time. During that traversal, the beginning has already changed (Planck time). You never capture "A is A" — you capture a smear across time. Identity's "at the same time" clause cannot be physically satisfied for any extended object.
+### YouTube Script Sequence (Persuasion Architecture)
+
+The challenge: modern humans are so trained in counting that numbers feel like breathing, not technology. You're trying to make fish see water. The sequence must let the audience arrive at the conclusion themselves — if you open with "numbers aren't real" they dismiss you.
+
+1. **Start with something they trust** — counting coins, something trivially "real"
+2. **The Shepherd** — oh, interesting, so counting came from correspondence. A history lesson. Safe.
+3. **The Height Sticks** — wait, you can measure without numbers? First floor removed.
+4. **The Clouds** — ok, counting actually *breaks* here. Second floor removed. Discomfort begins. This is where the real persuasion happens for a general audience.
+5. **Significant Digits** — and science already knows this. Every measurement is reported with error bars. Every lab course teaches sig figs. Why? Because precision has limits. Sig figs aren't a *limitation* of science — they're science *admitting* that measurement is modeling. The audience already knows this from school. They just never connected it to "numbers aren't features of reality." Their own experience validates the claim.
+6. **The Planck Argument** (capstone, optional for general audience) — and here's the fundamental reason at the deepest level: the universe has a minimum resolution. Measurement is sequential. Measuring from one end to the other takes time. During traversal, the beginning has already changed (Planck time). You never capture "A is A" — you capture a smear across time. Identity's "at the same time" clause cannot be physically satisfied for any extended object.
+7. **The Payoff** — so what ARE numbers? Tools. Made by agents. For agents. Really good tools. But tools.
+
+People who don't follow the physics still got the point from clouds + sig figs. People who do get the capstone.
 
 ### The Usual Objection and Counter
 
 **Objection:** "But there WERE 16 electrons! Numbers are real!"
-**Counter:** How do you know there were 16? You counted them. Counting is sequential. By electron 16, electron 1 has changed state. The "16" describes a set that no longer exists as counted. The number is real in your model. It was never real in the system.
+**Counter (use clouds, not Planck):** Ok, count the clouds. ...You can't? Why not? Because you have to decide where one ends and another begins. That decision is yours, not the sky's. Same thing with electrons — you decided what counts as "one electron at one time." That boundary is your model.
+
+**Deeper counter (if they push):** How do you know there were 16? You counted them. Counting is sequential. By electron 16, electron 1 has changed state. "We measured 16.00 ± 0.05 electrons" — how can you have 0.05 of an electron? You can't. The ± isn't about the electrons. It's about your model's confidence in its own discretization of reality.
+
+**Nuclear counter (if they still push):** "Yeah but at THAT moment it was static." There is no "that moment." Planck time is the smallest meaningful unit of time. There is no freeze frame. The universe doesn't pause between ticks. "That moment when it was static" is the model defending the model.
 
 ### Connection to Vault Framework
 
@@ -66,13 +82,21 @@ Numbers aren't real because God made them (TAG/Platonism). Numbers aren't arbitr
 - Without God, no coherent worldview
 - The hidden move: TAG assumes no alternative grounding exists
 
-**II. TAG's Fatal Flaw — Question-Begging**
-- Premise 1 presupposes what it's trying to prove
+**II. Two Attack Vectors on TAG (Peacecraft's and Chris's)**
+
+TAG claims logic, morality, and uniformity are "universal, invariant, immaterial laws." Two independent demolitions:
+
+**Peacecraft's move (internal demolition):** Uses TAG's own tool — formal Aristotelian argument structure — against it. Valid form doesn't generate truth. "Tigers are cats. Cats have wings. Tigers have wings." — fully valid, completely unsound. Fights on TAG's own ground, which is elegant because TAG claims to own that ground. Peacecraft attacks "universal, invariant, immaterial" better than Chris does, precisely by using Aristotelian structure to show the argument is viciously circular.
+
+**Chris's move (external bypass):** Steps outside the frame entirely. Logic ISN'T universal/invariant/immaterial — it's emergent, evolving, and agent-dependent (History of Logic page). And even if it were, you don't need God to explain it. Doesn't need to defeat TAG on its own terms because its terms are wrong.
+
+Together: one shows the argument doesn't work even if you accept the premises, the other shows the premises are false.
+
+**The question-begging:**
 - TAG says: "Morality requires a universal ground. Only God provides a universal ground. Therefore God exists."
 - But "only God provides a universal ground" IS the conclusion restated as a premise
 - Compare: "This house needs a foundation. Only concrete can be a foundation. Therefore this house has concrete." — No, you just haven't considered steel, stone, or wood pilings.
 - Austrian Eleutheria's concession: TAG works internally but is "utterly useless as an external apologetic"
-- Peacecraft's formal critique: valid structure ≠ sound argument ("cats have wings")
 
 **III. The Vault's Alternative Grounding**
 - **Logic:** Not God-given — a 2,400-year research program, still contested. Emergence + convergence. ← History of Logic
