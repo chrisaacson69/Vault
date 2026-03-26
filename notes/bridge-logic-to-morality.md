@@ -21,6 +21,20 @@
 **Location:** `research/philosophy/logic-and-math/counting-requires-agents.md`
 **Thesis:** Numbers are agent-imposed abstractions, not features of reality. Measurement requires imposing discreteness on a continuous, changing world.
 
+### The Philosophical Progression of Counting (Kasner insight)
+
+From *Mathematics and the Imagination* (Kasner & Newman, 1940) — the book that coined googol/googolplex and introduced Flatland. The key insight: each step in counting has a philosophical commitment baked in.
+
+- **0 → 1**: Requires belief in *existence*. Something rather than nothing. Already a leap.
+- **1 → 2**: Requires *discernment* — the ability to tell things apart. An agent must say "this is not that." **This is where agency enters.** A universe with no agent has no "two of anything" because there's no one to draw the boundary. This connects directly to the agency-morality thesis.
+- **1, 2 → 3...**: Now you're *counting* — applying the pattern. But the pattern was built on the prior leaps.
+
+### The Arbitrariness of Number Systems
+
+- **Base 10 is arbitrary.** We use it because we have 10 fingers. Babylonians used base 60 (still in clocks and degrees). Mayans used base 20. Computers use base 2. The number system isn't discovered — it's a UI choice made by agents with a certain number of fingers.
+- **Zero was invented, not discovered.** Greeks didn't have it. Romans didn't. It took until ~5th century India (Brahmagupta) to formalize. "Nothing is a number" is deeply unintuitive — it's an agent *deciding* that absence deserves a symbol.
+- **Naming large numbers** — googol (10^100), googolplex (10^googol), googolplexplex... these aren't things in reality. They're recursive applications of a naming convention. The recursion is the agent's tool, not nature's structure.
+
 ### The Abstraction Ladder
 
 1. **Correspondence** (shepherd) — notch on a staff per sheep. No counting, no number concept. Pure 1-to-1 physical mapping.
