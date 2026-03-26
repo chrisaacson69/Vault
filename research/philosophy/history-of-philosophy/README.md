@@ -32,7 +32,7 @@ These pages are not primarily about cross-linking into the vault's existing fram
 | 4 | Parmenides of Elea: Logic Demands a Changeless Universe | 30:12 | [Episode 4](./04-parmenides.md) |
 | 5 | Pythagoras: Mathematics and Mysticism | 29:59 | [Episode 5](./05-pythagoras.md) |
 | 6 | The Pluralists, the Atomists and the Birth of Determinism | 49:40 | [Episode 6](./06-pluralists-atomists.md) |
-| 7 | The Skepticism of the Greek Sophists | 32:06 | |
+| 7 | The Skepticism of the Greek Sophists | 32:06 | [Episode 7](./07-sophists.md) |
 | 8 | The Life and Teachings of Socrates | 15:38 | |
 | 9 | Plato's Metaphysics: The World of Ideal Forms | 1:03:09 | |
 | 10 | Plato's Epistemology: Innate Ideas to the Forms | 42:25 | |
