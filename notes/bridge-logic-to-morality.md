@@ -10,9 +10,10 @@
 ## The Content Pipeline
 
 1. **YouTube logic series** (in production) — establishes logic as emergent/convergent, not God-given
-2. **"Counting Requires Agents"** (vault page, sketched below) — numbers/measurement follow the same pattern
-3. **"Agency as Moral Ground"** (vault page, sketched below) — grounds morality in agency, not divinity
-4. **YouTube morality series** (planned) — the payoff, with TAG as a case study
+2. **"Gödel Against Himself"** ([sketch](./godel-against-himself.md)) — Gödel was a Platonist; his own reading of incompleteness vs the Vault's reading
+3. **"Counting Requires Agents"** (vault page, sketched below) — numbers/measurement follow the same pattern
+4. **"Agency as Moral Ground"** (vault page, sketched below) — grounds morality in agency, not divinity
+5. **YouTube morality series** (planned) — the payoff, with TAG as a case study
 
 ---
 
@@ -150,3 +151,4 @@ Together: one shows the argument doesn't work even if you accept the premises, t
 ### Discord Source Material
 - TAG debate thread (2026-03-24): Peacecraft, Austrian Eleutheria, Blackpiller/Shrekeyes, Rowland1
 - Alice Dilemma thread (2025-02-26): IRaistlin, alleycat3330 (Chris) — demonstrates the question-begging pattern applied to determinism
+- Gödel/abstraction debate (2026-03-25): Blackpiller said "Gödel didn't talk about this" when Chris applied incompleteness to philosophy. He did — he just drew the opposite conclusion. See [Gödel Against Himself](./godel-against-himself.md)

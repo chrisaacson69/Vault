@@ -43,8 +43,9 @@ Custom Docker image for RunPod deployed. Three repos:
 
 ### Bridge Pages: Logic → Morality (Sketched, Waiting on Logic Series)
 Two vault pages that connect the YouTube logic grounding to the morality framework. Write after logic series is complete.
-1. **"Counting Requires Agents"** — numbers as agent-imposed abstraction (shepherd, clouds, height, Planck)
-2. **"Agency as Moral Ground"** — TAG killer; morality presupposes agency, not God
+1. **"Gödel Against Himself"** — Gödel was a Platonist; the Vault's alternative reading of incompleteness
+2. **"Counting Requires Agents"** — numbers as agent-imposed abstraction (shepherd, clouds, height, Planck)
+3. **"Agency as Moral Ground"** — TAG killer; morality presupposes agency, not God
 - Full sketches: [Bridge Planning Note](../notes/bridge-logic-to-morality.md)
 - Content pipeline: YouTube logic series → Page 1 → Page 2 → YouTube morality series
 
