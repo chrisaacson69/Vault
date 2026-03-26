@@ -104,9 +104,11 @@ But this doesn't mean the infinite halves *exist as Platonic objects*. It means 
 
 ---
 
-## Why Gödel Was Wrong About His Own Work
+## Where the Vault's Reading Diverges From Gödel's
 
-This is a strong claim. The justification:
+Gödel found the crack — he proved that sufficiently complex systems can refer to themselves and that this self-reference creates undecidable propositions. That's the theorem, and it's unassailable. But what the crack *means* philosophically is a separate question, and Gödel answered it with the tools he had (Leibniz, Platonism, phenomenology). He found the door but — from the Vault's perspective — walked through it into Plato's cave instead of out of it.
+
+This isn't to say Gödel misunderstood his own theorem. He understood the *mathematics* better than anyone alive. The divergence is about the *philosophical interpretation* — what incompleteness tells us about the nature of mathematical objects. Reasonable people can disagree here, and someone who fully grasps this position may well see something the Vault has missed. But so far, the following considerations favor the Vault's reading:
 
 1. **The geometry problem.** If Platonism is true, perfect geometric objects exist. But they provably don't correspond to anything physical. Platonism requires a non-physical realm — an extraordinary metaphysical commitment with no evidence beyond the intuition that "math feels real."
 
@@ -123,10 +125,12 @@ This is a strong claim. The justification:
 When someone says "Gödel didn't talk about applying incompleteness to philosophy" (as Blackpiller did):
 
 1. **Acknowledge:** "Actually, he did — he was a committed Platonist and theist who thought incompleteness proved mathematical realism."
-2. **Respect:** "He's one of the greatest logicians in history and his reading is coherent."
-3. **Diverge precisely:** "But his interpretation requires Platonic realism — that mathematical objects exist independently. I accept the theorem but reject the metaphysics."
-4. **Give the alternative:** "Incompleteness shows the model has limits, not that the objects are real. Same theorem, different conclusion."
-5. **The geometry test:** "If you believe in Platonism, show me a point. Show me a line with zero width. These are useful fictions. Incompleteness is about the limits of useful fictions."
+2. **Respect:** "He understood the mathematics better than anyone. His reading is coherent. This is a philosophical disagreement, not a mathematical one."
+3. **Explain the gap:** "Gödel found the crack — proved that self-reference creates undecidable propositions. But what the crack *means* is a separate question. Even Gödel didn't fully crack the strange loop — he showed it exists."
+4. **Diverge precisely:** "His interpretation requires Platonic realism — that mathematical objects exist independently. I accept the theorem but take a different philosophical path from it."
+5. **Give the alternative:** "Incompleteness shows the model has limits, not that the objects are real. Same theorem, different conclusion."
+6. **The geometry test:** "If you believe in Platonism, show me a point. Show me a line with zero width. These are useful fictions. Incompleteness is about the limits of useful fictions."
+7. **Stay open:** "If you understand this position and can show me something I haven't considered, I genuinely want to hear it. So far, this reading has been consistent with everything I've encountered in 40 years."
 
 ---
 
@@ -135,11 +139,11 @@ When someone says "Gödel didn't talk about applying incompleteness to philosoph
 This page sits between the History of Logic and the Counting Requires Agents page:
 
 1. **History of Logic** — logic is a 2,400-year research program, not fixed/divine
-2. **Gödel Against Himself** — even the man who proved incompleteness misread his own result (this page)
+2. **Gödel Against Himself** — Gödel found the crack; the Vault and Gödel diverge on what it means (this page)
 3. **Counting Requires Agents** — numbers are agent-imposed, not discovered
 4. **Agency as Moral Ground** — the same pattern applied to morality
 
-Gödel is the hardest case for the Vault's position because he's the strongest possible authority *against* it who simultaneously provides the strongest possible *evidence for* it. Wrestling with him honestly is what gives the argument credibility.
+Gödel is the hardest case for the Vault's position because he's the strongest possible authority *against* it who simultaneously provides the strongest possible *evidence for* it. Engaging with his actual philosophy honestly — rather than just borrowing his theorem — is what gives the argument credibility.
 
 ---
 
