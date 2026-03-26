@@ -117,6 +117,53 @@ Hate speech is none of these. It's expression of opinion — ugly opinion, but o
 
 ---
 
+## Boundary-Testing Counters (The Weasel Arguments)
+
+Opponents will try to blur the line between speech and harm by pushing edge cases. The pattern is the **continuum fallacy**: "if you can't draw a sharp line, there's no difference." But you CAN draw a sharp line.
+
+**The line: did the receiver retain agency?**
+
+### "What about shouting in someone's ear at maximum volume?"
+That's **physical**. Sound waves at damaging decibels cause measurable hearing damage. That's assault — already illegal. It's not a speech issue any more than hitting someone with a megaphone is a speech issue. The content of what you're shouting is irrelevant; the physical damage is what matters.
+
+### "If libel is restricted, why not hate speech?"
+Libel requires **provably false factual claims** that cause **measurable damages**. Not opinion. Not insult. Specific false statements of fact. "Chris is a terrible person" — opinion, protected. "Chris embezzled $50,000" (he didn't) — false factual claim, actionable. Hate speech is opinion about groups. It doesn't make falsifiable factual claims about specific individuals. Completely different category.
+
+### "If fraud is aggression, then all harmful speech is fraud"
+Fraud requires **deception** that causes someone to **act** against their interests. The victim's agency was compromised by false information — they made a decision they wouldn't have made with accurate information. Hate speech doesn't deceive anyone. "I hate group X" is an honest statement of opinion. Ugly, but honest. The receiver's agency is fully intact.
+
+### "What about incitement? The mob boss orders a hit"
+This is the strongest edge case — and it actually strengthens the position.
+
+The mob boss ordering the hit is guilty of **conspiracy**. The hitman is guilty of **murder**. Both had agency. Both are responsible. The words "kill him" didn't *control* the hitman — the hitman chose to act.
+
+**If speech controlled people, the hitman wouldn't be guilty.** But he is, because he's an agent who made a choice. The speaker influenced; the actor controlled. Different crimes, different liability, both require agency.
+
+This is why Brandenburg v. Ohio requires "imminent lawless action" — the speech must be directed at producing **specific, immediate** illegal conduct, AND be likely to produce it. Generic hate speech fails both tests. It's not directed at a specific act, and there's no immediacy.
+
+### The Pattern
+
+Every boundary-test follows the same structure:
+1. Find a case where speech connects to harm
+2. Claim it's the speech that caused the harm
+3. Therefore all bad speech causes harm
+
+The counter is always the same: **trace the causal chain and find where agency was exercised.**
+- If someone *chose* to act on speech → the actor is responsible, not the speaker
+- If someone was *deceived* into acting → fraud, already illegal
+- If someone was *physically damaged* → assault, already illegal
+- If someone was *offended* → that's agency working correctly; they processed the information and had an emotional response. That's not harm.
+
+### Why This Doesn't Land With Left-Leaning Audiences
+
+Acknowledged: these arguments are structural, not emotional. The left-leaning case for hate speech restrictions is rooted in real compassion for people who experience genuine suffering from hateful rhetoric. The structural response — "their agency is intact" — feels cold when someone is describing being targeted.
+
+**The bridge:** "I agree hate speech causes real pain. The question isn't whether it's bad — it's whether giving the government the power to define and punish it makes things better or worse. History says worse. And the people most harmed by speech restrictions, historically, are the marginalized groups these laws claim to protect."
+
+This doesn't concede the principle but acknowledges the emotional reality. Meet them where they are, then redirect to the structural argument.
+
+---
+
 ## Closing Argument (Draft)
 
 The 1st Amendment is not naive. It's not an accident that it's first. The founders had direct experience with speech restrictions — the Crown censored colonial newspapers, jailed printers, and controlled the narrative. They wrote an unconditional protection not because they thought all speech was good, but because they understood that the power to define "bad speech" is the power to silence opposition.
