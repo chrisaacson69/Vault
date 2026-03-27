@@ -96,5 +96,31 @@ The uncomfortable unity: protecting free speech, protecting the mob boss, and op
 
 ---
 
+## The Consent Exception: Rules of the Road
+
+This framework does NOT say prevention is always wrong. It says prevention can't be imposed without consent.
+
+**The best counter-example:** Traffic laws. Speed limits are preventative — you're punished for going fast, not for hitting someone. No victim, no harm. By the strict breakable-chain test, speeding shouldn't be a crime. Yet traffic systems are arguably one of the best things government has produced. They work. They save lives.
+
+**Why this isn't a contradiction:** Everyone who drives on public roads implicitly consents to the system. You chose to use the shared infrastructure, which comes with agreed-upon rules. It's a contract: access to the road system in exchange for following the rules. Nobody is forced to drive.
+
+The distinction:
+
+| | Prevention with consent | Prevention without consent |
+|---|---|---|
+| **Example** | Speed limits on shared roads | Drug prohibition |
+| **Consent** | Implicit — you chose to drive | None — imposed on the population |
+| **Exit option** | Don't drive | No practical exit |
+| **Agency** | Preserved — you opted into the agreement | Overridden — you didn't agree to this |
+| **Legitimacy** | Community exercising collective agency | State imposing on individual agency |
+
+**The principle:** A community that collectively agrees "we'll all drive under 65 and accept enforcement" is exercising agency, not having it taken away. Prevention rules are legitimate when the governed consent to them. This is the scope confusion distinction — law-scope enforcement requires the consent of those governed by it.
+
+This isn't an ad hoc escape. It follows directly from the agency framework: agency is the foundation. Agents who voluntarily agree to mutual constraints are *using* their agency. Agents who have constraints imposed without consent are having their agency *taken*. Same principle, different application.
+
+**The caution:** Even consensual prevention systems tend toward scope creep. Speed limits → traffic cameras → automated ticketing → surveillance. The framework says: yes, the community can agree to prevention, but it should watch for the same expansion pattern that plagues every other restriction. Consent to the original agreement doesn't equal consent to every future expansion.
+
+---
+
 ## Tags
 legal-theory, free-speech, crime, conspiracy, causality, agency
