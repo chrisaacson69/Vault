@@ -31,7 +31,9 @@ This matters because:
 
 ### How Gödel Read His Own Theorems
 
-**Incompleteness (1931):** Any sufficiently powerful formal system is either incomplete (can't prove all truths) or inconsistent (proves contradictions).
+**Incompleteness (1931):** Any sufficiently powerful formal system can have at most two of the following three properties: **non-triviality**, **consistency**, and **completeness**. In practice, we keep the first two and sacrifice completeness — meaning there are always truths the system can express but cannot prove.
+
+The common shorthand ("Gödel proves math is inconsistent") is wrong. He proves math *can't prove its own consistency from within*, and that consistent systems are necessarily incomplete. The systems we use are consistent (as far as we know) — they just can't prove it themselves, and they have unreachable truths as a result.
 
 **Gödel's interpretation:** The system is incomplete because *mathematical truth is bigger than any formal system*. The truths are OUT THERE — real, objective, mind-independent — and our formal systems simply can't capture them all. Incompleteness proves that mathematical reality *transcends* human formalization.
 
@@ -47,7 +49,7 @@ This matters because:
 
 1. **Truth vs. provability are distinct.** The Vault fully accepts this. A system's inability to prove something doesn't make it false.
 2. **Formalism fails.** You can't reduce all of mathematics to symbol manipulation. The Vault agrees — this is why logic is more than its formalizations.
-3. **Incompleteness is real and important.** Not a technicality — a fundamental feature of sufficiently complex systems.
+3. **Incompleteness is real and important.** Not a technicality — a fundamental feature of sufficiently complex systems. Specifically: any non-trivial system must choose between consistency and completeness. It cannot have both. The systems we use chose consistency — which means there are truths they can never reach.
 4. **Theism is not ruled out.** The Vault's author is a theist. The disagreement isn't about God's existence.
 
 ### Where We Diverge
@@ -81,9 +83,9 @@ But this doesn't mean the infinite halves *exist as Platonic objects*. It means 
 
 **TAG claims:** God grounds logic/math. Logic/math are universal, invariant, immaterial.
 
-**Gödel shows:** Logic/math are necessarily incomplete.
+**Gödel shows:** Any non-trivial logical/mathematical system must choose: be consistent, or be complete. It cannot have both. The systems we use chose consistency — meaning there are truths they can never reach. (Note: Gödel does NOT prove math is inconsistent — a common misstatement. He proves math *can't prove its own consistency from within*, and that choosing consistency forces incompleteness.)
 
-**If TAG is right:** God is bound by logic/math (since He grounds them). But logic/math are incomplete. Therefore God is incomplete. A theologically unacceptable conclusion for TAG proponents.
+**If TAG is right:** God is bound by logic/math (since He grounds them). But logic/math are necessarily either incomplete or inconsistent. Either God is incomplete, or God's logic is inconsistent. Both are theologically unacceptable conclusions for TAG proponents.
 
 **If TAG responds:** "God transcends logic" — then TAG's own argument form collapses, since TAG uses logic to prove God exists. You can't use a tool to prove the existence of something you claim is beyond the tool.
 
