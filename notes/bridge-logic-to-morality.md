@@ -53,6 +53,21 @@ From *Mathematics and the Imagination* (Kasner & Newman, 1940) — the book that
 
 **The Clouds:** Count the clouds in the sky. Where does one end and another begin? Merging = 2→1? Splitting = 1→2? Reality is continuous water vapor density. The "count" is YOUR boundary, imposed on reality. This is the intuitive crack — everyone has looked at a sky and felt the ambiguity. You don't need physics to feel it.
 
+### The Line Paradox (Strongest Anti-Platonism Argument)
+
+A line is made of points. Points have zero width. Infinitely many zero-width points side by side... still have zero width. So how does the line have length?
+
+This is the **measure problem** — how do uncountably many zero-dimensional points compose a one-dimensional line with nonzero length? The standard answer (Lebesgue measure theory) *assigns* length to intervals by definition rather than *deriving* it from points. The length is imposed by the mathematician, not built from the components.
+
+Furthermore:
+- **You can't place two points "next to" each other** — between any two points there are infinitely more. Adjacency doesn't exist.
+- **Every interval contains the same infinity** — the segment 0 to 0.001 has as many points as 0 to 1, which has as many as the entire real line. Zooming in never reaches a resolution floor.
+- **The number line is richer than reality** — if physical space is quantized at Planck length, the universe is finite. The mathematical reals are uncountably infinite. The model contains more structure than the thing it models. We overbuilt.
+
+The Platonic "point" can't be shown, can't be placed next to another point, and can't compose a line. These are modeling tools, not objects. Useful fictions that work beautifully until you ask what they're made of. Models all the way down.
+
+**The central thesis:** We didn't discover math. We invented it. Numbers are the best tools agents have ever built — so good we forgot we built them.
+
 ### YouTube Script Sequence (Persuasion Architecture)
 
 The challenge: modern humans are so trained in counting that numbers feel like breathing, not technology. You're trying to make fish see water. The sequence must let the audience arrive at the conclusion themselves — if you open with "numbers aren't real" they dismiss you.
@@ -62,7 +77,8 @@ The challenge: modern humans are so trained in counting that numbers feel like b
 3. **The Height Sticks** — wait, you can measure without numbers? First floor removed.
 4. **The Clouds** — ok, counting actually *breaks* here. Second floor removed. Discomfort begins. This is where the real persuasion happens for a general audience.
 5. **Significant Digits** — and science already knows this. Every measurement is reported with error bars. Every lab course teaches sig figs. Why? Because precision has limits. Sig figs aren't a *limitation* of science — they're science *admitting* that measurement is modeling. The audience already knows this from school. They just never connected it to "numbers aren't features of reality." Their own experience validates the claim.
-6. **The Planck Argument** (capstone, optional for general audience) — and here's the fundamental reason at the deepest level: the universe has a minimum resolution. Measurement is sequential. Measuring from one end to the other takes time. During traversal, the beginning has already changed (Planck time). You never capture "A is A" — you capture a smear across time. Identity's "at the same time" clause cannot be physically satisfied for any extended object.
+6. **The Line Paradox** — a line is made of points, points have zero width, infinite zero-width things have zero width... so how does a line have length? Show me two adjacent points. You can't — there are infinitely many between them. The model breaks when you look inside.
+7. **The Planck Argument** (capstone, optional for general audience) — the universe has a minimum resolution. The mathematical number line doesn't. We built a model richer than reality. That's invention, not discovery. (Note: the timing argument is weaker than originally thought — see [Planck working note](./planck-measurement-working-note.md). The stronger argument is that the model overbuilds reality.)
 7. **The Payoff** — so what ARE numbers? Tools. Made by agents. For agents. Really good tools. But tools.
 
 People who don't follow the physics still got the point from clouds + sig figs. People who do get the capstone.
