@@ -92,3 +92,8 @@ The vault commits to evaluating systems by outcomes, not intentions, across mult
 - Restitution for death
 - Business models + agent team economics
 - Money, competition, and capital theory
+
+### Monopoly Theory Integration (Needs Focused Session)
+Monopoly repo has research docs (`positional-value-analysis.md`, `valuation-notes.md`, `GROWTH-AI-SUMMARY.md`) that contain *thinking* that belongs in the Vault's gaming section. Needs careful reading to determine: what's new theory (move to Vault), what's already covered (merge/link), what's implementation-specific (keep in repo). Not a simple merge — took multiple tries originally.
+- [Monopoly project](../projects/monopoly/README.md)
+- [Gaming research](../research/gaming/README.md)
