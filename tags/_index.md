@@ -16,10 +16,11 @@
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 8 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
-- [epistemology](./epistemology.md) — 17 files
+- [epistemology](./epistemology.md) — 22 files
+- [ethics](./ethics.md) — 5 files
 - [externalities](./externalities.md) — 3 files
 - [food-safety](./food-safety.md) — 1 file
-- [free-will](./free-will.md) — 5 files
+- [free-will](./free-will.md) — 6 files
 - [game-ai](./game-ai.md) — 7 files
 - [game-theory](./game-theory.md) — 9 files
 - [games](./games.md) — 9 files
@@ -36,9 +37,9 @@
 - [music](./music.md) — 4 files
 - [natural-law](./natural-law.md) — 1 file
 - [opus-4-6](./opus-4-6.md) — 1 file
-- [objectivism](./objectivism.md) — 7 files
-- [peikoff](./peikoff.md) — 7 files
-- [philosophy](./philosophy.md) — 32 files
+- [objectivism](./objectivism.md) — 12 files
+- [peikoff](./peikoff.md) — 12 files
+- [philosophy](./philosophy.md) — 37 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 8 files

@@ -7,3 +7,4 @@
 - [Cognitive vs. Motor Skills](../research/cognitive-vs-motor.md)
 - [Newcomb's Paradox](../research/philosophy/newcombs-paradox.md)
 - [HoP Ep 6: Pluralists & Atomists](../research/philosophy/history-of-philosophy/06-pluralists-atomists.md)
+- [HoP Ep 11: Plato's Ethics](../research/philosophy/history-of-philosophy/11-plato-ethics.md)

@@ -8,3 +8,8 @@
 - [HoP Ep 4: Parmenides](../research/philosophy/history-of-philosophy/04-parmenides.md)
 - [HoP Ep 5: Pythagoras](../research/philosophy/history-of-philosophy/05-pythagoras.md)
 - [HoP Ep 6: Pluralists & Atomists](../research/philosophy/history-of-philosophy/06-pluralists-atomists.md)
+- [HoP Ep 7: Sophists](../research/philosophy/history-of-philosophy/07-sophists.md)
+- [HoP Ep 8: Socrates](../research/philosophy/history-of-philosophy/08-socrates.md)
+- [HoP Ep 9: Plato's Metaphysics](../research/philosophy/history-of-philosophy/09-plato-metaphysics.md)
+- [HoP Ep 10: Plato's Epistemology](../research/philosophy/history-of-philosophy/10-plato-epistemology.md)
+- [HoP Ep 11: Plato's Ethics](../research/philosophy/history-of-philosophy/11-plato-ethics.md)
