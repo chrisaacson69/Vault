@@ -18,9 +18,11 @@
 - [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
 - [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
-- [YouTube Migration](./projects/youtube-migration/README.md) — pipeline for turning vault research into YouTube scripts with references and examples (planning)
-- [Animation Studio](https://github.com/chrisaacson69/animation-studio) — YouTube episode production: Manim + ComfyUI + Fish Speech TTS on RunPod (active)
-  - [Bridge: Logic → Morality](./notes/bridge-logic-to-morality.md) — two planned pages connecting YouTube logic series to morality series (sketch)
+- [YouTube Migration](./projects/youtube-migration/README.md) — YouTube content project: episode scripts, Manim scenes, shared assets (active)
+  - **Repo:** [youtube-migration](https://github.com/chrisaacson69/youtube-migration) — episodes organized by series (philosophy, math, economics)
+  - **Tools:** [animation-studio](https://github.com/chrisaacson69/animation-studio) — media server, mouth marker, lip-sync compositor, overlay generator
+  - **Infrastructure:** [animation-studio-pod](https://github.com/chrisaacson69/animation-studio-pod) — Docker image + CI for RunPod (`ghcr.io/chrisaacson69/animation-studio-pod:1.2.0`)
+  - [Bridge: Logic → Morality](./notes/bridge-logic-to-morality.md) — planned pages connecting YouTube logic series to morality series (sketch)
 - [New Cycle](./projects/new-cycle/README.md) — philosophy-as-fiction; post-apocalyptic covenant communities rebuilding civilization, dramatizing the vault's frameworks over 100 years (concept)
 
 ## Research
