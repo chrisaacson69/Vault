@@ -3,17 +3,30 @@
 
 **Status:** active
 **Created:** 2026-02
-**Repo:** `https://github.com/chrisaacson69/monopoly`
-**Links:** [Economics](../../research/economics/README.md), [Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md), [Nash Bargaining](../../research/gaming/nash-bargaining-problem.md), [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md)
+**Repo:** [github.com/chrisaacson69/monopoly](https://github.com/chrisaacson69/monopoly)
+
+## Vault ↔ Project Relationship
+
+The Vault's gaming research pages contain the **abstract theory**. The Monopoly repo contains the **applied implementation**. Findings from the project validate or challenge the theory, which feeds back into the Vault.
+
+| Vault Research (theory) | Monopoly Repo (applied) |
+|---|---|
+| [Nash Bargaining Problem](../../research/gaming/nash-bargaining-problem.md) | `research/positional-value-analysis.md` — 3-player Orange coalition |
+| [Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md) | `research/positional-value-analysis.md` — coalition formation dynamics |
+| [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md) | `research/valuation-notes.md` — denial value, time-to-impact |
+| [Subgraph Investment Optimization](../../research/gaming/subgraph-investment-optimization.md) | `ai/property-valuator.js` — EPT and ROI calculations |
+| [Praxis: Agent Teams](../../research/economics/praxis-agent-teams.md) | `research/simulation/GROWTH-AI-SUMMARY.md` — tournament results |
+
+**The rule:** Abstract theory lives in the Vault. Applied implementation lives in the repo. Cross-link, don't duplicate.
 
 ## Overview
 
-Full Monopoly implementation in JavaScript with a deep AI stack. The engine models the complete game (properties, auctions, trades, jail, chance/community chest) and the AI uses Markov-chain positional analysis to compute Earnings Per Ply (EPT) for every property, driving trade evaluation and strategic decisions.
+Full Monopoly implementation in JavaScript with a deep AI stack. The engine models the complete game (properties, auctions, trades, jail, chance/community chest) and the AI uses Markov-chain positional analysis to compute Earnings Per Turn (EPT) for every property, driving trade evaluation and strategic decisions.
 
 ### AI Architecture
 
 - **Markov Engine** — steady-state landing probabilities for all 40 tiles
-- **Property Valuator** — EPT (Earnings Per Ply) based on landing probability x rent, accounting for monopoly/house multipliers. EPT is per-ply (single opponent's move), not per-turn — this is why EPT charts are player-count-independent. The `× opponents` factor converts ply→round where needed.
+- **Property Valuator** — EPT based on landing probability × rent, accounting for monopoly/house multipliers
 - **Monte Carlo Validation** — empirical verification of Markov predictions
 - **Strategic Trade AI** — trade filtering based on empirical monopoly win rates
 - **20+ AI variants** in `simulation/` for comparative testing
@@ -24,15 +37,5 @@ Full Monopoly implementation in JavaScript with a deep AI stack. The engine mode
 - Trade quality filtering based on empirical monopoly win-rate data
 - Genetic algorithm optimization explored for parameter tuning
 
-### External Interface
-
-Uses [Monopoly-Bot-Richup.io](https://github.com) (foreign repo in `source/repos/`) to interface bots with the Richup.io online platform.
-
-## Research
-
-- [Efficient Frontier Trade Theory](./frontier-trade-theory.md) — using EPT frontier curves to solve 3+ player trade valuation; properties as liquidity tools; game horizon dynamics; the brown trap confirmed by simulation
-- [Subgraph Investment Optimization](../../research/gaming/subgraph-investment-optimization.md) — formalizes the "build vs trade" decision as graph optimization; dominance pruning collapses the combinatorial space; DAG of reachable states
-- [Subgraph Trade Engine — Spec](./subgraph-trade-engine-spec.md) — implementation spec combining build frontier with subgraph-driven trade search; proactive trade generation, 3-way cycle search, position-dependent property valuation; ~2-3s per decision point
-
 ## Tags
-[game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [javascript](../../tags/javascript.md)
+[gaming](../../tags/gaming.md), [projects](../../tags/projects.md)
