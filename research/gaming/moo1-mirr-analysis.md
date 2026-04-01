@@ -87,15 +87,45 @@ From the existing GA results, we expect:
 - **Crossover point:** As factory slots fill up (diminishing marginal return), colony MIRR surpasses factory MIRR.
 - **Race effects:** Klackon's 2× production makes factory MIRR higher for longer (delay colonization). Sakkra's growth bonus makes colony MIRR higher earlier (colonize sooner). This should match what the GA found.
 
-## Implementation Plan
+## Initial Results (2026-04-01)
 
-1. **Extract production streams** from existing simulation histories (the `TurnResult` list)
-2. **Compute marginal factory MIRR** at each turn: cost of next factory vs incremental production stream
-3. **Compute marginal colony MIRR** at each turn: full colony ship cost vs new colony's production stream
-4. **Plot the crossover** — when does colony MIRR exceed factory MIRR?
-5. **Compare to GA results** — does the MIRR crossover match the optimal factory_target the GA found?
+Implementation in [moo1-opening-optimizer/moo1/mirr.py](https://github.com/chrisaacson69/moo1-opening-optimizer/blob/master/moo1/mirr.py). Simulation-based factory MIRR (runs with/without extra factory, measures production difference) vs colony MIRR (full cost accounting: construction, maintenance, transit, pop loss).
 
-If it matches, we've explained the GA's result with a principled financial metric. If it doesn't match, we've learned something about what MIRR misses (interaction effects, timing, etc.).
+**Normal 80-pop colony @ 3 parsecs, 50-turn horizon:**
+
+| Race | Crossover Turn | Factories at Crossover | Pop | Interpretation |
+|---|---|---|---|---|
+| **Klackon** | **Turn 8** | 68 | 75 | 2× production makes colonies productive fast — colonize early |
+| **Sakkra** | **Turn 13** | 76 | 99 | Fast pop growth fills colony quickly — colonize after minimal factories |
+| **Human** | Turn 25 | 151 | 100 | No bonus — fill factories first, colonize after pop caps |
+| **Psilon** | Turn 25 | 151 | 100 | Research bonus doesn't help early production — same as Human |
+
+**Key finding:** The Klackon result was unexpected — the prediction was that 2× production would make factory MIRR higher for longer (delaying colonization). Instead, 2× production makes the COLONY more productive too, and the colony benefits more from the multiplier because it compounds from a fresh start. **The production bonus helps colonies more than factories because colonies have more growth headroom.**
+
+**Rich colony target:** Colony MIRR exceeds factory MIRR from turn 1 for Klackon — the model says "colonize immediately, never build factories." This matches experienced player knowledge: if a Rich planet is nearby, always grab it first.
+
+### Known Model Gaps
+
+The current model simplifies several factors that would push the crossover EARLIER:
+
+1. **Pollution** — waste cleanup eats production per factory. More factories = more waste = diminishing returns before the cap.
+2. **Starting colony ship** — the game starts with one in flight. The real decision is the 2nd colony, not the 1st. Two colonies producing lowers the opportunity cost of the third ship.
+3. **Pop transfer costs** — sending colonists takes transit turns and removes homeworld production during transit.
+4. **Factory outpacing pop** — factories build faster than pop grows, creating unmanned factory periods where factory MIRR should tank.
+5. **Factory MIRR oscillation** — discrete turn simulation creates noise in the marginal production difference.
+
+All of these make factory MIRR worse and colony MIRR better — so the real crossover likely happens earlier than shown. The model is conservative in favoring factories.
+
+## Implementation Plan (Next Steps)
+
+1. ~~Compute marginal factory MIRR~~ — Done (simulation-based)
+2. ~~Compute marginal colony MIRR~~ — Done (full cost accounting)
+3. ~~Find crossover point~~ — Done (per-race analysis)
+4. **Add pollution to factory MIRR** — waste cleanup reduces net return
+5. **Model 2-colony start** — real decision is 2nd colony timing
+6. **Add pop transfer mechanics** — transit delay, homeworld production loss
+7. **Compare to GA results** — does MIRR crossover match optimal factory_target?
+8. **Sensitivity analysis** — distance, planet size, mineral richness
 
 ## Connection to Vault Economics
 
