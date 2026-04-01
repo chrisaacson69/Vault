@@ -3,7 +3,7 @@
 
 **Status:** active — theory phase
 **Created:** 2026-03-15
-**Links:** [Monopoly](./README.md), [The Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md), [Nash Bargaining Problem](../../research/gaming/nash-bargaining-problem.md), [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md), [Subgraph Investment Optimization](../../research/gaming/subgraph-investment-optimization.md)
+**Links:** [Monopoly](../../../projects/monopoly/README.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Nash Bargaining Problem](../nash-bargaining-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Subgraph Investment Optimization](./subgraph-investment-optimization.md)
 
 ## The Problem
 
@@ -96,6 +96,30 @@ Balanced 3-player scenario (equal NW ~$2120, orange split 3 ways):
 
 **Structural truth:** The frontier tool should identify that "your orange piece moves your frontier outward not by building orange, but by selling it to fund the monopoly you already have."
 
+## Denial Value and Knockout Probability
+
+Two concepts from the repo's research that the frontier framework subsumes but should name explicitly.
+
+### Denial Value
+
+A property's value isn't just what YOU can do with it — it's also what you prevent opponents from doing. The frontier captures this implicitly (your frontier includes the competitive landscape), but the concept deserves a name:
+
+```
+denialValue(property) = opponentFrontierWith(property) - opponentFrontierWithout(property)
+```
+
+The "properties as liquidity tools" finding above is denial value in action: holding a piece of an opponent's target set is worth more as leverage than as a development path. The frontier tool already accounts for this by computing post-trade subgraphs for ALL players, not just the traders.
+
+### Knockout Probability
+
+The frontier shows what EPT you can reach. But the game doesn't run to infinity — it ends when players go bankrupt. Against a cash-poor opponent, moderate EPT may be sufficient (they can't survive many rent hits). Against a cash-rich opponent, you need higher ceiling.
+
+```
+knockoutTurns ≈ opponentCash / myEPT
+```
+
+This connects directly to game horizon: if knockoutTurns is short, you're in a short-horizon game and speed (light blue) dominates. If knockoutTurns is long, ceiling (green/dark blue) matters. The frontier tool should weight development paths by whether they achieve knockout in the estimated horizon.
+
 ## Game Horizon and Strategy Selection
 
 The game horizon determines which monopoly ceiling matters:
@@ -120,6 +144,35 @@ Theoretically, a frontier AI could exploit the medium-horizon bias by:
 
 **Conclusion:** You can influence the horizon (by blocking trades, selling pieces strategically) but you can't control it. The frontier tool must adapt to the *actual* horizon, not try to force a preferred one.
 
+## Empirical Validation (from repo simulations)
+
+Tournament results from the Monopoly repo's simulation suite confirm the theory:
+
+### Growth AI Tournament (2000-game round-robin)
+
+| AI Type | Win Rate | Approach |
+|---|---|---|
+| **Growth** | **30.9%** | Models development timeline (S-curve), cash-after-trade NPV |
+| NPV | 27.6% | Standard net present value, no development timing |
+| Trading | 24.9% | Heuristic trade acceptance |
+| NoTrade | 9.2% | Builds only, never trades |
+
+**Key finding: conservative trades win.** The Growth AI demands 35% of the opponent's monopoly NPV as compensation when selling a completing piece. Being conservative outperforms being aggressive — matching the frontier theory's prediction that selling pieces to fund your own development beats cheap trades that enable opponents.
+
+### Cash-After-Trade Is the Variable
+
+The repo's most important empirical result:
+```
+Orange monopoly NPV by post-trade cash:
+  $0 remaining:    NPV = $307    (can't develop!)
+  $500 remaining:  NPV = $5,557  (slow development)
+  $1000 remaining: NPV = $7,675  (fast development)
+```
+
+This validates the frontier concept: the curve IS the cash-to-EPT mapping, and a trade that leaves you cash-poor is worse than no trade at all — even if you acquire a "better" monopoly.
+
+**Source:** [GROWTH-AI-SUMMARY.md](https://github.com/chrisaacson69/monopoly/blob/master/research/simulation/GROWTH-AI-SUMMARY.md), [valuation-notes.md](https://github.com/chrisaacson69/monopoly/blob/master/research/valuation-notes.md)
+
 ## Implementation Path
 
 The frontier tool needs to answer three questions in order:
@@ -138,4 +191,4 @@ The structural reduction: most of the permutation space dies at step 1 (most inv
 - **The game-theoretic observation problem:** Murphy's critique of Weinstein applies here too — if a player knows they'll re-optimize next turn, they optimize differently today. Does the frontier calculation change if opponents know you're using it?
 
 ## Tags
-[game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [game-theory](../../tags/game-theory.md), [strategy](../../tags/strategy.md)
+[game-ai](../../../tags/game-ai.md), [economics](../../../tags/economics.md), [game-theory](../../../tags/game-theory.md), [strategy](../../../tags/strategy.md)

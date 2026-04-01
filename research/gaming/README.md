@@ -21,11 +21,17 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 - [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) — why multiplayer games resist solution, the self-balancing three-player dynamic, phase decomposition, the Stockfish architecture as template, the interest rate framework, and the relative position model (EPT as slope)
 - [Bilateral Trade Valuation](./bilateral-trade-valuation.md) — why trade evaluation requires simulating both players simultaneously; trajectory divergence, the patient predator exploit, and Nash equilibrium pricing
 - [BattleValue](./battle-value.md) — BV = sqrt(Attack × HP): a universal combat comparison metric derived from Lanchester's Square Law; BV/Cost as the army composition ROI metric
-- [MOO1 Optimal Strategy](./moo1-optimal-strategy.md) — Master of Orion optimal play strategy: race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
 - [Diplomacy: 7 AI Models](./diplomacy-ai-analysis.md) — analysis of 7 LLMs playing Diplomacy; case study for the coalition problem, Nash bargaining, physical grounding of strategy, and why different agents CAN trade
-- [Subgraph Investment Optimization](./subgraph-investment-optimization.md) — each player owns a subgraph of the property space; the build-vs-trade decision via Pareto dominance, graph matching for complementary completions, and dynamic programming on reachable states
 - [D&D Spell Damage Model](./dnd-spell-damage-model.md) — using CLT, proof by induction, and bimodal distributions to build a spell comparison metric; same instinct as BattleValue, different game
-- [MOO1 MIRR Analysis](./moo1-mirr-analysis.md) — applying Modified Internal Rate of Return to the factory-vs-colonizer decision; financial metric for opening theory instead of brute-force search
+
+### Monopoly Theory — [monopoly/](./monopoly/)
+- [Subgraph Investment Optimization](./monopoly/subgraph-investment-optimization.md) — build-vs-trade decision via Pareto dominance, graph matching, dynamic programming on reachable states
+- [Frontier Trade Theory](./monopoly/frontier-trade-theory.md) — EPT frontier curves, brown trap, denial value, knockout probability, game horizon, race condition
+- [Subgraph Trade Engine Spec](./monopoly/subgraph-trade-engine-spec.md) — complete AI architecture: subgraph analysis, trade search, pruning, 3-way cycles
+
+### MOO1 Theory — [moo1/](./moo1/)
+- [MOO1 Optimal Strategy](./moo1/optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
+- [MOO1 MIRR Analysis](./moo1/mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
 
 ## Genres and What They Teach
 

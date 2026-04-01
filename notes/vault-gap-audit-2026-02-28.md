@@ -15,23 +15,14 @@ After reading every file in the vault, this audit identifies **4 categories of g
 
 These are files the vault itself acknowledges as incomplete, AND that other files depend on.
 
-### 1.1 Epistemology is a stub — everything rests on it
-- **File:** [research/philosophy/epistemology/README.md](../research/philosophy/epistemology/README.md)
-- **Self-labeled:** "stub — collecting threads for future exploration"
-- **Why critical:** The morality framework, logic/math framework, AND economics all assume **structural realism** (reality has structure, our formalisms model it, convergence is evidence of objectivity). This is an epistemological claim that has never been examined on its own terms. The weighting problem (the one developed page here) actually *challenges* the convergence argument — and the tension is acknowledged but unresolved.
-- **What's needed:** Develop the structural realism position into a full argument. Engage with Kuhn (paradigm shifts), Polanyi (tacit knowledge), and the Objectivist chain. Resolve whether convergence on weightings (not just measurements) counts as evidence.
+### ~~1.1 Epistemology is a stub~~ — SUBSTANTIALLY DEVELOPED
+- **Resolution:** No longer a bare stub. Three developed pages now ground the position: [The Birthmark](../research/philosophy/epistemology/the-birthmark.md) (epistemic imperfection is a feature; five principles for approaching truth), [Relational Objectivity](../research/philosophy/epistemology/relational-objectivity.md) (four-category ontology of facts; "relational" ≠ "subjective"), [The Weighting Problem](../research/philosophy/epistemology/weighting-problem.md) (objective measurements ≠ objective composites). The README still has threads to explore (structural realism formalization, Objectivist engagement, convergence limits), but the foundation is laid.
 
-### 1.2 Cognitive vs. Motor Skills is a stub — referenced by 3 major pages
-- **File:** [research/cognitive-vs-motor.md](../research/cognitive-vs-motor.md)
-- **Self-labeled:** "stub — data dump for future exploration"
-- **Why critical:** Referenced by the cyborg model, measurement-causality, and LLM grounding problem. The cognitive/motor split is a load-bearing distinction for the AI architecture argument ("LLMs are cognitive; robotics is motor"). Currently a placeholder with a list of topics to explore.
-- **What's needed:** Develop the architecture comparison (transformer vs NN), the latency argument, the training difference, and the embodied cognition question. Connect formally to the measurement-causality framework's explanation of why the two layers exist.
+### ~~1.2 Cognitive vs. Motor Skills is a stub~~ — DEVELOPED INTO HUB PAGE
+- **Resolution:** Content was already developed across measurement-causality (evolutionary progression, Libet reframe, system interaction), cyborg-model (practical implications), llm-grounding-problem (what happens without grounding), and h-neurons (confidence injection pipeline). The stub has been rewritten as a hub page that synthesizes and cross-references all of this, with new links to h-neurons and conservation-of-complexity.
 
-### 1.3 The Is-Ought Bridge is incomplete — the morality framework's foundation
-- **File:** [research/philosophy/morality/README.md](../research/philosophy/morality/README.md) (line ~46)
-- **Self-labeled:** "The bridge is partially built."
-- **Why critical:** The entire morality framework hangs on whether "you must act" gets you to "some choices are objectively better." If it doesn't, the framework describes pragmatic heuristics, not moral truths — which is still useful but a fundamentally different claim.
-- **What's needed:** Either complete the bridge (show that agency + inescapable constraints compels specific moral conclusions) or explicitly accept the conditional-ought position (morality is objective *given* goals, but goals themselves aren't grounded). The weighting problem's "conditional-ought escape" is a candidate resolution.
+### ~~1.3 The Is-Ought Bridge is incomplete~~ — CLOSED
+- **Resolution:** Resolved via performative grounding in [morality README](../research/philosophy/morality/README.md) (line ~44): "The bridge is closed." The "is" already contains the "ought" — agents who exist are already acting, acting presupposes valuation. Hume was right that logic alone can't bridge it, but the questioner is already standing on the other side. Supported by [Performative Grounding — Lineage](../research/philosophy/morality/performative-grounding-lineage.md) tracing the move from Aristotle through Apel, Gewirth, Hoppe, and Korsgaard.
 
 ---
 
@@ -44,9 +35,8 @@ These are threads opened in existing files that were left hanging. They weaken t
 - **Quote:** "Without a criterion for which scope applies when, scope-shifting becomes a tool for justification."
 - **Problem:** The scope model (narrow/medium/broad) is powerful but has no rules for when zoom-in vs. zoom-out is legitimate. Every historical atrocity used scope-shifting. This is acknowledged but unfixed.
 
-### 2.2 Defining "flourishing" — the morality framework's dependent variable
-- **File:** [research/philosophy/morality/README.md](../research/philosophy/morality/README.md) (line ~99)
-- **Problem:** "Good choices tend toward flourishing" — but flourishing is never defined. Is it Aristotelian eudaimonia? Subjective well-being? Survival? The framework's predictive power depends on this, and it connects directly to the weighting problem (different definitions = different weightings).
+### ~~2.2 Defining "flourishing"~~ — DISSOLVED
+- **Resolution:** The framework doesn't need a definition of "flourishing." The word smuggles in subjective weighting. Agents determine what they want; empirics determines the best course of action. "Flourishing" = achieving desires. Already resolved in [morality README](../research/philosophy/morality/README.md) (line ~164).
 
 ### 2.3 The filter problem — convergence validates both good and bad patterns
 - **File:** [research/philosophy/morality/README.md](../research/philosophy/morality/README.md) (line ~101)
@@ -151,12 +141,12 @@ These are topics the vault's own files explicitly call for but that haven't been
 ## Prioritized Action Plan
 
 ### Tier 1 — Foundation (weakens everything if left unfixed)
-1. Develop epistemology from stub to full argument
-2. Complete or explicitly limit the is-ought bridge
-3. Define "flourishing" (even provisionally)
+1. ~~Develop epistemology from stub~~ — substantially developed (Birthmark, Relational Objectivity, Weighting Problem)
+2. ~~Complete or explicitly limit the is-ought bridge~~ — closed via performative grounding
+3. ~~Define "flourishing"~~ — dissolved; agents define their own goals, empirics evaluates paths
 
 ### Tier 2 — Load-Bearing Gaps (referenced by multiple files)
-4. Develop cognitive-vs-motor from stub
+4. ~~Develop cognitive-vs-motor from stub~~ — rewritten as hub page synthesizing content from 4 files
 5. Resolve the coercion boundary (where does aggression begin?)
 6. Write scope legitimacy criteria
 7. Write constitutional analysis page

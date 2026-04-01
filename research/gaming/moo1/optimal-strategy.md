@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-03-07
-**Links:** [Gaming](./README.md), [BattleValue](./battle-value.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [Bilateral Trade Valuation](./bilateral-trade-valuation.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md)
+**Links:** [Gaming](../README.md), [BattleValue](../battle-value.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
 
 ## Why MOO1
 
@@ -105,7 +105,7 @@ For all other races, every tech has a flat 50% chance of appearing regardless of
 
 ## Ship Design — BV Applied
 
-Ship design is where [BattleValue](./battle-value.md) directly applies. Every design decision is a BV/Cost tradeoff.
+Ship design is where [BattleValue](../battle-value.md) directly applies. Every design decision is a BV/Cost tradeoff.
 
 ### Design Principles
 
@@ -129,11 +129,11 @@ Budget constraint: Σ (cost_per_unit × count) ≤ budget
 Optimal: maximize BV/Cost for each slot, then buy the max quantity of the best ratio
 ```
 
-But remember the [BattleValue caveats](./battle-value.md#extensions-and-complications): range/initiative bonuses, first-strike damage, and counter-matchups all modify the pure BV calculation. A fleet of cheap high-BV/Cost fighters loses to a smaller fleet with longer range that kills half your ships before they fire — because units killed before firing contribute zero BV to the engagement.
+But remember the [BattleValue caveats](../battle-value.md#extensions-and-complications): range/initiative bonuses, first-strike damage, and counter-matchups all modify the pure BV calculation. A fleet of cheap high-BV/Cost fighters loses to a smaller fleet with longer range that kills half your ships before they fire — because units killed before firing contribute zero BV to the engagement.
 
 ### Concentration of Force
 
-From Lanchester's Square Law (derived in the [BattleValue](./battle-value.md#lanchasters-square-law) analysis): splitting your fleet halves the count but *quarters* the combat power. Never fight two battles when you can fight one. This applies to both offense and defense:
+From Lanchester's Square Law (derived in the [BattleValue](../battle-value.md#lanchasters-square-law) analysis): splitting your fleet halves the count but *quarters* the combat power. Never fight two battles when you can fight one. This applies to both offense and defense:
 
 - **Offense:** Mass your entire fleet at one target. Destroy it. Move to the next. Serial conquest beats parallel invasion.
 - **Defense:** Don't spread missile bases evenly. Concentrate them on the 2–3 border worlds that face actual threats.
@@ -191,7 +191,7 @@ The key insight: **each phase has a transition trigger, not a fixed turn count.*
 
 ### The Interest Rate Analogy
 
-From [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md): every investment has an opportunity cost measured against your implicit "interest rate" — the return you'd get from the default alternative.
+From [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md): every investment has an opportunity cost measured against your implicit "interest rate" — the return you'd get from the default alternative.
 
 In MOO1, the default alternative is *growth*. Every resource spent on military is a resource not spent on production, research, or expansion. The "interest rate" of growth is roughly your compound production increase per turn.
 
@@ -244,7 +244,7 @@ Where P = population, C = planet capacity, eco_minimum = waste cleanup cost. Gro
 
 Building a colony ship costs ~590 BC. The question is: **at what turn does diverting production from factory-building to colony-ship-building maximize total empire production at some future horizon T?**
 
-This is a classic **investment timing problem** — identical in structure to the entrepreneurial judgment framework in [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md).
+This is a classic **investment timing problem** — identical in structure to the entrepreneurial judgment framework in [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md).
 
 #### Model Setup
 
@@ -300,7 +300,7 @@ If you're optimizing for turn 100+ (which you are in any serious game), the colo
 2. The colony becomes a second production center that can build *its own* colony ships
 3. Each planet adds population, which adds research, which accelerates tech, which boosts *everything*
 
-This is the same reason compounding investments beat fixed-rate returns in [Value and Profit](../economics/value-and-profit.md) — the exponent always wins given enough time.
+This is the same reason compounding investments beat fixed-rate returns in [Value and Profit](../../economics/value-and-profit.md) — the exponent always wins given enough time.
 
 #### Optimal Timing Formula
 
@@ -349,7 +349,7 @@ This is a **dynamic programming problem** with a small enough state space to sol
 
 A simpler Monte Carlo approach: randomly sample 1000 opening strategies (vary colony ship build start from turn 1 to turn 20), simulate each for 100 turns, and plot total empire production at turn 100 as a function of colony ship build start turn.
 
-**This is a tractable problem. The opening can likely be solved.** See [MOO1 Opening Optimizer](../../projects/moo1-opening-optimizer/README.md) for the simulation project that will answer this definitively.
+**This is a tractable problem. The opening can likely be solved.** See [MOO1 Opening Optimizer](../../../projects/moo1-opening-optimizer/README.md) for the simulation project that will answer this definitively.
 
 ## The Bad-Start Adaptation Problem
 
@@ -383,7 +383,7 @@ ROI(base) = P(attack) × E[damage_prevented] / cost
 
 `P(attack)` depends on: neighbor distance, neighbor aggression (Bulrathi high, Psilon low), your relative fleet strength, diplomatic state. `E[damage_prevented]` depends on: what you'd lose if the planet falls (pop + factories + strategic position).
 
-Neither term has been quantified. The [opening optimizer](../../projects/moo1-opening-optimizer/README.md) Phase 5 identifies this gap but doesn't fill it.
+Neither term has been quantified. The [opening optimizer](../../../projects/moo1-opening-optimizer/README.md) Phase 5 identifies this gap but doesn't fill it.
 
 **2. Research ROI Under Constraint**
 
@@ -406,7 +406,7 @@ This difference is likely highest in the first 10 turns, when uncertainty is max
 
 **4. The Adaptation Trigger**
 
-The hardest number to derive: **when should you abandon the expansion plan?** The subgraph optimization framework ([Subgraph Investment Optimization](./subgraph-investment-optimization.md)) says: take the action with highest risk-adjusted EV from your current position. But identifying the crossover point — the turn where military/research ROI exceeds expansion ROI — requires all the numbers above.
+The hardest number to derive: **when should you abandon the expansion plan?** The subgraph optimization framework ([Subgraph Investment Optimization](../monopoly/subgraph-investment-optimization.md)) says: take the action with highest risk-adjusted EV from your current position. But identifying the crossover point — the turn where military/research ROI exceeds expansion ROI — requires all the numbers above.
 
 ## MIRR: The Generalized Decision Framework
 
@@ -523,7 +523,7 @@ Each turn:
     5. Next turn: reassess (game state changed, re-rank)
 ```
 
-This is the **entrepreneurial judgment framework** from [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md) applied to 4X: each turn is an investment decision under uncertainty. The player who consistently finds the highest-MIRR option — accounting for risk, timing, and reinvestment — wins.
+This is the **entrepreneurial judgment framework** from [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md) applied to 4X: each turn is an investment decision under uncertainty. The player who consistently finds the highest-MIRR option — accounting for risk, timing, and reinvestment — wins.
 
 ### Data Collection Plan
 
@@ -615,7 +615,7 @@ The tech tree is partially randomized — you might not get range 5. But techs w
 | Concentrated bets: higher upside AND downside | Solo propulsion: range 5 on turn 20 (great!) or turn 40 (disaster) |
 | Hedging reduces variance at a small cost to expected return | 2/3 propulsion + 1/3 planetology: slightly slower but two paths to new planets |
 
-The 2/3 propulsion + 1/3 planetology split is buying insurance — sacrificing some speed on propulsion to hedge against bad propulsion rolls by opening a second path to the same goal (access to new planets via hostile colonization instead of range). This connects directly to the vault's [insurance framework](../economics/insurance.md): hedge the catastrophic downside (no range tech at all) at a small cost to expected return.
+The 2/3 propulsion + 1/3 planetology split is buying insurance — sacrificing some speed on propulsion to hedge against bad propulsion rolls by opening a second path to the same goal (access to new planets via hostile colonization instead of range). This connects directly to the vault's [insurance framework](../../economics/insurance.md): hedge the catastrophic downside (no range tech at all) at a small cost to expected return.
 
 #### Data Needed for Research MIRR
 
@@ -680,7 +680,7 @@ The pattern holds: real constraints reduce the decision space. Even with a bad s
 
 ### Path Forward
 
-The [opening optimizer](../../projects/moo1-opening-optimizer/README.md) Phase 5 is where these numbers would come from. The approach:
+The [opening optimizer](../../../projects/moo1-opening-optimizer/README.md) Phase 5 is where these numbers would come from. The approach:
 
 1. **Simulate bad starts**: Generate maps with hostile neighbors at various distances, poor planet quality, missing tech. Run the same sweep as Phase 2 (vary investment allocation across the 5 buckets).
 2. **Measure military ROI empirically**: Run simulations where the AI attacks at various timings. Compare outcomes with 0, 1, 2, 3 missile bases. Derive `P(survival)` as a function of base count and threat level.
@@ -705,4 +705,4 @@ The convergence principle should still apply — once the numbers exist, the con
 
 ## Tags
 
-[games](../../tags/games.md), [game-theory](../../tags/game-theory.md), [economics](../../tags/economics.md), [strategy](../../tags/strategy.md)
+[games](../../../tags/games.md), [game-theory](../../../tags/game-theory.md), [economics](../../../tags/economics.md), [strategy](../../../tags/strategy.md)

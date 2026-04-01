@@ -1,7 +1,7 @@
 # Epistemology — Parking Lot
 > How we know what we know. The foundation underneath everything else.
 
-**Status:** stub — collecting threads for future exploration
+**Status:** active — foundation laid, threads to explore
 **Created:** 2026-02-16
 **Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [Logic and Mathematics](../logic-and-math/README.md)
 

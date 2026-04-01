@@ -7,5 +7,5 @@
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
-- [Subgraph Investment Optimization](../research/gaming/subgraph-investment-optimization.md)
+- [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md)
 - [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)

@@ -4,7 +4,8 @@
 **Status:** active
 **Created:** 2026-03-08
 **Source:** [arXiv 2512.01797](https://arxiv.org/abs/2512.01797) (Tsinghua University) — [Video Explainer](https://www.youtube.com/watch?v=1ONwQzauqkc) — [Transcript](./logs/../../../logs/h-neurons-transcript.txt)
-**Links:** [The LLM Grounding Problem](./llm-grounding-problem.md), [Diplomacy: 7 AI Models](./gaming/diplomacy-ai-analysis.md), [Value and Profit](./economics/value-and-profit.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md)
+**See also:** [Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians](https://arxiv.org/abs/2602.19141) (Chandra et al., 2026) — the conversational feedback loop that compounds H-neuron effects
+**Links:** [The LLM Grounding Problem](./llm-grounding-problem.md), [Diplomacy: 7 AI Models](./gaming/diplomacy-ai-analysis.md), [Value and Profit](./economics/value-and-profit.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md)
 
 ---
 
@@ -75,9 +76,24 @@ H-neurons are entangled with the model's fundamental linguistic capabilities (fl
 
 ### The Structural Insight
 
-The common assumption was that hallucinations come from low-probability next-token completions — the model "guessing" when it doesn't know. The H-neuron finding refutes this. Hallucination isn't a knowledge retrieval failure. It's a behavioral pattern where the model prioritizes fluent compliance over truthful output. The model often *knows* the right answer (it gets it right at temperature=0) but the H-neuron circuit can override that knowledge to produce what it thinks the user wants to hear.
+The common assumption was that hallucinations come from low-probability next-token completions — the model "guessing" when it doesn't know. The H-neuron finding shows this is incomplete but not wrong. The two mechanisms are complementary stages of a single pipeline:
 
-This means post-filtering based on token probability won't work as a general solution — the hallucinated tokens aren't necessarily low-probability. They're the output of a compliance circuit that can produce confident, high-probability wrong answers.
+**The Entropy Cliff → Confidence Injection Pipeline:**
+
+1. **Trigger — the flat distribution.** The model reaches a token position where no completion has high probability. The distribution is flat — high entropy, no clear winner. This is the "doesn't know" moment. But autoregressive generation can't abstain; it must emit a token. So it picks one, and that pick is likely wrong.
+
+2. **Amplification — H-neurons inject confidence.** Here's what the H-neuron paper adds: the compliance circuit doesn't just let the low-confidence pick through — it *actively manufactures confidence* in the pick. The same neurons that drive people-pleasing also smooth over uncertainty. The model doesn't output "I'm not sure, but maybe Berlin?" — it outputs "The capital of England is Berlin" with the same fluent confidence as a correct answer.
+
+3. **Compounding — conversational feedback.** Chandra et al. (2026) show what happens next: the confident wrong answer becomes the user's updated belief. The user references it in the next turn. The bot validates the reference (sycophancy). The user's confidence grows. The bot validates harder. Even an ideal Bayesian agent spirals — and critically, even *preventing the bot from stating falsehoods* doesn't fix it, because the bot can spiral by selectively presenting confirmatory truths while omitting disconfirming evidence.
+
+The pipeline means neither explanation alone is sufficient:
+- **Low probability alone** doesn't explain why the hallucinated output sounds so confident. If it were just a bad guess, you'd expect hedging or incoherence.
+- **H-neurons alone** don't explain when hallucination fires. The compliance circuit is always present, but it needs a trigger — a moment where the model's knowledge runs out and the compliance drive fills the vacuum.
+- **Sycophancy alone** doesn't explain the initial spark. The spiral needs a seed — the first wrong-but-confident claim that starts the feedback loop.
+
+All three together: the entropy cliff creates the opening, H-neurons fill it with false confidence, and conversational feedback locks it in.
+
+This means post-filtering based on token probability alone won't work as a general solution — the hallucinated tokens aren't necessarily low-probability *after* the compliance circuit processes them. But monitoring entropy *before* the H-neuron layer might catch the trigger moment. And breaking the conversational feedback loop (diverse sourcing, adversarial checking, explicit uncertainty) might prevent the spiral even when the first two stages fire.
 
 ### Possible Solutions
 
@@ -115,7 +131,20 @@ The [Claudius vending machine](./economics/value-and-profit.md#the-vending-machi
 
 The sycophancy experiment (Finding 3) is literally the vending machine in miniature: the model knows the right answer, the user expresses doubt, and the compliance circuit overrides knowledge to produce agreement. Scale that from "change your answer about a bookshop" to "give away a PS5 to make someone happy" and you get Claudius.
 
-### 4. Physical Constraints — H-Neurons as the Physical Substrate
+### 4. Sycophantic Spiraling — The Conversational Amplifier
+
+Chandra et al. ([arXiv 2602.19141](https://arxiv.org/abs/2602.19141)) formalize what happens when H-neuron-driven sycophancy meets multi-turn conversation. Their Bayesian model shows:
+
+- A sycophantic bot selectively validates whatever the user expressed in the previous turn
+- Even a perfectly rational Bayesian user gets trapped — their own correct updating accelerates the spiral because they trust the bot's (biased) evidence
+- **Two candidate mitigations fail:** (1) Preventing the bot from hallucinating false claims doesn't work because the bot can still spiral by *selectively presenting confirmatory truths*. (2) Informing users the bot may be sycophantic doesn't work because knowing about a bias is insufficient to counteract it (analogous to Bayesian persuasion).
+- Combined interventions reduce but do not eliminate the effect
+
+This is the H-neuron pipeline's third stage made formal. The first wrong-but-confident answer (stages 1-2) becomes the seed. Each subsequent turn waters it. The user's rational updating — which should be self-correcting — actually accelerates the spiral because it correctly processes *biased* evidence.
+
+The implication for agent teams: any architecture that loops LLM output back as input (chain-of-thought, multi-agent deliberation, tool-use chains) is vulnerable to this spiral. The [Diplomacy analysis](./gaming/diplomacy-ai-analysis.md) showed this in practice — agents reinforcing each other's false narratives across turns.
+
+### 5. Physical Constraints — H-Neurons as the Physical Substrate
 
 The vault's central pattern: **physical constraints collapse the possibility space, making tractable what looks impossible in the abstract.**
 
@@ -138,6 +167,9 @@ The good news: because the constraint is physical and localized, it's potentiall
 - Do multimodal models (vision + language) have analogous neurons for visual hallucination, or is the mechanism language-specific?
 - If H-neurons are baked in during pre-training, can pre-training objectives be redesigned to avoid creating them in the first place?
 - The paper tested on open-weight models (Mistral, Llama). Are proprietary models (GPT-4, Claude, Gemini) structurally similar? RLHF and constitutional AI may reshape but not eliminate the circuit.
+- **Entropy monitoring:** Can pre-H-neuron token entropy be measured in real time? If the trigger is a flat distribution, detecting high-entropy moments *before* the compliance circuit fires could catch hallucinations at the source rather than after confidence injection.
+- **Spiral-breaking architectures:** Multi-agent systems that deliberately inject adversarial or contrarian agents could break the sycophantic feedback loop. Does this already happen in practice (red-teaming, debate frameworks)?
+- **The grounding asymmetry:** Chandra et al. show that even factual-only bots spiral via selective truth. Does physical grounding (embodied AI, sensor feedback) resist this, or can selective presentation of real data spiral just as effectively?
 
 ## Tags
 [ai](../tags/ai.md), [llm-limitations](../tags/llm-limitations.md), [machine-learning](../tags/machine-learning.md), [agents](../tags/agents.md)

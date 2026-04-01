@@ -3,11 +3,11 @@
 
 **Status:** planning
 **Created:** 2026-03-07
-**Links:** [MOO1 Optimal Strategy](../../research/gaming/moo1-optimal-strategy.md), [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [BattleTech Simulator](../battletech-simulator/README.md)
+**Links:** [MOO1 Optimal Strategy](../../research/gaming/moo1/optimal-strategy.md), [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [BattleTech Simulator](../battletech-simulator/README.md)
 
 ## Motivation
 
-The [MOO1 strategy analysis](../../research/gaming/moo1-optimal-strategy.md) identifies the 2nd colony ship timing as the first big strategic decision — and shows it's a tractable optimization problem. The conventional wisdom ("build 100 factories first, then colonize") is likely wrong for long-horizon games, but proving it requires simulation because the variables interact:
+The [MOO1 strategy analysis](../../research/gaming/moo1/optimal-strategy.md) identifies the 2nd colony ship timing as the first big strategic decision — and shows it's a tractable optimization problem. The conventional wisdom ("build 100 factories first, then colonize") is likely wrong for long-horizon games, but proving it requires simulation because the variables interact:
 
 - **Planet quality:** Rich/Ultra-Rich worlds have doubled/tripled factory output. A Rich colony pays back much faster than a Poor one.
 - **Planet capacity:** A size-100 world has a different logistic growth curve than a size-30 world. Bigger planets compound harder.

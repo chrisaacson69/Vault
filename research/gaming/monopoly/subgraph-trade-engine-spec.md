@@ -3,7 +3,7 @@
 
 **Status:** spec — not yet implemented
 **Created:** 2026-03-19
-**Links:** [Monopoly](./README.md), [Frontier Trade Theory](./frontier-trade-theory.md), [Subgraph Investment Optimization](../../research/gaming/subgraph-investment-optimization.md), [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md), [Nash Bargaining Problem](../../research/gaming/nash-bargaining-problem.md), [Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md)
+**Links:** [Monopoly](../../../projects/monopoly/README.md), [Frontier Trade Theory](./frontier-trade-theory.md), [Subgraph Investment Optimization](./subgraph-investment-optimization.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Nash Bargaining Problem](../nash-bargaining-problem.md), [Multiplayer Coalition Problem](../multiplayer-coalition-problem.md)
 
 ## What This Solves
 
@@ -270,4 +270,4 @@ Specifically test game states where no bilateral trade helps but a 3-way cycle d
 4. **Dynamic reserve integration:** The reserve threshold from frontier trade theory interacts with trade evaluation — a trade that leaves you below reserve is risky even if the frontier improves. This needs to be part of the feasibility check.
 
 ## Tags
-[game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [game-theory](../../tags/game-theory.md), [strategy](../../tags/strategy.md)
+[game-ai](../../../tags/game-ai.md), [economics](../../../tags/economics.md), [game-theory](../../../tags/game-theory.md), [strategy](../../../tags/strategy.md)

@@ -9,15 +9,17 @@
 
 The Vault's gaming research pages contain the **abstract theory**. The Monopoly repo contains the **applied implementation**. Findings from the project validate or challenge the theory, which feeds back into the Vault.
 
-| Vault Research (theory) | Monopoly Repo (applied) |
-|---|---|
-| [Nash Bargaining Problem](../../research/gaming/nash-bargaining-problem.md) | `research/positional-value-analysis.md` — 3-player Orange coalition |
-| [Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md) | `research/positional-value-analysis.md` — coalition formation dynamics |
-| [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md) | `research/valuation-notes.md` — denial value, time-to-impact |
-| [Subgraph Investment Optimization](../../research/gaming/subgraph-investment-optimization.md) | `ai/property-valuator.js` — EPT and ROI calculations |
-| [Praxis: Agent Teams](../../research/economics/praxis-agent-teams.md) | `research/simulation/GROWTH-AI-SUMMARY.md` — tournament results |
+| Vault (theory — research/gaming/monopoly/) | Monopoly Repo (applied) | Status |
+|---|---|---|
+| [Nash Bargaining Problem](../../research/gaming/nash-bargaining-problem.md) | `research/positional-value-analysis.md` — 3-player Orange coalition, Shapley value | Vault has abstract theory; repo has Monopoly-specific worked example |
+| [Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md) | `research/positional-value-analysis.md` — coalition formation dynamics | Vault has abstract theory; repo applies to Orange split |
+| [Bilateral Trade Valuation](../../research/gaming/bilateral-trade-valuation.md) | `research/valuation-notes.md` — denial value, time-to-impact, knockout probability | Vault has trajectory framework; repo adds concepts (now captured in [Frontier Trade Theory](../../research/gaming/monopoly/frontier-trade-theory.md)) |
+| [Subgraph Investment Optimization](../../research/gaming/monopoly/subgraph-investment-optimization.md) | `ai/property-valuator.js` — EPT and ROI calculations | Vault has abstract framework; repo has implementation |
+| [Frontier Trade Theory](../../research/gaming/monopoly/frontier-trade-theory.md) | `research/simulation/GROWTH-AI-SUMMARY.md` — tournament results | Theory in vault; empirical validation in repo (results summarized in frontier page) |
+| [Subgraph Trade Engine Spec](../../research/gaming/monopoly/subgraph-trade-engine-spec.md) | `research/simulation/subgraph-*.js` — implementation of the spec | Spec in vault; code in repo |
+| [Praxis: Agent Teams](../../research/economics/praxis-agent-teams.md) | `research/SESSION_SUMMARY.md` — Markov engine, technical architecture | Vault has economic framework; repo has Monopoly application |
 
-**The rule:** Abstract theory lives in the Vault. Applied implementation lives in the repo. Cross-link, don't duplicate.
+**The rule:** All theory lives in the Vault (`research/gaming/monopoly/`). Implementation lives in the repo. Cross-link, don't duplicate. Repo research files (`positional-value-analysis.md`, `valuation-notes.md`) are earlier working notes now superseded by the vault's theory pages.
 
 ## Overview
 

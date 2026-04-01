@@ -3,11 +3,11 @@
 
 **Status:** active
 **Created:** 2026-03-17
-**Links:** [Gaming](./README.md), [Bilateral Trade Valuation](./bilateral-trade-valuation.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [The Nash Bargaining Problem](./nash-bargaining-problem.md), [Monopoly](../../projects/monopoly/README.md), [Insurance](../economics/insurance.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md)
+**Links:** [Gaming](../README.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [The Nash Bargaining Problem](../nash-bargaining-problem.md), [Monopoly](../../../projects/monopoly/README.md), [Insurance](../../economics/insurance.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
 
 ## The Problem
 
-The full Monopoly investment space is combinatorial: 28 properties, 5 house levels each, trades between 2-4 players, variable cash positions. Evaluating all possible futures from any game state is intractable. The [bilateral trade valuation](./bilateral-trade-valuation.md) model showed how to evaluate individual trades correctly, and the [multiplayer coalition problem](./multiplayer-coalition-problem.md) showed why the full multiplayer space resists solution.
+The full Monopoly investment space is combinatorial: 28 properties, 5 house levels each, trades between 2-4 players, variable cash positions. Evaluating all possible futures from any game state is intractable. The [bilateral trade valuation](../bilateral-trade-valuation.md) model showed how to evaluate individual trades correctly, and the [multiplayer coalition problem](../multiplayer-coalition-problem.md) showed why the full multiplayer space resists solution.
 
 But there's a structural reduction hiding in plain sight: **you don't own the whole graph.** Each player owns a subgraph of the property space, and at any decision point, the set of *actually available* actions is far smaller than the theoretical space. The problem isn't "what's the best portfolio?" — it's "given what I hold right now, what's the best use of my next dollar?"
 
@@ -43,11 +43,11 @@ At each decision point, you have exactly two types of action:
 - Add houses to a complete clique you own
 - Deterministic — always available if you have cash and a complete set
 - Marginal return is calculable: Markov landing probability x rent increase for that house level
-- Trades cash (intercept) for property-EPT (slope) per the [relative position model](./multiplayer-coalition-problem.md)
+- Trades cash (intercept) for property-EPT (slope) per the [relative position model](../multiplayer-coalition-problem.md)
 
 **TRADE (restructure your subgraph topology):**
 - Exchange nodes between subgraphs to complete a clique or improve set quality
-- Probabilistic — requires a counterparty in the [Nash bargaining zone](./nash-bargaining-problem.md)
+- Probabilistic — requires a counterparty in the [Nash bargaining zone](../nash-bargaining-problem.md)
 - Potential return is high (completing a set unlocks building = step-function value increase)
 - Execution probability is low (opponent must also improve, and they know this)
 
@@ -75,7 +75,7 @@ More precisely: a trade is feasible when the subgraph partition is such that bot
 
 While you hold cash waiting for a trade that may never happen, your opponent is building. Every turn you don't build, you forgo the rent income that house would generate. The bilateral trajectory model makes this visible: the "do nothing, wait for trade" trajectory falls further behind the "build now" trajectory with each passing turn.
 
-This connects to the [interest rate framework](./multiplayer-coalition-problem.md): cash earns 0% return. Houses earn property-EPT. Holding cash is a bet that a future trade will yield more than the cumulative property-EPT you're forgoing. That bet rarely pays off.
+This connects to the [interest rate framework](../multiplayer-coalition-problem.md): cash earns 0% return. Houses earn property-EPT. Holding cash is a bet that a future trade will yield more than the cumulative property-EPT you're forgoing. That bet rarely pays off.
 
 ### 4. The Pareto Front Is Small
 
@@ -84,7 +84,7 @@ At any game state, the set of non-dominated actions (actions where no other acti
 - Build highest-ROI house (usually the 3rd house on the best complete set)
 - Build next-highest-ROI house (if cash allows)
 - Attempt trade that completes a set (if a feasible trade exists)
-- Hold cash for insurance against catastrophic rent (per the [liquidity curve](../economics/insurance.md))
+- Hold cash for insurance against catastrophic rent (per the [liquidity curve](../../economics/insurance.md))
 
 Most of the combinatorial space is dominated. You never need to consider building the 1st house on your worst set before the 3rd house on your best set. You never need to consider a trade that gives your opponent a monopoly without getting one yourself. Dominance pruning collapses the action space to a handful of candidates.
 
@@ -105,7 +105,7 @@ Rank by ROI. This is the efficient frontier of deterministic investments.
 For each opponent, check: is there a swap of partial-clique fragments that completes a clique for both? This is the graph matching step — find complementary completions.
 
 For each feasible trade:
-- Run [bilateral trajectory simulation](./bilateral-trade-valuation.md) to get EV
+- Run [bilateral trajectory simulation](../bilateral-trade-valuation.md) to get EV
 - Estimate execution probability (does the opponent's trajectory also improve? do they have cash to exploit it?)
 - Risk-adjusted EV = trajectory_improvement x P(execution)
 
@@ -115,7 +115,7 @@ The decision rule: **take the action with highest risk-adjusted EV.**
 
 - If best_build_ROI > best_trade_risk_adjusted_EV → build
 - If a feasible trade exists with risk-adjusted EV > build ROI → attempt trade
-- If cash is below the [reserve threshold](../economics/insurance.md) → neither; hold cash
+- If cash is below the [reserve threshold](../../economics/insurance.md) → neither; hold cash
 
 ### Step 4: The BATNA Check
 
@@ -125,7 +125,7 @@ Your BATNA (best alternative to negotiated agreement) is always the build option
 - The counterparty's BATNA is their build option — they apply the same logic
 - A trade only happens when both post-trade trajectories exceed both BATNAs
 
-This is the [Nash bargaining solution](./nash-bargaining-problem.md) applied to subgraph optimization: the disagreement point is "both players just build what they have."
+This is the [Nash bargaining solution](../nash-bargaining-problem.md) applied to subgraph optimization: the disagreement point is "both players just build what they have."
 
 ## Why This Reduces the Problem
 
@@ -149,7 +149,7 @@ The hard problem — "find the globally optimal strategy across all possible gam
 Each player is simultaneously solving this same subgraph optimization problem. The interaction comes through:
 
 1. **Trade feasibility** — your trade options depend on what others own (their subgraphs)
-2. **Rent flows** — their development affects your trajectory (bilateral interaction from [trade valuation](./bilateral-trade-valuation.md))
+2. **Rent flows** — their development affects your trajectory (bilateral interaction from [trade valuation](../bilateral-trade-valuation.md))
 3. **Housing scarcity** — 32 houses in the game create a shared constraint (building on your set may block others from building on theirs)
 
 The housing scarcity point connects back to the "build what you got" insight: in a 4-player game, building early doesn't just improve your position — it claims scarce housing inventory, *worsening* other players' build frontiers. This is an externality of the build decision that the bilateral model can capture but the isolated growth curve cannot.
@@ -178,13 +178,13 @@ The full subgraph optimization problem isn't analytically solvable — you can't
 
 This is visible in the existing results:
 
-- The **1.0x reserve multiplier** (from [insurance](../economics/insurance.md)) was empirically calibrated, not derived. It turned out to match the theoretically correct value. The constraint structure (convex liquidity cost, bounded rent distribution) left only a narrow band of workable multipliers, and iteration found it.
+- The **1.0x reserve multiplier** (from [insurance](../../economics/insurance.md)) was empirically calibrated, not derived. It turned out to match the theoretically correct value. The constraint structure (convex liquidity cost, bounded rent distribution) left only a narrow band of workable multipliers, and iteration found it.
 - The **bilateral model's simplification** (ignore other players' development) "shouldn't" work for a 4-player game. It produced Z=10.25. The constraint (other players' development is slow relative to the two traders' post-trade trajectories) makes the N-body correction terms small enough to ignore.
 - The **convergence-point Nash price** and the **area-equality Nash price** gave nearly identical results (33.8% vs 33.6%). Two different formulations converged to the same answer because the constraint structure (finite horizon, bounded cash, discrete house levels) collapses the space of possible prices to a narrow range.
 
 The pattern: when constraints are tight enough, multiple reasonable approaches converge to the same solution. You don't need mathematical rigor to find it — you need a model that respects the constraints and an iteration loop.
 
-This connects directly to [computational irreducibility](../computation-and-information.md). The full game state space is irreducible — no shortcut to the optimal play sequence. But the *decision at each node* is reducible because dominance pruning, constraint satisfaction, and convergence dynamics collapse the choice set. The game is irreducible globally but tractable locally. You can't solve the whole DAG, but you can navigate it one node at a time, and convergence ensures that local greedy decisions approximate the global optimum.
+This connects directly to [computational irreducibility](../../computation-and-information.md). The full game state space is irreducible — no shortcut to the optimal play sequence. But the *decision at each node* is reducible because dominance pruning, constraint satisfaction, and convergence dynamics collapse the choice set. The game is irreducible globally but tractable locally. You can't solve the whole DAG, but you can navigate it one node at a time, and convergence ensures that local greedy decisions approximate the global optimum.
 
 The practical implication for implementation: don't try to solve the framework analytically. Build the bilateral simulation, apply the dominance pruning, iterate. If the result converges (as it has at every prior step), the solution is correct enough. The constraints do the mathematical work that closed-form solutions would otherwise require.
 
@@ -193,8 +193,8 @@ The practical implication for implementation: don't try to solve the framework a
 - **Housing scarcity as strategic weapon:** When should you build specifically to deny housing to opponents, even if the ROI of that house is suboptimal for your own position? This is a blocking play on the shared constraint — the graph equivalent of occupying a chokepoint.
 - **Trade timing:** The feasible trade set changes as the game progresses (properties get acquired, cash accumulates). Is there a phase transition where "attempt trade" becomes dominated by "just build" permanently? Probably around the time 3+ complete sets exist on the board with houses.
 - **Multi-property trades:** The framework above considers pairwise swaps. In practice, 3-way trades (I give you A, you give them B, they give me C) can unlock completions that no bilateral swap can. These are rare but high-value — the graph matching problem on cycles rather than pairs.
-- **Integration with coalition dynamics:** In multiplayer, the [self-balancing dynamic](./multiplayer-coalition-problem.md) (oppose the leader) interacts with subgraph optimization. Should you trade with the non-leader to build a coalition against the leader, even if the trade's bilateral EV is slightly negative? This is where the subgraph framework meets the coalition problem.
-- **Cross-game application — MOO1:** The [MOO1 bad-start adaptation problem](./moo1-optimal-strategy.md) is this exact framework in 4X form. The subgraph is your planets and tech; the "build vs trade" decision becomes "develop vs expand vs militarize." The framework applies but the ROI numbers for military and research investment are missing — convergence can't operate without them.
+- **Integration with coalition dynamics:** In multiplayer, the [self-balancing dynamic](../multiplayer-coalition-problem.md) (oppose the leader) interacts with subgraph optimization. Should you trade with the non-leader to build a coalition against the leader, even if the trade's bilateral EV is slightly negative? This is where the subgraph framework meets the coalition problem.
+- **Cross-game application — MOO1:** The [MOO1 bad-start adaptation problem](../moo1/optimal-strategy.md) is this exact framework in 4X form. The subgraph is your planets and tech; the "build vs trade" decision becomes "develop vs expand vs militarize." The framework applies but the ROI numbers for military and research investment are missing — convergence can't operate without them.
 
 ## Tags
-[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [mathematics](../../tags/mathematics.md)
+[games](../../../tags/games.md), [game-ai](../../../tags/game-ai.md), [economics](../../../tags/economics.md), [mathematics](../../../tags/mathematics.md)

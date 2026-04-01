@@ -3,7 +3,7 @@
 
 **Status:** active — theory phase
 **Created:** 2026-04-01
-**Links:** [MOO1 Optimal Strategy](./moo1-optimal-strategy.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Value and Profit](../economics/value-and-profit.md), [Bilateral Trade Valuation](./bilateral-trade-valuation.md)
+**Links:** [MOO1 Optimal Strategy](./optimal-strategy.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md), [Value and Profit](../../economics/value-and-profit.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md)
 **Project:** [moo1-opening-optimizer](https://github.com/chrisaacson69/moo1-opening-optimizer)
 
 ---
@@ -129,7 +129,7 @@ All of these make factory MIRR worse and colony MIRR better — so the real cros
 
 ## Connection to Vault Economics
 
-This is [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md) applied to a game:
+This is [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md) applied to a game:
 - The factory is the safe investment (predictable, immediate, linear)
 - The colony is the entrepreneurial bet (uncertain, delayed, exponential if it works)
 - The crossover point is the moment when the marginal safe return drops below the marginal entrepreneurial return
@@ -138,4 +138,4 @@ This is [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md) a
 The MOO1 simulator gives us clean data to test this because the game has no noise — no market fluctuations, no competitors (in single-player opening), no random events. It's a pure investment optimization problem. If MIRR works here, it validates the framework for messier real-world applications.
 
 ## Tags
-[games](../../tags/games.md), [strategy](../../tags/strategy.md), [economics](../../tags/economics.md)
+[games](../../../tags/games.md), [strategy](../../../tags/strategy.md), [economics](../../../tags/economics.md)
