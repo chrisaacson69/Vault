@@ -28,3 +28,5 @@
 - [Business Cycles](../research/economics/business-cycles.md)
 - [Inflation](../research/economics/inflation.md)
 - [The Equation of Exchange and the Transaction Multiplier](../research/economics/equation-of-exchange.md)
+- [MOO1 MIRR Analysis](../research/gaming/moo1-mirr-analysis.md)
+- [Hayek vs Mises: The Calculation Problem](../notes/hayek-vs-mises-calculation.md)

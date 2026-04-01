@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-03-25
+**Last updated:** 2026-04-01
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -58,6 +58,11 @@
     - [Ep 4: Parmenides](./research/philosophy/history-of-philosophy/04-parmenides.md) — what is, is; change and multiplicity impossible; Zeno's paradoxes; the One
     - [Ep 5: Pythagoras](./research/philosophy/history-of-philosophy/05-pythagoras.md) — Orphic religion, soul/body split, "all things are numbers," two-world metaphysics
     - [Ep 6: Pluralists & Atomists](./research/philosophy/history-of-philosophy/06-pluralists-atomists.md) — materialism, primary/secondary qualities, determinism, the self-refutation of materialism
+    - [Ep 7: Sophists](./research/philosophy/history-of-philosophy/07-sophists.md) — skepticism, relativism, apparatus-dependence, the "man is the measure" tradition
+    - [Ep 8: Socrates](./research/philosophy/history-of-philosophy/08-socrates.md) — definitions, universals, conceptual knowledge as the answer to skepticism
+    - [Ep 9: Plato's Metaphysics](./research/philosophy/history-of-philosophy/09-plato-metaphysics.md) — the World of Ideal Forms; universals as separate, perfect, unchanging
+    - [Ep 10: Plato's Epistemology](./research/philosophy/history-of-philosophy/10-plato-epistemology.md) — innate ideas; all learning is remembering; the mystical vision of the Good
+    - [Ep 11: Plato's Ethics](./research/philosophy/history-of-philosophy/11-plato-ethics.md) — tripartite soul; virtue as harmonious rule of reason; platonic love
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual
@@ -81,6 +86,7 @@
   - [Diplomacy: 7 AI Models](./research/gaming/diplomacy-ai-analysis.md) — 7 LLMs play the ultimate coalition game; case study for Nash bargaining, physical grounding of strategy, AI personality differences, and why different agents CAN trade
   - [Subgraph Investment Optimization](./research/gaming/subgraph-investment-optimization.md) — each player owns a subgraph; build vs trade decision via Pareto dominance, graph matching, and dynamic programming on reachable states
   - [D&D Spell Damage Model](./research/gaming/dnd-spell-damage-model.md) — CLT + bimodal distributions for spell comparison; same instinct as BattleValue; structural realism case study
+  - [MOO1 MIRR Analysis](./research/gaming/moo1-mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
 - [H-Neurons: The Neural Basis of Hallucination](./research/h-neurons.md) — <0.1% of neurons drive hallucinations; mechanism is over-compliance (people-pleasing), not knowledge corruption; baked into pre-training
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
@@ -115,6 +121,13 @@
 - [The Limits of Utopia](./notes/limits-of-utopia.md) — defense of markets, risk, and human nature vs. AI-managed societies (Oct 2025, co-written with Copilot)
 - [Working With Claude](./notes/working-with-claude.md) — device setup, interface capabilities, tips, and session history
 - [Vault Gap Audit](./notes/vault-gap-audit-2026-02-28.md) — comprehensive audit of holes, stubs, underdeveloped arguments, and missing cross-links (2026-02-28)
+- [Gödel Against Himself](./notes/godel-against-himself.md) — Gödel was a Platonist; the Vault's alternative reading of incompleteness vs his own (sketch)
+- [Conservation of Complexity](./notes/conservation-of-complexity.md) — computational work is conserved across transformations; cross-domain pattern from Shannon to Gödel to Mises (sketch)
+- [Conspiracy, Pre-Crime, and the Breakable Chain](./notes/sketch-conspiracy-and-precrime.md) — "conspiracy" is speech; the breakable-chain test for when intervention is justified (sketch)
+- [Planck Measurement Working Note](./notes/planck-measurement-working-note.md) — can you fully measure an object? Sequential vs parallel measurement limits
+- [Hayek vs Mises: The Calculation Problem](./notes/hayek-vs-mises-calculation.md) — two different critiques of central planning; AI addresses Hayek's but not Mises's
+- [Debate Prep: Hate Speech / 1A](./notes/debate-prep-hate-speech-1a.md) — negative position: the 1st Amendment should NOT exclude hate speech (2026-04-04)
+- [Debate Prep: Morality and Religion](./notes/debate-prep-morality-religion-2026-03-14.md) — negative position: you CAN be moral without religion (2026-03-14)
 
 ## Tasks & Goals
 - [Active Tasks](./tasks/active.md)

@@ -7,3 +7,4 @@
 - [Transhumanism vs Christianity (Wilson x Istvan)](../research/debates/wilson-istvan-transhumanism-christianity.md)
 - [HoP Ep 5: Pythagoras](../research/philosophy/history-of-philosophy/05-pythagoras.md)
 - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](../research/debates/noerr-logic-feelings-humane.md)
+- [Debate Prep: Morality and Religion](../notes/debate-prep-morality-religion-2026-03-14.md)

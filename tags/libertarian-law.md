@@ -12,3 +12,5 @@
 - [The Fake Science of Economics (Yarvin x McCormack)](../research/debates/yarvin-mccormack-fake-science-economics.md)
 - [The End of the End of History (Yarvin x Starkey)](../research/debates/yarvin-starkey-end-of-history.md)
 - [Force Doctrine and Pragmatism (Wilson)](../research/debates/wilson-force-doctrine-pragmatism.md)
+- [Conspiracy, Pre-Crime, and the Breakable Chain](../notes/sketch-conspiracy-and-precrime.md)
+- [Debate Prep: Hate Speech / 1A](../notes/debate-prep-hate-speech-1a.md)

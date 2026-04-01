@@ -33,10 +33,10 @@ These pages are not primarily about cross-linking into the vault's existing fram
 | 5 | Pythagoras: Mathematics and Mysticism | 29:59 | [Episode 5](./05-pythagoras.md) |
 | 6 | The Pluralists, the Atomists and the Birth of Determinism | 49:40 | [Episode 6](./06-pluralists-atomists.md) |
 | 7 | The Skepticism of the Greek Sophists | 32:06 | [Episode 7](./07-sophists.md) |
-| 8 | The Life and Teachings of Socrates | 15:38 | |
-| 9 | Plato's Metaphysics: The World of Ideal Forms | 1:03:09 | |
-| 10 | Plato's Epistemology: Innate Ideas to the Forms | 42:25 | |
-| 11 | Plato's Ethics: Virtue and the Health of the Soul | 52:51 | |
+| 8 | The Life and Teachings of Socrates | 15:38 | [Episode 8](./08-socrates.md) |
+| 9 | Plato's Metaphysics: The World of Ideal Forms | 1:03:09 | [Episode 9](./09-plato-metaphysics.md) |
+| 10 | Plato's Epistemology: Innate Ideas to the Forms | 42:25 | [Episode 10](./10-plato-epistemology.md) |
+| 11 | Plato's Ethics: Virtue and the Health of the Soul | 52:51 | [Episode 11](./11-plato-ethics.md) |
 | 12 | Plato's Political Philosophy: Collectivism & the Philosopher-King | 36:43 | |
 | 13 | Aristotle: A Philosopher for Living on Earth | 41:11 | |
 | 14 | Aristotle's Epistemology: Concepts and Science | 48:41 | |

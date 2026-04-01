@@ -138,4 +138,4 @@ This is [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md) a
 The MOO1 simulator gives us clean data to test this because the game has no noise — no market fluctuations, no competitors (in single-player opening), no random events. It's a pure investment optimization problem. If MIRR works here, it validates the framework for messier real-world applications.
 
 ## Tags
-moo1, gaming, economics, MIRR, investment, optimization
+[games](../../tags/games.md), [strategy](../../tags/strategy.md), [economics](../../tags/economics.md)

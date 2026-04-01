@@ -25,6 +25,7 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 - [Diplomacy: 7 AI Models](./diplomacy-ai-analysis.md) — analysis of 7 LLMs playing Diplomacy; case study for the coalition problem, Nash bargaining, physical grounding of strategy, and why different agents CAN trade
 - [Subgraph Investment Optimization](./subgraph-investment-optimization.md) — each player owns a subgraph of the property space; the build-vs-trade decision via Pareto dominance, graph matching for complementary completions, and dynamic programming on reachable states
 - [D&D Spell Damage Model](./dnd-spell-damage-model.md) — using CLT, proof by induction, and bimodal distributions to build a spell comparison metric; same instinct as BattleValue, different game
+- [MOO1 MIRR Analysis](./moo1-mirr-analysis.md) — applying Modified Internal Rate of Return to the factory-vs-colonizer decision; financial metric for opening theory instead of brute-force search
 
 ## Genres and What They Teach
 
