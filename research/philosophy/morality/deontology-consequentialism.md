@@ -36,7 +36,7 @@ No consequentialist actually calculates utility from scratch for every decision.
 
 These are deontological rules that emerged from consequentialist reasoning. Rule consequentialism (Hooker, Brandt) makes this explicit: follow the set of rules that, if generally adopted, would produce the best consequences. Which is... deontology derived from consequentialism.
 
-In practice, every consequentialist lives like a deontologist 99% of the time (following established rules) and only does the utilitarian calculus in unusual situations where the rules seem to fail.
+In practice, consequentialists live like deontologists most of the time — following established rules rather than computing utility fresh. The utilitarian calculus only appears in unusual situations where the rules seem to fail. And even then, the "calculation" is often post-hoc rationalization: the consequentialist already has a position they prefer, and the utility framework provides the justification after the fact. The machinery of consequence-calculation runs backward from conclusion to argument more often than forward from evidence to conclusion.
 
 ### The Real Distinction
 
@@ -111,17 +111,17 @@ This is the vault's strange loop applied to ethics:
 | **Crisis** (cache invalidation) | Rules actively harmful, no consensus on replacements | Rapid environmental change outpaces adaptation | AI displacement of human labor (happening now) |
 | **Resolution** (new cache) | New rules emerge from testing, gain cultural adoption | Enough iterations have converged | Still waiting on most current crises |
 
-## Where Wilson Fits
+## Where Religious Tradition Fits
 
-Wilson operates in the caching phase. Christian morality is a 2,000-year-old cache of rules that have been tested against reality across dozens of civilizations. The cache is GOOD — it's survived longer and more broadly than any competing moral framework. The vault agrees on this: the rules Wilson defends (don't murder, honor commitments, protect the weak, practice self-restraint) are empirically validated by the longest test run in human history.
+Religious moral traditions operate in the caching phase. Christian morality is a 2,000-year-old cache of rules that have been tested against reality across dozens of civilizations. The cache is GOOD — it's survived longer and more broadly than any competing moral framework. The vault agrees on this: the core rules (don't murder, honor commitments, protect the weak, practice self-restraint) are empirically validated by the longest test run in human history.
 
 The disagreement is about whether the cache is FINAL.
 
-**Wilson's position:** God's commandments are eternal. The rules don't need updating because they come from an omniscient source that already accounted for all possible environments.
+**The traditional position:** God's commandments are eternal. The rules don't need updating because they come from an omniscient source that already accounted for all possible environments.
 
-**The vault's position:** The rules are the current best iteration of the loop. They're objective — validated by 2,000 years of testing. But they're objective *within the current constraints.* When constraints change (and they always do), some rules need updating. The process of updating them is the same process that produced them in the first place: test against reality, observe outcomes, refine.
+**The vault's position:** The rules are the current best iteration of the loop. They're objective — validated by millennia of testing. But they're objective *within the current constraints.* When constraints change (and they always do), some rules need updating. The process of updating them is the same process that produced them in the first place: test against reality, observe outcomes, refine.
 
-The difference is practical, not just philosophical. Wilson's framework can't adapt to genuinely new situations (AI, genetic engineering, post-scarcity economics) because the cache is declared final. The vault's framework can, because the loop keeps running.
+The difference is practical, not just philosophical. A framework that declares its cache final can't adapt to genuinely new situations (AI, genetic engineering, post-scarcity economics). The vault's framework can, because the loop keeps running.
 
 ## The Scope Constraint (Again)
 
