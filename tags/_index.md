@@ -10,7 +10,7 @@
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 1 file
-- [debates](./debates.md) — 9 files
+- [debates](./debates.md) — 10 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 29 files
 - [education](./education.md) — 3 files

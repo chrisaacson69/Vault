@@ -173,6 +173,7 @@ Lewis's Tao captures the medium-to-broad scope well. The narrow scope is where u
 - [The Scope Confusion Thesis](./scope-confusion.md) — formalizing why most political disagreements are scope assignment errors, not value disagreements. Connects to mens rea, civilizational cycles, and the enforceability gradient.
 - [Performative Grounding — Philosophical Lineage](./performative-grounding-lineage.md) — the 2,400-year tradition behind the performative contradiction move: Aristotle, Apel, Habermas, Gewirth, Korsgaard, Hoppe, Wittgenstein, existentialists, Finnis. Comprehensive reading list.
 - [Deontology vs. Consequentialism: The False Dichotomy](./deontology-consequentialism.md) — they're not competing theories, they're two phases of the same loop: test principles against reality (consequentialist) → cache results as rules (deontological) → follow rules until environment changes → re-test. Objective morality within current constraints.
+- [Debate FAQ](./debate-faq.md) — common objections and responses; a living document that grows as new arguments are encountered in debates and discussions.
 
 ## Resolved Questions
 

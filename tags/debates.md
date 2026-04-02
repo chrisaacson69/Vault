@@ -10,3 +10,4 @@
 - [Force Doctrine and Pragmatism (Wilson)](../research/debates/wilson-force-doctrine-pragmatism.md)
 - [Debate Prep: Hate Speech / 1A](../notes/debate-prep-hate-speech-1a.md)
 - [Debate Prep: Morality and Religion](../notes/debate-prep-morality-religion-2026-03-14.md)
+- [Morality — Debate FAQ](../research/philosophy/morality/debate-faq.md)
