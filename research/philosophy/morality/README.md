@@ -64,7 +64,7 @@ Every chain of "why ought X?" questions eventually bottoms out to an "is" claim.
 
 1. **You exist** (is) — denying this is a performative contradiction
 2. **You are conscious** (is) — you are experiencing the denial
-3. **You must act** (is) — even inaction is a choice; even asking "must I act?" is an act
+3. **You must act** (is) — you cannot opt out of choosing; even asking "must I act?" is an act. (Note: this does not equate action and inaction morally — see [Action/Inaction Asymmetry](#the-actioninaction-asymmetry) below.)
 4. **Reality has causal structure** (is) — your actions have consequences determined by physics, not wishes
 5. **Actions have probabilistic consequences observable in aggregate** (is) — certain patterns reliably produce certain outcomes across populations and civilizations
 
@@ -88,7 +88,7 @@ It does *not* ground the margins: short and intense vs. long and cautious, art p
 
 | Thinker | Move | Key Work | Year |
 |---------|------|----------|------|
-| **Aristotle** | *Retortion* — denying the Law of Non-Contradiction is a performative contradiction; you presuppose it in the act of denying it | *Metaphysics* Gamma 3–4 | ~350 BC |
+| **Aristotle** | *Retortion* — denying the Law of Non-Contradiction is a performative contradiction; you presuppose it in the act of denying it. (Note: the vault's [logic/math](../logic-and-math/README.md) section shows non-classical logics exist where LNC doesn't hold. This doesn't undermine the retortion — the move works because the arguer is *using* LNC in the act of denying it, not because LNC is a metaphysical absolute. Paraconsistent logics exist as formal systems; nobody reasons paraconsistently while making an argument. The retortion is about what you're *doing*, not what's cosmically true — which is exactly the vault's emergent/convergent position on logic.) | *Metaphysics* Gamma 3–4 | ~350 BC |
 | **Karl-Otto Apel** | *Letztbegründung* (ultimate justification) via transcendental pragmatics — explicitly proposed as a **fourth option** escaping the Münchhausen/Agrippa trilemma. Argumentation presupposes normative commitments; denying them is a performative self-contradiction | *Towards a Transcendental Semiotics* (Selected Essays Vol. 1); "The Problem of Philosophical Foundations in Light of a Transcendental Pragmatics of Language" (*Man and World*, 1975) | 1973–1998 |
 | **Jürgen Habermas** | Discourse ethics — the presuppositions of argumentation (inclusion, sincerity, equal standing) are normative and undeniable. Acknowledged Apel "refuted" the trilemma, though took a more fallibilistic position than Apel's *Letztbegründung* | *Moral Consciousness and Communicative Action* | 1983 |
 | **Alan Gewirth** | *Principle of Generic Consistency* — any agent who acts presupposes freedom and well-being as necessary conditions of agency; denying rights to these is a self-contradiction *within the agent's own commitments* | *Reason and Morality* | 1978 |
@@ -107,6 +107,23 @@ It does *not* ground the margins: short and intense vs. long and cautious, art p
 | *A Theory of Socialism and Capitalism* | Hans-Hermann Hoppe (1989) | Libertarian application — closest to the NAP grounding in our framework |
 | *Ancient Self-Refutation* | Luca Castagnoli (2010) | Exhaustive scholarly treatment of retortion from Democritus to Augustine |
 | *Metaphysics* Gamma 3–4 | Aristotle | The original — retortion against denial of non-contradiction |
+
+## The Action/Inaction Asymmetry
+
+A structural consequence of the agency grounding that resolves the positive vs. negative rights debate.
+
+At any given moment, an agent performs exactly **one** action — singular, specific, chosen from alternatives. But the set of things the agent is *not* doing is effectively infinite. You are reading this sentence. You are not: flying to Paris, baking bread, calling your mother, punching a stranger, building a bridge, learning Swahili, rescuing a drowning child in Bangladesh, or any of the infinite other things a human could theoretically be doing.
+
+**Action and inaction are not the same class of thing.** Action is singular and defined. Inaction is the infinite, undefined complement. This asymmetry has direct moral consequences:
+
+1. **You can be evaluated for your action** — the one specific thing you chose to do. It's identifiable, traceable, and yours.
+2. **You cannot be equally evaluated for your inaction** — because the set of things you're not doing is unbounded. You can't be morally culpable for not doing everything you could theoretically be doing.
+3. **This grounds the negative/positive rights distinction.** Negative rights (don't aggress) require you to refrain from a *specific* action — feasible, finite, evaluable. Positive rights (you must provide food, shelter, healthcare) require you to *act* in a specific way from the infinite set of things you're not doing — and selecting *which* positive duty applies, and *how much*, reintroduces the [weighting problem](../epistemology/weighting-problem.md).
+4. **This resolves the coercion boundary.** The [measurement-causality](../measurement-causality.md) page asks: where does "limiting choices" (aggression) end and "merely not providing choices" begin? The answer: *acting to constrain* someone is action — singular, identifiable, evaluable. *Not providing* something is inaction — part of the infinite complement. The two are structurally different. Not offering food is the default state; threatening to withhold food you control is an action.
+
+The principle isn't "inaction is always acceptable." Deliberate inaction in the face of specific, identifiable obligation *you agreed to* can be evaluable — a lifeguard who watches someone drown has a contracted duty. But the obligation comes from the prior *action* of accepting the role, not from a general duty to act that applies to everyone who happens to be near water.
+
+This also explains why the [conspiracy/pre-crime](../../../notes/sketch-conspiracy-and-precrime.md) framework works: the breakable chain test asks whether the agent has *acted* to make harm unbreakable, or merely *not prevented* a chain that others could still break. Action creates liability; inaction does not, absent a specific contractual commitment.
 
 ## Moral Content — What Makes a Choice Good?
 

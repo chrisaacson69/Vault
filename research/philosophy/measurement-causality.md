@@ -89,7 +89,7 @@ Coercion constrains the option space available to the simulation engine, but doe
 - **Key distinction:** Coercion requires *active aggression* against someone's choices — not merely failing to provide options. Not offering food isn't coercion; it's the absence of charity. Threatening to withhold food someone depends on IS coercion if you control their access. The line is the NAP: are you *acting* to constrain, or merely *not acting* to help?
 - **Legal implication:** Under the free will principle, B (coerced killer) is still the proximate cause of C's death — liable to C. A is separately liable to B for the coercive threat. Both bear full responsibility for their respective aggressions (no "fixed pie" of liability).
 
-This needs further development — the boundary between "limiting choices" and "merely not providing choices" maps onto the positive vs. negative rights debate and deserves its own analysis.
+This boundary is resolved by the [action/inaction asymmetry](./morality/README.md#the-actioninaction-asymmetry): at any moment you perform exactly one action, but the things you're *not* doing are infinite. Acting to constrain someone is action — singular, identifiable, evaluable. Not providing something is inaction — part of the infinite, undefined complement. The two are structurally different categories, which grounds the negative/positive rights distinction.
 
 ## Connections to Other Frameworks
 
@@ -141,7 +141,7 @@ Maps to the morality/ethics/law layering from the [morality work](./morality/REA
 
 ## Open Questions
 
-- **Coercion boundary:** Where exactly does "limiting choices" (coercion/aggression) end and "not providing choices" (absence of charity) begin? Connection to positive vs. negative rights.
+- ~~**Coercion boundary:**~~ Resolved — see [action/inaction asymmetry](./morality/README.md#the-actioninaction-asymmetry). Action is singular; inaction is the infinite complement. Acting to constrain = aggression. Not providing = default state. Structurally different categories.
 - **Animal consciousness:** The evolutionary gradient implies animals have degrees of simulation capacity. How does moral agency scale across species? At what point does an organism's simulation engine generate enough "free will" to bear responsibility?
 - **AI consciousness:** If an AI system develops physical grounding and recursive self-modeling, does it cross the phase transition into genuine consciousness? What would that look like?
 - **The hard problem:** This framework explains the *function* of consciousness (simulation + selection) but doesn't fully address *subjective experience* (qualia). Is the hard problem a real problem or a confusion born from the false dichotomy between physical and mental?

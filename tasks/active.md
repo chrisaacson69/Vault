@@ -58,10 +58,8 @@ Labor-mixing (Locke → Rothbard → Objectivism) fails at the family unit, bake
 - [Self-Ownership and Property Rights](../research/philosophy/legal-theory/self-ownership-and-property-rights.md)
 - [Wilson vs Objectivism debate](../research/debates/wilson-objectivism-stance-dependence.md)
 
-### Coercion boundary analysis
-Where does "limiting choices" (aggression) end and "merely not providing choices" begin? A NAP question from the measurement-causality and government-formation work.
-- [Measurement, Causality](../research/philosophy/measurement-causality.md) (line ~92)
-- [Government Formation](../research/philosophy/legal-theory/government-formation.md) (line ~265)
+### ~~Coercion boundary analysis~~ — Resolved
+Resolved by the action/inaction asymmetry (morality README): action is singular, inaction is the infinite complement. Acting to constrain = aggression. Not providing = default state. Structurally different categories. Grounds the negative/positive rights distinction.
 
 ### ~~Cognitive vs. Motor Skills~~ — Developed
 Rewritten as hub page synthesizing content from measurement-causality (evolutionary progression, Libet, system interaction), cyborg model (practical implications), LLM grounding problem (what happens without grounding), and h-neurons (confidence injection). No longer a stub.
