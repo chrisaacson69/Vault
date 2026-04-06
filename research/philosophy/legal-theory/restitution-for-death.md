@@ -68,6 +68,20 @@ The numbers argument: ~20,000 murders per year in the US, ~25 executions per yea
 
 This is a real argument. The deterrence premise is directionally correct even if the magnitude is hard to measure precisely. And the "only needs to prevent 1" threshold is low enough that it's difficult to argue the deterrent effect is literally zero.
 
+### The Deterrence Gradient and the Simulation Engine
+
+The deterrence argument isn't just about whether the death penalty prevents murders — it's about where it sits on the penalty continuum. A known, bounded maximum penalty ("worst case: life in prison") produces a different calculus in the potential murderer's mind than an unbounded one ("I might die"). The agent who models futures — the [simulation engine](../measurement-causality.md) running "what if" scenarios — weighs the maximum cost differently when that maximum is death vs. comfortable containment.
+
+This connects directly to the cognitive/motor framework. Deterrence works on agents whose simulation engines are *running* — deliberative actors who model consequences before choosing. It fails predictably on:
+
+- **Rage** — the simulation engine is offline; the reactive layer has taken over. The murder happens at the motor level, not the cognitive level. No penalty deters what isn't being calculated.
+- **Suicidal actors** — the simulation engine has already concluded that death is acceptable or desirable. The penalty can't make the outcome worse than the agent's own terminal state.
+- **Ideological commitment** — the simulation engine is running but with different terminal values (martyrdom > survival). The death penalty may actually *increase* motivation.
+
+The death penalty deters exactly the population that the simulation model predicts it should — and fails on exactly the population the model predicts it won't. This is the framework being internally consistent, and it means the deterrent value is real but bounded: it applies to the premeditated, calculating murderer, not the enraged, suicidal, or ideologically driven one.
+
+**The conviction accuracy factor:** As forensic science improves (DNA, digital forensics, surveillance), the wrongful conviction rate drops. The strongest objection to the death penalty — irreversibility combined with imperfection — weakens as the imperfection shrinks. The birthmark gets smaller over time. It never reaches zero (no system is perfect), but the cost-benefit calculation shifts as the error rate falls. A 6% wrongful conviction rate and a 0.6% rate produce very different moral equations.
+
 ### Why the Framework Still Resists
 
 **1. The scope creep problem.** Granting the state the power to legally execute citizens is the most extreme scope escalation possible. The vault's [registration](./registration-and-scope-creep.md), [insurance](../../economics/insurance.md), and [civilizational cycles](../civilizational-cycles/README.md) pages all document the same pattern: powers granted for narrow purposes expand. "Only for the worst murderers" becomes "for terrorism," then "for treason," then whatever the current regime finds threatening. The formula justifying execution will expand because formulas always expand.
