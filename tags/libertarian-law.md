@@ -14,3 +14,4 @@
 - [Force Doctrine and Pragmatism (Wilson)](../research/debates/wilson-force-doctrine-pragmatism.md)
 - [Conspiracy, Pre-Crime, and the Breakable Chain](../notes/sketch-conspiracy-and-precrime.md)
 - [Debate Prep: Hate Speech / 1A](../notes/debate-prep-hate-speech-1a.md)
+- [Restitution for Death](../research/philosophy/legal-theory/restitution-for-death.md)

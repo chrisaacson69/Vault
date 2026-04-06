@@ -83,9 +83,8 @@ These are topics the vault's own files explicitly call for but that haven't been
 - **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) — "Upcoming Topics"
 - **Closely connected to:** the serial fraud gap (2.7 above)
 
-### 3.5 Restitution for Death
-- **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) — "Upcoming Topics"
-- **Also an open question in:** mens-rea.md (line ~250)
+### ~~3.5 Restitution for Death~~ — WRITTEN
+- **Resolution:** [Restitution for Death](../research/philosophy/legal-theory/restitution-for-death.md) — examines all five workarounds (restitution to survivors, incarceration, execution, exile, indentured restitution), the death penalty under the defensive force framework, the consequentialist deterrence argument, scope creep, and the hard case of murder from custody.
 
 ### 3.6 Free Speech / 1A Analysis
 - **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) — "Upcoming Topics"
@@ -118,7 +117,7 @@ These are topics the vault's own files explicitly call for but that haven't been
 | [opposing-forces.md](../research/philosophy/opposing-forces.md) | [insurance.md](../research/economics/insurance.md) | Insurance interventionism spiral is a concrete case of opposing forces |
 | [cyborg-model.md](../research/cyborg-model.md) | [measurement-causality.md](../research/philosophy/measurement-causality.md) | Measurement-causality provides the physical grounding for why cognitive/motor split exists |
 | [llm-grounding-problem.md](../research/llm-grounding-problem.md) | [cognitive-vs-motor.md](../research/cognitive-vs-motor.md) | The grounding problem IS the cognitive layer operating without a motor grounding layer |
-| [civilizational-cycles.md](../research/philosophy/civilizational-cycles.md) | [scope-confusion.md](../research/philosophy/morality/scope-confusion.md) | Scope confusion identifies the mechanism (enforcement escalation) behind the voluntary→coercion drift |
+| [civilizational-cycles/README.md](../research/philosophy/civilizational-cycles/README.md) | [scope-confusion.md](../research/philosophy/morality/scope-confusion.md) | Scope confusion identifies the mechanism (enforcement escalation) behind the voluntary→coercion drift |
 | [computation-and-information.md](../research/computation-and-information.md) | [opposing-forces.md](../research/philosophy/opposing-forces.md) | Computational irreducibility is one of the candidate explanations for opposing forces |
 
 ### 4.2 Empty Tasks File

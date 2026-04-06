@@ -3,7 +3,7 @@
 
 **Status:** active
 **Created:** 2026-02-17
-**Links:** [Morality](../morality/README.md), [Philosophy](../README.md), [Computation and Information Theory](../../computation-and-information.md), [Civilizational Cycles](../civilizational-cycles.md)
+**Links:** [Morality](../morality/README.md), [Philosophy](../README.md), [Computation and Information Theory](../../computation-and-information.md), [Civilizational Cycles](../civilizational-cycles/README.md)
 
 ## Framework
 
@@ -37,15 +37,16 @@ These topics are explored through adversarial debate — Chris takes one positio
 - [Registration, Rights, and Government Scope Creep](./registration-and-scope-creep.md) — why the vehicle/gun registration comparison fails, why the constitutional counter is unsatisfying, and the structural pattern of regulatory expansion beyond original justification
 - [Defensive Force and Collateral Damage](./defensive-force-and-collateral-damage.md) — causationism, the defense/retribution distinction, the gentleness principle, and why the state monopoly can't meet its own standard of justified force
 - [Self-Ownership and Property Rights](./self-ownership-and-property-rights.md) — why the standard self-ownership→property-rights derivation chain is the weak link in libertarian theory, and how conflict avoidance grounds both independently
+- [Restitution for Death](./restitution-for-death.md) — the framework's hardest case: when making whole is impossible; containment vs execution vs indentured restitution; the death penalty under strict conditions
 
 ## Upcoming Topics
 
 - **Marriage under natural law** — can marriage exist in a NAP framework, or does it require fundamental restructuring?
 - **Shared ownership** — can property be jointly owned under libertarian law, and what are the implications?
 - **Fraud as aggression** — deeper exploration of how fraud is prosecuted without mens rea
-- **Restitution for death** — what does "making whole" mean when the victim is dead?
+- ~~**Restitution for death**~~ — written: [Restitution for Death](./restitution-for-death.md)
 - **Free speech: "speech" vs. "expression"** — courts have ruled that the 1st Amendment covers expression broadly (art, symbolic acts, code, etc.), but does the text actually support this? "Speech" could mean the written or spoken word only — but this narrow reading doesn't hold up to modern technology (what about digital communication, AI-generated content, video?). A fine line worth exploring, though highly contentious given centuries of litigation. The question may be less about what the Founders *meant* and more about whether a 1789 text can cover a 2026 landscape without either stretching the word past its meaning or leaving obvious gaps.
-- **The 2nd Amendment as preventive check** — the amendment's purpose is deterrence (preventing disarmament), not last-resort revolution. Key insight from a judged debate: evaluating it by whether armed overthrow has been used as a legal defense is a non-existent standard; evaluating it by guns having "other uses" conflates the tool with the right. The amendment guards against tyranny by preventing the precondition (disarmament), not by enabling the response (revolution). If you need the gun to stop oppression, it's already too late. Connects to constitutional checks in [Civilizational Cycles](../civilizational-cycles.md) Section X.
+- **The 2nd Amendment as preventive check** — the amendment's purpose is deterrence (preventing disarmament), not last-resort revolution. Key insight from a judged debate: evaluating it by whether armed overthrow has been used as a legal defense is a non-existent standard; evaluating it by guns having "other uses" conflates the tool with the right. The amendment guards against tyranny by preventing the precondition (disarmament), not by enabling the response (revolution). If you need the gun to stop oppression, it's already too late. Connects to constitutional checks in [Civilizational Cycles](../civilizational-cycles/README.md) Section X.
 
 ## Future Structure
 

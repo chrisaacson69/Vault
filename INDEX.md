@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-01
+**Last updated:** 2026-04-02
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -43,8 +43,12 @@
     - [Registration and Scope Creep](./research/philosophy/legal-theory/registration-and-scope-creep.md) — vehicle/gun registration comparison; structural pattern of regulatory expansion beyond original justification
     - [Defensive Force and Collateral Damage](./research/philosophy/legal-theory/defensive-force-and-collateral-damage.md) — causationism, defense/retribution distinction, gentleness principle, state monopoly's inability to meet justified force standards
     - [Self-Ownership and Property Rights](./research/philosophy/legal-theory/self-ownership-and-property-rights.md) — self-ownership→property-rights chain is the weak link; conflict avoidance grounds both independently
+    - [Restitution for Death](./research/philosophy/legal-theory/restitution-for-death.md) — the framework's hardest case; containment vs execution vs indentured restitution; the death penalty question
   - [Measurement, Causality, and Free Will](./research/philosophy/measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
-  - [Civilizational Cycles](./research/philosophy/civilizational-cycles.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
+  - [Civilizational Cycles](./research/philosophy/civilizational-cycles/README.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
+    - [Cyclical Historians](./research/philosophy/civilizational-cycles/cyclical-historians.md) — Ibn Khaldun, Spengler, Toynbee, Strauss & Howe, Glubb
+    - [Structural-Institutional](./research/philosophy/civilizational-cycles/structural-institutional.md) — Turchin, Tainter, Olson, Dalio
+    - [Economic Theorists](./research/philosophy/civilizational-cycles/economic-theorists.md) — Hayek, Sowell, Schumpeter, Kondratiev
   - [Opposing Forces](./research/philosophy/opposing-forces.md) — why concentrations of power always generate counter-forces; structural principle across physics, computation, evolution, and agency
   - [The Godel Governance Problem](./research/philosophy/the-godel-governance-problem.md) — can a system prevent monopoly without becoming one? The central unsolved problem: state (inconsistent), ancap (incomplete), constitution (both)
   - [The Fallacy Fallacy](./research/philosophy/the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; the "why" requirement; misapplied labels; strange loops in fallacy hunting
@@ -92,6 +96,9 @@
   - MOO1 Theory — [research/gaming/moo1/](./research/gaming/moo1/)
     - [MOO1 Optimal Strategy](./research/gaming/moo1/optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
     - [MOO1 MIRR Analysis](./research/gaming/moo1/mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
+  - Master of Magic — [research/gaming/master-of-magic/](./research/gaming/master-of-magic/)
+    - [Economic Analysis](./research/gaming/master-of-magic/README.md) — BV + MIRR applied to all units, buildings, spells; "balance through imbalance" tested quantitatively
+    - [Tier System and MIRR](./research/gaming/master-of-magic/tier-system-and-mirr.md) — time-gated tiers as investment decisions; Wraith rush, Halfling Slinger stacking, building option value
 - [H-Neurons: The Neural Basis of Hallucination](./research/h-neurons.md) — <0.1% of neurons drive hallucinations; mechanism is over-compliance (people-pleasing), not knowledge corruption; baked into pre-training
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
@@ -133,6 +140,7 @@
 - [Hayek vs Mises: The Calculation Problem](./notes/hayek-vs-mises-calculation.md) — two different critiques of central planning; AI addresses Hayek's but not Mises's
 - [Debate Prep: Hate Speech / 1A](./notes/debate-prep-hate-speech-1a.md) — negative position: the 1st Amendment should NOT exclude hate speech (2026-04-04)
 - [Debate Prep: Morality and Religion](./notes/debate-prep-morality-religion-2026-03-14.md) — negative position: you CAN be moral without religion (2026-03-14)
+- [yt-dlp Transcript Workflow](./notes/yt-dlp-transcript-workflow.md) — segment and transcribe videos from Rumble, YouTube, and 1,000+ sites using yt-dlp + Whisper
 
 ## Tasks & Goals
 - [Active Tasks](./tasks/active.md)
