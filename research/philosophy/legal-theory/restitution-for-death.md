@@ -114,6 +114,14 @@ A separate line of reasoning: by committing murder, the perpetrator has demonstr
 
 6. **Indentured restitution deserves more exploration** as a middle path — containment + financial compensation to the family, funded by the murderer's labor rather than the taxpayer.
 
+## The Empirical Path
+
+The vault's own method says: don't theorize about what works — measure it. The death penalty question has a natural experiment running in parallel across dozens of jurisdictions. Some countries abolished, some retained, some reinstated. US states vary. The data exists.
+
+The measurement problem is real — the signal (maybe +/- 1 death per year from deterrence) is tiny relative to the noise (~20,000 murders/year in the US alone). But over long enough timescales and enough jurisdictions, the aggregate should converge on an answer. This is the same structure as the morality framework's core claim: cross-cultural convergence over centuries reveals which patterns work. We may simply not have enough data yet — but time will tell, and the answer will be empirical, not philosophical.
+
+If death-penalty societies consistently outperform on murder rates after controlling for confounds, the consequentialist case strengthens regardless of the theoretical objections. If they don't, the theoretical objections become moot because the empirical case collapses. Either way, the framework says: trust the data over the theory.
+
 ## Open Questions
 
 - Does the family's property right to punishment include the right to demand execution? If so, the framework may support execution-by-victim-discretion even where it opposes execution-by-state-policy. The distinction is who holds the power.
