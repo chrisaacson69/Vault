@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-12 Instruction vs. Administration Spending</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #1a5276;
+      --accent-light: #d4e6f1;
+      --border: #ddd;
+      --chart-blue: #2980b9;
+      --chart-green: #27ae60;
+      --chart-orange: #e67e22;
+      --chart-red: #c0392b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    @media print {
+      body { padding: 30px; max-width: 100%; font-size: 11pt; }
+      .page-break { page-break-before: always; }
+      .no-print { display: none; }
+    }
+
+    h1 {
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1.1em;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+
+    .dateline {
+      font-size: 0.9em;
+      color: var(--muted);
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    h2 {
+      font-size: 1.4em;
+      color: var(--accent);
+      margin-top: 40px;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h3 {
+      font-size: 1.1em;
+      color: var(--text);
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+
+    p { margin-bottom: 14px; }
+
+    .lead {
+      font-size: 1.15em;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .highlight-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 18px 22px;
+      margin: 24px 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .highlight-box p { margin-bottom: 6px; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.92em;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    th {
+      background: var(--accent);
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.88em;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:nth-child(even) { background: #f4f4f4; }
+    tr:hover { background: #eef5fa; }
+
+    td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .bar-chart {
+      margin: 24px 0;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.88em;
+    }
+
+    .bar-label {
+      width: 80px;
+      flex-shrink: 0;
+      text-align: right;
+      padding-right: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 26px;
+      background: #eee;
+      border-radius: 3px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.85em;
+      transition: width 0.5s ease;
+    }
+
+    .stacked-bar {
+      display: flex;
+      height: 100%;
+    }
+
+    .stacked-segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 0.78em;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .legend {
+      display: flex;
+      gap: 20px;
+      margin: 12px 0 8px 92px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 0.82em;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-swatch {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .callout-stat {
+      display: flex;
+      gap: 30px;
+      margin: 24px 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      flex: 1;
+      min-width: 160px;
+      background: white;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--accent);
+      padding: 16px 18px;
+      border-radius: 0 0 6px 6px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2em;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.2;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .stat-label {
+      font-size: 0.82em;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .sources {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid var(--accent);
+    }
+
+    .sources h2 { border-bottom: none; margin-top: 0; }
+
+    .sources h3 {
+      font-size: 0.95em;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+    }
+
+    .sources ol {
+      padding-left: 24px;
+      font-size: 0.85em;
+      color: var(--muted);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .sources li { margin-bottom: 5px; }
+    .sources a { color: var(--accent); }
+
+    .footnote {
+      font-size: 0.85em;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>K-12 Instruction vs. Administration Spending</h1>
+  <p class="subtitle">Comprehensive breakdown of how US public school dollars are split between instruction, administration, and support services &mdash; with staffing trends, ratio analysis, and an assessment of the &ldquo;administrative bloat&rdquo; claim.</p>
+  <p class="dateline">February 24, 2026 &nbsp;|&nbsp; Data through FY 2023</p>
+
+  <!-- KEY FINDINGS -->
+  <div class="callout-stat">
+    <div class="stat-card">
+      <div class="stat-number">59.5%</div>
+      <div class="stat-label">Instruction share of spending</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">~7&ndash;8%</div>
+      <div class="stat-label">Administration share (combined)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">+81.1%</div>
+      <div class="stat-label">Benefits growth per pupil (2002&ndash;23)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">+702%</div>
+      <div class="stat-label">Non-teaching staff since 1950</div>
+    </div>
+  </div>
+
+  <p class="lead">
+    A common claim is that &ldquo;administrative bloat&rdquo; is the primary driver of rising K&ndash;12 costs.
+    The data tells a more nuanced story: non-teaching staff have genuinely proliferated, but most
+    aren&rsquo;t administrators in the popular sense&mdash;they&rsquo;re counselors, social workers, speech
+    pathologists, and instructional aides, many legally mandated. Meanwhile, administration&rsquo;s
+    <em>share</em> of spending hasn&rsquo;t meaningfully grown. The dominant cost drivers are employee
+    benefits, mandated support services, and staffing growth that outpaces enrollment.
+  </p>
+
+  <!-- SECTION 1: NCES CATEGORIES -->
+  <h2>1. NCES Expenditure Categories: What Counts as What</h2>
+
+  <p>
+    The National Center for Education Statistics (NCES) breaks <strong>current expenditures</strong>
+    (day-to-day operating costs, excluding capital outlay and debt service) into functional categories.
+  </p>
+
+  <h3>Instruction (~60% of current expenditures)</h3>
+  <p>
+    Salaries and benefits for teachers, textbooks, supplies, and purchased instructional services.
+    This is classroom-level spending.
+  </p>
+
+  <h3>Support Services (~35&ndash;36% of current expenditures)</h3>
+  <p>An umbrella category with <strong>seven subfunctions</strong>:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Subfunction</th>
+        <th>What It Covers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Student support services</strong></td><td>Guidance counselors, health services, attendance officers, social workers, psychologists, speech pathologists</td></tr>
+      <tr><td><strong>Instructional staff support</strong></td><td>Curriculum development, staff training, libraries, media centers, computer centers</td></tr>
+      <tr><td><strong>General administration</strong></td><td>School board (board of education), superintendent&rsquo;s office, and their immediate central-office staff &mdash; <em>district-level governance</em></td></tr>
+      <tr><td><strong>School administration</strong></td><td>Principal&rsquo;s office &mdash; principals, assistant principals, and their building-level office staff</td></tr>
+      <tr><td><strong>Operations and maintenance</strong></td><td>Building services (HVAC, custodial), security, grounds, equipment upkeep</td></tr>
+      <tr><td><strong>Student transportation</strong></td><td>Bus operations, vehicle maintenance</td></tr>
+      <tr><td><strong>Other support services</strong></td><td>Business support (fiscal operations), central support (planning, research, evaluation, data processing, HR, warehousing)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Other Current Expenditures (~4&ndash;5%)</h3>
+  <p>Food services, enterprise operations, community services.</p>
+
+  <div class="highlight-box">
+    <p><strong>Key definitional point:</strong> When NCES reports aggregate &ldquo;administration expenditures,&rdquo;
+    it typically combines <strong>general administration + school administration + other support services</strong>
+    (which includes business and central support). This is broader than what most people picture when they hear
+    &ldquo;administration.&rdquo; The narrow categories&mdash;general administration (superintendent/board)
+    and school administration (principals)&mdash;are much smaller.</p>
+  </div>
+
+  <p class="footnote">
+    Sources: <a href="https://nces.ed.gov/pubs2018/2018301/glossary.asp">NCES CCD Glossary (2018)</a>,
+    <a href="https://nces.ed.gov/pubs2011/expenditures/appendix_b.asp">NCES CCD Glossary (2011)</a>,
+    <a href="https://nces.ed.gov/programs/coe/indicator/cmb/public-school-expenditure">NCES COE: Public School Expenditures</a>.
+  </p>
+
+  <!-- SECTION 2: EXPENDITURE BREAKDOWN -->
+  <h2 class="page-break">2. Expenditure Breakdown by Function: The Numbers</h2>
+
+  <h3>FY 2022 Percentage Breakdown (NCES CCD)</h3>
+
+  <div class="bar-chart">
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">Instruction</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 59.5%; background: var(--chart-blue);">59.5%</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">Ops &amp; Maint.</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 9.3%; background: #7f8c8d;">9.3%</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">Student Support</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 6.7%; background: var(--chart-orange);">6.7%</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">School Admin</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 5.6%; background: var(--chart-red);">5.6%</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">Instr. Staff Spt.</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 5.0%; background: var(--chart-green);">5.0%</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">Food Services</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.5%; background: #8e44ad;">~4&ndash;5%</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">Transportation</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 4.0%; background: #2c3e50;">~4%</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">Other Support</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 3.5%; background: #566573;">~3&ndash;4%</div>
+      </div>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label" style="width:160px;">General Admin</span>
+      <div class="bar-track">
+        <div class="bar-fill" style="width: 2.0%; background: var(--chart-red);">~2%</div>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    In FY 2022, salaries and wages totaled <strong>$416.7 billion</strong> and employee benefits totaled
+    <strong>$178.3 billion</strong>, together accounting for <strong>77.5%</strong> ($595.0 billion) of
+    current expenditures. Instruction and instructional staff support together comprised
+    <strong>64.7%</strong> ($497.1 billion) of total current expenditures.
+  </p>
+
+  <p class="footnote">
+    Source: NCES CCD FY 2022. &ldquo;General Admin&rdquo; = superintendent/board; &ldquo;School Admin&rdquo; = principals.
+    Combined administration is ~7&ndash;8% of current expenditures. Instruction has held steady at 60&ndash;61% for decades.
+  </p>
+
+  <h3>Per-Pupil Amounts by Function (NCES, Constant 2022&ndash;23 Dollars)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>2010&ndash;11</th>
+        <th>2020&ndash;21</th>
+        <th>Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Total current expenditures per pupil</strong></td><td class="num">$14,453</td><td class="num">$16,280</td><td class="num">+13%</td></tr>
+      <tr><td>Instruction per pupil</td><td class="num">$8,841</td><td class="num">$9,885</td><td class="num">+12%</td></tr>
+      <tr><td>Support services per pupil</td><td class="num">$5,023</td><td class="num">$5,878</td><td class="num">+17%</td></tr>
+    </tbody>
+  </table>
+  <p class="footnote">
+    Instruction consistently accounted for 60&ndash;61% of current expenditures throughout the decade.
+    Support services accounted for 35&ndash;36%.
+  </p>
+
+  <h3>Reason Foundation Crossroads Report (2002&ndash;2020, Constant Dollars)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>2002</th>
+        <th>2020</th>
+        <th>Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Instruction</strong></td><td class="num">$6,818/pupil</td><td class="num">$8,176/pupil</td><td class="num">+$1,358 (+19.9%)</td></tr>
+      <tr><td>&mdash; of which: salaries</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">+$226/pupil</td></tr>
+      <tr><td>&mdash; of which: benefits</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">+$995/pupil</td></tr>
+      <tr><td><strong>School administration</strong> (principals)</td><td class="num">$629/pupil</td><td class="num">$758/pupil</td><td class="num">+$129 (+20.5%)</td></tr>
+      <tr><td><strong>General administration</strong> (supt/board)</td><td class="num">$224/pupil</td><td class="num">$265/pupil</td><td class="num">+$41 (+18.3%)</td></tr>
+      <tr><td><strong>Pupil support services</strong></td><td class="num">$566/pupil</td><td class="num">$864/pupil</td><td class="num" style="color: var(--chart-red);">+$298 (+52.7%)</td></tr>
+      <tr><td><strong>Support services (total)</strong></td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">+$974/pupil (+25.4%)</td></tr>
+      <tr><td><strong>Employee benefits (all categories)</strong></td><td class="num">$2,221/pupil</td><td class="num">$4,022/pupil <sup>*</sup></td><td class="num" style="color: var(--chart-red);"><strong>+81.1%</strong></td></tr>
+      <tr><td><strong>Employee salaries (all categories)</strong></td><td class="num">$8,449/pupil</td><td class="num">$9,098/pupil <sup>*</sup></td><td class="num">+7.7%</td></tr>
+    </tbody>
+  </table>
+  <p class="footnote">
+    <sup>*</sup> Benefits and salary figures for 2023 from Reason Foundation 2025 Spotlight (Census/NCES data).
+    All dollar figures inflation-adjusted.
+  </p>
+
+  <div class="highlight-box">
+    <p><strong>Critical insight:</strong> Spending increases between 2002 and 2020 were <strong>not disproportionately
+    absorbed by administration</strong>. School admin grew +20.5%, general admin grew +18.3%, and instruction
+    grew +19.9%&mdash;all roughly comparable rates. The <strong>outlier</strong> is pupil support services
+    (+52.7%), driven by mandated services including psychological, guidance, health care, and paraprofessional
+    services for students with disabilities.</p>
+    <p>The single biggest driver of cost increases was <strong>employee benefits</strong>: up 81.1% per pupil
+    from 2002 to 2023, versus only 7.7% for salaries. Benefits consumed <strong>$3.27 for every $1</strong>
+    added to salaries.</p>
+  </div>
+
+  <p class="footnote">
+    Sources:
+    <a href="https://nces.ed.gov/fastfacts/display.asp?id=66">NCES Fast Facts #66</a>,
+    <a href="https://nces.ed.gov/whatsnew/press_releases/5_7_2024.asp">NCES Press Release (May 2024)</a>,
+    <a href="https://reason.org/k12-ed-spending/crossroads-report/revenue-expenditure-trends/">Reason Foundation Crossroads Report</a>,
+    <a href="https://reason.org/k12-ed-spending/2025-spotlight/">Reason Foundation 2025 Spotlight</a>,
+    <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.60.asp">NCES Digest Table 236.60</a>,
+    <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.10.asp">NCES Digest Table 236.10</a>,
+    <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.75.asp">NCES Digest Table 236.75</a>.
+  </p>
+
+  <!-- SECTION 3: STAFFING TRENDS -->
+  <h2 class="page-break">3. Staffing Trends: Teachers vs. Non-Teaching Staff</h2>
+
+  <h3>Reason Foundation 2025 Spotlight (2002&ndash;2023)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>2002</th>
+        <th>2023</th>
+        <th>Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Student enrollment</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num"><strong>+4.1%</strong></td></tr>
+      <tr><td>Total staff</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num"><strong>+15.1%</strong></td></tr>
+      <tr><td>Teachers</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num"><strong>+7.6%</strong></td></tr>
+      <tr><td>Non-teaching staff</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num" style="color: var(--chart-red);"><strong>+22.8%</strong></td></tr>
+      <tr><td>Non-teaching share of all employees</td><td class="num">49.2%</td><td class="num">52.5%</td><td class="num">+3.3 pp</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    Non-teaching staff (counselors, social workers, speech pathologists, instructional aides, etc.)
+    now make up <strong>over half</strong> of all public school employees.
+  </p>
+
+  <h3>Post-COVID Staffing Surge (2020&ndash;2023)</h3>
+
+  <div class="highlight-box">
+    <p>Despite enrollment <strong>falling by 1.18 million students</strong> between 2020 and 2023,
+    public schools <strong>added 81,000+ non-teaching staff</strong>.</p>
+    <p><strong>California:</strong> lost 318,532 students; added 3,400 non-teaching staff</p>
+    <p><strong>New York:</strong> lost 159,701 students; added 6,996 non-teaching staff</p>
+  </div>
+
+  <h3>AEI / Heritage Foundation Long-Run Data (1950&ndash;2017)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Period</th>
+        <th>Enrollment</th>
+        <th>Teachers</th>
+        <th>Non-Teaching Staff</th>
+        <th>All Staff</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1950&ndash;2017</td><td class="num">+96%</td><td class="num">+252%</td><td class="num" style="color: var(--chart-red);"><strong>+702%</strong></td><td class="num">&mdash;</td></tr>
+      <tr><td>1970&ndash;2010</td><td class="num">+7.8%</td><td class="num">+60%</td><td class="num" style="color: var(--chart-red);"><strong>+138%</strong></td><td class="num">+84%</td></tr>
+      <tr><td>1992&ndash;2009</td><td class="num">+17%</td><td class="num">&mdash;</td><td class="num"><strong>+46%</strong> (admin + non-teaching)</td><td class="num">&mdash;</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    By 2010, there were 3.099 million teachers and 3.096 million non-teaching staff&mdash;essentially
+    <strong>1:1 parity</strong>. By 2015, non-teaching staff outnumbered teachers for the first time.
+    By 2023, the ratio was 52.5% non-teaching to 47.5% teaching.
+  </p>
+
+  <h3>Education Next Data (2000&ndash;2017)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>2000&ndash;2017 Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Principals and assistant principals</td><td class="num"><strong>+33.4%</strong></td></tr>
+      <tr><td>District administrative staff</td><td class="num" style="color: var(--chart-red);"><strong>+74.9%</strong></td></tr>
+      <tr><td>Teachers</td><td class="num">+7.7%</td></tr>
+      <tr><td>Student enrollment</td><td class="num">+10%</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    Bureau of Labor Statistics (1999&ndash;2019): K&ndash;12 &ldquo;education administrators&rdquo;
+    grew <strong>45.5%</strong> (to ~271,000), while teachers grew only <strong>5.4%</strong>.
+  </p>
+
+  <h3>Teachers as Percentage of All School Staff</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Teachers as % of Staff</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>~1950</td><td class="num">~70%</td></tr>
+      <tr><td>~1970</td><td class="num">~60%</td></tr>
+      <tr><td>~2000</td><td class="num">~52%</td></tr>
+      <tr><td>~2010</td><td class="num">~50%</td></tr>
+      <tr><td>2023</td><td class="num"><strong>~47.5%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p class="footnote">
+    The decline is consistent: teachers have gone from roughly two-thirds of school employees to less
+    than half over 70 years. Sources:
+    <a href="https://reason.org/k12-ed-spending/2025-spotlight/">Reason Foundation 2025 Spotlight</a>,
+    <a href="https://www.aei.org/carpe-diem/chart-of-the-day-administrative-bloat-in-us-public-schools/">AEI: Administrative Bloat</a>,
+    <a href="https://www.aei.org/carpe-diem/the-staffing-surge-educratification-in-americas-public-schools-educrats-now-outnumber-teachers-in-25-states/">AEI: The Staffing Surge</a>,
+    <a href="https://www.educationnext.org/growth-administrative-staff-assistant-principals-far-outpaces-teacher-hiring/">Education Next</a>,
+    <a href="https://www.heritage.org/education/report/how-escalating-education-spending-killing-crucial-reform">Heritage Foundation</a>,
+    <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_213.10.asp">NCES Digest Table 213.10</a>.
+  </p>
+
+  <!-- SECTION 4: RATIOS -->
+  <h2>4. Student-to-Teacher and Student-to-Administrator Ratios</h2>
+
+  <h3>Student-to-Teacher Ratio (NCES)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Public School Ratio</th>
+        <th>Private School Ratio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1955</td><td class="num">~27:1</td><td class="num">&mdash;</td></tr>
+      <tr><td>1970</td><td class="num">~22.3:1</td><td class="num">&mdash;</td></tr>
+      <tr><td>2001</td><td class="num">15.9:1</td><td class="num">&mdash;</td></tr>
+      <tr><td>2008</td><td class="num">15.4:1</td><td class="num">12.8:1</td></tr>
+      <tr><td>2018&ndash;19</td><td class="num">16.0:1</td><td class="num">&mdash;</td></tr>
+      <tr><td>2020</td><td class="num">15.9:1</td><td class="num">12.5:1</td></tr>
+      <tr><td>2022&ndash;23</td><td class="num"><strong>15.4:1</strong></td><td class="num">&mdash;</td></tr>
+      <tr><td>2031 (proj.)</td><td class="num">14.7:1</td><td class="num">10.1:1</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    The pupil-to-teacher ratio <strong>decreased 30%</strong> from ~23:1 in 1970 to below 16:1 by 2017.
+    It has been essentially <strong>flat for the past 20 years</strong>, hovering between 15.4 and 16.0.
+    Post-COVID: 43 out of 51 states/jurisdictions saw student-teacher ratios <strong>decrease</strong>
+    between 2018&ndash;19 and 2022&ndash;23.
+  </p>
+
+  <h3>Student-to-Administrator/Staff Ratios</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Students per District Administrator</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2000</td><td class="num">816:1</td><td>NCES CCD</td></tr>
+      <tr><td>2022</td><td class="num"><strong>559.9:1</strong></td><td>NCES CCD</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    This represents a <strong>31.4% decline</strong> in the student-to-district-administrator ratio&mdash;meaning
+    each administrator now serves far fewer students. In 2023, there were approximately <strong>993,000
+    school administrators</strong> in the US, including 512,000 principals and other administrators at
+    elementary and secondary schools. This is a 4% increase from 2018 and a <strong>23.5% increase from 2013</strong>.
+  </p>
+
+  <h3>The AASA Counterargument</h3>
+
+  <div class="highlight-box">
+    <p>The American Association of School Administrators (AASA) offers a different framing:</p>
+    <p>The ratio of central-office staff to teachers was <strong>32.4:1 in 1992&ndash;93</strong>
+    and <strong>33:1 in 2002&ndash;03</strong>&mdash;essentially unchanged.</p>
+    <p>Public schools have a staff-to-administrator ratio of roughly <strong>13:1</strong>, compared to
+    <strong>3.3:1 in public administration</strong> generally, suggesting schools are <em>less</em>
+    top-heavy than government overall.</p>
+    <p>AASA argues that when all central-office administrative and professional staff are included,
+    there has been &ldquo;no significant increase&rdquo; in administrators relative to teachers.</p>
+  </div>
+
+  <p class="footnote">
+    Sources:
+    <a href="https://nces.ed.gov/programs/digest/d16/tables/dt16_208.20.asp">NCES Digest Table 208.20</a>,
+    <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_208.40.asp">NCES Digest Table 208.40</a>,
+    <a href="https://usafacts.org/data/topics/people-society/education/k-12-education/student-to-teacher-ratio-public/">USAFacts</a>,
+    <a href="https://www.k12dive.com/news/student-teacher-ratios-states-covid-staffed-up/731651/">K-12 Dive</a>,
+    <a href="https://www.americanexperiment.org/district-admin-growth-10x-greater-than-student-teacher-growth/">American Experiment</a>,
+    <a href="https://www.aasa.org/resources/resource/are-there-too-many-administrators">AASA</a>,
+    <a href="https://www.dpeaflcio.org/factsheets/school-administrators-an-occupational-overview">DPE AFL-CIO</a>.
+  </p>
+
+  <!-- SECTION 5: CLAIMS VS DATA -->
+  <h2 class="page-break">5. What Actually Drives Cost Increases: Claims vs. Data</h2>
+
+  <h3>The &ldquo;Administrative Bloat&rdquo; Claim</h3>
+
+  <p>
+    The popular narrative: schools have hired armies of administrators while neglecting classrooms,
+    and this is the primary driver of rising per-pupil costs.
+  </p>
+
+  <p>
+    <strong>What the staffing data shows:</strong> There has been genuine, dramatic growth in non-teaching
+    staff&mdash;up 702% since 1950 vs. 96% for enrollment. District administrative staff specifically
+    grew 74.9% from 2000&ndash;2017 vs. 7.7% for teachers. Non-teaching staff now outnumber teachers.
+  </p>
+
+  <p>
+    <strong>What the spending data shows:</strong> Administration spending (narrowly defined) has grown
+    at roughly the same rate as instruction spending&mdash;about 18&ndash;20% in real per-pupil terms
+    from 2002 to 2020. Administration remains a relatively small share of total spending:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Administration Category</th>
+        <th>% of Current Expenditures</th>
+        <th>Per Pupil (2020)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>General administration (superintendent/board)</td><td class="num">~2%</td><td class="num">~$265</td></tr>
+      <tr><td>School administration (principals)</td><td class="num">~5.6%</td><td class="num">~$758</td></tr>
+      <tr><td><strong>Combined</strong></td><td class="num"><strong>~7&ndash;8%</strong></td><td class="num"><strong>~$1,023</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>The FEE/Tabarrok Counterpoint</h3>
+
+  <p>
+    Alex Tabarrok (George Mason, via FEE) argues the bloat narrative is overstated:
+    principals and administrators number only <strong>0.4 per 100 students</strong>&mdash;a figure that
+    barely changed from 1950 to 2015. &ldquo;A bloated little toe cannot explain a 20-pound weight
+    gain.&rdquo; The real explanation: we hired more teachers (the student-teacher ratio halved from
+    ~27:1 to ~15:1) and pay them more in real terms. The administrator increase was largely complete
+    by 1980, but expenditures kept growing.
+  </p>
+
+  <h3>The Real Cost Drivers (Ranked by Magnitude)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width:40px;">#</th>
+        <th>Driver</th>
+        <th>Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1</strong></td>
+        <td><strong>Employee benefits</strong> (pensions, health insurance)</td>
+        <td>+81.1% per pupil (2002&ndash;2023). $3.27 in benefits for every $1 in salary. Pension debt is a primary culprit. NJ highest at $8,333/student. Salaries fell from 59% to 55% of current expenditures (2010&ndash;2021); benefits rose from 21% to 24%.</td>
+      </tr>
+      <tr>
+        <td><strong>2</strong></td>
+        <td><strong>Pupil support / special education mandates</strong></td>
+        <td>+52.7% per pupil (2002&ndash;2020), from $566 to $864/pupil. Spec. ed. averages $13,127/student; IDEA covers only ~12%. Local gap: $8,160/student. CT: $24,443/pupil; MS: $5,265/pupil.</td>
+      </tr>
+      <tr>
+        <td><strong>3</strong></td>
+        <td><strong>Staffing growth beyond enrollment</strong></td>
+        <td>+15.1% staff for +4.1% students (2002&ndash;2023). Enrollment declined ~750K since 2014 while employment grew 600K+. Est. $24.3B/yr excess (Friedman Foundation).</td>
+      </tr>
+      <tr>
+        <td><strong>4</strong></td>
+        <td><strong>Class size reduction</strong></td>
+        <td>Student-teacher ratio halved from ~27:1 (1955) to ~15:1 (2023), roughly doubling the teacher workforce relative to enrollment.</td>
+      </tr>
+      <tr>
+        <td><strong>5</strong></td>
+        <td><strong>Administration (narrowly defined)</strong></td>
+        <td>~7&ndash;8% of spending. Growth rate (~18&ndash;20%) roughly matches instruction. District admin staff growth (74.9%, 2000&ndash;2017) is real but represents a small absolute base. DeAngelis &amp; Makridis (2025) found growth more pronounced in states with stronger teachers&rsquo; union influence.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight-box">
+    <p><strong>Bottom line &mdash; the nuanced picture:</strong></p>
+    <p><strong>1.</strong> Non-teaching staff have genuinely proliferated&mdash;the 702% growth since 1950 is not in dispute.</p>
+    <p><strong>2.</strong> But most of those aren&rsquo;t &ldquo;administrators&rdquo; in the popular sense&mdash;they&rsquo;re counselors, social workers, speech pathologists, instructional aides, health staff, and technology support.</p>
+    <p><strong>3.</strong> Many of these roles are legally mandated&mdash;IDEA, Section 504, state mental health requirements, and other mandates drive much of the &ldquo;support services&rdquo; growth.</p>
+    <p><strong>4.</strong> The spending data does not show administration taking an ever-larger share&mdash;instruction&rsquo;s share has held steady at 60&ndash;61%, and administration&rsquo;s share hasn&rsquo;t meaningfully grown.</p>
+    <p><strong>5.</strong> The real cost story is benefits and mandated services&mdash;pension/health costs up 81%, pupil support up 53%, while salaries are nearly flat.</p>
+    <p><strong>6.</strong> Teacher pay has actually declined in real terms (&minus;6.1%, 2002&ndash;2022) even as total spending per pupil rose 36%.</p>
+  </div>
+
+  <!-- SECTION 6: INTERNATIONAL -->
+  <h2>6. International Comparison (OECD)</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Measure</th>
+        <th>United States</th>
+        <th>OECD Average</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Primary through upper-secondary per student</td><td class="num">$14,603</td><td class="num">Above average</td></tr>
+      <tr><td>Instructional time (primary)</td><td class="num">974 hrs/yr</td><td class="num">804 hrs/yr</td></tr>
+      <tr><td>Instructional time (lower secondary)</td><td class="num">1,023 hrs/yr</td><td class="num">909 hrs/yr</td></tr>
+      <tr><td>Adult literacy at Level 1 or below</td><td class="num">28%</td><td class="num">OECD avg.</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    Part of the US spending &ldquo;lead&rdquo; comes from <strong>ancillary services</strong> (athletics,
+    student housing) that other countries don&rsquo;t fund at comparable levels. Despite high investment,
+    US adult literacy scores are at the OECD average, and mean literacy proficiency <strong>decreased</strong>
+    across all age groups between 2012 and 2023.
+  </p>
+
+  <p class="footnote">
+    Sources:
+    <a href="https://www.oecd.org/en/publications/education-at-a-glance-2024-country-notes_fab77ef0-en/united-states_e08bedd8-en.html">OECD Education at a Glance 2024</a>,
+    <a href="https://www.oecd.org/en/publications/education-at-a-glance-2025_1a3543e2-en/united-states_784df67f-en.html">OECD Education at a Glance 2025</a>,
+    <a href="https://ies.ed.gov/learn/blog/education-glance-2023-putting-u-s-data-global-context">IES: Education at a Glance 2023</a>.
+  </p>
+
+  <!-- SECTION 7: NCES DATA TABLES -->
+  <h2 class="page-break">7. Key NCES Data Tables for Further Reference</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Table</th>
+        <th>Title</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>236.10</td><td>Total expenditures by function, 1919&ndash;2021</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.10.asp">Link</a></td></tr>
+      <tr><td>236.15</td><td>Current expenditures per pupil, 1989&ndash;2032 (projected)</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.15.asp">Link</a></td></tr>
+      <tr><td>236.20</td><td>Total expenditures by function and subfunction, 1990&ndash;2021</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.20.asp">Link</a></td></tr>
+      <tr><td>236.55</td><td>Per-pupil expenditures (current $), 1919&ndash;2021</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.55.asp">Link</a></td></tr>
+      <tr><td>236.60</td><td>Per-pupil expenditures by function/subfunction, 1990&ndash;2021</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.60.asp">Link</a></td></tr>
+      <tr><td>236.65</td><td>Per-pupil expenditures by state, 1969&ndash;2021</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.65.asp">Link</a></td></tr>
+      <tr><td>236.75</td><td>Per-pupil expenditures by function and state, 2020&ndash;21</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_236.75.asp">Link</a></td></tr>
+      <tr><td>213.10</td><td>Staff by type of assignment, 1949&ndash;2022</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_213.10.asp">Link</a></td></tr>
+      <tr><td>208.20</td><td>Pupil/teacher ratios, 1955&ndash;2026</td><td><a href="https://nces.ed.gov/programs/digest/d16/tables/dt16_208.20.asp">Link</a></td></tr>
+      <tr><td>208.40</td><td>Pupil/teacher ratios by state, 2000&ndash;2022</td><td><a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_208.40.asp">Link</a></td></tr>
+    </tbody>
+  </table>
+
+  <!-- SOURCES -->
+  <div class="sources">
+    <h2>Sources (Complete List)</h2>
+
+    <h3>Federal / Official</h3>
+    <ol>
+      <li><a href="https://nces.ed.gov/fastfacts/display.asp?id=66">NCES Fast Facts #66: Expenditures</a></li>
+      <li><a href="https://nces.ed.gov/programs/coe/indicator/cmb/public-school-expenditure">NCES COE: Public School Expenditures</a></li>
+      <li><a href="https://nces.ed.gov/pubs2018/2018301/glossary.asp">NCES CCD Glossary (2018)</a></li>
+      <li><a href="https://nces.ed.gov/whatsnew/press_releases/5_7_2024.asp">NCES Press Release: FY 2022 Expenditures (May 2024)</a></li>
+      <li><a href="https://ies.ed.gov/ies/2025/04/revenues-and-expenditures-public-elementary-and-secondary-education-school-year-2022-23-fiscal-year">NCES: Revenues &amp; Expenditures FY 2023</a></li>
+      <li><a href="https://www.census.gov/programs-surveys/school-finances.html">Census Bureau: Annual Survey of School System Finances</a></li>
+      <li><a href="https://www.census.gov/library/stories/2024/04/public-school-spending.html">Census Bureau: Spending Per Pupil FY 2022</a></li>
+      <li><a href="https://www.census.gov/newsroom/press-releases/2025/2023-annual-survey-of-school-system-finances.html">Census Bureau: FY 2023 Survey Release</a></li>
+      <li><a href="https://ies.ed.gov/ncee/projects/evaluation/idea_spending.asp">IES: National Study of Special Education Spending</a></li>
+    </ol>
+
+    <h3>Think Tanks and Independent Analysis</h3>
+    <ol start="10">
+      <li><a href="https://reason.org/k12-ed-spending/2025-spotlight/">Reason Foundation: 2025 K&ndash;12 Spending Spotlight</a></li>
+      <li><a href="https://reason.org/k12-ed-spending/crossroads-report/">Reason Foundation: Crossroads Report (2002&ndash;2020)</a></li>
+      <li><a href="https://reason.org/k12-ed-spending/crossroads-report/revenue-expenditure-trends/">Reason Foundation: Crossroads Revenue &amp; Expenditure Trends</a></li>
+      <li><a href="https://spending-spotlight.reason.org/">Reason Foundation: Interactive Spending Spotlight Tool</a></li>
+      <li><a href="https://www.aei.org/carpe-diem/chart-of-the-day-administrative-bloat-in-us-public-schools/">AEI: Administrative Bloat in US Public Schools</a></li>
+      <li><a href="https://www.aei.org/carpe-diem/the-staffing-surge-educratification-in-americas-public-schools-educrats-now-outnumber-teachers-in-25-states/">AEI: The Staffing Surge / Educratification</a></li>
+      <li><a href="https://www.educationnext.org/growth-administrative-staff-assistant-principals-far-outpaces-teacher-hiring/">Education Next: Growth in Administrative Staff Far Outpaces Teacher Hiring</a></li>
+      <li><a href="https://fee.org/articles/rising-education-costs-stem-primarily-from-more-teachers-and-bigger-salaries-not-administrative-bloat/">FEE (Tabarrok): Rising Costs Stem from Teachers and Salaries, Not Administrative Bloat</a></li>
+      <li><a href="https://www.heritage.org/education/report/how-escalating-education-spending-killing-crucial-reform">Heritage Foundation: How Escalating Spending Is Killing Crucial Reform</a></li>
+      <li><a href="https://bellwether.org/publications/who-pays-for-special-education/">Bellwether: Who Pays for Special Education?</a></li>
+      <li><a href="https://www.brookings.edu/articles/more-money-is-not-enough-the-case-for-reconsidering-federal-special-education-funding-formulas/">Brookings: Federal Special Education Funding Formulas</a></li>
+    </ol>
+
+    <h3>Peer-Reviewed</h3>
+    <ol start="21">
+      <li><a href="https://onlinelibrary.wiley.com/doi/10.1111/polp.70093">DeAngelis &amp; Makridis (2025): &ldquo;Administrative Expansion in Public Schools: The Role of Unions in Resource Allocation and Student Performance,&rdquo; <em>Politics &amp; Policy</em></a></li>
+    </ol>
+
+    <h3>Professional Associations</h3>
+    <ol start="22">
+      <li><a href="https://www.aasa.org/resources/resource/are-there-too-many-administrators">AASA: Are There Too Many Administrators?</a></li>
+      <li><a href="https://www.dpeaflcio.org/factsheets/school-administrators-an-occupational-overview">DPE AFL-CIO: School Administrators &mdash; Occupational Overview</a></li>
+    </ol>
+
+    <h3>International</h3>
+    <ol start="24">
+      <li><a href="https://www.oecd.org/en/publications/education-at-a-glance-2024-country-notes_fab77ef0-en/united-states_e08bedd8-en.html">OECD Education at a Glance 2024 &mdash; US Country Note</a></li>
+      <li><a href="https://www.oecd.org/en/publications/education-at-a-glance-2025_1a3543e2-en/united-states_784df67f-en.html">OECD Education at a Glance 2025 &mdash; US</a></li>
+      <li><a href="https://nces.ed.gov/programs/coe/indicator/cmd/education-expenditures-by-country">NCES COE: Education Expenditures by Country</a></li>
+    </ol>
+
+    <h3>Data Aggregators</h3>
+    <ol start="27">
+      <li><a href="https://educationdata.org/public-education-spending-statistics">Education Data Initiative: Public Education Spending Statistics</a></li>
+      <li><a href="https://usafacts.org/data/topics/people-society/education/k-12-education/student-to-teacher-ratio-public/">USAFacts: Student-to-Teacher Ratio</a></li>
+      <li><a href="https://www.k12dive.com/news/student-teacher-ratios-states-covid-staffed-up/731651/">K-12 Dive: Student-Teacher Ratios Post-COVID</a></li>
+      <li><a href="https://www.k12dive.com/news/K-12-public-school-funding-nears-1-trillion-teacher-salaries-state-budgets/806499/">K-12 Dive: Public School Funding Nears $1 Trillion</a></li>
+    </ol>
+  </div>
+
+</body>
+</html>
