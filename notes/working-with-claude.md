@@ -1,9 +1,11 @@
+---
+status: active
+created: 2026-02-20
+---
 # Working With Claude — Setup, Tools, and Workflow
 > Accumulated tips for working with Claude across devices and interfaces. Read this at the start of each session for context.
 
-**Status:** active
-**Created:** 2026-02-20
-**Links:** [Vault Index](../INDEX.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md)
+**Links:** [Vault Index](../INDEX.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md), [Karpathy LLM Wiki Convergence](./karpathy-llm-wiki-convergence.md), [Obsidian Plugin Setup](./obsidian-plugin-setup.md)
 
 ## Interfaces
 

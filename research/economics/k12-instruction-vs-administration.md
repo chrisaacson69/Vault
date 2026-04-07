@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-24
+---
 # K-12 Instruction vs. Administration Spending
 > Comprehensive breakdown of how US public school dollars are split between instruction, administration, and support services — with staffing trends, ratio analysis, and an assessment of the "administrative bloat" claim.
 
-**Status:** active
-**Created:** 2026-02-24
 **Links:** [US Spending Per Student](./us-spending-per-student.md), [Economics](./README.md), [Vault Index](../../INDEX.md)
 
 ---

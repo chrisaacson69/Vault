@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-04-06
+---
 # Restitution for Death — The Framework's Hardest Case
 > When the victim is dead, "making whole" is impossible. Every option is a workaround. The question is which workaround best serves justice — and whether execution is ever one of them.
 
-**Status:** active
-**Created:** 2026-04-06
 **Links:** [Legal Theory](./README.md), [Defensive Force](./defensive-force-and-collateral-damage.md), [Mens Rea](./mens-rea.md), [Morality Framework](../morality/README.md), [Action/Inaction Asymmetry](../morality/action-inaction-asymmetry.md), [Scope Confusion](../morality/scope-confusion.md), [The Godel Governance Problem](../the-godel-governance-problem.md)
 
 ---

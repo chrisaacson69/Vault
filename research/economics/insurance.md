@@ -1,9 +1,11 @@
+---
+status: active
+created: 2026-02-23
+---
 # Insurance
 > Insurance has exactly one legitimate function — hedging catastrophic, low-probability events. Everything else it does makes things worse.
 
-**Status:** active
-**Created:** 2026-02-23
-**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/civilizational-cycles.md), [Words of Wisdom](../../notes/words-of-wisdom.md)
+**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/civilizational-cycles/README.md), [Words of Wisdom](../../notes/words-of-wisdom.md)
 
 ## The Core Principle
 

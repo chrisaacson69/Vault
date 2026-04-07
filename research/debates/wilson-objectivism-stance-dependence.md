@@ -2,7 +2,7 @@
 > Can moral facts be "stance dependent" and still be facts? The Objectivist says yes; Wilson says no. Both miss the structural issue.
 
 **Date:** ~2025 (undated panel debate)
-**Source:** [YouTube](https://www.youtube.com/watch?v=DhpfsOSNakY) — [Transcript](../../logs/debate-transcript-wilson-objectivism.txt)
+**Source:** [YouTube](https://www.youtube.com/watch?v=DhpfsOSNakY) — [Transcript](../../raw/debates/debate-transcript-wilson-objectivism.txt)
 **Participants:** Andrew Wilson (theist / moral realist) vs Liam Stayton / @ProphetDivinityy (Objectivist, primary speaker) + allies; Eduardo (channel owner, silent); an Orthodox Christian panelist interjects mid-debate
 **Original topics:** (1) Healthcare/housing/food is a right; (2) Socialism/communism is good; (3) Capitalism is bad — broad prompts to draw people in; the clip captures the philosophical core that emerged
 **Duration:** ~67 minutes

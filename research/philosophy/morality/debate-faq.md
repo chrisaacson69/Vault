@@ -1,8 +1,10 @@
+---
+status: active — grows over time
+created: 2026-04-02
+---
 # Morality — Debate FAQ
 > Common objections to the vault's moral framework, with responses. A living document — grows as new arguments are encountered.
 
-**Status:** active — grows over time
-**Created:** 2026-04-02
 **Links:** [Morality Framework](./README.md), [Performative Grounding](./performative-grounding-lineage.md), [Scope Confusion](./scope-confusion.md), [Deontology vs. Consequentialism](./deontology-consequentialism.md), [Action/Inaction Asymmetry](./README.md#the-actioninaction-asymmetry), [The Sheriff Problem](../../debates/utilitarianism-sheriff-counterexample.md)
 
 ---

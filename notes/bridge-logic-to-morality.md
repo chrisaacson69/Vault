@@ -1,8 +1,10 @@
+---
+status: sketch — waiting on logic series completion
+created: 2026-03-25
+---
 # Bridge: Logic Series → Morality Series
 > Two planned vault pages that connect the YouTube logic grounding to the morality framework. Write after the logic series is grounded.
 
-**Status:** sketch — waiting on logic series completion
-**Created:** 2026-03-25
 **Links:** [Morality Framework](../research/philosophy/morality/README.md), [History of Logic](../research/philosophy/logic-and-math/history-of-logic.md), [Emergence and Convergence](../research/philosophy/logic-and-math/emergence-and-convergence.md), [Performative Grounding](../research/philosophy/morality/performative-grounding-lineage.md), [Measurement, Causality](../research/philosophy/measurement-causality.md)
 
 ---

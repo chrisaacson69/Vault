@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # A History of Logic
 > Logic is not a single, settled, God-given system. It's a 2,400-year research program — still active, still contested, still evolving.
 
-**Status:** active
-**Created:** 2026-03-23
 **Links:** [Logic and Mathematics](./README.md), [Epistemology](../epistemology/README.md), [The Gödel Governance Problem](../the-godel-governance-problem.md), [Computation and Information Theory](../../computation-and-information.md), [HoP — Peikoff](../history-of-philosophy/README.md)
 
 ---

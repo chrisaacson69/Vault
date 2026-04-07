@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-13
+---
 # Optimal Money Supply Growth Through Profit and Loss Amplification
 > He correctly identifies the Cantillon effect, then proposes to fix it by building a central planner that hands new money to whoever it deems productive.
 
-**Status:** complete
-**Created:** 2026-03-13
 **Source:** [YouTube video](https://www.youtube.com/watch?v=bBp_brJOUv8) (3:37, uploaded 2026-03-09, 1 view)
 **Links:** [Channel Overview](./README.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Value/Utility via Evolutionary Game Theory](./value-utility-evolutionary-game-theory.md), [Comparative Advantage Bidding](./comparative-advantage-bidding.md)
 
@@ -77,7 +79,7 @@ Problem 2 (Cantillon effect) is real and important. But his solution to problem 
 
 ## The Bigger Picture: Debt, Fiat, and Civilizational Cycles
 
-His monetary video is a microcosm of a much larger problem the vault already documents. [Dalio's debt cycle](../philosophy/civilizational-cycles.md) traces the trajectory: sound money → loose credit → debt bust → return to sound money, spanning ~75-100 years. The 1971 Nixon Shock removed the last structural brake (gold convertibility), and fiat currencies — every single one in history — eventually fail through debasement. The Austrians (Mises, Hayek, Rothbard) diagnosed this: fiat money is fundamentally illegitimate, debt cycles under fiat are inevitable, and the only prevention is eliminating the cause (fiat itself).
+His monetary video is a microcosm of a much larger problem the vault already documents. [Dalio's debt cycle](../philosophy/civilizational-cycles/README.md) traces the trajectory: sound money → loose credit → debt bust → return to sound money, spanning ~75-100 years. The 1971 Nixon Shock removed the last structural brake (gold convertibility), and fiat currencies — every single one in history — eventually fail through debasement. The Austrians (Mises, Hayek, Rothbard) diagnosed this: fiat money is fundamentally illegitimate, debt cycles under fiat are inevitable, and the only prevention is eliminating the cause (fiat itself).
 
 His reputation-money proposal doesn't escape this. It still creates new money tied to an external judgment ("productivity"), which is a softer version of the same fiat logic — money backed by decree rather than by a scarce physical commodity. A hard currency standard (gold, or potentially a fixed-supply crypto like Bitcoin despite its practical flaws around computational power and offline transferability) solves the Cantillon effect and the debasement problem by construction. His system solves neither.
 

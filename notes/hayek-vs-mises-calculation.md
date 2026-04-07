@@ -1,8 +1,10 @@
+---
+status: reference note
+created: 2026-03-30
+---
 # Hayek vs Mises: The Calculation Problem Distinction
 > Two different critiques of central planning that most people conflate. AI addresses Hayek's problem but not Mises's.
 
-**Status:** reference note
-**Created:** 2026-03-30
 **Source:** [Bob Murphy — Can AI Solve the Socialist Calculation Problem?](https://www.youtube.com/watch?v=1VlpGm_wMTc)
 **Links:** [Market Efficiency](../research/economics/market-efficiency-and-human-limits.md), [Value and Profit](../research/economics/value-and-profit.md), [Business Cycles](../research/economics/business-cycles.md), [Equation of Exchange](../research/economics/equation-of-exchange.md)
 

@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-02
+**Last updated:** 2026-04-07
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -141,12 +141,21 @@
 - [Debate Prep: Hate Speech / 1A](./notes/debate-prep-hate-speech-1a.md) — negative position: the 1st Amendment should NOT exclude hate speech (2026-04-04)
 - [Debate Prep: Morality and Religion](./notes/debate-prep-morality-religion-2026-03-14.md) — negative position: you CAN be moral without religion (2026-03-14)
 - [yt-dlp Transcript Workflow](./notes/yt-dlp-transcript-workflow.md) — segment and transcribe videos from Rumble, YouTube, and 1,000+ sites using yt-dlp + Whisper
+- [Obsidian Plugin Setup](./notes/obsidian-plugin-setup.md) — Dataview, Marp Slides, and Web Clipper setup instructions and query examples
+- [Karpathy LLM Wiki — Independent Convergence](./notes/karpathy-llm-wiki-convergence.md) — this vault and Karpathy's LLM Wiki arrived at the same architecture independently; shared patterns and ideas adopted
 
 ## Tasks & Goals
 - [Active Tasks](./tasks/active.md)
 
+## Raw Sources
+- `./raw/debates/` — debate and panel transcripts (17 files)
+- `./raw/lectures/` — HoP Peikoff lecture transcripts (12 files)
+- `./raw/videos/` — other video transcripts (10 files)
+- `./raw/articles/` — Web Clipper drops and article content
+- `./raw/assets/` — locally saved images
+
 ## Logs
-- Video transcripts and debate transcripts stored in `./logs/`
+- Session logs stored in `./logs/` (transcripts moved to `raw/`)
 
 ## Tags
 - [Tag Index](./tags/_index.md) — master list of all tags

@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # Eastern Logical Traditions
 > The convergence proof: independent civilizations, no contact, same structural insights — centuries before the West caught up.
 
-**Status:** active
-**Created:** 2026-03-23
 **Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Logic and Mathematics](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [The Birthmark](../epistemology/the-birthmark.md)
 
 ---

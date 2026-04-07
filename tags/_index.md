@@ -1,7 +1,7 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 13 files
+- [ai](./ai.md) — 20 files
 - [agents](./agents.md) — 8 files
 - [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 8 files
@@ -16,7 +16,7 @@
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 8 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
-- [epistemology](./epistemology.md) — 22 files
+- [epistemology](./epistemology.md) — 23 files
 - [ethics](./ethics.md) — 5 files
 - [externalities](./externalities.md) — 3 files
 - [food-safety](./food-safety.md) — 1 file

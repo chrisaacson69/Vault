@@ -5,7 +5,7 @@
 **Source:** [whatever Clips — YouTube](https://www.youtube.com/watch?v=S2n2v9EIHzM)
 **Participants:** Andrew Wilson, Kyla (3-part clip series, part 3 chronologically)
 **Duration:** ~29 min (part 3 of 3)
-**Vault relevance:** [legal theory](../../research/philosophy/legal-theory/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [civilizational cycles](../../research/philosophy/civilizational-cycles.md)
+**Vault relevance:** [legal theory](../../research/philosophy/legal-theory/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [civilizational cycles](../../research/philosophy/civilizational-cycles/README.md)
 
 ## Context
 
@@ -92,7 +92,7 @@ The separation of powers is the *structural* guarantee of liberty — more funda
 ## Vault Connections
 - [Legal Theory](../../research/philosophy/legal-theory/README.md) — self-defeating democracy, constitutional guard rails
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — conflating the mechanism with the purpose
-- [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md) — democratic systems containing the seeds of their own dissolution
+- [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) — democratic systems containing the seeds of their own dissolution
 - [Opposing Forces](../../research/philosophy/opposing-forces.md) — pressure valves vs. self-destruction mechanisms
 - [Part 1: Agrippa's Trilemma](./agrippa-axioms-wilson-whatever.md) — Agrippa introduced, math analogy, church/state theology
 - [Part 2: Moral Foundations](./moral-foundations-wilson-whatever.md) — Agrippa implications, preference equivalence

@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-17
+---
 # Episode 5: Pythagoras — Mathematics and Mysticism
 > The Orphic mystery religion meets mathematical discovery: the soul/body split enters Western philosophy, and two-world metaphysics is born.
 
-**Status:** complete
-**Created:** 2026-03-17
 **Source:** [YouTube](https://www.youtube.com/watch?v=DlomMDhKYLg) (29:59)
 **Links:** [Series Index](./README.md), [Episode 4: Parmenides](./04-parmenides.md)
 

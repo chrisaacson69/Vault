@@ -1,9 +1,11 @@
+---
+status: active
+created: 2026-02-12
+---
 # The Cyborg Model — Human/AI Collaboration
 > Neither side is complete alone. The point is to distribute labor so each side does what they do best.
 
-**Status:** active
-**Created:** 2026-02-12
-**Links:** [Economics](./economics/README.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Praxis](./economics/praxis-agent-teams.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Gaming](./gaming/README.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md)
+**Links:** [Economics](./economics/README.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Praxis](./economics/praxis-agent-teams.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Gaming](./gaming/README.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Karpathy LLM Wiki Convergence](../notes/karpathy-llm-wiki-convergence.md)
 
 ## What "Cyborg" Means
 
@@ -161,7 +163,54 @@ This is the cyborg model's leverage equation in action: one human's creative jud
 
 See: [Set Mastering Pipeline](../projects/set-mastering/README.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md), [DJ Set 1](../projects/dj-set-1/README.md)
 
+## The Vault as Brain Architecture
+
+The cyborg model isn't just a way of working — the vault itself is a working model of how it works. The structural parallel between this vault and the mammalian brain is precise enough to be explanatory, not just metaphorical.
+
+### The Binding Problem
+
+The mammalian brain has specialized regions: visual cortex processes images, Broca's area handles language production, the hippocampus forms new memories, the motor cortex controls movement. Each region is optimized for its input type — different architectures for different problems (see [Cognitive vs. Motor Skills](./cognitive-vs-motor.md)). The hard problem was never the specialization. It was the coordination: **how do these separate systems talk to each other?**
+
+The answer turned out to be structured pathways — white matter tracts, the thalamus as a routing hub, the association cortex binding concepts across modalities. The connections between regions are as important as the regions themselves.
+
+The vault has the same architecture:
+
+| Brain Structure | Function | Vault Analogue |
+|---|---|---|
+| **Thalamus** | Routing hub — nearly all sensory input passes through it before reaching specialized regions | **INDEX.md** — the master map everything passes through |
+| **White matter tracts** | Direct connections between specialized regions | **Cross-links** (`**Links:**` sections between pages) |
+| **Association cortex** | Binds concepts across modalities — where "seeing red" meets "feeling hot" meets "the word fire" | **Tag index files** — grouping related pages across domains (a tag like `economics` connects philosophy, gaming, and business) |
+| **Hippocampus** | Forms new associations, consolidates short-term memory into long-term | **The ingest process** — raw input is processed, linked, and integrated into the existing knowledge structure |
+| **Prefrontal cortex** | Executive function — what to attend to, what to suppress, what to act on | **The human directing the LLM** + CLAUDE.md schema |
+| **Sensory input** | Raw, unprocessed signals from the world | **`raw/` folder** — unprocessed source material (articles, transcripts, PDFs) |
+| **Working memory** | Limited capacity (~7 items), temporary, active processing | **The LLM's context window** |
+| **Long-term memory** | Persistent, structured, retrievable via associative paths | **The vault itself** |
+
+### Why This Matters: The Context Window Is Working Memory
+
+The critical insight: the LLM's context window functions exactly like working memory. It's limited. It's temporary. It can only hold so much at once. When the conversation ends or the context fills up, everything in it is gone — unless it was written to the vault.
+
+The vault structure is what makes long-term memory *work*. Not by cramming everything into the context window simultaneously, but by providing **navigable retrieval paths** so the LLM can load the right information when it needs it. The brain doesn't hold all memories in working memory either. It has *paths back* — and those paths are the cross-links, the index, the tags.
+
+This is exactly why the [Karpathy LLM Wiki](../notes/karpathy-llm-wiki-convergence.md) pattern beats RAG. RAG reconstructs the retrieval path from scratch on every query — like a brain that lost all its white matter tracts and has to re-derive every association from raw sensory data each time. The vault's pre-built link structure means the associations are already there, maintained, ready to traverse. The LLM reads INDEX.md (thalamus), follows links to the relevant pages (white matter tracts), and synthesizes across them (association cortex). The path exists before the query.
+
+### The Ingest Cycle
+
+The full cycle mirrors sensory processing → memory consolidation:
+
+1. **Sensation:** Raw input arrives in `raw/` (article, transcript, PDF)
+2. **Perception:** The LLM reads and interprets the source, discusses key takeaways with the human
+3. **Encoding:** The LLM creates structured vault pages with cross-links — the hippocampus forming new associations
+4. **Consolidation:** `/vault-sync` updates INDEX.md, tag files, and bidirectional links — strengthening the pathways
+5. **Retrieval:** Future queries traverse the link structure to find and synthesize relevant knowledge
+6. **Reconsolidation:** New information updates existing pages — memories are revised, not just appended
+
+The human's role throughout is the prefrontal cortex: deciding what to attend to, what matters, what emphasis to give. The LLM does the encoding, filing, and cross-referencing — the bookkeeping that makes the memory system actually work. This is why wikis maintained by humans alone always die: the maintenance burden (the hippocampal/association work) grows faster than human willingness to do it. The LLM doesn't get bored.
+
 ## Open Questions
+- At what vault scale does INDEX.md-based retrieval (thalamic routing) break down, requiring embedding search (something more like parallel sensory processing)?
+- Can the vault develop the equivalent of "intuition" — fast, cached retrieval paths that skip the full INDEX.md traversal? (Karpathy's "hot cache" was a primitive version.)
+- **Neural plasticity / self-modifying skills:** The brain model is missing adaptation — pathways that fire together wire together, unused connections get pruned, frequently-used paths get myelinated. The vault's skills are "learned behaviors," and a self-modifying skill with a fitness function would be the synaptic plasticity layer. The hard part is defining the fitness function — the same problem as in [evolutionary game theory](./evolutionary-capitalist/value-utility-evolutionary-game-theory.md): the fitness landscape determines everything, and defining it wrong produces pathological optimization. Candidate: `/vault-heartbeat` as the first self-tuning skill, once the right fitness metric emerges. Videos exist on using markdown to define fitness functions for skills — worth ingesting when found.
 - What's the optimal agent-to-human ratio for different types of work?
 - How do organizations support humans through the pacing challenge?
 - As AI handles more cognitive execution, does the remaining human work become more or less satisfying?

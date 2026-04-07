@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-13
+---
 # Evolutionary Capitalist (YouTube Channel)
 > Small YouTube streamer building a systematic critique of libertarianism/anarcho-capitalism and proposing an alternative framework he calls "Evolutionary Capitalism."
 
-**Status:** active
-**Created:** 2026-03-13
 **Channel:** [Evolutionary Capitalism-Utilitarianism](https://www.youtube.com/@Evolutionary-Capitalist)
 **Links:** [Self-Ownership and Property Rights](../philosophy/legal-theory/self-ownership-and-property-rights.md), [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md), [Legal Theory](../philosophy/legal-theory/README.md)
 

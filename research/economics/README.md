@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-12
+---
 # Economics
 > A major area of interest — understanding how value, trade, and systems of exchange work.
 
-**Status:** active
-**Created:** 2026-02-12
 **Links:** [Vault Index](../../INDEX.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Computation and Information Theory](../computation-and-information.md)
 
 ## Why This Matters

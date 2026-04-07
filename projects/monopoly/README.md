@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02
+---
 # Monopoly
 > Monopoly game engine with mathematically rigorous AI — Markov chains, property valuation, and strategic trading.
 
-**Status:** active
-**Created:** 2026-02
 **Repo:** [github.com/chrisaacson69/monopoly](https://github.com/chrisaacson69/monopoly)
 
 ## Vault ↔ Project Relationship

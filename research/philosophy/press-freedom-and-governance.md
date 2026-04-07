@@ -1,9 +1,11 @@
+---
+status: active
+created: 2026-03-12
+---
 # Press Freedom and Governance — Pre-commitment, Information, and the Observation Problem
 > Free press is the mechanism by which every other constitutional constraint is monitored. Remove it, and pre-commitments become unenforceable.
 
-**Status:** active
-**Created:** 2026-03-12
-**Links:** [Philosophy](./README.md), [Newcomb's Paradox](./newcombs-paradox.md), [The Gödel Governance Problem](./the-godel-governance-problem.md), [Opposing Forces](./opposing-forces.md), [The Technology-Governance Gap](./technology-governance-gap.md), [Scope Confusion](./morality/scope-confusion.md), [The Weighting Problem](./epistemology/weighting-problem.md), [Relational Objectivity](./epistemology/relational-objectivity.md), [Market Efficiency and Human Limits](../economics/market-efficiency-and-human-limits.md), [Legal Theory](./legal-theory/README.md), [Registration and Scope Creep](./legal-theory/registration-and-scope-creep.md), [The SAVE Act and the Suffrage Question](../debates/save-act-suffrage-hoppian.md), [Civilizational Cycles](./civilizational-cycles.md)
+**Links:** [Philosophy](./README.md), [Newcomb's Paradox](./newcombs-paradox.md), [The Gödel Governance Problem](./the-godel-governance-problem.md), [Opposing Forces](./opposing-forces.md), [The Technology-Governance Gap](./technology-governance-gap.md), [Scope Confusion](./morality/scope-confusion.md), [The Weighting Problem](./epistemology/weighting-problem.md), [Relational Objectivity](./epistemology/relational-objectivity.md), [Market Efficiency and Human Limits](../economics/market-efficiency-and-human-limits.md), [Legal Theory](./legal-theory/README.md), [Registration and Scope Creep](./legal-theory/registration-and-scope-creep.md), [The SAVE Act and the Suffrage Question](../debates/save-act-suffrage-hoppian.md), [Civilizational Cycles](./civilizational-cycles/README.md)
 
 ## The Core Claim
 
@@ -118,7 +120,7 @@ The principle is not about democracy specifically. It's about making governance 
 
 ### The Civilizational Cycles Connection
 
-The [civilizational cycles](./civilizational-cycles.md) framework tracks the voluntary-to-coercive drift that characterizes institutional decay. Free press is the early warning system for this drift. When governments begin restricting press freedom, it's diagnostic — the institution is protecting itself from accountability, which is the first stage of the sclerosis that precedes collapse.
+The [civilizational cycles](./civilizational-cycles/README.md) framework tracks the voluntary-to-coercive drift that characterizes institutional decay. Free press is the early warning system for this drift. When governments begin restricting press freedom, it's diagnostic — the institution is protecting itself from accountability, which is the first stage of the sclerosis that precedes collapse.
 
 Historical pattern:
 - **Roman Republic** — no formal press, but the Forum served as public information space. As power concentrated (late Republic → Empire), public information became propaganda. The shift from republic to autocracy tracked the shift from public discourse to controlled narrative.
@@ -173,4 +175,4 @@ This is the structural equivalent of the government outsourcing classification t
 5. **The relationship between press freedom and federalism.** Local press has collapsed economically. National press covers national politics. Who observes local government? The observation mechanism may have a geographic gap that no amount of press freedom can fix without an economic model for local journalism.
 
 ## Tags
-[philosophy](../../tags/philosophy.md), [free-markets](../../tags/free-markets.md), [civilizational-cycles](../../tags/civilizational-cycles.md), [libertarian-law](../../tags/libertarian-law.md)
+[philosophy](../../tags/philosophy.md), [free-markets](../../tags/free-markets.md), [civilizational-cycles](../../tags/civilizational-cycles/README.md), [libertarian-law](../../tags/libertarian-law.md)

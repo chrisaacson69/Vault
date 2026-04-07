@@ -1,8 +1,10 @@
+---
+status: planning
+created: 2026-02-26
+---
 # BattleTech Simulator
 > Monte Carlo combat simulator to derive empirical BattleValue for BattleTech mechs and find bargains in the official BV2 system.
 
-**Status:** planning
-**Created:** 2026-02-26
 **Links:** [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [YouTube Migration](../youtube-migration/README.md)
 
 ## Motivation

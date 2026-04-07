@@ -1,9 +1,11 @@
+---
+status: active — exploratory
+created: 2026-02-20
+---
 # Opposing Forces — Why Every Action Generates a Reaction
 > A metaphysical exploration of why concentrated power always produces counter-forces, and whether this is a fundamental feature of reality.
 
-**Status:** active — exploratory
-**Created:** 2026-02-20
-**Links:** [Morality](./morality/README.md), [Measurement, Causality, and Free Will](./measurement-causality.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Civilizational Cycles](./civilizational-cycles.md), [Government Formation](./legal-theory/government-formation.md), [Legal Theory](./legal-theory/README.md), [The Multiplayer Coalition Problem](../gaming/multiplayer-coalition-problem.md), [Insurance](../economics/insurance.md)
+**Links:** [Morality](./morality/README.md), [Measurement, Causality, and Free Will](./measurement-causality.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Civilizational Cycles](./civilizational-cycles/README.md), [Government Formation](./legal-theory/government-formation.md), [Legal Theory](./legal-theory/README.md), [The Multiplayer Coalition Problem](../gaming/multiplayer-coalition-problem.md), [Insurance](../economics/insurance.md)
 
 ## The Observation
 

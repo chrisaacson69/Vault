@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-20
+---
 # Gaming
 > Games as interactive laboratories for systems thinking — strategy, economics, simulation, and AI.
 
-**Status:** active
-**Created:** 2026-02-20
 **Links:** [Economics](../economics/README.md), [Computation and Information Theory](../computation-and-information.md), [Monopoly](../../projects/monopoly/README.md), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Demolition Man Analysis](../demolition-man-analysis.md)
 
 ## Why This Matters
@@ -32,6 +34,10 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 ### MOO1 Theory — [moo1/](./moo1/)
 - [MOO1 Optimal Strategy](./moo1/optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
 - [MOO1 MIRR Analysis](./moo1/mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
+
+### Master of Magic — [master-of-magic/](./master-of-magic/)
+- [Economic Analysis](./master-of-magic/README.md) — BV + MIRR applied to all units, buildings, and spells; "balance through imbalance" tested quantitatively
+- [Tier System and MIRR](./master-of-magic/tier-system-and-mirr.md) — time-gated tiers as investment; Wraith rush, Halfling Slinger stacking, building option value
 
 ## Genres and What They Teach
 

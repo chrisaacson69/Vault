@@ -19,3 +19,5 @@
 - [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)
 - [H-Neurons: The Neural Basis of Hallucination](../research/h-neurons.md)
 - [The Birthmark and the Search for Truth](../research/philosophy/epistemology/the-birthmark.md)
+- [Obsidian Plugin Setup](../notes/obsidian-plugin-setup.md)
+- [Karpathy LLM Wiki — Independent Convergence](../notes/karpathy-llm-wiki-convergence.md)

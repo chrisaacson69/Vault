@@ -1,8 +1,10 @@
+---
+status: planning
+created: 2026-02-17
+---
 # DJ Set 1 — Progressive/Trance Mix
 > 11-track set built around texture-over-harmony philosophy, with a BPM staircase from 120→129.
 
-**Status:** planning
-**Created:** 2026-02-17
 **Links:** [Tag: music](../../tags/music.md), [Set Mastering Pipeline](../set-mastering/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md)
 **Repo:** `C:\Users\Chris.Isaacson\source\repos\camelot_from_youtube`
 

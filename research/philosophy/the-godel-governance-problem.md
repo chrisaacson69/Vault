@@ -1,9 +1,11 @@
+---
+status: active — open problem (possibly the central unsolved problem of political philosophy)
+created: 2026-03-04
+---
 # The Godel Governance Problem
 > Can a system be powerful enough to prevent monopoly without becoming one?
 
-**Status:** active — open problem (possibly the central unsolved problem of political philosophy)
-**Created:** 2026-03-04
-**Links:** [Gödel's Incompleteness Theorems](./logic-and-math/godel-incompleteness.md), [Opposing Forces](./opposing-forces.md), [Government Formation](./legal-theory/government-formation.md), [Scope Confusion](./morality/scope-confusion.md), [Civilizational Cycles](./civilizational-cycles.md), [Registration and Scope Creep](./legal-theory/registration-and-scope-creep.md), [Morality](./morality/README.md), [Computation and Information Theory](../computation-and-information.md), [New Cycle (fiction project)](../../projects/new-cycle/README.md), [The End of the End of History (Yarvin x Starkey)](../debates/yarvin-starkey-end-of-history.md)
+**Links:** [Gödel's Incompleteness Theorems](./logic-and-math/godel-incompleteness.md), [Opposing Forces](./opposing-forces.md), [Government Formation](./legal-theory/government-formation.md), [Scope Confusion](./morality/scope-confusion.md), [Civilizational Cycles](./civilizational-cycles/README.md), [Registration and Scope Creep](./legal-theory/registration-and-scope-creep.md), [Morality](./morality/README.md), [Computation and Information Theory](../computation-and-information.md), [New Cycle (fiction project)](../../projects/new-cycle/README.md), [The End of the End of History (Yarvin x Starkey)](../debates/yarvin-starkey-end-of-history.md)
 
 ## The Problem
 
@@ -25,7 +27,7 @@ Build a government large enough to contain monopolistic forces (corporate, milit
 
 The [Godel trap](./morality/scope-confusion.md): a system powerful enough to govern itself is powerful enough to destroy itself. The Constitution is the best historical attempt at a friction structure to slow this process — but it slows, not stops. The ratchet turns. Powers expand. Checks erode. Sunsets get renewed.
 
-**Timescale:** States typically last centuries before the internal contradictions overwhelm them. The [civilizational cycle](./civilizational-cycles.md) is the empirical record: consolidation → stability → corruption → collapse → reconsolidation. The cycle is guaranteed by the [opposing forces](./opposing-forces.md) principle — power concentration generates counter-forces that eventually overwhelm it.
+**Timescale:** States typically last centuries before the internal contradictions overwhelm them. The [civilizational cycle](./civilizational-cycles/README.md) is the empirical record: consolidation → stability → corruption → collapse → reconsolidation. The cycle is guaranteed by the [opposing forces](./opposing-forces.md) principle — power concentration generates counter-forces that eventually overwhelm it.
 
 ### Option B: Don't Build a State (Ancap/REA)
 
@@ -164,7 +166,7 @@ The [opposing forces](./opposing-forces.md) principle guarantees that any monopo
 
 ### Civilizational Cycles: The Timeline Is Centuries
 
-The [civilizational cycle](./civilizational-cycles.md) literature (Ibn Khaldun, Toynbee, Turchin, Tainter, Olson) converges on a cycle length of roughly 200-400 years for major civilizational units. The state rises, consolidates, corrupts, and falls. This is the timescale of opposing forces operating on state-level monopolies.
+The [civilizational cycle](./civilizational-cycles/README.md) literature (Ibn Khaldun, Toynbee, Turchin, Tainter, Olson) converges on a cycle length of roughly 200-400 years for major civilizational units. The state rises, consolidates, corrupts, and falls. This is the timescale of opposing forces operating on state-level monopolies.
 
 ### The Timescale Problem: Generations Suffer
 

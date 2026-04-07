@@ -1,8 +1,10 @@
+---
+status: "active — hub page, synthesizes content developed across multiple files"
+created: 2026-02-12
+---
 # Cognitive Ability vs. Motor Skills
 > LLMs and autopilot NNs solve fundamentally different problems with fundamentally different architectures. Even humans have separate systems for thinking and moving. This page is the hub — the deep treatment lives in measurement-causality.
 
-**Status:** active — hub page, synthesizes content developed across multiple files
-**Created:** 2026-02-12
 **Links:** [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Cyborg Model](./cyborg-model.md), [LLM Grounding Problem](./llm-grounding-problem.md), [H-Neurons](./h-neurons.md), [Conservation of Complexity](../notes/conservation-of-complexity.md)
 
 ## The Core Distinction

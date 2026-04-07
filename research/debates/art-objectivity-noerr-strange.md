@@ -6,7 +6,7 @@
 **Participants:** Rob Noerr (negative — art has subjective elements), Chris Strange (affirmative — art is purely objective)
 **Duration:** ~6 hours 25 minutes
 **Format:** No-prep — Rob walked in blind (no topic, no opponent). Chris came fully prepared.
-**Vault relevance:** [epistemology](../../research/philosophy/epistemology/README.md), [economics / value theory](../../research/economics/value-and-profit.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [legal theory](../../research/philosophy/legal-theory/README.md), [Agrippa's trilemma](./agrippa-axioms-wilson-whatever.md), [civilizational cycles](../../research/philosophy/civilizational-cycles.md)
+**Vault relevance:** [epistemology](../../research/philosophy/epistemology/README.md), [economics / value theory](../../research/economics/value-and-profit.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [legal theory](../../research/philosophy/legal-theory/README.md), [Agrippa's trilemma](./agrippa-axioms-wilson-whatever.md), [civilizational cycles](../../research/philosophy/civilizational-cycles/README.md)
 
 ## Context
 
@@ -78,7 +78,7 @@ The entire debate is structurally isomorphic to the classical vs. marginalist va
 
 **Assessment:** Rob's counter is devastating and connects to a deep structural problem.
 
-You can't fix institutional capture by granting more institutional authority. The pipeline that produces experts is itself corrupted, so "expert consensus" is circular. This is the same problem identified in [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md): institutional consolidation → capture → coercion → collapse. Chris is proposing step 2 as a fix for step 3.
+You can't fix institutional capture by granting more institutional authority. The pipeline that produces experts is itself corrupted, so "expert consensus" is circular. This is the same problem identified in [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md): institutional consolidation → capture → coercion → collapse. Chris is proposing step 2 as a fix for step 3.
 
 **Vault connection:** Also connects to [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — specifically the "pushing ethics into law" pattern. Chris wants to codify ethical-scope judgments (what is good art?) into something resembling legal-scope authority (expert panels with objective criteria). The scope confusion thesis predicts this will produce regulatory capture.
 
@@ -135,7 +135,7 @@ Chris is the originalist: the word meant X at inception, so it means X now. Rob 
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — categorical vs. evaluative predicates, ethics-to-law scope error
 - [Agrippa's Trilemma (Wilson-Kyla)](./agrippa-axioms-wilson-whatever.md) — same trilemma, different domain
 - [Legal Theory](../../research/philosophy/legal-theory/README.md) — originalism vs. living interpretation, mens rea / intentionality parallels, corporate personhood (workshop model)
-- [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md) — institutional capture, scope confusion as decay mechanism
+- [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) — institutional capture, scope confusion as decay mechanism
 - [Computation and Information Theory](../../research/computation-and-information.md) — formalizability as a test of objectivity
 
 ## Tags

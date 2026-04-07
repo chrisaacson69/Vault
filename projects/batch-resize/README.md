@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026
+---
 # Batch Resize
 > CLI tool for batch resizing images with configurable size/scaling modes.
 
-**Status:** complete
-**Created:** 2026
 **Repo:** `https://github.com/chrisaacson69/batch-resize`
 
 ## Overview

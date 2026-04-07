@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # Intuitionistic Logic
 > What if truth requires proof? Drop the excluded middle and logic becomes constructive — and accidentally invents the theoretical foundation of programming.
 
-**Status:** active
-**Created:** 2026-03-23
 **Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [The Formal Revolution](./formal-revolution.md), [Gödel's Incompleteness](./godel-incompleteness.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md)
 
 ---

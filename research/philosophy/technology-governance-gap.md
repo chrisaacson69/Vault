@@ -1,9 +1,11 @@
+---
+status: stub — research needed
+created: 2026-03-04
+---
 # The Technology-Governance Gap
 > When the systems we build exceed our ability to understand them, who governs?
 
-**Status:** stub — research needed
-**Created:** 2026-03-04
-**Links:** [The Godel Governance Problem](./the-godel-governance-problem.md), [Opposing Forces](./opposing-forces.md), [Computation and Information Theory](../computation-and-information.md), [The Cyborg Model](../cyborg-model.md), [Civilizational Cycles](./civilizational-cycles.md), [New Cycle (fiction project)](../../projects/new-cycle/README.md)
+**Links:** [The Godel Governance Problem](./the-godel-governance-problem.md), [Opposing Forces](./opposing-forces.md), [Computation and Information Theory](../computation-and-information.md), [The Cyborg Model](../cyborg-model.md), [Civilizational Cycles](./civilizational-cycles/README.md), [New Cycle (fiction project)](../../projects/new-cycle/README.md)
 
 ## The Observation
 

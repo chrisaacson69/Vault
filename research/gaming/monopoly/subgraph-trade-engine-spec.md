@@ -1,8 +1,10 @@
+---
+status: spec — not yet implemented
+created: 2026-03-19
+---
 # Subgraph Trade Engine — Implementation Spec
 > Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.
 
-**Status:** spec — not yet implemented
-**Created:** 2026-03-19
 **Links:** [Monopoly](../../../projects/monopoly/README.md), [Frontier Trade Theory](./frontier-trade-theory.md), [Subgraph Investment Optimization](./subgraph-investment-optimization.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Nash Bargaining Problem](../nash-bargaining-problem.md), [Multiplayer Coalition Problem](../multiplayer-coalition-problem.md)
 
 ## What This Solves

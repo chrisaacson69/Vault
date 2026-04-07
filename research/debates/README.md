@@ -1,8 +1,9 @@
+---
+status: active
+created: 2026-02-25
+---
 # Online Debates
 > Analysis of online "bloodsports" debates — extracting signal from spectacle.
-
-**Status:** active
-**Created:** 2026-02-25
 
 ## Purpose
 

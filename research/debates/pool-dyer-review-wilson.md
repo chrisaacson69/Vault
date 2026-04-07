@@ -135,7 +135,7 @@ Christian morality's heuristics are *in* that data. They encode millennia of emp
 - [Insurance](../../research/economics/insurance.md) — proper vs improper risk pooling
 - [The Weighting Problem](../../research/philosophy/epistemology/weighting-problem.md) — pragmatism needs a weighting function
 - [Opposing Forces](../../research/philosophy/opposing-forces.md) — power concentration generates counter-forces
-- [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md) — liberalism as historically situated
+- [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) — liberalism as historically situated
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [morality](../../tags/morality.md), [economics](../../tags/economics.md)

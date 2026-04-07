@@ -81,7 +81,7 @@ Philosophy that engages with material questions is not itself material. This was
 - [Legal Theory](../../research/philosophy/legal-theory/README.md) — the gap between moral claims and enforceable law
 - [Part 1: Agrippa's Trilemma](./agrippa-axioms-wilson-whatever.md)
 - [Part 3: Liberalism Self-Defeat](./liberalism-self-defeat-wilson-whatever.md)
-- [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md) — moral convergence across societies
+- [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) — moral convergence across societies
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [morality](../../tags/morality.md)

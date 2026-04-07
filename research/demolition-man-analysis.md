@@ -1,10 +1,12 @@
+---
+status: active
+created: 2026-02-12
+---
 # Demolition Man (1993) — A Case Study in Managed Utopia
 > A 30-year-old sci-fi film that predicted the exact failure modes of AI-managed societies. Cocteau isn't an AI, but his vision is indistinguishable from one.
 
-**Status:** active
-**Created:** 2026-02-12
 **Links:** [The Limits of Utopia](../notes/limits-of-utopia.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cyborg Model](./cyborg-model.md), [Gaming](./gaming/README.md)
-**Source:** [Full transcript](./demolition-man-script.txt)
+**Source:** [Full transcript](../raw/articles/demolition-man-script.txt)
 
 ## The Setup
 

@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-05
+---
 # Self-Ownership and the Property Rights Derivation
 > You don't need self-ownership to ground property rights — and the standard chain that tries to is the weak link in libertarian theory.
 
-**Status:** active
-**Created:** 2026-03-05
 **Source:** Discord discussion (lights, Austrian Eleutheria, Lurker) + vault analysis
 **Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Mens Rea](./mens-rea.md), [Government Formation](./government-formation.md)
 

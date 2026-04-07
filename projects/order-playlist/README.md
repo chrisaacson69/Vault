@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026
+---
 # Order Playlist
 > DJ playlist optimizer using Camelot harmonic mixing, BPM smoothness, and energy arcs.
 
-**Status:** complete
-**Created:** 2026
 **Repo:** `https://github.com/chrisaacson69/order-playlist`
 **Links:** [Camelot From YouTube](../camelot-from-youtube/README.md), [DJ Set 1](../dj-set-1/README.md)
 

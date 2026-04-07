@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-26
+---
 # Episode 8: The Life and Teachings of Socrates
 > The first philosophical martyr: definitions, universals, and the discovery that conceptual knowledge is the answer to skepticism.
 
-**Status:** complete
-**Created:** 2026-03-26
 **Source:** [YouTube](https://www.youtube.com/watch?v=Z6GStY3OpDU) (15:38)
 **Links:** [Series Index](./README.md), [Episode 7: Sophists](./07-sophists.md)
 

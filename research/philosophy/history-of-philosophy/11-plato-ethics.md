@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-30
+---
 # Episode 11: Plato's Ethics — Virtue and the Health of the Soul
 > The tripartite soul (reason, spirit, appetite) wages an internal civil war; virtue is the harmonious rule of reason over the lower parts; "platonic love" ends not in the beloved but in the Form of Beauty itself.
 
-**Status:** complete
-**Created:** 2026-03-30
 **Source:** [YouTube](https://www.youtube.com/watch?v=IVZGLAQOadE) (52:51)
 **Links:** [Series Index](./README.md), [Episode 10: Plato's Epistemology](./10-plato-epistemology.md), [Episode 5: Pythagoras](./05-pythagoras.md)
 

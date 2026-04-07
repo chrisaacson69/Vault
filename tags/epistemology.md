@@ -23,3 +23,4 @@
 - [HoP Ep 9: Plato's Metaphysics](../research/philosophy/history-of-philosophy/09-plato-metaphysics.md)
 - [HoP Ep 10: Plato's Epistemology](../research/philosophy/history-of-philosophy/10-plato-epistemology.md)
 - [HoP Ep 11: Plato's Ethics](../research/philosophy/history-of-philosophy/11-plato-ethics.md)
+- [Karpathy LLM Wiki — Independent Convergence](../notes/karpathy-llm-wiki-convergence.md)

@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-18
+---
 # The Equation of Exchange and the Transaction Multiplier
 > MV = PT looks simple. Decompose T through the GDP expenditure identity and the entire monetary transmission mechanism falls out.
 
-**Status:** active
-**Created:** 2026-03-18
 **Origin:** Discord banking thread → Copilot session (2025-11-19) → expanded here
 **Links:** [Economics](./README.md), [Inflation](./inflation.md), [Business Cycles](./business-cycles.md), [Value and Profit](./value-and-profit.md), [Yarvin x McCormack](../debates/yarvin-mccormack-fake-science-economics.md), [Weinstein x Murphy](../debates/weinstein-murphy-gauge-theory-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md)
 

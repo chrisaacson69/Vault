@@ -2,7 +2,7 @@
 > The same TAG argument meets a less-prepared opponent — a case study in what happens without the right counter-tools.
 
 **Date:** 2026 (exact date unknown)
-**Source:** [YouTube — Swords of Reason](https://www.youtube.com/watch?v=A5ospVAlj9M) — [Transcript](../../logs/debate-transcript-eli-morality.txt)
+**Source:** [YouTube — Swords of Reason](https://www.youtube.com/watch?v=A5ospVAlj9M) — [Transcript](../../raw/debates/debate-transcript-eli-morality.txt)
 **Participants:** Eli Nicks (affirmative, Orthodox Christian) vs Planet Peterson (negative, atheist/empiricist/author)
 **Moderator:** Speak Easy (Swords of Reason)
 **Duration:** ~2.5 hours (debate proper); ~4.5 hours total with Q&A

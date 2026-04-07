@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-16
+---
 # Episode 2: Thales of Miletus and the Birth of Greek Philosophy
 > Why philosophy began in Greece rather than Egypt or Babylon, and how Thales's four surviving sentences launched the entire enterprise.
 
-**Status:** complete
-**Created:** 2026-03-16
 **Source:** [YouTube](https://www.youtube.com/watch?v=BNXoYZv4ZJs) (17:48)
 **Links:** [Series Index](./README.md), [Episode 1: Introduction](./01-introduction.md)
 

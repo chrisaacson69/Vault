@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-19
+---
 # Measurement, Causality, and Free Will
 > If "measurement" is what collapses the wavefunction, and measurement is just physical interaction, then causality is the chain of measurements — and consciousness is the ability to simulate those chains without performing them.
 
-**Status:** active
-**Created:** 2026-02-19
 **Links:** [Legal Theory — Mens Rea](./legal-theory/mens-rea.md), [Cognitive vs. Motor Skills](../cognitive-vs-motor.md), [LLM Grounding Problem](../llm-grounding-problem.md), [Morality](./morality/README.md), [Philosophy](./README.md), [Computation and Information Theory](../computation-and-information.md)
 
 ## The Theory

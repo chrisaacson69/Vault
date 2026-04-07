@@ -1,8 +1,10 @@
+---
+status: active — lifelong project
+created: 2026-02-26
+---
 # BattleValue — A Universal Combat Comparison Metric
 > BV = sqrt(Attack × HP). One number to compare any two units across any game system.
 
-**Status:** active — lifelong project
-**Created:** 2026-02-26
 **Links:** [Gaming](./README.md), [Economics](../economics/README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [YouTube Migration](../../projects/youtube-migration/README.md)
 
 ## The Problem

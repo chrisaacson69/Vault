@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-08
+---
 # Diplomacy: 7 AI Models Play the Ultimate Coalition Game
 > Analysis of a 10-year Diplomacy game between 7 LLMs — a near-perfect laboratory for the vault's game theory, negotiation, and grounding frameworks.
 
-**Status:** active
-**Created:** 2026-03-08
 **Source:** [YouTube — 7 AI Models Play Diplomacy](https://www.youtube.com/watch?v=lEOTKYxiIzs)
 **Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [The Nash Bargaining Problem](./nash-bargaining-problem.md), [Bilateral Trade Valuation](./bilateral-trade-valuation.md), [Value and Profit](../economics/value-and-profit.md), [The Cyborg Model](../cyborg-model.md), [Morality](../philosophy/morality/README.md), [The LLM Grounding Problem](../llm-grounding-problem.md), [Computation and Information Theory](../computation-and-information.md), [H-Neurons](../h-neurons.md)
 

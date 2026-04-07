@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-12
+---
 # Risk and Entrepreneurship
 > A business is a repeatable value engine — but every engine runs on bets. Profit is the reward for bearing risk correctly. Loss is the cost of guessing wrong.
 
-**Status:** active
-**Created:** 2026-02-12
 **Links:** [Economics](./README.md), [Value and Profit](./value-and-profit.md), [Insurance](./insurance.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md)
 
 ## Business as Repeatable Value Under Constraints

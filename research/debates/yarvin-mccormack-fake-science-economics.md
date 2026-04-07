@@ -1,11 +1,13 @@
+---
+status: complete
+created: 2026-03-13
+---
 # The Fake Science of Economics — Curtis Yarvin x Peter McCormack
 > Austrian + mercantilist synthesis, personal net worth as the real inflation metric, and the Nash equilibrium argument for Bitcoin over gold.
 
-**Status:** complete
-**Created:** 2026-03-13
 **Source:** [YouTube video](https://www.youtube.com/watch?v=BkwrLP3ihFE) (1:50:16, uploaded 2025-10-20, 66K views)
 **Participants:** Curtis Yarvin (Mencius Moldbug, NRx thinker, Urbit creator), Peter McCormack (Bitcoin podcaster)
-**Links:** [Civilizational Cycles](../philosophy/civilizational-cycles.md), [Economics](../economics/README.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md), [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md)
+**Links:** [Civilizational Cycles](../philosophy/civilizational-cycles/README.md), [Economics](../economics/README.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md), [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md)
 
 ## Context
 
@@ -19,7 +21,7 @@ Yarvin's framing: modern macroeconomics (post-1920) isn't science — it's gover
 
 His recommendation: read John Stuart Mill's "The Currency Juggle" for the 19th century understanding of monetary manipulation. Read Friedrich List for how nations should actually do economics. Read Mises for the underlying logic. Read Menger for the origin of money.
 
-**Vault note:** This connects to the vault's existing [Dalio analysis](../philosophy/civilizational-cycles.md) — GDP as a metric was born alongside the Fed and the shift from gold to managed money. The metric and the management were co-designed.
+**Vault note:** This connects to the vault's existing [Dalio analysis](../philosophy/civilizational-cycles/README.md) — GDP as a metric was born alongside the Fed and the shift from gold to managed money. The metric and the management were co-designed.
 
 ### 2. Mises Over Hayek
 
@@ -49,7 +51,7 @@ The synthesis: Mises tells you how markets work. List tells you how states shoul
 
 Equity is a liability. Every time the stock market rises, the balance sheet expands — more red ink, not more real wealth. The flight to real values (Mises's *Flucht in die Sachwerte*) is why stocks, gold, and Bitcoin keep rising. It's not a sign of health; it's a sign that the dollar is dying.
 
-**Vault assessment:** This is a testable claim. If Z1 growth tracks real-economy stagnation rather than real-economy improvement, it supports his thesis. The vault's existing [Dalio analysis](../philosophy/civilizational-cycles.md) already documents the debt-to-GDP ratio explosion — Z1 as inflation may be a complementary metric. Worth researching independently.
+**Vault assessment:** This is a testable claim. If Z1 growth tracks real-economy stagnation rather than real-economy improvement, it supports his thesis. The vault's existing [Dalio analysis](../philosophy/civilizational-cycles/README.md) already documents the debt-to-GDP ratio explosion — Z1 as inflation may be a complementary metric. Worth researching independently.
 
 ### 5. Maturity Mismatching as the Root Banking Scam
 
@@ -57,7 +59,7 @@ Mises's core banking critique: banks should match their liability terms to their
 
 "All American banks are insolvent and are only held up by guarantees from the Fed." The "hold to maturity" accounting category exists to hide this.
 
-**Vault note:** This is standard Austrian banking theory (Mises, de Soto) but well-articulated. Connects directly to [Dalio's debt cycle](../philosophy/civilizational-cycles.md) — maturity mismatching is the mechanism that enables the debt cycle's expansion phases.
+**Vault note:** This is standard Austrian banking theory (Mises, de Soto) but well-articulated. Connects directly to [Dalio's debt cycle](../philosophy/civilizational-cycles/README.md) — maturity mismatching is the mechanism that enables the debt cycle's expansion phases.
 
 ### 6. Gold Exchange Standard vs. Gold Standard
 

@@ -1,8 +1,10 @@
+---
+status: active
+created: YYYY-MM-DD
+---
 # Project Name
 > One-line description.
 
-**Status:** active
-**Created:** YYYY-MM-DD
 **Links:** _related files_
 
 ## Overview

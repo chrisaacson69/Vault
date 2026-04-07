@@ -1,10 +1,12 @@
+---
+status: active
+created: 2026-03-16
+---
 # History of Philosophy — Leonard Peikoff
 > Lecture-by-lecture analysis of Peikoff's 50-part survey of Western philosophy, from Thales to Kant.
 
-**Status:** active
-**Created:** 2026-03-16
 **Source:** [YouTube Playlist](https://www.youtube.com/playlist?list=PLqsoWxJ-qmMuYO4AKp7NZ_qBy6gaj3cUv)
-**Links:** [Philosophy](../README.md), [Civilizational Cycles](../civilizational-cycles.md), [Epistemology](../epistemology/README.md)
+**Links:** [Philosophy](../README.md), [Civilizational Cycles](../civilizational-cycles/README.md), [Epistemology](../epistemology/README.md)
 
 ## About the Course
 

@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-26
+---
 # YouTube Migration
 > Turning vault research into YouTube scripts — putting ideas into the ether and letting them fall where they do.
 
-**Status:** active
-**Created:** 2026-02-26
 **Repo:** [github.com/chrisaacson69/youtube-migration](https://github.com/chrisaacson69/youtube-migration)
 **Tools:** [animation-studio](https://github.com/chrisaacson69/animation-studio)
 **Infrastructure:** [animation-studio-pod](https://github.com/chrisaacson69/animation-studio-pod)
@@ -49,9 +51,9 @@ Candidate topics across all planned series, roughly ordered by accessibility. Ea
 | 3 | Scope confusion | Philosophy | [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) | Most political disagreements are people applying the wrong enforcement mechanism |
 | 4 | You get what you pay for | Economics | [Words of Wisdom](../../notes/words-of-wisdom.md) + [Insurance](../../research/economics/insurance.md) | Subsidizing X always produces more X — incentives don't care about intentions |
 | 5 | Monopolies fix themselves | Economics | [Opposing Forces](../../research/philosophy/opposing-forces.md) + [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) | Government intervention against monopolies produces captured regulation — worse than the original |
-| 6 | Civilizational cycles | Philosophy | [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md) | Every civilization follows the same arc for the same structural reasons |
+| 6 | Civilizational cycles | Philosophy | [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) | Every civilization follows the same arc for the same structural reasons |
 | 7 | Ancestral knowledge | Philosophy | (new — Kosher laws thread) | Ancient "religious" rules are often empirical knowledge in disguise |
-| 8 | The Kohlberg trap | Philosophy | [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md) + [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) | Demanding government fix everything is developmental regression |
+| 8 | The Kohlberg trap | Philosophy | [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) + [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) | Demanding government fix everything is developmental regression |
 | 9 | The weighting problem | Philosophy | [Weighting Problem](../../research/philosophy/epistemology/weighting-problem.md) | Objective measurements don't produce objective rankings |
 | 10 | Compassion without information | Economics | [Insurance](../../research/economics/insurance.md) | Compassion without information is indistinguishable from recklessness |
 | 11 | BattleValue | Gaming/Math | [BattleValue](../../research/gaming/battle-value.md) | One formula compares any two units in any game — and it's the same math militaries use |

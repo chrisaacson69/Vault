@@ -1,8 +1,10 @@
+---
+status: active — capstone synthesis
+created: 2026-03-23
+---
 # Emergence, Convergence, and the Strange Loop
 > The vault's metaphysical position, stated explicitly: what logic is, why it works, why it doesn't need God, and what it can't prove about itself.
 
-**Status:** active — capstone synthesis
-**Created:** 2026-03-23
 **Links:** [Logic and Mathematics](./README.md), [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [The Formal Revolution](./formal-revolution.md), [The Translation Problem](./the-translation-problem.md), [Gödel's Incompleteness](./godel-incompleteness.md), [Intuitionistic Logic](./intuitionistic-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Quantum Logic](./quantum-logic.md), [Eastern Logical Traditions](./eastern-logic.md), [The Birthmark](../epistemology/the-birthmark.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Measurement, Causality, and Free Will](../measurement-causality.md), [The Gödel Governance Problem](../the-godel-governance-problem.md), [Computation and Information Theory](../../computation-and-information.md)
 
 ---

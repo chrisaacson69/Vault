@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-05
+---
 # Defensive Force, Collateral Damage, and the Defense/Retribution Distinction
 > When is collateral damage justified, and who bears responsibility?
 
-**Status:** active
-**Created:** 2026-03-05
 **Source:** Discord discussion (lights, Austrian Eleutheria, dr.sus, ST_Misfit) — 2026-03-02/03
 **Links:** [Legal Theory](./README.md), [Mens Rea](./mens-rea.md), [Government Formation](./government-formation.md), [The Godel Governance Problem](../the-godel-governance-problem.md), [Morality](../morality/README.md), [Scope Confusion](../morality/scope-confusion.md)
 

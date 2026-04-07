@@ -2,7 +2,7 @@
 > Presuppositional apologetics meets embodied epistemology — the Transcendental Argument for God, dissected.
 
 **Date:** 2026-03-08
-**Source:** [YouTube — Mega Blood Bath Debate](https://www.youtube.com/watch?v=NPqKSgCmBKg) — [Transcript](../../logs/debate-transcript.txt)
+**Source:** [YouTube — Mega Blood Bath Debate](https://www.youtube.com/watch?v=NPqKSgCmBKg) — [Transcript](../../raw/debates/debate-transcript.txt)
 **Participants:** Eli Nicks (affirmative, Orthodox Christian) vs Kurt Allen (negative, skeptic/doctor)
 **Moderator:** Breakfast Tacos
 **Duration:** ~2.5 hours (debate proper); ~6 hours total with audience panel

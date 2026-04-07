@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # Deontology vs. Consequentialism: The False Dichotomy
 > They're not competing theories. They're two phases of the same loop.
 
-**Status:** active
-**Created:** 2026-03-23
 **Links:** [Morality](./README.md), [Emergence, Convergence, and the Strange Loop](../logic-and-math/emergence-and-convergence.md), [Scope Confusion](./scope-confusion.md), [The Birthmark](../epistemology/the-birthmark.md), [The Sheriff Problem](../../debates/utilitarianism-sheriff-counterexample.md), [Computation and Information Theory](../../computation-and-information.md), [Business Cycles](../../economics/business-cycles.md)
 
 ---

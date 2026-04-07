@@ -1,8 +1,10 @@
+---
+status: "stub — connections mapped, detail to follow"
+created: 2026-02-19
+---
 # Computation and Information Theory
 > What can be computed, what can be known, and what emerges from the limits of both.
 
-**Status:** stub — connections mapped, detail to follow
-**Created:** 2026-02-19
 **Links:** [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md), [Economics](./economics/README.md), [Opposing Forces](./philosophy/opposing-forces.md), [Comparative Advantage Bidding (Evo-Cap)](./evolutionary-capitalist/comparative-advantage-bidding.md)
 
 ## Why This Matters

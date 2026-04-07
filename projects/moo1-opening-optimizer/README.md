@@ -1,8 +1,10 @@
+---
+status: planning
+created: 2026-03-07
+---
 # MOO1 Opening Optimizer
 > Turn-level economic simulator for Master of Orion 1 opening theory. Answers: when should you build the 2nd colony ship?
 
-**Status:** planning
-**Created:** 2026-03-07
 **Links:** [MOO1 Optimal Strategy](../../research/gaming/moo1/optimal-strategy.md), [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [BattleTech Simulator](../battletech-simulator/README.md)
 
 ## Motivation

@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-17
+---
 # Subgraph Investment Optimization
 > Given the portion of the investment graph you actually own, find the tractable paths forward.
 
-**Status:** active
-**Created:** 2026-03-17
 **Links:** [Gaming](../README.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [The Nash Bargaining Problem](../nash-bargaining-problem.md), [Monopoly](../../../projects/monopoly/README.md), [Insurance](../../economics/insurance.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
 
 ## The Problem

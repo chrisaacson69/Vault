@@ -2,7 +2,7 @@
 > Definitional control as debate strategy — and why "less, not zero" is a nearly unbeatable frame.
 
 **Date:** 2026 (exact upload date unknown)
-**Source:** [Normal America with Rob Noerr — YouTube](https://www.youtube.com/watch?v=INiUDXj46uM) — [Transcript](../../logs/transcript-INiUDXj46uM.txt)
+**Source:** [Normal America with Rob Noerr — YouTube](https://www.youtube.com/watch?v=INiUDXj46uM) — [Transcript](../../raw/debates/transcript-INiUDXj46uM.txt)
 **Participants:** Rob Noerr (affirmative — a logical society would be less humane) vs. unnamed opponent (negative — it would still be humane)
 **Duration:** ~26 minutes
 **Result:** Rob Noerr wins audience vote, 81% (72 votes)
@@ -94,7 +94,7 @@ Establishing a specific sourced definition early and forcing your opponent to wo
 - [The Fallacy Fallacy](../../research/philosophy/the-fallacy-fallacy.md) — the Nazi comparison is guilt-by-association, not argument. The opponent needed to explain *why* de-prioritizing sympathy is dangerous, not just associate it with someone who did so.
 - [Performative Grounding](../../research/philosophy/morality/performative-grounding-lineage.md) — both claim Christian ethics as their framework but derive incompatible conclusions about what it demands in practice. This is the grounding problem in miniature: same axioms, different applications.
 - [Is Art Purely Objective?](./art-objectivity-noerr-strange.md) — Rob's previous debate. The weighting problem appears again: in the art debate, individual metrics are objective but weighting is subjective; here, individual concerns (suffering, truth, justice) are agreed-upon but their relative priority is subjective.
-- [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md) — both sides agree the current West has "suicidal empathy." The disagreement is about what the corrected society looks like — less empathy (Rob) or redirected empathy (opponent).
+- [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) — both sides agree the current West has "suicidal empathy." The disagreement is about what the corrected society looks like — less empathy (Rob) or redirected empathy (opponent).
 
 ## Open Questions
 

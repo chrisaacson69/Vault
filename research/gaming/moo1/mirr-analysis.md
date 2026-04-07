@@ -1,8 +1,10 @@
+---
+status: active — theory phase
+created: 2026-04-01
+---
 # MOO1: MIRR-Based Investment Decision
 > Applying Modified Internal Rate of Return to the factory-vs-colonizer decision. Instead of brute-force search, use a financial metric to determine which investment has a better return at each decision point.
 
-**Status:** active — theory phase
-**Created:** 2026-04-01
 **Links:** [MOO1 Optimal Strategy](./optimal-strategy.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md), [Value and Profit](../../economics/value-and-profit.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md)
 **Project:** [moo1-opening-optimizer](https://github.com/chrisaacson69/moo1-opening-optimizer)
 

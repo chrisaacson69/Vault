@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-12
+---
 # Claude Opus 4.6 — Research
 > Tracking what's known about Claude Opus 4.6 capabilities, benchmarks, and real-world results.
 
-**Status:** active
-**Created:** 2026-02-12
 **Links:** [Vault Index](../INDEX.md)
 
 ## Sources

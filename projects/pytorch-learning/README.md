@@ -1,8 +1,10 @@
+---
+status: reference
+created: 2026-02-02
+---
 # PyTorch Learning
 > Structured tutorial series through PyTorch fundamentals — tensors to trained models.
 
-**Status:** reference
-**Created:** 2026-02-02
 **Repo:** `https://github.com/chrisaacson69/pytorch-learning`
 **Links:** [PyTorch Audio Learning](../pytorch-audio-learning/README.md)
 

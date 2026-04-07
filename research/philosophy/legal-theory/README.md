@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-17
+---
 # Libertarian Legal Theory
 > Applied legal philosophy from a big-L Libertarian framework — NAP, natural law, Hoppean property rights.
 
-**Status:** active
-**Created:** 2026-02-17
 **Links:** [Morality](../morality/README.md), [Philosophy](../README.md), [Computation and Information Theory](../../computation-and-information.md), [Civilizational Cycles](../civilizational-cycles/README.md)
 
 ## Framework

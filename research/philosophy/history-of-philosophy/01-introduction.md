@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-16
+---
 # Episode 1: Introduction to the History of Western Philosophy
 > Peikoff lays out why the history of philosophy matters, defines the discipline, and maps the 2,400-year arc from Thales to Kant.
 
-**Status:** complete
-**Created:** 2026-03-16
 **Source:** [YouTube](https://www.youtube.com/watch?v=PimrwfknrGI) (34:45)
 **Links:** [Series Index](./README.md)
 
@@ -78,7 +80,7 @@ Ancient philosophy officially dies in 529 AD when non-Christian schools are clos
 
 ### What to Watch
 
-**Top-down causation assumed, not argued.** The entire framework presupposes that philosophy drives culture rather than reflecting it. Peikoff presents this as obvious — the Mars analogy implies that irrational behavior must have an intellectual cause — but there are serious materialist, evolutionary, and institutional explanations for cultural decay that don't route through philosophy departments. The vault's own [Civilizational Cycles](../civilizational-cycles.md) page catalogs several (Turchin's demographic-structural theory, Tainter's complexity collapse). Peikoff never engages these.
+**Top-down causation assumed, not argued.** The entire framework presupposes that philosophy drives culture rather than reflecting it. Peikoff presents this as obvious — the Mars analogy implies that irrational behavior must have an intellectual cause — but there are serious materialist, evolutionary, and institutional explanations for cultural decay that don't route through philosophy departments. The vault's own [Civilizational Cycles](../civilizational-cycles/README.md) page catalogs several (Turchin's demographic-structural theory, Tainter's complexity collapse). Peikoff never engages these.
 
 **Selection bias in the opening litany.** The portrait of modern culture is relentlessly negative and cherry-picked for maximum Objectivist contrast. Modern art = smears, modern music = noise, education = anti-teaching. This is polemic, not survey. The same period produced jazz, film, antibiotics, and the moon landing. The question isn't whether irrationality exists — it does — but whether the ratio is actually worse than prior centuries, or whether we're just more aware of it.
 

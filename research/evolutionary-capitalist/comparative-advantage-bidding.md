@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-13
+---
 # Property Allocation as an Evolutionary Equilibrium: A Comparative Advantage Bidding System
 > He reinvents the price system, calls it something new, and doesn't notice the central planner hiding behind the curtain.
 
-**Status:** complete
-**Created:** 2026-03-13
 **Source:** [YouTube video](https://www.youtube.com/watch?v=inZEc3GLzD8) (5:48, uploaded 2026-02-17, 11 views)
 **Links:** [Channel Overview](./README.md), [Hierarchy of Ownership](./hierarchy-of-ownership.md), [Value and Profit](../economics/value-and-profit.md), [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md), [Computation and Information Theory](../computation-and-information.md), [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md)
 

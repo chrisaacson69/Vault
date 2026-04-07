@@ -2,7 +2,7 @@
 > Wilson's descriptor is true. His conclusion doesn't follow. But the real lesson is that pragmatism is a legitimate philosophical tool — and theories that can't survive contact with reality are wrong.
 
 **Date:** 2026 (clip)
-**Source:** [Andrew Wilson Clips Official — YouTube](https://www.youtube.com/watch?v=FL7einD2jQs) — [Transcript](../../logs/transcript-FL7einD2jQs.txt)
+**Source:** [Andrew Wilson Clips Official — YouTube](https://www.youtube.com/watch?v=FL7einD2jQs) — [Transcript](../../raw/debates/transcript-FL7einD2jQs.txt)
 **Participants:** Andrew Wilson (Force Doctrine proponent) vs. Dave (libertarian caller)
 **Duration:** ~8 minutes
 **Vault relevance:** [scope confusion](../../research/philosophy/morality/scope-confusion.md), [defensive force](../../research/philosophy/legal-theory/defensive-force-and-collateral-damage.md), [the Birthmark](../../research/philosophy/epistemology/the-birthmark.md), [the Gödel governance problem](../../research/philosophy/the-godel-governance-problem.md), [opposing forces](../../research/philosophy/opposing-forces.md)

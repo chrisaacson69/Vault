@@ -1,8 +1,10 @@
+---
+status: active (literature review added)
+created: 2026-02-17
+---
 # Mens Rea in Libertarian Law
 > Debate: does criminal intent (mens rea) have a place in a legal system built on the NAP and natural law?
 
-**Status:** active (literature review added)
-**Created:** 2026-02-17
 **Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Scope Confusion](../morality/scope-confusion.md), [Measurement, Causality, and Free Will](../measurement-causality.md)
 
 ## Positions
@@ -236,7 +238,7 @@ The legal question is: was property violated, and by whom? This is an objective 
 
 **Connection to free speech:** The incitement analysis from the debate below follows the same pattern. "Dangerous speech causes violence" is a morality-scope claim (the speaker bears moral responsibility for inspiring harm) pushed into law (the speaker should be legally liable). The scope confusion thesis predicts this: if you accept that law should judge intent, there is no principled boundary preventing the criminalization of speech that *might* inspire bad acts. Mens rea in criminal law and speech restrictions share the same structural error.
 
-**Connection to the civilizational cycle:** The [master cycle](../civilizational-cycles.md) describes societies moving from voluntary cooperation through institutional capture to coercion. One mechanism: moral claims get codified into law during the consolidation phase ("it works, so mandate it"), become tools for control during the capture phase, and produce the legitimacy crisis during the coercion phase. Mens rea's long history — from Roman law through common law to the Model Penal Code — may be an instance of this ratchet.
+**Connection to the civilizational cycle:** The [master cycle](../civilizational-cycles/README.md) describes societies moving from voluntary cooperation through institutional capture to coercion. One mechanism: moral claims get codified into law during the consolidation phase ("it works, so mandate it"), become tools for control during the capture phase, and produce the legitimacy crisis during the coercion phase. Mens rea's long history — from Roman law through common law to the Model Penal Code — may be an instance of this ratchet.
 
 ## Open Questions
 

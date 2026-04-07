@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-07
+---
 # Master of Orion — Optimal Play Strategy
 > Derived strategy for the original 1993 4X. Race selection, opening theory, tech priorities, ship design through the BattleValue lens, diplomacy, and endgame paths.
 
-**Status:** active
-**Created:** 2026-03-07
 **Links:** [Gaming](../README.md), [BattleValue](../battle-value.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
 
 ## Why MOO1

@@ -1,9 +1,11 @@
+---
+status: concept — developing
+created: 2026-03-04
+---
 # New Cycle — Philosophy as Fiction
 > A post-apocalyptic narrative following humanity rebuilding civilization through parallel covenant communities, dramatizing the vault's philosophical frameworks.
 
-**Status:** concept — developing
-**Created:** 2026-03-04
-**Links:** [Morality](../../research/philosophy/morality/README.md), [Opposing Forces](../../research/philosophy/opposing-forces.md), [Civilizational Cycles](../../research/philosophy/civilizational-cycles.md), [Scope Confusion](../../research/philosophy/morality/scope-confusion.md), [Legal Theory](../../research/philosophy/legal-theory/README.md), [Registration and Scope Creep](../../research/philosophy/legal-theory/registration-and-scope-creep.md), [Economics](../../research/economics/README.md), [Online Debates](../../research/debates/README.md)
+**Links:** [Morality](../../research/philosophy/morality/README.md), [Opposing Forces](../../research/philosophy/opposing-forces.md), [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md), [Scope Confusion](../../research/philosophy/morality/scope-confusion.md), [Legal Theory](../../research/philosophy/legal-theory/README.md), [Registration and Scope Creep](../../research/philosophy/legal-theory/registration-and-scope-creep.md), [Economics](../../research/economics/README.md), [Online Debates](../../research/debates/README.md)
 
 ## Premise
 

@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-16
+---
 # Philosophy
 > First-principles exploration of foundational philosophical questions.
 
-**Status:** active
-**Created:** 2026-02-16
 **Links:** [Economics](../economics/README.md), [The Cyborg Model](../cyborg-model.md)
 
 ## Branches
@@ -12,7 +14,7 @@
 - [Epistemology](./epistemology/README.md) — (stub) how we know what we know; Objectivist engagement; non-human cognition
 - [Legal Theory](./legal-theory/README.md) — applied libertarian legal philosophy; NAP, property rights, adversarial debates
 - [Measurement, Causality, and Free Will](./measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
-- [Civilizational Cycles](./civilizational-cycles.md) — theories of rise and fall; Ibn Khaldun, Spengler, Toynbee, Turchin, Tainter, Hayek, and their connections to economics and the voluntary-to-coercion drift
+- [Civilizational Cycles](./civilizational-cycles/README.md) — theories of rise and fall; Ibn Khaldun, Spengler, Toynbee, Turchin, Tainter, Hayek, and their connections to economics and the voluntary-to-coercion drift
 - [Opposing Forces](./opposing-forces.md) — why every concentration of power generates counter-forces; thermodynamic, computational, game-theoretic, evolutionary, and agential explanations
 - [The Fallacy Fallacy](./the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; the "why" requirement; misapplied fallacy labels; strange loops in fallacy hunting
 - [Newcomb's Paradox](./newcombs-paradox.md) — pre-commitment, decision theory, agent type; EDT vs CDT; connections to governance, performative grounding, and the prisoner's dilemma

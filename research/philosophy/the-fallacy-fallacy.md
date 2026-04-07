@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-09
+---
 # The Fallacy Fallacy
 > Identifying a fallacy in an argument does not prove the conclusion wrong — and treating it as though it does is itself a fallacy.
 
-**Status:** active
-**Created:** 2026-03-09
 **Links:** [Logic and Mathematics](./logic-and-math/README.md), [Scope Confusion](./morality/scope-confusion.md), [Epistemology](./epistemology/README.md), [TAG Debate (Nicks vs Allen)](../debates/god-precondition-knowledge-nicks-allen.md)
 
 ## The Core Problem

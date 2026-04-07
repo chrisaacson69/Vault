@@ -1,9 +1,11 @@
+---
+status: active — formalizing
+created: 2026-02-22
+---
 # The Scope Confusion Thesis
 > Most political and legal disagreements are not about values — they're about which enforcement mechanism is appropriate for a given norm.
 
-**Status:** active — formalizing
-**Created:** 2026-02-22
-**Links:** [Morality](./README.md), [Legal Theory](../legal-theory/README.md), [Mens Rea](../legal-theory/mens-rea.md), [Opposing Forces](../opposing-forces.md), [Civilizational Cycles](../civilizational-cycles.md), [Demolition Man Analysis](../../demolition-man-analysis.md), [Insurance](../../economics/insurance.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
+**Links:** [Morality](./README.md), [Legal Theory](../legal-theory/README.md), [Mens Rea](../legal-theory/mens-rea.md), [Opposing Forces](../opposing-forces.md), [Civilizational Cycles](../civilizational-cycles/README.md), [Demolition Man Analysis](../../demolition-man-analysis.md), [Insurance](../../economics/insurance.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
 
 ## The Key Insight: Enforcement Regimes, Not Content Categories
 
@@ -92,7 +94,7 @@ Banning alcohol, drugs, pornography, blasphemy, homosexuality. These are norms w
 "If it's legal, it's fine." Legality is a floor, not a ceiling. Something can be legal and still warrant social sanction or personal moral rejection. A person who lies constantly, betrays trust, and exploits loopholes violates no law but deserves social enforcement (ethics) and personal judgment (morality). Collapsing all three regimes into law strips society of its non-institutional enforcement tools.
 
 **Escalating ethics to law (regulatory capture):**
-Professional norms, industry standards, best practices — these are socially enforced phenomena. When codified into law (occupational licensing, regulatory compliance), they become tools for incumbents to exclude competitors. Olson's institutional sclerosis (from [Civilizational Cycles](../civilizational-cycles.md)) is partly a scope confusion story: ethical norms that worked as voluntary standards become legal barriers that resist change.
+Professional norms, industry standards, best practices — these are socially enforced phenomena. When codified into law (occupational licensing, regulatory compliance), they become tools for incumbents to exclude competitors. Olson's institutional sclerosis (from [Civilizational Cycles](../civilizational-cycles/README.md)) is partly a scope confusion story: ethical norms that worked as voluntary standards become legal barriers that resist change.
 
 **Insurance mandates as scope confusion:**
 The [insurance analysis](../../economics/insurance.md) is a specific case. Health, lifestyle, and personal risk management are ethics-scope at most (communities can pressure healthy behavior) and morality-scope at minimum (individual responsibility). Mandating insurance coverage for lifestyle-controllable risks escalates these to law-scope, producing the interventionism spiral: mandates → price increases → compulsory participation → rationing. The compassion driving the mandate is real; the enforcement regime is wrong.
@@ -102,7 +104,7 @@ Cocteau in [Demolition Man](../../demolition-man-analysis.md) — every preferen
 
 ## Scope Confusion as the Mechanism Behind Civilizational Decay
 
-The [master cycle](../civilizational-cycles.md) — voluntary cooperation → institutional consolidation → institutional capture → coercion → collapse — can be read as a scope confusion progression:
+The [master cycle](../civilizational-cycles/README.md) — voluntary cooperation → institutional consolidation → institutional capture → coercion → collapse — can be read as a scope confusion progression:
 
 1. **Voluntary cooperation** — each regime operates independently. Morality guides individuals, social enforcement guides communities, law protects rights. High trust. Friction structure intact.
 2. **Institutional consolidation** — socially enforced norms get codified into law because "they work." This seems efficient. Friction structure begins eroding.

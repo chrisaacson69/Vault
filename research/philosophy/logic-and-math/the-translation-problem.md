@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # The Translation Problem
 > Formal logic is only as good as the translation from reality into symbols. That translation is where most reasoning actually fails — and it's the part logic can't help with.
 
-**Status:** active
-**Created:** 2026-03-23
 **Links:** [Logic and Mathematics](./README.md), [Aristotelian Logic](./aristotelian-logic.md), [The Formal Revolution](./formal-revolution.md), [The Birthmark and the Search for Truth](../epistemology/the-birthmark.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Scope Confusion](../morality/scope-confusion.md)
 
 **Further reading:** [van Dalen — *Logic and Structure*](https://www.logicmatters.net/tyl/booknotes/vdalen/) — a standard textbook that takes these foundational issues seriously, though they're poorly known outside academic logic

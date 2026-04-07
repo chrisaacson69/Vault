@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # Non-Classical Logics
 > What happens when you challenge the other axioms? Contradictions that don't explode, truth that comes in degrees, and premises that must actually be relevant.
 
-**Status:** active
-**Created:** 2026-03-23
 **Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Intuitionistic Logic](./intuitionistic-logic.md), [Gödel's Incompleteness](./godel-incompleteness.md), [The Translation Problem](./the-translation-problem.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../the-godel-governance-problem.md), [Scope Confusion](../morality/scope-confusion.md)
 
 ---

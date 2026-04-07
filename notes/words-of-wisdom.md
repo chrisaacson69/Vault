@@ -1,8 +1,10 @@
+---
+status: living document
+created: 2026-02-12
+---
 # Words of Wisdom
 > Hard-won tidbits accumulated over the years. Not platitudes — calls to action.
 
-**Status:** living document
-**Created:** 2026-02-12
 **Links:** [Vault Index](../INDEX.md)
 
 ---

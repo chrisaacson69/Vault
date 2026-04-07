@@ -1,8 +1,10 @@
+---
+status: "active — foundation laid, threads to explore"
+created: 2026-02-16
+---
 # Epistemology — Parking Lot
 > How we know what we know. The foundation underneath everything else.
 
-**Status:** active — foundation laid, threads to explore
-**Created:** 2026-02-16
 **Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [Logic and Mathematics](../logic-and-math/README.md)
 
 ## Why This Matters

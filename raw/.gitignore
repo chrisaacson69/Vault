@@ -1,0 +1,33 @@
+# Default: exclude all non-markdown files in raw/
+# These are source materials that can be re-fetched from URLs in page frontmatter.
+
+# Exclude by type
+*.srt
+*.vtt
+*.srv1
+*.txt
+*.pdf
+*.mp3
+*.mp4
+*.wav
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.docx
+*.html
+
+# Always track markdown (Web Clipper drops, processed articles)
+!*.md
+
+# Always track git infrastructure
+!.gitignore
+!.gitkeep
+
+# ============================================================
+# WHITELIST: non-reproducible files that should be tracked.
+# Add files here when they are referenced by vault pages
+# and cannot be re-fetched from a source URL.
+# ============================================================
+!articles/demolition-man-script.txt

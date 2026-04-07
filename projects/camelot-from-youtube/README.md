@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02
+---
 # Camelot From YouTube
 > Music analysis tool for detecting key, BPM, structure, and energy at the phrase level.
 
-**Status:** active
-**Created:** 2026-02
 **Repo:** `https://github.com/chrisaacson69/camelot_from_youtube`
 **Links:** [DJ Set 1](../dj-set-1/README.md), [Order Playlist](../order-playlist/README.md), [Set Mastering Pipeline](../set-mastering/README.md)
 

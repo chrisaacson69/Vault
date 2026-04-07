@@ -1,8 +1,10 @@
+---
+status: reference
+created: 2026-02-28
+---
 # Vault Gap Audit — 2026-02-28
 > Comprehensive audit of holes, stubs, underdeveloped arguments, missing cross-links, and implied-but-unwritten topics across the vault.
 
-**Status:** reference
-**Created:** 2026-02-28
 **Links:** [INDEX](../INDEX.md), [Active Tasks](../tasks/active.md)
 
 ## Summary

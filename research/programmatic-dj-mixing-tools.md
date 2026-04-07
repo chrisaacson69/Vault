@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-20
+---
 # Programmatic DJ Mixing Tools
 > Research into tools and libraries that can execute a DJ mix from written instructions — loading tracks, time-stretching, beat-matching, applying EQ crossfades, and rendering a continuous output file.
 
-**Status:** active
-**Created:** 2026-02-20
 **Links:** [DJ Set 1](../projects/dj-set-1/README.md), [Set Mastering Pipeline](../projects/set-mastering/README.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md)
 
 ---

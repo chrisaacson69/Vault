@@ -1,8 +1,10 @@
+---
+status: sketch — intended as a bridge between the Vault's observations and George Montañez's conservation of information research
+created: 2026-03-31
+---
 # Conservation of Complexity — A Cross-Domain Pattern
 > Computational work is conserved across transformations. You can move the cost, but you can't destroy it. This pattern appears in information theory, physics, economics, mathematics, and philosophy.
 
-**Status:** sketch — intended as a bridge between the Vault's observations and George Montañez's conservation of information research
-**Created:** 2026-03-31
 **Links:** [Hayek vs Mises](./hayek-vs-mises-calculation.md), [Gödel Against Himself](./godel-against-himself.md), [Planck Measurement](./planck-measurement-working-note.md), [Counting Requires Agents](./bridge-logic-to-morality.md)
 **Related research:** Montañez, "The Famine of Forte" (2017); Montañez et al., conservation of information in learning systems (2019); Shannon-Hartley theorem (1948); Gödel incompleteness (1931); Mises calculation problem (1920); Wolfram computational irreducibility
 

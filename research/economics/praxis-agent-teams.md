@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-12
+---
 # Praxis: Agent Teams vs. the Theory
 > Testing our economic framework against real-world agent team results from Opus 4.6 deployments.
 
-**Status:** active
-**Created:** 2026-02-12
 **Links:** [Economics](./README.md), [Value and Profit](./value-and-profit.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [LLM Grounding Problem](../llm-grounding-problem.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md)
 
 ## Purpose

@@ -1,12 +1,14 @@
+---
+status: complete
+created: 2026-03-15
+---
 # The End of the End of History — Curtis Yarvin (Oakeshott Lectures, Oxford)
 > Both oligarchy (meritocracy) and democracy (populism) have failed. The third Aristotelian form — monarchy — is what everything functional already uses. But Starkey's "little platoons" rebuttal points toward a better answer.
 
-**Status:** complete
-**Created:** 2026-03-15
 **Source:** [YouTube video](https://www.youtube.com/watch?v=zXYl-RLNhk0) (1:19:20, uploaded 2025-11-03, 61K views)
 **Venue:** Sheldonian Theatre, Oxford — Oakeshott Lectures 2025
 **Participants:** Curtis Yarvin (lecturer), David Starkey (respondent — historian)
-**Links:** [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md), [Civilizational Cycles](../philosophy/civilizational-cycles.md), [Opposing Forces](../philosophy/opposing-forces.md), [Press Freedom and Governance](../philosophy/press-freedom-and-governance.md), [Registration and Scope Creep](../philosophy/legal-theory/registration-and-scope-creep.md), [Technology-Governance Gap](../philosophy/technology-governance-gap.md)
+**Links:** [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md), [Civilizational Cycles](../philosophy/civilizational-cycles/README.md), [Opposing Forces](../philosophy/opposing-forces.md), [Press Freedom and Governance](../philosophy/press-freedom-and-governance.md), [Registration and Scope Creep](../philosophy/legal-theory/registration-and-scope-creep.md), [Technology-Governance Gap](../philosophy/technology-governance-gap.md)
 
 ## Context
 
@@ -20,7 +22,7 @@ The Soviet Union was a utopian empire that believed it was the end of history. I
 
 Liberal democracy made the same mistake after 1989: Fukuyama declared history over because we won. But "we won because we won" is might-makes-right reasoning — the same logic that sustained Soviet communism during its heyday. "Genghis Khan thought he was the end of history too."
 
-**Vault connection:** This is the [civilizational cycles](../philosophy/civilizational-cycles.md) page's core insight restated. Every empire in Glubb's table declined without understanding why. Rome, the Abbasids, the Ottomans, the Soviets — each believed they were the final form. The vault's framing: "the error of thinking the problem is solved when it isn't is how constitutional systems decay in the first place."
+**Vault connection:** This is the [civilizational cycles](../philosophy/civilizational-cycles/README.md) page's core insight restated. Every empire in Glubb's table declined without understanding why. Rome, the Abbasids, the Ottomans, the Soviets — each believed they were the final form. The vault's framing: "the error of thinking the problem is solved when it isn't is how constitutional systems decay in the first place."
 
 ### The Two Meanings of "Democracy"
 
@@ -127,4 +129,4 @@ Yarvin's "no valve in the pipe" image perfectly captures the [technology-governa
 Neither Yarvin nor Starkey addresses the vault's central question: **can a system prevent monopoly without becoming one?** Yarvin's monarchy IS a monopoly (accountable or not). Starkey's little platoons resist monopoly but can't defend against a state that decides to absorb them (as it did, starting 1916). The Gödel problem persists.
 
 ## Tags
-[philosophy](../../tags/philosophy.md), [civilizational-cycles](../../tags/civilizational-cycles.md), [libertarian-law](../../tags/libertarian-law.md), [economics](../../tags/economics.md)
+[philosophy](../../tags/philosophy.md), [civilizational-cycles](../../tags/civilizational-cycles/README.md), [libertarian-law](../../tags/libertarian-law.md), [economics](../../tags/economics.md)

@@ -2,7 +2,7 @@
 > The problem isn't who votes. It's what the vote controls.
 
 **Date:** 2026 (clip)
-**Source:** [RattlesnakeTV — YouTube](https://www.youtube.com/watch?v=V4a9t9Y47Wc) — [Transcript](../../logs/transcript-V4a9t9Y47Wc.txt)
+**Source:** [RattlesnakeTV — YouTube](https://www.youtube.com/watch?v=V4a9t9Y47Wc) — [Transcript](../../raw/debates/transcript-V4a9t9Y47Wc.txt)
 **Participants:** Tim Pool vs. Kyla (Not So Eerite), reviewed by Jake (RattlesnakeTV)
 **Duration:** ~24 minutes
 **Vault relevance:** [The SAVE Act and Suffrage](./save-act-suffrage-hoppian.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [The Gödel Governance Problem](../philosophy/the-godel-governance-problem.md), [Taxation and Unrealized Gains](../economics/taxation-and-unrealized-gains.md), [Defensive Force and Collateral Damage](../philosophy/legal-theory/defensive-force-and-collateral-damage.md)
@@ -155,7 +155,7 @@ This is the Hayekian knowledge problem applied to governance: no central authori
 
 1. **Is there a role for weighted voting?** Not restricting WHO votes but weighting votes differently — e.g., net taxpayers get slightly more weight, or votes are weighted by how many dependents you support. This preserves universal suffrage while addressing the stakeholdership concern. Problems: who designs the weights? (Weighting Problem again.)
 2. **Should there be a competence floor without restricting the vote?** Mandatory civics education, or requiring voters to pass a basic knowledge test before each election (not to qualify — everyone votes — but the test score weights the vote). This is Singapore's approach to some extent. Deeply problematic in practice (who writes the test?) but structurally interesting.
-3. **Is scope reduction politically achievable?** The vault says "restrict scope, not the vote." But scope has only expanded for 235 years. Can it actually contract? DOGE is the current experiment. Historical precedent is not encouraging — [civilizational cycles](../philosophy/civilizational-cycles.md) suggest scope expands until collapse.
+3. **Is scope reduction politically achievable?** The vault says "restrict scope, not the vote." But scope has only expanded for 235 years. Can it actually contract? DOGE is the current experiment. Historical precedent is not encouraging — [civilizational cycles](../philosophy/civilizational-cycles/README.md) suggest scope expands until collapse.
 4. **Does digital democracy change the calculus?** If voters could vote issue-by-issue rather than choosing representatives who decide everything, would the competence problem be more tractable? You'd only need to be informed on the issues you choose to vote on.
 
 ## Tags

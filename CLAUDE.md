@@ -10,15 +10,18 @@ This vault uses a folder structure with **cross-linking** to function as a knowl
 
 - **Links between files**: Use relative markdown links, e.g. `[Project Name](./projects/my-project.md)`
 - **Tags**: Each file may include a `## Tags` section at the bottom listing relevant tags as links to tag index files, e.g. `[python](./tags/python.md)`. Tag files in `/tags/` collect reverse-links to everything with that tag.
-- **Front matter**: Files begin with a heading and a brief summary line, then optionally a metadata block:
+- **Front matter**: Files use YAML frontmatter for queryable metadata, followed by the heading, summary, and links:
   ```
+  ---
+  status: active | paused | completed | archived
+  created: YYYY-MM-DD
+  ---
   # Title
   > One-line summary
 
-  **Status:** active | paused | completed | archived
-  **Created:** YYYY-MM-DD
   **Links:** [related item](./path/to/file.md), [another](./path/to/other.md)
   ```
+  Status and Created live in YAML (queryable by Dataview). Links stay as markdown in the body (clickable, graph-visible). Tags stay in the `## Tags` section at the bottom as links to tag index files (graph-visible, queryable via `FROM [[tags/tagname]]`).
 
 ### Folder Purposes
 
@@ -30,6 +33,20 @@ This vault uses a folder structure with **cross-linking** to function as a knowl
 | `tasks/`    | Goals, to-do tracking, milestones                   |
 | `logs/`     | Session logs, journals, progress entries            |
 | `tags/`     | Auto-maintained tag index files for cross-referencing|
+| `raw/`      | Unprocessed source material for ingestion (Web Clipper drops, PDFs, transcripts) |
+
+### Raw Ingestion Workflow
+
+The `raw/` folder holds unprocessed source material — Web Clipper articles, PDFs, transcripts, copied text. When asked to ingest a source:
+
+1. **Read the raw source** and discuss key takeaways with Chris.
+2. **Decide where it belongs** — new research page, addition to existing page, or note.
+3. **Create or update wiki pages** — extract entities, concepts, and arguments into proper vault pages with cross-links.
+4. **Update the index** — add new pages to INDEX.md.
+5. **Update tag indexes** — ensure tag files have back-links for any new pages.
+6. **Log the ingest** — note what was processed and what pages were created/updated.
+
+A single raw source may touch 5-15 wiki pages. The raw file itself is never modified — it's the source of truth.
 
 ### How Claude Should Work With This Vault
 
@@ -40,3 +57,25 @@ This vault uses a folder structure with **cross-linking** to function as a knowl
 5. **Prefer updating over duplicating** — search for existing notes on a topic before creating new ones.
 6. **Use consistent formatting** — follow the front matter and conventions above.
 7. **Log sessions when significant** — if a conversation covers substantial ground, offer to create a log entry.
+8. **Keep pages lean** — overview/README pages should be ~60-80 lines of summaries and pointers. Full arguments, reading lists, and detailed analysis go in sub-pages. Point, don't dump.
+
+### Presentations (Marp)
+
+Slide decks use [Marp](https://marp.app/) — markdown-to-slides. Files with `marp: true` in YAML frontmatter are slide decks.
+
+- **Slide separator:** `---` between slides, or use `headingDivider: 2` to auto-split on `##` headings.
+- **Themes:** `default`, `gaia`, `uncover` (set via `theme:` in frontmatter).
+- **Export:** `marp presentation.md --pdf` or `--pptx` or `--html` (requires Chrome/Edge).
+- **Background images:** `![bg right:40%](image.jpg)` for split layouts.
+- **Speaker notes:** HTML comments `<!-- note text -->`.
+- **Convention:** Use standard markdown links (not wiki-links) in slides. Keep Marp files in the same folder as the research they present, or in `projects/` for project-specific decks.
+
+Example frontmatter:
+```yaml
+---
+marp: true
+theme: gaia
+paginate: true
+headingDivider: 2
+---
+```

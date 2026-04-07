@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-22
+---
 # DJ EQ Blending Technique
 > How pro DJs use EQ — not the crossfader — as the primary transition tool.
 
-**Status:** active
-**Created:** 2026-02-22
 **Links:** [CyborgDJ](../projects/cyborgdj/README.md), [DJ Set 1](../projects/dj-set-1/README.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md)
 
 ## Context

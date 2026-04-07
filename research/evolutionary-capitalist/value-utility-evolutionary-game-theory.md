@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-13
+---
 # Understanding Value/Utility Using General Evolutionary Game Theory
 > He hides subjectivity inside the game definition, declares the payoffs objective, and invents a god called the Perfect Evolutionary Being.
 
-**Status:** complete
-**Created:** 2026-03-13
 **Source:** [YouTube video](https://www.youtube.com/watch?v=3EWLM6G9OCE) (2:36, uploaded 2024-10-18, 26 views)
 **Links:** [Channel Overview](./README.md), [Value and Profit](../economics/value-and-profit.md), [The Weighting Problem](../philosophy/epistemology/weighting-problem.md), [Morality](../philosophy/morality/README.md), [Measurement, Causality, and Free Will](../philosophy/measurement-causality.md)
 

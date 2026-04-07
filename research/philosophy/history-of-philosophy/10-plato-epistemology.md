@@ -1,8 +1,10 @@
+---
+status: complete
+created: 2026-03-27
+---
 # Episode 10: Plato's Epistemology — Innate Ideas to the Forms
 > All learning is remembering: the soul was omniscient before birth, and knowledge is the painful process of digging it back out — culminating in the mystical vision of the Good.
 
-**Status:** complete
-**Created:** 2026-03-27
 **Source:** [YouTube](https://www.youtube.com/watch?v=M5-jnDZujEQ) (42:25)
 **Links:** [Series Index](./README.md), [Episode 9: Plato's Metaphysics](./09-plato-metaphysics.md), [Episode 5: Pythagoras](./05-pythagoras.md)
 

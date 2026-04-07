@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02
+---
 # Slay-C
 > C port of the Slay hex strategy engine — performance-focused, headless, with alpha-beta search and AI arena.
 
-**Status:** active
-**Created:** 2026-02
 **Repo:** `https://github.com/chrisaacson69/slay-c`
 **Links:** [Slay (Python)](../slay/README.md), [Vault Index](../../INDEX.md)
 

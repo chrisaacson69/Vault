@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # Aristotelian Logic
 > The first formal system of reasoning — and the default assumption in almost every philosophy debate today.
 
-**Status:** active
-**Created:** 2026-03-23
 **Links:** [A History of Logic](./history-of-logic.md), [Logic and Mathematics](./README.md), [HoP Ep 3: Heraclitus](../history-of-philosophy/03-heraclitus.md), [HoP Ep 4: Parmenides](../history-of-philosophy/04-parmenides.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
 
 ---

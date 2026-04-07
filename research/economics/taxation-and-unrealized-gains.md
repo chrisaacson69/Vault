@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # Taxation and Unrealized Gains
 > You can't tax what doesn't exist yet. Governments tax models, not reality — and homeowners get hit twice.
 
-**Status:** active
-**Created:** 2026-03-23
 **Origin:** RattlesnakeTV review of Pool vs Kyla debate on LVT (land value tax)
 **Links:** [Economics](./README.md), [Business Cycles](./business-cycles.md), [Inflation](./inflation.md), [The Equation of Exchange](./equation-of-exchange.md), [The Weighting Problem](../philosophy/epistemology/weighting-problem.md), [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md)
 

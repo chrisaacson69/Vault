@@ -9,7 +9,7 @@
 - [Libertarian Legal Theory](../research/philosophy/legal-theory/README.md)
 - [Mens Rea Debate](../research/philosophy/legal-theory/mens-rea.md)
 - [Demolition Man Analysis](../research/demolition-man-analysis.md)
-- [Civilizational Cycles](../research/philosophy/civilizational-cycles.md)
+- [Civilizational Cycles](../research/philosophy/civilizational-cycles/README.md)
 - [Rudyard Lynch (Whatifalthist)](../research/philosophy/whatifalthist.md)
 - [Measurement, Causality, and Free Will](../research/philosophy/measurement-causality.md)
 - [Computation and Information Theory](../research/computation-and-information.md)

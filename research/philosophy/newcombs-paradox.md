@@ -1,10 +1,12 @@
+---
+status: complete — video analysis + vault position
+created: 2026-03-11
+---
 # Newcomb's Paradox — Pre-commitment, Decision Theory, and Agent Type
 > Two boxes, one choice, and the question that splits smart people 50/50. The answer reveals how you think about rationality, free will, and what kind of agent you are.
 
-**Status:** complete — video analysis + vault position
-**Created:** 2026-03-11
 **Source:** [This Paradox Splits Smart People 50/50](https://www.youtube.com/watch?v=Ol18JoeXlVI) — Veritasium (Derek Muller)
-**Transcript:** [newcomb-paradox-transcript.txt](../../logs/newcomb-paradox-transcript.txt)
+**Transcript:** [newcomb-paradox-transcript.txt](../../raw/videos/newcomb-paradox-transcript.txt)
 **Links:** [Measurement, Causality, and Free Will](./measurement-causality.md), [The Gödel Governance Problem](./the-godel-governance-problem.md), [Gaming — Game Theory](../gaming/README.md), [The Nash Bargaining Problem](../gaming/nash-bargaining-problem.md), [The Multiplayer Coalition Problem](../gaming/multiplayer-coalition-problem.md), [Morality](./morality/README.md), [Performative Grounding](./morality/performative-grounding-lineage.md), [The SAVE Act and the Suffrage Question](../debates/save-act-suffrage-hoppian.md), [Legal Theory](./legal-theory/README.md), [D&D Spell Damage Model](../gaming/dnd-spell-damage-model.md)
 
 ## The Setup

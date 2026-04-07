@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-23
+---
 # Bilateral Trade Valuation
 > A trade's value isn't what you get — it's where both players end up 20 turns later.
 
-**Status:** active
-**Created:** 2026-02-23
 **Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [Monopoly](../../projects/monopoly/README.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Insurance](../economics/insurance.md)
 
 ## The Problem

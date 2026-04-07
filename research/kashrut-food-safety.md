@@ -1,9 +1,11 @@
+---
+status: active
+created: 2026-02-26
+---
 # Kashrut and the Food-Safety Hypothesis
 > A thorough, balanced survey of whether the kosher laws of the Hebrew Bible were practical food-safety warnings, including evidence for, against, and alternative explanations.
 
-**Status:** active
-**Created:** 2026-02-26
-**Links:** [Philosophy Research](./philosophy/README.md), [Civilizational Cycles](./philosophy/civilizational-cycles.md)
+**Links:** [Philosophy Research](./philosophy/README.md), [Civilizational Cycles](./philosophy/civilizational-cycles/README.md)
 
 ---
 

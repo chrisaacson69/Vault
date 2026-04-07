@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-02-28
+---
 # Externalities: Fact-Check of the Decomposition Thesis
 > Do externalities decompose into information problems and coercion problems, or are they a genuine third category? A sourced review.
 
-**Status:** active
-**Created:** 2026-02-28
 **Links:** [Economics](./README.md), [Value and Profit](./value-and-profit.md), [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md), [Insurance](./insurance.md), [Legal Theory](../philosophy/legal-theory/README.md), [Scope Confusion](../philosophy/morality/scope-confusion.md)
 
 ## The Thesis Under Review

@@ -2,10 +2,10 @@
 > Voter ID is the easy part. The hard part is whether universal suffrage is structurally compatible with limited government.
 
 **Date:** ~2025
-**Source:** [YouTube](https://www.youtube.com/watch?v=aBWT1lgHSv4) — [Transcript](../../logs/save-act-transcript.txt)
+**Source:** [YouTube](https://www.youtube.com/watch?v=aBWT1lgHSv4) — [Transcript](../../raw/debates/save-act-transcript.txt)
 **Format:** Solo video essay (~33 minutes)
 **Speaker:** Self-identified Rothbardian/Hoppian libertarian (Oregon-based)
-**Vault relevance:** [scope confusion](../philosophy/morality/scope-confusion.md), [civilizational cycles](../philosophy/civilizational-cycles.md), [the Gödel governance problem](../philosophy/the-godel-governance-problem.md), [opposing forces](../philosophy/opposing-forces.md), [economics](../economics/README.md)
+**Vault relevance:** [scope confusion](../philosophy/morality/scope-confusion.md), [civilizational cycles](../philosophy/civilizational-cycles/README.md), [the Gödel governance problem](../philosophy/the-godel-governance-problem.md), [opposing forces](../philosophy/opposing-forces.md), [economics](../economics/README.md)
 
 ---
 
@@ -103,7 +103,7 @@ This maps directly to [scope confusion](../philosophy/morality/scope-confusion.m
 
 The honest assessment: **none of these are sufficient.** The constitution with federalism with separation of powers with a near-impossible amendment process still failed to prevent regulatory capture. Friction structures slow the ratchet but don't stop it. This is the [Gödel governance problem](../philosophy/the-godel-governance-problem.md): any system powerful enough to govern is powerful enough to be captured.
 
-The question isn't "how do we stop the ratchet?" It's "how do we maximize the time between resets?" — which is the [civilizational cycles](../philosophy/civilizational-cycles.md) question.
+The question isn't "how do we stop the ratchet?" It's "how do we maximize the time between resets?" — which is the [civilizational cycles](../philosophy/civilizational-cycles/README.md) question.
 
 **Small government isn't a number — it's a scope constraint.** The government touches only what passes the principled gate, and the gate is hard to move. The 5% → 40% GDP ratchet is evidence that the gate moved too easily, not that the wrong people were voting.
 
@@ -137,4 +137,4 @@ This remains an open problem.
 ---
 
 ## Tags
-[philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md), [libertarian-law](../../tags/libertarian-law.md), [civilizational-cycles](../../tags/civilizational-cycles.md)
+[philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md), [libertarian-law](../../tags/libertarian-law.md), [civilizational-cycles](../../tags/civilizational-cycles/README.md)

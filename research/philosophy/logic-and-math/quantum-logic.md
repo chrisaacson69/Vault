@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-23
+---
 # Quantum Logic
 > The other non-classical logics were invented by philosophers. This one was demanded by nature.
 
-**Status:** active
-**Created:** 2026-03-23
 **Links:** [A History of Logic](./history-of-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Aristotelian Logic](./aristotelian-logic.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md), [Measurement, Causality, and Free Will](../measurement-causality.md)
 
 ---

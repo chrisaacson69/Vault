@@ -1,8 +1,10 @@
+---
+status: reference
+created: 2026-02-02
+---
 # PyTorch Audio Learning
 > Tutorial series on audio processing with TorchAudio — spectrograms, MFCC, pitch, speech recognition.
 
-**Status:** reference
-**Created:** 2026-02-02
 **Repo:** `https://github.com/chrisaacson69/pytorch-audio-learning`
 **Links:** [PyTorch Learning](../pytorch-learning/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md)
 

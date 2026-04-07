@@ -1,9 +1,11 @@
+---
+status: active
+created: 2026-02-20
+---
 # Government Formation and Structure
 > Government is an inevitable product of division of labor — not a social contract, not Hobbes's fear, but economic specialization applied to the coordination problem.
 
-**Status:** active
-**Created:** 2026-02-20
-**Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Measurement, Causality, and Free Will](../measurement-causality.md), [Opposing Forces](../opposing-forces.md), [Economics](../../economics/README.md), [Computation and Information Theory](../../computation-and-information.md), [Civilizational Cycles](../civilizational-cycles.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
+**Links:** [Legal Theory](./README.md), [Morality](../morality/README.md), [Measurement, Causality, and Free Will](../measurement-causality.md), [Opposing Forces](../opposing-forces.md), [Economics](../../economics/README.md), [Computation and Information Theory](../../computation-and-information.md), [Civilizational Cycles](../civilizational-cycles/README.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
 
 ## Why Government Forms — Division of Labor
 
@@ -57,7 +59,7 @@ REAs would face the same pressures. When jurisdictions overlap — when REA-A's 
 
 **Chris's challenge to the libertarian peace thesis:** The argument that trade always dominates conflict assumes comparable bargaining positions. But if one society has such a large force advantage over another that conquest is cheaper than ongoing trade negotiations, force is the economically rational choice.
 
-Rome didn't trade with Gaul — it was cheaper to conquer. The expected value of conquest (resources gained minus war costs) exceeded the expected value of trade when the military asymmetry was large enough. The libertarian counter — that conquered populations resist, maintenance costs compound, and empires eventually collapse under the overhead — is historically true as a long-run observation, but it's an empirical claim about long-run costs, not a logical proof that trade always dominates. In the short and medium term, conquest can absolutely be cheaper. The civilizational cycle (see [Civilizational Cycles](../civilizational-cycles.md)) is the evidence — empires rise *because* force works, then fall because the long-run costs eventually overwhelm the gains.
+Rome didn't trade with Gaul — it was cheaper to conquer. The expected value of conquest (resources gained minus war costs) exceeded the expected value of trade when the military asymmetry was large enough. The libertarian counter — that conquered populations resist, maintenance costs compound, and empires eventually collapse under the overhead — is historically true as a long-run observation, but it's an empirical claim about long-run costs, not a logical proof that trade always dominates. In the short and medium term, conquest can absolutely be cheaper. The civilizational cycle (see [Civilizational Cycles](../civilizational-cycles/README.md)) is the evidence — empires rise *because* force works, then fall because the long-run costs eventually overwhelm the gains.
 
 ### Dispute Resolution as Natural Monopoly (With Caveats)
 
@@ -172,7 +174,7 @@ Government sits in the **law** circle of the [morality framework](../morality/RE
 
 Government is a service provider — it produces coordination, dispute resolution, and defense. Like any service provider, it's subject to:
 - **Division of labor** — the reason it exists
-- **Diminishing returns** — Tainter's complexity argument (see [Civilizational Cycles](../civilizational-cycles.md))
+- **Diminishing returns** — Tainter's complexity argument (see [Civilizational Cycles](../civilizational-cycles/README.md))
 - **The knowledge problem** — it can't centrally plan what markets compute distributively (see [Computation and Information Theory](../../computation-and-information.md))
 - **Institutional capture** — Olson's sclerosis (interest groups capture governance institutions over time)
 

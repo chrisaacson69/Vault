@@ -1,8 +1,10 @@
+---
+status: working note — limits of current understanding reached
+created: 2026-03-30
+---
 # Planck Measurement — Working Note
 > Can you fully measure an object? Explored and partially answered. Needs a physicist to close the loop.
 
-**Status:** working note — limits of current understanding reached
-**Created:** 2026-03-30
 **Links:** [Counting Requires Agents](./bridge-logic-to-morality.md), [Measurement, Causality](../research/philosophy/measurement-causality.md)
 
 ---

@@ -1,9 +1,11 @@
+---
+status: active
+created: 2026-02-17
+---
 # Rudyard Lynch (Whatifalthist)
 > YouTube historian and podcast host who synthesizes macro-historical pattern recognition with evolutionary biology, political economy, and cultural analysis. A popularizer of civilizational cycle theory for a mass online audience.
 
-**Status:** active
-**Created:** 2026-02-17
-**Links:** [Civilizational Cycles](./civilizational-cycles.md), [Philosophy README](./README.md), [Economics](../economics/README.md)
+**Links:** [Civilizational Cycles](./civilizational-cycles/README.md), [Philosophy README](./README.md), [Economics](../economics/README.md)
 
 ---
 
@@ -42,7 +44,7 @@ Lynch's core intellectual goal is to find **recurring patterns in history and an
 
 ### 2. The ~250-Year Secular Cycle
 
-Lynch draws heavily on John Glubb's observation that empires run for roughly 250 years, and on Peter Turchin's structural-demographic cycle (see [Civilizational Cycles](./civilizational-cycles.md) for both). His recurring framework:
+Lynch draws heavily on John Glubb's observation that empires run for roughly 250 years, and on Peter Turchin's structural-demographic cycle (see [Civilizational Cycles](./civilizational-cycles/README.md) for both). His recurring framework:
 
 - Rising civilizations are forged by hardship, scarcity, and external threat -- producing high group solidarity (cognate to Ibn Khaldun's *asabiyyah*)
 - Peak civilizations accumulate wealth, which softens the population and erodes the solidarity that enabled the climb
@@ -302,11 +304,11 @@ This is a common problem in popular macro-history: the framework is real but the
 
 **How he fits in the vault's framework:**
 
-Lynch's work is most useful as a **popular synthesizer of the Turchin/Glubb/Ibn Khaldun tradition** applied to the present moment, with an added biological layer that the canonical theorists lack. His diagnostic of contemporary civilizational stress is largely consistent with the more rigorous analyses already mapped in [Civilizational Cycles](./civilizational-cycles.md). His unique contribution -- the evolutionary biology/behavioral sink angle -- is worth taking seriously as a supplement to the institutional analysis.
+Lynch's work is most useful as a **popular synthesizer of the Turchin/Glubb/Ibn Khaldun tradition** applied to the present moment, with an added biological layer that the canonical theorists lack. His diagnostic of contemporary civilizational stress is largely consistent with the more rigorous analyses already mapped in [Civilizational Cycles](./civilizational-cycles/README.md). His unique contribution -- the evolutionary biology/behavioral sink angle -- is worth taking seriously as a supplement to the institutional analysis.
 
 His coverage of the "voluntary to forced" drift is implicit rather than explicit: he describes it through the lens of solidarity dissolution and decadence, rather than through the trust/institution/coercion language the vault uses. But the underlying dynamic he is pointing at is the same.
 
 ---
 
 ## Tags
-[philosophy](../../tags/philosophy.md), [history](../../tags/history.md), [civilizational-cycles](../../tags/civilizational-cycles.md)
+[philosophy](../../tags/philosophy.md), [history](../../tags/history.md), [civilizational-cycles](../../tags/civilizational-cycles/README.md)

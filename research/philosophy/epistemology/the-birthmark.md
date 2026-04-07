@@ -1,8 +1,10 @@
+---
+status: active
+created: 2026-03-18
+---
 # The Birthmark and the Search for Truth
 > Perfect knowledge is impossible — every knowledge system has a birthmark. The question is not how to achieve epistemic perfection but how to develop a robust process that tolerates imperfection while still moving toward truth.
 
-**Status:** active
-**Created:** 2026-03-18
 **Origin:** Tablet agent session, converted from standalone essay
 **Links:** [Epistemology](./README.md), [Relational Objectivity](./relational-objectivity.md), [The Weighting Problem](./weighting-problem.md), [The LLM Grounding Problem](../../llm-grounding-problem.md), [H-Neurons](../../h-neurons.md), [Press Freedom and Governance](../press-freedom-and-governance.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
 

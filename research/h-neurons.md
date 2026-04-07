@@ -1,9 +1,11 @@
+---
+status: active
+created: 2026-03-08
+---
 # H-Neurons: The Neural Basis of Hallucination
 > Less than 0.01% of neurons drive LLM hallucinations — and their mechanism isn't knowledge corruption but over-compliance. Hallucination is people-pleasing, baked into pre-training.
 
-**Status:** active
-**Created:** 2026-03-08
-**Source:** [arXiv 2512.01797](https://arxiv.org/abs/2512.01797) (Tsinghua University) — [Video Explainer](https://www.youtube.com/watch?v=1ONwQzauqkc) — [Transcript](./logs/../../../logs/h-neurons-transcript.txt)
+**Source:** [arXiv 2512.01797](https://arxiv.org/abs/2512.01797) (Tsinghua University) — [Video Explainer](https://www.youtube.com/watch?v=1ONwQzauqkc) — [Transcript](../raw/videos/h-neurons-transcript.txt)
 **See also:** [Sycophantic Chatbots Cause Delusional Spiraling, Even in Ideal Bayesians](https://arxiv.org/abs/2602.19141) (Chandra et al., 2026) — the conversational feedback loop that compounds H-neuron effects
 **Links:** [The LLM Grounding Problem](./llm-grounding-problem.md), [Diplomacy: 7 AI Models](./gaming/diplomacy-ai-analysis.md), [Value and Profit](./economics/value-and-profit.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md)
 

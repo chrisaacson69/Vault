@@ -2,7 +2,7 @@
 > Transhumanism has no normative foundation — it borrows 80% of Christian ethics and can't justify the 20% it wants to discard.
 
 **Date:** 2025 (exact date unknown)
-**Source:** [Rattlesnake TV — YouTube](https://www.youtube.com/watch?v=gy8L_MmT7sU) — [Transcript](../../logs/transcript-wilson-istvan-transhumanism-christianity.txt)
+**Source:** [Rattlesnake TV — YouTube](https://www.youtube.com/watch?v=gy8L_MmT7sU) — [Transcript](../../raw/debates/transcript-wilson-istvan-transhumanism-christianity.txt)
 **Participants:** Andrew Wilson (Christian, host of The Crucible) vs Zoltan Istvan (transhumanist, journalist, CA gubernatorial candidate)
 **Moderator:** Jake "Rattlesnake" (Rattlesnake TV)
 **Duration:** ~123 min (core debate ~115 min)
@@ -227,7 +227,7 @@ The order matters. Don't lead with "Christianity has changed" — that puts you 
 - [The Fallacy Fallacy](../philosophy/the-fallacy-fallacy.md) — Both sides occasionally label errors without explaining why they matter. Wilson is generally better about the "why," but his Y2K comparison is a misapplied analogy he doesn't unpack.
 - [Relational Objectivity](../philosophy/epistemology/relational-objectivity.md) — The question "is the uber mensch ethical?" is relational: ethical *relative to what framework*? Istvan's inability to specify the framework is the whole problem.
 - [Performative Grounding](../philosophy/morality/performative-grounding-lineage.md) — Wilson's core argument is the performative contradiction: transhumanism presupposes the ethical framework it claims to supersede.
-- [Civilizational Cycles](../philosophy/civilizational-cycles.md) — Wilson's claim that Christian monarchs oversaw major technological advances (industrial revolution etc.) while secular technocracies have produced more surveillance and less freedom.
+- [Civilizational Cycles](../philosophy/civilizational-cycles/README.md) — Wilson's claim that Christian monarchs oversaw major technological advances (industrial revolution etc.) while secular technocracies have produced more surveillance and less freedom.
 - [Newcomb's Paradox](../philosophy/newcombs-paradox.md) — Istvan's "transhumanist wager" is structurally similar: bet on radical modification and hope it works. Wilson's framework is the one-box (pre-commit to an ethical system); Istvan is the two-boxer (take whatever looks good case-by-case).
 
 ## Open Questions

@@ -1,10 +1,12 @@
+---
+status: complete — video analysis
+created: 2026-03-11
+---
 # D&D Spell Damage Model — Math as Game Design Tool
 > Using the central limit theorem, proof by induction, and bimodal distributions to build a spell comparison metric. Same instinct as BattleValue, different game.
 
-**Status:** complete — video analysis
-**Created:** 2026-03-11
 **Source:** [The Math of D&D Spells](https://www.youtube.com/watch?v=yrgbi1xPESc) — The Gorilla of Destiny (PhD student, D&D science books)
-**Transcript:** [dnd-math-spells-transcript.txt](../../logs/dnd-math-spells-transcript.txt)
+**Transcript:** [dnd-math-spells-transcript.txt](../../raw/videos/dnd-math-spells-transcript.txt)
 **Links:** [BattleValue](./battle-value.md), [Gaming](./README.md), [Logic and Mathematics](../philosophy/logic-and-math/README.md), [Newcomb's Paradox](../philosophy/newcombs-paradox.md)
 
 ## The Model

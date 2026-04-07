@@ -1,8 +1,10 @@
+---
+status: sketch
+created: 2026-03-26
+---
 # Gödel Against Himself
 > The man whose theorems break Platonism was a Platonist. Understanding why he's wrong about his own work is the key to the Vault's interpretation of incompleteness.
 
-**Status:** sketch
-**Created:** 2026-03-26
 **Links:** [History of Logic](../research/philosophy/logic-and-math/history-of-logic.md), [Emergence and Convergence](../research/philosophy/logic-and-math/emergence-and-convergence.md), [Counting Requires Agents](./bridge-logic-to-morality.md), [Agency as Moral Ground](./bridge-logic-to-morality.md), [TAG Debate](../research/debates/god-precondition-knowledge-nicks-allen.md)
 **Source:** [Stanford Encyclopedia — Gödel's Philosophy](https://plato.stanford.edu/entries/goedel/#GodPhiVie)
 
