@@ -226,7 +226,7 @@ We can measure k empirically — at least partially — using Federal Reserve Fe
 
 ### The Chart
 
-![Transaction Multiplier: Fedwire vs GDP (1987-2025)](./transaction-multiplier-chart.png)
+![Transaction Multiplier: Fedwire vs GDP (1987-2025)](../../raw/output/transaction-multiplier-chart.png)
 
 ### What the Data Shows
 

@@ -31,5 +31,6 @@
 # and cannot be re-fetched from a source URL.
 # ============================================================
 !articles/demolition-man-script.txt
-!articles/k12-instruction-vs-administration.html
-!articles/us-spending-per-student.html
+!output/transaction-multiplier-chart.png
+!output/k12-instruction-vs-administration.html
+!output/us-spending-per-student.html
