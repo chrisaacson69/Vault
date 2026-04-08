@@ -104,6 +104,7 @@
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
+- [Level 6 — Direct Execution](./research/level-6-direct-execution.md) — beyond software: agents executing processes directly; extends Shapiro's 5 levels of AI coding; the vault's L6 prediction
 - [Cognitive vs. Motor Skills](./research/cognitive-vs-motor.md) — (stub) the architectural split between thinking and moving, in both humans and AI
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
 - [Programmatic DJ Mixing Tools](./research/programmatic-dj-mixing-tools.md) — tools and libraries for executing a DJ mix from written instructions (DawDreamer, pedalboard, pyCrossfade, Reaper)

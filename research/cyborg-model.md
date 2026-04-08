@@ -5,7 +5,7 @@ created: 2026-02-12
 # The Cyborg Model — Human/AI Collaboration
 > Neither side is complete alone. The point is to distribute labor so each side does what they do best.
 
-**Links:** [Economics](./economics/README.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Praxis](./economics/praxis-agent-teams.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Gaming](./gaming/README.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Karpathy LLM Wiki Convergence](../notes/karpathy-llm-wiki-convergence.md)
+**Links:** [Economics](./economics/README.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Praxis](./economics/praxis-agent-teams.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Gaming](./gaming/README.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Karpathy LLM Wiki Convergence](../notes/karpathy-llm-wiki-convergence.md), [Level 6 — Direct Execution](./level-6-direct-execution.md)
 
 ## What "Cyborg" Means
 
@@ -116,16 +116,38 @@ The emerging org model: **2-3 humans + a fleet of specialized agents**, organize
 The capability boundary between "human territory" and "AI territory" is moving fast:
 - January 2025: autonomous coding topped out at 30 minutes
 - Summer 2025: 7 hours (Rakuten)
-- February 2026: 2 weeks (C compiler)
-- Prediction: weeks to months by mid-2026
+- February 2026: 2 weeks (C compiler); StrongDM running a 3-person "dark factory" — no sprints, no Jira, spec in → software out
+- April 2026: Claude Code 90% self-written; Codex 5.3 instrumental in creating itself; the self-referential loop is closed
+- Prediction: weeks to months by mid-2026; [Level 6 — direct execution](./level-6-direct-execution.md) (agents executing processes, not writing software) in narrow domains by 2027
 
 "Your January mental model of what AI can and cannot do is already wrong."
+
+### The J-Curve
+
+A 2025 METR randomized control trial found experienced open-source devs were **19% slower** with AI tools — while believing they were 24% faster. The gap is organizational: bolting AI onto existing workflows causes a productivity dip (the J-curve) because the workflow hasn't been redesigned around the tool. Most organizations are stuck at the bottom of the J. The ones breaking through are the ones who redesigned end-to-end: specs, review processes, CI/CD, org structure.
+
+### The Five Levels
+
+Dan Shapiro's [five levels of AI coding](./level-6-direct-execution.md) (2026) map where the industry stands:
+
+| Level | Human role | AI role |
+|---|---|---|
+| L0: Autocomplete | Writes code | Suggests next line |
+| L1: Intern | Architects | Discrete tasks |
+| L2: Junior dev | Reviews all code | Multi-file changes |
+| L3: Manager | Directs, approves PRs | Implements features |
+| L4: Product manager | Writes spec, checks outcomes | Everything |
+| L5: Dark factory | Writes spec | Spec in → software out |
+| **L6: Direct execution** | **States intent** | **Executes the process — no code needed** |
+
+90% of developers who think they're AI-native are at L2. The vault's prediction: L6 is next — agents executing business processes directly, not writing software to execute them. See [Level 6 — Direct Execution](./level-6-direct-execution.md).
 
 This means:
 - Humans must continuously recalibrate where they add value
 - Skills that were human-only 6 months ago may now be shared or AI-dominated
 - The pacing challenge isn't just technical — it's psychological and organizational
 - "The people in knowledge work desperately need their leaders to understand that humans need a ton of support to get through this change management"
+- The bottleneck has moved from implementation speed to **spec quality** — understanding the problem deeply enough to describe it precisely
 
 The cyborg model isn't static. The distribution table above will look different in 6 months. The human's job is to keep finding the frontier where their judgment, grounding, and physical presence create value that agents can't yet provide — and to stay ahead of the boundary as it moves.
 

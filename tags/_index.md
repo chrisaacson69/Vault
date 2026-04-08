@@ -1,7 +1,7 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 20 files
+- [ai](./ai.md) — 21 files
 - [agents](./agents.md) — 8 files
 - [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 8 files
@@ -9,7 +9,7 @@
 - [claude](./claude.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [crypto](./crypto.md) — 1 file
-- [cyborg](./cyborg.md) — 1 file
+- [cyborg](./cyborg.md) — 4 files
 - [debates](./debates.md) — 11 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 31 files
