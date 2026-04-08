@@ -8,3 +8,4 @@
 - [Praxis: Agent Teams vs. Theory](../research/economics/praxis-agent-teams.md)
 - [The Cyborg Model](../research/cyborg-model.md)
 - [H-Neurons: The Neural Basis of Hallucination](../research/h-neurons.md)
+- [Level 6 — Direct Execution](../research/level-6-direct-execution.md)

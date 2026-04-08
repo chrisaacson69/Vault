@@ -21,3 +21,4 @@
 - [The Birthmark and the Search for Truth](../research/philosophy/epistemology/the-birthmark.md)
 - [Obsidian Plugin Setup](../notes/obsidian-plugin-setup.md)
 - [Karpathy LLM Wiki — Independent Convergence](../notes/karpathy-llm-wiki-convergence.md)
+- [Level 6 — Direct Execution](../research/level-6-direct-execution.md)

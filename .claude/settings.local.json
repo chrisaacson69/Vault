@@ -43,7 +43,9 @@
       "Bash(mv '/c/Users/Chris.Isaacson/vault/research/philosophy/history-of-philosophy/07-transcript*.*' /c/Users/Chris.Isaacson/vault/raw/lectures/)",
       "Bash(git push:*)",
       "Skill(vault-ingest)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\ai-future-bDcgHzCBgmQ.en.srt\" /c/Users/Chris.Isaacson/vault/raw/videos/five-levels-ai-coding.srt)",
+      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\ai-future-bDcgHzCBgmQ-clean.txt\" /c/Users/Chris.Isaacson/vault/raw/videos/five-levels-ai-coding-clean.txt)"
     ]
   }
 }
