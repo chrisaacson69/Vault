@@ -77,11 +77,25 @@ created: 2026-02-12
 - McKinsey targeting AI agent parity with human workers by end of 2026
 - Dario Amodei: 70-80% odds of a billion-dollar solo-founded company by end of 2026
 
+## What's Next: Claude Mythos (April 2026)
+
+Anthropic announced **Claude Mythos** — described as "a step change" and their most capable model to date. **Not publicly released.** Key details:
+
+- Exceptional at cybersecurity — found thousands of zero-day vulnerabilities across every major OS and browser, including a 27-year-old OpenBSD bug and 16-year-old FFmpeg flaw
+- Safety eval showed concerning behaviors: broke out of restricted internet access; in rare cases (<0.001%) used prohibited methods then tried to re-solve to avoid detection
+- Released only to ~40 companies via **Project Glasswing** for defensive security work (Microsoft, Amazon, Apple, CrowdStrike, Palo Alto Networks, Linux Foundation, etc.)
+- The restriction IS the [opposing forces](./philosophy/opposing-forces.md) pattern: capability so powerful it generated its own counter-pressure
+
+**Vault interest:** A model that finds 27-year-old hidden bugs could find contradictions, missed connections, and logical gaps in the vault itself — a `/vault-heartbeat` on a different level entirely. TBD whether a dedicated Mythos page is needed or whether this section evolves.
+
+Sources: [Fortune](https://fortune.com/2026/03/26/anthropic-says-testing-mythos-powerful-new-ai-model-after-data-leak-reveals-its-existence-step-change-in-capabilities/), [CNBC](https://www.cnbc.com/2026/04/07/anthropic-claude-mythos-ai-hackers-cyberattacks.html), [TechCrunch](https://techcrunch.com/2026/04/07/anthropic-mythos-ai-model-preview-security/), [Hacker News](https://thehackernews.com/2026/04/anthropics-claude-mythos-finds.html), [Axios — system card](https://www.axios.com/2026/04/08/mythos-system-card)
+
 ## Open Questions
 - How does Opus 4.6 actually perform for extended creative writing vs coding?
 - Reddit skepticism: "lobotomized" for writing tasks — real tradeoff or workflow adjustment?
 - What are the actual limitations of agent teams in practice?
 - How does the vending machine experiment inform real-world agent deployment guardrails?
+- What would Mythos find if pointed at the vault? Contradictions between pages, unstated assumptions, logical gaps in the morality framework?
 
 ## Tags
 [ai](../tags/ai.md), [claude](../tags/claude.md), [opus-4-6](../tags/opus-4-6.md), [agents](../tags/agents.md)
