@@ -106,7 +106,13 @@ L6 doesn't eliminate the need for humans at the edges. It moves the boundary. Th
 - **Inbound:** EDI/OCR interpreting messy real-world input. Intent is ambiguous at the boundary between the physical world and the digital system. Mistakes happen because the real world doesn't speak clean data.
 - **Outbound:** The holdout who won't interact with AI. Property closings, contract negotiations, regulatory filings where a human counterparty requires a human. L6 creates a new role: the **agent-to-human translator** — a human intermediary who bridges the gap between autonomous agents and people who need a person across the table.
 
-**The permanent insight:** The buffer isn't a temporary problem to be solved. It's a permanent feature of the architecture. The boundaries shift — yesterday the buffer was "someone who can write code," today it's "someone who can write specs," tomorrow it's "someone who can translate between agents and reluctant humans" — but there is always a boundary and it always needs a human. This IS the cyborg model's core claim: the boundary migrates to wherever the current friction is, but it never disappears.
+**The permanent insight:** The buffer isn't a temporary problem to be solved. It's a permanent feature of the architecture. It has always existed — early computing was physical switches and manual wiring; then punch cards; then assembly; then high-level languages; then GUIs; then natural language; now intent. Each step pushed the boundary forward into territory that previously required humans.
+
+But the boundary migrates **both directions** simultaneously:
+- **Push forward:** zero-code, dark factories, agents executing processes — the boundary advances
+- **Push back:** insisting on custom UX, demanding human intermediaries, regulatory requirements for human presence — the boundary retreats where humans assert value or the real world resists
+
+The buffer doesn't shrink monotonically. It oscillates. This is the [opposing forces](../philosophy/opposing-forces.md) pattern applied to human-machine interaction. The cyborg model's core claim: the boundary migrates to wherever the current friction is, but it never disappears — and pushing too hard in either direction generates counter-pressure.
 
 ## Open Questions
 
