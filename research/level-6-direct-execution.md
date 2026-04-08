@@ -94,6 +94,20 @@ What's changing is the **generality**. These were narrow, brittle, pre-programme
 
 The trust gap is the key barrier. L5 produces an artifact you can test. L6 produces actions you can only evaluate after the fact. This maps directly to the [LLM grounding problem](./llm-grounding-problem.md) — the agent needs enough understanding of real-world consequences to act responsibly.
 
+## Boundary Conditions: The Cyborg Implementation Layer
+
+L6 doesn't eliminate the need for humans at the edges. It moves the boundary. Three constraints surfaced during real-world coding work:
+
+**1. UI Convergence** — When AI generates all code, UIs converge toward model defaults. Every Claude-generated app starts looking the same. Implementation is commoditized; the differentiator migrates to **style and taste** — the human judgment about what looks right, feels right, matches the brand. This is the Cyborg Model's "quality/taste" function becoming the primary competitive edge at L5+.
+
+**2. Style as the New UX** — When every L5 shop ships equivalent code quality, the competition shifts to aesthetics, feel, and identity. AI can generate unlimited variations; the human picks which one. "Taste" — previously a soft skill — becomes the hardest and most valuable capability in production software.
+
+**3. The Human Buffer at System Boundaries** — Two directions:
+- **Inbound:** EDI/OCR interpreting messy real-world input. Intent is ambiguous at the boundary between the physical world and the digital system. Mistakes happen because the real world doesn't speak clean data.
+- **Outbound:** The holdout who won't interact with AI. Property closings, contract negotiations, regulatory filings where a human counterparty requires a human. L6 creates a new role: the **agent-to-human translator** — a human intermediary who bridges the gap between autonomous agents and people who need a person across the table.
+
+**The permanent insight:** The buffer isn't a temporary problem to be solved. It's a permanent feature of the architecture. The boundaries shift — yesterday the buffer was "someone who can write code," today it's "someone who can write specs," tomorrow it's "someone who can translate between agents and reluctant humans" — but there is always a boundary and it always needs a human. This IS the cyborg model's core claim: the boundary migrates to wherever the current friction is, but it never disappears.
+
 ## Open Questions
 
 1. **When is durable software still the right answer?** L6 doesn't eliminate software — some processes need offline operation, sub-millisecond latency, or guaranteed determinism. Where's the boundary?
