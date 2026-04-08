@@ -62,8 +62,9 @@ Change the creature, change the morality. This is naturalistic, not Platonic. Fo
 - [The Scope Confusion Thesis](./scope-confusion.md) — most political disagreements are scope assignment errors; enforceability gradient; mens rea
 - [Performative Grounding — Philosophical Lineage](./performative-grounding-lineage.md) — 2,400-year tradition: Aristotle, Apel, Habermas, Gewirth, Hoppe; comprehensive reading list
 - [Deontology vs. Consequentialism](./deontology-consequentialism.md) — false dichotomy; two phases of the same loop; cached consequentialism
+- [The Constitutive/Elective Distinction](./constitutive-elective.md) — replaces the broken objective/subjective vocabulary; morality is mind-dependent AND constitutive (not arbitrary); resolves Open Problem #5
 - [Debate FAQ](./debate-faq.md) — common objections and responses
-- [Open Problems](./open-problems.md) — unresolved tensions: the filter problem, naming an absolute truth, the timescale problem, the dual-path structure, the objective/subjective paradox, mind/brain emergence
+- [Open Problems](./open-problems.md) — unresolved tensions: the filter problem, naming an absolute truth, the timescale problem, the dual-path structure, ~~the objective/subjective paradox~~, mind/brain emergence
 
 ## Resolved Questions
 

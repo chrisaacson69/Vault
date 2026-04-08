@@ -45,3 +45,5 @@
 - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](../research/debates/noerr-logic-feelings-humane.md)
 - [The Birthmark and the Search for Truth](../research/philosophy/epistemology/the-birthmark.md)
 - [A History of Logic](../research/philosophy/logic-and-math/history-of-logic.md)
+- [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
+- [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)

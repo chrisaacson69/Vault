@@ -35,18 +35,11 @@ Example: "slavery is wrong" was discovered empirically across civilizations over
 
 The weakness that remains: "might makes reality" keeps reasserting itself because the brute who acts without arguing faces no performative contradiction, and empirical convergence operates on centuries, not lifetimes. (Clarified 2026-04-05.)
 
-## 5. The Objective/Subjective Paradox
+## ~~5. The Objective/Subjective Paradox~~ — RESOLVED
 
-The vault's framework grounds morality in agency (performative grounding). But agency requires minds.
+**Resolution:** The paradox dissolves because "objective" and "subjective" each conflate two independent axes: (1) mind-dependent vs mind-independent, and (2) constitutive vs elective. Split the axes and both paths are correct — morality IS mind-dependent (path A, axis 1) AND constitutive/non-arbitrary (path B, axis 2). There's no paradox; the two paths answer different questions.
 
-- **Path A:** Morality requires agency, agency requires minds, therefore morality is subjective by definition
-- **Path B:** Morality requires agency, but given agency it's stance-independent, therefore it's objective
-
-Both paths use valid reasoning from the same premises. The conclusion depends entirely on which definition of "objective" you use — and there's no objective way to pick between definitions.
-
-This may not resolve cleanly — the dichotomy itself may be malformed when applied to agent-dependent domains. Relational objectivity ([Relational Objectivity](../epistemology/relational-objectivity.md)) is the vault's candidate for a third category, but the argument is counterintuitive and hard to communicate: "it requires minds to be meaningful, but given minds, no mind can coherently deny it."
-
-Analogy: asking "is slavery objectively wrong in a universe with no minds?" is like asking "what temperature does water boil at in a universe with no water?" The question is a category error, but it *sounds* like a legitimate challenge. (Surfaced 2026-04-05 via TJump panel debate.)
+The constitutive/elective distinction replaces the broken objective/subjective vocabulary. Full argument: [The Constitutive/Elective Distinction](./constitutive-elective.md). (Resolved 2026-04-08 via [Noerr vs Terry X debate review](../../debates/noerr-teryx-subjective-objective-morality.md).)
 
 ## 6. Mind/Brain Emergence and the Physicalism Boundary
 

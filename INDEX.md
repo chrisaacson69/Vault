@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-07
+**Last updated:** 2026-04-08
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -30,6 +30,7 @@
   - [Morality](./research/philosophy/morality/README.md) — naturalistic moral framework built from bedrock concepts
     - [Scope Confusion](./research/philosophy/morality/scope-confusion.md) — why most political disagreements are scope assignment errors; enforceability gradient; mens rea as case study
     - [Deontology vs. Consequentialism](./research/philosophy/morality/deontology-consequentialism.md) — false dichotomy: deontology is cached consequentialism; rules come from testing against reality; objective morality within current constraints; the bridge between logic series and moral framework
+    - [The Constitutive/Elective Distinction](./research/philosophy/morality/constitutive-elective.md) — replaces objective/subjective vocabulary; morality is mind-dependent AND constitutive; resolves the paradox
     - [Debate FAQ](./research/philosophy/morality/debate-faq.md) — common objections and responses; living document for debate prep
     - [Performative Grounding — Philosophical Lineage](./research/philosophy/morality/performative-grounding-lineage.md) — the 2,400-year tradition behind the performative contradiction move; Aristotle through Korsgaard; comprehensive reading list
   - [Logic and Mathematics](./research/philosophy/logic-and-math/README.md) — structural realism; formalisms as maps, not territory
@@ -125,6 +126,7 @@
   - [Gauge Theory Applied to Economics (Weinstein x Murphy)](./research/debates/weinstein-murphy-gauge-theory-economics.md) — "the price level" is a fiction; principal fiber bundle structure in economics; correct derivative makes all index numbers agree; Weighting Problem formalized
   - [Transhumanism vs Christianity (Wilson x Istvan)](./research/debates/wilson-istvan-transhumanism-christianity.md) — transhumanism has no normative foundation; the 80/20 concession; designer baby trap; ability ≠ freedom
   - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](./research/debates/noerr-logic-feelings-humane.md) — definitional control as debate strategy; "less, not zero" frame; scope confusion over suffering
+  - [Subjective vs Objective Morality (Noerr vs Terry X)](./research/debates/noerr-teryx-subjective-objective-morality.md) — both accept "objective = mind-independent" and fight over consequences; the definition itself is broken; category 3 resolves it
   - [Force Doctrine and the Rehabilitation of Pragmatism (Wilson)](./research/debates/wilson-force-doctrine-pragmatism.md) — descriptor is true, conclusion doesn't follow; pragmatism is legitimate; theories ungrounded in reality are wrong
   - [Suffrage, Stakeholdership, and the Scope Problem (Pool vs Kyla)](./research/debates/pool-kyla-suffrage-taxation.md) — uninformed ≠ unstaked; restricted suffrage just changes who exercises tyranny; the problem is scope not franchise; agency and the Hayekian knowledge problem
 

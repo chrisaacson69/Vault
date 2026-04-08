@@ -24,3 +24,5 @@
 - [HoP Ep 10: Plato's Epistemology](../research/philosophy/history-of-philosophy/10-plato-epistemology.md)
 - [HoP Ep 11: Plato's Ethics](../research/philosophy/history-of-philosophy/11-plato-ethics.md)
 - [Karpathy LLM Wiki — Independent Convergence](../notes/karpathy-llm-wiki-convergence.md)
+- [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
+- [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)

@@ -4,3 +4,7 @@ client_secret*.json
 request.token
 *.zip
 youtubeuploader.exe
+
+# Obsidian plugins — installed per-clone via Community Plugins
+.obsidian/plugins/
+.obsidian/community-plugins.json

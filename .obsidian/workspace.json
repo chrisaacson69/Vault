@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "1e86972d279ce439",
+        "id": "2cfe44b4c1639362",
         "type": "tabs",
         "children": [
           {
-            "id": "0d106475dea28a21",
+            "id": "6ff0f59df597d81b",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "notes/marp-test.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "marp-test"
             }
           }
         ]
@@ -158,12 +162,12 @@
               "title": "Outline"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -173,11 +177,16 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "marp-slides:Show Slide Preview": false
     }
   },
-  "active": "0d106475dea28a21",
+  "active": "6ff0f59df597d81b",
   "lastOpenFiles": [
+    "2026-04-07.md",
+    "notes/marp-test.md",
+    "research/philosophy/morality/README.md",
+    "Untitled.base",
     "tags/_index.md"
   ]
 }

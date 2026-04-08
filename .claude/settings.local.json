@@ -41,7 +41,9 @@
       "Bash(mv '/c/Users/Chris.Isaacson/vault/research/debates/*.vtt' '/c/Users/Chris.Isaacson/vault/research/debates/*_clean.txt' '/c/Users/Chris.Isaacson/vault/research/debates/*_raw.txt' /c/Users/Chris.Isaacson/vault/research/debates/agrippa-section.txt /c/Users/Chris.Isaacson/vault/raw/debates/)",
       "Bash(mv '/c/Users/Chris.Isaacson/vault/research/economics/*.vtt' '/c/Users/Chris.Isaacson/vault/research/economics/*.html' '/c/Users/Chris.Isaacson/vault/research/economics/*.txt' '/c/Users/Chris.Isaacson/vault/research/economics/US Real Spending Per Student Over Time.pdf' /c/Users/Chris.Isaacson/vault/raw/articles/)",
       "Bash(mv '/c/Users/Chris.Isaacson/vault/research/philosophy/history-of-philosophy/07-transcript*.*' /c/Users/Chris.Isaacson/vault/raw/lectures/)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Skill(vault-ingest)",
+      "Bash(git reset:*)"
     ]
   }
 }

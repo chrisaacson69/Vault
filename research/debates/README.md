@@ -68,6 +68,7 @@ Links to related research pages.
 - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](./noerr-logic-feelings-humane.md) — definitional control as debate strategy; "less, not zero" frame; scope confusion over suffering; concession cascade
 - [Force Doctrine and the Rehabilitation of Pragmatism (Wilson)](./wilson-force-doctrine-pragmatism.md) — Wilson's descriptor is true but doesn't ground Christian morality; the real lesson is pragmatism is a legitimate philosophical tool; theories ungrounded in reality are wrong
 - [Suffrage, Stakeholdership, and the Scope Problem (Pool vs Kyla)](./pool-kyla-suffrage-taxation.md) — uninformed ≠ unstaked; restricted suffrage just changes who exercises tyranny; the real problem is scope, not the franchise; agency argument; Hayekian knowledge problem applied to governance
+- [Subjective vs Objective Morality (Noerr vs Terry X)](./noerr-teryx-subjective-objective-morality.md) — both accept "objective = mind-independent" and fight over consequences; the definition is broken; morality requires minds; category 3 resolves it
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md)
