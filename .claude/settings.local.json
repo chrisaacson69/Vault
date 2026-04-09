@@ -49,7 +49,20 @@
       "WebFetch(domain:www.msn.com)",
       "WebFetch(domain:www.google.com)",
       "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\infineo-131.en.srt\" /c/Users/Chris.Isaacson/vault/raw/videos/infineo-131-llm-action-austrian.srt)",
-      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\infineo-131-clean.txt\" /c/Users/Chris.Isaacson/vault/raw/videos/infineo-131-llm-action-austrian-clean.txt)"
+      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\infineo-131-clean.txt\" /c/Users/Chris.Isaacson/vault/raw/videos/infineo-131-llm-action-austrian-clean.txt)",
+      "WebFetch(domain:support.claude.com)",
+      "WebFetch(domain:www.testingcatalog.com)",
+      "WebFetch(domain:blog.j370.me)",
+      "WebFetch(domain:www.xda-developers.com)",
+      "WebFetch(domain:c-ai.chat)",
+      "WebFetch(domain:context-link.ai)",
+      "Bash(claude:*)",
+      "Bash(where claude:*)",
+      "WebFetch(domain:claude.com)",
+      "WebFetch(domain:www.mindstudio.ai)",
+      "WebFetch(domain:findskill.ai)",
+      "WebFetch(domain:talk.macpowerusers.com)",
+      "WebFetch(domain:www.lowcode.agency)"
     ]
   }
 }

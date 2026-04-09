@@ -26,3 +26,5 @@
 - [ELIZA — The Pattern Match That Won't Die](../research/eliza.md)
 - [AI History — A Personal Arc](../research/ai-history-personal.md)
 - [OOP Neurons](../projects/oop-neurons/README.md)
+- [Claude Code on a Persistent Cloud VM](../research/claude-code-cloud-vm.md)
+- [iPad + Claude Setup](../notes/ipad-claude-setup.md)
