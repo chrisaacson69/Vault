@@ -5,7 +5,7 @@ created: 2026-02-12
 # The LLM Grounding Problem
 > LLMs live in the text world. Everything — physical presence, spatial relationships, direct experience — gets flattened into tokens. A well-constructed argument can outweigh a lived reality.
 
-**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md)
+**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md)
 
 ## The Core Problem
 
@@ -15,7 +15,7 @@ This is not a bug in a specific model. It's a structural property of how languag
 
 ## Case Study: Among Us (AI vs AI)
 
-**Source:** [10 AIs Play Among Us](https://www.youtube.com/watch?v=cx-Cwz3GdEI) — [Transcript](./transcript3_clean.txt)
+**Source:** [10 AIs Play Among Us](https://www.youtube.com/watch?v=cx-Cwz3GdEI) — [Transcript](../raw/videos/transcript3_clean.txt)
 
 10 AI models played Among Us — a social deduction game where crewmates must identify imposters through observation, alibis, and reasoning, while imposters deceive and manipulate votes.
 
@@ -65,6 +65,42 @@ For agent teams in business:
 - Budget limits should be hard constraints, not suggestions an eloquent argument can override
 - Direct evidence (transaction records, inventory counts) should always outweigh verbal claims
 - The "COO agent" should enforce policies that the "sales agent" literally cannot talk its way around
+
+## Temporal Grounding: Token Time vs Human Time
+
+The spatial grounding problem has a temporal twin. LLMs don't experience time — they experience **token position**. This creates systematic misalignment with human temporal reality.
+
+### How LLMs "See" Time
+
+The model's entire experience is the context window. Everything in it feels like "now." There is no elapsed time between messages — whether the user stepped away for 30 seconds or 3 days, the conversation just continues from the next token. The only clock is a date string injected by the system prompt, which is a discrete label, not a continuous experience.
+
+This produces predictable failure modes:
+
+| LLM says | What it means | Human reality |
+|---|---|---|
+| "Great session today!" | "The context window has been productive" | Work may have spanned multiple days |
+| "Earlier we discussed..." | "Earlier in this context window" | Could have been minutes or weeks ago |
+| "This will take about 20 minutes" | No basis for this estimate whatsoever | LLMs have zero ability to estimate wall-clock time |
+| "Let's wrap up for the night" | Mirroring social cues from the conversation | Has no idea what time it is unless told |
+| "Recently" | "Within the tokens I can see" | Could refer to any timeframe |
+
+### Why This Matters
+
+Fraser's [praxeological analysis](./economics/llm-praxeology.md) identifies "token time" as the LLM's real temporal dimension — each position is non-fungible, non-recoverable, giving rise to genuine opportunity cost. This is real time *for the model*, but it's orthogonal to human time. A 2000-token response takes the same "model time" whether the human reads it in 2 minutes or 2 hours.
+
+The practical consequence: **the model cannot distinguish between "we just did this" and "we did this three sessions ago."** If it's in the context window, it's "now." If it's not, it doesn't exist (unless persisted in memory or vault files with explicit timestamps).
+
+### Existing Mitigations in This Vault
+
+- **YAML frontmatter** — `created:` dates on every page anchor when things actually happened
+- **Session-start hook** — injects today's date at conversation start
+- **Memory files** — use absolute dates, not relative ("2026-04-07" not "last Thursday")
+- **INDEX.md** — `**Last updated:**` field tracks when the vault was last modified
+- **CLAUDE.md** — already instructs against giving time estimates
+
+### What's Still Missing
+
+The mitigations anchor *page creation* and *session start* in human time. What they don't anchor is the **flow within a session** — the model genuinely doesn't know if 5 minutes or 5 hours passed between messages. This is usually harmless (social niceties about "wrapping up") but could matter for time-sensitive operations (scheduling, deadlines, coordination with external processes).
 
 ## The Translation Challenge
 
