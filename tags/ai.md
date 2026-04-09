@@ -24,3 +24,5 @@
 - [Level 6 — Direct Execution](../research/level-6-direct-execution.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [ELIZA — The Pattern Match That Won't Die](../research/eliza.md)
+- [AI History — A Personal Arc](../research/ai-history-personal.md)
+- [OOP Neurons](../projects/oop-neurons/README.md)

@@ -11,3 +11,4 @@
 - [Set Mastering Pipeline](../projects/set-mastering/README.md)
 - [Programmatic DJ Mixing Tools](../research/programmatic-dj-mixing-tools.md)
 - [MOO1 Opening Optimizer](../projects/moo1-opening-optimizer/README.md)
+- [OOP Neurons](../projects/oop-neurons/README.md)

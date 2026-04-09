@@ -1,7 +1,7 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 23 files
+- [ai](./ai.md) — 25 files
 - [agents](./agents.md) — 9 files
 - [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 8 files
@@ -25,13 +25,13 @@
 - [game-theory](./game-theory.md) — 11 files
 - [games](./games.md) — 13 files
 - [grounding](./grounding.md) — 1 file
-- [history](./history.md) — 5 files
+- [history](./history.md) — 6 files
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
 - [libertarian-law](./libertarian-law.md) — 14 files
 - [llm-limitations](./llm-limitations.md) — 5 files
 - [logic](./logic.md) — 8 files
-- [machine-learning](./machine-learning.md) — 3 files
+- [machine-learning](./machine-learning.md) — 4 files
 - [mathematics](./mathematics.md) — 10 files
 - [morality](./morality.md) — 12 files
 - [music](./music.md) — 4 files
@@ -39,10 +39,10 @@
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 12 files
 - [peikoff](./peikoff.md) — 12 files
-- [philosophy](./philosophy.md) — 48 files
+- [philosophy](./philosophy.md) — 49 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
-- [python](./python.md) — 8 files
+- [python](./python.md) — 11 files
 - [religion](./religion.md) — 7 files
 - [scope-confusion](./scope-confusion.md) — 2 files
 - [pytorch](./pytorch.md) — 2 files

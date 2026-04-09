@@ -49,3 +49,4 @@
 - [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [ELIZA — The Pattern Match That Won't Die](../research/eliza.md)
+- [AI History — A Personal Arc](../research/ai-history-personal.md)

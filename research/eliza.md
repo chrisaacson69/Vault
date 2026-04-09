@@ -5,7 +5,7 @@ created: 2026-04-09
 # ELIZA — The Pattern Match That Won't Die
 > A 1966 keyword-lookup chatbot that people keep comparing to LLMs. The comparison tells you more about the person making it than about either system.
 
-**Links:** [LLM Grounding Problem](./llm-grounding-problem.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [The Cyborg Model](./cyborg-model.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md)
+**Links:** [LLM Grounding Problem](./llm-grounding-problem.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [The Cyborg Model](./cyborg-model.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [AI History — Personal Arc](./ai-history-personal.md)
 
 ## What ELIZA Actually Was
 

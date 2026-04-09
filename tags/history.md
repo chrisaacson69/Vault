@@ -6,3 +6,4 @@
 - [Kashrut and the Food-Safety Hypothesis](../research/kashrut-food-safety.md)
 - [History of Philosophy — Peikoff](../research/philosophy/history-of-philosophy/README.md)
 - [ELIZA — The Pattern Match That Won't Die](../research/eliza.md)
+- [AI History — A Personal Arc](../research/ai-history-personal.md)

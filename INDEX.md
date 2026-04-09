@@ -18,6 +18,7 @@
 - [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
 - [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
+- [OOP Neurons](./projects/oop-neurons/README.md) — object-oriented neural network on GPU; neurons as proper objects; exploring what OOP reveals vs matrix multiplication (concept)
 - [YouTube Migration](./projects/youtube-migration/README.md) — YouTube content project: episode scripts, Manim scenes, shared assets (active)
   - **Repo:** [youtube-migration](https://github.com/chrisaacson69/youtube-migration) — episodes organized by series (philosophy, math, economics)
   - **Tools:** [animation-studio](https://github.com/chrisaacson69/animation-studio) — media server, mouth marker, lip-sync compositor, overlay generator
@@ -71,6 +72,7 @@
     - [Ep 11: Plato's Ethics](./research/philosophy/history-of-philosophy/11-plato-ethics.md) — tripartite soul; virtue as harmonious rule of reason; platonic love
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [ELIZA — The Pattern Match That Won't Die](./research/eliza.md) — 1966 keyword-lookup chatbot vs modern LLMs; why the comparison persists and why it's wrong; praxeological analysis
+- [AI History — A Personal Arc](./research/ai-history-personal.md) — from ELIZA to OOP neurons to LLMs; each step got something right and something wrong; the training problem
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual
   - [Risk and Entrepreneurship](./research/economics/risk-and-entrepreneurship.md) — uncertainty, time preference, and entrepreneurial judgment
