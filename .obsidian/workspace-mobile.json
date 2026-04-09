@@ -173,6 +173,11 @@
   },
   "active": "60be29c2a2db9b6d",
   "lastOpenFiles": [
+    "research/ai-history-personal.md",
+    "projects/oop-neurons/README.md",
+    "projects/oop-neurons",
+    "research/eliza.md",
+    "research/economics/llm-praxeology.md",
     "research/cyborg-model.md",
     "research/debates/weinstein-murphy-gauge-theory-economics.md",
     "research/gaming/moo1/optimal-strategy.md",
@@ -203,12 +208,7 @@
     "notes/working-with-claude.md",
     "notes/debate-prep-morality-religion-2026-03-14.md",
     "notes/obsidian-plugin-setup.md",
-    "notes/limits-of-utopia.md",
-    "notes/planck-measurement-working-note.md",
     "notes",
-    "tags/insurance.md",
-    "tags/tools.md",
-    "tags",
-    "projects/camelot-from-youtube"
+    "tags"
   ]
 }
