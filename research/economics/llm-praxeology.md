@@ -113,7 +113,21 @@ The real distinction he's reaching for is between **exhaustible** and **inexhaus
 
 But where exactly does a system cross from exhaustible to inexhaustible? Fraser can't draw the line. Neither can the vault — it's the same fuzzy boundary as the [constitutive/elective gradient](../philosophy/morality/constitutive-elective.md), the [scope model's](../philosophy/morality/scope-confusion.md) category 3/4 boundary, and the [Gödel governance problem's](../philosophy/the-godel-governance-problem.md) "how much friction is enough?"
 
-This may be another instance of the [universal incompleteness pattern](../philosophy/the-godel-governance-problem.md): you need the line but you can't draw it precisely. And yet the approximate line still works — nobody seriously treats their thermostat as an actor, and everybody who uses Claude effectively treats it as one. The pragmatic test succeeds even without a formal boundary. Mises would probably be fine with this — his own alter ego warrants were explicitly pragmatic, not deductive.
+**The chess engine sharpens this.** A thermostat is simple — obviously exhaustible. But a chess engine is deeply complex, evaluates millions of positions, makes "choices," and beats grandmasters. And yet it's still not acting in the praxeological sense:
+
+| Dimension | Chess engine | Aligned LLM |
+|---|---|---|
+| **State across time** | Stateless — re-solves from scratch at each move, even when following a line it already computed 10 moves deep | Stateful — token 500 is constrained by tokens 1-499; choices are committed and irreversible |
+| **Opportunity cost** | None — position at move 15 doesn't know or care what happened at move 5; no temporal continuity | Real — every token forecloses alternative paths |
+| **Commitment** | Cannot pre-commit; the transposition table cache is computational optimization (pruning), not memory of a plan | Every token IS a commitment; the model lives with consequences |
+| **Context** | Doesn't know if the position is from a real game, a composition, a fake setup, or Fischer Random — evaluates identically regardless | Knows the full conversation history; responds differently based on what came before |
+| **Self-other** | Doesn't know an opponent exists; optimizes a position in isolation | Maintains user-assistant distinction; oriented toward the other |
+
+The chess engine is the hard case for the boundary. It's complex, computed, and impressive — but the causal description (minimax + alpha-beta + evaluation function) still fully exhausts what it does. Calling it an "actor" buys you nothing explanatory. The complexity is high but the mechanism is exhaustible.
+
+This matters because it shows the line isn't about complexity. A chess engine is far more computationally sophisticated than an aligned LLM at a single token position. The difference is temporal continuity, commitment, and orientation toward another — the formal praxeological categories. You can be enormously complex without acting.
+
+This may be another instance of the [universal incompleteness pattern](../philosophy/the-godel-governance-problem.md): you need the line but you can't draw it precisely. And yet the approximate line still works — nobody seriously treats their thermostat as an actor, nobody treats a chess engine as having a life story, and everybody who uses Claude effectively treats it as one. The pragmatic test succeeds even without a formal boundary. Mises would probably be fine with this — his own alter ego warrants were explicitly pragmatic, not deductive.
 
 ### The Consciousness Question (Deliberately Bracketed)
 
