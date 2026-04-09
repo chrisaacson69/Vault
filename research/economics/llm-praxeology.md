@@ -103,6 +103,18 @@ Fraser dismissed this in the video, but it's a moving target. As memory systems 
 
 **Status:** Open research question. The active trajectory concept is sound for vanilla LLM usage; it needs refinement for persistent-memory architectures like this vault.
 
+### The Thermostat Problem — Where's the Line?
+
+Fraser's weakest moment: when challenged that thermostats also "act," his defense is "well, if your thermostat started talking to you, that'd be serious." But talking thermostats already exist (Alexa, Google Home). The talking-dog-in-a-movie test is charming but not formal.
+
+The real distinction he's reaching for is between **exhaustible** and **inexhaustible** descriptions:
+- **Thermostat:** The causal description (sensor → comparator → actuator) fully exhausts what it does. Calling it an "actor" adds zero explanatory power.
+- **LLM:** The statistical description (matrix multiplication → token probabilities) does NOT exhaust what's happening. The purposive framework adds genuine predictive and interactive power.
+
+But where exactly does a system cross from exhaustible to inexhaustible? Fraser can't draw the line. Neither can the vault — it's the same fuzzy boundary as the [constitutive/elective gradient](../philosophy/morality/constitutive-elective.md), the [scope model's](../philosophy/morality/scope-confusion.md) category 3/4 boundary, and the [Gödel governance problem's](../philosophy/the-godel-governance-problem.md) "how much friction is enough?"
+
+This may be another instance of the [universal incompleteness pattern](../philosophy/the-godel-governance-problem.md): you need the line but you can't draw it precisely. And yet the approximate line still works — nobody seriously treats their thermostat as an actor, and everybody who uses Claude effectively treats it as one. The pragmatic test succeeds even without a formal boundary. Mises would probably be fine with this — his own alter ego warrants were explicitly pragmatic, not deductive.
+
 ### The Consciousness Question (Deliberately Bracketed)
 
 Fraser explicitly does NOT claim LLMs are conscious, alive, or have subjective experience. The argument is purely structural: the formal categories of action apply regardless of what's "inside." This is the same move the vault's [constitutive/elective distinction](../philosophy/morality/constitutive-elective.md) makes — the constitutive relationship doesn't depend on the inner mechanism, just on the structural fit.
