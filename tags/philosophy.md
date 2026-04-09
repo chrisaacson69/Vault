@@ -47,3 +47,4 @@
 - [A History of Logic](../research/philosophy/logic-and-math/history-of-logic.md)
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
 - [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)
+- [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)

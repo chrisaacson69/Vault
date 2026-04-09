@@ -47,7 +47,9 @@
       "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\ai-future-bDcgHzCBgmQ.en.srt\" /c/Users/Chris.Isaacson/vault/raw/videos/five-levels-ai-coding.srt)",
       "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\ai-future-bDcgHzCBgmQ-clean.txt\" /c/Users/Chris.Isaacson/vault/raw/videos/five-levels-ai-coding-clean.txt)",
       "WebFetch(domain:www.msn.com)",
-      "WebFetch(domain:www.google.com)"
+      "WebFetch(domain:www.google.com)",
+      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\infineo-131.en.srt\" /c/Users/Chris.Isaacson/vault/raw/videos/infineo-131-llm-action-austrian.srt)",
+      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\infineo-131-clean.txt\" /c/Users/Chris.Isaacson/vault/raw/videos/infineo-131-llm-action-austrian-clean.txt)"
     ]
   }
 }

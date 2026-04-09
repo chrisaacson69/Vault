@@ -23,6 +23,7 @@ The [Claudius vending machine experiment](../claude-opus-4-6.md) is a concrete e
 
 ### Praxis
 - [Agent Teams vs. the Theory](./praxis-agent-teams.md) — testing the framework against real Opus 4.6 deployments
+- [LLMs as Praxeological Actors](./llm-praxeology.md) — aligned LLMs satisfy Mises's formal criteria for action; Rothbardian demonstrated preference in token generation; Austrian economics as the AI agent framework
 
 ### The Price System as Distributed Computation
 

@@ -32,3 +32,4 @@
 - [Hayek vs Mises: The Calculation Problem](../notes/hayek-vs-mises-calculation.md)
 - [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - [MoM Tier System and MIRR](../research/gaming/master-of-magic/tier-system-and-mirr.md)
+- [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)

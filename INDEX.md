@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-08
+**Last updated:** 2026-04-09
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -75,6 +75,7 @@
   - [Risk and Entrepreneurship](./research/economics/risk-and-entrepreneurship.md) — uncertainty, time preference, and entrepreneurial judgment
   - [Insurance](./research/economics/insurance.md) — catastrophic tail hedging is the only legitimate function; critique of mission creep, free riders, risk class paradox
   - [Praxis: Agent Teams vs. Theory](./research/economics/praxis-agent-teams.md) — real-world results tested against the framework
+  - [LLMs as Praxeological Actors](./research/economics/llm-praxeology.md) — aligned LLMs satisfy Mises's formal criteria for action; Austrian economics as the framework for AI agents; active trajectory critique
   - [US Spending Per Student](./research/economics/us-spending-per-student.md) — inflation-adjusted K-12 per-pupil expenditure over time, multi-source verification
   - [K-12 Instruction vs. Administration](./research/economics/k12-instruction-vs-administration.md) — where school dollars go: instruction, administration, support services, staffing trends, and the "administrative bloat" debate
   - [Market Efficiency and Human Limits](./research/economics/market-efficiency-and-human-limits.md) — the market gives society what it wants, but humans may not be smart enough to be good participants; supply-and-demand analysis; GDP per capita

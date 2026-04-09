@@ -1,8 +1,8 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 21 files
-- [agents](./agents.md) — 8 files
+- [ai](./ai.md) — 22 files
+- [agents](./agents.md) — 9 files
 - [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 8 files
 - [c](./c.md) — 1 file
@@ -12,9 +12,9 @@
 - [cyborg](./cyborg.md) — 4 files
 - [debates](./debates.md) — 11 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 31 files
+- [economics](./economics.md) — 32 files
 - [education](./education.md) — 3 files
-- [free-markets](./free-markets.md) — 8 files
+- [free-markets](./free-markets.md) — 9 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 25 files
 - [ethics](./ethics.md) — 5 files
@@ -39,7 +39,7 @@
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 12 files
 - [peikoff](./peikoff.md) — 12 files
-- [philosophy](./philosophy.md) — 46 files
+- [philosophy](./philosophy.md) — 47 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 8 files
