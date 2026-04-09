@@ -70,6 +70,7 @@
     - [Ep 10: Plato's Epistemology](./research/philosophy/history-of-philosophy/10-plato-epistemology.md) — innate ideas; all learning is remembering; the mystical vision of the Good
     - [Ep 11: Plato's Ethics](./research/philosophy/history-of-philosophy/11-plato-ethics.md) — tripartite soul; virtue as harmonious rule of reason; platonic love
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
+- [ELIZA — The Pattern Match That Won't Die](./research/eliza.md) — 1966 keyword-lookup chatbot vs modern LLMs; why the comparison persists and why it's wrong; praxeological analysis
 - [Economics](./research/economics/README.md) — value, trade, profit, and how they connect to AI
   - [Value and Profit](./research/economics/value-and-profit.md) — utility theory and why profit is mutual
   - [Risk and Entrepreneurship](./research/economics/risk-and-entrepreneurship.md) — uncertainty, time preference, and entrepreneurial judgment

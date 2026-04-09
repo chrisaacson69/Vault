@@ -23,3 +23,4 @@
 - [Karpathy LLM Wiki — Independent Convergence](../notes/karpathy-llm-wiki-convergence.md)
 - [Level 6 — Direct Execution](../research/level-6-direct-execution.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
+- [ELIZA — The Pattern Match That Won't Die](../research/eliza.md)

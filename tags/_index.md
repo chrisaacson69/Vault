@@ -1,7 +1,7 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 22 files
+- [ai](./ai.md) — 23 files
 - [agents](./agents.md) — 9 files
 - [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 8 files
@@ -25,7 +25,7 @@
 - [game-theory](./game-theory.md) — 11 files
 - [games](./games.md) — 13 files
 - [grounding](./grounding.md) — 1 file
-- [history](./history.md) — 3 files
+- [history](./history.md) — 5 files
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
 - [libertarian-law](./libertarian-law.md) — 14 files
@@ -39,7 +39,7 @@
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 12 files
 - [peikoff](./peikoff.md) — 12 files
-- [philosophy](./philosophy.md) — 47 files
+- [philosophy](./philosophy.md) — 48 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 8 files

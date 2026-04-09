@@ -48,3 +48,4 @@
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
 - [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
+- [ELIZA — The Pattern Match That Won't Die](../research/eliza.md)
