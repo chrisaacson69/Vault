@@ -10,3 +10,4 @@
 - [Business Cycles](../research/economics/business-cycles.md)
 - [Inflation](../research/economics/inflation.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
+- [Measuring Growth — Net Worth vs Transactions](../research/economics/measuring-growth.md)

@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-09
+**Last updated:** 2026-04-10
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -87,6 +87,7 @@
   - [Business Cycles](./research/economics/business-cycles.md) — boom-bust cycles are natural (entrepreneurial error clusters, innovation waves, time preference shifts); government amplifies via political ratchet, moral hazard, prevented liquidation, Cantillon distortion
   - [Inflation](./research/economics/inflation.md) — many causes, only one permanent; monetary expansion is the ratchet; supply shocks, demand shifts, velocity, productivity, and tech-driven demand are real but transient
   - [The Equation of Exchange and the Transaction Multiplier](./research/economics/equation-of-exchange.md) — MV = PT decomposed through C+I+G+NX; each component has a different transaction multiplier k; resolves the velocity puzzle, explains Cantillon routing, financialization as T_financial dominance
+  - [Measuring Growth — Net Worth vs Transactions](./research/economics/measuring-growth.md) — GDP counts activity, not improvement; Three Stooges, manure joke, and the broken window fallacy all expose the same flaw; Austrian critique of aggregate measures
 - [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
   - [The Nash Bargaining Problem](./research/gaming/nash-bargaining-problem.md) — two players, $100, agree or get nothing: Nash's axiomatic solution, patience as leverage, and why identical agents can't trade
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop

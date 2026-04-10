@@ -18,6 +18,9 @@ The [Claudius vending machine experiment](../claude-opus-4-6.md) is a concrete e
 - [Value and Profit](./value-and-profit.md) — utility theory, mutual benefit, and why profit emerges from trade
 - [Risk and Entrepreneurship](./risk-and-entrepreneurship.md) — uncertainty, time preference, and why profit is the reward for correct bets
 
+### Measurement
+- [Measuring Growth — Net Worth vs Transactions](./measuring-growth.md) — GDP counts activity, not improvement; the Stooges, the manure joke, and the broken window all expose the same flaw
+
 ### Risk Management
 - [Insurance](./insurance.md) — the one thing insurance does right (catastrophic tail hedging) and everything it does wrong (free riders, risk class paradox, mission creep)
 
