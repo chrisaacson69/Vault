@@ -111,6 +111,30 @@ This is the measurement error elevated to policy:
 
 4. **Hiding the net worth question.** A homeowner who pays off their mortgage has *increased their net worth* — they now own an asset free and clear. GDP doesn't care about this. It cares that the homeowner didn't generate a rental transaction, so it invents one. The measurement system penalizes the act of becoming wealthier (paying off debt) and rewards the act of staying in debt (continuing to pay rent/mortgage).
 
+### The Inconsistency Is the Tell
+
+If the principle is "ownership of a durable asset generates implicit consumption value," it applies to everything:
+
+| Asset | Imputed? | Why not? |
+|---|---|---|
+| House | Yes (~9% of GDP) | "Housing is a large expenditure category" |
+| Car | No | People lease cars — same logic applies |
+| Furniture | No | You're "consuming" your couch every day |
+| Appliances | No | Own a washer = imputed laundromat fee |
+| Clothing | No | Own a suit = imputed rental |
+
+Apply the principle consistently and GDP becomes entirely fictional — every owned asset generating phantom transactions forever. The fact that it's only applied to housing reveals it's an ad hoc patch, not a principle.
+
+### Depreciation Already Exists — And Points the Other Way
+
+Accounting already has a tool for recognizing the consumption of an asset over time: **depreciation.** But:
+
+- Depreciation is a **cost** (reduces profit/income). Imputed rent is **revenue** (increases GDP). They're opposites.
+- Housing often **appreciates**, not depreciates. So imputed rent counts consumption of an asset that's gaining value — adding a fictional expense for something making you richer.
+- The accounting system already solved this problem. GDP ignores the solution in favor of a fabricated metric that inflates the number.
+
+This is [scope confusion](../philosophy/morality/scope-confusion.md) applied to measurement: the economic event (asset usage over time) is real, but the measurement tool (imputed rent vs depreciation) assigns it to the wrong category (revenue instead of cost) at the wrong scope (GDP instead of individual net worth).
+
 ### What This Reveals
 
 Imputed rent is the Stooges trick at national scale. The economy passes itself a bill that doesn't exist, counts it as activity, and declares growth. It's the manure joke formalized: nobody ate anything, but GDP went up.
