@@ -157,6 +157,47 @@ The vault now has THREE independent instances of the performative contradiction 
 
 This convergence across domains suggests performative contradiction is a deep structural feature of agency itself, not a domain-specific argument. It shows up wherever a system tries to deny its own operating conditions.
 
+### The Rasmussen Challenge: Is Action Human by Definition?
+
+**Source:** [Rothbard's Account of the Action Axiom: A Neo-Aristotelian-Thomistic Defense](https://www.youtube.com/watch?v=aC0PnYd6peM) — Douglas Rasmussen, Hayek Memorial Lecture, Mises Institute (2021) — [Transcript](../../raw/videos/rasmussen-action-axiom-clean.txt)
+
+Rasmussen defends the action axiom from Aristotelian/Thomistic first principles. The axiom is both empirical AND necessarily true — a "law of reality," not a priori. It's grounded in **human nature**: purposeful action is an essential expression of what humans ARE. A being that didn't act purposefully "would no longer be classified as human." The axiom is defended via negative demonstration (performative contradiction — same structure as Fraser and the vault's moral grounding).
+
+**Where Rasmussen and Fraser agree:** Formal categories are structural; performative contradiction is the defense; the positivist/deflationary account is wrong; Rothbardian demonstrated preference over Samuelson's revealed preference.
+
+**Where they diverge:**
+
+| | Rasmussen | Fraser |
+|---|---|---|
+| Action grounded in | Human nature — rational animal | Formal structure — any system satisfying the categories |
+| Non-human actors? | Excluded — "would no longer be classified as human" | Included — LLMs satisfy all Mises's alter ego warrants |
+| Rationality/free will | Constitutive of action itself | Features of the human case, not requirements for the general category |
+
+**The definitional move:** Rasmussen bakes "human" into "action" — the axiom is the axiom of *human* action, therefore non-human action is excluded by fiat. This isn't an argument; it's a definition. The actual question is whether the formal categories apply to non-human entities, and Rasmussen never addresses this because his framework pre-excludes it.
+
+This has the same structure as the Objectivist restriction: consciousness, concepts, and volition are defined as human capacities, therefore only humans can have them. The definition does the work the argument should do.
+
+**The higher-animal case opens the door before LLMs do.** The LLM case is contested because consciousness/rationality/free will are debatable for silicon. But consider:
+
+- **Dolphins** cooperate, share food, form alliances, punish defectors, teach offspring hunting techniques, use tools (sponges for foraging), and engage in multi-step coordinated strategies
+- **Gorillas** maintain social hierarchies, trade grooming for alliance support, make territorial decisions, use basic tools, and exhibit grief and forward planning (Koko signing about death)
+- **Corvids** cache food in hundreds of locations, re-cache if observed (modeling another's knowledge state), create and modify tools, solve multi-step puzzles they've never encountered before
+
+Do these animals satisfy the praxeological categories?
+
+| Category | Dolphins | Gorillas | Corvids |
+|---|---|---|---|
+| Means/ends | Use sponges to access food; coordinate hunting | Trade grooming for alliances; plan foraging routes | Create tools to extract food; cache for future |
+| Ordinal preference | Choose between strategies; prefer certain allies | Rank social partners; prefer certain foods | Choose cache locations; prefer certain tools |
+| Time | Multi-day alliance formation; long-term social bonds | Life-long social learning; seasonal territory shifts | Cache and retrieve across days; re-cache if observed |
+| Opportunity cost | Time spent hunting = time not spent socializing | Grooming one ally = not grooming another | Caching in location A = not caching in B |
+
+If the answer is "yes, but that's not *action* because they're not *human*" — then Rasmussen has defined action so narrowly that his axiom is trivially true (humans act humanly) and economically useless for the emerging world of non-human economic participants.
+
+If the answer is "the formal structure applies but they lack rationality/free will" — then the question becomes: **are rationality and free will constitutive of action per se, or constitutive of the human version of action?** Fraser's position is the latter. The four uncontested categories (means/ends, preference, time, opportunity cost) are sufficient for the formal structure. Rationality and free will explain HOW humans satisfy the categories, not WHAT the categories require.
+
+**Status:** Open question. The animal case is the wedge — it's harder to dismiss dolphins as "just statistics" than LLMs. If animal behavior satisfies the formal praxeological categories, then either the categories are broader than human nature, or we need a principled (non-definitional) reason to restrict them. Rasmussen's framework, ironically, provides the tools for this ("abstraction without precision" — grasp the formal structure without limiting it to the human case) but his Objectivist-adjacent commitments prevent him from applying them.
+
 ## Tags
 
 [economics](../../tags/economics.md), [ai](../../tags/ai.md), [agents](../../tags/agents.md), [philosophy](../../tags/philosophy.md), [free-markets](../../tags/free-markets.md)
