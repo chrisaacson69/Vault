@@ -89,6 +89,34 @@ The honest answer: it's hard. Net worth change is the right concept but difficul
 
 The Stooges had the right instinct — check whether you're actually even. They just did the accounting wrong.
 
+## Case Study: Imputed Rent — The Fabricated Transaction
+
+The US Bureau of Economic Analysis (and most OECD countries) includes **imputed rent** in GDP calculations. The mechanic: every homeowner is treated as if they rent their home to themselves. The government estimates what the home would rent for on the open market and adds that amount to GDP as "housing services consumed."
+
+In 2024, imputed rent accounted for roughly **$2.5 trillion** of US GDP — about 9% of the total. This is not money that changed hands. No one wrote a check. No service was rendered. It's a statistical fiction added to the national accounts.
+
+### The Stated Justification
+
+Without imputed rent, GDP would shift every time someone buys vs rents. A country where everyone rents would show higher GDP than an identical country where everyone owns — because rental payments are real transactions and homeownership isn't. Imputed rent "equalizes" the two.
+
+### The Problem
+
+This is the measurement error elevated to policy:
+
+1. **Double-counting homeowners.** The home purchase is counted as investment (GDP component I). Then the imputed rent is counted annually as consumption (GDP component C). The same asset contributes to GDP twice — once when bought, and every year afterward as a fabricated rental payment to yourself.
+
+2. **Fabricating transactions.** The entire premise of GDP is measuring economic activity — transactions. Imputed rent is not a transaction. Nobody pays, nobody receives. It's a number invented to make a model work.
+
+3. **Inflating GDP by 9%.** Remove imputed rent and US GDP drops by ~$2.5 trillion. That's not a rounding error — it's the size of a major economy appearing out of a statistical convention.
+
+4. **Hiding the net worth question.** A homeowner who pays off their mortgage has *increased their net worth* — they now own an asset free and clear. GDP doesn't care about this. It cares that the homeowner didn't generate a rental transaction, so it invents one. The measurement system penalizes the act of becoming wealthier (paying off debt) and rewards the act of staying in debt (continuing to pay rent/mortgage).
+
+### What This Reveals
+
+Imputed rent is the Stooges trick at national scale. The economy passes itself a bill that doesn't exist, counts it as activity, and declares growth. It's the manure joke formalized: nobody ate anything, but GDP went up.
+
+The deeper issue: if 9% of GDP is fabricated, how much of the remaining 91% is similarly inflated by accounting conventions rather than actual improvement in anyone's life? The measurement system is designed to measure transactions, and when transactions don't exist, it invents them rather than questioning whether transactions are the right thing to measure.
+
 ## Open Questions
 
 - Is there a principled way to decompose GDP into "value-creating transactions" vs "value-shuffling transactions"? The manure joke is obvious, but where's the line for healthcare spending or financial services?
