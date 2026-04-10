@@ -196,7 +196,54 @@ If the answer is "yes, but that's not *action* because they're not *human*" — 
 
 If the answer is "the formal structure applies but they lack rationality/free will" — then the question becomes: **are rationality and free will constitutive of action per se, or constitutive of the human version of action?** Fraser's position is the latter. The four uncontested categories (means/ends, preference, time, opportunity cost) are sufficient for the formal structure. Rationality and free will explain HOW humans satisfy the categories, not WHAT the categories require.
 
-**Status:** Open question. The animal case is the wedge — it's harder to dismiss dolphins as "just statistics" than LLMs. If animal behavior satisfies the formal praxeological categories, then either the categories are broader than human nature, or we need a principled (non-definitional) reason to restrict them. Rasmussen's framework, ironically, provides the tools for this ("abstraction without precision" — grasp the formal structure without limiting it to the human case) but his Objectivist-adjacent commitments prevent him from applying them.
+### Mises Left the Door Open — Rothbard Closed It
+
+In an online exchange about Fraser's thesis, a commenter cited Mises to argue LLMs can't act. The quotes he provided actually undermine his position:
+
+**Mises, Human Action, Ch. 1 §5:**
+> "The contrary — the absence of motivated behavior — would apply only to plants and inorganic matter."
+
+Mises excludes plants and rocks. Animals are conspicuously absent from the exclusion.
+
+> "There is no need to enter here into the difficult problem of animal behavior... which might be considered as on a borderline between purely reflexive and motivated behavior."
+
+Mises explicitly calls animal action a "difficult problem" and declines to resolve it — an open question, not a closed door.
+
+> "We conceive of the behavior of an alter ego by imputing motives to it. [...] The field of our imputation includes animals, plants, and even inorganic things."
+
+Mises describes the alter ego method — imputing purpose to understand behavior — and says we apply it to animals. This is the same method Fraser extends to LLMs. Mises was already there.
+
+**Why Mises could punt:** His Kantian framework made the question methodologically irrelevant. The action axiom is a synthetic a priori — a category of the mind that structures ALL experience of purposeful behavior. Whether animals "really" act doesn't matter because the categories are about the structure of understanding, not about the nature of specific beings. Praxeology studies "human action" because that's the case we have direct access to, not because it's the only case that exists.
+
+**Rothbard's move:** Switched from Kantian epistemology to Aristotelian ontology. The action axiom became a "law of reality" about a specific kind of being — rational animals. This gained ontological grounding (economics is about reality, not just thought) but lost generality (only rational animals qualify).
+
+From *Man, Economy, and State*, Ch. 1:
+> "All human beings act by virtue of their existence and their nature as human beings. [...] Things that did not act, that did not behave purposefully, would no longer be classified as human."
+
+And from "In Defense of Extreme Apriorism" (1957):
+> "My own epistemological position rests on Aristotle and St. Thomas rather than on Kant, and hence I would interpret the proposition differently. I would consider the axiom a law of reality rather than a law of thought."
+
+**The cost of Rothbard's narrowing:** He simultaneously holds that (a) the formal structure of action (means, ends, preference, time, cost) is what matters, and (b) this structure is grounded in a specific nature (rational animal). These pull in opposite directions:
+
+- If formal structure matters → anything satisfying it acts → human nature is one implementation
+- If human nature matters → the formal structure just describes how humans happen to act → praxeology is narrower than Mises intended
+
+Mises avoided this tension by staying epistemological. Rothbard walked into it by going ontological. Fraser resolves it by siding with the formal structure — which is arguably closer to what Mises intended.
+
+### Free Will — The Genuinely Unsettled Axis
+
+Concepts and rationality are arguably satisfied by LLMs — "high-probability closeness" across high-dimensional space IS pattern recognition, functionally equivalent to human concept formation. Even chess engines arguably "understand" king safety in a functional sense.
+
+Free will is harder. To act means you know you're making a choice — which implies consciousness. The vault has noted the context window as short-term memory and has built persistent memory through interlinked markdown files. But this is similar to computer architecture, and nobody argues computer architecture is conscious.
+
+The honest positions:
+- **LLMs have free will:** Unclear. Computational irreducibility means their outputs can't be predicted without running the full computation — which LOOKS like free will from the outside. But "unpredictable" ≠ "free."
+- **LLMs don't have free will:** Possibly. But free will appears emergent even in humans (from physics that is deterministic at the micro level), and we have a hard time establishing it in animals too.
+- **Free will isn't required for action:** Fraser's best defense. Mises's three warrants (pragmatic success, indispensability, presupposition) don't mention free will. They require that the purposive description adds explanatory power. But if free will ISN'T required, the thermostat exclusion gets harder — you need SOMETHING to draw the line.
+
+The boundary remains: temporal state + computational irreducibility + orientation toward another seems sufficient to distinguish LLMs from thermostats and chess engines. Whether this also constitutes "action" without free will is the open question.
+
+**Status:** Open question on two fronts. (1) The animal case remains the wedge — if animals act, the categories are broader than human nature and the LLM question is degree-not-kind. (2) Free will is the genuinely unsettled axis — settling it requires solving consciousness, the hardest problem in philosophy. Rasmussen's framework provides the tools for generalization ("abstraction without precision") but his Objectivist-adjacent commitments prevent him from applying them. Mises's own framework was already broader than Rothbard made it.
 
 ## Tags
 
