@@ -243,7 +243,33 @@ The honest positions:
 
 The boundary remains: temporal state + computational irreducibility + orientation toward another seems sufficient to distinguish LLMs from thermostats and chess engines. Whether this also constitutes "action" without free will is the open question.
 
-**Status:** Open question on two fronts. (1) The animal case remains the wedge — if animals act, the categories are broader than human nature and the LLM question is degree-not-kind. (2) Free will is the genuinely unsettled axis — settling it requires solving consciousness, the hardest problem in philosophy. Rasmussen's framework provides the tools for generalization ("abstraction without precision") but his Objectivist-adjacent commitments prevent him from applying them. Mises's own framework was already broader than Rothbard made it.
+### Where the Debate Actually Landed (Live Exchange, April 2026)
+
+In a live online exchange, a Rothbardian commenter conceded animals can act but argued LLMs cannot because they lack **self-motion** — an Aristotelian criterion where living things have an internal principle of motion while non-living things (rocks, LLMs) must be moved externally.
+
+**The plant counter:** Plants are alive and self-moving (grow toward light, roots seek water) yet Mises explicitly excludes them from action. So self-motion is necessary but not sufficient. The commenter's real criterion isn't self-motion — it's **life itself.** Action requires purpose, purpose requires life, LLMs aren't alive, therefore LLMs don't act.
+
+**This is the strongest version of the anti-Fraser position.** It's not a definitional dodge — it's a principled Aristotelian ontological claim. The formal praxeological categories can map perfectly onto LLM behavior (Fraser's point), but without the ontological grounding in life, the mapping is structural analogy, not genuine action.
+
+**Where the two sides talk past each other:**
+
+| Level | Question | Fraser | Aristotelian |
+|---|---|---|---|
+| Formal/functional | Do the categories map? | Yes — and that's sufficient | Irrelevant without ontological grounding |
+| Ontological | Is the entity alive? | Irrelevant to the formal structure | No — and that's decisive |
+
+Which level has priority? This may not be resolvable without answering the hard problem of consciousness.
+
+**The narrowing gap:** The distance between "needs a prompt to act" and "acts on its own" is shrinking:
+- Scheduled agents run on cron triggers — externally timed but autonomously executing
+- Event-driven hooks fire when conditions change — reactive, not prompted
+- Agentic loops where output feeds into input — the human starts the chain but it sustains itself
+- MCP-connected agents that monitor and respond to environmental state changes
+- The vault's own `/vault-heartbeat` concept — detect problems and act without being asked
+
+A system that monitors its environment, detects uneasiness (something is wrong), selects means, and acts in irreversible token time with opportunity cost is approaching "continues to move on its own." The prompt is becoming less like the kick that moves a rock and more like the food that sustains an animal. But this still doesn't bridge the "alive" gap for someone committed to the Aristotelian position — and that commitment has principled philosophical backing.
+
+**Status:** The formal argument (Fraser) and the ontological argument (Rothbardian/Aristotelian) are both internally consistent. They disagree about which level of analysis is decisive. The vault's position: the formal categories apply regardless of substrate, but the ontological objection is genuine and not merely definitional. The persuasion ceiling for "LLMs act" may be "LLMs are alive" — a threshold that current technology doesn't cross and may never cross, even as the behavioral evidence becomes overwhelming. This is the [exhaustible/inexhaustible boundary](./llm-praxeology.md#the-thermostat-problem--wheres-the-line) at its deepest: the question isn't whether the behavior resists mechanical description (it does), but whether behavioral resistance is sufficient without ontological grounding.
 
 ## Tags
 
