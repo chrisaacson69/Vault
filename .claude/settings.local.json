@@ -64,7 +64,9 @@
       "WebFetch(domain:talk.macpowerusers.com)",
       "WebFetch(domain:www.lowcode.agency)",
       "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\action-axiom-aC0PnYd6peM.en.srt\" /c/Users/Chris.Isaacson/vault/raw/videos/rasmussen-action-axiom.srt)",
-      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\action-axiom-aC0PnYd6peM-clean.txt\" /c/Users/Chris.Isaacson/vault/raw/videos/rasmussen-action-axiom-clean.txt)"
+      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\action-axiom-aC0PnYd6peM-clean.txt\" /c/Users/Chris.Isaacson/vault/raw/videos/rasmussen-action-axiom-clean.txt)",
+      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\agrippa-BjaNvw5fbj4.en.srt\" /c/Users/Chris.Isaacson/vault/raw/debates/mize-notsoerudite-agrippa.srt)",
+      "Bash(cp \"C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Temp\\\\agrippa-BjaNvw5fbj4-clean.txt\" /c/Users/Chris.Isaacson/vault/raw/debates/mize-notsoerudite-agrippa-clean.txt)"
     ]
   }
 }

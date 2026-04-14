@@ -93,11 +93,73 @@ This is like two mathematicians agreeing on the Peano axioms and one claiming th
 
 5. **The baby-killing thought experiment reveals the limits of both positions.** Wilson can't explain why God's prohibition is more binding than strong consensus, since he's conceded his foundation is also "just assumed." Kyla can't explain how to oppose an evil consensus in real time before outcomes are observable. The honest answer: moral reasoning is *always* provisional and probabilistic, which is uncomfortable but true.
 
+## Why People Get Stuck on Agrippa — And How to Get Unstuck
+
+**Added 2026-04-14** after reviewing [Mize vs notsoErudite](https://www.youtube.com/watch?v=BjaNvw5fbj4) — [Transcript](../../raw/debates/mize-notsoerudite-agrippa-clean.txt) — a 46-minute conversation that goes in circles (ironic given the topic). The same impasse appears in the Wilson debates above, the [Noerr vs Terry X](./noerr-teryx-subjective-objective-morality.md) morality debate, and the [praxeology debate](../economics/llm-praxeology.md) about whether LLMs can act. The pattern is structural, not personal.
+
+### Why Side A Can't Land It
+
+Kylie (notsoErudite), like Kyla in the Wilson debates, has the right intuition: "all ideas rest on something unproven, and that's fine — knowledge still works." But she can't explain WHY it's fine. She reaches for "integrity" and "ultimate justification" and can't define either without circularity. Brandon (Mize) correctly presses her on this.
+
+Her actual position — which she can feel but can't name — is that the foundational axioms are **constitutive** of reasoning itself. They're not "assumed" (that would be dogmatism). They're not "proven by something else" (that would be regress). They're not "self-supporting" (that would be circularity). They're what reasoning IS. You don't assume the law of non-contradiction before you start reasoning. You can't reason without it. It's constitutive of the activity.
+
+The word she needed was **constitutive** (see [The Constitutive/Elective Distinction](../philosophy/morality/constitutive-elective.md)). Without it, she's stuck saying "integrity" and being unable to explain what that means without falling into the very horns she's describing.
+
+### Why Side B Can't See It
+
+Brandon does good analytic work — demanding precise definitions, identifying circularity in Kylie's formulations, refusing to let vague terms slide. These are legitimate moves. But he's trapped in the **propositional paradigm**: every belief must be justified by another belief, and "justified" must mean something expressible as a proposition in a chain.
+
+When Kylie points outside the framework — to something that isn't a proposition supporting another proposition — he literally can't parse it: "I don't know what you're referring to anymore." The possibility that justification could be **performative** (demonstrated in the act rather than stated in a proposition) isn't in his ontology of justification types. He treats the three horns as exhaustive. They're exhaustive for propositional justification. They're not exhaustive for justification as such.
+
+### The Pattern Across Vault Debates
+
+| Debate | Side A (right intuition, can't articulate) | Side B (right tools, can't see past framework) | The missing vocabulary |
+|---|---|---|---|
+| Agrippa (this video + Wilson) | "Knowledge works even though nothing is ultimately justified" | "Define 'ultimately justified' without using the three horns" | **Constitutive** — axioms aren't assumed, they're what reasoning IS |
+| Morality (Noerr vs Terry X) | "Morality is objective somehow" | "Define objective without God" | **Constitutive/elective** — mind-dependent but not arbitrary |
+| Praxeology (Fraser vs Aristotelians) | "LLMs satisfy the formal categories" | "But they're not alive" | **Formal vs ontological** levels of analysis |
+
+### How to Get Unstuck: The Performative Escape
+
+The exit from Agrippa is not a fourth horn. It's a different KIND of justification — not propositional but performative.
+
+**Aristotle's original move (Metaphysics IV.4):** You don't "prove" the law of non-contradiction. You show that anyone who denies it must use it in the denial. The denial is self-undermining. This isn't dogmatism (you're not asserting without justification). It isn't circular (the law isn't supporting itself propositionally). It isn't infinite regress (there's no chain at all). It's a demonstration that the denier's own activity presupposes what they're denying.
+
+**How to deploy this in conversation:**
+
+1. **Don't try to justify the axiom.** That's the trap. The moment you say "I justify X because Y," you're in a propositional chain and Agrippa bites. Instead: "Try to deny X. Notice what you used to deny it."
+
+2. **Use concrete examples, not abstract vocabulary.**
+   - "Is it possible that 1≠1? Try to argue that it's not equal. What rules did you just use?"
+   - "Is reasoning reliable? Try to argue that it's not. Did you just use reasoning?"
+   - "Should we pursue truth? Try to argue we shouldn't. Were you trying to tell me something true?"
+
+3. **Name the move:** "This isn't an assumption I'm making. It's something I can't NOT do. Every time I think, speak, or argue, I'm already using it. That's different from choosing to accept it. I didn't choose logic the way I chose my shirt."
+
+4. **Distinguish constitutive from assumed:** "When you walk into a room, you don't 'assume' gravity. Gravity is constitutive of being a physical object in this universe. You can't opt out. Logical axioms work the same way for reasoning — they're constitutive, not assumed. Calling them 'dogmatic' treats them as if I picked them off a shelf when I had other options. I didn't. There are no other options. The 'other options' use the same axioms to argue against them."
+
+5. **Concede what's true:** "You're right that I can't give you a propositional justification chain that terminates in something self-evident. Agrippa is correct about that. What I'm saying is that propositional justification chains aren't the only kind of justification. Performative demonstration — showing that denial is self-undermining — is a different kind entirely, and the three horns don't apply to it because it's not a chain."
+
+### Why This Matters Beyond the Debate
+
+The Agrippa impasse isn't just an academic puzzle. It shows up practically:
+
+- **Moral relativists** use it: "You can't justify your morality, so it's just opinion." The performative escape: "Try to act without presupposing norms. You can't."
+- **Theists** use it: "Without God, you can't justify anything." The performative escape: "Your justification also terminates in an axiom (God is good). The question isn't who has the best axiom — it's whose axiom is constitutive of the activity itself."
+- **AI skeptics** use it: "You can't prove LLMs understand anything." The performative escape: "Try to interact with Claude while denying it acts. Notice what you presuppose."
+
+The [constitutive/elective framework](../philosophy/morality/constitutive-elective.md) is the vocabulary that makes the performative escape communicable. Without it, you end up like Kylie — right intuition, can't land it.
+
 ## Vault Connections
 - [Logic and Mathematics](../../research/philosophy/logic-and-math/README.md) — structural realism, axioms as maps not territory
 - [Morality Framework](../../research/philosophy/morality/README.md) — probabilistic heuristics, building from assumed foundations
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — conflating foundational justification with practical evaluation
 - [Computation and Information Theory](../../research/computation-and-information.md) — halting problem analogy to self-referential limits
+- [The Constitutive/Elective Distinction](../../research/philosophy/morality/constitutive-elective.md) — the vocabulary Kylie needed: axioms are constitutive, not assumed
+- [Performative Grounding](../../research/philosophy/morality/is-ought-and-performative-grounding.md) — the escape from Agrippa: denial presupposes what it denies
+- [Noerr vs Terry X](./noerr-teryx-subjective-objective-morality.md) — same communication pattern: right intuition, wrong vocabulary
+- [LLMs as Praxeological Actors](../../research/economics/llm-praxeology.md) — same pattern: Fraser's formal insight vs Aristotelian framework lock-in
+- [The Gödel Governance Problem](../../research/philosophy/the-godel-governance-problem.md) — the "and yet" pattern: incomplete systems still work
 - [Part 2: Moral Foundations](./moral-foundations-wilson-whatever.md)
 - [Part 3: Liberalism Self-Defeat](./liberalism-self-defeat-wilson-whatever.md)
 
