@@ -140,6 +140,66 @@ The exit from Agrippa is not a fourth horn. It's a different KIND of justificati
 
 5. **Concede what's true:** "You're right that I can't give you a propositional justification chain that terminates in something self-evident. Agrippa is correct about that. What I'm saying is that propositional justification chains aren't the only kind of justification. Performative demonstration — showing that denial is self-undermining — is a different kind entirely, and the three horns don't apply to it because it's not a chain."
 
+### The Translation Guide — Creating Understanding
+
+The performative escape is the vault's philosophical answer. But in a live conversation, the problem is usually that neither side understands what the other is saying. They're using the same words to mean different things.
+
+**Words that mean different things to each side:**
+
+| Word | Agrippa-user means | Foundationalist hears |
+|---|---|---|
+| "Assume" | Accept as the starting point of your chain | Accept arbitrarily, without reason |
+| "Fail" Agrippa | Every chain terminates (structural observation) | Your beliefs are unjustified (attack) |
+| "Dogma" | The terminating horn of the trilemma (technical label) | You're irrational and stubborn (insult) |
+
+| Word | Foundationalist means | Agrippa-user hears |
+|---|---|---|
+| "Properly basic belief" | Justified without a supporting proposition | Fancy word for assumption |
+| "That's just what justification means" | Within my framework, I AM justified | You're dodging the question |
+
+**Translated for the foundationalist:**
+
+"I agree your properly basic beliefs are the foundation of your system. I'm NOT saying they're arbitrary or wrong. I'm saying every system — yours, mine, everyone's — has a foundation that isn't justified by something more basic. That's not a criticism of YOUR foundations. It's a structural observation about ALL foundations. The trilemma doesn't attack foundationalism — it DESCRIBES foundationalism. You land in the dogmatism horn. That's what foundationalism IS. It's a classification, not a verdict."
+
+**Translated for the Agrippa-user:**
+
+"When you say my foundations 'fail' or are 'assumed,' you're importing a standard of justification that no foundation can meet by definition. If success means 'justify without terminating, without circularity, and without infinite regress,' then everyone fails — you've defined success as impossible. That's restating the trilemma, not discovering something about MY beliefs. Within my framework, my foundations ARE justified — they're properly basic. If you want to say something specific about why MY foundations are worse than YOUR starting points, use a standard we can both recognize."
+
+**Where they actually agree (but don't realize):**
+1. Every knowledge system has a starting point
+2. That starting point isn't justified by a further proposition
+3. Knowledge still works despite this
+4. Some starting points are better than others
+
+**Where they actually disagree:**
+Whether the starting point is a bug (Agrippa-user: "structural limitation") or a feature (foundationalist: "that's just what foundations ARE"). One calls it "dogma" as a classification. The other hears it as an accusation.
+
+**The one question that redirects the conversation:**
+
+"Can we agree that every system has a starting point that isn't justified by a further proposition — and instead of arguing about whether that's a problem, ask: what makes one starting point better than another?"
+
+This moves from "do you fail Agrippa?" (unanswerable loop) to "how do we compare foundations?" (productive).
+
+**What Agrippa actually says vs what people want it to say:**
+- What it DOESN'T say: "all systems are equal" (Kyla's overreach in the Wilson debate)
+- What it DOES say: "all grounding takes one of three forms" (structural observation)
+- What people HEAR: "your beliefs are arbitrary" (weaponized version)
+
+### The Gödel Parallel
+
+The same communication failure occurs with Gödel's incompleteness theorems:
+
+| Tool | What it actually says | What people want it to say | What people hear |
+|---|---|---|---|
+| **Agrippa** | All justification takes one of three forms | All beliefs are equally unjustified | "Your beliefs are arbitrary" |
+| **Gödel** | Sufficiently powerful systems contain truths they can't prove internally | Math/logic is broken | "You can't know anything for sure" |
+
+Both are diagnostic tools that get weaponized as attacks. Both generate the same defensive response: "Are you saying my knowledge is worthless?" — which shuts down the conversation before the actual insight lands.
+
+The actual insight in both cases is the [universal incompleteness pattern](../philosophy/the-godel-governance-problem.md): **you don't have what you think you have, but what you DO have still works.** Your foundations aren't "proven" in the propositional sense — but they're not arbitrary. Your formal system isn't complete — but it still does math. The "and yet."
+
+The reason people resist both Agrippa and Gödel is the same: they hear "your system is defective" when the message is "ALL systems have this property, and they work anyway." The structural observation feels like an attack because it threatens the sense that one's own foundations are special. They're not special — they're structural. And that's fine.
+
 ### Why This Matters Beyond the Debate
 
 The Agrippa impasse isn't just an academic puzzle. It shows up practically:
