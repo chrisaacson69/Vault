@@ -26,3 +26,6 @@
 - [Karpathy LLM Wiki — Independent Convergence](../notes/karpathy-llm-wiki-convergence.md)
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
 - [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)
+- [HoP Ep 13: Aristotle Intro](../research/philosophy/history-of-philosophy/13-aristotle-intro.md)
+- [HoP Ep 14: Aristotle's Epistemology](../research/philosophy/history-of-philosophy/14-aristotle-epistemology.md)
+- [HoP Ep 15: Aristotle — Father of Logic](../research/philosophy/history-of-philosophy/15-aristotle-logic.md)

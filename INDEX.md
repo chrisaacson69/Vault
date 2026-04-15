@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-10
+**Last updated:** 2026-04-15
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -70,6 +70,10 @@
     - [Ep 9: Plato's Metaphysics](./research/philosophy/history-of-philosophy/09-plato-metaphysics.md) — the World of Ideal Forms; universals as separate, perfect, unchanging
     - [Ep 10: Plato's Epistemology](./research/philosophy/history-of-philosophy/10-plato-epistemology.md) — innate ideas; all learning is remembering; the mystical vision of the Good
     - [Ep 11: Plato's Ethics](./research/philosophy/history-of-philosophy/11-plato-ethics.md) — tripartite soul; virtue as harmonious rule of reason; platonic love
+    - [Ep 12: Plato's Politics](./research/philosophy/history-of-philosophy/12-plato-politics.md) — philosopher-kings, organic state, collectivism from universals, theory/practice dichotomy
+    - [Ep 13: Aristotle Intro](./research/philosophy/history-of-philosophy/13-aristotle-intro.md) — the third alternative; one reality; attack on Forms; primacy of existence
+    - [Ep 14: Aristotle's Epistemology](./research/philosophy/history-of-philosophy/14-aristotle-epistemology.md) — tabula rasa, abstraction, definition, induction/deduction, the nature of science
+    - [Ep 15: Aristotle — Father of Logic](./research/philosophy/history-of-philosophy/15-aristotle-logic.md) — the syllogism, axioms, laws of logic, reaffirmation through denial, correspondence theory of truth
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [ELIZA — The Pattern Match That Won't Die](./research/eliza.md) — 1966 keyword-lookup chatbot vs modern LLMs; why the comparison persists and why it's wrong; praxeological analysis
 - [AI History — A Personal Arc](./research/ai-history-personal.md) — from ELIZA to OOP neurons to LLMs; each step got something right and something wrong; the training problem

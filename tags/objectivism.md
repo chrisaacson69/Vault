@@ -13,3 +13,7 @@
 - [HoP Ep 9: Plato's Metaphysics](../research/philosophy/history-of-philosophy/09-plato-metaphysics.md)
 - [HoP Ep 10: Plato's Epistemology](../research/philosophy/history-of-philosophy/10-plato-epistemology.md)
 - [HoP Ep 11: Plato's Ethics](../research/philosophy/history-of-philosophy/11-plato-ethics.md)
+- [HoP Ep 12: Plato's Politics](../research/philosophy/history-of-philosophy/12-plato-politics.md)
+- [HoP Ep 13: Aristotle Intro](../research/philosophy/history-of-philosophy/13-aristotle-intro.md)
+- [HoP Ep 14: Aristotle's Epistemology](../research/philosophy/history-of-philosophy/14-aristotle-epistemology.md)
+- [HoP Ep 15: Aristotle — Father of Logic](../research/philosophy/history-of-philosophy/15-aristotle-logic.md)

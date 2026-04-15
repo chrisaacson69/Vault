@@ -43,6 +43,25 @@ Morality is *probabilistic heuristics*, discovered empirically across millennia.
 - Morality is probabilistic, not absolute (expected value over lifetimes, not certainty per choice)
 - Empirics come first; given enough data, the logical structure reveals itself. Performative grounding is the formalization, not a separate path.
 
+### Two Layers of Good and Bad
+
+Action (praxeology) and morality overlap but aren't identical. There are two evaluation layers:
+
+| Layer | "Good" means | "Bad" means | Scope |
+|---|---|---|---|
+| **Praxeological** | Purpose fulfilled | Purpose not fulfilled | Individual — did the action achieve its end? |
+| **Constitutive/Moral** | Action sustains conditions for agency | Action degrades conditions for agency | Structural — does it work for everyone? |
+
+The praxeological layer is real and matters — putting on shoes successfully IS good in the means-ends sense. But it's not sufficient for morality. Successful theft is praxeologically good (the thief achieved their end) and constitutively bad (undermines the property structure enabling all agents to plan and trade).
+
+Morality lives in the constitutive layer: not "did you achieve your purpose" but "does your purpose, when pursued, sustain or degrade the conditions under which agents can function?" This is why murder is wrong even when the murderer succeeds. The effect on the agency-enabling structure, not the success of the individual action, determines moral content.
+
+Conflating the two layers — reducing morality to praxeological success — is how you get "the ends justify the means." The [scope confusion thesis](./scope-confusion.md) applies: praxeological and moral evaluations operate at different scopes.
+
+**Open question:** If LLMs act in the praxeological sense ([LLMs as Praxeological Actors](../../economics/llm-praxeology.md)), do their actions touch the constitutive layer? An agent refusing to help with harm might. An agent managing inventory probably doesn't. The gradient matters. This question requires further thought.
+
+See: [Constitutive/Elective Distinction](./constitutive-elective.md), [LLMs as Praxeological Actors](../../economics/llm-praxeology.md), [Relational Objectivity](../epistemology/relational-objectivity.md)
+
 ### The Scope Model
 Moral principles are real but scope-dependent. The deeper the scope, the more stable the principle:
 

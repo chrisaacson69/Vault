@@ -39,10 +39,10 @@ These pages are not primarily about cross-linking into the vault's existing fram
 | 9 | Plato's Metaphysics: The World of Ideal Forms | 1:03:09 | [Episode 9](./09-plato-metaphysics.md) |
 | 10 | Plato's Epistemology: Innate Ideas to the Forms | 42:25 | [Episode 10](./10-plato-epistemology.md) |
 | 11 | Plato's Ethics: Virtue and the Health of the Soul | 52:51 | [Episode 11](./11-plato-ethics.md) |
-| 12 | Plato's Political Philosophy: Collectivism & the Philosopher-King | 36:43 | |
-| 13 | Aristotle: A Philosopher for Living on Earth | 41:11 | |
-| 14 | Aristotle's Epistemology: Concepts and Science | 48:41 | |
-| 15 | Aristotle: The Father of Logic | 40:33 | |
+| 12 | Plato's Political Philosophy: Collectivism & the Philosopher-King | 36:43 | [Episode 12](./12-plato-politics.md) |
+| 13 | Aristotle: A Philosopher for Living on Earth | 41:11 | [Episode 13](./13-aristotle-intro.md) |
+| 14 | Aristotle's Epistemology: Concepts and Science | 48:41 | [Episode 14](./14-aristotle-epistemology.md) |
+| 15 | Aristotle: The Father of Logic | 40:33 | [Episode 15](./15-aristotle-logic.md) |
 | 16 | Aristotle's Metaphysics: Matter, Form and Causality | 36:58 | |
 | 17 | Aristotle's Teleology: Motion and the Unmoved Mover | 45:07 | |
 | 18 | Aristotle's Psychology: Soul, Perception and Thought | 29:54 | |
