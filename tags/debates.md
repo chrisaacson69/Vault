@@ -12,3 +12,5 @@
 - [Debate Prep: Morality and Religion](../notes/debate-prep-morality-religion-2026-03-14.md)
 - [Morality — Debate FAQ](../research/philosophy/morality/debate-faq.md)
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
+- [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](../research/debates/wilson-triggernometry-christian-nationalism.md)
+- [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)

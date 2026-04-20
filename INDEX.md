@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-15
+**Last updated:** 2026-04-20
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -103,6 +103,7 @@
     - [Subgraph Investment Optimization](./research/gaming/monopoly/subgraph-investment-optimization.md) — build vs trade decision via Pareto dominance, graph matching, dynamic programming
     - [Frontier Trade Theory](./research/gaming/monopoly/frontier-trade-theory.md) — EPT frontier curves, brown trap, denial value, game horizon, race condition
     - [Subgraph Trade Engine Spec](./research/gaming/monopoly/subgraph-trade-engine-spec.md) — complete AI architecture: subgraph analysis, trade search, 3-way cycles
+  - [LLM Agents Across Strategic Games](./research/gaming/llm-agents-across-games.md) — six-game study (Monopoly, Diplomacy, Among Us, Mafia ×2, Coup) + clones control; architectural signatures are stable, verification mechanics decide winners; state-aware AI vs session-based AI is the epistemological parallel to realism vs postmodernism
   - MOO1 Theory — [research/gaming/moo1/](./research/gaming/moo1/)
     - [MOO1 Optimal Strategy](./research/gaming/moo1/optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
     - [MOO1 MIRR Analysis](./research/gaming/moo1/mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
@@ -140,6 +141,15 @@
   - [Subjective vs Objective Morality (Noerr vs Terry X)](./research/debates/noerr-teryx-subjective-objective-morality.md) — both accept "objective = mind-independent" and fight over consequences; the definition itself is broken; category 3 resolves it
   - [Force Doctrine and the Rehabilitation of Pragmatism (Wilson)](./research/debates/wilson-force-doctrine-pragmatism.md) — descriptor is true, conclusion doesn't follow; pragmatism is legitimate; theories ungrounded in reality are wrong
   - [Suffrage, Stakeholdership, and the Scope Problem (Pool vs Kyla)](./research/debates/pool-kyla-suffrage-taxation.md) — uninformed ≠ unstaked; restricted suffrage just changes who exercises tyranny; the problem is scope not franchise; agency and the Hayekian knowledge problem
+  - [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](./research/debates/wilson-triggernometry-christian-nationalism.md) — Wilson's full program in one interview; "because I said so" as internal critique, not self-defeat; the real pressure belongs on the empirical outcomes claim; every worldview hits the Gödel/Agrippa wall
+  - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](./research/debates/rep-competence-tests-prep.md) — live debate prep (con); voter-judgment-of-competence is constitutive of democracy; two-versions dichotomy; 10 procedural-weaponization vectors; Fetterman and the disability narrative; mechanism trap (no fast-and-neutral path)
+
+## Career
+- [Career](./career/README.md) — AI lessons learned, career development, what works and what doesn't
+  - [The Role Landscape](./career/role-landscape.md) — industry title analysis; AI Engineer vs ML Engineer; the level gap between postings and practice
+  - [Career Strategy — The Performative Loop](./career/strategy.md) — the job search IS the portfolio; director-level targeting; compensation landscape
+  - [Tools Roadmap](./career/tools-roadmap.md) — 9 career tools to build; each one demonstrates the competency it showcases
+  - [Active Postings](./career/active-postings.md) — director-level AI positions by lane; Nordstrom, Schwab, Experian, Comcast, and more
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

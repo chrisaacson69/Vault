@@ -28,3 +28,8 @@
 - [OOP Neurons](../projects/oop-neurons/README.md)
 - [Claude Code on a Persistent Cloud VM](../research/claude-code-cloud-vm.md)
 - [iPad + Claude Setup](../notes/ipad-claude-setup.md)
+- [Career](../career/README.md)
+- [The Role Landscape](../career/role-landscape.md)
+- [Career Strategy — The Performative Loop](../career/strategy.md)
+- [Tools Roadmap](../career/tools-roadmap.md)
+- [Presentation Generator Spec](../career/presentation-generator-spec.md)

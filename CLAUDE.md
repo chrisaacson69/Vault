@@ -29,6 +29,7 @@ This vault uses a folder structure with **cross-linking** to function as a knowl
 |-------------|-----------------------------------------------------|
 | `projects/` | Active and past projects (code, personal, creative) |
 | `research/` | Topics being explored, learning notes, references   |
+| `career/`   | AI lessons learned, career development, what works and what doesn't |
 | `notes/`    | Quick captures, ideas, standalone thoughts          |
 | `tasks/`    | Goals, to-do tracking, milestones                   |
 | `logs/`     | Session logs, journals, progress entries            |

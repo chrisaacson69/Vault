@@ -13,3 +13,4 @@
 - [Debate Prep: Morality and Religion](../notes/debate-prep-morality-religion-2026-03-14.md)
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
 - [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)
+- [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](../research/debates/wilson-triggernometry-christian-nationalism.md)

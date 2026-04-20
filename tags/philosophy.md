@@ -54,3 +54,4 @@
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [ELIZA — The Pattern Match That Won't Die](../research/eliza.md)
 - [AI History — A Personal Arc](../research/ai-history-personal.md)
+- [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)

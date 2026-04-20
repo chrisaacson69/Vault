@@ -1,17 +1,18 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [ai](./ai.md) — 25 files
+- [ai](./ai.md) — 30 files
 - [agents](./agents.md) — 9 files
 - [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 8 files
+- [career](./career.md) — 6 files
 - [c](./c.md) — 1 file
 - [claude](./claude.md) — 1 file
 - [collectivism](./collectivism.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 4 files
-- [debates](./debates.md) — 11 files
+- [debates](./debates.md) — 13 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 33 files
 - [education](./education.md) — 3 files
@@ -29,19 +30,19 @@
 - [history](./history.md) — 10 files
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
-- [libertarian-law](./libertarian-law.md) — 14 files
+- [libertarian-law](./libertarian-law.md) — 15 files
 - [llm-limitations](./llm-limitations.md) — 5 files
 - [logic](./logic.md) — 9 files
 - [machine-learning](./machine-learning.md) — 4 files
 - [mathematics](./mathematics.md) — 10 files
 - [metaphysics](./metaphysics.md) — 1 file
-- [morality](./morality.md) — 12 files
+- [morality](./morality.md) — 13 files
 - [music](./music.md) — 4 files
 - [natural-law](./natural-law.md) — 1 file
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 16 files
 - [peikoff](./peikoff.md) — 16 files
-- [philosophy](./philosophy.md) — 53 files
+- [philosophy](./philosophy.md) — 54 files
 - [politics](./politics.md) — 1 file
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file

@@ -9,9 +9,13 @@ allowed-tools: Read, Edit, Write, Glob, Grep, Bash, Agent, WebFetch
 
 Create a comprehensive debate analysis for the vault at `C:\Users\Chris.Isaacson\Vault`.
 
+**Shared procedures:**
+- [content-extract.md](../../shared/content-extract.md) — YouTube transcript extraction, SRT cleaning, raw file conventions
+- [vault-page.md](../../shared/vault-page.md) — page format, cross-linking, file placement
+
 ### 1. Acquire Transcript
 
-If given a YouTube URL:
+Follow content-extract.md for source type detection and extraction. If given a YouTube URL:
 - Use `yt-dlp` to download the transcript: `yt-dlp --write-auto-sub --sub-lang en --sub-format srt --skip-download -o "/tmp/transcript-name" "URL"`
 - Read the SRT file and strip timestamp formatting.
 - Save raw transcript to `Vault/raw/debates/` for reference.
