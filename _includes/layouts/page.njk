@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+---
+
+<p class="back-link"><a href="{{ '../' if not isIndex }}">&larr; Back</a></p>
+
+<h1>{{ title }}</h1>
+{% if summary %}
+<p class="subtitle">{{ summary }}</p>
+{% endif %}
+{% if created %}
+<p class="page-meta">{{ created }}{% if status %} &middot; {{ status }}{% endif %}</p>
+{% endif %}
+
+{{ content | safe }}
