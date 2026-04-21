@@ -5,7 +5,7 @@
 **Source:** [whatever Clips — YouTube](https://www.youtube.com/watch?v=dfP58UVWOao)
 **Participants:** Andrew Wilson, Kyla (3-part clip series, part 2 chronologically)
 **Duration:** ~18 min (part 2 of 3)
-**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [legal theory](../../research/philosophy/legal-theory/README.md)
+**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [legal theory](../../research/philosophy/morality/legal-theory/README.md)
 
 ## Context
 
@@ -78,10 +78,10 @@ Philosophy that engages with material questions is not itself material. This was
 ## Vault Connections
 - [Morality Framework](../../research/philosophy/morality/README.md) — probabilistic heuristics vs absolute foundations
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — metaphysical vs practical scope
-- [Legal Theory](../../research/philosophy/legal-theory/README.md) — the gap between moral claims and enforceable law
+- [Legal Theory](../../research/philosophy/morality/legal-theory/README.md) — the gap between moral claims and enforceable law
 - [Part 1: Agrippa's Trilemma](./agrippa-axioms-wilson-whatever.md)
 - [Part 3: Liberalism Self-Defeat](./liberalism-self-defeat-wilson-whatever.md)
-- [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) — moral convergence across societies
+- [Civilizational Cycles](../../research/philosophy/dynamics/civilizational-cycles/README.md) — moral convergence across societies
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [morality](../../tags/morality.md)

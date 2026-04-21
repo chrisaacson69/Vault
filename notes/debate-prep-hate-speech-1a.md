@@ -3,7 +3,7 @@
 
 **Date:** 2026-04-04
 **Created:** 2026-03-26
-**Links:** [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md), [Scope Confusion](../research/philosophy/morality/scope-confusion.md), [Registration and Scope Creep](../research/philosophy/legal-theory/registration-and-scope-creep.md), [Opposing Forces](../research/philosophy/opposing-forces.md), [Gödel Governance Problem](../research/philosophy/the-godel-governance-problem.md), [Self-Ownership](../research/philosophy/legal-theory/self-ownership-and-property-rights.md), [Defensive Force](../research/philosophy/legal-theory/defensive-force-and-collateral-damage.md), [Agency as Moral Ground](./bridge-logic-to-morality.md)
+**Links:** [Press Freedom and Governance](../research/philosophy/dynamics/press-freedom-and-governance.md), [Scope Confusion](../research/philosophy/morality/scope-confusion.md), [Registration and Scope Creep](../research/philosophy/morality/legal-theory/registration-and-scope-creep.md), [Opposing Forces](../research/philosophy/dynamics/opposing-forces.md), [Gödel Governance Problem](../research/philosophy/dynamics/the-godel-governance-problem.md), [Self-Ownership](../research/philosophy/morality/legal-theory/self-ownership-and-property-rights.md), [Defensive Force](../research/philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md), [Agency as Moral Ground](./bridge-logic-to-morality.md)
 
 ---
 
@@ -47,7 +47,7 @@ Every speech restriction in history has expanded beyond its original justificati
 - **Canada Bill C-16:** Presented as protecting trans people → used to compel specific pronoun usage
 - **EU Digital Services Act:** Content moderation → pressure on platforms to remove political speech labeled "disinformation"
 
-This is the [Registration and Scope Creep](../research/philosophy/legal-theory/registration-and-scope-creep.md) pattern: the mechanism always expands because the people who control the mechanism benefit from expanding it.
+This is the [Registration and Scope Creep](../research/philosophy/morality/legal-theory/registration-and-scope-creep.md) pattern: the mechanism always expands because the people who control the mechanism benefit from expanding it.
 
 **The question isn't "should hate speech be restricted?" The question is "do you trust every future government to define 'hate speech' correctly?"**
 
@@ -64,7 +64,7 @@ If morality is grounded in agency (the Vault's position), then:
 
 ### 4. The Pre-commitment Argument (From Press Freedom)
 
-The 1st Amendment works BECAUSE it's unconditional. This is the pre-commitment logic from the [Press Freedom page](../research/philosophy/press-freedom-and-governance.md):
+The 1st Amendment works BECAUSE it's unconditional. This is the pre-commitment logic from the [Press Freedom page](../research/philosophy/dynamics/press-freedom-and-governance.md):
 
 - You commit to free speech *even when specific speech is harmful*
 - Because the alternative — government controlling the speech environment — is catastrophically worse
@@ -80,7 +80,7 @@ Giving the government power to define prohibited speech IS the monopoly problem:
 
 - The entity defining "hate speech" is the entity you'd need to criticize using speech
 - A government with hate speech laws can label criticism of the government as "hateful"
-- This is the [Gödel governance problem](../research/philosophy/the-godel-governance-problem.md) — a system that audits itself can't correct itself
+- This is the [Gödel governance problem](../research/philosophy/dynamics/the-godel-governance-problem.md) — a system that audits itself can't correct itself
 - The 1st Amendment exists precisely to prevent this self-referential loop
 
 ---

@@ -5,7 +5,7 @@ created: 2026-02-16
 # The Action/Inaction Asymmetry
 > Action is singular and defined. Inaction is the infinite, undefined complement. This asymmetry grounds the negative/positive rights distinction.
 
-**Links:** [Morality](./README.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Measurement, Causality, and Free Will](../measurement-causality.md), [Conspiracy and Pre-Crime](../../../notes/sketch-conspiracy-and-precrime.md)
+**Links:** [Morality](./README.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md), [Conspiracy and Pre-Crime](../../../notes/sketch-conspiracy-and-precrime.md)
 
 ---
 

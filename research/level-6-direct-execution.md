@@ -116,7 +116,7 @@ But the boundary migrates **both directions** simultaneously:
 - **Push forward:** zero-code, dark factories, agents executing processes — the boundary advances
 - **Push back:** insisting on custom UX, demanding human intermediaries, regulatory requirements for human presence — the boundary retreats where humans assert value or the real world resists
 
-The buffer doesn't shrink monotonically. It oscillates. This is the [opposing forces](../philosophy/opposing-forces.md) pattern applied to human-machine interaction. The cyborg model's core claim: the boundary migrates to wherever the current friction is, but it never disappears — and pushing too hard in either direction generates counter-pressure.
+The buffer doesn't shrink monotonically. It oscillates. This is the [opposing forces](../philosophy/dynamics/opposing-forces.md) pattern applied to human-machine interaction. The cyborg model's core claim: the boundary migrates to wherever the current friction is, but it never disappears — and pushing too hard in either direction generates counter-pressure.
 
 ## Open Questions
 

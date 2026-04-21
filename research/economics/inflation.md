@@ -78,7 +78,7 @@ If the economy's ability to produce goods declines — through regulatory burden
 This is the quietest form of inflation and the hardest to measure because it's not a sudden shock but a slow erosion. It shows up as things gradually getting more expensive in real terms despite no obvious crisis.
 
 **Examples:**
-- **Regulatory accumulation** — each individual regulation may be trivial, but the cumulative burden raises the cost of everything. This is Olson's institutional sclerosis from [Civilizational Cycles](../philosophy/civilizational-cycles/README.md).
+- **Regulatory accumulation** — each individual regulation may be trivial, but the cumulative burden raises the cost of everything. This is Olson's institutional sclerosis from [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md).
 - **Baumol's cost disease** — sectors where productivity can't improve (education, healthcare, live performance) see costs rise relative to sectors where it can (manufacturing, software). This explains why education and healthcare inflate faster than electronics.
 - **Resource depletion** — easy oil is gone; marginal barrels are more expensive to extract. This creates a slow, structural upward pressure on energy prices independent of monetary policy.
 
@@ -162,7 +162,7 @@ The corrected position says: controlling M eliminates the only *permanent* ratch
 - [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md) — Z1 as real inflation; inelastic money supply argument; maturity mismatching as spurious money creation
 - [Weinstein x Murphy — Gauge Theory Applied to Economics](../debates/weinstein-murphy-gauge-theory-economics.md) — "the price level" is a fiction; Divisia index; Boskin Commission as political operation; path dependence as Cantillon effect
 - [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md) — Cantillon effect as distributional distortion from monetary expansion
-- [Civilizational Cycles](../philosophy/civilizational-cycles/README.md) — Dalio's debt cycle as the long-run consequence of permanent monetary inflation; Olson's institutional sclerosis as productivity-decline inflation
+- [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md) — Dalio's debt cycle as the long-run consequence of permanent monetary inflation; Olson's institutional sclerosis as productivity-decline inflation
 - [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md) — FOMO and herding behavior as drivers of demand-shock inflation
 - [Risk and Entrepreneurship](./risk-and-entrepreneurship.md) — entrepreneurial response to price signals is the mechanism by which transient inflation self-corrects
 - [The Equation of Exchange and the Transaction Multiplier](./equation-of-exchange.md) — the formal framework: MV = PT decomposed through GDP expenditure components explains why QE inflates assets (T_financial) while stimulus inflates CPI (k_C × C)

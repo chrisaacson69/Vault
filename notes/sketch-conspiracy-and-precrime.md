@@ -5,7 +5,7 @@ created: 2026-03-27
 # Conspiracy, Pre-Crime, and the Breakable Chain
 > "Conspiracy" isn't a crime — it's speech. The boundary between preparation and action is defined by whether the causal chain to harm can still be broken by someone's agency.
 
-**Links:** [Defensive Force](../research/philosophy/legal-theory/defensive-force-and-collateral-damage.md), [Self-Ownership](../research/philosophy/legal-theory/self-ownership-and-property-rights.md), [Scope Confusion](../research/philosophy/morality/scope-confusion.md), [Debate Prep: Hate Speech](./debate-prep-hate-speech-1a.md)
+**Links:** [Defensive Force](../research/philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md), [Self-Ownership](../research/philosophy/morality/legal-theory/self-ownership-and-property-rights.md), [Scope Confusion](../research/philosophy/morality/scope-confusion.md), [Debate Prep: Hate Speech](./debate-prep-hate-speech-1a.md)
 
 ---
 

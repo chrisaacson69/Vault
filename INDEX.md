@@ -28,6 +28,7 @@
 
 ## Research
 - [Philosophy](./research/philosophy/README.md) — first-principles exploration of foundational philosophical questions
+  - [The Four Trunks](./research/philosophy/the-four-trunks.md) — canonical organizing document; the vault's philosophy as four interlocking commitments (constitutive realism, constitutive convergence, emergence metaphysics, structural dynamics)
   - [Morality](./research/philosophy/morality/README.md) — naturalistic moral framework built from bedrock concepts
     - [Scope Confusion](./research/philosophy/morality/scope-confusion.md) — why most political disagreements are scope assignment errors; enforceability gradient; mens rea as case study
     - [Deontology vs. Consequentialism](./research/philosophy/morality/deontology-consequentialism.md) — false dichotomy: deontology is cached consequentialism; rules come from testing against reality; objective morality within current constraints; the bridge between logic series and moral framework
@@ -41,39 +42,40 @@
     - [The Weighting Problem](./research/philosophy/epistemology/weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is subjective
     - [Relational Objectivity](./research/philosophy/epistemology/relational-objectivity.md) — four-category ontology of facts; formalizes why "relational" ≠ "subjective"; connects morality, weighting problem, structural realism, and measurement-causality
     - [The Birthmark and the Search for Truth](./research/philosophy/epistemology/the-birthmark.md) — Hawthorne parable for epistemic imperfection; five principles for approaching truth; realist correction to postmodernism; why LLMs lack grounding
-  - [Legal Theory](./research/philosophy/legal-theory/README.md) — libertarian law; mens rea debate, government formation, marriage, shared ownership
-    - [Registration and Scope Creep](./research/philosophy/legal-theory/registration-and-scope-creep.md) — vehicle/gun registration comparison; structural pattern of regulatory expansion beyond original justification
-    - [Defensive Force and Collateral Damage](./research/philosophy/legal-theory/defensive-force-and-collateral-damage.md) — causationism, defense/retribution distinction, gentleness principle, state monopoly's inability to meet justified force standards
-    - [Self-Ownership and Property Rights](./research/philosophy/legal-theory/self-ownership-and-property-rights.md) — self-ownership→property-rights chain is the weak link; conflict avoidance grounds both independently
-    - [Restitution for Death](./research/philosophy/legal-theory/restitution-for-death.md) — the framework's hardest case; containment vs execution vs indentured restitution; the death penalty question
-  - [Measurement, Causality, and Free Will](./research/philosophy/measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
-  - [Civilizational Cycles](./research/philosophy/civilizational-cycles/README.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
-    - [Cyclical Historians](./research/philosophy/civilizational-cycles/cyclical-historians.md) — Ibn Khaldun, Spengler, Toynbee, Strauss & Howe, Glubb
-    - [Structural-Institutional](./research/philosophy/civilizational-cycles/structural-institutional.md) — Turchin, Tainter, Olson, Dalio
-    - [Economic Theorists](./research/philosophy/civilizational-cycles/economic-theorists.md) — Hayek, Sowell, Schumpeter, Kondratiev
-  - [Opposing Forces](./research/philosophy/opposing-forces.md) — why concentrations of power always generate counter-forces; structural principle across physics, computation, evolution, and agency
-  - [The Godel Governance Problem](./research/philosophy/the-godel-governance-problem.md) — can a system prevent monopoly without becoming one? The central unsolved problem: state (inconsistent), ancap (incomplete), constitution (both)
-  - [The Fallacy Fallacy](./research/philosophy/the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; the "why" requirement; misapplied labels; strange loops in fallacy hunting
-  - [The Technology-Governance Gap](./research/philosophy/technology-governance-gap.md) — when systems exceed human comprehension; the good fork (forced decentralization) vs the bad fork (informational monopoly); possible way out of the cycle
-    - [Rudyard Lynch (Whatifalthist)](./research/philosophy/whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
-  - [Newcomb's Paradox](./research/philosophy/newcombs-paradox.md) — pre-commitment, decision theory, agent type; EDT vs CDT; connections to governance, performative grounding, and the prisoner's dilemma
-  - [Press Freedom and Governance](./research/philosophy/press-freedom-and-governance.md) — free press as pre-commitment enforcement; the observation problem; market competition in information; the Gödel classification problem
-  - [History of Philosophy — Peikoff](./research/philosophy/history-of-philosophy/README.md) — 50-lecture survey from Thales to Kant; lecture-by-lecture analysis
-    - [Ep 1: Introduction](./research/philosophy/history-of-philosophy/01-introduction.md) — why philosophy matters, the five branches, the 2,400-year map
-    - [Ep 2: Thales](./research/philosophy/history-of-philosophy/02-thales.md) — why Greece, naturalism vs supernaturalism, monism, "the one in the many"
-    - [Ep 3: Heraclitus](./research/philosophy/history-of-philosophy/03-heraclitus.md) — change requires contradiction, no entities, senses invalid, "everything flows"
-    - [Ep 4: Parmenides](./research/philosophy/history-of-philosophy/04-parmenides.md) — what is, is; change and multiplicity impossible; Zeno's paradoxes; the One
-    - [Ep 5: Pythagoras](./research/philosophy/history-of-philosophy/05-pythagoras.md) — Orphic religion, soul/body split, "all things are numbers," two-world metaphysics
-    - [Ep 6: Pluralists & Atomists](./research/philosophy/history-of-philosophy/06-pluralists-atomists.md) — materialism, primary/secondary qualities, determinism, the self-refutation of materialism
-    - [Ep 7: Sophists](./research/philosophy/history-of-philosophy/07-sophists.md) — skepticism, relativism, apparatus-dependence, the "man is the measure" tradition
-    - [Ep 8: Socrates](./research/philosophy/history-of-philosophy/08-socrates.md) — definitions, universals, conceptual knowledge as the answer to skepticism
-    - [Ep 9: Plato's Metaphysics](./research/philosophy/history-of-philosophy/09-plato-metaphysics.md) — the World of Ideal Forms; universals as separate, perfect, unchanging
-    - [Ep 10: Plato's Epistemology](./research/philosophy/history-of-philosophy/10-plato-epistemology.md) — innate ideas; all learning is remembering; the mystical vision of the Good
-    - [Ep 11: Plato's Ethics](./research/philosophy/history-of-philosophy/11-plato-ethics.md) — tripartite soul; virtue as harmonious rule of reason; platonic love
-    - [Ep 12: Plato's Politics](./research/philosophy/history-of-philosophy/12-plato-politics.md) — philosopher-kings, organic state, collectivism from universals, theory/practice dichotomy
-    - [Ep 13: Aristotle Intro](./research/philosophy/history-of-philosophy/13-aristotle-intro.md) — the third alternative; one reality; attack on Forms; primacy of existence
-    - [Ep 14: Aristotle's Epistemology](./research/philosophy/history-of-philosophy/14-aristotle-epistemology.md) — tabula rasa, abstraction, definition, induction/deduction, the nature of science
-    - [Ep 15: Aristotle — Father of Logic](./research/philosophy/history-of-philosophy/15-aristotle-logic.md) — the syllogism, axioms, laws of logic, reaffirmation through denial, correspondence theory of truth
+    - [The Stance-Independence Retreat](./research/philosophy/epistemology/stance-independence-retreat.md) — diagnoses the retreat from "mind-independent" to "stance-independent" as a rename not a repair; disambiguation demand; attack set for the reframing
+  - [Legal Theory](./research/philosophy/morality/legal-theory/README.md) — libertarian law; mens rea debate, government formation, marriage, shared ownership
+    - [Registration and Scope Creep](./research/philosophy/morality/legal-theory/registration-and-scope-creep.md) — vehicle/gun registration comparison; structural pattern of regulatory expansion beyond original justification
+    - [Defensive Force and Collateral Damage](./research/philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md) — causationism, defense/retribution distinction, gentleness principle, state monopoly's inability to meet justified force standards
+    - [Self-Ownership and Property Rights](./research/philosophy/morality/legal-theory/self-ownership-and-property-rights.md) — self-ownership→property-rights chain is the weak link; conflict avoidance grounds both independently
+    - [Restitution for Death](./research/philosophy/morality/legal-theory/restitution-for-death.md) — the framework's hardest case; containment vs execution vs indentured restitution; the death penalty question
+  - [Measurement, Causality, and Free Will](./research/philosophy/metaphysics/measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
+  - [Civilizational Cycles](./research/philosophy/dynamics/civilizational-cycles/README.md) — theories of rise and fall; asabiyyah, complexity, institutional sclerosis, creative destruction
+    - [Cyclical Historians](./research/philosophy/dynamics/civilizational-cycles/cyclical-historians.md) — Ibn Khaldun, Spengler, Toynbee, Strauss & Howe, Glubb
+    - [Structural-Institutional](./research/philosophy/dynamics/civilizational-cycles/structural-institutional.md) — Turchin, Tainter, Olson, Dalio
+    - [Economic Theorists](./research/philosophy/dynamics/civilizational-cycles/economic-theorists.md) — Hayek, Sowell, Schumpeter, Kondratiev
+  - [Opposing Forces](./research/philosophy/dynamics/opposing-forces.md) — why concentrations of power always generate counter-forces; structural principle across physics, computation, evolution, and agency
+  - [The Godel Governance Problem](./research/philosophy/dynamics/the-godel-governance-problem.md) — can a system prevent monopoly without becoming one? The central unsolved problem: state (inconsistent), ancap (incomplete), constitution (both)
+  - [The Fallacy Fallacy](./research/philosophy/tangents/the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; the "why" requirement; misapplied labels; strange loops in fallacy hunting
+  - [The Technology-Governance Gap](./research/philosophy/dynamics/technology-governance-gap.md) — when systems exceed human comprehension; the good fork (forced decentralization) vs the bad fork (informational monopoly); possible way out of the cycle
+    - [Rudyard Lynch (Whatifalthist)](./research/philosophy/tangents/whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
+  - [Newcomb's Paradox](./research/philosophy/dynamics/newcombs-paradox.md) — pre-commitment, decision theory, agent type; EDT vs CDT; connections to governance, performative grounding, and the prisoner's dilemma
+  - [Press Freedom and Governance](./research/philosophy/dynamics/press-freedom-and-governance.md) — free press as pre-commitment enforcement; the observation problem; market competition in information; the Gödel classification problem
+  - [History of Philosophy — Peikoff](./research/philosophy/tangents/history-of-philosophy/README.md) — 50-lecture survey from Thales to Kant; lecture-by-lecture analysis
+    - [Ep 1: Introduction](./research/philosophy/tangents/history-of-philosophy/01-introduction.md) — why philosophy matters, the five branches, the 2,400-year map
+    - [Ep 2: Thales](./research/philosophy/tangents/history-of-philosophy/02-thales.md) — why Greece, naturalism vs supernaturalism, monism, "the one in the many"
+    - [Ep 3: Heraclitus](./research/philosophy/tangents/history-of-philosophy/03-heraclitus.md) — change requires contradiction, no entities, senses invalid, "everything flows"
+    - [Ep 4: Parmenides](./research/philosophy/tangents/history-of-philosophy/04-parmenides.md) — what is, is; change and multiplicity impossible; Zeno's paradoxes; the One
+    - [Ep 5: Pythagoras](./research/philosophy/tangents/history-of-philosophy/05-pythagoras.md) — Orphic religion, soul/body split, "all things are numbers," two-world metaphysics
+    - [Ep 6: Pluralists & Atomists](./research/philosophy/tangents/history-of-philosophy/06-pluralists-atomists.md) — materialism, primary/secondary qualities, determinism, the self-refutation of materialism
+    - [Ep 7: Sophists](./research/philosophy/tangents/history-of-philosophy/07-sophists.md) — skepticism, relativism, apparatus-dependence, the "man is the measure" tradition
+    - [Ep 8: Socrates](./research/philosophy/tangents/history-of-philosophy/08-socrates.md) — definitions, universals, conceptual knowledge as the answer to skepticism
+    - [Ep 9: Plato's Metaphysics](./research/philosophy/tangents/history-of-philosophy/09-plato-metaphysics.md) — the World of Ideal Forms; universals as separate, perfect, unchanging
+    - [Ep 10: Plato's Epistemology](./research/philosophy/tangents/history-of-philosophy/10-plato-epistemology.md) — innate ideas; all learning is remembering; the mystical vision of the Good
+    - [Ep 11: Plato's Ethics](./research/philosophy/tangents/history-of-philosophy/11-plato-ethics.md) — tripartite soul; virtue as harmonious rule of reason; platonic love
+    - [Ep 12: Plato's Politics](./research/philosophy/tangents/history-of-philosophy/12-plato-politics.md) — philosopher-kings, organic state, collectivism from universals, theory/practice dichotomy
+    - [Ep 13: Aristotle Intro](./research/philosophy/tangents/history-of-philosophy/13-aristotle-intro.md) — the third alternative; one reality; attack on Forms; primacy of existence
+    - [Ep 14: Aristotle's Epistemology](./research/philosophy/tangents/history-of-philosophy/14-aristotle-epistemology.md) — tabula rasa, abstraction, definition, induction/deduction, the nature of science
+    - [Ep 15: Aristotle — Father of Logic](./research/philosophy/tangents/history-of-philosophy/15-aristotle-logic.md) — the syllogism, axioms, laws of logic, reaffirmation through denial, correspondence theory of truth
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [ELIZA — The Pattern Match That Won't Die](./research/eliza.md) — 1966 keyword-lookup chatbot vs modern LLMs; why the comparison persists and why it's wrong; praxeological analysis
 - [AI History — A Personal Arc](./research/ai-history-personal.md) — from ELIZA to OOP neurons to LLMs; each step got something right and something wrong; the training problem

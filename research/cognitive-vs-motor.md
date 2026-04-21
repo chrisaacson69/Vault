@@ -5,7 +5,7 @@ created: 2026-02-12
 # Cognitive Ability vs. Motor Skills
 > LLMs and autopilot NNs solve fundamentally different problems with fundamentally different architectures. Even humans have separate systems for thinking and moving. This page is the hub — the deep treatment lives in measurement-causality.
 
-**Links:** [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Cyborg Model](./cyborg-model.md), [LLM Grounding Problem](./llm-grounding-problem.md), [H-Neurons](./h-neurons.md), [Conservation of Complexity](../notes/conservation-of-complexity.md)
+**Links:** [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Cyborg Model](./cyborg-model.md), [LLM Grounding Problem](./llm-grounding-problem.md), [H-Neurons](./h-neurons.md), [Conservation of Complexity](../notes/conservation-of-complexity.md)
 
 ## The Core Distinction
 
@@ -35,7 +35,7 @@ These are **architecturally separate** — in both humans and AI:
 
 ## The Evolutionary Progression
 
-Developed fully in [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md):
+Developed fully in [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md):
 
 1. **Reactive** — amoeba touches acid, retracts. No prediction, no choice.
 2. **Predictive** — animal hears predator footsteps, runs before seeing it. Time buffer, still essentially reactive.
@@ -45,7 +45,7 @@ Consciousness evolved because organisms that can simulate futures outsurvive tho
 
 ## How the Two Systems Interact
 
-From [measurement-causality](./philosophy/measurement-causality.md) (lines 107-113):
+From [measurement-causality](./philosophy/metaphysics/measurement-causality.md) (lines 107-113):
 
 - The **cognitive system IS the simulation engine** — generates alternate realities and selects among them
 - The **motor system executes** the selected reality

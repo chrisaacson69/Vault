@@ -15,6 +15,7 @@ Both the morality and logic/math frameworks rest on epistemological claims (stru
 - [The Weighting Problem](./weighting-problem.md) — objective measurements do not produce objective composite judgments; the aggregation function is always subjective
 - [Relational Objectivity](./relational-objectivity.md) — the four-category ontology of facts: intrinsic, relational mind-independent, agent-relative, mind-dependent; formalizes why "relational" ≠ "subjective"
 - [The Birthmark and the Search for Truth](./the-birthmark.md) — every knowledge system has imperfections; five principles for approaching truth (humility, adversarial thinking, domain knowledge, incentive tracking, contact with reality); realist correction to postmodernism; why LLMs live in the domain where postmodern critique has force
+- [The Stance-Independence Retreat](./stance-independence-retreat.md) — diagnoses the rhetorical migration from "mind-independent" to "stance-independent" as a rename disguising the same ambiguity; disambiguation demand and attack set; companion to the constitutive/elective page
 
 ## Threads to Explore
 

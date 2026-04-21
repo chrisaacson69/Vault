@@ -7,7 +7,7 @@
 **Moderator:** Breakfast Tacos
 **Duration:** ~2.5 hours (debate proper); ~6 hours total with audience panel
 **Result:** Kurt 73% – Eli 27% (audience vote)
-**Vault relevance:** [epistemology](../philosophy/epistemology/README.md), [logic and mathematics](../philosophy/logic-and-math/README.md), [Gödel governance problem](../philosophy/the-godel-governance-problem.md), [performative grounding](../philosophy/morality/performative-grounding-lineage.md), [scope confusion](../philosophy/morality/scope-confusion.md), [value and profit](../economics/value-and-profit.md), [the fallacy fallacy](../philosophy/the-fallacy-fallacy.md)
+**Vault relevance:** [epistemology](../philosophy/epistemology/README.md), [logic and mathematics](../philosophy/logic-and-math/README.md), [Gödel governance problem](../philosophy/dynamics/the-godel-governance-problem.md), [performative grounding](../philosophy/morality/performative-grounding-lineage.md), [scope confusion](../philosophy/morality/scope-confusion.md), [value and profit](../economics/value-and-profit.md), [the fallacy fallacy](../philosophy/tangents/the-fallacy-fallacy.md)
 
 ---
 
@@ -123,7 +123,7 @@ Any consistent formal system powerful enough to express basic arithmetic contain
 
 **Why this defeats TAG:**
 1. If the laws of logic are grounded in God's mind, God's mind contains truths it cannot prove — contradicting omniscience.
-2. If logic needs God to be grounded, that claim is itself a logical claim requiring grounding — infinite regress. The TAG is a [strange loop](../philosophy/the-godel-governance-problem.md).
+2. If logic needs God to be grounded, that claim is itself a logical claim requiring grounding — infinite regress. The TAG is a [strange loop](../philosophy/dynamics/the-godel-governance-problem.md).
 3. You cannot escape the strange loop by adding another level (God as "meta-system"), because Gödel proves any meta-system powerful enough to ground the lower system inherits the same limitation.
 
 **The "trick" dismissal:** Opponents often treat "this statement is unprovable" as a clever trick rather than a rigorous theorem. The response: Gödel's result is not a paradox or a wordplay. It is a formally proven theorem that no mathematician disputes. It demonstrates that *any* sufficiently powerful logical system is necessarily incomplete — including one grounded in a divine mind. The incompleteness is structural, not a bug.
@@ -137,7 +137,7 @@ The TAG is a strange loop in Hofstadter's sense (*Gödel, Escher, Bach*; *I Am a
 - That logical claim needs God to be grounded
 - The claim that *that* claim needs God is itself a logical claim...
 
-This is the same tangled hierarchy that produces Gödel sentences, Escher's hands-drawing-hands, and the [Gödel Governance Problem](../philosophy/the-godel-governance-problem.md). The TAG tries to escape by positing God as the meta-system. But Gödel proves there is no "outside the system" for any system powerful enough to be interesting.
+This is the same tangled hierarchy that produces Gödel sentences, Escher's hands-drawing-hands, and the [Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md). The TAG tries to escape by positing God as the meta-system. But Gödel proves there is no "outside the system" for any system powerful enough to be interesting.
 
 | TAG Position | Gödel Analog | Problem |
 |---|---|---|
@@ -145,7 +145,7 @@ This is the same tangled hierarchy that produces Gödel sentences, Escher's hand
 | Logic is self-grounding | System cannot prove its own consistency | Second incompleteness theorem |
 | Logic is ungrounded | The position Eli attacks | The incompleteness he's trying to avoid |
 
-All three options fail. This is the epistemological version of the [Gödel Governance Problem](../philosophy/the-godel-governance-problem.md): state (inconsistent), ancap (incomplete), constitution (both). The TAG faces the same trilemma.
+All three options fail. This is the epistemological version of the [Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md): state (inconsistent), ancap (incomplete), constitution (both). The TAG faces the same trilemma.
 
 ---
 

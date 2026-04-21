@@ -5,7 +5,9 @@ created: 2026-03-12
 # Relational Objectivity — The Four-Category Ontology of Facts
 > Not all facts are intrinsic properties of isolated objects. Some facts live in relationships — between objects, between agents and reality, or between agents and their own states. Relational does not mean subjective.
 
-**Links:** [Epistemology](./README.md), [Morality](../morality/README.md), [The Weighting Problem](./weighting-problem.md), [Measurement, Causality, and Free Will](../measurement-causality.md), [Logic and Mathematics](../logic-and-math/README.md), [Wilson vs Objectivism](../../debates/wilson-objectivism-stance-dependence.md), [Newcomb's Paradox](../newcombs-paradox.md), [Performative Grounding](../morality/performative-grounding-lineage.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Epistemology](./README.md), [Morality](../morality/README.md), [The Weighting Problem](./weighting-problem.md), [Stance-Independence Retreat](./stance-independence-retreat.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md), [Logic and Mathematics](../logic-and-math/README.md), [Wilson vs Objectivism](../../debates/wilson-objectivism-stance-dependence.md), [Newcomb's Paradox](../dynamics/newcombs-paradox.md), [Performative Grounding](../morality/performative-grounding-lineage.md)
+
+**Trunk:** This page is a core statement of [Trunk 2 — Verification Epistemology](../the-four-trunks.md#trunk-2--verification-epistemology). The working name for the trunk's position is *constitutive convergence*.
 
 ## The Problem
 
@@ -42,7 +44,7 @@ Properties that exist in the relationship between two or more things, with no ag
 
 More examples: Earth is closer to the Sun than Mars. Water dissolves salt. Acid corrodes iron. The speed of light exceeds the speed of sound. All relational, all mind-independent, all objective.
 
-**The measurement-causality connection:** From the vault's [measurement-causality framework](../measurement-causality.md), measurement is physical interaction — not a mental act. The taller tree casting shade *is* a measurement. The photon doesn't need to report to anyone. The universe is constantly "measuring" relational facts through causal interaction, producing consequences that track those facts.
+**The measurement-causality connection:** From the vault's [measurement-causality framework](../metaphysics/measurement-causality.md), measurement is physical interaction — not a mental act. The taller tree casting shade *is* a measurement. The photon doesn't need to report to anyone. The universe is constantly "measuring" relational facts through causal interaction, producing consequences that track those facts.
 
 This means relational facts are as old as the universe. "More massive than" existed before any minds did. The gravitational consequences of mass differentials were operating for billions of years before a single neuron fired.
 
@@ -120,7 +122,7 @@ Three tests separate agent-relative (category 3) from mind-dependent (category 4
 
 ## The Measurement Backbone
 
-The four categories map cleanly to the vault's [measurement-causality framework](../measurement-causality.md):
+The four categories map cleanly to the vault's [measurement-causality framework](../metaphysics/measurement-causality.md):
 
 | Category | What "measures" the fact | Example |
 |----------|------------------------|---------|
@@ -181,7 +183,7 @@ Same structure. The *patterns* in agent-reality interaction are real (category 3
 
 ### Newcomb's Paradox
 
-[Newcomb's](../newcombs-paradox.md) is an agent-relative problem. The "right" answer depends on what kind of agent you are — but it's not arbitrary. Given your agent-type, the supercomputer's prediction is a fact about the relationship between your type and the box contents. The one-boxer's advantage is an agent-relative fact: agents who honor pre-commitments are the type the computer rewards. Not mind-independent (no agents, no paradox). Not mind-dependent (you can be *wrong* about what to do — two-boxers demonstrably are). Agent-relative.
+[Newcomb's](../dynamics/newcombs-paradox.md) is an agent-relative problem. The "right" answer depends on what kind of agent you are — but it's not arbitrary. Given your agent-type, the supercomputer's prediction is a fact about the relationship between your type and the box contents. The one-boxer's advantage is an agent-relative fact: agents who honor pre-commitments are the type the computer rewards. Not mind-independent (no agents, no paradox). Not mind-dependent (you can be *wrong* about what to do — two-boxers demonstrably are). Agent-relative.
 
 ## The Philosophical Lineage
 
@@ -236,7 +238,7 @@ Two things:
 
 The argumentative move — "you grant tree shade is a relational fact; now explain why adding agents degrades the relation" — is where the specific value lives. Foot comes closest: she uses "good roots for an oak" as the bridge from biological relational facts to moral facts. But her oak is already an organism, so it's arguable whether it's category 2 or 3. The tree-shade example is cleaner because it's purely physical — no organisms evaluating anything, just photons and chloroplasts. The height differential has causal consequences (competitive advantage for sunlight) with no agent in the loop at all.
 
-**2. The measurement-causality backbone connecting all four categories.** The vault's position that measurement = physical interaction (from the [measurement-causality page](../measurement-causality.md)) provides a unified account of what "measures" each category: physics measures category 1-2 facts, agent-reality interaction measures category 3 facts, and only the agent's internal state "measures" category 4 facts. This connects the ontology of facts to the philosophy of physics in a way the existing traditions don't, because they weren't working from a measurement-as-interaction framework.
+**2. The measurement-causality backbone connecting all four categories.** The vault's position that measurement = physical interaction (from the [measurement-causality page](../metaphysics/measurement-causality.md)) provides a unified account of what "measures" each category: physics measures category 1-2 facts, agent-reality interaction measures category 3 facts, and only the agent's internal state "measures" category 4 facts. This connects the ontology of facts to the philosophy of physics in a way the existing traditions don't, because they weren't working from a measurement-as-interaction framework.
 
 ### The MacIntyre connection
 

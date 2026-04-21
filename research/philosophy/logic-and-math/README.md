@@ -5,7 +5,7 @@ created: 2026-02-16
 # Philosophy of Logic and Mathematics — Broad Strokes
 > Logic and math are human constructions that model real patterns — extraordinary maps, but still maps.
 
-**Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [The LLM Grounding Problem](../../llm-grounding-problem.md), [Computation and Information Theory](../../computation-and-information.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
+**Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [The LLM Grounding Problem](../../llm-grounding-problem.md), [Computation and Information Theory](../../computation-and-information.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
 
 ## Core Position: Structural Realism
 

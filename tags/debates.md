@@ -2,7 +2,7 @@
 > Online debate analysis — extracting signal from spectacle.
 
 - [Online Debates](../research/debates/README.md)
-- [The Fallacy Fallacy](../research/philosophy/the-fallacy-fallacy.md)
+- [The Fallacy Fallacy](../research/philosophy/tangents/the-fallacy-fallacy.md)
 - [TAG Debunks Atheism (Nicks vs Peterson)](../research/debates/tag-debunks-atheism-nicks-peterson.md)
 - [Andrew Wilson vs Objectivism: Stance Dependence](../research/debates/wilson-objectivism-stance-dependence.md)
 - [Transhumanism vs Christianity (Wilson x Istvan)](../research/debates/wilson-istvan-transhumanism-christianity.md)
@@ -14,3 +14,4 @@
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
 - [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](../research/debates/wilson-triggernometry-christian-nationalism.md)
 - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)
+- [The Stance-Independence Retreat](../research/philosophy/epistemology/stance-independence-retreat.md)

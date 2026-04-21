@@ -38,7 +38,7 @@ Hayek's insight in *The Use of Knowledge in Society* (1945) was that the knowled
 
 Framed in computational terms (see [Computation and Information Theory](../computation-and-information.md)):
 
-- Each market participant is a **computationally irreducible agent** — you can't predict their choices without running their deliberation (this is free will, see [measurement-causality](../philosophy/measurement-causality.md))
+- Each market participant is a **computationally irreducible agent** — you can't predict their choices without running their deliberation (this is free will, see [measurement-causality](../philosophy/metaphysics/measurement-causality.md))
 - The market is a **computationally irreducible system** of such agents — you can't shortcut the market's output without running the market
 - Central planning attempts to simulate this distributed computation on a single serial node, with worse information, higher latency, and degraded fidelity at every translation step
 - **This is not a practical limitation but a theoretical impossibility** — for the same formal reason you can't predict a conscious agent's choice without running the agent

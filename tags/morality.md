@@ -14,3 +14,5 @@
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
 - [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)
 - [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](../research/debates/wilson-triggernometry-christian-nationalism.md)
+- [The Stance-Independence Retreat](../research/philosophy/epistemology/stance-independence-retreat.md)
+- [The Four Trunks — The Structure of the Vault's Philosophy](../research/philosophy/the-four-trunks.md)

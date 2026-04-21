@@ -4,7 +4,7 @@
 **Date:** TBD
 **Resolution:** "Free access of the press is critical to a healthy, functioning democracy."
 **Your side:** Affirmative (define terms, frame the debate)
-**Research page:** [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)
+**Research page:** [Press Freedom and Governance](../research/philosophy/dynamics/press-freedom-and-governance.md)
 
 ---
 

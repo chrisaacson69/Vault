@@ -1,11 +1,11 @@
 # libertarian-law
 > Files exploring legal theory within a NAP / natural law / Hoppean framework.
 
-- [Libertarian Legal Theory](../research/philosophy/legal-theory/README.md)
-- [Mens Rea Debate](../research/philosophy/legal-theory/mens-rea.md)
+- [Libertarian Legal Theory](../research/philosophy/morality/legal-theory/README.md)
+- [Mens Rea Debate](../research/philosophy/morality/legal-theory/mens-rea.md)
 - [Externalities: Fact-Check of the Decomposition Thesis](../research/economics/externalities-fact-check.md)
 - [The SAVE Act and the Suffrage Question](../research/debates/save-act-suffrage-hoppian.md)
-- [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)
+- [Press Freedom and Governance](../research/philosophy/dynamics/press-freedom-and-governance.md)
 - [Evolutionary Capitalist](../research/evolutionary-capitalist/README.md)
 - [Hierarchy of Ownership (Evo-Cap)](../research/evolutionary-capitalist/hierarchy-of-ownership.md)
 - [Comparative Advantage Bidding (Evo-Cap)](../research/evolutionary-capitalist/comparative-advantage-bidding.md)
@@ -14,5 +14,5 @@
 - [Force Doctrine and Pragmatism (Wilson)](../research/debates/wilson-force-doctrine-pragmatism.md)
 - [Conspiracy, Pre-Crime, and the Breakable Chain](../notes/sketch-conspiracy-and-precrime.md)
 - [Debate Prep: Hate Speech / 1A](../notes/debate-prep-hate-speech-1a.md)
-- [Restitution for Death](../research/philosophy/legal-theory/restitution-for-death.md)
+- [Restitution for Death](../research/philosophy/morality/legal-theory/restitution-for-death.md)
 - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)

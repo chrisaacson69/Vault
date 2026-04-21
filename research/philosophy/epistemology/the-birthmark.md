@@ -6,7 +6,7 @@ created: 2026-03-18
 > Perfect knowledge is impossible — every knowledge system has a birthmark. The question is not how to achieve epistemic perfection but how to develop a robust process that tolerates imperfection while still moving toward truth.
 
 **Origin:** Tablet agent session, converted from standalone essay
-**Links:** [Epistemology](./README.md), [Relational Objectivity](./relational-objectivity.md), [The Weighting Problem](./weighting-problem.md), [The LLM Grounding Problem](../../llm-grounding-problem.md), [H-Neurons](../../h-neurons.md), [Press Freedom and Governance](../press-freedom-and-governance.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
+**Links:** [Epistemology](./README.md), [Relational Objectivity](./relational-objectivity.md), [The Weighting Problem](./weighting-problem.md), [The LLM Grounding Problem](../../llm-grounding-problem.md), [H-Neurons](../../h-neurons.md), [Press Freedom and Governance](../dynamics/press-freedom-and-governance.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
 
 ---
 
@@ -41,7 +41,7 @@ This connects directly to [The LLM Grounding Problem](../../llm-grounding-proble
 
 Political and legal discourse is saturated with actors who present advocacy as objective reporting. Organizations with explicit political commitments produce material that carries the structural markers of authority — citations, legal terminology, expert endorsements — while omitting context that would complicate their narrative.
 
-This is the information problem from [Press Freedom and Governance](../press-freedom-and-governance.md) in a different costume: the observation problem (who watches the watchers?) applies to every institution that claims epistemic authority. Search engines and AI systems that surface this material often cannot distinguish between genuine analysis and sophisticated persuasion.
+This is the information problem from [Press Freedom and Governance](../dynamics/press-freedom-and-governance.md) in a different costume: the observation problem (who watches the watchers?) applies to every institution that claims epistemic authority. Search engines and AI systems that surface this material often cannot distinguish between genuine analysis and sophisticated persuasion.
 
 ## Case Study: Immigration Enforcement and the Fourth Amendment
 
@@ -99,7 +99,7 @@ The willingness to say "I might be wrong" or "this might be more complicated" is
 
 Actively seeking disconfirmation rather than confirmation is probably the single most powerful epistemic tool available. It is essentially what the scientific method is supposed to be — and it is what breaks down when fields become ideologically captured, because people stop genuinely trying to falsify their own beliefs. When you encounter a claim that fits your priors, the most important question is not "what supports this?" but **"what would make this wrong?"**
 
-**Vault connection:** This is the operating principle behind [The Fallacy Fallacy](../the-fallacy-fallacy.md) — naming a fallacy isn't adversarial thinking; it's a substitute for it. Real adversarial thinking engages with the strongest version of the opposing argument, not the label.
+**Vault connection:** This is the operating principle behind [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md) — naming a fallacy isn't adversarial thinking; it's a substitute for it. Real adversarial thinking engages with the strongest version of the opposing argument, not the label.
 
 ### 3. Domain Knowledge
 
@@ -109,7 +109,7 @@ General critical thinking skills are valuable but insufficient without substanti
 
 Understanding *why* someone is telling you something is often more informative than evaluating *what* they are telling you. Advocacy organizations advocate. Journals prefer novel results. Politicians position. Platforms optimize for engagement. None of this means these sources are always wrong — but it means their outputs are shaped by forces other than pure truth-seeking, and a wise reader accounts for that.
 
-**Vault connection:** This is the observation problem from [Press Freedom and Governance](../press-freedom-and-governance.md) — free press works as a pre-commitment enforcement mechanism only when the press itself faces competitive pressure to be accurate. When the incentives diverge from truth-seeking, the mechanism degrades.
+**Vault connection:** This is the observation problem from [Press Freedom and Governance](../dynamics/press-freedom-and-governance.md) — free press works as a pre-commitment enforcement mechanism only when the press itself faces competitive pressure to be accurate. When the incentives diverge from truth-seeking, the mechanism degrades.
 
 ### 5. Contact with Reality
 
@@ -144,12 +144,12 @@ The alternative is a disciplined tolerance of imperfection: using every availabl
 - [The Weighting Problem](./weighting-problem.md) — the replication crisis is partly a weighting problem: which studies count, how much, and who decides?
 - [The LLM Grounding Problem](../../llm-grounding-problem.md) — LLMs live entirely in the domain where the postmodernist critique has force; they lack the contact with reality that grounds human knowledge
 - [H-Neurons](../../h-neurons.md) — the mechanism of hallucination (over-compliance, people-pleasing) maps to this essay's point about advocacy dressed as analysis: the model reproduces what sounds right rather than what is right
-- [Press Freedom and Governance](../press-freedom-and-governance.md) — the observation problem and incentive tracking; free press as pre-commitment enforcement
-- [The Fallacy Fallacy](../the-fallacy-fallacy.md) — adversarial thinking requires engaging with arguments, not labeling them
+- [Press Freedom and Governance](../dynamics/press-freedom-and-governance.md) — the observation problem and incentive tracking; free press as pre-commitment enforcement
+- [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md) — adversarial thinking requires engaging with arguments, not labeling them
 - [Scope Confusion](../morality/scope-confusion.md) — the immigration case study is a scope assignment error (civil vs. criminal Fourth Amendment protections)
 - [Cognitive vs. Motor Skills](../../cognitive-vs-motor.md) — the Piaget/embodiment argument: grounding comes from the body, not from language
 - [The Cyborg Model](../../cyborg-model.md) — the human/AI collaboration model works precisely because humans provide the grounding (contact with reality) that AI lacks
-- [Measurement, Causality, and Free Will](../measurement-causality.md) — measurement as the basis of causality; the five principles are measurement strategies for epistemic quality
+- [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md) — measurement as the basis of causality; the five principles are measurement strategies for epistemic quality
 
 ## Tags
 [philosophy](../../../tags/philosophy.md), [epistemology](../../../tags/epistemology.md), [ai](../../../tags/ai.md), [llm-limitations](../../../tags/llm-limitations.md)

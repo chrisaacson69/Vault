@@ -5,7 +5,7 @@ created: 2026-02-23
 # Insurance
 > Insurance has exactly one legitimate function — hedging catastrophic, low-probability events. Everything else it does makes things worse.
 
-**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/civilizational-cycles/README.md), [Words of Wisdom](../../notes/words-of-wisdom.md)
+**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Words of Wisdom](../../notes/words-of-wisdom.md)
 
 ## The Core Principle
 
@@ -72,7 +72,7 @@ Universal healthcare makes the government an insurance company. The argument for
 - Government must intervene again to close the escape valves
 - The spiral continues
 
-This is the [opposing forces](../philosophy/opposing-forces.md) principle: clamping down on markets generates counter-forces. The government creates the shortage, then has to manage the escape valves, each of which invites another intervention.
+This is the [opposing forces](../philosophy/dynamics/opposing-forces.md) principle: clamping down on markets generates counter-forces. The government creates the shortage, then has to manage the escape valves, each of which invites another intervention.
 
 ### MAID as the Endpoint
 
@@ -191,7 +191,7 @@ The entrepreneur's relationship with risk is instructive. The entrepreneur doesn
 ## Open Questions
 - Where exactly is the line between "catastrophic tail" and "routine expense"? The Monopoly data suggests it's where the liquidity curve crosses ~1.0x. Can this be generalized beyond game theory?
 - Does the moral hazard gradient have natural breakpoints, or is it continuous? Is there a threshold of individual control below which moral hazard is negligible?
-- How does the "you get what you pay for" incentive principle interact with the [opposing forces](../philosophy/opposing-forces.md) framework? Does subsidizing X always generate a counter-force, or only past a threshold?
+- How does the "you get what you pay for" incentive principle interact with the [opposing forces](../philosophy/dynamics/opposing-forces.md) framework? Does subsidizing X always generate a counter-force, or only past a threshold?
 - What would a market look like if insurance were restricted to its legitimate domain (catastrophic events only)? How much cheaper would healthcare be if routine care were paid out of pocket?
 - How much of the "catastrophic" price tag is an artifact of the insurance system itself? If third-party payment were removed and prices reflected market competition, would the catastrophic tail shrink enough that self-insurance covers nearly everything?
 - Is there a viable transition path from the current system to self-insurance + catastrophic-only policies? Or is the system too entrenched (employer tax advantages, regulatory mandates, provider pricing built around insurance)?

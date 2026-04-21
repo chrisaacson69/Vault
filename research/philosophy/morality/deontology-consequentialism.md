@@ -156,7 +156,7 @@ The birthmark stays.
 
 1. **How fast can the cache update?** Biological evolution takes generations. Cultural evolution takes decades to centuries. The vault's explicit philosophical process might be faster — but how much faster? Can you update moral frameworks in years instead of centuries?
 2. **Are any rules truly environment-independent?** "Don't murder" has survived every known environment. Is it a permanent cache entry, or could there be an environment where it fails? (Post-scarcity AI worlds with backup copies of consciousness?)
-3. **Who decides when the cache is stale?** The loop needs someone to recognize "the rules aren't working anymore." But the people who benefit from the current rules have every incentive to deny this. The observation problem from [Press Freedom](../press-freedom-and-governance.md) applies to moral reform too.
+3. **Who decides when the cache is stale?** The loop needs someone to recognize "the rules aren't working anymore." But the people who benefit from the current rules have every incentive to deny this. The observation problem from [Press Freedom](../dynamics/press-freedom-and-governance.md) applies to moral reform too.
 4. **Is the loop itself a moral principle?** "Test, refine, adapt" — is this the one meta-rule that IS environment-independent? It looks like it might be. But then it's the vault's Gödel sentence: we can express it, we can't prove it from within.
 
 ## Tags

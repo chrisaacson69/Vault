@@ -5,7 +5,7 @@ created: 2026-03-23
 # Gödel's Incompleteness Theorems
 > No sufficiently powerful formal system can be both complete and consistent. Logic knows it has limits — and it proved it about itself.
 
-**Links:** [A History of Logic](./history-of-logic.md), [The Formal Revolution](./formal-revolution.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../the-godel-governance-problem.md), [Computation and Information Theory](../../computation-and-information.md), [The Translation Problem](./the-translation-problem.md)
+**Links:** [A History of Logic](./history-of-logic.md), [The Formal Revolution](./formal-revolution.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../dynamics/the-godel-governance-problem.md), [Computation and Information Theory](../../computation-and-information.md), [The Translation Problem](./the-translation-problem.md)
 
 ---
 
@@ -119,7 +119,7 @@ Either way, "therefore God grounds logic" doesn't resolve incompleteness. It eit
 
 ### 2. The Governance Application
 
-The vault's [Gödel Governance Problem](../the-godel-governance-problem.md) applies incompleteness to political systems. **Gödel proved the theorem about formal systems in 1931. The governance page is an application of it.**
+The vault's [Gödel Governance Problem](../dynamics/the-godel-governance-problem.md) applies incompleteness to political systems. **Gödel proved the theorem about formal systems in 1931. The governance page is an application of it.**
 
 The mapping:
 - **Formal system** → Constitution / legal code

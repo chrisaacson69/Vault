@@ -5,7 +5,9 @@ created: 2026-04-08
 # The Constitutive/Elective Distinction — Replacing Objective vs Subjective
 > The objective/subjective debate is fought on a single axis that doesn't exist. There are two axes, not one. Morality is mind-dependent AND constrained — a combination the traditional vocabulary has no word for.
 
-**Links:** [Morality](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Scope Confusion](./scope-confusion.md), [Is-Ought and Performative Grounding](./is-ought-and-performative-grounding.md), [Open Problems](./open-problems.md), [Noerr vs Terry X](../../debates/noerr-teryx-subjective-objective-morality.md), [Logic and Mathematics](../logic-and-math/README.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Morality](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md), [Scope Confusion](./scope-confusion.md), [Is-Ought and Performative Grounding](./is-ought-and-performative-grounding.md), [Open Problems](./open-problems.md), [Noerr vs Terry X](../../debates/noerr-teryx-subjective-objective-morality.md), [Logic and Mathematics](../logic-and-math/README.md)
+
+**Trunk:** This page states [Trunk 1 — Normative Ontology](../the-four-trunks.md#trunk-1--normative-ontology) of the vault's philosophy. The working name for the trunk's position is *constitutive realism*.
 
 ## The Problem
 

@@ -6,7 +6,7 @@
 - [Risk and Entrepreneurship](../research/economics/risk-and-entrepreneurship.md)
 - [Praxis: Agent Teams vs. Theory](../research/economics/praxis-agent-teams.md)
 - [The Limits of Utopia](../notes/limits-of-utopia.md)
-- [Civilizational Cycles](../research/philosophy/civilizational-cycles/README.md)
+- [Civilizational Cycles](../research/philosophy/dynamics/civilizational-cycles/README.md)
 - [Monopoly](../projects/monopoly/README.md)
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)

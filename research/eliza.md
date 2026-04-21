@@ -29,7 +29,7 @@ The "it's just ELIZA" argument has become the default deflationary move against 
 3. People are fooled by LLMs into thinking something is there
 4. Therefore LLMs are just pattern matching
 
-This is a textbook [fallacy of the undistributed middle](./philosophy/the-fallacy-fallacy.md). "People were fooled before" does not establish "people are being fooled now." The conclusion requires showing that the MECHANISM is the same — and it isn't, at any level.
+This is a textbook [fallacy of the undistributed middle](./philosophy/tangents/the-fallacy-fallacy.md). "People were fooled before" does not establish "people are being fooled now." The conclusion requires showing that the MECHANISM is the same — and it isn't, at any level.
 
 ## The Actual Differences
 

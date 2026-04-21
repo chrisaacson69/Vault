@@ -5,7 +5,7 @@ created: 2026-02-20
 # The Multiplayer Coalition Problem
 > Why multiplayer games resist solution, and what the self-balancing dynamics tell us about tractable approximations.
 
-**Links:** [Gaming](./README.md), [Monopoly](../../projects/monopoly/README.md), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Cyborg Model](../cyborg-model.md), [Civilizational Cycles](../philosophy/civilizational-cycles/README.md), [Opposing Forces](../philosophy/opposing-forces.md)
+**Links:** [Gaming](./README.md), [Monopoly](../../projects/monopoly/README.md), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Cyborg Model](../cyborg-model.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Opposing Forces](../philosophy/dynamics/opposing-forces.md)
 
 ## The Problem
 
@@ -43,7 +43,7 @@ The multiplayer dynamics are not solved. Who to attack, when to attack, when to 
 
 This is an emergent phenomenon — nobody designs it, it arises from rational self-interest. Each weaker player independently arrives at the same conclusion: the leader is the biggest threat to my survival, so I should pressure the leader. No coordination required.
 
-**Connection to civilizational cycles.** This is precisely the asabiyyah dynamic from [Civilizational Cycles](../philosophy/civilizational-cycles/README.md) and the structural principle from [Opposing Forces](../philosophy/opposing-forces.md). Concentrations of power generate counter-forces proportional to the concentration. Peripheral groups unite against the dominant power, one of them eventually becomes dominant, and the cycle repeats. Same mechanism, different substrate.
+**Connection to civilizational cycles.** This is precisely the asabiyyah dynamic from [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md) and the structural principle from [Opposing Forces](../philosophy/dynamics/opposing-forces.md). Concentrations of power generate counter-forces proportional to the concentration. Peripheral groups unite against the dominant power, one of them eventually becomes dominant, and the cycle repeats. Same mechanism, different substrate.
 
 ### Monopoly
 

@@ -5,7 +5,7 @@ created: 2026-02-28
 # Market Efficiency and Human Limits
 > The market always gives society exactly what they want within the constraints of what is possible — but humans may not be smart enough to live in a free market.
 
-**Links:** [Economics](./README.md), [Value and Profit](./value-and-profit.md), [US Spending Per Student](./us-spending-per-student.md), [K-12 Instruction vs. Administration](./k12-instruction-vs-administration.md), [The Limits of Utopia](../../notes/limits-of-utopia.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/civilizational-cycles/README.md)
+**Links:** [Economics](./README.md), [Value and Profit](./value-and-profit.md), [US Spending Per Student](./us-spending-per-student.md), [K-12 Instruction vs. Administration](./k12-instruction-vs-administration.md), [The Limits of Utopia](../../notes/limits-of-utopia.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md)
 
 ---
 

@@ -5,7 +5,7 @@ created: 2026-03-23
 # A History of Logic
 > Logic is not a single, settled, God-given system. It's a 2,400-year research program — still active, still contested, still evolving.
 
-**Links:** [Logic and Mathematics](./README.md), [Epistemology](../epistemology/README.md), [The Gödel Governance Problem](../the-godel-governance-problem.md), [Computation and Information Theory](../../computation-and-information.md), [HoP — Peikoff](../history-of-philosophy/README.md)
+**Links:** [Logic and Mathematics](./README.md), [Epistemology](../epistemology/README.md), [The Gödel Governance Problem](../dynamics/the-godel-governance-problem.md), [Computation and Information Theory](../../computation-and-information.md), [HoP — Peikoff](../tangents/history-of-philosophy/README.md)
 
 ---
 
@@ -46,7 +46,7 @@ These three laws dominated Western logic for over two thousand years. Every subs
 
 **What Aristotle missed:** His logic handles only categorical propositions (all, some, none) about static properties. It can't express relations ("A is taller than B"), temporal change ("A was B but is now C"), or quantified statements about infinity. These limitations would take two millennia to address.
 
-**Vault connection:** Peikoff's History of Philosophy series (in the vault) traces how each pre-Socratic philosopher struggled with the same problems Aristotle's logic would later formalize — identity, change, the one and the many. See [HoP Ep 3: Heraclitus](../history-of-philosophy/03-heraclitus.md) (change requires contradiction) and [HoP Ep 4: Parmenides](../history-of-philosophy/04-parmenides.md) (change is impossible because it violates identity).
+**Vault connection:** Peikoff's History of Philosophy series (in the vault) traces how each pre-Socratic philosopher struggled with the same problems Aristotle's logic would later formalize — identity, change, the one and the many. See [HoP Ep 3: Heraclitus](../tangents/history-of-philosophy/03-heraclitus.md) (change requires contradiction) and [HoP Ep 4: Parmenides](../tangents/history-of-philosophy/04-parmenides.md) (change is impossible because it violates identity).
 
 ### Medieval Logic (c. 500–1400) — Extension Within the Framework
 
@@ -145,7 +145,7 @@ Kurt Gödel destroyed the Principia project — and with it, the dream of a sing
 - Mathematics is unreliable (Gödel's proof is itself a mathematical proof — it works)
 - "Therefore God" (the incompleteness applies to ANY formal system, including theological ones)
 
-**Vault connection:** The vault's [Gödel Governance Problem](../the-godel-governance-problem.md) applies Gödel's insight to political systems: can a governance system prevent monopoly without becoming one? Incompleteness says no — the state is inconsistent (claims to prevent monopoly while being one), ancap is incomplete (can't prevent monopoly formation), and constitutions are both. **Gödel proved the theorem about formal systems in 1931. The governance page is an application of it to government, not the other way around.**
+**Vault connection:** The vault's [Gödel Governance Problem](../dynamics/the-godel-governance-problem.md) applies Gödel's insight to political systems: can a governance system prevent monopoly without becoming one? Incompleteness says no — the state is inconsistent (claims to prevent monopoly while being one), ancap is incomplete (can't prevent monopoly formation), and constitutions are both. **Gödel proved the theorem about formal systems in 1931. The governance page is an application of it to government, not the other way around.**
 
 **The deeper point for the TAG debate:** Wilson argues that logic requires God as its ground. Gödel showed that logic can't ground itself — true. But this means NO system can be both complete and consistent. If God's logic is a formal system, it's subject to Gödel too. If it's not a formal system, then it's not logic in any sense we can reason about. Either way, "therefore God grounds logic" doesn't solve the incompleteness — it just moves it up a level.
 

@@ -5,7 +5,7 @@ created: 2026-03-23
 # Quantum Logic
 > The other non-classical logics were invented by philosophers. This one was demanded by nature.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Aristotelian Logic](./aristotelian-logic.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md), [Measurement, Causality, and Free Will](../measurement-causality.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Aristotelian Logic](./aristotelian-logic.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md)
 
 ---
 
@@ -154,7 +154,7 @@ The quantum measurement problem — why does observation collapse superposition?
 
 In both cases, the act of extracting classical information from a richer, less-definite system involves a loss. The superposition contains more information than any single measurement outcome. The natural-language statement contains more meaning than any single formalization. The extraction is necessary for classical reasoning but it destroys something in the process.
 
-**Vault connection:** [Measurement, Causality, and Free Will](../measurement-causality.md) explores measurement as the basis of causality. Quantum logic adds: measurement doesn't just reveal pre-existing facts. It participates in creating them. The observer isn't passive. This connects to the emergence thesis — structure doesn't exist independently "out there" (Platonism) or purely "in here" (constructivism). It emerges from the interaction between observer and observed.
+**Vault connection:** [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md) explores measurement as the basis of causality. Quantum logic adds: measurement doesn't just reveal pre-existing facts. It participates in creating them. The observer isn't passive. This connects to the emergence thesis — structure doesn't exist independently "out there" (Platonism) or purely "in here" (constructivism). It emerges from the interaction between observer and observed.
 
 ## The Ongoing Debate
 

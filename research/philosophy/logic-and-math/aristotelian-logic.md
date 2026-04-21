@@ -5,7 +5,7 @@ created: 2026-03-23
 # Aristotelian Logic
 > The first formal system of reasoning — and the default assumption in almost every philosophy debate today.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Logic and Mathematics](./README.md), [HoP Ep 3: Heraclitus](../history-of-philosophy/03-heraclitus.md), [HoP Ep 4: Parmenides](../history-of-philosophy/04-parmenides.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Logic and Mathematics](./README.md), [HoP Ep 3: Heraclitus](../tangents/history-of-philosophy/03-heraclitus.md), [HoP Ep 4: Parmenides](../tangents/history-of-philosophy/04-parmenides.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
 
 ---
 
@@ -30,7 +30,7 @@ Aristotle's logical works, collectively called the *Organon* ("instrument" or "t
 | **Topics** | Dialectical reasoning | Probable reasoning (not certainty); how to argue well even without proof |
 | **Sophistical Refutations** | Fallacies | Catalog of invalid argument forms — the original fallacy taxonomy |
 
-**Note on Sophistical Refutations:** This is where formal fallacy identification begins. But see [The Fallacy Fallacy](../the-fallacy-fallacy.md) — naming a fallacy isn't a rebuttal. Aristotle would have agreed; his goal was to understand *why* certain argument forms fail, not just to label them.
+**Note on Sophistical Refutations:** This is where formal fallacy identification begins. But see [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md) — naming a fallacy isn't a rebuttal. Aristotle would have agreed; his goal was to understand *why* certain argument forms fail, not just to label them.
 
 ## The Three Laws
 
@@ -47,7 +47,7 @@ A thing is what it is. Everything that exists has a specific nature, specific pr
 
 **What it does:** Establishes that things have definite natures. Without identity, you can't make any statement at all — there would be nothing stable to make statements *about*.
 
-**Seems obvious. Why does it matter?** Because Heraclitus (see [HoP Ep 3](../history-of-philosophy/03-heraclitus.md)) challenged it: if everything is in constant flux, nothing has a stable identity. The river you step in now is not the river you step in a moment later. Aristotle's Law of Identity is partly a response to this challenge — asserting that despite change, things retain identity at any given moment ("at the same time and in the same respect").
+**Seems obvious. Why does it matter?** Because Heraclitus (see [HoP Ep 3](../tangents/history-of-philosophy/03-heraclitus.md)) challenged it: if everything is in constant flux, nothing has a stable identity. The river you step in now is not the river you step in a moment later. Aristotle's Law of Identity is partly a response to this challenge — asserting that despite change, things retain identity at any given moment ("at the same time and in the same respect").
 
 **Where it gets contested:** Quantum mechanics. A photon in superposition is genuinely in an indeterminate state — it doesn't have a definite position until measured. Is it "itself" before measurement? This is why quantum logic exists (see [history-of-logic](./history-of-logic.md)). At the quantum level, identity isn't as clean as Aristotle assumed. At the macro level we live in, it works perfectly.
 
@@ -183,7 +183,7 @@ The 5% where it breaks is exactly where the interesting philosophy happens:
 
 - **TAG debates:** "Logic is immaterial, therefore God" assumes logic is one settled system. It isn't. Which logic? (See [Nicks vs Allen](../../debates/god-precondition-knowledge-nicks-allen.md))
 - **Morality:** "Either an action is moral or immoral" — excluded middle. But what about morally neutral actions? What about actions that are moral in one scope and immoral in another? (See [scope confusion](../morality/scope-confusion.md))
-- **Governance:** "The state both prevents monopoly and is a monopoly" — contradiction under non-contradiction. Under paraconsistent logic, it's a system operating with a contradiction. (See [Gödel Governance Problem](../the-godel-governance-problem.md))
+- **Governance:** "The state both prevents monopoly and is a monopoly" — contradiction under non-contradiction. Under paraconsistent logic, it's a system operating with a contradiction. (See [Gödel Governance Problem](../dynamics/the-godel-governance-problem.md))
 - **Quantum mechanics:** Superposition violates identity. Complementarity violates excluded middle. Reality at the fundamental level requires non-Aristotelian logic.
 
 ### The vault's position

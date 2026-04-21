@@ -5,13 +5,13 @@ created: 2026-02-19
 # Computation and Information Theory
 > What can be computed, what can be known, and what emerges from the limits of both.
 
-**Links:** [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md), [Economics](./economics/README.md), [Opposing Forces](./philosophy/opposing-forces.md), [Comparative Advantage Bidding (Evo-Cap)](./evolutionary-capitalist/comparative-advantage-bidding.md)
+**Links:** [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md), [Economics](./economics/README.md), [Opposing Forces](./philosophy/dynamics/opposing-forces.md), [Comparative Advantage Bidding (Evo-Cap)](./evolutionary-capitalist/comparative-advantage-bidding.md)
 
 ## Why This Matters
 
 Computation and information theory sit underneath several threads in the vault:
 
-- **Free will** — computational irreducibility is the mechanism by which organized complexity produces genuine agency (see [measurement-causality](./philosophy/measurement-causality.md))
+- **Free will** — computational irreducibility is the mechanism by which organized complexity produces genuine agency (see [measurement-causality](./philosophy/metaphysics/measurement-causality.md))
 - **LLM limitations** — what computation can and can't capture about physical reality
 - **Formal systems** — Gödel showed arithmetic can't fully describe itself; Turing showed computation has equivalent limits
 - **Market structure** — algorithmic detection of arbitrage is a computational problem with information-theoretic constraints
@@ -71,7 +71,7 @@ Even quantum computers — a fundamentally different computational model that ex
 
 **Structural realist reading:** Computational complexity isn't Platonic (problems aren't "inherently hard" in some abstract realm) and it isn't arbitrary (the hardness isn't a quirk of one model). It's structural — a pattern that every physically realizable map faithfully reproduces. In the same way that the [logic-and-math](./philosophy/logic-and-math/README.md) framework treats mathematical structures as real patterns modeled by constructed formalisms, computational complexity is a real pattern in what physical systems can and can't do.
 
-**The closure:** Computational complexity is ultimately grounded in the same physical constraints as everything else in the [measurement-causality](./philosophy/measurement-causality.md) framework. Causality, free will, consciousness, market computation, and the hardness of NP problems all emerge from the same underlying reality — finite physical interactions propagating through a universe with finite resources.
+**The closure:** Computational complexity is ultimately grounded in the same physical constraints as everything else in the [measurement-causality](./philosophy/metaphysics/measurement-causality.md) framework. Causality, free will, consciousness, market computation, and the hardness of NP problems all emerge from the same underlying reality — finite physical interactions propagating through a universe with finite resources.
 
 ### P vs NP — The Minesweeper Argument and Non-Locality of Constraints
 
@@ -130,7 +130,7 @@ A market economy is a massively parallel, distributed computing system. The pric
 
 **Why central planning is impossible in principle (not just impractical):**
 
-This is computational irreducibility applied to economics. The market's output is the result of millions of nonlinear interactions between agents who are themselves computationally irreducible (free will — see [measurement-causality](./philosophy/measurement-causality.md)). You cannot simulate the market without running the market. Any attempt to "plan" what the market would produce requires performing the same computation the market performs — at which point you've rebuilt the market with extra overhead and worse information.
+This is computational irreducibility applied to economics. The market's output is the result of millions of nonlinear interactions between agents who are themselves computationally irreducible (free will — see [measurement-causality](./philosophy/metaphysics/measurement-causality.md)). You cannot simulate the market without running the market. Any attempt to "plan" what the market would produce requires performing the same computation the market performs — at which point you've rebuilt the market with extra overhead and worse information.
 
 Hayek understood this intuitively in *The Use of Knowledge in Society* (1945). The formal language of computation theory makes it rigorous: central planning fails for the same theoretical reason you can't predict a conscious agent's choice without running the agent's computation. The same limit applies at the individual level (free will) and the collective level (markets).
 

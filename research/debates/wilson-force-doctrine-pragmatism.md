@@ -5,7 +5,7 @@
 **Source:** [Andrew Wilson Clips Official — YouTube](https://www.youtube.com/watch?v=FL7einD2jQs) — [Transcript](../../raw/debates/transcript-FL7einD2jQs.txt)
 **Participants:** Andrew Wilson (Force Doctrine proponent) vs. Dave (libertarian caller)
 **Duration:** ~8 minutes
-**Vault relevance:** [scope confusion](../../research/philosophy/morality/scope-confusion.md), [defensive force](../../research/philosophy/legal-theory/defensive-force-and-collateral-damage.md), [the Birthmark](../../research/philosophy/epistemology/the-birthmark.md), [the Gödel governance problem](../../research/philosophy/the-godel-governance-problem.md), [opposing forces](../../research/philosophy/opposing-forces.md)
+**Vault relevance:** [scope confusion](../../research/philosophy/morality/scope-confusion.md), [defensive force](../../research/philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md), [the Birthmark](../../research/philosophy/epistemology/the-birthmark.md), [the Gödel governance problem](../../research/philosophy/dynamics/the-godel-governance-problem.md), [opposing forces](../../research/philosophy/dynamics/opposing-forces.md)
 
 ---
 
@@ -107,12 +107,12 @@ The boundary condition isn't a pragmatic compromise — it's the principle corre
 
 - [The Birthmark and the Search for Truth](../../research/philosophy/epistemology/the-birthmark.md) — "contact with reality" as one of five epistemic principles; theories untested against reality are ungrounded
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — "help others" without scope limits is the same structural error as "force is irrelevant to rights"
-- [Defensive Force and Collateral Damage](../../research/philosophy/legal-theory/defensive-force-and-collateral-damage.md) — the vault's existing framework for when force is justified; the gentleness principle; state monopoly problems
-- [The Gödel Governance Problem](../../research/philosophy/the-godel-governance-problem.md) — can a system prevent monopoly of force without becoming one? Wilson's Force Doctrine is a descriptor of the problem, not a solution
-- [Opposing Forces](../../research/philosophy/opposing-forces.md) — concentrations of power (including force) generate counter-forces; the force monopoly isn't stable long-term
+- [Defensive Force and Collateral Damage](../../research/philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md) — the vault's existing framework for when force is justified; the gentleness principle; state monopoly problems
+- [The Gödel Governance Problem](../../research/philosophy/dynamics/the-godel-governance-problem.md) — can a system prevent monopoly of force without becoming one? Wilson's Force Doctrine is a descriptor of the problem, not a solution
+- [Opposing Forces](../../research/philosophy/dynamics/opposing-forces.md) — concentrations of power (including force) generate counter-forces; the force monopoly isn't stable long-term
 - [Business Cycles](../../research/economics/business-cycles.md) — Austrian theory overclaims when it ignores empirical feedback; same pattern as Dave rejecting pragmatism
 - [Inflation](../../research/economics/inflation.md) — "inflation is only monetary" is the economic version of "rights are only principled" — definitionally defensible, empirically incomplete
-- [Press Freedom and Governance](../../research/philosophy/press-freedom-and-governance.md) — the observation problem: who constrains the force-holder? Wilson assumes Christian morality does; the vault has multiple frameworks
+- [Press Freedom and Governance](../../research/philosophy/dynamics/press-freedom-and-governance.md) — the observation problem: who constrains the force-holder? Wilson assumes Christian morality does; the vault has multiple frameworks
 
 ## Open Questions
 

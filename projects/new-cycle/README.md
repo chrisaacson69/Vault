@@ -5,7 +5,7 @@ created: 2026-03-04
 # New Cycle — Philosophy as Fiction
 > A post-apocalyptic narrative following humanity rebuilding civilization through parallel covenant communities, dramatizing the vault's philosophical frameworks.
 
-**Links:** [Morality](../../research/philosophy/morality/README.md), [Opposing Forces](../../research/philosophy/opposing-forces.md), [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md), [Scope Confusion](../../research/philosophy/morality/scope-confusion.md), [Legal Theory](../../research/philosophy/legal-theory/README.md), [Registration and Scope Creep](../../research/philosophy/legal-theory/registration-and-scope-creep.md), [Economics](../../research/economics/README.md), [Online Debates](../../research/debates/README.md)
+**Links:** [Morality](../../research/philosophy/morality/README.md), [Opposing Forces](../../research/philosophy/dynamics/opposing-forces.md), [Civilizational Cycles](../../research/philosophy/dynamics/civilizational-cycles/README.md), [Scope Confusion](../../research/philosophy/morality/scope-confusion.md), [Legal Theory](../../research/philosophy/morality/legal-theory/README.md), [Registration and Scope Creep](../../research/philosophy/morality/legal-theory/registration-and-scope-creep.md), [Economics](../../research/economics/README.md), [Online Debates](../../research/debates/README.md)
 
 ## Premise
 
@@ -43,21 +43,21 @@ Each community is organized around a different philosophical foundation. They de
 - **Strengths:** Tight-knit, genuine mutual care, functional moral code, strong identity, effective at small scale
 - **Dramatizes:** Christian morality's probabilistic heuristics really do work — the community is functional, loving, and stable. Wilson's argument validated.
 - **Breaks when:** Scale requires enforcement of belief rather than voluntary adherence. Dissenters emerge. The community faces the choice: tolerate dissent (and lose cohesion) or enforce orthodoxy (and become a theocracy). Neither option preserves what made it good.
-- **Vault concepts:** [Morality framework](../../research/philosophy/morality/README.md) (heuristics work), [Opposing forces](../../research/philosophy/opposing-forces.md) (enforced uniformity generates dissent), scope confusion (personal faith → political enforcement)
+- **Vault concepts:** [Morality framework](../../research/philosophy/morality/README.md) (heuristics work), [Opposing forces](../../research/philosophy/dynamics/opposing-forces.md) (enforced uniformity generates dissent), scope confusion (personal faith → political enforcement)
 
 ### The Homesteaders
 - **Built around:** Property rights, voluntary exchange, individual sovereignty
 - **Strengths:** Innovation, personal freedom, rapid economic development, respect for individual autonomy
 - **Dramatizes:** Property rights enable coordination and incentivize productivity. The libertarian case is real.
 - **Breaks when:** Coordination problems at scale — someone dams the river, disputes have no resolution mechanism, defense requires collective action that voluntary contribution can't sustain. The "rules of the road" moment arrives and they have to choose between anarchy and governance.
-- **Vault concepts:** [Legal theory](../../research/philosophy/legal-theory/README.md), [Registration and scope creep](../../research/philosophy/legal-theory/registration-and-scope-creep.md) (they build governance reluctantly, and it immediately begins expanding), company town dynamics from [Pool/Dyer debate](../../research/debates/pool-dyer-review-wilson.md)
+- **Vault concepts:** [Legal theory](../../research/philosophy/morality/legal-theory/README.md), [Registration and scope creep](../../research/philosophy/morality/legal-theory/registration-and-scope-creep.md) (they build governance reluctantly, and it immediately begins expanding), company town dynamics from [Pool/Dyer debate](../../research/debates/pool-dyer-review-wilson.md)
 
 ### The Commune
 - **Built around:** Shared labor, no private property, collective decision-making
 - **Strengths:** Beautiful at small scale. Genuine equality, deep solidarity, no one left behind. The reader should want to live here.
 - **Dramatizes:** Shapiro's "in my family we are communist" — communal organization works when everyone knows everyone and exit is easy.
 - **Breaks when:** Growth past Dunbar's number (~150). Free riders can't be identified by social pressure alone. Decisions take forever because consensus doesn't scale. The most productive members leave because they're subsidizing non-contributors. Exit is the canary — when productive people start leaving, the commune is already dead.
-- **Vault concepts:** Scaling failure of communism, exit rights as the critical variable, [Opposing forces](../../research/philosophy/opposing-forces.md) (communal enforcement generates defection)
+- **Vault concepts:** Scaling failure of communism, exit rights as the critical variable, [Opposing forces](../../research/philosophy/dynamics/opposing-forces.md) (communal enforcement generates defection)
 
 ### The Engineers
 - **Built around:** Pragmatism, technical competence, "whatever works"
@@ -101,7 +101,7 @@ The communities start rebuilding with pre-industrial technology. Governance stru
 
 This is historically accurate: the US Constitution took ~250 years to seriously erode partly because technological change was slow enough for the friction structure to keep up. In the story, the technology recovery curve is steeper (rediscovery is faster than invention), so governance decay that took centuries in the old world could happen in decades. A community that writes its charter when everyone has swords faces a crisis when someone rebuilds rifles. The charter didn't account for the power asymmetry.
 
-This gives the narrative a natural accelerant — the reader watches the same patterns that took centuries in real history play out in compressed time, driven by technology outpacing governance. See [The Godel Governance Problem](../../research/philosophy/the-godel-governance-problem.md) for the theoretical basis.
+This gives the narrative a natural accelerant — the reader watches the same patterns that took centuries in real history play out in compressed time, driven by technology outpacing governance. See [The Godel Governance Problem](../../research/philosophy/dynamics/the-godel-governance-problem.md) for the theoretical basis.
 
 **Note on Asimov's Foundation:** Foundation uses a similar narrative structure — Seldon predicts the empire's fall, can't prevent it, but shortens the dark age by encoding understanding. The chronicler serves a similar function: documenting *why* each governance model fails when technology outpaces its assumptions, so the next iteration starts from understanding rather than ignorance. The content is different (the vault's frameworks vs psychohistory), but the narrative role — observer who can't prevent the cycle but can shorten the dark age — is analogous.
 

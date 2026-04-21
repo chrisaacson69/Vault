@@ -6,7 +6,7 @@ created: 2026-03-13
 > He reinvents the price system, calls it something new, and doesn't notice the central planner hiding behind the curtain.
 
 **Source:** [YouTube video](https://www.youtube.com/watch?v=inZEc3GLzD8) (5:48, uploaded 2026-02-17, 11 views)
-**Links:** [Channel Overview](./README.md), [Hierarchy of Ownership](./hierarchy-of-ownership.md), [Value and Profit](../economics/value-and-profit.md), [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md), [Computation and Information Theory](../computation-and-information.md), [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md)
+**Links:** [Channel Overview](./README.md), [Hierarchy of Ownership](./hierarchy-of-ownership.md), [Value and Profit](../economics/value-and-profit.md), [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md), [Computation and Information Theory](../computation-and-information.md), [The Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md)
 
 ## His Argument (Steel-Manned)
 
@@ -53,7 +53,7 @@ There are only two options:
 1. **The market does it through prices** — in which case his system reduces to "let the market work," which is not new and doesn't require his framework
 2. **An authority calculates and enforces it** — in which case this is central planning wearing a comparative advantage costume
 
-He seems to want option 2 without admitting it. The moment you override a willing buyer and willing seller because a third-party calculation says the reallocation is net-negative for "total system output," you need a planner. This is the [Godel Governance Problem](../philosophy/the-godel-governance-problem.md): who runs the bidding system, and what prevents them from becoming the monopoly?
+He seems to want option 2 without admitting it. The moment you override a willing buyer and willing seller because a third-party calculation says the reallocation is net-negative for "total system output," you need a planner. This is the [Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md): who runs the bidding system, and what prevents them from becoming the monopoly?
 
 ### The Calculation Problem
 

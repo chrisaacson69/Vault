@@ -5,7 +5,7 @@ created: 2026-03-23
 # The Formal Revolution (1847–1931)
 > In 84 years, logic went from a philosophical discipline to the foundation of mathematics, computing, and the limits of knowledge itself.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md), [The Gödel Governance Problem](../the-godel-governance-problem.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md), [The Gödel Governance Problem](../dynamics/the-godel-governance-problem.md)
 
 ---
 

@@ -5,7 +5,7 @@ created: 2026-03-18
 # Business Cycles
 > Boom-bust cycles are natural market phenomena — the cost of decentralized learning under uncertainty. Government doesn't cause them. Government makes them catastrophic.
 
-**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Civilizational Cycles](../philosophy/civilizational-cycles/README.md), [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md)
+**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md)
 
 ## The Thesis
 
@@ -92,7 +92,7 @@ This is the single most destructive amplification mechanism, and it's structural
 
 The result is a one-way ratchet: cheap money during busts, cheap money during booms, cheap money all the time. Each cycle's floor becomes the next cycle's ceiling. Interest rates trend toward zero over decades. Debt accumulates. The money supply expands.
 
-This is a *perverse incentive built into the structure of democratic monetary policy*. The politician's time horizon is the next election (2–6 years). The business cycle's time horizon is 7–15 years. The debt cycle's time horizon is 75–100 years (see [Civilizational Cycles — Dalio](../philosophy/civilizational-cycles/README.md)). The politician will always choose the short-term fix because the long-term consequences fall on someone else.
+This is a *perverse incentive built into the structure of democratic monetary policy*. The politician's time horizon is the next election (2–6 years). The business cycle's time horizon is 7–15 years. The debt cycle's time horizon is 75–100 years (see [Civilizational Cycles — Dalio](../philosophy/dynamics/civilizational-cycles/README.md)). The politician will always choose the short-term fix because the long-term consequences fall on someone else.
 
 The Austrian diagnosis is correct: this ratchet ensures that every cycle's malinvestment is larger than the last, because the "correction" never fully corrects. But the ratchet *amplifies* a cycle that would exist anyway — it doesn't create one from nothing.
 
@@ -160,14 +160,14 @@ The corrected view says: remove the government and the cycle becomes *manageable
 
 - [Risk and Entrepreneurship](./risk-and-entrepreneurship.md) — the micro-foundation: profit as the reward for navigating uncertainty; entrepreneurial error is the unit of the business cycle
 - [Value and Profit](./value-and-profit.md) — subjective value theory underpins why error clusters form (entrepreneurs disagree about value, and sometimes they're collectively wrong)
-- [Civilizational Cycles](../philosophy/civilizational-cycles/README.md) — Dalio's 9-stage debt cycle is the macro-scale version of the political ratchet; Olson's institutional sclerosis is the long-run accumulation of deadwood
+- [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md) — Dalio's 9-stage debt cycle is the macro-scale version of the political ratchet; Olson's institutional sclerosis is the long-run accumulation of deadwood
 - [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md) — maturity mismatching as spurious money creation; Z1 as real inflation; the Nash equilibrium origin of money
 - [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md) — Cantillon effect as the mechanism by which credit expansion distorts price signals
 - [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md) — humans may not be smart enough to be good market participants; FOMO and herding as cognitive limitations that make cycles inevitable
 - [The Weighting Problem](../philosophy/epistemology/weighting-problem.md) — "the price level" is a fiction (Weinstein/Murphy); all attempts to measure "the cycle" face the same index number problem
 - [Inflation](./inflation.md) — companion page; the price side of the same Austrian overclaims — monetary expansion is the only permanent inflationary force, but not the only one
 - [The Equation of Exchange and the Transaction Multiplier](./equation-of-exchange.md) — formal framework showing how investment (high k_I) collapses disproportionately during busts, amplifying cycles in transaction space beyond what GDP suggests
-- [Opposing Forces](../philosophy/opposing-forces.md) — the boom generates its own bust, the bust generates its own boom; this is the economic instance of the structural principle
+- [Opposing Forces](../philosophy/dynamics/opposing-forces.md) — the boom generates its own bust, the bust generates its own boom; this is the economic instance of the structural principle
 
 ## Tags
 [economics](../../tags/economics.md), [free-markets](../../tags/free-markets.md), [civilizational-cycles](../../tags/civilizational-cycles/README.md), [risk](../../tags/risk.md)

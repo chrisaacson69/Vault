@@ -5,7 +5,7 @@ created: 2026-02-22
 # The Scope Confusion Thesis
 > Most political and legal disagreements are not about values — they're about which enforcement mechanism is appropriate for a given norm.
 
-**Links:** [Morality](./README.md), [Legal Theory](../legal-theory/README.md), [Mens Rea](../legal-theory/mens-rea.md), [Opposing Forces](../opposing-forces.md), [Civilizational Cycles](../civilizational-cycles/README.md), [Demolition Man Analysis](../../demolition-man-analysis.md), [Insurance](../../economics/insurance.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md)
+**Links:** [Morality](./README.md), [Legal Theory](./legal-theory/README.md), [Mens Rea](./legal-theory/mens-rea.md), [Opposing Forces](../dynamics/opposing-forces.md), [Civilizational Cycles](../dynamics/civilizational-cycles/README.md), [Demolition Man Analysis](../../demolition-man-analysis.md), [Insurance](../../economics/insurance.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
 
 ## The Key Insight: Enforcement Regimes, Not Content Categories
 
@@ -94,7 +94,7 @@ Banning alcohol, drugs, pornography, blasphemy, homosexuality. These are norms w
 "If it's legal, it's fine." Legality is a floor, not a ceiling. Something can be legal and still warrant social sanction or personal moral rejection. A person who lies constantly, betrays trust, and exploits loopholes violates no law but deserves social enforcement (ethics) and personal judgment (morality). Collapsing all three regimes into law strips society of its non-institutional enforcement tools.
 
 **Escalating ethics to law (regulatory capture):**
-Professional norms, industry standards, best practices — these are socially enforced phenomena. When codified into law (occupational licensing, regulatory compliance), they become tools for incumbents to exclude competitors. Olson's institutional sclerosis (from [Civilizational Cycles](../civilizational-cycles/README.md)) is partly a scope confusion story: ethical norms that worked as voluntary standards become legal barriers that resist change.
+Professional norms, industry standards, best practices — these are socially enforced phenomena. When codified into law (occupational licensing, regulatory compliance), they become tools for incumbents to exclude competitors. Olson's institutional sclerosis (from [Civilizational Cycles](../dynamics/civilizational-cycles/README.md)) is partly a scope confusion story: ethical norms that worked as voluntary standards become legal barriers that resist change.
 
 **Insurance mandates as scope confusion:**
 The [insurance analysis](../../economics/insurance.md) is a specific case. Health, lifestyle, and personal risk management are ethics-scope at most (communities can pressure healthy behavior) and morality-scope at minimum (individual responsibility). Mandating insurance coverage for lifestyle-controllable risks escalates these to law-scope, producing the interventionism spiral: mandates → price increases → compulsory participation → rationing. The compassion driving the mandate is real; the enforcement regime is wrong.
@@ -104,7 +104,7 @@ Cocteau in [Demolition Man](../../demolition-man-analysis.md) — every preferen
 
 ## Scope Confusion as the Mechanism Behind Civilizational Decay
 
-The [master cycle](../civilizational-cycles/README.md) — voluntary cooperation → institutional consolidation → institutional capture → coercion → collapse — can be read as a scope confusion progression:
+The [master cycle](../dynamics/civilizational-cycles/README.md) — voluntary cooperation → institutional consolidation → institutional capture → coercion → collapse — can be read as a scope confusion progression:
 
 1. **Voluntary cooperation** — each regime operates independently. Morality guides individuals, social enforcement guides communities, law protects rights. High trust. Friction structure intact.
 2. **Institutional consolidation** — socially enforced norms get codified into law because "they work." This seems efficient. Friction structure begins eroding.
@@ -118,7 +118,7 @@ The friction structure's decay rate determines the civilization's lifespan. A we
 
 ### The Monopoly Example: Impatience as the Escalation Trigger
 
-Natural monopolies illustrate the ratchet perfectly. A monopoly that isn't protected by government is just a company that's currently winning. High margins attract competitors. Innovation disrupts. The [opposing forces](../opposing-forces.md) principle predicts this: concentration generates counter-forces. Standard Oil was already losing market share before the antitrust case.
+Natural monopolies illustrate the ratchet perfectly. A monopoly that isn't protected by government is just a company that's currently winning. High margins attract competitors. Innovation disrupts. The [opposing forces](../dynamics/opposing-forces.md) principle predicts this: concentration generates counter-forces. Standard Oil was already losing market share before the antitrust case.
 
 But the market's timeline is slow, and people want the problem fixed *now*. So they clamor for government intervention — escalating from market-scope enforcement (competition, consumer choice) to law-scope enforcement (antitrust regulation). The monopoly — which has the most resources and the best lawyers — then captures the regulatory apparatus. Now instead of a monopoly that market forces are eroding, you have a monopoly *protected by the very regulation designed to destroy it*. The cure is worse than the disease because it introduced institutional enforcement into a domain that already had a working mechanism.
 
@@ -136,7 +136,7 @@ Government as "necessary evil" is the honest framing: law is needed (the princip
 
 ## Connection to Mens Rea
 
-The [mens rea debate](../legal-theory/mens-rea.md) is a specific instance of scope confusion.
+The [mens rea debate](./legal-theory/mens-rea.md) is a specific instance of scope confusion.
 
 **The norm:** Intent matters when judging wrongdoing.
 
@@ -231,7 +231,7 @@ The synthesis — one set of norms, three enforcement regimes, scope confusion a
 
 - Is the enforceability gradient continuous or does it have natural breakpoints?
 - Does the scope confusion thesis predict which *direction* political movements push? (Progressives push ethics → law? Libertarians push law → morality?)
-- How does scope confusion interact with [opposing forces](../opposing-forces.md)? Does over-legislating morality *generate* the libertine counter-reaction?
+- How does scope confusion interact with [opposing forces](../dynamics/opposing-forces.md)? Does over-legislating morality *generate* the libertine counter-reaction?
 - Can the convergence test distinguish "humanity is converging on truth" from "humanity shares cognitive biases"? (See [The Weighting Problem](../epistemology/weighting-problem.md) — convergence on measurements is strong evidence; convergence on weightings is weaker.)
 - Does the Gödel trap have a solution, or is it an inherent vulnerability that can only be managed (via friction) but never eliminated?
 - How does the "you get what you pay for" incentive principle ([Words of Wisdom](../../../notes/words-of-wisdom.md)) interact with scope confusion? Does escalating enforcement *always* produce perverse incentives, or only past a threshold?

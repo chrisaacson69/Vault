@@ -56,11 +56,11 @@ These are threads opened in existing files that were left hanging. They weaken t
 - **Problem:** "A system powerful enough to govern itself is powerful enough to destroy itself." The amendment process is offered as friction, but the open question — does the Gödel trap have a solution, or only management? — is central to whether constitutional design can ever "break the cycle."
 
 ### 2.7 Repeat offenders and serial fraud
-- **File:** [research/philosophy/legal-theory/mens-rea.md](../research/philosophy/legal-theory/mens-rea.md) (line ~249)
+- **File:** [research/philosophy/morality/legal-theory/mens-rea.md](../research/philosophy/morality/legal-theory/mens-rea.md) (line ~249)
 - **Problem:** If each breach is treated in isolation (no intent analysis), how does the system identify and respond to serial fraud? The framework's victim-focus doesn't naturally aggregate across victims.
 
 ### 2.8 Degrees of information in the free will principle
-- **File:** [research/philosophy/legal-theory/mens-rea.md](../research/philosophy/legal-theory/mens-rea.md) (line ~254)
+- **File:** [research/philosophy/morality/legal-theory/mens-rea.md](../research/philosophy/morality/legal-theory/mens-rea.md) (line ~254)
 - **Problem:** The free will principle hinges on "informed" vs "uninformed" agents, but information is a spectrum. Partially informed participants need a cleaner treatment.
 
 ---
@@ -70,30 +70,30 @@ These are threads opened in existing files that were left hanging. They weaken t
 These are topics the vault's own files explicitly call for but that haven't been written yet.
 
 ### 3.1 Constitutional Analysis (dedicated page)
-- **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) (line ~46)
+- **Called for in:** [research/philosophy/morality/legal-theory/README.md](../research/philosophy/morality/legal-theory/README.md) (line ~46)
 - **Quote:** "It may warrant its own dedicated page examining the document as a whole."
 - **Why needed:** The Constitution surfaces across civilizational cycles, government formation, scope confusion, 1A, 2A, and multiple debates. A dedicated page would unify these threads.
 
 ### 3.2 Marriage under Natural Law
-- **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) — "Upcoming Topics"
+- **Called for in:** [research/philosophy/morality/legal-theory/README.md](../research/philosophy/morality/legal-theory/README.md) — "Upcoming Topics"
 
 ### 3.3 Shared Ownership under Libertarian Law
-- **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) — "Upcoming Topics"
+- **Called for in:** [research/philosophy/morality/legal-theory/README.md](../research/philosophy/morality/legal-theory/README.md) — "Upcoming Topics"
 - **Also an open question in:** mens-rea.md (line ~251)
 
 ### 3.4 Fraud as Aggression (without mens rea)
-- **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) — "Upcoming Topics"
+- **Called for in:** [research/philosophy/morality/legal-theory/README.md](../research/philosophy/morality/legal-theory/README.md) — "Upcoming Topics"
 - **Closely connected to:** the serial fraud gap (2.7 above)
 
 ### ~~3.5 Restitution for Death~~ — WRITTEN
-- **Resolution:** [Restitution for Death](../research/philosophy/legal-theory/restitution-for-death.md) — examines all five workarounds (restitution to survivors, incarceration, execution, exile, indentured restitution), the death penalty under the defensive force framework, the consequentialist deterrence argument, scope creep, and the hard case of murder from custody.
+- **Resolution:** [Restitution for Death](../research/philosophy/morality/legal-theory/restitution-for-death.md) — examines all five workarounds (restitution to survivors, incarceration, execution, exile, indentured restitution), the death penalty under the defensive force framework, the consequentialist deterrence argument, scope creep, and the hard case of murder from custody.
 
 ### 3.6 Free Speech / 1A Analysis
-- **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) — "Upcoming Topics"
+- **Called for in:** [research/philosophy/morality/legal-theory/README.md](../research/philosophy/morality/legal-theory/README.md) — "Upcoming Topics"
 - **Already partially developed in:** mens-rea's incitement analysis, scope-confusion's connection to speech restrictions
 
 ### 3.7 2nd Amendment Analysis
-- **Called for in:** [research/philosophy/legal-theory/README.md](../research/philosophy/legal-theory/README.md) — "Upcoming Topics" (has substantial outline)
+- **Called for in:** [research/philosophy/morality/legal-theory/README.md](../research/philosophy/morality/legal-theory/README.md) — "Upcoming Topics" (has substantial outline)
 
 ### 3.8 Business Models, Architecture & Guardrails, Agent Team Economics
 - **Called for in:** [research/economics/README.md](../research/economics/README.md) — "Planned" section
@@ -116,11 +116,11 @@ These are topics the vault's own files explicitly call for but that haven't been
 | From | Should Link To | Why |
 |------|---------------|-----|
 | [logic-and-math/README.md](../research/philosophy/logic-and-math/README.md) | [weighting-problem.md](../research/philosophy/epistemology/weighting-problem.md) | Weighting problem directly challenges convergence argument used in logic/math |
-| [opposing-forces.md](../research/philosophy/opposing-forces.md) | [insurance.md](../research/economics/insurance.md) | Insurance interventionism spiral is a concrete case of opposing forces |
-| [cyborg-model.md](../research/cyborg-model.md) | [measurement-causality.md](../research/philosophy/measurement-causality.md) | Measurement-causality provides the physical grounding for why cognitive/motor split exists |
+| [opposing-forces.md](../research/philosophy/dynamics/opposing-forces.md) | [insurance.md](../research/economics/insurance.md) | Insurance interventionism spiral is a concrete case of opposing forces |
+| [cyborg-model.md](../research/cyborg-model.md) | [measurement-causality.md](../research/philosophy/metaphysics/measurement-causality.md) | Measurement-causality provides the physical grounding for why cognitive/motor split exists |
 | [llm-grounding-problem.md](../research/llm-grounding-problem.md) | [cognitive-vs-motor.md](../research/cognitive-vs-motor.md) | The grounding problem IS the cognitive layer operating without a motor grounding layer |
-| [civilizational-cycles/README.md](../research/philosophy/civilizational-cycles/README.md) | [scope-confusion.md](../research/philosophy/morality/scope-confusion.md) | Scope confusion identifies the mechanism (enforcement escalation) behind the voluntary→coercion drift |
-| [computation-and-information.md](../research/computation-and-information.md) | [opposing-forces.md](../research/philosophy/opposing-forces.md) | Computational irreducibility is one of the candidate explanations for opposing forces |
+| [civilizational-cycles/README.md](../research/philosophy/dynamics/civilizational-cycles/README.md) | [scope-confusion.md](../research/philosophy/morality/scope-confusion.md) | Scope confusion identifies the mechanism (enforcement escalation) behind the voluntary→coercion drift |
+| [computation-and-information.md](../research/computation-and-information.md) | [opposing-forces.md](../research/philosophy/dynamics/opposing-forces.md) | Computational irreducibility is one of the candidate explanations for opposing forces |
 
 ### 4.2 Empty Tasks File
 - **File:** [tasks/active.md](../tasks/active.md)

@@ -5,7 +5,7 @@ created: 2026-03-30
 # Planck Measurement — Working Note
 > Can you fully measure an object? Explored and partially answered. Needs a physicist to close the loop.
 
-**Links:** [Counting Requires Agents](./bridge-logic-to-morality.md), [Measurement, Causality](../research/philosophy/measurement-causality.md)
+**Links:** [Counting Requires Agents](./bridge-logic-to-morality.md), [Measurement, Causality](../research/philosophy/metaphysics/measurement-causality.md)
 
 ---
 

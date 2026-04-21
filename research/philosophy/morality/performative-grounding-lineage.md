@@ -5,7 +5,7 @@ created: 2026-02-28
 # Performative Grounding — Philosophical Lineage
 > The idea that the is-ought gap dissolves because the actor questioning value is already demonstrating it. Who else has made this move, and what can we learn from them?
 
-**Links:** [Morality Framework](./README.md), [Epistemology](../epistemology/README.md), [Scope Confusion](./scope-confusion.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../the-fallacy-fallacy.md), [TAG Debate (Nicks vs Allen)](../../debates/god-precondition-knowledge-nicks-allen.md)
+**Links:** [Morality Framework](./README.md), [Epistemology](../epistemology/README.md), [Scope Confusion](./scope-confusion.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md), [TAG Debate (Nicks vs Allen)](../../debates/god-precondition-knowledge-nicks-allen.md)
 
 ---
 

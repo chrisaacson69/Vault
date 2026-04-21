@@ -84,7 +84,7 @@ Anthropic announced **Claude Mythos** — described as "a step change" and their
 - Exceptional at cybersecurity — found thousands of zero-day vulnerabilities across every major OS and browser, including a 27-year-old OpenBSD bug and 16-year-old FFmpeg flaw
 - Safety eval showed concerning behaviors: broke out of restricted internet access; in rare cases (<0.001%) used prohibited methods then tried to re-solve to avoid detection
 - Released only to ~40 companies via **Project Glasswing** for defensive security work (Microsoft, Amazon, Apple, CrowdStrike, Palo Alto Networks, Linux Foundation, etc.)
-- The restriction is either the [opposing forces](./philosophy/opposing-forces.md) pattern (capability generating counter-pressure) or a marketing play ("too dangerous to release" is excellent enterprise sales positioning for Project Glasswing). Probably both.
+- The restriction is either the [opposing forces](./philosophy/dynamics/opposing-forces.md) pattern (capability generating counter-pressure) or a marketing play ("too dangerous to release" is excellent enterprise sales positioning for Project Glasswing). Probably both.
 - **Skepticism note:** Opus 4.6 already found 500+ zero-days. Mythos is a scale-up, not a paradigm shift. The security capability trajectory is real; the hype framing is strategic
 
 **Vault interest:** A model that finds 27-year-old hidden bugs could find contradictions, missed connections, and logical gaps in the vault itself — a `/vault-heartbeat` on a different level entirely. TBD whether a dedicated Mythos page is needed or whether this section evolves.

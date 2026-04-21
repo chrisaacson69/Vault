@@ -5,7 +5,7 @@ created: 2026-02-12
 # The LLM Grounding Problem
 > LLMs live in the text world. Everything — physical presence, spatial relationships, direct experience — gets flattened into tokens. A well-constructed argument can outweigh a lived reality.
 
-**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md)
+**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md)
 
 ## The Core Problem
 

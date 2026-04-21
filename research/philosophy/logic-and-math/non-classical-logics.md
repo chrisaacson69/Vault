@@ -5,7 +5,7 @@ created: 2026-03-23
 # Non-Classical Logics
 > What happens when you challenge the other axioms? Contradictions that don't explode, truth that comes in degrees, and premises that must actually be relevant.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Intuitionistic Logic](./intuitionistic-logic.md), [Gödel's Incompleteness](./godel-incompleteness.md), [The Translation Problem](./the-translation-problem.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../the-godel-governance-problem.md), [Scope Confusion](../morality/scope-confusion.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Intuitionistic Logic](./intuitionistic-logic.md), [Gödel's Incompleteness](./godel-incompleteness.md), [The Translation Problem](./the-translation-problem.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../dynamics/the-godel-governance-problem.md), [Scope Confusion](../morality/scope-confusion.md)
 
 ---
 
@@ -71,7 +71,7 @@ Most logicians don't go as far as Priest. But the weaker position — contradict
 
 ### Vault Connection
 
-The [Gödel Governance Problem](../the-godel-governance-problem.md) is a paraconsistent situation. The state IS a monopoly on force while simultaneously existing to PREVENT monopoly on force. Classical logic says this is a contradiction and therefore everything follows (the state can justify anything). Paraconsistent logic says: yes, it's a contradiction; no, it doesn't justify everything; the contradiction can be managed, contained, and worked with — which is what constitutions actually try to do.
+The [Gödel Governance Problem](../dynamics/the-godel-governance-problem.md) is a paraconsistent situation. The state IS a monopoly on force while simultaneously existing to PREVENT monopoly on force. Classical logic says this is a contradiction and therefore everything follows (the state can justify anything). Paraconsistent logic says: yes, it's a contradiction; no, it doesn't justify everything; the contradiction can be managed, contained, and worked with — which is what constitutions actually try to do.
 
 ## Fuzzy Logic — Truth in Degrees
 
