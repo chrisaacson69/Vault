@@ -75,6 +75,9 @@ module.exports = function(eleventyConfig) {
     },
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
-    templateFormats: ["md", "njk", "html"]
+    templateFormats: ["md", "njk", "html"],
+    // Root locally; /Vault/ on GitHub Pages (set via PATH_PREFIX env var in the deploy workflow).
+    // Templates must use the `| url` filter on links for this to take effect.
+    pathPrefix: process.env.PATH_PREFIX || "/"
   };
 };
