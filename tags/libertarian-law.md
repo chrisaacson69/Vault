@@ -16,3 +16,4 @@
 - [Debate Prep: Hate Speech / 1A](../notes/debate-prep-hate-speech-1a.md)
 - [Restitution for Death](../research/philosophy/morality/legal-theory/restitution-for-death.md)
 - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)
+- [Peacecraft's Libertarian Syllogism — A Hoppe Inversion](../research/debates/peacecraft-libertarian-syllogism.md)

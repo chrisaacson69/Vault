@@ -71,6 +71,7 @@ Links to related research pages.
 - [Subjective vs Objective Morality (Noerr vs Terry X)](./noerr-teryx-subjective-objective-morality.md) — both accept "objective = mind-independent" and fight over consequences; the definition is broken; morality requires minds; category 3 resolves it
 - [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](./wilson-triggernometry-christian-nationalism.md) — Wilson's full program in one interview; "because I said so" as internal critique (parity of reasoning under anti-realism), not self-defeat; the real pressure belongs on the empirical outcomes claim, not the foundation claim; every worldview hits the Gödel/Agrippa wall
 - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](./rep-competence-tests-prep.md) — live debate prep (con); constitutive axiom (voters judging competence = democracy); two-version dichotomy (per-bill fails operationally, civics fails on relevance); ten procedural-weaponization vectors; Fetterman & disability narrative; mechanism trap (amendment vs chamber-rule)
+- [Peacecraft's Libertarian Syllogism — A Hoppe Inversion](./peacecraft-libertarian-syllogism.md) — formal-notation attack using Hoppe's argumentation-ethics against libertarianism; validity rests on equivocating "institutional framework" with "state-monopolized institutional framework"; three genuine sub-points worth keeping, main conclusion strawmanned
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md)

@@ -15,3 +15,4 @@
 - [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](../research/debates/wilson-triggernometry-christian-nationalism.md)
 - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)
 - [The Stance-Independence Retreat](../research/philosophy/epistemology/stance-independence-retreat.md)
+- [Peacecraft's Libertarian Syllogism — A Hoppe Inversion](../research/debates/peacecraft-libertarian-syllogism.md)

@@ -28,7 +28,7 @@
 
 ## Research
 - [Philosophy](./research/philosophy/README.md) — first-principles exploration of foundational philosophical questions
-  - [The Four Trunks](./research/philosophy/the-four-trunks.md) — canonical organizing document; the vault's philosophy as four interlocking commitments (constitutive realism, constitutive convergence, emergence metaphysics, structural dynamics)
+  - [The Four Trunks](./research/philosophy/the-four-trunks.md) — canonical organizing document; the vault's philosophy as four interlocking commitments (constitutive realism, constitutive convergence, emergence metaphysics, structural dynamics); division of labor, not tension
   - [Morality](./research/philosophy/morality/README.md) — naturalistic moral framework built from bedrock concepts
     - [Scope Confusion](./research/philosophy/morality/scope-confusion.md) — why most political disagreements are scope assignment errors; enforceability gradient; mens rea as case study
     - [Deontology vs. Consequentialism](./research/philosophy/morality/deontology-consequentialism.md) — false dichotomy: deontology is cached consequentialism; rules come from testing against reality; objective morality within current constraints; the bridge between logic series and moral framework
