@@ -3,28 +3,41 @@ status: active
 created: 2026-02-16
 ---
 # Philosophy
-> First-principles exploration of foundational philosophical questions.
+> First-principles exploration of foundational philosophical questions. Organized as four interlocking trunks.
 
 **Links:** [The Four Trunks](./the-four-trunks.md), [Economics](../economics/README.md), [The Cyborg Model](../cyborg-model.md)
 
-## Overall Structure
+## Organizing document
 
-The vault's philosophy is organized as [four interlocking trunks](./the-four-trunks.md): normative ontology (*constitutive realism*), verification epistemology (*constitutive convergence*), emergence metaphysics (unnamed), and structural dynamics (unnamed). Each trunk does distinct work; no single name covers all four. The four-trunks page is the canonical organizing document for how the vault's philosophical commitments fit together.
+**[The Four Trunks](./the-four-trunks.md)** — canonical statement of how the vault's philosophy fits together. Normative ontology (*constitutive realism*), verification epistemology (*constitutive convergence*), emergence metaphysics (unnamed), structural dynamics (unnamed). Read this first.
 
-## Branches
+## Branches by trunk
 
-- [Morality](./morality/README.md) — what is good, what is right, and why
-- [Logic and Mathematics](./logic-and-math/README.md) — structural realism; formalisms as maps, not territory
-- [Epistemology](./epistemology/README.md) — (stub) how we know what we know; Objectivist engagement; non-human cognition
-- [Legal Theory](./morality/legal-theory/README.md) — applied libertarian legal philosophy; NAP, property rights, adversarial debates
-- [Measurement, Causality, and Free Will](./metaphysics/measurement-causality.md) — measurement as the basis of causality; consciousness as simulation; physical grounding of free will
-- [Civilizational Cycles](./dynamics/civilizational-cycles/README.md) — theories of rise and fall; Ibn Khaldun, Spengler, Toynbee, Turchin, Tainter, Hayek, and their connections to economics and the voluntary-to-coercion drift
-- [Opposing Forces](./dynamics/opposing-forces.md) — why every concentration of power generates counter-forces; thermodynamic, computational, game-theoretic, evolutionary, and agential explanations
-- [The Fallacy Fallacy](./tangents/the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; the "why" requirement; misapplied fallacy labels; strange loops in fallacy hunting
-- [Newcomb's Paradox](./dynamics/newcombs-paradox.md) — pre-commitment, decision theory, agent type; EDT vs CDT; connections to governance, performative grounding, and the prisoner's dilemma
-- [Press Freedom and Governance](./dynamics/press-freedom-and-governance.md) — free press as pre-commitment enforcement; the observation problem; market competition in information; the Gödel classification problem
-- [History of Philosophy — Peikoff](./tangents/history-of-philosophy/README.md) — lecture-by-lecture analysis of Peikoff's 50-part survey, Thales to Kant
+### Trunk 1 — Normative Ontology
+- [Morality](./morality/README.md) — what's right and why; constitutive/elective distinction; performative grounding
+- [Legal Theory](./morality/legal-theory/README.md) — applied Trunk 1 to legal norms (nested under morality)
 
-## Notes
+### Trunk 2 — Verification Epistemology
+- [Epistemology](./epistemology/README.md) — convergence under reality-pressure; relational objectivity; the birthmark
 
-Philosophy here follows the same approach as the economics research: build from bedrock concepts upward, test against real cases, and connect back to the practical questions (AI alignment, agent design, human/AI collaboration).
+### Trunk 3 — Emergence Metaphysics
+- [Metaphysics](./metaphysics/README.md) — emergence of real immaterial patterns from organized matter; measurement-causality
+- [Logic and Mathematics](./logic-and-math/README.md) — structural realism; patterns real, formalisms constructed (anchors emergence capstone)
+
+### Trunk 4 — Structural Dynamics
+- [Structural Dynamics](./dynamics/README.md) — opposing forces, Gödel governance, cycles, irreducibility
+- Contents: [Opposing Forces](./dynamics/opposing-forces.md), [Gödel Governance](./dynamics/the-godel-governance-problem.md), [Technology-Governance Gap](./dynamics/technology-governance-gap.md), [Press Freedom](./dynamics/press-freedom-and-governance.md), [Newcomb's Paradox](./dynamics/newcombs-paradox.md), [Civilizational Cycles](./dynamics/civilizational-cycles/README.md)
+
+### Tangents — don't fit a single trunk
+- [Tangents overview](./tangents/README.md) — what lives here and why
+- [History of Philosophy (Peikoff)](./tangents/history-of-philosophy/README.md) — 50-lecture survey, Thales to Kant
+- [Whatifalthist](./tangents/whatifalthist.md) — cycle-theory popularizer
+- [The Fallacy Fallacy](./tangents/the-fallacy-fallacy.md) — meta-rhetoric
+
+## Method
+
+Build from bedrock concepts upward, test against real cases, connect back to practical questions (AI alignment, agent design, governance). Sub-pages carry the arguments; this README points.
+
+## Tags
+
+[philosophy](../../tags/philosophy.md)

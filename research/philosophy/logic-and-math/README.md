@@ -2,117 +2,75 @@
 status: "active — broad strokes laid, detail to follow"
 created: 2026-02-16
 ---
-# Philosophy of Logic and Mathematics — Broad Strokes
-> Logic and math are human constructions that model real patterns — extraordinary maps, but still maps.
+# Philosophy of Logic and Mathematics
+> Logic and math are human constructions that model real patterns — extraordinary maps, but still maps. Spans Trunks 2 and 3.
 
-**Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [The LLM Grounding Problem](../../llm-grounding-problem.md), [Computation and Information Theory](../../computation-and-information.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Philosophy](../README.md), [Morality](../morality/README.md), [Emergence, Convergence, and the Strange Loop](./emergence-and-convergence.md), [LLM Grounding Problem](../../llm-grounding-problem.md), [Computation and Information Theory](../../computation-and-information.md)
 
-## Core Position: Structural Realism
+**Trunk:** This folder spans [Trunk 2 — Verification Epistemology](../the-four-trunks.md#trunk-2--verification-epistemology) (convergence across independent logical traditions) and [Trunk 3 — Emergence Metaphysics](../the-four-trunks.md#trunk-3--emergence-metaphysics) (formal patterns as emergent from organized cognition). The folder name is retained for historical reasons and may be reorganized once the Trunk 3 name settles.
 
-Logic and mathematics are human-built formalisms that model the underlying structure of reality. The patterns they describe are real. The formalisms themselves are constructions — tools, not territory.
+## Core position: structural realism
 
-This is **structural realism** (or instrumentalism): the map has genuine correspondence to the territory, which is why it works so well. But the map is paper and ink, not asphalt.
+Logic and math are human-built formalisms that model the underlying structure of reality. The patterns they describe are real. The formalisms themselves are constructions — tools, not territory. Full statement: [Emergence, Convergence, and the Strange Loop](./emergence-and-convergence.md).
 
-Key claims:
+The position consists of five claims:
 1. Logic and math do not exist independently in nature
-2. They are extraordinarily useful approximations and models
-3. The underlying patterns/structures they describe *are* real
-4. Different formalisms can model the same reality (we build new ones when old ones fail)
-5. Convergence across cultures reflects shared reality, not discovery of Platonic forms
+2. The patterns/structures they describe *are* real
+3. Different formalisms can model the same reality
+4. Convergence across independent traditions is evidence for reality, not Platonism
+5. New formalisms replace old ones when reality demands it
 
-## Challenges to Classical Logic from Reality
+## Evidence the formalisms are constructed
 
-### Law of Identity (A = A)
+Brief pointers to the detailed arguments:
 
-**Challenge: Quantum superposition.** In the double-slit experiment, a particle demonstrably passes through both slits simultaneously, interfering with itself. It is not "A or not-A waiting to be revealed" — it is genuinely in an indeterminate state until observed. Classical identity breaks at the quantum level.
+- **Classical logic fails at the quantum level** — see [Quantum Logic](./quantum-logic.md)
+- **Excluded middle fails in continuous systems** — see [Non-Classical Logics](./non-classical-logics.md) and [Intuitionistic Logic](./intuitionistic-logic.md)
+- **Every sufficiently powerful system is incomplete or inconsistent** — see [Gödel's Incompleteness](./godel-incompleteness.md)
+- **Interpretation precedes logic** — see [The Translation Problem](./the-translation-problem.md)
+- **Independent civilizations converge on the same structure** — see [Eastern Logical Traditions](./eastern-logic.md)
+- **Logic has been built, broken, rebuilt for 2,400 years** — see [A History of Logic](./history-of-logic.md)
 
-Quantum logic exists as a field precisely because classical logic cannot handle quantum phenomena. The fact that we had to build a new logic suggests logic is a tool we construct, not a fixed feature of reality.
+## Evidence the patterns are real
 
-### Law of the Excluded Middle (P or not-P)
+- Math predicts undiscovered physics (Dirac's antimatter, Einstein's gravitational waves, Maxwell's EM radiation) — maps built carefully track territory
+- Boolean algebra turned out to be how computers work — [The Formal Revolution](./formal-revolution.md)
+- Complex numbers are *required* by QM, not merely convenient (Renou et al. 2021)
 
-**Challenge: Continuous systems.** Classical logic is binary; reality often is not. An analog neural net's activation isn't "firing" or "not firing" — it's a continuous value. "How many clouds are in the sky?" doesn't have a clean integer answer (the sorites paradox — where does one cloud end and another begin?).
+## The unifying template
 
-Fuzzy logic and intuitionistic logic were developed to handle cases where the excluded middle fails. Again: we keep building new logics because reality doesn't obey the old ones.
-
-### Completeness and Consistency (Godel)
-
-**Godel's incompleteness theorems** show that any formal system powerful enough to express basic arithmetic is either incomplete (contains true statements it cannot prove) or inconsistent (can prove contradictions), but not both.
-
-This means logic *cannot fully capture even arithmetic*. A tool with built-in limits on what it can express is clearly a tool, not a complete mirror of reality. Logic is powerful but bounded — and it knows it.
-
-## Numbers as Abstractions
-
-**The sheepherder example:** A herder makes notches on his staff, one per sheep. He aligns staff to flock — if they match, all sheep are present. He doesn't need the concept of "13" — just one-to-one correspondence. The number is the abstraction built on top of the physical matching.
-
-**Counter-argument acknowledged:** One-to-one correspondence (bijection) is itself a mathematical concept. The sheepherder is "doing math" whether or not he knows it. But the question is whether the *pattern* exists independently or only in the interaction between an agent and the world. We hold: the sheep are there, the correspondence is there, but "13" is the human layer.
-
-## The Unreasonable Effectiveness Problem
-
-Wigner (1960) asked: why does math work so unreasonably well at predicting physical phenomena?
-
-- Dirac's equation predicted antimatter before observation
-- Einstein's field equations predicted gravitational waves a century before detection
-- Maxwell's equations predicted electromagnetic radiation from pure math
-
-**Our response:** A map built by carefully studying the territory *should* be predictive. The correspondence is earned, not magical. We remember the math that works and forget the math that doesn't (selection bias). And even the best maps have edges — Newtonian mechanics was "unreasonably effective" until it wasn't, and we built a new map (relativity).
-
-**Acknowledged tension — imaginary numbers:** Complex numbers are *required* by the Schrodinger equation, not merely convenient. Renou et al. (2021) showed that real-valued quantum mechanics makes different predictions than complex-valued QM, and experiments favor the complex version. The math may be capturing structure deeper than intended. This doesn't prove Platonism, but it means the "just a model" claim must account for models that seem to know more than their builders.
-
-## Math Forced to Fit
-
-Mathematical formalisms are often adapted, extended, or reinterpreted to fit new problems — further evidence of construction rather than discovery:
-
-- Imaginary numbers originated as a "trick" for solving cubic equations, later found structural roles in physics
-- Non-Euclidean geometry was considered a curiosity until general relativity needed it
-- Renormalization in quantum field theory was called "sweeping infinities under the rug" by its own creators
-
-When math doesn't fit, we build new math. When logic doesn't fit, we build new logic. Discoverers don't need to keep redesigning their discoveries.
-
-## Consistency with the Morality Framework
-
-This position forms a unified epistemological foundation across the vault:
+Same structure applies across the vault:
 
 | Domain | What's real | What's constructed |
-|--------|-----------|-------------------|
-| **Physics** | The patterns, structures, causal relations | The mathematical formalisms describing them |
-| **Logic** | The rational structure of reality | The formal systems modeling it |
-| **Morality** | The patterns of flourishing/degradation | The moral frameworks articulating them |
+|--------|-------------|---------------------|
+| Physics | Patterns, causal relations | Mathematical formalisms |
+| Logic | Rational structure of reality | Formal systems |
+| Morality | Patterns of flourishing/degradation | Moral frameworks |
 
-All three are maps tracking real territory. All three converge across cultures because independent observers model the same underlying reality. All three get refined over time. None are Platonic forms existing independently of agents interacting with reality.
-
-## Open Questions
-
-1. **Where does "good model" end and "real feature" begin?** If complex numbers are genuinely required by quantum mechanics, at what point does a formalism stop being "just a model" and start being a feature of reality? Is there a clear boundary, or is this a spectrum?
-
-2. **The epistemology dependency.** This entire framework rests on claims about what we can know and how — which is epistemology. The logic/math position and the morality position both assume structural realism. That assumption needs its own examination. (Planned: [Epistemology](../epistemology/))
-
-3. **Logic as prerequisite for reasoning about logic.** To argue that logic is a construction, you use logic. Does this self-reference undermine the position, or is it like using English to argue that English is a human construction — obviously true and unproblematic?
-
-4. **The "new math" pattern.** We keep building new formalisms when old ones fail. Does the *process* of building-and-testing formalisms converge on something, even if individual formalisms are constructions? Is there a meta-pattern?
+Three domains, same structural-realism move. See [Morality](../morality/README.md), [Constitutive/Elective](../morality/constitutive-elective.md), [Relational Objectivity](../epistemology/relational-objectivity.md).
 
 ## Pages
 
-- [A History of Logic](./history-of-logic.md) — 2,400 years from Aristotle through Gödel to quantum logic; logic is not settled, not singular, and not God-given; Eastern traditions anticipated non-classical Western developments by centuries
-- [Aristotelian Logic](./aristotelian-logic.md) — the three laws, the syllogism, the square of opposition; what Aristotle got right, what he missed, and where his framework breaks down
-- [The Formal Revolution (1847–1931)](./formal-revolution.md) — Boole (logic as algebra), Frege (predicate logic), Russell (paradox + Principia), Vienna Circle (operator expansion), Shannon (Boolean gates = circuits); the 84 years that turned logic into computation
-- [The Translation Problem](./the-translation-problem.md) — logic operates downstream of interpretation; the biconditional collapse, cross-language identity, ambiguity, material conditional's indifference to connection, scope ambiguity; the pre-logical layer most debaters skip
-- [Gödel's Incompleteness Theorems](./godel-incompleteness.md) — no sufficiently powerful system can be both complete and consistent; the proof, what it means, what it doesn't mean; connections to Turing's halting problem, TAG rebuttal, governance, and emergence
-- [Intuitionistic Logic](./intuitionistic-logic.md) — drop excluded middle, require constructive proof; Brouwer/Heyting/BHK interpretation; Curry-Howard correspondence (proofs = programs); the boundary between logic and computation
-- [Non-Classical Logics](./non-classical-logics.md) — paraconsistent (tolerate contradictions), fuzzy (truth in degrees), relevance (premises must connect), many-valued (beyond binary), linear (resources consumed); each fixes a classical failure point
-- [Quantum Logic](./quantum-logic.md) — the distributive law fails experimentally; logic is empirical, not a priori; classical logic is the macro-scale approximation; Birkhoff/von Neumann lattice structure; TAG falsified by physics
-- [Eastern Logical Traditions](./eastern-logic.md) — the convergence proof: Nyaya syllogism, Nagarjuna's catuskoti (1,800 years before paraconsistency), Jain seven-valued logic (2,500 years before relational objectivity), Mohist pragmatic test; same structural insights, no shared source
-- [Emergence, Convergence, and the Strange Loop](./emergence-and-convergence.md) — the vault's metaphysical position stated explicitly: Platonism, constructivism, and theism all fail; emergence + convergence is the answer; the vault's own Gödel sentence is "this process converges on truth" — expressible but unprovable from within; the birthmark stays
+- [A History of Logic](./history-of-logic.md) — 2,400 years, Aristotle through Gödel; not settled, not singular
+- [Aristotelian Logic](./aristotelian-logic.md) — three laws, syllogism, where it breaks
+- [The Formal Revolution (1847–1931)](./formal-revolution.md) — Boole → Frege → Russell → Shannon; logic becomes computation
+- [The Translation Problem](./the-translation-problem.md) — pre-logical layer most debaters skip
+- [Gödel's Incompleteness](./godel-incompleteness.md) — no system both complete and consistent
+- [Intuitionistic Logic](./intuitionistic-logic.md) — drop excluded middle; Curry-Howard (proofs = programs)
+- [Non-Classical Logics](./non-classical-logics.md) — paraconsistent, fuzzy, relevance, many-valued, linear
+- [Quantum Logic](./quantum-logic.md) — distributive law fails experimentally; logic is empirical
+- [Eastern Logical Traditions](./eastern-logic.md) — independent convergence (Nyaya, Nagarjuna, Jain, Mohist)
+- [Emergence, Convergence, and the Strange Loop](./emergence-and-convergence.md) — capstone; Platonism/constructivism/theism all fail
 
-## Suggested Reading
+## Suggested reading
 
-| Work | Author | Relevance |
-|------|--------|-----------|
-| *The Unreasonable Effectiveness of Mathematics in the Natural Sciences* | Eugene Wigner | The core challenge to instrumentalism |
-| *Philosophy of Mathematics: Structure and Ontology* | Stewart Shapiro | Structural realism in math |
-| *Proofs and Refutations* | Imre Lakatos | Math as a human, fallible process — not discovery of fixed truths |
-| *Where Mathematics Comes From* | Lakoff & Nunez | Cognitive science of math — math as embodied human metaphor |
-| *Incompleteness: The Proof and Paradox of Kurt Godel* | Rebecca Goldstein | Accessible treatment of Godel and its philosophical implications |
-| *QBism: The Future of Quantum Physics* | Hans Christian von Baeyer | Quantum mechanics as agent-relative, not observer-independent |
+- *The Unreasonable Effectiveness of Mathematics in the Natural Sciences* — Wigner
+- *Philosophy of Mathematics: Structure and Ontology* — Shapiro
+- *Proofs and Refutations* — Lakatos
+- *Where Mathematics Comes From* — Lakoff & Nunez
+- *Incompleteness: The Proof and Paradox of Kurt Godel* — Goldstein
+- *QBism: The Future of Quantum Physics* — von Baeyer
 
 ## Tags
+
 [philosophy](../../../tags/philosophy.md), [logic](../../../tags/logic.md), [mathematics](../../../tags/mathematics.md)

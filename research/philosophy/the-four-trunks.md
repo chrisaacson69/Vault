@@ -18,7 +18,7 @@ The vault's pages answer four different kinds of question and each kind requires
 
 One name can cover two of these cleanly ("constitutive realism" covers the first; "constitutive convergence" covers the second). No single name covers all four without diluting the terms beyond usefulness. So the structure is four trunks, each with its own mechanism and its own name.
 
-This is a feature, not a failure. The trunks are allies — each supports the others — but they make different claims, carry different load, and are falsifiable on different grounds. A unified philosophy with four precisely-named commitments is stronger than one sprawling label trying to do everything.
+This is a feature, not a failure. The trunks are **division of labor**, not competitors — each answers a different question about the same reality. They make different claims, carry different load, and are falsifiable on different grounds. A unified philosophy with four precisely-named commitments is stronger than one sprawling label trying to do everything.
 
 ## The Four Trunks
 
@@ -97,12 +97,12 @@ The verification-layer thesis (accumulated state as the thing being verified aga
 
 ## How the Trunks Connect
 
-The trunks aren't independent silos. They support each other:
+The trunks aren't independent silos. They divide the work:
 
-- **Trunk 1 needs Trunk 2.** Constitutive facts are real, but that's an empty claim without a method for identifying them. Convergence under reality-pressure is that method. Trunk 2 is what makes trunk 1 more than assertion.
-- **Trunk 1 needs Trunk 3.** Constitutive facts are real *and* mind-dependent. That combination is coherent only if immaterial real patterns can arise from organized matter. Emergence supplies the metaphysical room for trunk 1 to breathe.
+- **Trunk 1 ↔ Trunk 4 — the load-bearing partnership.** Trunk 1 answers *what holds, given conditions*. Trunk 4 answers *how those conditions persist, shift, and are discovered*. The apparent stability of moral facts comes from the stability of Trunk 4 conditions — humans have to eat, cooperate, die — so the norms downstream stay load-bearing across centuries. When conditions shift (contraception, AI, abundance), the facts update, but the constitutive *method of generation* stays the same. Stability and change are not in opposition; they're the same process at different timescales.
+- **Trunk 1 needs Trunk 2.** Constitutive facts are real, but that's an empty claim without a method for identifying them. Convergence under reality-pressure is that method. Trunk 2 is what makes Trunk 1 more than assertion.
+- **Trunk 1 needs Trunk 3.** Constitutive facts are real *and* mind-dependent. That combination is coherent only if immaterial real patterns can arise from organized matter. Emergence supplies the metaphysical room for Trunk 1 to breathe.
 - **Trunk 3 needs Trunk 4.** Emergence explains how real patterns arise; dynamics explains how they behave once present. Without dynamics, emergence describes a static layer cake. With it, emergence is a living process with characteristic behaviors at scale.
-- **Trunk 4 needs Trunk 1.** Structural dynamics operate on something. The "something" is the structured facts trunk 1 identifies. Opposing forces require concentrations of something — power, information, norms — and trunk 1 supplies the ontology of what those concentrations are made of.
 - **Trunk 2 polices all three.** Convergence is the filter that tests whether any claim in any trunk is tracking reality or just sounding good. It's the shared verification method.
 
 Four trunks, five joints. That's the shape.

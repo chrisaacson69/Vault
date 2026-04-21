@@ -2,77 +2,46 @@
 status: "active — foundation laid, threads to explore"
 created: 2026-02-16
 ---
-# Epistemology — Parking Lot
-> How we know what we know. The foundation underneath everything else.
+# Epistemology
+> How we know what we know. Anchor for Trunk 2.
 
-**Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [Logic and Mathematics](../logic-and-math/README.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Philosophy](../README.md), [Morality](../morality/README.md), [Logic and Mathematics](../logic-and-math/README.md), [Relational Objectivity](./relational-objectivity.md)
 
-## Why This Matters
+**Trunk:** [Trunk 2 — Verification Epistemology](../the-four-trunks.md#trunk-2--verification-epistemology). Working name: *constitutive convergence*.
 
-Both the morality and logic/math frameworks rest on epistemological claims (structural realism, convergence as evidence, empirical discovery of moral patterns). Those claims need their own examination.
+## Core position
+
+Real structures are identified by **independent convergence under reality-pressure**. Independent civilizations converge on core moral norms; independent traditions converge on the same logical insights; independent measurement systems converge on the same physical patterns. Agents who aren't communicating have no shared cause for agreement *other than* the structure of what they're both interacting with. Convergence is evidence for reality; accumulated state is the verification layer.
 
 ## Pages
-- [The Weighting Problem](./weighting-problem.md) — objective measurements do not produce objective composite judgments; the aggregation function is always subjective
-- [Relational Objectivity](./relational-objectivity.md) — the four-category ontology of facts: intrinsic, relational mind-independent, agent-relative, mind-dependent; formalizes why "relational" ≠ "subjective"
-- [The Birthmark and the Search for Truth](./the-birthmark.md) — every knowledge system has imperfections; five principles for approaching truth (humility, adversarial thinking, domain knowledge, incentive tracking, contact with reality); realist correction to postmodernism; why LLMs live in the domain where postmodern critique has force
-- [The Stance-Independence Retreat](./stance-independence-retreat.md) — diagnoses the rhetorical migration from "mind-independent" to "stance-independent" as a rename disguising the same ambiguity; disambiguation demand and attack set; companion to the constitutive/elective page
 
-## Threads to Explore
+- [Relational Objectivity](./relational-objectivity.md) — four-category ontology of facts (intrinsic / relational mind-independent / agent-relative / mind-dependent); formalizes why relational ≠ subjective
+- [The Weighting Problem](./weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is always subjective
+- [The Birthmark and the Search for Truth](./the-birthmark.md) — every knowledge system has imperfections; five principles for approaching truth; realist correction to postmodernism
+- [The Stance-Independence Retreat](./stance-independence-retreat.md) — diagnoses the retreat from "mind-independent" to "stance-independent" as a rename; attack set for the reframing
 
-### Structural Realism as Foundation
-The position running underneath everything: reality has structure, our formalisms (logic, math, moral codes) model that structure, convergence across independent observers is evidence of objectivity. This is an epistemological claim that needs to be examined on its own terms.
+## Open threads
 
-### The Objectivist Epistemological Chain
-Peikoff (*Objectivism: The Philosophy of Ayn Rand*) and Rand (*Introduction to Objectivist Epistemology*) lay out a bottom-up epistemology worth engaging with:
+- **Verification-layer thesis page** — accumulated state as the thing being verified against. Currently only in memory; deserves its own page.
+- **Convergence limits** — every culture developed rain dances too. When does convergence indicate truth vs shared cognitive bias? Needs a principled answer.
+- **Self-reference** — to argue logic is constructed, you use logic. Fatal circularity or normal feature of foundational inquiry?
 
-1. Existence exists (axiom)
-2. Consciousness is conscious (axiom)
-3. A is A — the law of identity (axiom)
-4. Logic as "the art of non-contradictory identification"
-5. Concepts formed by measurement omission from perception
-6. Senses are valid (direct realism)
-7. Primacy of existence over consciousness
+## Objectivist engagement
 
-**Points of agreement:** Bottom-up method. Secular grounding. Reason as primary tool. Reality as independent of consciousness.
+Closest philosophical neighbors: same bottom-up method, secular grounding, reason as primary tool. Disagreements are sharp *because* the shared ground is so large:
 
-**Points of friction:**
-- **A = A as absolute** — quantum mechanics challenges identity at fundamental levels. Our position: identity is a reliable macro-scale pattern, not a cosmic axiom. Large-scale superposition experiments are pushing this boundary.
-- **Concept formation as uniquely human** — Rand explicitly claims this. The evidence disagrees. Primates demonstrate fairness intuitions, elephants mourn, cetaceans cooperate strategically. If concept formation (or proto-concept formation) exists on a gradient across species, the hard human/animal boundary in Objectivist ethics breaks down.
-- **Logic as discovered vs. constructed** — Objectivists treat logic as objective and discovered. We hold it is constructed but convergent — a subtle but important difference (see [Logic and Mathematics](../logic-and-math/README.md)).
+- **A = A as absolute** — quantum superposition challenges it; our position: identity is a reliable macro-scale pattern, not a cosmic axiom
+- **Concept formation as uniquely human** — evidence from primates, elephants, cetaceans, corvids disagrees; cognition is a continuum
+- **Logic as discovered vs. constructed** — Objectivists: discovered. Our position: constructed but convergent. See [Logic and Mathematics](../logic-and-math/README.md).
 
-**Value of the engagement:** The Objectivists are the closest philosophical neighbors — same method, same secular commitment, same bottom-up approach. The disagreements are sharpest precisely because the shared ground is so large. Peikoff is particularly valuable for his systematic mapping of philosophical history and the interrelations between positions.
+## Suggested reading
 
-### Non-Human Concept Formation and Its Implications
-If consciousness + agency are the prerequisites for morality, and these exist on a gradient across species, then:
-- Epistemology is not exclusively human
-- Morality is not exclusively human
-- Both scale with cognitive complexity
-- The hard human/animal boundary is a spectrum, not a wall
-
-Evidence: capuchin monkeys reject unequal rewards (fairness intuition), great apes use tools and plan ahead (agency), elephants perform death rituals (abstract awareness), corvids solve novel problems (reasoning). These aren't just stimulus-response — they imply something like concept formation.
-
-This undermines Objectivist epistemology at a key joint and strengthens the naturalistic position: cognition is a biological phenomenon that exists on a continuum.
-
-### The "Logic Is Self-Referential" Problem
-To argue that logic is a construction, you use logic. Is this a fatal circularity or just a normal feature of any foundational inquiry? (Compare: using English to argue that English is a human construction is obviously unproblematic.) Needs further examination.
-
-### Convergence as Epistemological Evidence
-The convergence argument is used across multiple domains:
-- Math: independent discovery of pi, Pythagorean theorem → math tracks real patterns
-- Morality: independent development of similar moral codes → morality tracks real patterns
-- Science: independent replication → scientific laws track real patterns
-
-What are the limits of this argument? When does convergence indicate truth vs. shared cognitive bias? (Every culture also developed rain dances — convergent but wrong.)
-
-## Suggested Reading
-
-| Work | Author | Relevance |
-|------|--------|-----------|
-| *Introduction to Objectivist Epistemology* | Ayn Rand | The Objectivist position to engage with |
-| *Objectivism: The Philosophy of Ayn Rand* | Leonard Peikoff | Systematic treatment + history of philosophy |
-| *The Structure of Scientific Revolutions* | Thomas Kuhn | How knowledge paradigms shift — against naive realism |
-| *Personal Knowledge* | Michael Polanyi | Tacit knowledge, the personal dimension of knowing |
-| *The Righteous Mind* | Jonathan Haidt | Empirical evidence on moral intuition across cultures |
+- *Introduction to Objectivist Epistemology* — Rand
+- *Objectivism: The Philosophy of Ayn Rand* — Peikoff
+- *The Structure of Scientific Revolutions* — Kuhn
+- *Personal Knowledge* — Polanyi
+- *The Righteous Mind* — Haidt
 
 ## Tags
+
 [philosophy](../../../tags/philosophy.md), [epistemology](../../../tags/epistemology.md)
