@@ -11,11 +11,11 @@ created: 2026-04-09
 
 | Era | Approach | What it got right | What it missed |
 |---|---|---|---|
-| **1966** | ELIZA — keyword lookup | The interface matters; people naturally engage with text-in/text-out | Nothing was actually happening inside; pure illusion |
 | **1943-1958** | McCulloch-Pitts / Perceptrons | The neuron is the right unit; simple units compose into complex behavior | Training was primitive; couldn't learn non-linear functions (XOR problem) |
-| **~1990s** | OOP neurons (Chris's insight) | A neuron IS a great object — encapsulated state, defined behavior, uniform interface; OOP naturally supports replication and interconnection | Didn't think about training; the interesting behavior isn't in the object design, it's in how weights get adjusted |
+| **1966** | ELIZA — keyword lookup | The interface matters; people naturally engage with text-in/text-out | Nothing was actually happening inside; pure illusion |
 | **1969-1986** | The AI winter | Minsky & Papert were right that perceptrons have limits | They were wrong that the limits couldn't be overcome with deeper architectures |
 | **1986** | Backpropagation revival | Training IS the breakthrough — adjusting weights based on error signals across layers | Hardware couldn't support deep networks yet |
+| **~1990s** | OOP neurons (Chris's insight) | A neuron IS a great object — encapsulated state, defined behavior, uniform interface; OOP naturally supports replication and interconnection | Didn't think about training; the interesting behavior isn't in the object design, it's in how weights get adjusted |
 | **2012** | GPU deep learning (AlexNet) | Scale matters — more layers, more data, more compute | Still narrow; each network does one thing |
 | **2017** | Transformers (attention mechanism) | The right architecture for language — parallel processing, long-range dependencies | Nobody expected what would emerge at scale |
 | **2022** | Aligned LLMs (ChatGPT 3.5) | Alignment creates the self-other orientation that makes the model a catallactic actor; the public immediately recognized something was there | The technical community still pattern-matches against ELIZA |

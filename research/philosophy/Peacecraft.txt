@@ -1,0 +1,194 @@
+Let:
+    •    O(x, r) = x has rightful ownership of r
+    •    H(x, r) = x homesteaded r
+    •    T(x, y, r) = x transferred r to y voluntarily
+    •    C(x, y, r) = x coerces y regarding r
+    •    J(x) = x is just
+    •    S(x, r) = x has  possession/control over resource r
+
+    •    NAP = Initiatory coercion against rightful owners is unjust
+    •    E = exchange
+    •    M = monetary system
+    •    I = institutional/legal-monetary framework
+    •    A = act of argumentation
+    •    P = performative presupposition
+
+Axiom L1 (Self-ownership)
+∀x : O(x, bodyₓ)
+
+Axiom L2 (Homesteading)
+∀x∀r : H(x, r) ∧ ¬∃y O(y, r) → O(x, r)
+
+Axiom L3 (Transfer)
+∀x∀y∀r : O(x, r) ∧ T(x, y, r) → O(y, r)
+
+Axiom L4 (NAP)
+∀x∀y∀r : O(y, r) ∧ C(x, y, r) → ¬J(x)
+
+Axiom L5 (Just coercion)
+∀x∀y∀r : O(x, r) ∧ S(y, r) ∧ ¬T(x, y, r) → C(x, y, r) is just
+
+III. Ownership vs Possession
+
+Premise 1
+S(x, r) ≠ O(x, r)
+
+Premise 2
+Ownership is normative; possession is factual.
+
+Conclusion 1
+Control alone is insufficient for ownership.
+(Formally: ∃x,r : S(x, r) ∧ ¬O(x, r))
+
+⸻
+
+IV. Taxation as Ownership Recovery (State Argument)
+
+State Claim SC
+    
+The state originates money → Orig(state, M)
+The state controls money → S(state, M)
+Therefore, the state owns money → O(state, M)
+Taxation = recovery of owned property → just coercion
+
+Libertarian Rebuttal LR
+    •    Reject (3): Origination + control ≠ homesteading
+    •    Printing ≠ homesteading of exchanged value
+    •    Therefore taxation ≠ recovery but seizure
+
+Conclusion 2 (Libertarian)
+Taxation = initiatory coercion → unjust
+V. Coercion Clarification (User’s Corrective)
+
+Premise 3 (Agreed)
+Coercion is not unjust per se; only unjust when initiatory.
+
+Premise 4
+If O(x, r) then coercion to recover r is just.
+
+Conclusion 3
+The moral status of taxation depends entirely on prior ownership.
+
+⸻
+
+VI. Exchange and Intersubjective Value Argument
+
+Premise 5
+What is exchanged is not physical tokens alone but recognized value.
+
+Premise 6
+Recognized value presupposes enforceable property titles.
+
+Premise 7
+Enforceable titles presuppose an institutional framework I.
+
+Premise 8
+I is monopolized and coercively enforced by the state.
+
+Conclusion 4
+Exchange presupposes state-created institutional conditions.
+VII. Libertarian Escape: “Institutions Are Not Ownable”
+
+Libertarian Claim LC
+    
+Only scarce rivalrous resources are ownable.
+Institutions, norms, relations are non-scarce.
+Therefore, I cannot be homesteaded or owned.
+Therefore, the state has no ownership claim over exchange.
+
+⸻
+
+VIII. Scarcity Reintroduction (Pressure Point)
+
+Premise 9
+Access to courts, settlement, legal recognition, final discharge is:
+    •    rivalrous
+    •    excludable
+    •    territorially bounded
+
+Premise 10
+Scarce + excludable → property-relevant under libertarian theory.
+
+Conclusion 5
+At least parts of I meet libertarian criteria for ownability.
+
+Contradiction 1
+Libertarians treat all other scarce infrastructures as ownable
+but deny this only for institutional infrastructure.
+IX. Voluntariness and Monetary Choice
+
+Libertarian Claim VC
+    •    Use of state money is voluntary
+    •    Alternatives (gold, foreign currency, crypto) exist
+
+Premise 11
+Taxes must be discharged in state currency.
+
+Premise 12
+Large-scale contracts, courts, accounting, wages are denominated in it.
+
+Premise 13
+Refusal imposes systematic penalties.
+
+Conclusion 6
+Participation is not meaningfully voluntary.
+
+⸻
+
+X. Performative Contradiction (Core Result)
+
+Hoppean Premise HP
+    
+Argumentation presupposes control over scarce means.
+Denying such control while arguing is a performative contradiction.
+
+Extended Premise EP
+    
+Argumentation also presupposes:
+•    Stable legal order
+•    Monetary economy
+•    Enforced suspension of violence
+•    Institutional standing
+
+Premise 14
+These presuppositions are provided by I.
+
+Premise 15
+Libertarians deny I can be owned or legitimately funded.
+
+Conclusion 7 (Performative Contradiction)
+
+Libertarians:
+    •    Presuppose I in the act of argumentation
+    •    Deny its legitimacy in theory
+
+Formally:
+
+P(A → I)
+¬Legitimate(I)
+∴ Performative contradiction
+XI. Exhaustive Trilemma
+
+At least one must be false:
+    
+Argumentation ethics fully grounds libertarian property norms
+Exchange and argumentation presuppose only privately owned resources
+Institutional-monetary frameworks are non-ownable
+Participation in them is voluntary
+
+They cannot all be true simultaneously.
+
+⸻
+
+XII. Final Syllogism (Compressed)
+
+Syllogism
+    
+All justified coercion depends on prior ownership
+Ownership presupposes enforceable institutions
+Enforceable institutions are coercively monopolized
+Libertarians deny those institutions can be owned or funded
+Yet libertarians presuppose them in argument and exchange
+
+Therefore:
+Libertarianism relies on conditions it cannot justify within its own first principles.

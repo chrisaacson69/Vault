@@ -27,6 +27,18 @@ created: 2026-04-02
 
 **The deeper move:** Ask them to name an absolute moral truth from *their* framework. "God says so" pushes the question to the deity (Euthyphro). "It's self-evident" is the axiomatic stop they're criticizing you for not having. Every framework bottoms out somewhere — the question is whether the bottom is productive, not whether it's absolute.
 
+### "Stealing is wrong — that's a mind-independent moral fact"
+
+**The move:** Apply the vacuity test. "Strip the minds out of the universe. No stealers, no owners, no acts. What does 'stealing is wrong' refer to? Nothing. It's vacuously true in the same way 'dragons should rule the 7 kingdoms' is vacuously true — a claim about a state that doesn't exist."
+
+**The three escape routes and why they collapse:**
+
+1. *"It exists in the mind of God — a necessary mind"* — concedes the ontology axis. Morality is now mind-dependent, just on a particular necessary mind. That's a theological claim about the *source* of the constitutive relationship, not a defense of mind-independence.
+2. *"It's a Platonic form"* — the dragons move exactly. Then Euthyphro: does the form ground God, or does God ground the form? Either way you lose the mind-independent claim.
+3. *"It would be wrong if agents existed"* — congratulations, that's the constitutive claim. You've walked into the naturalist framework without noticing.
+
+**The payoff:** Once mind-independence fails the vacuity test, the remaining debate isn't "is there moral realism?" — it's "what grounds the constitutive relationship: agency, selection, or design?" That's a productive question. Full treatment: [constitutive-elective — The Vacuity Test](./constitutive-elective.md#the-vacuity-test--killing-the-mind-independence-move).
+
 ### "That's just relativism"
 
 **It's not.** Relativism says all moral positions are equally valid. The framework says moral positions are empirically testable — some produce flourishing, others produce collapse. The data is objective even if the measurements are imperfect. "Different cultures have different moral codes" is an observation, not a conclusion. Different cultures also had different medical practices — that doesn't mean medicine is relative.

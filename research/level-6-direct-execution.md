@@ -1,11 +1,15 @@
 ---
 status: active
 created: 2026-04-08
+published: true
+title: "Level 6: Direct Execution"
+summary: Beyond software — when agents execute processes directly, the code layer becomes optional.
+layout: layouts/page.njk
 ---
 # Level 6: Direct Execution — Beyond Software
 > Software was always an intermediate representation. When agents can execute intent directly, the code layer becomes optional. L6 is agents running processes, not writing programs.
 
-**Links:** [Cyborg Model](./cyborg-model.md), [Praxis — Agent Teams](./economics/praxis-agent-teams.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Karpathy LLM Wiki Convergence](../notes/karpathy-llm-wiki-convergence.md)
+**Links:** [Cyborg Model](./cyborg-model.md), [Praxis — Agent Teams](./economics/praxis-agent-teams.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Karpathy LLM Wiki Convergence](../notes/karpathy-llm-wiki-convergence.md), [Career](../career/README.md)
 
 ## The Five Levels (Dan Shapiro, 2026)
 

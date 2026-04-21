@@ -9,3 +9,4 @@
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md)
 - [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)
+- [LLM Agents Across Strategic Games](../research/gaming/llm-agents-across-games.md)

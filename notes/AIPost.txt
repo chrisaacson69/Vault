@@ -1,0 +1,12 @@
+As an AI and mobile developer with 8 years of hands on experience, I've built end-to-end systems blending autonomous agents, multi-agent collaboration, and mobile integrations that slashed manual ops by 30-90% in finance, healthcare, civil engineering, and recruitment.
+My multimodal projects like generative advertising videos, intelligent automation tools, and lip-syncing avatars, we’ve built a track record of turning ambitious ideas into production-ready AI that delivers real, measurable impact.
+
+My expertise covers :
+Autonomous & multi-agent systems: GPT-4o, LangChain, LangGraph, CrewAI, DeepSeek for research bots, trading/customer support/IVR agents
+Voice AI & chatbots: Vapi AI, Twilio, Whisper, TTS/STT, RAG, Voiceflow, NLP pipelines
+Computer vision & multimodal: lipsync, AI avatars/video gen, visual search, OCR
+Fullstack + infra + mobile: Python/JS/TS, Next.js/Vue/FastAPI, Docker/AWS, n8n/Zapier/Make.com automation, APIs integrations
+Deployment & ML: Custom LLMs, data analytics/visualization
+
+I’m always looking for opportunities to join teams or work directly with clients on meaningful projects. 
+If you’re looking for someone who’s hands-on, creative, and knows their way around AI and dev tools, Please contact me!

@@ -1,8 +1,20 @@
 #!/bin/bash
 # Vault session-start hook — injects dynamic context into every session.
 # Keeps output tight: ~200 tokens max.
+# Demo mode: when .claude/demo-mode flag exists, triggers /context-brief on startup.
 
 VAULT="C:/Users/Chris.Isaacson/Vault"
+
+# Check for demo mode
+if [ -f "$VAULT/.claude/demo-mode" ]; then
+  echo "## DEMO MODE ACTIVE"
+  echo ""
+  echo "**Cross-session memory demonstration is ON.** Run /context-brief now to display"
+  echo "full knowledge sources for the observer. All responses will cite their sources."
+  echo ""
+  echo "To deactivate: \`rm $VAULT/.claude/demo-mode\`"
+  echo ""
+fi
 
 echo "## Vault Session Context"
 echo ""

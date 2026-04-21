@@ -13,3 +13,4 @@
 - [MOO1 MIRR Analysis](../research/gaming/moo1/mirr-analysis.md)
 - [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - [MoM Tier System and MIRR](../research/gaming/master-of-magic/tier-system-and-mirr.md)
+- [LLM Agents Across Strategic Games](../research/gaming/llm-agents-across-games.md)

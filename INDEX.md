@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-09
+**Last updated:** 2026-04-20
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -70,6 +70,10 @@
     - [Ep 9: Plato's Metaphysics](./research/philosophy/history-of-philosophy/09-plato-metaphysics.md) — the World of Ideal Forms; universals as separate, perfect, unchanging
     - [Ep 10: Plato's Epistemology](./research/philosophy/history-of-philosophy/10-plato-epistemology.md) — innate ideas; all learning is remembering; the mystical vision of the Good
     - [Ep 11: Plato's Ethics](./research/philosophy/history-of-philosophy/11-plato-ethics.md) — tripartite soul; virtue as harmonious rule of reason; platonic love
+    - [Ep 12: Plato's Politics](./research/philosophy/history-of-philosophy/12-plato-politics.md) — philosopher-kings, organic state, collectivism from universals, theory/practice dichotomy
+    - [Ep 13: Aristotle Intro](./research/philosophy/history-of-philosophy/13-aristotle-intro.md) — the third alternative; one reality; attack on Forms; primacy of existence
+    - [Ep 14: Aristotle's Epistemology](./research/philosophy/history-of-philosophy/14-aristotle-epistemology.md) — tabula rasa, abstraction, definition, induction/deduction, the nature of science
+    - [Ep 15: Aristotle — Father of Logic](./research/philosophy/history-of-philosophy/15-aristotle-logic.md) — the syllogism, axioms, laws of logic, reaffirmation through denial, correspondence theory of truth
 - [Claude Opus 4.6](./research/claude-opus-4-6.md) — capabilities, benchmarks, real-world deployments
 - [ELIZA — The Pattern Match That Won't Die](./research/eliza.md) — 1966 keyword-lookup chatbot vs modern LLMs; why the comparison persists and why it's wrong; praxeological analysis
 - [AI History — A Personal Arc](./research/ai-history-personal.md) — from ELIZA to OOP neurons to LLMs; each step got something right and something wrong; the training problem
@@ -87,6 +91,7 @@
   - [Business Cycles](./research/economics/business-cycles.md) — boom-bust cycles are natural (entrepreneurial error clusters, innovation waves, time preference shifts); government amplifies via political ratchet, moral hazard, prevented liquidation, Cantillon distortion
   - [Inflation](./research/economics/inflation.md) — many causes, only one permanent; monetary expansion is the ratchet; supply shocks, demand shifts, velocity, productivity, and tech-driven demand are real but transient
   - [The Equation of Exchange and the Transaction Multiplier](./research/economics/equation-of-exchange.md) — MV = PT decomposed through C+I+G+NX; each component has a different transaction multiplier k; resolves the velocity puzzle, explains Cantillon routing, financialization as T_financial dominance
+  - [Measuring Growth — Net Worth vs Transactions](./research/economics/measuring-growth.md) — GDP counts activity, not improvement; Three Stooges, manure joke, and the broken window fallacy all expose the same flaw; Austrian critique of aggregate measures
 - [Gaming](./research/gaming/README.md) — games as interactive laboratories for systems thinking: strategy, economics, simulation, and AI
   - [The Nash Bargaining Problem](./research/gaming/nash-bargaining-problem.md) — two players, $100, agree or get nothing: Nash's axiomatic solution, patience as leverage, and why identical agents can't trade
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
@@ -98,6 +103,7 @@
     - [Subgraph Investment Optimization](./research/gaming/monopoly/subgraph-investment-optimization.md) — build vs trade decision via Pareto dominance, graph matching, dynamic programming
     - [Frontier Trade Theory](./research/gaming/monopoly/frontier-trade-theory.md) — EPT frontier curves, brown trap, denial value, game horizon, race condition
     - [Subgraph Trade Engine Spec](./research/gaming/monopoly/subgraph-trade-engine-spec.md) — complete AI architecture: subgraph analysis, trade search, 3-way cycles
+  - [LLM Agents Across Strategic Games](./research/gaming/llm-agents-across-games.md) — six-game study (Monopoly, Diplomacy, Among Us, Mafia ×2, Coup) + clones control; architectural signatures are stable, verification mechanics decide winners; state-aware AI vs session-based AI is the epistemological parallel to realism vs postmodernism
   - MOO1 Theory — [research/gaming/moo1/](./research/gaming/moo1/)
     - [MOO1 Optimal Strategy](./research/gaming/moo1/optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
     - [MOO1 MIRR Analysis](./research/gaming/moo1/mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
@@ -108,6 +114,7 @@
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
+- [Claude Code on a Persistent Cloud VM](./research/claude-code-cloud-vm.md) — running Remote Control from a $4/month Hetzner VM so iPad access works 24/7; auth constraints, setup checklist, cost comparison
 - [Level 6 — Direct Execution](./research/level-6-direct-execution.md) — beyond software: agents executing processes directly; extends Shapiro's 5 levels of AI coding; the vault's L6 prediction
 - [Cognitive vs. Motor Skills](./research/cognitive-vs-motor.md) — (stub) the architectural split between thinking and moving, in both humans and AI
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
@@ -134,6 +141,15 @@
   - [Subjective vs Objective Morality (Noerr vs Terry X)](./research/debates/noerr-teryx-subjective-objective-morality.md) — both accept "objective = mind-independent" and fight over consequences; the definition itself is broken; category 3 resolves it
   - [Force Doctrine and the Rehabilitation of Pragmatism (Wilson)](./research/debates/wilson-force-doctrine-pragmatism.md) — descriptor is true, conclusion doesn't follow; pragmatism is legitimate; theories ungrounded in reality are wrong
   - [Suffrage, Stakeholdership, and the Scope Problem (Pool vs Kyla)](./research/debates/pool-kyla-suffrage-taxation.md) — uninformed ≠ unstaked; restricted suffrage just changes who exercises tyranny; the problem is scope not franchise; agency and the Hayekian knowledge problem
+  - [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](./research/debates/wilson-triggernometry-christian-nationalism.md) — Wilson's full program in one interview; "because I said so" as internal critique, not self-defeat; the real pressure belongs on the empirical outcomes claim; every worldview hits the Gödel/Agrippa wall
+  - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](./research/debates/rep-competence-tests-prep.md) — live debate prep (con); voter-judgment-of-competence is constitutive of democracy; two-versions dichotomy; 10 procedural-weaponization vectors; Fetterman and the disability narrative; mechanism trap (no fast-and-neutral path)
+
+## Career
+- [Career](./career/README.md) — AI lessons learned, career development, what works and what doesn't
+  - [The Role Landscape](./career/role-landscape.md) — industry title analysis; AI Engineer vs ML Engineer; the level gap between postings and practice
+  - [Career Strategy — The Performative Loop](./career/strategy.md) — the job search IS the portfolio; director-level targeting; compensation landscape
+  - [Tools Roadmap](./career/tools-roadmap.md) — 9 career tools to build; each one demonstrates the competency it showcases
+  - [Active Postings](./career/active-postings.md) — director-level AI positions by lane; Nordstrom, Schwab, Experian, Comcast, and more
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

@@ -9,3 +9,4 @@
 - [HoP Ep 3: Heraclitus](../research/philosophy/history-of-philosophy/03-heraclitus.md)
 - [HoP Ep 4: Parmenides](../research/philosophy/history-of-philosophy/04-parmenides.md)
 - [A History of Logic](../research/philosophy/logic-and-math/history-of-logic.md)
+- [HoP Ep 15: Aristotle — Father of Logic](../research/philosophy/history-of-philosophy/15-aristotle-logic.md)
