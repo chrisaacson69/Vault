@@ -118,6 +118,26 @@ But the boundary migrates **both directions** simultaneously:
 
 The buffer doesn't shrink monotonically. It oscillates. This is the [opposing forces](../philosophy/dynamics/opposing-forces.md) pattern applied to human-machine interaction. The cyborg model's core claim: the boundary migrates to wherever the current friction is, but it never disappears — and pushing too hard in either direction generates counter-pressure.
 
+## The L5/L6 Boundary as a First-Class Object
+
+The L5/L6 transition isn't a spec you design up front. The boundary between rule-sufficient (L6-ready) and judgment-required (stays human) isn't something you can articulate before watching real operations. Attempts to fix it at design time either leave gaps (cases rules didn't anticipate) or overreach (forcing rules where context-dependent judgment was doing the work). The boundary has to be **discovered through operation**, which means a useful L5/L6 system treats the boundary itself as a first-class object — not as an implementation detail that freezes at launch.
+
+Five design properties follow from that reframe:
+
+1. **Authority gate rule-based, decision substance judgment-based.** *Who* is allowed to decide (role, credential, tenure) is cheap to articulate and easy to enforce. *What* they decide, given they have authority, is judgment. Clean separation avoids fighting the wrong abstraction.
+2. **Decision-level logging with stated reason.** Every judgment call captures input state, stated rationale, outcome. Without this, the L5 phase generates no evidence; future rules have no empirical ground.
+3. **Convergence and divergence as metrics.** When human decisions converge on similar outcomes given similar inputs, the pattern is a rule candidate. When decisions diverge, the case is genuine judgment territory. This is [Trunk 2 convergence diagnostic](../philosophy/epistemology/relational-objectivity.md) applied to organizational behavior — convergence as evidence that the structure is rule-tractable; divergence as evidence that judgment is actually doing work.
+4. **Bidirectional promotion/demotion.** Rules can be promoted from observed patterns. They can also be demoted back to judgment when override rates climb. Most systems have the first path and miss the second, which is why rule systems ossify.
+5. **Condition metadata on rules.** Rules carry metadata about the conditions they were derived under (when added, from what data, current override rate, confidence). When underlying conditions shift, rules flag for review rather than silently misfiring. This is the [constitutive-given-conditions](../philosophy/morality/constitutive-elective.md) stance applied to rule durability — rules are real and non-arbitrary, but they're not fixed; they track conditions that move.
+
+### Real-world case: CSR manual orders
+
+A customer-service system tried to encode "who should be allowed to place manual stock orders" as rules on customer attributes (ranking, entitlement, OCR state, monthly counter). The design collapsed under edge cases accumulating faster than rules could cover them. The fix was to fall back to role-based authority (trained CSRs can, untrained can't) and capture the decision reason in a structured dropdown. The rule-encoded future state isn't gone — it's deferred until the manual-order log generates enough signal to derive rules with empirical grounding. **L5 operation is the data-collection phase for L6 rules.**
+
+### The reframe
+
+L5 is often framed as a placeholder — "temporary state awaiting full automation." That misframes what L5 is doing. L5 is the evidence-generating phase that earns L6 operation. The system produces two outputs: customer outcomes (visible, current) and decision-pattern data (invisible, compounds over time). A mature design treats the second output as a first-class deliverable, not a happy accident of having humans in the loop. That reframe changes what the system should measure, log, and expose — and it explains why systems that try to short-circuit the L5 phase by designing L6 rules up front tend to fail: they're trying to encode knowledge they don't yet have.
+
 ## Open Questions
 
 1. **When is durable software still the right answer?** L6 doesn't eliminate software — some processes need offline operation, sub-millisecond latency, or guaranteed determinism. Where's the boundary?
