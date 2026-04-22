@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-03-23
+published: true
 ---
 # Non-Classical Logics
 > What happens when you challenge the other axioms? Contradictions that don't explode, truth that comes in degrees, and premises that must actually be relevant.

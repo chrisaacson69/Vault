@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-16
+published: true
 ---
 # Philosophy
 > First-principles exploration of foundational philosophical questions. Organized as four interlocking trunks.

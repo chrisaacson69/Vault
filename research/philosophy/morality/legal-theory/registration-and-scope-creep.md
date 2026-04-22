@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-03-04
+published: true
 ---
 # Registration, Rights, and Government Scope Creep
 > The vehicle/gun registration comparison reveals more about how government mechanisms expand than about either vehicles or guns.

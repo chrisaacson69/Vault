@@ -1,6 +1,7 @@
 ---
 status: "resolved (2026-02-28)"
 created: 2026-02-28
+published: true
 ---
 # The Is-Ought Problem and Performative Grounding
 > The is-ought gap dissolves — not through logical bridging, but because the questioner is already standing on the other side.

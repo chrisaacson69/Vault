@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-17
+published: true
 ---
 # Cyclical Historians
 > Ibn Khaldun, Spengler, Toynbee, Strauss & Howe, Glubb — those who see civilizations following predictable patterns of rise and fall.

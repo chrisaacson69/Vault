@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-04-08
+published: true
 ---
 # The Constitutive/Elective Distinction — Replacing Objective vs Subjective
 > The objective/subjective debate is fought on a single axis that doesn't exist. There are two axes, not one. Morality is mind-dependent AND constrained — a combination the traditional vocabulary has no word for.

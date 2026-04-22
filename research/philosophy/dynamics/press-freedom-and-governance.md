@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-03-12
+published: true
 ---
 # Press Freedom and Governance — Pre-commitment, Information, and the Observation Problem
 > Free press is the mechanism by which every other constitutional constraint is monitored. Remove it, and pre-commitments become unenforceable.

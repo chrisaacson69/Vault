@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-17
+published: true
 ---
 # Economic Theorists
 > Hayek, Sowell, Schumpeter, Kondratiev — those whose work on markets, knowledge, and incentives illuminates why the cycle mechanisms operate.

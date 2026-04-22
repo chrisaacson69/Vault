@@ -1,6 +1,7 @@
 ---
 status: active — formalizing
 created: 2026-02-25
+published: true
 ---
 # The Weighting Problem
 > Objective measurements do not produce objective composite judgments. The aggregation function is always subjective.

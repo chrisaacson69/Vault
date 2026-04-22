@@ -1,6 +1,7 @@
 ---
 status: concept — exploring
 created: 2026-04-09
+published: true
 ---
 # OOP Neurons — Object-Oriented Neural Network on GPU
 > Build neurons as proper OOP objects on GPU and see what emerges. Not trying to rediscover matrix multiplication — exploring what the object paradigm reveals about neural computation.

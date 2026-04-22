@@ -1,6 +1,7 @@
 ---
 status: reference
 created: 2026-02-02
+published: true
 ---
 # PyTorch Learning
 > Structured tutorial series through PyTorch fundamentals — tensors to trained models.

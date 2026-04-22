@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-03-12
+published: true
 ---
 # Relational Objectivity — The Four-Category Ontology of Facts
 > Not all facts are intrinsic properties of isolated objects. Some facts live in relationships — between objects, between agents and reality, or between agents and their own states. Relational does not mean subjective.

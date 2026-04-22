@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-16
+published: true
 ---
 # The Action/Inaction Asymmetry
 > Action is singular and defined. Inaction is the infinite, undefined complement. This asymmetry grounds the negative/positive rights distinction.

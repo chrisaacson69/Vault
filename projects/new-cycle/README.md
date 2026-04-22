@@ -1,6 +1,7 @@
 ---
 status: concept — developing
 created: 2026-03-04
+published: true
 ---
 # New Cycle — Philosophy as Fiction
 > A post-apocalyptic narrative following humanity rebuilding civilization through parallel covenant communities, dramatizing the vault's philosophical frameworks.

@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-17
+published: true
 ---
 # Civilizational Cycles
 > Thirteen thinkers across three camps describing the same meta-pattern. Applied Trunk 4 at civilizational timescales.

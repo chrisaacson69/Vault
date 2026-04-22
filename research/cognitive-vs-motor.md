@@ -1,6 +1,7 @@
 ---
 status: "active — hub page, synthesizes content developed across multiple files"
 created: 2026-02-12
+published: true
 ---
 # Cognitive Ability vs. Motor Skills
 > LLMs and autopilot NNs solve fundamentally different problems with fundamentally different architectures. Even humans have separate systems for thinking and moving. This page is the hub — the deep treatment lives in measurement-causality.

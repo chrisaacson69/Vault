@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-03-23
+published: true
 ---
 # Deontology vs. Consequentialism: The False Dichotomy
 > They're not competing theories. They're two phases of the same loop.

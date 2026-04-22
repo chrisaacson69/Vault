@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-04-21
+published: true
 ---
 # The Stance-Independence Retreat — A Rename, Not a Repair
 > When moral realists abandon "mind-independent" and retreat to "stance-independent," they're not solving the vocabulary problem — they're hiding it. The term slides between two incompatible readings, one of which is a concession and the other of which inherits every defect of mind-independence. This page names the move, disambiguates the readings, and supplies the attack set.

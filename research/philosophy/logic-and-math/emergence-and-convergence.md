@@ -1,6 +1,7 @@
 ---
 status: active — capstone synthesis
 created: 2026-03-23
+published: true
 ---
 # Emergence, Convergence, and the Strange Loop
 > The vault's metaphysical position, stated explicitly: what logic is, why it works, why it doesn't need God, and what it can't prove about itself.

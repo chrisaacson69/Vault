@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-03-18
+published: true
 ---
 # The Birthmark and the Search for Truth
 > Perfect knowledge is impossible — every knowledge system has a birthmark. The question is not how to achieve epistemic perfection but how to develop a robust process that tolerates imperfection while still moving toward truth.

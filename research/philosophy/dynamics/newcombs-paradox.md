@@ -1,6 +1,7 @@
 ---
 status: complete — video analysis + vault position
 created: 2026-03-11
+published: true
 ---
 # Newcomb's Paradox — Pre-commitment, Decision Theory, and Agent Type
 > Two boxes, one choice, and the question that splits smart people 50/50. The answer reveals how you think about rationality, free will, and what kind of agent you are.

@@ -1,6 +1,7 @@
 ---
 status: active — working document, names not settled
 created: 2026-04-21
+published: true
 ---
 # The Four Trunks — The Structure of the Vault's Philosophy
 > The vault's philosophy is not a single thesis with one name. It's four interlocking commitments, each doing distinct work. Two of the four have working names (constitutive realism, constitutive convergence); two are still unnamed. The umbrella name is deferred until the trunks are each named, because it has to be what the four names point at together.

@@ -45,7 +45,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.ignores.add("tasks/**");
   eleventyConfig.ignores.add("tags/**");
   eleventyConfig.ignores.add("notes/**");
-  eleventyConfig.ignores.add("projects/**");
+  eleventyConfig.ignores.add("projects/_template.md");
   eleventyConfig.ignores.add("node_modules/**");
   eleventyConfig.ignores.add(".claude/**");
   eleventyConfig.ignores.add(".git/**");

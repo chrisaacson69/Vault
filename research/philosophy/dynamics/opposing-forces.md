@@ -1,6 +1,7 @@
 ---
 status: active — exploratory
 created: 2026-02-20
+published: true
 ---
 # Opposing Forces — Why Every Action Generates a Reaction
 > A metaphysical exploration of why concentrated power always produces counter-forces, and whether this is a fundamental feature of reality.

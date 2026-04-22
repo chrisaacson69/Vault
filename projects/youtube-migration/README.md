@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-26
+published: true
 ---
 # YouTube Migration
 > Turning vault research into YouTube scripts — putting ideas into the ether and letting them fall where they do.

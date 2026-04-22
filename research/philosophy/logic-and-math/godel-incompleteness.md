@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-03-23
+published: true
 ---
 # Gödel's Incompleteness Theorems
 > No sufficiently powerful formal system can be both complete and consistent. Logic knows it has limits — and it proved it about itself.

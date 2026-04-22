@@ -1,6 +1,7 @@
 ---
 status: active — open problem (possibly the central unsolved problem of political philosophy)
 created: 2026-03-04
+published: true
 ---
 # The Godel Governance Problem
 > Can a system be powerful enough to prevent monopoly without becoming one?

@@ -1,6 +1,7 @@
 ---
 status: "active — broad strokes laid, detail to follow"
 created: 2026-02-16
+published: true
 ---
 # Philosophy of Logic and Mathematics
 > Logic and math are human constructions that model real patterns — extraordinary maps, but still maps. Spans Trunks 2 and 3.

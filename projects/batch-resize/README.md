@@ -1,6 +1,7 @@
 ---
 status: complete
 created: 2026
+published: true
 ---
 # Batch Resize
 > CLI tool for batch resizing images with configurable size/scaling modes.
