@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "1c206385b0782294",
+        "id": "cb6fa66f51a3f705",
         "type": "tabs",
         "children": [
           {
-            "id": "0356d4f6f271cd90",
+            "id": "ac6e7c59d4386586",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "career/job-shortlist-2026-04-20.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "job-shortlist-2026-04-20"
             }
           }
         ]
@@ -171,8 +175,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "0356d4f6f271cd90",
+  "active": "ac6e7c59d4386586",
   "lastOpenFiles": [
+    "tags/philosophy.md",
+    "career/job-shortlist-2026-04-20.md",
     "research/eliza.md",
     "CLAUDE.md",
     "INDEX.md",
@@ -190,7 +196,6 @@
     "research/cyborg-model.md",
     "research/debates/weinstein-murphy-gauge-theory-economics.md",
     "research/gaming/moo1/optimal-strategy.md",
-    "tags/philosophy.md",
     "research/philosophy/README.md",
     "tags/_index.md",
     "raw/output/us-spending-per-student.html",
@@ -208,7 +213,6 @@
     "notes/debate-prep-hate-speech-1a.md",
     "notes/debate-prep-press-freedom.md",
     "notes/bridge-logic-to-morality.md",
-    "notes/sketch-conspiracy-and-precrime.md",
     "notes"
   ]
 }

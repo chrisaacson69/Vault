@@ -9,13 +9,13 @@ created: 2026-04-20
 
 ## Shortlist
 
-| # | Company | Role | Location | URL |
-|---|---|---|---|---|
-| 1 | Experian | Director, Agentic AI/Automation | Remote, US | https://jobs.experian.com/job/director-agentic-ai-automation-remote-in-united-states-jid-2754 |
-| 2 | Anthropic | Forward Deployed Engineer, Applied AI | Remote | https://job-boards.greenhouse.io/anthropic/jobs/4985877008 |
-| 3 | Veralto | Senior AI Engineer — LLM & Agentic Systems | Remote, US | https://jobs.veralto.com/global/en/job/R10261925/Senior-AI-Engineer-LLM-Agentic-Systems |
-| 4 | Okta (Auth0) | Staff Software Engineer, AI Agentic Experience | Remote/Hybrid | https://www.okta.com/company/careers/engineering/staff-software-engineer-ai-agentic-experience-auth0-7308745/ |
-| 5 | TRM Labs | Staff Software Engineer, Agent Engineering | Remote, US | https://www.aijobs.com/jobs/441604391-staff-software-engineer-agent-engineering-us-remote |
+| #   | Company      | Role                                           | Location      | URL                                                                                                           |
+| --- | ------------ | ---------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
+| 1   | Experian     | Director, Agentic AI/Automation                | Remote, US    | https://jobs.experian.com/job/director-agentic-ai-automation-remote-in-united-states-jid-2754                 |
+| 2   | Anthropic    | Forward Deployed Engineer, Applied AI          | Remote        | https://job-boards.greenhouse.io/anthropic/jobs/4985877008                                                    |
+| 3   | Veralto      | Senior AI Engineer — LLM & Agentic Systems     | Remote, US    | https://jobs.veralto.com/global/en/job/R10261925/Senior-AI-Engineer-LLM-Agentic-Systems                       |
+| 4   | Okta (Auth0) | Staff Software Engineer, AI Agentic Experience | Remote/Hybrid | https://www.okta.com/company/careers/engineering/staff-software-engineer-ai-agentic-experience-auth0-7308745/ |
+| 5   | TRM Labs     | Staff Software Engineer, Agent Engineering     | Remote, US    | https://www.aijobs.com/jobs/441604391-staff-software-engineer-agent-engineering-us-remote                     |
 
 ## Notes
 
