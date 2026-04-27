@@ -5,7 +5,7 @@ created: 2026-03-25
 # Bridge: Logic Series → Morality Series
 > Two planned vault pages that connect the YouTube logic grounding to the morality framework. Write after the logic series is grounded.
 
-**Links:** [Morality Framework](../research/philosophy/morality/README.md), [History of Logic](../research/philosophy/logic-and-math/history-of-logic.md), [Emergence and Convergence](../research/philosophy/logic-and-math/emergence-and-convergence.md), [Performative Grounding](../research/philosophy/morality/performative-grounding-lineage.md), [Measurement, Causality](../research/philosophy/measurement-causality.md)
+**Links:** [Morality Framework](../research/philosophy/morality/README.md), [History of Logic](../research/philosophy/logic-and-math/history-of-logic.md), [Emergence and Convergence](../research/philosophy/logic-and-math/emergence-and-convergence.md), [Performative Grounding](../research/philosophy/morality/performative-grounding-lineage.md), [Measurement, Causality](../research/philosophy/metaphysics/measurement-causality.md)
 
 ---
 
@@ -98,7 +98,7 @@ People who don't follow the physics still got the point from clouds + sig figs. 
 
 Numbers aren't real because God made them (TAG/Platonism). Numbers aren't arbitrary (constructivism). Numbers are what you get when agents impose discreteness on reality to navigate it — emergence + convergence. Same pattern as logic. Same pattern as morality. Agency all the way down.
 
-**Zeno connection:** Already showing 2,400 years ago that infinite divisibility (the model) produces absurd results when treated as reality (you can't cross the room). The room doesn't know about halves. You just walk across it. The model broke, not reality. [HoP Ep 4: Parmenides](../research/philosophy/history-of-philosophy/04-parmenides.md)
+**Zeno connection:** Already showing 2,400 years ago that infinite divisibility (the model) produces absurd results when treated as reality (you can't cross the room). The room doesn't know about halves. You just walk across it. The model broke, not reality. [HoP Ep 4: Parmenides](../research/philosophy/tangents/history-of-philosophy/04-parmenides.md)
 
 ---
 

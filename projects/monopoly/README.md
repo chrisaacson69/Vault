@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02
+published: true
 ---
 # Monopoly
 > Monopoly game engine with mathematically rigorous AI — Markov chains, property valuation, and strategic trading.

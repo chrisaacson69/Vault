@@ -10,7 +10,7 @@
 - [Camelot From YouTube](../projects/camelot-from-youtube/README.md)
 - [Slay](../projects/slay/README.md)
 - [Slay-C](../projects/slay-c/README.md)
-- [Measurement, Causality, and Free Will](../research/philosophy/measurement-causality.md)
+- [Measurement, Causality, and Free Will](../research/philosophy/metaphysics/measurement-causality.md)
 - [Computation and Information Theory](../research/computation-and-information.md)
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)

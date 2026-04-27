@@ -37,7 +37,7 @@ The impulse to throw everything out and rebuild from pure principle is understan
 
 The libertarian contribution isn't "start over." It's **"here's a principled framework to evaluate which parts we got right and which parts drifted."** That's more productive — and more honest — than pretending nobody ever thought about these problems before.
 
-*Demonstrated in this vault:* The [mens rea debate](../research/philosophy/legal-theory/mens-rea.md) landed on a framework (binary aggression, restitution, retribution via contract/convention/victim discretion) that closely mirrors how common law torts already work — just with cleaner principles underneath. See: [Legal Theory](../research/philosophy/legal-theory/README.md)
+*Demonstrated in this vault:* The [mens rea debate](../research/philosophy/morality/legal-theory/mens-rea.md) landed on a framework (binary aggression, restitution, retribution via contract/convention/victim discretion) that closely mirrors how common law torts already work — just with cleaner principles underneath. See: [Legal Theory](../research/philosophy/morality/legal-theory/README.md)
 
 ---
 
@@ -59,7 +59,7 @@ The drift happens because voluntary solutions are *slow* and people get impatien
 
 This is the cycle of civilizations. Build trust → build institutions → institutions drift toward coercion → coercion breaks trust → collapse → rebuild. We know the cycle exists. We haven't figured out how to break it.
 
-*See also:* [Limits of Utopia](./limits-of-utopia.md), [Demolition Man Analysis](../research/demolition-man-analysis.md), [Legal Theory](../research/philosophy/legal-theory/README.md)
+*See also:* [Limits of Utopia](./limits-of-utopia.md), [Demolition Man Analysis](../research/demolition-man-analysis.md), [Legal Theory](../research/philosophy/morality/legal-theory/README.md)
 
 ---
 
@@ -71,7 +71,7 @@ This is Chesterton's Fence, but sharper: Chesterton says "understand why the fen
 
 Change is HARD, even when it looks easy. The libertarian law problem is a perfect example — the current legal system has centuries of evolved solutions baked in. Some are wrong. But "tear it down and start from pure principle" ignores the 99 problems those structures already solved. The right approach: understand what exists, identify what drifted, fix *that*. Don't rebuild the house because you don't like the paint color.
 
-*Demonstrated in this vault:* Every legal debate starts by discovering that the "obvious" libertarian solution already exists in some form in common law. The work isn't invention — it's evaluation. See: [Legal Theory](../research/philosophy/legal-theory/README.md)
+*Demonstrated in this vault:* Every legal debate starts by discovering that the "obvious" libertarian solution already exists in some form in common law. The work isn't invention — it's evaluation. See: [Legal Theory](../research/philosophy/morality/legal-theory/README.md)
 
 ---
 

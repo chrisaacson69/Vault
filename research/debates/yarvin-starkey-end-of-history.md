@@ -8,7 +8,7 @@ created: 2026-03-15
 **Source:** [YouTube video](https://www.youtube.com/watch?v=zXYl-RLNhk0) (1:19:20, uploaded 2025-11-03, 61K views)
 **Venue:** Sheldonian Theatre, Oxford — Oakeshott Lectures 2025
 **Participants:** Curtis Yarvin (lecturer), David Starkey (respondent — historian)
-**Links:** [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md), [Civilizational Cycles](../philosophy/civilizational-cycles/README.md), [Opposing Forces](../philosophy/opposing-forces.md), [Press Freedom and Governance](../philosophy/press-freedom-and-governance.md), [Registration and Scope Creep](../philosophy/legal-theory/registration-and-scope-creep.md), [Technology-Governance Gap](../philosophy/technology-governance-gap.md)
+**Links:** [The Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Opposing Forces](../philosophy/dynamics/opposing-forces.md), [Press Freedom and Governance](../philosophy/dynamics/press-freedom-and-governance.md), [Registration and Scope Creep](../philosophy/morality/legal-theory/registration-and-scope-creep.md), [Technology-Governance Gap](../philosophy/dynamics/technology-governance-gap.md)
 
 ## Context
 
@@ -22,7 +22,7 @@ The Soviet Union was a utopian empire that believed it was the end of history. I
 
 Liberal democracy made the same mistake after 1989: Fukuyama declared history over because we won. But "we won because we won" is might-makes-right reasoning — the same logic that sustained Soviet communism during its heyday. "Genghis Khan thought he was the end of history too."
 
-**Vault connection:** This is the [civilizational cycles](../philosophy/civilizational-cycles/README.md) page's core insight restated. Every empire in Glubb's table declined without understanding why. Rome, the Abbasids, the Ottomans, the Soviets — each believed they were the final form. The vault's framing: "the error of thinking the problem is solved when it isn't is how constitutional systems decay in the first place."
+**Vault connection:** This is the [civilizational cycles](../philosophy/dynamics/civilizational-cycles/README.md) page's core insight restated. Every empire in Glubb's table declined without understanding why. Rome, the Abbasids, the Ottomans, the Soviets — each believed they were the final form. The vault's framing: "the error of thinking the problem is solved when it isn't is how constitutional systems decay in the first place."
 
 ### The Two Meanings of "Democracy"
 
@@ -44,7 +44,7 @@ Early 20th century elites saw a political sewer (corrupt democratic politicians)
 
 Same pattern in foreign policy: expanding NATO to the east is "gain-of-function research in diplomacy." Kennan warned against it. Burns warned against it. We promised not to do it. Result: hundreds of thousands dead. Same pattern in education: progressive education is anti-education because destructive ideas are more powerful in the petri dish of expertise + power. Mississippi dropped 50 years of progressive ed methodology and jumped ahead.
 
-**Vault connection:** This is the [scope creep](../philosophy/legal-theory/registration-and-scope-creep.md) analysis applied to the academy. The vault's framing: "the structural pattern of regulatory expansion beyond original justification." Yarvin's version: when you give experts power, the ideas that survive selection are the ones that get more power, not the ones that are more true. See also [press freedom and governance](../philosophy/press-freedom-and-governance.md) — the observation problem. When the observed system is also the observing system, the feedback loop corrupts both.
+**Vault connection:** This is the [scope creep](../philosophy/morality/legal-theory/registration-and-scope-creep.md) analysis applied to the academy. The vault's framing: "the structural pattern of regulatory expansion beyond original justification." Yarvin's version: when you give experts power, the ideas that survive selection are the ones that get more power, not the ones that are more true. See also [press freedom and governance](../philosophy/dynamics/press-freedom-and-governance.md) — the observation problem. When the observed system is also the observing system, the feedback loop corrupts both.
 
 ### Critique of Populism: The People Are Weak
 
@@ -97,7 +97,7 @@ Yarvin's monarchy proposal is a variant of the common "benevolent dictator" argu
 
 ### This IS the Gödel Governance Problem
 
-The entire debate maps onto the vault's [three options](../philosophy/the-godel-governance-problem.md):
+The entire debate maps onto the vault's [three options](../philosophy/dynamics/the-godel-governance-problem.md):
 
 | Yarvin's Framing | Vault's Framing | Failure Mode |
 |---|---|---|
@@ -109,20 +109,20 @@ Yarvin identifies the problem with precision but his solution (monarchy) is just
 
 ### Starkey Points Toward the Better Answer
 
-Burke's "little platoons" — self-government at every level — is closer to the vault's actual position. It's not Option B (ancap/no state) and it's not Option A (strong central authority). It's **distributed friction** — the same principle behind the vault's [constitutional friction structures](../philosophy/the-godel-governance-problem.md):
+Burke's "little platoons" — self-government at every level — is closer to the vault's actual position. It's not Option B (ancap/no state) and it's not Option A (strong central authority). It's **distributed friction** — the same principle behind the vault's [constitutional friction structures](../philosophy/dynamics/the-godel-governance-problem.md):
 
 - Mandatory sunset clauses
 - Constitutionally protected exit
 - Scale-limited governance
 - Subsidiarity as hard law
 
-Starkey's diagnosis of what destroyed the little platoons (bureaucracy, welfare state, party discipline, quangos) is the vault's [scope creep](../philosophy/legal-theory/registration-and-scope-creep.md) documented historically. The voluntary civil society that sustained England for centuries was absorbed by the state — not because it failed, but because the state could always offer to "do it better" by absorbing the function and the funding.
+Starkey's diagnosis of what destroyed the little platoons (bureaucracy, welfare state, party discipline, quangos) is the vault's [scope creep](../philosophy/morality/legal-theory/registration-and-scope-creep.md) documented historically. The voluntary civil society that sustained England for centuries was absorbed by the state — not because it failed, but because the state could always offer to "do it better" by absorbing the function and the funding.
 
-The debate Starkey describes (pre-1860s Parliament, where independent minds actually changed their votes) is the [press freedom](../philosophy/press-freedom-and-governance.md) analysis: genuine discourse requires genuine independence, which requires genuine exit options. Once party discipline forecloses exit, Parliament becomes a rubber stamp.
+The debate Starkey describes (pre-1860s Parliament, where independent minds actually changed their votes) is the [press freedom](../philosophy/dynamics/press-freedom-and-governance.md) analysis: genuine discourse requires genuine independence, which requires genuine exit options. Once party discipline forecloses exit, Parliament becomes a rubber stamp.
 
 ### The Alpine Lake Metaphor Is Excellent
 
-Yarvin's "no valve in the pipe" image perfectly captures the [technology-governance gap](../philosophy/technology-governance-gap.md) and the [opposing forces](../philosophy/opposing-forces.md) principle: when you connect a pure system to a powerful system, power flows both ways. The intention was to purify politics with expertise. The result was to politicize expertise. This is irreversible within the current structure — you can't uncontaminate the lake while the pipe is open.
+Yarvin's "no valve in the pipe" image perfectly captures the [technology-governance gap](../philosophy/dynamics/technology-governance-gap.md) and the [opposing forces](../philosophy/dynamics/opposing-forces.md) principle: when you connect a pure system to a powerful system, power flows both ways. The intention was to purify politics with expertise. The result was to politicize expertise. This is irreversible within the current structure — you can't uncontaminate the lake while the pipe is open.
 
 ### What Neither of Them Says
 

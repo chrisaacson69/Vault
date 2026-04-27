@@ -7,7 +7,7 @@ created: 2026-03-11
 
 **Source:** [The Math of D&D Spells](https://www.youtube.com/watch?v=yrgbi1xPESc) — The Gorilla of Destiny (PhD student, D&D science books)
 **Transcript:** [dnd-math-spells-transcript.txt](../../raw/videos/dnd-math-spells-transcript.txt)
-**Links:** [BattleValue](./battle-value.md), [Gaming](./README.md), [Logic and Mathematics](../philosophy/logic-and-math/README.md), [Newcomb's Paradox](../philosophy/newcombs-paradox.md)
+**Links:** [BattleValue](./battle-value.md), [Gaming](./README.md), [Logic and Mathematics](../philosophy/logic-and-math/README.md), [Newcomb's Paradox](../philosophy/dynamics/newcombs-paradox.md)
 
 ## The Model
 

@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02
+published: true
 ---
 # Camelot From YouTube
 > Music analysis tool for detecting key, BPM, structure, and energy at the phrase level.

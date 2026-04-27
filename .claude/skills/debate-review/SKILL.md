@@ -89,7 +89,7 @@ What remains unresolved or worth exploring further.
 
 The user cares about **argument structure and logical validity**, not who "won" stylistically. Focus on:
 - Where premises are unsupported.
-- Where fallacies occur — but explain WHY they matter, don't just label them (see [The Fallacy Fallacy](../../research/philosophy/the-fallacy-fallacy.md)).
+- Where fallacies occur — but explain WHY they matter, don't just label them (see [The Fallacy Fallacy](../../research/philosophy/tangents/the-fallacy-fallacy.md)).
 - Where scope confusion is operating.
 - Where arguments connect to or challenge existing vault frameworks.
 

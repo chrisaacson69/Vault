@@ -5,7 +5,7 @@
 **Source:** [YouTube](https://www.youtube.com/watch?v=HcX0LNmwfMk)
 **Participants:** Philosophy lecturer (academic presentation of McCloskey vs Smart)
 **Duration:** ~10 min
-**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [the weighting problem](../../research/philosophy/epistemology/weighting-problem.md), [opposing forces](../../research/philosophy/opposing-forces.md), [Comparative Advantage Bidding (Evo-Cap)](../evolutionary-capitalist/comparative-advantage-bidding.md)
+**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [the weighting problem](../../research/philosophy/epistemology/weighting-problem.md), [opposing forces](../../research/philosophy/dynamics/opposing-forces.md), [Comparative Advantage Bidding (Evo-Cap)](../evolutionary-capitalist/comparative-advantage-bidding.md)
 
 ## Context
 
@@ -69,7 +69,7 @@ This is the same structure as "why ought I exist?" being self-defeating — the 
 
 ### 3. The Opposing Forces Prediction
 
-Even if the sheriff gets away with it — even if no one ever discovers the framing — the [opposing forces](../../research/philosophy/opposing-forces.md) principle predicts systemic consequences. A justice system that *would* frame an innocent person if the math worked out is a different system than one that *would not*, even if no specific instance is ever detected.
+Even if the sheriff gets away with it — even if no one ever discovers the framing — the [opposing forces](../../research/philosophy/dynamics/opposing-forces.md) principle predicts systemic consequences. A justice system that *would* frame an innocent person if the math worked out is a different system than one that *would not*, even if no specific instance is ever detected.
 
 Institutions encode their principles in their behavior patterns. A sheriff who frames one innocent person has established (at minimum within himself) that innocents are expendable when the numbers are right. This changes future decisions, erodes institutional integrity from within, and — at scale — produces exactly the kind of system that citizens *should* riot against. The utilitarian calculation that justifies the framing also justifies every future framing where the numbers "work out." The precedent is the problem, not the individual case.
 
@@ -108,7 +108,7 @@ McCloskey's intuition is the leading indicator. The civilizational data is the l
 - [Morality Framework](../../research/philosophy/morality/README.md) — individual consciousness as the unit of moral analysis; probabilistic heuristics
 - [The Weighting Problem](../../research/philosophy/epistemology/weighting-problem.md) — aggregation requires subjective weighting functions
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — individual scope vs aggregate scope
-- [Opposing Forces](../../research/philosophy/opposing-forces.md) — institutional integrity erodes from within when principles are violated
+- [Opposing Forces](../../research/philosophy/dynamics/opposing-forces.md) — institutional integrity erodes from within when principles are violated
 - [Agrippa's Trilemma](./agrippa-axioms-wilson-whatever.md) — utilitarianism can't ground its own axiom without performative contradiction
 - [Value and Profit](../../research/economics/value-and-profit.md) — markets dissolve the aggregation problem by enabling individual choice rather than computing collective optima
 

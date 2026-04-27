@@ -8,7 +8,7 @@ created: 2026-04-09
 **Source:** [InFi #131 — Do LLMs "Act" in the Austrian Economics Sense?](https://www.youtube.com/watch?v=jwB_yIkTlNE) — [Transcript](../../raw/videos/infineo-131-llm-action-austrian-clean.txt)
 **Participants:** Bob Murphy (host) and Michael Fraser (Action Insight, Toronto)
 **Presented at:** Mises Institute Austrian Economics Research Conference (AERC), Auburn, Alabama
-**Links:** [Cyborg Model](../cyborg-model.md), [Value and Profit](./value-and-profit.md), [Praxis — Agent Teams](./praxis-agent-teams.md), [Level 6 — Direct Execution](../level-6-direct-execution.md), [Constitutive/Elective Distinction](../philosophy/morality/constitutive-elective.md), [Performative Grounding](../philosophy/morality/is-ought-and-performative-grounding.md), [Relational Objectivity](../philosophy/epistemology/relational-objectivity.md), [Gödel Governance Problem](../philosophy/the-godel-governance-problem.md), [Weinstein x Murphy — Gauge Theory Applied to Economics](../debates/weinstein-murphy-gauge-theory-economics.md)
+**Links:** [Cyborg Model](../cyborg-model.md), [Value and Profit](./value-and-profit.md), [Praxis — Agent Teams](./praxis-agent-teams.md), [Level 6 — Direct Execution](../level-6-direct-execution.md), [Constitutive/Elective Distinction](../philosophy/morality/constitutive-elective.md), [Performative Grounding](../philosophy/morality/is-ought-and-performative-grounding.md), [Relational Objectivity](../philosophy/epistemology/relational-objectivity.md), [Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Weinstein x Murphy — Gauge Theory Applied to Economics](../debates/weinstein-murphy-gauge-theory-economics.md)
 
 ---
 
@@ -111,7 +111,7 @@ The real distinction he's reaching for is between **exhaustible** and **inexhaus
 - **Thermostat:** The causal description (sensor → comparator → actuator) fully exhausts what it does. Calling it an "actor" adds zero explanatory power.
 - **LLM:** The statistical description (matrix multiplication → token probabilities) does NOT exhaust what's happening. The purposive framework adds genuine predictive and interactive power.
 
-But where exactly does a system cross from exhaustible to inexhaustible? Fraser can't draw the line. Neither can the vault — it's the same fuzzy boundary as the [constitutive/elective gradient](../philosophy/morality/constitutive-elective.md), the [scope model's](../philosophy/morality/scope-confusion.md) category 3/4 boundary, and the [Gödel governance problem's](../philosophy/the-godel-governance-problem.md) "how much friction is enough?"
+But where exactly does a system cross from exhaustible to inexhaustible? Fraser can't draw the line. Neither can the vault — it's the same fuzzy boundary as the [constitutive/elective gradient](../philosophy/morality/constitutive-elective.md), the [scope model's](../philosophy/morality/scope-confusion.md) category 3/4 boundary, and the [Gödel governance problem's](../philosophy/dynamics/the-godel-governance-problem.md) "how much friction is enough?"
 
 **The chess engine sharpens this.** A thermostat is simple — obviously exhaustible. But a chess engine is deeply complex, evaluates millions of positions, makes "choices," and beats grandmasters. And yet it's still not acting in the praxeological sense:
 
@@ -127,7 +127,7 @@ The chess engine is the hard case for the boundary. It's complex, computed, and 
 
 This matters because it shows the line isn't about complexity. A chess engine is far more computationally sophisticated than an aligned LLM at a single token position. The difference is temporal continuity, commitment, and orientation toward another — the formal praxeological categories. You can be enormously complex without acting.
 
-This may be another instance of the [universal incompleteness pattern](../philosophy/the-godel-governance-problem.md): you need the line but you can't draw it precisely. And yet the approximate line still works — nobody seriously treats their thermostat as an actor, nobody treats a chess engine as having a life story, and everybody who uses Claude effectively treats it as one. The pragmatic test succeeds even without a formal boundary. Mises would probably be fine with this — his own alter ego warrants were explicitly pragmatic, not deductive.
+This may be another instance of the [universal incompleteness pattern](../philosophy/dynamics/the-godel-governance-problem.md): you need the line but you can't draw it precisely. And yet the approximate line still works — nobody seriously treats their thermostat as an actor, nobody treats a chess engine as having a life story, and everybody who uses Claude effectively treats it as one. The pragmatic test succeeds even without a formal boundary. Mises would probably be fine with this — his own alter ego warrants were explicitly pragmatic, not deductive.
 
 ### The Consciousness Question (Deliberately Bracketed)
 

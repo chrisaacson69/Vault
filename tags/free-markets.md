@@ -6,7 +6,7 @@
 - [The Limits of Utopia](../notes/limits-of-utopia.md)
 - [Externalities: Fact-Check of the Decomposition Thesis](../research/economics/externalities-fact-check.md)
 - [Andrew Wilson vs Objectivism: Stance Dependence](../research/debates/wilson-objectivism-stance-dependence.md)
-- [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)
+- [Press Freedom and Governance](../research/philosophy/dynamics/press-freedom-and-governance.md)
 - [Business Cycles](../research/economics/business-cycles.md)
 - [Inflation](../research/economics/inflation.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)

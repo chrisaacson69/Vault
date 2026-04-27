@@ -6,7 +6,7 @@ created: 2026-03-13
 > If self-ownership and land ownership are both absolute, they negate each other when all land is claimed. Who wins? The landlord.
 
 **Source:** [YouTube video](https://www.youtube.com/watch?v=5mHbLaYywAs) (5:17, uploaded 2025-11-06, 21 views)
-**Links:** [Channel Overview](./README.md), [Self-Ownership and Property Rights](../philosophy/legal-theory/self-ownership-and-property-rights.md), [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md)
+**Links:** [Channel Overview](./README.md), [Self-Ownership and Property Rights](../philosophy/morality/legal-theory/self-ownership-and-property-rights.md), [The Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md)
 
 ## His Argument (Steel-Manned)
 
@@ -31,9 +31,9 @@ Liberty comes from territorial permission, not personal autonomy. The result is 
 
 ### What He Gets Right
 
-**The core tension is real.** The vault's own [self-ownership page](../philosophy/legal-theory/self-ownership-and-property-rights.md) independently identifies the Rothbardian derivation chain as the weak link in libertarian theory. His observation that absolute land ownership subordinates self-ownership is a valid instantiation of this problem.
+**The core tension is real.** The vault's own [self-ownership page](../philosophy/morality/legal-theory/self-ownership-and-property-rights.md) independently identifies the Rothbardian derivation chain as the weak link in libertarian theory. His observation that absolute land ownership subordinates self-ownership is a valid instantiation of this problem.
 
-**The "all land claimed" scenario is the ancap power asymmetry problem.** The [Godel Governance Problem](../philosophy/the-godel-governance-problem.md) identifies this as why Option B (ancap/REA) fails: the model works until someone with enough land/force opts out of the market and into domination. His "feudal structure masked as anarchism" diagnosis is the same conclusion reached by different means.
+**The "all land claimed" scenario is the ancap power asymmetry problem.** The [Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md) identifies this as why Option B (ancap/REA) fails: the model works until someone with enough land/force opts out of the market and into domination. His "feudal structure masked as anarchism" diagnosis is the same conclusion reached by different means.
 
 **The children/mentally handicapped edge case is real.** Making self-ownership conditional on demonstrated rational agency does undermine the "absolute" framing. The vault doesn't address this edge case directly yet — it's worth developing.
 
@@ -70,7 +70,7 @@ The "oops, no more land" framing — which recurs across modern heterodox econom
 
 1. **His "high bidder" alternative** — does it actually solve the problem he identifies, or does it create a new version of the same hierarchy? (Who runs the bidding? Who enforces reallocation from low bidders to high bidders?)
 2. **The children edge case** — the vault's conflict avoidance framework handles this better than Rothbard's "absolute" framing, but it still needs explicit development. Children are the first scarce-resource conflict (parents and children can't both have exclusive control), and the resolution norm needs spelling out.
-3. **Privacy as his lever** — several of his videos attack privacy as enabling bad actors. This connects to the vault's [press freedom](../philosophy/press-freedom-and-governance.md) analysis (observation as enforcement mechanism). Worth comparing frameworks.
+3. **Privacy as his lever** — several of his videos attack privacy as enabling bad actors. This connects to the vault's [press freedom](../philosophy/dynamics/press-freedom-and-governance.md) analysis (observation as enforcement mechanism). Worth comparing frameworks.
 
 ## Tags
 [philosophy](../../tags/philosophy.md), [libertarian-law](../../tags/libertarian-law.md), [morality](../../tags/morality.md)

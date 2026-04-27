@@ -5,7 +5,7 @@
 **Source:** [whatever Clips — YouTube](https://www.youtube.com/watch?v=S2n2v9EIHzM)
 **Participants:** Andrew Wilson, Kyla (3-part clip series, part 3 chronologically)
 **Duration:** ~29 min (part 3 of 3)
-**Vault relevance:** [legal theory](../../research/philosophy/legal-theory/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [civilizational cycles](../../research/philosophy/civilizational-cycles/README.md)
+**Vault relevance:** [legal theory](../../research/philosophy/morality/legal-theory/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [civilizational cycles](../../research/philosophy/dynamics/civilizational-cycles/README.md)
 
 ## Context
 
@@ -22,7 +22,7 @@ Wilson identifies a real vulnerability in democratic liberalism: the amendment p
 
 But this conflates legality with legitimacy. A system can contain the seeds of its own destruction without that destruction being *consistent with the system's purpose*. A corporation's bylaws might allow shareholders to vote to dissolve the company — that doesn't mean dissolution fulfills the company's mission. Wilson is treating the mechanism as the purpose.
 
-**Vault connection:** This connects to [opposing forces](../../research/philosophy/opposing-forces.md) — every system of concentrated power generates counter-forces. Liberal democracy's amendment process is specifically designed as a pressure valve to prevent revolutionary overthrow, not as an invitation to reverse the system's core commitments.
+**Vault connection:** This connects to [opposing forces](../../research/philosophy/dynamics/opposing-forces.md) — every system of concentrated power generates counter-forces. Liberal democracy's amendment process is specifically designed as a pressure valve to prevent revolutionary overthrow, not as an invitation to reverse the system's core commitments.
 
 ### Claim: There is an inviolable "American ethos" — life, liberty, pursuit of happiness — that limits what amendments can do
 **Attribution:** Kyla argues that certain values are so central to America's identity that amending them away makes the result "not America anymore."
@@ -90,10 +90,10 @@ The separation of powers is the *structural* guarantee of liberty — more funda
 5. **Wilson's strongest technique: make the opponent defend the entire system.** By constantly escalating (gay marriage → polyamory → 17 people; amendment process → abolish First Amendment → theocracy), he forces Kyla to either defend maximalist liberty (which she doesn't believe in) or draw a line that looks arbitrary. This is effective debate technique but bad philosophy — the existence of gray areas doesn't invalidate the principle.
 
 ## Vault Connections
-- [Legal Theory](../../research/philosophy/legal-theory/README.md) — self-defeating democracy, constitutional guard rails
+- [Legal Theory](../../research/philosophy/morality/legal-theory/README.md) — self-defeating democracy, constitutional guard rails
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — conflating the mechanism with the purpose
-- [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) — democratic systems containing the seeds of their own dissolution
-- [Opposing Forces](../../research/philosophy/opposing-forces.md) — pressure valves vs. self-destruction mechanisms
+- [Civilizational Cycles](../../research/philosophy/dynamics/civilizational-cycles/README.md) — democratic systems containing the seeds of their own dissolution
+- [Opposing Forces](../../research/philosophy/dynamics/opposing-forces.md) — pressure valves vs. self-destruction mechanisms
 - [Part 1: Agrippa's Trilemma](./agrippa-axioms-wilson-whatever.md) — Agrippa introduced, math analogy, church/state theology
 - [Part 2: Moral Foundations](./moral-foundations-wilson-whatever.md) — Agrippa implications, preference equivalence
 

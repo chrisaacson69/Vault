@@ -5,7 +5,7 @@
 **Source:** [YouTube — Wilson reviews Pool vs Dyer](https://www.youtube.com/watch?v=L4aV5JDLKms)
 **Participants:** Andrew Wilson (reviewer/commentator), Tim Pool (debater), Jay Dyer (debater)
 **Duration:** ~15 min
-**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [legal theory](../../research/philosophy/legal-theory/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [economics](../../research/economics/README.md)
+**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [legal theory](../../research/philosophy/morality/legal-theory/README.md), [scope confusion](../../research/philosophy/morality/scope-confusion.md), [economics](../../research/economics/README.md)
 
 ## Context
 
@@ -22,7 +22,7 @@ Both ideologies do contain strands that point toward minimal or no state. But ca
 
 Wilson is right that the private property question is "where the rub is," but framing them as symmetric opposites understates how different the failure modes are. Communist statelessness has never been achieved because the centralized transitional stage never voluntarily dissolves. Libertarian statelessness has never been achieved because coordination problems and defense requirements generate state-like structures organically. Different failure modes, different lessons.
 
-**Vault connection:** [Opposing Forces](../../research/philosophy/opposing-forces.md) — concentrations of power (whether state or corporate) generate counter-forces; neither pure communism nor pure libertarianism can remain stable because both create the conditions for their own opposition.
+**Vault connection:** [Opposing Forces](../../research/philosophy/dynamics/opposing-forces.md) — concentrations of power (whether state or corporate) generate counter-forces; neither pure communism nor pure libertarianism can remain stable because both create the conditions for their own opposition.
 
 ### Claim: A company town isn't communism — Pool keeps misapplying the term
 **Attribution:** Wilson and Dyer both push back on Pool's repeated assertion that various arrangements "are communism."
@@ -39,7 +39,7 @@ The company town is the same dynamic at a slightly larger scale. And modern corp
 
 This is what Pool is actually groping toward but can't articulate: a private owner providing services to workers on private land is just commerce at small scale. It only becomes problematic when the exit option disappears — which is the company town failure mode (debt bondage, geographic isolation, scrip instead of real money). The problem isn't the arrangement; it's the loss of exit. And that loss of exit is precisely what happens when you try to scale communal resource-sharing beyond the family or small voluntary group — you need coercion to hold it together, which is why every attempt at large-scale communism requires an authoritarian transitional state that never transitions.
 
-**Vault connection:** [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — Pool is conflating the label (communism) with the structural feature (concentrated power over resources), but the real variable is scale and exit rights, not the label. [Opposing Forces](../../research/philosophy/opposing-forces.md) — communal arrangements work at small scale because counter-forces (free-riding, defection) are manageable; at scale, those forces overwhelm the system.
+**Vault connection:** [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — Pool is conflating the label (communism) with the structural feature (concentrated power over resources), but the real variable is scale and exit rights, not the label. [Opposing Forces](../../research/philosophy/dynamics/opposing-forces.md) — communal arrangements work at small scale because counter-forces (free-riding, defection) are manageable; at scale, those forces overwhelm the system.
 
 ### Claim: Payday loans are modern wage slavery and should be regulated
 **Attribution:** Wilson argues payday loan centers are deliberately predatory, designed to trap people in debt cycles, and that capping interest rates is a legitimate societal response.
@@ -128,14 +128,14 @@ Christian morality's heuristics are *in* that data. They encode millennia of emp
 ## Vault Connections
 - [Morality Framework](../../research/philosophy/morality/README.md) — probabilistic heuristics, naturalistic grounding
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — label confusion vs structural analysis
-- [Legal Theory](../../research/philosophy/legal-theory/README.md) — property rights, exit rights, contract enforceability
+- [Legal Theory](../../research/philosophy/morality/legal-theory/README.md) — property rights, exit rights, contract enforceability
 - [Agrippa's Trilemma](./agrippa-axioms-wilson-whatever.md) — foundational grounding problem
 - [Moral Foundations — Wilson/Whatever](./moral-foundations-wilson-whatever.md) — same grounding debate from Wilson as debater
 - [Value and Profit](../../research/economics/value-and-profit.md) — mutual value vs predatory extraction
 - [Insurance](../../research/economics/insurance.md) — proper vs improper risk pooling
 - [The Weighting Problem](../../research/philosophy/epistemology/weighting-problem.md) — pragmatism needs a weighting function
-- [Opposing Forces](../../research/philosophy/opposing-forces.md) — power concentration generates counter-forces
-- [Civilizational Cycles](../../research/philosophy/civilizational-cycles/README.md) — liberalism as historically situated
+- [Opposing Forces](../../research/philosophy/dynamics/opposing-forces.md) — power concentration generates counter-forces
+- [Civilizational Cycles](../../research/philosophy/dynamics/civilizational-cycles/README.md) — liberalism as historically situated
 
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [morality](../../tags/morality.md), [economics](../../tags/economics.md)

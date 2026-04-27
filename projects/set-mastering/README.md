@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-20
+published: true
 ---
 # Set Mastering Pipeline — "Cyborg DJ"
 > Human writes the score, machine executes the mix, light mastering pass finishes it.

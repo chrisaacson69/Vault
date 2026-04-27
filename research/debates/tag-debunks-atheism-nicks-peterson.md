@@ -6,7 +6,7 @@
 **Participants:** Eli Nicks (affirmative, Orthodox Christian) vs Planet Peterson (negative, atheist/empiricist/author)
 **Moderator:** Speak Easy (Swords of Reason)
 **Duration:** ~2.5 hours (debate proper); ~4.5 hours total with Q&A
-**Vault relevance:** [logic and mathematics](../philosophy/logic-and-math/README.md), [TAG debate (Nicks vs Allen)](./god-precondition-knowledge-nicks-allen.md), [the fallacy fallacy](../philosophy/the-fallacy-fallacy.md), [scope confusion](../philosophy/morality/scope-confusion.md), [performative grounding](../philosophy/morality/performative-grounding-lineage.md)
+**Vault relevance:** [logic and mathematics](../philosophy/logic-and-math/README.md), [TAG debate (Nicks vs Allen)](./god-precondition-knowledge-nicks-allen.md), [the fallacy fallacy](../philosophy/tangents/the-fallacy-fallacy.md), [scope confusion](../philosophy/morality/scope-confusion.md), [performative grounding](../philosophy/morality/performative-grounding-lineage.md)
 
 ---
 
@@ -124,7 +124,7 @@ Every missed opportunity maps to an existing vault tool:
 | Ground morality without God | Performative grounding | [Performative Grounding](../philosophy/morality/performative-grounding-lineage.md) |
 | Counter the hamburger analogy | Temperature is the gas, not a delivery | Structural realism (emergent properties) |
 | Press the filioque to its conclusion | "Which God?" + scope confusion | [Scope Confusion](../philosophy/morality/scope-confusion.md) |
-| Avoid "grammatical" language | Vocabulary discipline | [The Fallacy Fallacy](../philosophy/the-fallacy-fallacy.md) |
+| Avoid "grammatical" language | Vocabulary discipline | [The Fallacy Fallacy](../philosophy/tangents/the-fallacy-fallacy.md) |
 
 ---
 

@@ -1,6 +1,7 @@
 ---
 status: planning
 created: 2026-03-07
+published: true
 ---
 # MOO1 Opening Optimizer
 > Turn-level economic simulator for Master of Orion 1 opening theory. Answers: when should you build the 2nd colony ship?

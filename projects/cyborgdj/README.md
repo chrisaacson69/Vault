@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-20
+published: true
 ---
 # CyborgDJ
 > Human writes the score, machine executes the mix — a programmatic DJ mixing engine.

@@ -5,7 +5,7 @@ created: 2026-04-02
 # Morality — Debate FAQ
 > Common objections to the vault's moral framework, with responses. A living document — grows as new arguments are encountered.
 
-**Links:** [Morality Framework](./README.md), [Performative Grounding](./performative-grounding-lineage.md), [Scope Confusion](./scope-confusion.md), [Deontology vs. Consequentialism](./deontology-consequentialism.md), [Action/Inaction Asymmetry](./README.md#the-actioninaction-asymmetry), [The Sheriff Problem](../../debates/utilitarianism-sheriff-counterexample.md)
+**Links:** [Morality Framework](./README.md), [Performative Grounding](./performative-grounding-lineage.md), [Scope Confusion](./scope-confusion.md), [Deontology vs. Consequentialism](./deontology-consequentialism.md), [Action/Inaction Asymmetry](./README.md#the-actioninaction-asymmetry), [The Sheriff Problem](../../debates/utilitarianism-sheriff-counterexample.md), [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md)
 
 ---
 
@@ -108,7 +108,7 @@ But in every case, people evaluate outcomes constantly. The soldier who refuses 
 
 **Partially fair.** The framework reaches libertarian-compatible conclusions on many questions. But it reaches them from different grounds than most libertarians use: not from natural rights axioms (Rothbard), not from argumentation ethics (Hoppe), not from utility maximization (Friedman), but from agency + empirical observation + scope analysis. When the framework agrees with libertarianism, it's because the data converges there — not because the conclusion was assumed.
 
-Where the framework *disagrees* with standard libertarianism: it acknowledges that pure voluntary order may be insufficient (the [Gödel Governance Problem](../the-godel-governance-problem.md)), that some government functions may be necessary evils, and that the scope model allows for law-scope enforcement where performative grounding is strongest.
+Where the framework *disagrees* with standard libertarianism: it acknowledges that pure voluntary order may be insufficient (the [Gödel Governance Problem](../dynamics/the-godel-governance-problem.md)), that some government functions may be necessary evils, and that the scope model allows for law-scope enforcement where performative grounding is strongest.
 
 ### "You can't derive ought from is"
 

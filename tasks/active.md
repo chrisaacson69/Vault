@@ -28,7 +28,7 @@ Resolved via performative grounding: the "is" already contains the "ought" becau
 ### Debate Prep: Press Freedom (Topic #6)
 Accepted invite. Affirmative: "Free access of the press is critical to a healthy, functioning democracy." Date TBD. Prep sheet and opening script complete. Research page written.
 - [Debate Prep](../notes/debate-prep-press-freedom.md)
-- [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md)
+- [Press Freedom and Governance](../research/philosophy/dynamics/press-freedom-and-governance.md)
 
 ### YouTube Animation Studio — Infrastructure
 Custom Docker image for RunPod deployed. Three repos:
@@ -55,7 +55,7 @@ Already resolved in the morality README: "flourishing" smuggles in subjective we
 
 ### Property Rights — dedicated page
 Labor-mixing (Locke → Rothbard → Objectivism) fails at the family unit, bakes "justified" into the definition. Conflict avoidance is the leading alternative ground. Needs formal treatment covering: labor-mixing critique, family counterexample, conflict avoidance grounding, the "justified" circularity, connection to self-ownership debate, trade-vs-conquest economics.
-- [Self-Ownership and Property Rights](../research/philosophy/legal-theory/self-ownership-and-property-rights.md)
+- [Self-Ownership and Property Rights](../research/philosophy/morality/legal-theory/self-ownership-and-property-rights.md)
 - [Wilson vs Objectivism debate](../research/debates/wilson-objectivism-stance-dependence.md)
 
 ### ~~Coercion boundary analysis~~ — Resolved
@@ -70,14 +70,14 @@ Rules for when zoom-in vs. zoom-out is legitimate in the morality framework's sc
 ### Measurement Over Sentiment — unifying principle
 The vault commits to evaluating systems by outcomes, not intentions, across multiple domains: morality (agency over intention), law (consequence over mens rea), economics (revealed preference over stated preference), merit (system outcomes over moral worth of inputs). This principle is implicit across four+ pages but has no dedicated articulation. Pull together as a cross-cutting vault page.
 - [Morality](../research/philosophy/morality/README.md)
-- [Mens Rea](../research/philosophy/legal-theory/mens-rea.md)
+- [Mens Rea](../research/philosophy/morality/legal-theory/mens-rea.md)
 - [Value and Profit](../research/economics/value-and-profit.md)
 - [Market Efficiency and Human Limits](../research/economics/market-efficiency-and-human-limits.md)
 
 ## Someday / Maybe
 
 - Constitutional analysis (dedicated page unifying all Constitutional threads)
-- ~~Free speech / 1A analysis~~ — initial treatment in [Press Freedom and Governance](../research/philosophy/press-freedom-and-governance.md); broader 1A analysis still needed
+- ~~Free speech / 1A analysis~~ — initial treatment in [Press Freedom and Governance](../research/philosophy/dynamics/press-freedom-and-governance.md); broader 1A analysis still needed
 - 2nd Amendment analysis
 - Fraud as aggression (without mens rea) + serial fraud problem
 - Marriage / shared ownership under natural law

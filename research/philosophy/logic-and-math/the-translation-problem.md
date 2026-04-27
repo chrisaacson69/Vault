@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-03-23
+published: true
 ---
 # The Translation Problem
 > Formal logic is only as good as the translation from reality into symbols. That translation is where most reasoning actually fails — and it's the part logic can't help with.

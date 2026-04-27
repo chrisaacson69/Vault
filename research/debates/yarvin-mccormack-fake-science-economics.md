@@ -7,7 +7,7 @@ created: 2026-03-13
 
 **Source:** [YouTube video](https://www.youtube.com/watch?v=BkwrLP3ihFE) (1:50:16, uploaded 2025-10-20, 66K views)
 **Participants:** Curtis Yarvin (Mencius Moldbug, NRx thinker, Urbit creator), Peter McCormack (Bitcoin podcaster)
-**Links:** [Civilizational Cycles](../philosophy/civilizational-cycles/README.md), [Economics](../economics/README.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [The Godel Governance Problem](../philosophy/the-godel-governance-problem.md), [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md)
+**Links:** [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Economics](../economics/README.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [The Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md)
 
 ## Context
 
@@ -21,7 +21,7 @@ Yarvin's framing: modern macroeconomics (post-1920) isn't science — it's gover
 
 His recommendation: read John Stuart Mill's "The Currency Juggle" for the 19th century understanding of monetary manipulation. Read Friedrich List for how nations should actually do economics. Read Mises for the underlying logic. Read Menger for the origin of money.
 
-**Vault note:** This connects to the vault's existing [Dalio analysis](../philosophy/civilizational-cycles/README.md) — GDP as a metric was born alongside the Fed and the shift from gold to managed money. The metric and the management were co-designed.
+**Vault note:** This connects to the vault's existing [Dalio analysis](../philosophy/dynamics/civilizational-cycles/README.md) — GDP as a metric was born alongside the Fed and the shift from gold to managed money. The metric and the management were co-designed.
 
 ### 2. Mises Over Hayek
 
@@ -43,7 +43,7 @@ Friedrich List (1789-1846), *The National System of Political Economy*: wrote pu
 
 The synthesis: Mises tells you how markets work. List tells you how states should operate *within* a world of competing states. Trump intuitively understands List (balance of trade, "we're losing $300B to Canada"). Libertarians apply free-market logic to inter-state competition, which is a category error — states aren't market participants, they're the arena.
 
-**Vault assessment:** This is genuinely interesting and the vault hasn't explored it. The [Godel Governance Problem](../philosophy/the-godel-governance-problem.md) acknowledges states exist and aren't going away. If you accept that, the question becomes: how should states do economics? "Austrian internally, mercantilist externally" is a coherent answer that deserves further investigation. The risk: mercantilism has historically devolved into cronyism (the state picks winners). List might have a better version of this.
+**Vault assessment:** This is genuinely interesting and the vault hasn't explored it. The [Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md) acknowledges states exist and aren't going away. If you accept that, the question becomes: how should states do economics? "Austrian internally, mercantilist externally" is a coherent answer that deserves further investigation. The risk: mercantilism has historically devolved into cronyism (the state picks winners). List might have a better version of this.
 
 ### 4. Personal Net Worth (Z1) as the True Inflation Metric
 
@@ -51,7 +51,7 @@ The synthesis: Mises tells you how markets work. List tells you how states shoul
 
 Equity is a liability. Every time the stock market rises, the balance sheet expands — more red ink, not more real wealth. The flight to real values (Mises's *Flucht in die Sachwerte*) is why stocks, gold, and Bitcoin keep rising. It's not a sign of health; it's a sign that the dollar is dying.
 
-**Vault assessment:** This is a testable claim. If Z1 growth tracks real-economy stagnation rather than real-economy improvement, it supports his thesis. The vault's existing [Dalio analysis](../philosophy/civilizational-cycles/README.md) already documents the debt-to-GDP ratio explosion — Z1 as inflation may be a complementary metric. Worth researching independently.
+**Vault assessment:** This is a testable claim. If Z1 growth tracks real-economy stagnation rather than real-economy improvement, it supports his thesis. The vault's existing [Dalio analysis](../philosophy/dynamics/civilizational-cycles/README.md) already documents the debt-to-GDP ratio explosion — Z1 as inflation may be a complementary metric. Worth researching independently.
 
 ### 5. Maturity Mismatching as the Root Banking Scam
 
@@ -59,7 +59,7 @@ Mises's core banking critique: banks should match their liability terms to their
 
 "All American banks are insolvent and are only held up by guarantees from the Fed." The "hold to maturity" accounting category exists to hide this.
 
-**Vault note:** This is standard Austrian banking theory (Mises, de Soto) but well-articulated. Connects directly to [Dalio's debt cycle](../philosophy/civilizational-cycles/README.md) — maturity mismatching is the mechanism that enables the debt cycle's expansion phases.
+**Vault note:** This is standard Austrian banking theory (Mises, de Soto) but well-articulated. Connects directly to [Dalio's debt cycle](../philosophy/dynamics/civilizational-cycles/README.md) — maturity mismatching is the mechanism that enables the debt cycle's expansion phases.
 
 ### 6. Gold Exchange Standard vs. Gold Standard
 

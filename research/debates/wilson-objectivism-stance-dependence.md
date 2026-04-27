@@ -6,7 +6,7 @@
 **Participants:** Andrew Wilson (theist / moral realist) vs Liam Stayton / @ProphetDivinityy (Objectivist, primary speaker) + allies; Eduardo (channel owner, silent); an Orthodox Christian panelist interjects mid-debate
 **Original topics:** (1) Healthcare/housing/food is a right; (2) Socialism/communism is good; (3) Capitalism is bad — broad prompts to draw people in; the clip captures the philosophical core that emerged
 **Duration:** ~67 minutes
-**Vault relevance:** [morality](../philosophy/morality/README.md), [performative grounding](../philosophy/morality/performative-grounding-lineage.md), [scope confusion](../philosophy/morality/scope-confusion.md), [value and profit](../economics/value-and-profit.md), [the fallacy fallacy](../philosophy/the-fallacy-fallacy.md), [self-ownership and property rights](../philosophy/legal-theory/self-ownership-and-property-rights.md), [epistemology](../philosophy/epistemology/README.md)
+**Vault relevance:** [morality](../philosophy/morality/README.md), [performative grounding](../philosophy/morality/performative-grounding-lineage.md), [scope confusion](../philosophy/morality/scope-confusion.md), [value and profit](../economics/value-and-profit.md), [the fallacy fallacy](../philosophy/tangents/the-fallacy-fallacy.md), [self-ownership and property rights](../philosophy/morality/legal-theory/self-ownership-and-property-rights.md), [epistemology](../philosophy/epistemology/README.md), [stance-independence retreat](../philosophy/epistemology/stance-independence-retreat.md)
 
 ---
 
@@ -38,7 +38,7 @@ This creates the central impasse: Wilson treats "stance dependent" as "subjectiv
 
 ProphetDivinityy is essentially making the Gewirthian move (agency → rights) without having the transcendental machinery to seal it. He keeps saying "facts of human nature" and "requirements to flourish" but can't explain *why* those constitute facts without circularity. Performative grounding is exactly the missing piece — it shows that the "factness" of moral claims is grounded in the inescapability of agency itself.
 
-**Vault connection:** [Performative Grounding](../philosophy/morality/performative-grounding-lineage.md) — Gewirth's PGC is the formal version of what ProphetDivinityy is informally arguing. [The Fallacy Fallacy](../philosophy/the-fallacy-fallacy.md) — Wilson repeatedly says "that's tautological" when ProphetDivinityy says "facts are facts," but doesn't explain *why* tautology is a problem here. Is it? The law of identity (A is A) is tautological and foundational.
+**Vault connection:** [Performative Grounding](../philosophy/morality/performative-grounding-lineage.md) — Gewirth's PGC is the formal version of what ProphetDivinityy is informally arguing. [The Fallacy Fallacy](../philosophy/tangents/the-fallacy-fallacy.md) — Wilson repeatedly says "that's tautological" when ProphetDivinityy says "facts are facts," but doesn't explain *why* tautology is a problem here. Is it? The law of identity (A is A) is tautological and foundational.
 
 ### 2. The Vikings / Colonization Counterexample
 
@@ -133,7 +133,7 @@ After 67 minutes, neither side moves the other an inch. The reason is structural
 
 **The missing honesty from Wilson:** Wilson never addresses that his own position faces the identical regress. "What grounds morality?" "God." "What grounds God's moral authority?" "His nature." "What makes God's nature the right ground?" At some point, Wilson bottoms out in assertion too — usually "God is the necessary being" or "God's nature is the ultimate standard." If the Objectivist owes an account of why human nature constitutes grounding, Wilson owes an account of why divine nature does. He never acknowledges this symmetry.
 
-**Vault connection:** [Is God the Necessary Precondition for Knowledge?](./god-precondition-knowledge-nicks-allen.md) — Kurt Allen's "boomerang" move against Eli Nicks is the same structural critique: the theist's regress-stopper (God) faces the same justificatory demands they impose on the secular position. [The Fallacy Fallacy](../philosophy/the-fallacy-fallacy.md) — Wilson labels ProphetDivinityy's responses "tautology" repeatedly without explaining why tautology at the ground floor is a problem rather than a feature.
+**Vault connection:** [Is God the Necessary Precondition for Knowledge?](./god-precondition-knowledge-nicks-allen.md) — Kurt Allen's "boomerang" move against Eli Nicks is the same structural critique: the theist's regress-stopper (God) faces the same justificatory demands they impose on the secular position. [The Fallacy Fallacy](../philosophy/tangents/the-fallacy-fallacy.md) — Wilson labels ProphetDivinityy's responses "tautology" repeatedly without explaining why tautology at the ground floor is a problem rather than a feature.
 
 ---
 
@@ -147,7 +147,7 @@ After 67 minutes, neither side moves the other an inch. The reason is structural
 | Children / grandma can't produce | ProphetDivinityy fumbles the kind/group distinction | [Scope confusion](../philosophy/morality/scope-confusion.md) — the norm applies at the species scope; individual exceptions don't defeat kind-level truths |
 | Force principle vs. successful force-using societies | ProphetDivinityy says they're limiting themselves | [Scope confusion — enforceability gradient](../philosophy/morality/scope-confusion.md#the-enforceability-gradient) — the question is which enforcement mechanism is appropriate, not whether force ever "works" |
 | Bank account as stance-independent fact | Poor example selection; mind-dependent artifact | [Logic and Mathematics — structural realism](../philosophy/logic-and-math/README.md) — the pattern is real even if the description is constructed |
-| "That's a tautology" as dismissal | Wilson labels without explaining the problem | [The Fallacy Fallacy](../philosophy/the-fallacy-fallacy.md) — naming a fallacy isn't a rebuttal; show *why* it matters |
+| "That's a tautology" as dismissal | Wilson labels without explaining the problem | [The Fallacy Fallacy](../philosophy/tangents/the-fallacy-fallacy.md) — naming a fallacy isn't a rebuttal; show *why* it matters |
 | Wilson never faces his own regress | Asymmetric burden of proof | [TAG debate — boomerang](./god-precondition-knowledge-nicks-allen.md) — "If pragmatic justification is insufficient for human nature, it's insufficient for God's nature" |
 
 ---
@@ -196,13 +196,13 @@ Several patterns from this debate apply directly:
 
 - **[Performative Grounding](../philosophy/morality/performative-grounding-lineage.md):** This debate is a case study in what happens when someone holds the right intuition (morality grounded in human nature and agency) but lacks the transcendental machinery to defend it against regress. ProphetDivinityy is essentially a proto-Gewirthian who hasn't read Gewirth.
 
-- **[Self-Ownership and Property Rights](../philosophy/legal-theory/self-ownership-and-property-rights.md):** ProphetDivinityy's ownership argument (ownership originates from applying mind to nature, which is required for survival) faces the same liberty-right/claim-right problem identified in Hoppe's argumentation ethics, plus the family-unit counterexample kills the "survival necessity" claim. Vault conclusion: self-ownership and property rights may be better grounded in conflict avoidance than in productive agency. **Property rights needs its own dedicated vault page** — labor-mixing, conflict avoidance, the family counterexample, and the "justified" circularity all need formal treatment.
+- **[Self-Ownership and Property Rights](../philosophy/morality/legal-theory/self-ownership-and-property-rights.md):** ProphetDivinityy's ownership argument (ownership originates from applying mind to nature, which is required for survival) faces the same liberty-right/claim-right problem identified in Hoppe's argumentation ethics, plus the family-unit counterexample kills the "survival necessity" claim. Vault conclusion: self-ownership and property rights may be better grounded in conflict avoidance than in productive agency. **Property rights needs its own dedicated vault page** — labor-mixing, conflict avoidance, the family counterexample, and the "justified" circularity all need formal treatment.
 
 - **[Scope Confusion](../philosophy/morality/scope-confusion.md):** Multiple scope confusions operate simultaneously: ontology vs. epistemology (what exists vs. how we know it), individual vs. species (ProphetDivinityy's kind/group), the enforceability question (when is force legitimate?), and the micro/macro force inconsistency (accepting police violence but rejecting colonial violence as the same principle at different scale).
 
 - **[Economics — Value and Profit](../economics/value-and-profit.md):** The cooperation-vs-conquest exchange is the moral version of the economic argument for trade. Both rest on the claim that voluntary exchange produces mutual surplus. The economic version is less vulnerable to counterexample because it makes a probabilistic long-run claim, not a universal claim about every case.
 
-- **[The Gödel Governance Problem](../philosophy/the-godel-governance-problem.md):** Wilson's regress exposes that *every* moral system ultimately rests on something that can't be further justified within the system. This is the moral version of Gödel: any system powerful enough to ground morality is powerful enough to generate unanswerable "but why?" questions about its own foundations. The only escape is performative grounding — showing that the questioner is already inside the system by virtue of asking.
+- **[The Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md):** Wilson's regress exposes that *every* moral system ultimately rests on something that can't be further justified within the system. This is the moral version of Gödel: any system powerful enough to ground morality is powerful enough to generate unanswerable "but why?" questions about its own foundations. The only escape is performative grounding — showing that the questioner is already inside the system by virtue of asking.
 
 ---
 

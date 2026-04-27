@@ -1,6 +1,7 @@
 ---
 status: planning
 created: 2026-02-17
+published: true
 ---
 # DJ Set 1 — Progressive/Trance Mix
 > 11-track set built around texture-over-harmony philosophy, with a BPM staircase from 120→129.

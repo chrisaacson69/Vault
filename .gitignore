@@ -8,3 +8,7 @@ youtubeuploader.exe
 # Obsidian plugins — installed per-clone via Community Plugins
 .obsidian/plugins/
 .obsidian/community-plugins.json
+
+# Node dependencies and build output (eleventy)
+node_modules/
+_site/

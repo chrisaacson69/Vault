@@ -1,6 +1,7 @@
 ---
 status: complete
 created: 2026
+published: true
 ---
 # Order Playlist
 > DJ playlist optimizer using Camelot harmonic mixing, BPM smoothness, and energy arcs.

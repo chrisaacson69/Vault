@@ -5,7 +5,7 @@
 **Source:** [whatever Clips — YouTube](https://www.youtube.com/watch?v=SKwK4SLsgAc)
 **Participants:** Andrew Wilson, Kyla (3-part clip series, part 1 chronologically)
 **Duration:** ~27 min (part 1 of 3)
-**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [logic and mathematics](../../research/philosophy/logic-and-math/README.md), [legal theory](../../research/philosophy/legal-theory/README.md)
+**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [logic and mathematics](../../research/philosophy/logic-and-math/README.md), [legal theory](../../research/philosophy/morality/legal-theory/README.md)
 
 ## Context
 
@@ -196,7 +196,7 @@ The same communication failure occurs with Gödel's incompleteness theorems:
 
 Both are diagnostic tools that get weaponized as attacks. Both generate the same defensive response: "Are you saying my knowledge is worthless?" — which shuts down the conversation before the actual insight lands.
 
-The actual insight in both cases is the [universal incompleteness pattern](../philosophy/the-godel-governance-problem.md): **you don't have what you think you have, but what you DO have still works.** Your foundations aren't "proven" in the propositional sense — but they're not arbitrary. Your formal system isn't complete — but it still does math. The "and yet."
+The actual insight in both cases is the [universal incompleteness pattern](../philosophy/dynamics/the-godel-governance-problem.md): **you don't have what you think you have, but what you DO have still works.** Your foundations aren't "proven" in the propositional sense — but they're not arbitrary. Your formal system isn't complete — but it still does math. The "and yet."
 
 The reason people resist both Agrippa and Gödel is the same: they hear "your system is defective" when the message is "ALL systems have this property, and they work anyway." The structural observation feels like an attack because it threatens the sense that one's own foundations are special. They're not special — they're structural. And that's fine.
 
@@ -227,7 +227,7 @@ Given MINE, where does my system produce errors?"
 
 Attacking the base is easy and unproductive. Everyone's base is "assumed" in some sense. Evaluating the middle is hard and productive: given your axioms, does your system predict outcomes that match reality? Where does it fail? Where does mine fail? That's testable. That's where [convergence](../philosophy/epistemology/relational-objectivity.md) lives. And convergence is the evidence that matters — not whether your starting point is circular or dogmatic, but whether the structure built on it tracks reality better than the alternatives.
 
-This is the [universal incompleteness pattern](../philosophy/the-godel-governance-problem.md) applied to epistemology: the grounding is incomplete AND the system still works. The question was never "is your grounding perfect?" — it's "is the system built on it better than nothing, and better than the alternatives?"
+This is the [universal incompleteness pattern](../philosophy/dynamics/the-godel-governance-problem.md) applied to epistemology: the grounding is incomplete AND the system still works. The question was never "is your grounding perfect?" — it's "is the system built on it better than nothing, and better than the alternatives?"
 
 ### Why This Matters Beyond the Debate
 
@@ -248,7 +248,7 @@ The [constitutive/elective framework](../philosophy/morality/constitutive-electi
 - [Performative Grounding](../../research/philosophy/morality/is-ought-and-performative-grounding.md) — the escape from Agrippa: denial presupposes what it denies
 - [Noerr vs Terry X](./noerr-teryx-subjective-objective-morality.md) — same communication pattern: right intuition, wrong vocabulary
 - [LLMs as Praxeological Actors](../../research/economics/llm-praxeology.md) — same pattern: Fraser's formal insight vs Aristotelian framework lock-in
-- [The Gödel Governance Problem](../../research/philosophy/the-godel-governance-problem.md) — the "and yet" pattern: incomplete systems still work
+- [The Gödel Governance Problem](../../research/philosophy/dynamics/the-godel-governance-problem.md) — the "and yet" pattern: incomplete systems still work
 - [Part 2: Moral Foundations](./moral-foundations-wilson-whatever.md)
 - [Part 3: Liberalism Self-Defeat](./liberalism-self-defeat-wilson-whatever.md)
 

@@ -1,6 +1,7 @@
 ---
 status: active
 created: 2026-02-12
+published: true
 ---
 # Slay
 > Hex-based strategy game recreation with AI player development.
