@@ -52,8 +52,13 @@
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
 - [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)
 - [The Stance-Independence Retreat](../research/philosophy/epistemology/stance-independence-retreat.md)
+- [Lance Bush Reviews Wilson on Triggernometry](../research/debates/lance-bush-review-wilson-triggernometry.md) — anti-realist steelman audit with Kaplan/Lance/vault taxonomy progression
+- [Weaponized Nuance](../notes/weaponized-nuance.md) — "it's nuance, bro" as a rhetorical move; context-dependence weaponized against commitment
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [ELIZA — The Pattern Match That Won't Die](../research/eliza.md)
 - [AI History — A Personal Arc](../research/ai-history-personal.md)
 - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)
 - [The Four Trunks — The Structure of the Vault's Philosophy](../research/philosophy/the-four-trunks.md)
+- [Convergence Is a Process, Not a Destination](../notes/convergence-as-process.md) — Aristotelian particularism applied to social design; adaptability as meta-metric; collapse as ecology not engineering
+- [Structure vs Adaptability](../notes/structure-vs-adaptability.md) — the abstract dichotomy underneath state-vs-anarchy, justice-vs-liberty, individual-vs-collective; "for all" as the universalization tell; oscillation-capability as the actual goal
+- [Left and Right Are Positional, Not Substantive](../notes/left-right-as-positional.md) — political labels track disposition (change vs status quo) applied to evolving conditions; substantive content rotates; "conservative without a date and place is content-free"

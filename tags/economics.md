@@ -34,3 +34,4 @@
 - [MoM Tier System and MIRR](../research/gaming/master-of-magic/tier-system-and-mirr.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [Measuring Growth — Net Worth vs Transactions](../research/economics/measuring-growth.md)
+- [Convergence Is a Process, Not a Destination](../notes/convergence-as-process.md) — indifference curves and PPFs as the framing for happiness/longevity tradeoffs; scale-matching; markets as the temporal extension of Hayek's dispersed-knowledge argument

@@ -13,4 +13,7 @@
 - [MOO1 MIRR Analysis](../research/gaming/moo1/mirr-analysis.md)
 - [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - [MoM Tier System and MIRR](../research/gaming/master-of-magic/tier-system-and-mirr.md)
-- [LLM Agents Across Strategic Games](../research/gaming/llm-agents-across-games.md)
+- [LLM Agents Across Strategic Games](../research/gaming/llm-agents-across-games.md) — seven-game cross-study including Catan (Phase 5)
+- [LLM Game Benchmark](../research/gaming/llm-game-benchmark.md) — benchmark outline for new LLMs across the seven-game framework
+- [Gunboat Diplomacy and Diplodocus](../research/gaming/gunboat-diplomacy-diplodocus.md) — Meta's Gunboat AI wins via costly-signaling moves, no language model
+- [CaptainMeme vs. 6 Cicero (Press Diplomacy)](../research/gaming/cicero-press-diplomacy-captain-meme.md) — expert player's human/AI split observations; no-grudge signature

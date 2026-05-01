@@ -227,6 +227,22 @@ The hard problem in Phase 2 is not *who* is leading but *what to do about it* �
 
 This is similar to how chess engines handle openings (book), middlegame (search + eval), and endgame (tablebases) as distinct problems with different algorithms. The multiplayer version would be: early game (heuristic accumulation), middle game (coalition-aware search), late game (self-balancing leader opposition), endgame (minimax).
 
+## Grudge vs. forward-looking — why the dynamic works better for AI than for humans
+
+The self-balancing prediction is that remaining players converge on opposing whoever is currently leading. In theory, this is each player's individually-best move. In human practice, it often fails. The reason is grudge-motivation: a player recently wronged targets the wronger rather than the current leader, pulling the coalition off its optimum. Vengeance is often strategically suboptimal but psychologically load-bearing in humans, and the leader can sometimes coast to victory while the other players are busy punishing each other.
+
+**Forward-looking-pure agents don't have the grudge term.** Each Cicero in the [CaptainMeme-vs-6-Cicero game](./cicero-press-diplomacy-captain-meme.md) independently computed "oppose the current leader" as its best move and the bots converged on the target without needing explicit coordination. The self-balancing dynamic executed cleanly in a way it usually doesn't with humans. That game's documentation of the "no grudge" signature — a [planner-LM composite](../planner-lm-composites.md) feature — is concrete evidence that composite AIs can execute multiplayer coalition logic more cleanly than human players.
+
+**Scope criterion — where self-balancing holds.** Self-balancing requires that opposing the leader be *feasible and effective*. The game structure must reward coordinated resistance. In Diplomacy, Monopoly, Risk, Slay, and Catan it does — negotiation phases allow coordination, and the leader needs others' cooperation to extract further resources. In poker it doesn't — chips are the only resource, the leader has them, coordination isn't possible between hands, and GTO rewards targeting the weakest player (less room to absorb losses). So the full claim is:
+
+**Self-balancing holds when the game structure rewards coordinated resistance against the leader; it fails when the structure rewards targeting weakness instead. Where it does hold, forward-looking-pure agents (planner-LM composites) execute it more reliably than humans because they don't carry grudges that pull the coalition off optimum.**
+
+### Design implication
+
+If N≥3 self-balancing is desirable in some multi-agent system — governance, market, agent team, any coordination problem depending on equilibrium self-correction — forward-looking-pure agents will execute it more cleanly than human agents. This is a genuine AI-design advantage. The [Gödel governance problem](../philosophy/dynamics/the-godel-governance-problem.md) is partly about why concentration-of-power dynamics resist correction in human institutions; if composite AIs execute the "oppose the leader" logic cleanly where humans don't, the design space for coordination problems expands.
+
+The catch: someone has to define who "the leader" is, and what "opposing" means, and those definitions are themselves adversarial choices. The advantage only holds inside a well-scoped coordination game where the reward function is clean. That's the same domain-definition problem the [planner-LM composites page](../planner-lm-composites.md) identifies for L5/L6 automation generally.
+
 ## Open Questions
 
 - Can the three-player self-balancing dynamic be formalized as a theorem? Something like: "In a three-player game with asymmetric growth rates and the ability to selectively attack, the unique stable strategy profile is 'always oppose the leader.'" If provable, this would solve the late-game phase for all three games.

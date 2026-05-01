@@ -27,7 +27,11 @@
 - [Subjective vs Objective Morality (Noerr vs Terry X)](../research/debates/noerr-teryx-subjective-objective-morality.md)
 - [The Constitutive/Elective Distinction](../research/philosophy/morality/constitutive-elective.md)
 - [The Stance-Independence Retreat](../research/philosophy/epistemology/stance-independence-retreat.md)
+- [Lance Bush Reviews Wilson on Triggernometry](../research/debates/lance-bush-review-wilson-triggernometry.md) — Kaplan/Shafer-Landau tree + Lance's 4-axis grid + vault's constitutive axis
+- [Weaponized Nuance](../notes/weaponized-nuance.md) — "it's nuance, bro" as a rhetorical move; under-committed mirror of the directional-truth trap
 - [The Four Trunks — The Structure of the Vault's Philosophy](../research/philosophy/the-four-trunks.md)
 - [HoP Ep 13: Aristotle Intro](../research/philosophy/tangents/history-of-philosophy/13-aristotle-intro.md)
 - [HoP Ep 14: Aristotle's Epistemology](../research/philosophy/tangents/history-of-philosophy/14-aristotle-epistemology.md)
 - [HoP Ep 15: Aristotle — Father of Logic](../research/philosophy/tangents/history-of-philosophy/15-aristotle-logic.md)
+- [Convergence Is a Process, Not a Destination](../notes/convergence-as-process.md) — extends the Weighting Problem to dynamic systems; no stance-independent optimum even given fixed values, because the PPF moves and time preferences differ
+- [Structure vs Adaptability](../notes/structure-vs-adaptability.md) — the universalization-as-tell ("for all" / "always" / "never" reveals overshooting); explains why most political disagreements are meta-disagreements about which pole is currently underweighted

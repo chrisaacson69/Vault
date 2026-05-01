@@ -10,3 +10,4 @@
 - [H-Neurons: The Neural Basis of Hallucination](../research/h-neurons.md)
 - [Level 6 — Direct Execution](../research/level-6-direct-execution.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
+- [Planner-LM Composites](../research/planner-lm-composites.md) — refines the praxeology claim: bare LLMs don't act, composites do

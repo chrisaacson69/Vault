@@ -15,4 +15,6 @@
 - [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](../research/debates/wilson-triggernometry-christian-nationalism.md)
 - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)
 - [The Stance-Independence Retreat](../research/philosophy/epistemology/stance-independence-retreat.md)
+- [Lance Bush Reviews Wilson on Triggernometry](../research/debates/lance-bush-review-wilson-triggernometry.md) — anti-realist steelman reviews Wilson's metaethics; real hits, word-games, self-critique gap, constitutive axis neither taxonomy reaches
+- [Weaponized Nuance](../notes/weaponized-nuance.md) — "it's nuance, bro"; Wilson vs. Supreme as the worked example
 - [Peacecraft's Libertarian Syllogism — A Hoppe Inversion](../research/debates/peacecraft-libertarian-syllogism.md)

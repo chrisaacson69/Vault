@@ -154,4 +154,4 @@ Sowell's meta-observation may be itself an instance of the opposing-forces princ
 - **The impatience problem:** If opposing forces naturally erode concentrations (monopolies, cartels, power structures), but slowly, then the demand for government intervention is a demand to *speed up* the natural mechanism. Does this always produce worse outcomes than waiting? The monopoly case suggests yes — intervention gets captured. But abolition of slavery suggests no — the natural mechanism was too slow and the harm too great. Where's the line? (See [Scope Confusion — Monopoly Example](../morality/scope-confusion.md) for the argument that impatience drives scope confusion.)
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [economics](../../../tags/economics.md), [morality](../../../tags/morality.md), [mathematics](../../../tags/mathematics.md)
+[meta-musing](../../../tags/meta-musing.md), [philosophy](../../../tags/philosophy.md), [economics](../../../tags/economics.md), [morality](../../../tags/morality.md), [mathematics](../../../tags/mathematics.md)

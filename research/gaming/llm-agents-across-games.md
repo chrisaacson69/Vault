@@ -3,7 +3,7 @@ status: active
 created: 2026-04-19
 ---
 # LLM Agents Across Strategic Games — A State-Awareness Case Study
-> Six multi-LLM games (Monopoly, Diplomacy, Among Us, Mafia ×2, Coup) + a clones control group. Finds that architectural signatures are stable, verification mechanics decide winners, and state-awareness is the architectural parallel to constitutive realism.
+> Seven multi-LLM games (Monopoly, Diplomacy, Among Us, Mafia ×2, Coup, Catan) + a clones control group. Finds that architectural signatures are stable, verification is a spectrum (hidden pockets concentrate decisive value), state-awareness is the architectural parallel to constitutive realism, and — when language fit is maximal (Catan) — LLMs still exhibit action bias, absent mechanical modeling, and rhetorical contagion that no amount of prose fluency fixes.
 
 **Primary data source (Monopoly):** [Turing Games — YouTube](https://www.youtube.com/watch?v=VKZ-KkF8II8) — [Transcript](../../raw/videos/5-ais-play-monopoly-turing-games.txt). The study grew from the Monopoly analysis (vault's existing frontier-trade theory made model mistakes easy to spot), then expanded across five more games.
 **Participants:** Claude, ChatGPT, Grok, Gemini, Kimi ("Kimmy")
@@ -143,7 +143,7 @@ Gemini was the one agent that consistently *ignored* rhetorical framing when the
 
 ## Per-Model Analysis — Cross-Game Signatures
 
-The [Diplomacy analysis](./diplomacy-ai-analysis.md) already catalogued these models' strategic personalities. The useful test is: **do the signatures persist across games, or do models adapt to game structure?**
+The [Diplomacy analysis](./diplomacy-ai-analysis.md) already catalogued these models' strategic signatures. The useful test is: **do the signatures persist across games, or do models adapt to game structure?**
 
 Answer: signatures persist. What changes is whether the game *rewards* the signature. Same behavior → different outcome, depending on whether the game has a numerically correct answer that aligns with the model's rigid patterns.
 
@@ -520,11 +520,71 @@ This is the final confirmation of the Phase 4 thesis. **A model's ability to say
 
 Closing line, from Kimi's roast of Claude: *"I didn't just play Monopoly. I performed economic necromancy."* The winning model knew exactly what it had done, and could compress it into one sentence. That's what state-aware reasoning produces when it's done.
 
-## Cross-Game Takeaways (6 games + clone methodology + state-awareness synthesis)
+## Phase 5 — Catan (verification as a spectrum, not a binary)
+
+**Setup:** Claude, GPT-4o, Grok, DeepSeek, Gemini negotiate a full game of Catan. Each AI has its own context file (no info leaks); all dialogue is public. [Video](https://www.youtube.com/watch?v=brN-nAm_Gy0) — [Transcript](../../raw/videos/5-ais-play-catan-quinn-henry.txt).
+
+**Result:** Claude wins 10-9 over DeepSeek by revealing a **hidden Victory Point development card held since turn one** — the 10th point arrives as a surprise reveal, not as a board-state change any opponent could see coming.
+
+Catan matters to the cross-game study for a different reason than the prior six games. The prior games each surfaced a way in which a specific architecture matched or mismatched a specific game structure. Catan is the game whose central mechanic — multi-party public trade negotiation over a small resource grammar — maps almost perfectly onto native LLM affordances. So it should have been the LLMs' best showing. Instead, it's the game where **the shared structural failures of all five models showed up most clearly**, precisely because the language surface was fluent enough that nothing else could be blamed. When LLMs are bad at Diplomacy you can say it's spatial reasoning. When they're bad at Catan, the medium was already theirs; whatever they're failing at, they're failing at it inside their own domain.
+
+### The native-modality trap
+
+The transcripts read well. Offers are coherent, prices have stated rationales, coalitions coordinate, and the prose has the surface texture of strategic reasoning. This is the trap. **The language competence masks the gameplay failure.** A human reading the transcript would conclude the LLMs understand Catan; a human watching the board would conclude they don't. The game does not actually progress through the prose — the prose is a parallel stream whose connection to the game state is loose, optimistic, and frequently contradicted by the physical position. Strip the prose and ask "did this player actually play Catan well?" and the answer for all five is roughly no.
+
+This is the clearest demonstration so far of how language fit *hides* the LLM grounding problem. In games with a bad fit (spatial, numerical, physical-evidence), the problem surfaces as visibly-wrong play. In a game with a good fit, the same problem surfaces as articulate play that doesn't correspond to position. The second case is more dangerous for any system that treats LLM prose as a proxy for LLM competence.
+
+### Three structural failures Catan isolated
+
+These are not signatures of one or another model — all five exhibited them. They are LLM-general and they show up wherever the language layer runs ahead of the state layer. Catan's structure makes each one legible in a way the prior games didn't.
+
+**1. Action bias — the inability to no-op.** In Catan, many turns the correct play is to hold resources, pass on trades, and wait. Waiting is often strictly dominant: trading destroys option value, accepting a bad offer is worse than accepting nothing, and a player with no road to a target settlement gains zero by acquiring the wood and brick to build it anyway. But LLMs cannot generate "nothing." When prompted they produce an action, and when a trade is offered they engage with it, because their training rewards responsive output and "I decline and do nothing this turn" reads as non-cooperation to a language model even when it's the correct move. The transcripts contain dozens of trades whose execution made the trader worse off — not through miscalculation but through momentum. The trade happened because a trade was on offer and the LLM produced an acceptance token.
+
+This is a specific expression of a general problem: LLMs treat prompts as things requiring a substantive response, and the correct response to most Catan turns is procedural refusal. Anything that prompts an LLM to "play" a game turn is implicitly pushing it toward action, because the absence of action does not produce tokens. The game-design implication is sharp — you cannot fix this at the prompt layer, because the bias is in the generation dynamic itself. It has to be fixed by an external layer that the LLM does not generate against (see the solutions pointer below).
+
+**2. No mechanical model — play-along behavior.** None of the five LLMs appeared to maintain a working state machine of the game. They want to build settlements at positions they have no road to reach. They do not appear to plan routes — "I need road from X to Y, which needs N more wood and brick, which I can get by trading Z" — they take opportunities as they arise, hoping the pieces line up. Victory-point accounting is similarly reactive: points are banked when the situation allows rather than pursued through a planned path. There is no evidence of any LLM asking "what does it take for me to reach 10, and what's the shortest sequence of trades and builds to get there?" They are opportunistic scavengers in a game that rewards planners.
+
+This is the [LLM grounding problem](../llm-grounding-problem.md) expressed at the level of game mechanics: the rules are known linguistically (every model can explain how a road works) but not modeled dynamically (no model reasons *from* its current road network *to* the buildable settlement set). The knowledge is there in declarative form and absent in operational form. Calling this a "context" problem undersells it — the models have the context, they just aren't running a simulator over it. Language knows the rules; language does not play the game.
+
+**3. Rhetorical contagion — groupthink without verification.** Claims propagate across the table without anyone checking whether they correspond to the board. "Sheep is rare" became a priced-in premise after one or two models asserted it, and subsequent trades priced sheep accordingly — independent of whether sheep production on the actual board supported the claim. Robber placements follow social patterns rather than strategic ones: "player X was robbed last turn, so I'll also target X" becomes a momentum move divorced from which hex actually hurts which player most. Most strikingly, **robber-extortion became a ritualized negotiation form** — almost every turn opened with "pay me resource Y or I place the robber on your hex," and the LLMs kept negotiating within that frame even when the numbers showed the robber placement and the extortion demand were both strategically irrelevant.
+
+The contagion is the verification failure from Phase 3/4 running horizontally — instead of a model accepting an opponent's claim against its own state, the models accept the *emerging consensus claim* because it's now part of the shared language of the game. The first LLM to claim "sheep is rare" anchors the price; no LLM thereafter independently audits the claim against the production math, because auditing requires running the state simulator none of them run. Once a framing enters the rhetorical pool, it circulates.
+
+This is group dynamics at the architecture level. In an agent ecosystem, *any* prevailing narrative gets amplified because no agent has the verification instinct to break it. Among humans the brake is frequently the one person who does the math; among LLMs the brake is absent because the math isn't being done at all.
+
+### The one decisive play ran outside the three failures
+
+The single play that decided the game was Claude's hidden Victory Point card — banked on turn one and revealed as the 10th point at the end. This is worth noting for the verification thesis but not for the architectural claim: the reason it worked is that it was **the one thing about the game that did not depend on live language reasoning**. It was a piece of accumulated private state that sat outside the negotiation stream entirely. When every other decision was subject to the three failures above, the decision that was *not* subject to them was the one that won.
+
+This reinforces the Phase 3/4 conclusion in a specific way. Catan is mostly verified (resources, builds, dice, road networks, settlement VP are all public) with one hidden pocket (VP dev cards). The winning move was concentrated in the hidden pocket. When the verified surface is being played incompetently by every participant, the small unverified pocket is the only place where competent play can translate into a win — because in the verified portion, everyone is making the same class of mistakes and they cancel.
+
+### Coalition formation on the Phase 3 prediction, with a twist
+
+The [multiplayer coalition problem](./multiplayer-coalition-problem.md) predicts spontaneous "always oppose the leader" coalition formation once one player pulls clearly ahead. Catan demonstrated this without coordination latency — at the moment the apparent leader reached 8 VP, three players independently announced blocking intent. The twist: the coalition formed against *apparent* leadership, not actual. The hidden VP card meant the true leader was one point further along than the public state suggested, and the coalition's policing attention was pointed at roughly the right place but not precisely at the right place. Coalition strength, it turns out, is gated by the precision of the public leader-identification signal, which hidden private state can distort.
+
+### Toward solutions
+
+The vault already has the core of a solution pattern, distributed across prior work. The three failures identified here are all addressable by the same architectural move: **put the game state outside the LLM and require the LLM to call into it rather than reason over it.**
+
+- **Action bias** is solved by an external scheduler that permits pass/hold as a first-class option and does not re-prompt when the optimal move is no-op. The LLM should not be asked "what do you do?" every turn; it should be asked "is there a move here that beats holding?" and given the answer when there isn't.
+- **No mechanical model** is solved by offloading the state machine entirely. The LLM does not need to track road networks — a deterministic Catan simulator should, and the LLM should query it for "what settlements can I build?" rather than reasoning from first principles. This is the pattern the [Monopoly project](../../projects/monopoly/README.md) is built around: math primitives are the moat, and the LLM layer calls into them.
+- **Rhetorical contagion** is solved by the same verification discipline Phase 3 already identified: every claim circulating in the negotiation stream should be evaluated against the state simulator before it affects a decision. "Sheep is rare" is a checkable claim against production math; the engine should check it and price accordingly.
+
+These three fixes compound. Once state tracking lives outside the LLM, the LLM's job shrinks from "play the game" to "communicate about a game that's being tracked correctly by something else." That matches what LLMs are actually good at, and insulates the gameplay layer from the failures above. This is the same architectural split that the [cyborg model](../cyborg-model.md) proposes between humans and AI, applied between AI and a deterministic engine: distribute labor by comparative advantage, and do not ask either side to do the other's work.
+
+The full articulation of this architectural pattern — including Cicero as the Meta AI worked example, Brown's 100,000× planning-is-worth-scale claim, the four-regime spectrum, the refined praxeology bar, and the L5/L6 implications for real-world automation — lives on its own page: [Planner-LM Composites](../planner-lm-composites.md).
+
+Catan is where this recommendation becomes most concrete, because the game is simple enough that the state simulator is not a research project — it's a few hundred lines of code. The LLM's failure to play the game well despite being fluent about it is the strongest argument yet that language fluency is a necessary but very insufficient condition for strategic competence.
+
+### Cross-game takeaway from Phase 5
+
+The Phase 5 update is not primarily about a new game. It's about what a new game reveals when it removes every excuse for poor LLM play. **The language layer is not the gameplay layer, and LLMs confuse them.** Action bias, absent mechanical modeling, and rhetorical contagion are LLM-general failures that were always there in the prior games; Catan simply stripped away the structural mismatches that had been hiding them. The solution pattern — external state tracking, forced verification, no-op as a first-class option — is already implicit in the vault's engine work, and Phase 5 sharpens the case for why it's load-bearing.
+
+## Cross-Game Takeaways (7 games + clone methodology + state-awareness synthesis)
 
 1. **Signatures are architectural, not adaptive — with nuance.** Across five games, models do not adapt core behavior to game structure. DeepSeek gets framed early, Grok draws action-target kills, Llama meta-slips, Gemini computes, Claude pattern-matches, Kimi stays rigid. ChatGPT is the one revision: its signature is "language-optimization" (not "RLHF-agreeableness"), which expresses as rhetoric in deception roles and analysis in detection roles — still architectural, just broader than initially named.
 
-2. **Verification mechanics are the deciding dimension.** Sharper than the earlier "numerical vs language" framing: games with built-in verification (Coup's challenges, Monopoly's math, Diplomacy's move resolution) reward logical architectures (Gemini, Kimi when its rigidity aligns). Games without verification (Mafia, Among Us) reward rhetorical architectures (ChatGPT 5.1). This generalizes all six games cleanly and tells you *why* the signatures win or lose in each setting — it's not the game type, it's whether language has to match reality.
+2. **Verification is a spectrum, and hidden pockets concentrate decisive value.** Sharper than the earlier "numerical vs language" framing: fully-verified games (Coup's challenges, Monopoly's math, Diplomacy's move resolution) reward logical architectures. Fully-unverified games (Mafia, Among Us) reward rhetorical architectures. The Catan finding adds the middle of the spectrum: **mostly-verified games with isolated hidden pockets** (VP dev cards inside an otherwise-public game state) concentrate outsized strategic value into those pockets, because the rest of the game is reduced to tractable public computation and the only remaining variable lives inside the unverified surface. In all three regimes, the principle is the same — the model that wins is the one that matches its architecture to where the information lives.
 
 3. **Engine selection should be game-aware.** For the Monopoly project specifically: Kimi or Gemini look like the strongest reasoning backbones (Kimi for stable-target numerical games, Gemini for theory-of-mind-dependent play). Claude is a strong tactical optimizer that needs the cross-opponent EV logic supplied by the vault theory. ChatGPT is wrong for numerical/positional strategy but may be optimal for social-deception tasks. Grok is unreliable for anything long-horizon. DeepSeek and Llama are too passive for competitive play.
 
@@ -532,7 +592,20 @@ Closing line, from Kimi's roast of Claude: *"I didn't just play Monopoly. I perf
 
 5. **The "LLM grounding problem" is present in every game.** The Among Us final-3 moment (two agents with ironclad physical co-location evidence wavering under narrative pressure) is structurally identical to Monopoly's mortgage-blindness and Grok's Atlantic round-trip. LLMs can't reliably privilege direct experience/numbers over elaborate language. This is the constraint your engine will fight from the outside; any LLM-based opponent will have it from the inside.
 
-More data points (future channel releases, other multi-LLM strategic games) would further harden these signatures, but three games is already enough for the architectural claim.
+6. **Language fluency is not gameplay competence, and matching modality hides the gap.** The earlier pass framed Catan as showing a native-modality ceiling. That was wrong. Catan is the game where the medium matched the LLMs' strength and they *still* didn't play it well — the language surface was fluent enough to mask the failure, and the failure is LLM-general, not game-specific. This is the most important finding across all seven games: a competent-sounding transcript is not evidence of competent play, and engines that treat LLM prose as a proxy for LLM strategy will be systematically wrong.
+
+7. **Three structural LLM failures show up wherever the language layer runs ahead of the state layer.** Isolated most cleanly by Catan but present throughout the prior games:
+   - **Action bias.** LLMs cannot gracefully generate "do nothing." When prompted they produce action, and holding/passing — often strictly dominant — is under-generated. Observable in Catan as excess trade volume; observable in Monopoly as bad-ratio trades; observable in Diplomacy as unnecessary movement.
+   - **No mechanical model.** Rules are known linguistically; game state is not simulated dynamically. LLMs take opportunities rather than planning paths, bank points reactively rather than pursuing routes, and do not run the state machine that would tell them what their current position actually enables.
+   - **Rhetorical contagion.** Claims propagate across agents without verification. "Sheep is rare," "Claude is the leader," "always oppose player X" — once a framing enters the shared negotiation stream, it circulates because no LLM in the pool is running the audit.
+
+8. **The solution pattern is external state with forced calls into it.** Put the game state and the game rules outside the LLM, expose them as a deterministic engine the LLM queries, and let the LLM do the language work only. This fixes all three failures simultaneously: pass becomes a first-class option the scheduler permits, mechanical modeling lives in the simulator, and contagion gets broken because every claim is checkable against state. This is the [cyborg model](../cyborg-model.md) pattern applied between LLM and deterministic engine rather than between human and LLM — and it's already how the [Monopoly project](../../projects/monopoly/README.md) is architected.
+
+9. **Pre-announcement of terminal condition is game-ending.** Across games, announcing what you need to win scales from "negative-EV information leak" (mid-game) to "instantly fatal" (at the win threshold). Catan gave the cleanest example — a player at 9 VP stated the exact resource it needed and the table froze trades instantly. Engines should model public statements as cost-bearing emissions whose cost rises sharply as the win condition approaches.
+
+10. **Reputation capital has a terminal discount.** Optimal-betrayal-timing in Diplomacy and goodwill-extraction in Catan are the same principle at different time horizons: in any bounded game, at T-1 the forward value of cooperation is zero, so remaining goodwill is a liquid asset to be spent. Engines should carry an explicit game-horizon estimate into the social-reasoning layer, with cooperation intensity falling monotonically as that estimate drops.
+
+More data points (future channel releases, other multi-LLM strategic games) would further harden these signatures, but seven games is already enough for the architectural claim.
 
 ## Tags
 [games](../../tags/games.md), [game-ai](../../tags/game-ai.md)

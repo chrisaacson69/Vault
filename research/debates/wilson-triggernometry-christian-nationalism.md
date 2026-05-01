@@ -12,6 +12,8 @@ created: 2026-04-19
 **Duration:** ~1h 44m
 **Vault relevance:** [force doctrine](./wilson-force-doctrine-pragmatism.md), [stance dependence](./wilson-objectivism-stance-dependence.md), [stance-independence retreat](../philosophy/epistemology/stance-independence-retreat.md), [Agrippa](./agrippa-axioms-wilson-whatever.md), [moral foundations](./moral-foundations-wilson-whatever.md), [liberalism self-defeat](./liberalism-self-defeat-wilson-whatever.md), [suffrage](./save-act-suffrage-hoppian.md), [scope confusion](../philosophy/morality/scope-confusion.md), [is-ought and performative grounding](../philosophy/morality/is-ought-and-performative-grounding.md)
 
+**Responses:** [Lance Bush Reviews Wilson on Triggernometry](./lance-bush-review-wilson-triggernometry.md) — professional meta-ethicist, anti-realist, reviews the metaethics moments of this interview. Catches real conflations (grounding-vs-ontology, scope-vs-grounding), slides into word-games in places, doesn't see the vault's constitutive axis.
+
 ---
 
 ## Context

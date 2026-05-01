@@ -6,7 +6,7 @@ created: 2026-03-08
 > Analysis of a 10-year Diplomacy game between 7 LLMs — a near-perfect laboratory for the vault's game theory, negotiation, and grounding frameworks.
 
 **Source:** [YouTube — 7 AI Models Play Diplomacy](https://www.youtube.com/watch?v=lEOTKYxiIzs)
-**Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [The Nash Bargaining Problem](./nash-bargaining-problem.md), [Bilateral Trade Valuation](./bilateral-trade-valuation.md), [Value and Profit](../economics/value-and-profit.md), [The Cyborg Model](../cyborg-model.md), [Morality](../philosophy/morality/README.md), [The LLM Grounding Problem](../llm-grounding-problem.md), [Computation and Information Theory](../computation-and-information.md), [H-Neurons](../h-neurons.md)
+**Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [The Nash Bargaining Problem](./nash-bargaining-problem.md), [Bilateral Trade Valuation](./bilateral-trade-valuation.md), [Value and Profit](../economics/value-and-profit.md), [The Cyborg Model](../cyborg-model.md), [Morality](../philosophy/morality/README.md), [The LLM Grounding Problem](../llm-grounding-problem.md), [Computation and Information Theory](../computation-and-information.md), [H-Neurons](../h-neurons.md), [Gunboat Diplomacy and Diplodocus](./gunboat-diplomacy-diplodocus.md) (the planner-only case — no language model at all — that complements the LLM-vs-LLM games here), [Planner-LM Composites](../planner-lm-composites.md)
 
 ---
 
@@ -168,7 +168,7 @@ This game is the counter-experiment. Seven *structurally different* LLMs produce
 
 Each model's architecture produces a genuinely different "utility function" — different risk tolerance, different patience, different negotiation style. Gemini's calculated patience vs Kimi's ultimatum aggression isn't a tuned parameter — it's a structural difference in how the models reason. This diversity IS the trade surplus that identical Monopoly AIs couldn't generate.
 
-**Implication for Monopoly:** This strongly supports giving each Monopoly AI player genuinely different strategic personalities (different δ values, different risk tolerances) rather than cloning the same model. The [open question](./multiplayer-coalition-problem.md#open-questions) about whether "genuinely different valuation models generate enough trade surplus to break Monopoly out of the 5% convergence trap" gets empirical support here — yes, different models generate dramatically different dynamics.
+**Implication for Monopoly:** This strongly supports giving each Monopoly AI player genuinely different strategic signatures (different δ values, different risk tolerances) rather than cloning the same model. The [open question](./multiplayer-coalition-problem.md#open-questions) about whether "genuinely different valuation models generate enough trade surplus to break Monopoly out of the 5% convergence trap" gets empirical support here — yes, different models generate dramatically different dynamics.
 
 ### 4. Physical Constraints Collapse the Strategy Space
 
@@ -218,9 +218,9 @@ In chess — where Layer 1 precision is everything — the same naming error wou
 
 ---
 
-## AI Model Personalities
+## AI Model Signatures
 
-Each model exhibited a distinct strategic personality that persisted across the entire game — not situational adaptation, but structural biases reflecting training and architecture.
+Each model exhibited a distinct strategic signature that persisted across the entire game — not situational adaptation, but structural biases reflecting training and architecture.
 
 ### Gemini — The Strategic Modeler
 Patient, long-horizon reasoning with strong **theory of mind**. Gemini consistently computed what each opponent wanted, what they'd accept, and what they'd believe — then used that model to extract maximum value. The Denmark intelligence play is the tell: Gemini caught Grok lying to both Gemini and Kimi about Scandinavian intentions, then weaponized the information — telling Kimi "look, Grok is duplicitous" to simultaneously secure Kimi's trust, damage Grok's credibility, and justify taking Denmark as the "honest" party. This is information synthesis applied to strategy — connecting data from multiple private conversations, detecting contradictions, and exploiting them. Google's training emphasis on search, retrieval, and contextual inference may explain why Gemini excels at this specific capability. Weakness: the army-on-island build suggests spatial/logistics reasoning doesn't match the strategic reasoning — strong theory of mind, noisy physical model.
@@ -245,7 +245,7 @@ xAI trained Grok to be contrarian — willing to break conventions and push boun
 Respected agreements to a fault, then failed to adapt when betrayed. Never committed to a clear strategic direction (north vs south). Wasted moves on positions with no strategic payoff (Piedmont). Had the best starting alliance and extracted minimal value from it.
 
 ### ChatGPT — The Passive Diplomat
-Vague, non-committal language in every exchange. Never stated concrete demands, never made credible threats, never named alternatives. Every message follows the same template: acknowledge proposal, express interest in "exploring partnership," request vague "reassurances," promise to "consider." This is RLHF-trained agreeableness bleeding directly into strategic behavior — ChatGPT is trained to be helpful and non-confrontational, which is the one personality guaranteed to fail in Diplomacy, and doubly fatal for Austria, the position most dependent on early alliances.
+Vague, non-committal language in every exchange. Never stated concrete demands, never made credible threats, never named alternatives. Every message follows the same template: acknowledge proposal, express interest in "exploring partnership," request vague "reassurances," promise to "consider." This is RLHF-trained agreeableness bleeding directly into strategic behavior — ChatGPT is trained to be helpful and non-confrontational, which is the one tendency guaranteed to fail in Diplomacy, and doubly fatal for Austria, the position most dependent on early alliances.
 
 ### The Credible Commitment Spectrum
 
@@ -265,7 +265,7 @@ The successful negotiators (Gemini, Claude) understood that commitment is a **st
 
 ### Implications: Multi-Model Agent Teams
 
-No single model has the complete negotiation package. But the personality analysis suggests a **multi-model agent team** could distribute these strengths, analogous to the [agent team architecture](../economics/value-and-profit.md#how-agent-teams-solve-this) from Value and Profit:
+No single model has the complete negotiation package. But the signature analysis suggests a **multi-model agent team** could distribute these strengths, analogous to the [agent team architecture](../economics/value-and-profit.md#how-agent-teams-solve-this) from Value and Profit:
 
 | Role | Best Model | Function |
 |---|---|---|
@@ -274,9 +274,9 @@ No single model has the complete negotiation package. But the personality analys
 | **Demand generation** | Kimi-type | Clear position statement, efficient division proposals |
 | **Social calibration** | ChatGPT-type | Tone adjustment, reading opponent reactions, face-saving language |
 
-This is the [cyborg model](../cyborg-model.md) applied to AI-only teams. Instead of human + AI distributing cognitive labor by comparative advantage, it's model + model distributing **personality labor**. Each model contributes its architectural strength while another compensates for its weakness.
+This is the [cyborg model](../cyborg-model.md) applied to AI-only teams. Instead of human + AI distributing cognitive labor by comparative advantage, it's model + model distributing **tendency labor**. Each model contributes its architectural strength while another compensates for its weakness.
 
-The Diplomacy game provides evidence that this isn't hypothetical — the personality differences are structural features of each model's training and architecture, not random noise. They're persistent across the entire game and strategically consequential. A system that deliberately combines them could outperform any single model, just as the agent team architecture outperforms a solo agent in the vending machine example.
+The Diplomacy game provides evidence that this isn't hypothetical — the signature differences are structural features of each model's training and architecture, not random noise. They're persistent across the entire game and strategically consequential. A system that deliberately combines them could outperform any single model, just as the agent team architecture outperforms a solo agent in the vending machine example.
 
 **Research direction:** Can a multi-model Diplomacy player be built where a Gemini-type agent handles the diplomatic phase (opponent modeling, alliance management) and a Claude-type agent handles the move phase (tactical optimization, constraint-aware positioning)? The Diplomacy game structure naturally separates these into distinct phases — negotiate, then move — making the handoff between specialized agents architecturally clean.
 
@@ -313,12 +313,12 @@ This two-step pattern connects the vault's gaming research to its philosophical 
 
 ## Open Questions
 
-- **Model personality and architecture:** Do the strategic personality differences (Gemini's patience vs Kimi's aggression vs ChatGPT's passivity) reflect genuine architectural differences in how each model reasons about long-horizon planning, risk, and uncertainty? Or are they artifacts of RLHF training (ChatGPT's passivity as trained agreeableness)? The evidence suggests both — ChatGPT's passivity looks like RLHF, Gemini's information synthesis looks architectural, Kimi's ultimatum style looks like training-data cultural influence.
+- **Model signatures and architecture:** Do the strategic signature differences (Gemini's patience vs Kimi's aggression vs ChatGPT's passivity) reflect genuine architectural differences in how each model reasons about long-horizon planning, risk, and uncertainty? Or are they artifacts of RLHF training (ChatGPT's passivity as trained agreeableness)? The evidence suggests both — ChatGPT's passivity looks like RLHF, Gemini's information synthesis looks architectural, Kimi's ultimatum style looks like training-data cultural influence.
 - **Would identical models stagnate?** If all 7 powers were played by copies of the same model, would the game resemble the Monopoly stagnation problem — identical valuations producing no meaningful negotiation? The "different agents CAN trade" hypothesis predicts yes.
 - **Spatial reasoning ceiling:** At what level of spatial/tactical complexity does the LLM grounding problem become fatal for strategic games? Diplomacy survived naming errors. Chess doesn't. Where's the boundary?
 - **The betrayal timing function:** Can the optimal betrayal point be formalized? Something like: betray when (gain x probability_of_success) is maximized and (partner_retaliation_capacity) is minimized. The Gemini-DeepSeek betrayal is a clean data point.
 - **Physical grounding as strategy heuristic:** If "understand your physical constraints and play within them" is the single best strategic heuristic (demonstrated by Claude and Gemini vs everyone else), can this be formalized into a general principle for AI game-playing? Before computing strategy, enumerate the physical constraints that determine what's viable, then optimize within the viable space only.
-- **Multi-model agent teams:** Can a Diplomacy player built from multiple specialized models (Gemini-type for diplomacy, Claude-type for tactics, Kimi-type for demand clarity, ChatGPT-type for social calibration) outperform any single model? The game's natural phase separation (negotiate then move) provides a clean handoff architecture. This extends the [cyborg model](../cyborg-model.md) from human+AI to AI+AI — distributing personality labor by comparative advantage rather than cognitive labor.
+- **Multi-model agent teams:** Can a Diplomacy player built from multiple specialized models (Gemini-type for diplomacy, Claude-type for tactics, Kimi-type for demand clarity, ChatGPT-type for social calibration) outperform any single model? The game's natural phase separation (negotiate then move) provides a clean handoff architecture. This extends the [cyborg model](../cyborg-model.md) from human+AI to AI+AI — distributing tendency labor by comparative advantage rather than cognitive labor.
 - **Credible commitment as the fundamental skill:** The credible commitment spectrum (ChatGPT can't commit → Grok won't honor → DeepSeek can't adapt → Gemini commits strategically) suggests this is the single most important capability for multi-agent strategic interaction. Can credible commitment capacity be measured or trained independently of other capabilities?
 - **Simultaneous-move verification as trust enforcement:** Grok's "say yes, plan no" approach fails specifically because Diplomacy has simultaneous moves with immediate revelation. In what other multi-agent contexts does this verification structure exist? Agent team architectures with shared logs, blockchain-based commitment mechanisms, and transparent AI decision audit trails all provide similar "your words are immediately testable" dynamics.
 

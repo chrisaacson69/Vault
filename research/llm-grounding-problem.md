@@ -6,7 +6,7 @@ published: true
 # The LLM Grounding Problem
 > LLMs live in the text world. Everything — physical presence, spatial relationships, direct experience — gets flattened into tokens. A well-constructed argument can outweigh a lived reality.
 
-**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md)
+**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [6502 Annotation Series](../projects/6502-annotation/README.md) — assembly as the inverse of natural language; mechanical-modeling test isolated from rhetorical contagion
 
 ## The Core Problem
 
@@ -114,6 +114,8 @@ Current approaches:
 - **Transcription as a bridge** — converting video to text is itself an example of this problem. The linguistic content survives but spatial, visual, and tonal information is lost. This is why we use transcripts for Claude to "see" videos — it's the best available translation, but it's lossy.
 
 The deeper question: can an LLM ever truly "understand" physical constraints, or will it always need external systems (code, databases, hard rules) to enforce what it can't internalize from language alone?
+
+The [Catan cross-game case study](./gaming/llm-agents-across-games.md#phase-5--catan-verification-as-a-spectrum-not-a-binary) is a sharp instance of exactly this problem. Five frontier LLMs played a game whose rules they could all explain, and none of them ran the state machine the rules describe — they wanted to build settlements without roads, took points reactively instead of planning routes, and negotiated as if the game were a chat rather than a position. Rules were known linguistically, game state was not modeled dynamically. The solution pattern that falls out is the same one this page keeps pointing at: put the state outside the LLM, let the LLM call into a deterministic engine, and stop asking the language layer to do the simulation.
 
 ## Open Questions
 - Can multimodal models (vision + language) close the grounding gap, or is this a deeper architectural issue?

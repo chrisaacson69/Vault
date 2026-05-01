@@ -163,4 +163,4 @@ This is likely Episode 4 material (the script lists Gödel as "it's going to bre
 The honesty of presenting Gödel's own view, then disagreeing with it, is what separates this from typical YouTube philosophy content. Most creators either worship Gödel uncritically or don't engage with his actual philosophy at all.
 
 ## Tags
-godel, platonism, incompleteness, philosophy-of-math, TAG
+[meta-musing](../tags/meta-musing.md), godel, platonism, incompleteness, philosophy-of-math, TAG

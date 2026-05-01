@@ -1,8 +1,11 @@
 # Tag Index
 > Master list of all tags used across the vault.
 
+- [6502](./6502.md) — 10 files
 - [ai](./ai.md) — 30 files
 - [agents](./agents.md) — 9 files
+- [assembly](./assembly.md) — 3 files
+- [atari-2600](./atari-2600.md) — 10 files
 - [audio-processing](./audio-processing.md) — 2 files
 - [civilizational-cycles](./civilizational-cycles.md) — 8 files
 - [career](./career.md) — 6 files
@@ -35,10 +38,12 @@
 - [logic](./logic.md) — 9 files
 - [machine-learning](./machine-learning.md) — 4 files
 - [mathematics](./mathematics.md) — 10 files
+- [meta-musing](./meta-musing.md) — 7 files
 - [metaphysics](./metaphysics.md) — 1 file
-- [morality](./morality.md) — 13 files
+- [morality](./morality.md) — 15 files
 - [music](./music.md) — 4 files
 - [natural-law](./natural-law.md) — 1 file
+- [nes](./nes.md) — 12 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 16 files
 - [peikoff](./peikoff.md) — 16 files
@@ -48,6 +53,7 @@
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 11 files
 - [religion](./religion.md) — 7 files
+- [reverse-engineering](./reverse-engineering.md) — 3 files
 - [scope-confusion](./scope-confusion.md) — 2 files
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 4 files

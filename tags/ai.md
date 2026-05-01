@@ -18,6 +18,8 @@
 - [Set Mastering Pipeline](../projects/set-mastering/README.md)
 - [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)
 - [H-Neurons: The Neural Basis of Hallucination](../research/h-neurons.md)
+- [Planner-LM Composites](../research/planner-lm-composites.md) — where the agent actually lives; Cicero, the 100,000× planning claim, the higher praxeology bar
+- [LLM Game Benchmark — Outline](../research/gaming/llm-game-benchmark.md)
 - [The Birthmark and the Search for Truth](../research/philosophy/epistemology/the-birthmark.md)
 - [Obsidian Plugin Setup](../notes/obsidian-plugin-setup.md)
 - [Karpathy LLM Wiki — Independent Convergence](../notes/karpathy-llm-wiki-convergence.md)

@@ -126,7 +126,23 @@
       "Bash(touch \"C:/Users/Chris.Isaacson/Vault/.claude/demo-mode\")",
       "Bash(bash \"C:/Users/Chris.Isaacson/Vault/.claude/hooks/session-context.sh\")",
       "Skill(debate-review)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(git mv *)",
+      "Bash(git remote *)",
+      "Bash(git fetch *)",
+      "Bash(git stash *)",
+      "Bash(PATH_PREFIX=/Vault/ npx @11ty/eleventy)",
+      "Bash(awk 'BEGIN{c=0} /^---$/{c++; if\\(c==2\\){print \"published: true\"}} {print}' research/philosophy/morality/constitutive-elective.md)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/johnidm/asm-atari-2600/master/adventure.asm\" -OutFile \"raw/adventure.asm\"; \\(Get-Item raw/adventure.asm\\).Length)",
+      "WebFetch(domain:www.alienbill.com)",
+      "WebFetch(domain:atarihq.com)",
+      "WebFetch(domain:www.nesdev.org)",
+      "PowerShell(Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/cyneprepou4uk/NES-Games-Disassembly/main/Mappy/bank_FF.asm\" -OutFile \"raw/mappy_bank_FF.asm\"; \\(Get-Item raw/mappy_bank_FF.asm\\).Length)",
+      "PowerShell([Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/cyneprepou4uk/NES-Games-Disassembly/main/Mappy/bank_FF.asm\" -OutFile \"raw/mappy_bank_FF.asm\" -UseBasicParsing; \\(Get-Item raw/mappy_bank_FF.asm\\).Length)",
+      "PowerShell([Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/cyneprepou4uk/NES-Games-Disassembly/main/Mappy/bank_ram.inc\" -OutFile \"raw/mappy_bank_ram.inc\" -UseBasicParsing; Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/cyneprepou4uk/NES-Games-Disassembly/main/Mappy/bank_val.inc\" -OutFile \"raw/mappy_bank_val.inc\" -UseBasicParsing; \\(Get-Item raw/mappy_bank_ram.inc\\).Length; \\(Get-Item raw/mappy_bank_val.inc\\).Length)",
+      "PowerShell([Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/cyneprepou4uk/NES-Games-Disassembly/main/Mappy/bank_ram.inc\" -OutFile \"raw/mappy_bank_ram.inc\" -UseBasicParsing; \\(Get-Item raw/mappy_bank_ram.inc\\).Length)",
+      "PowerShell(Start-Sleep -Seconds 2; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Invoke-WebRequest -Uri \"https://raw.githubusercontent.com/cyneprepou4uk/NES-Games-Disassembly/main/Mappy/bank_ram.inc\" -OutFile \"raw/mappy_bank_ram.inc\" -UseBasicParsing; \\(Get-Item raw/mappy_bank_ram.inc\\).Length)"
     ]
   }
 }

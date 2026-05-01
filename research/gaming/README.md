@@ -24,6 +24,10 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 - [Bilateral Trade Valuation](./bilateral-trade-valuation.md) — why trade evaluation requires simulating both players simultaneously; trajectory divergence, the patient predator exploit, and Nash equilibrium pricing
 - [BattleValue](./battle-value.md) — BV = sqrt(Attack × HP): a universal combat comparison metric derived from Lanchester's Square Law; BV/Cost as the army composition ROI metric
 - [Diplomacy: 7 AI Models](./diplomacy-ai-analysis.md) — analysis of 7 LLMs playing Diplomacy; case study for the coalition problem, Nash bargaining, physical grounding of strategy, and why different agents CAN trade
+- [LLM Agents Across Strategic Games](./llm-agents-across-games.md) — seven-game cross-study (Monopoly, Diplomacy, Among Us, Mafia ×2, Coup, Catan) + clones control; architectural signatures stable across games; verification as a spectrum with hidden pockets concentrating decisive value; Catan isolates three LLM-general failures (action bias, no mechanical model, rhetorical contagion) and points to external-state engine architecture as the fix
+- [LLM Game Benchmark — Outline](./llm-game-benchmark.md) — framework for evaluating new LLMs against the seven-game study; measurement axes, infrastructure, scoring method
+- [Gunboat Diplomacy and Diplodocus](./gunboat-diplomacy-diplodocus.md) — Meta's Gunboat-only AI won a tournament against expert humans with no language model; moves as costly signals; the Denmark disband; the sharpest available confirmation of the planner-LM composite thesis
+- [CaptainMeme vs. 6 Cicero (Press Diplomacy)](./cicero-press-diplomacy-captain-meme.md) — expert human ties Cicero for board top; the human/AI split observations (no grudge, forward-looking pure, intent-appeals fail); the N≥3 self-balancing advantage of forward-looking-pure agents
 - [D&D Spell Damage Model](./dnd-spell-damage-model.md) — using CLT, proof by induction, and bimodal distributions to build a spell comparison metric; same instinct as BattleValue, different game
 
 ### Monopoly Theory — [monopoly/](./monopoly/)

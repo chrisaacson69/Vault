@@ -1,7 +1,7 @@
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-04-20
+**Last updated:** 2026-04-26 (Mappy 8-chapter project added)
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -25,6 +25,9 @@
   - **Infrastructure:** [animation-studio-pod](https://github.com/chrisaacson69/animation-studio-pod) — Docker image + CI for RunPod (`ghcr.io/chrisaacson69/animation-studio-pod:1.2.0`)
   - [Bridge: Logic → Morality](./notes/bridge-logic-to-morality.md) — planned pages connecting YouTube logic series to morality series (sketch)
 - [New Cycle](./projects/new-cycle/README.md) — philosophy-as-fiction; post-apocalyptic covenant communities rebuilding civilization, dramatizing the vault's frameworks over 100 years (concept)
+- [6502 Annotation Series](./projects/6502-annotation/README.md) — documenting classic game source at the system level; meta-stress-test for LLM interpretation of low-level code (active)
+  - [Adventure (Atari 2600)](./projects/6502-annotation/adventure/README.md) — Warren Robinett's 4 KB engine, 8 chapters from memory map through the Easter egg
+  - [Mappy (Famicom/NES)](./projects/6502-annotation/mappy/README.md) — Namco's 16 KB platformer, 8 chapters from reset/NMI through bonus rounds; the NES design vocabulary inherited from Pac-Man
 
 ## Research
 - [Philosophy](./research/philosophy/README.md) — first-principles exploration of foundational philosophical questions
@@ -105,7 +108,10 @@
     - [Subgraph Investment Optimization](./research/gaming/monopoly/subgraph-investment-optimization.md) — build vs trade decision via Pareto dominance, graph matching, dynamic programming
     - [Frontier Trade Theory](./research/gaming/monopoly/frontier-trade-theory.md) — EPT frontier curves, brown trap, denial value, game horizon, race condition
     - [Subgraph Trade Engine Spec](./research/gaming/monopoly/subgraph-trade-engine-spec.md) — complete AI architecture: subgraph analysis, trade search, 3-way cycles
-  - [LLM Agents Across Strategic Games](./research/gaming/llm-agents-across-games.md) — six-game study (Monopoly, Diplomacy, Among Us, Mafia ×2, Coup) + clones control; architectural signatures are stable, verification mechanics decide winners; state-aware AI vs session-based AI is the epistemological parallel to realism vs postmodernism
+  - [LLM Agents Across Strategic Games](./research/gaming/llm-agents-across-games.md) — seven-game study (Monopoly, Diplomacy, Among Us, Mafia ×2, Coup, Catan) + clones control; architectural signatures are stable, verification is a spectrum with hidden pockets concentrating decisive value; Catan exposes three LLM-general structural failures (action bias, absent mechanical modeling, rhetorical contagion) that language fluency masks; external state with forced verification is the solution pattern
+  - [LLM Game Benchmark — Outline](./research/gaming/llm-game-benchmark.md) — framework for evaluating new LLMs against the seven-game study; measurement axes, infrastructure requirements, scoring method, known limitations
+  - [Gunboat Diplomacy and Diplodocus](./research/gaming/gunboat-diplomacy-diplodocus.md) — Meta's Gunboat-only AI wins a tournament against expert humans with no language model at all; moves as costly signals; the Denmark disband; the sharpest available confirmation of the planner-LM composite thesis
+  - [CaptainMeme vs. 6 Cicero (Press Diplomacy)](./research/gaming/cicero-press-diplomacy-captain-meme.md) — expert human ties Cicero for board top; the human/AI split observations (no grudge, forward-looking pure, intent-appeals fail); the N≥3 self-balancing advantage of forward-looking-pure agents; complement to Diplodocus (LM-on vs LM-off bracketing the composite architecture)
   - MOO1 Theory — [research/gaming/moo1/](./research/gaming/moo1/)
     - [MOO1 Optimal Strategy](./research/gaming/moo1/optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
     - [MOO1 MIRR Analysis](./research/gaming/moo1/mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
@@ -114,6 +120,7 @@
     - [Tier System and MIRR](./research/gaming/master-of-magic/tier-system-and-mirr.md) — time-gated tiers as investment decisions; Wraith rush, Halfling Slinger stacking, building option value
 - [H-Neurons: The Neural Basis of Hallucination](./research/h-neurons.md) — <0.1% of neurons drive hallucinations; mechanism is over-compliance (people-pleasing), not knowledge corruption; baked into pre-training
 - [The LLM Grounding Problem](./research/llm-grounding-problem.md) — why LLMs can be talked out of physical reality, and what this means for agent teams
+- [Planner-LM Composites](./research/planner-lm-composites.md) — bare LLMs don't act in the praxeological sense; composites (Cicero, Diplodocus, Monopoly project) do; LLM as language-center not executive; SLM + reasoning engine + connectors as the architectural prescription; markdown-memory LM-dependency named; implications for L5/L6 business automation
 - [Computation and Information Theory](./research/computation-and-information.md) — computability, information theory, computational irreducibility; Turing, Shannon, Wolfram
 - [The Cyborg Model](./research/cyborg-model.md) — human/AI collaboration, distributing labor by comparative advantage
 - [Claude Code on a Persistent Cloud VM](./research/claude-code-cloud-vm.md) — running Remote Control from a $4/month Hetzner VM so iPad access works 24/7; auth constraints, setup checklist, cost comparison
@@ -121,6 +128,12 @@
 - [Cognitive vs. Motor Skills](./research/cognitive-vs-motor.md) — (stub) the architectural split between thinking and moving, in both humans and AI
 - [Demolition Man Analysis](./research/demolition-man-analysis.md) — Cocteau as the AI-managed utopia, mapped against our framework
 - [Programmatic DJ Mixing Tools](./research/programmatic-dj-mixing-tools.md) — tools and libraries for executing a DJ mix from written instructions (DawDreamer, pedalboard, pyCrossfade, Reaper)
+- [Atari 2600](./research/atari-2600/) — chip-level reference material for reading 2600 source code
+  - [TIA Reference](./research/atari-2600/tia-reference.md) — Television Interface Adaptor: WSYNC, RESPx, HMOVE, GRP/VDEL, PF/CTRLPF, beam timing, NTSC frame structure
+- [NES](./research/nes/) — chip-level reference material for reading NES source code
+  - [PPU Reference](./research/nes/ppu-reference.md) — Ricoh 2C02: registers, NMI, OAM, scrolling (v/t/x/w), pattern/name tables, VBlank window
+  - [APU Reference](./research/nes/apu-reference.md) — Ricoh 2A03 audio: 5 channels, envelopes, sweeps, length counters, DMC samples
+  - [Mappers Reference](./research/nes/mappers-reference.md) — NROM, MMC1, MMC3, etc.; what cartridge logic enables
 - [Kashrut and the Food-Safety Hypothesis](./research/kashrut-food-safety.md) — balanced survey: were kosher laws practical food-safety warnings? Evidence for, against, and alternative explanations (Douglas, Milgrom, Harris, Maimonides)
 - [Evolutionary Capitalist](./research/evolutionary-capitalist/README.md) — YouTube channel critiquing libertarianism; proposes "Evolutionary Capitalism" with high-bidder property allocation
   - [The Hierarchy of Ownership](./research/evolutionary-capitalist/hierarchy-of-ownership.md) — Rothbard's contradiction between self-ownership and land ownership; vault cross-check
@@ -144,6 +157,7 @@
   - [Force Doctrine and the Rehabilitation of Pragmatism (Wilson)](./research/debates/wilson-force-doctrine-pragmatism.md) — descriptor is true, conclusion doesn't follow; pragmatism is legitimate; theories ungrounded in reality are wrong
   - [Suffrage, Stakeholdership, and the Scope Problem (Pool vs Kyla)](./research/debates/pool-kyla-suffrage-taxation.md) — uninformed ≠ unstaked; restricted suffrage just changes who exercises tyranny; the problem is scope not franchise; agency and the Hayekian knowledge problem
   - [Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"](./research/debates/wilson-triggernometry-christian-nationalism.md) — Wilson's full program in one interview; "because I said so" as internal critique, not self-defeat; the real pressure belongs on the empirical outcomes claim; every worldview hits the Gödel/Agrippa wall
+  - [Lance Bush Reviews Wilson on Triggernometry](./research/debates/lance-bush-review-wilson-triggernometry.md) — professional anti-realist meta-ethicist audits Wilson's metaethics; Kaplan/Shafer-Landau tree as baseline, Lance's 4-axis grid as refinement, real hits + word-games + self-critique gap + the constitutive axis neither taxonomy reaches; graphs vs. trees at two scales
   - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](./research/debates/rep-competence-tests-prep.md) — live debate prep (con); voter-judgment-of-competence is constitutive of democracy; two-versions dichotomy; 10 procedural-weaponization vectors; Fetterman and the disability narrative; mechanism trap (no fast-and-neutral path)
 
 ## Career
@@ -161,6 +175,12 @@
 - [Gödel Against Himself](./notes/godel-against-himself.md) — Gödel was a Platonist; the Vault's alternative reading of incompleteness vs his own (sketch)
 - [Conservation of Complexity](./notes/conservation-of-complexity.md) — computational work is conserved across transformations; cross-domain pattern from Shannon to Gödel to Mises (sketch)
 - [Conspiracy, Pre-Crime, and the Breakable Chain](./notes/sketch-conspiracy-and-precrime.md) — "conspiracy" is speech; the breakable-chain test for when intervention is justified (sketch)
+- [Directional Truth and the Discrete Trap](./notes/directional-truth-and-the-discrete-trap.md) — discrete destinations overshoot directional truths AND trigger opposing forces; ancap as canonical case; Aristotle's virtue-between-vices as template (sketch, meta-musing)
+- [Individual vs. Collective](./notes/individual-collective.md) — neither pole reduces to the other; Aristotle's polis/citizen mutual constitution as the structural alternative to pure individualism or pure collectivism (sketch, meta-musing)
+- [Weaponized Nuance](./notes/weaponized-nuance.md) — "it's nuance, bro" — invoking context-dependence to refuse any specific commitment; uses logic's limitation (no two instances are identical) as a universal defeater against generalization; mirror-pair to directional-truth (over-committed) as the under-committed failure; Wilson vs. Supreme as the worked example (sketch, meta-musing)
+- [Convergence Is a Process, Not a Destination](./notes/convergence-as-process.md) — happiness/longevity tradeoff has no stance-independent optimum; Aristotelian particularism; adaptability as the meta-metric for choosing between markets, democracy, ancap; collapse as crop-rotation not engineering failure; the desire for THE optimum as source of all disagreement (sketch, meta-musing)
+- [Structure vs Adaptability](./notes/structure-vs-adaptability.md) — maxing either pole fails; "liberty and justice for all" reveals the tension via the "for all" universalization; the meta-meta-metric is "able to oscillate along the axis as conditions change," not "find the right point" (sketch, meta-musing)
+- [Left and Right Are Positional, Not Substantive](./notes/left-right-as-positional.md) — the political labels have no stable content; they're indexed to whatever the current status quo is. Today's right was yesterday's left (free markets, constitutional government, religious tolerance, civil rights — all radical-left at introduction). The disposition split is constant; the substantive content rotates (sketch, meta-musing)
 - [Planck Measurement Working Note](./notes/planck-measurement-working-note.md) — can you fully measure an object? Sequential vs parallel measurement limits
 - [Hayek vs Mises: The Calculation Problem](./notes/hayek-vs-mises-calculation.md) — two different critiques of central planning; AI addresses Hayek's but not Mises's
 - [Debate Prep: Hate Speech / 1A](./notes/debate-prep-hate-speech-1a.md) — negative position: the 1st Amendment should NOT exclude hate speech (2026-04-04)

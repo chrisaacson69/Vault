@@ -90,4 +90,4 @@ Your conservation of information work is formalizing one face of a pattern that 
 The model collapse evidence combined with the grounding problem is your strongest empirical case. The conservation theorem is your strongest theoretical case. Gödel is a distraction that invites technical objections and obscures the more direct argument.
 
 ## Tags
-conservation-of-information, computational-irreducibility, AI, godel, shannon, mises, montanez
+[meta-musing](../tags/meta-musing.md), conservation-of-information, computational-irreducibility, AI, godel, shannon, mises, montanez
