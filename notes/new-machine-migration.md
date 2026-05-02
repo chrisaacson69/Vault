@@ -43,10 +43,25 @@ GitHub does NOT carry `~/.claude/`. This is the single most important migration 
 
 Without this, the new machine starts cold — no continuity, no skills, no remembered context.
 
-**Three transfer options (try in order):**
-1. **Home network copy** — fastest if not blocked by policy. SMB share or `scp`.
-2. **USB stick** — guaranteed to work; ~few hundred MB at most.
-3. **Private gist or encrypted zip** — fallback if 1 and 2 are blocked. The folder may contain credentials or tokens, so use a private repo / encrypted archive, never a public gist.
+**Chosen transfer method: encrypted 7z via Google Drive.**
+
+On the old machine:
+```powershell
+# One-time install if needed
+winget install --id 7zip.7zip --exact
+
+# Run the backup script (prompts twice for password — write it down!)
+powershell -File $HOME\bin\backup-claude.ps1
+```
+
+This produces `~/Downloads/claude-backup-<date>.7z` (~60–80 MB compressed, AES-256, filenames encrypted). Drag-drop into [drive.google.com](https://drive.google.com).
+
+The script excludes `telemetry/`, `debug/`, `cache/`, `paste-cache/` — local-only noise.
+
+**Other transfer options if Drive is blocked:**
+- USB stick — guaranteed to work
+- Home network copy — SMB share or `scp`
+- Private GitHub gist with the encrypted .7z attached
 
 **Verify after copy:** open Claude Code on the new machine, ask "what do you know about me?" — if it recalls the verification-layer thesis or the 6502 annotation series without prompting, memory transferred.
 
@@ -105,7 +120,16 @@ gh repo clone chrisaacson69/Vault Vault
 
 ### 4. Restore `~/.claude/`
 
-Copy the `.claude` folder from the old machine to `$HOME\.claude` on the new machine. See "Critical: The `.claude/` Folder" above.
+Download `claude-backup-<date>.7z` from Google Drive to `~\Downloads\`, then extract:
+
+```powershell
+winget install --id 7zip.7zip --exact   # if not already installed
+cd $HOME\Downloads
+& 'C:\Program Files\7-Zip\7z.exe' x claude-backup-<date>.7z -o$HOME\
+# enter the password when prompted
+```
+
+After extracting, **delete the Drive copy** — it contains your settings + tokens.
 
 Verify:
 ```powershell
