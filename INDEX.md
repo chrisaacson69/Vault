@@ -189,6 +189,7 @@
 - [yt-dlp Transcript Workflow](./notes/yt-dlp-transcript-workflow.md) — segment and transcribe videos from Rumble, YouTube, and 1,000+ sites using yt-dlp + Whisper
 - [Obsidian Plugin Setup](./notes/obsidian-plugin-setup.md) — Dataview, Marp Slides, and Web Clipper setup instructions and query examples
 - [Karpathy LLM Wiki — Independent Convergence](./notes/karpathy-llm-wiki-convergence.md) — this vault and Karpathy's LLM Wiki arrived at the same architecture independently; shared patterns and ideas adopted
+- [New Machine Migration](./notes/new-machine-migration.md) — runbook for migrating vault + projects to the Intel 725; what's pushed, what's deferred, bootstrap sequence (2026-05-01)
 
 ## Tasks & Goals
 - [Active Tasks](./tasks/active.md)
