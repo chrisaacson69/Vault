@@ -69,18 +69,22 @@ These were intentionally NOT migrated. Revisit when needed:
 
 ### 1. Install core tools
 
+Use `--exact` so winget doesn't fuzzy-match. IDs are case-sensitive:
+
 ```powershell
-winget install Git.Git
-winget install GitHub.cli
-winget install Anthropic.Claude
-winget install Python.Python.3.13
-winget install OpenJS.NodeJS
-winget install yt-dlp.yt-dlp
+winget install --id Git.Git --exact
+winget install --id GitHub.cli --exact
+winget install --id Anthropic.ClaudeCode --exact   # the CLI, NOT Anthropic.Claude (that's the desktop chat app)
+winget install --id Python.Python.3.13 --exact
+winget install --id OpenJS.NodeJS --exact          # or OpenJS.NodeJS.LTS for the long-term-support build
+winget install --id yt-dlp.yt-dlp --exact
 ```
 
 Optional / project-specific:
-- ffmpeg (camelot, cyborgdj): `winget install Gyan.FFmpeg`
+- ffmpeg (camelot, cyborgdj): `winget install --id Gyan.FFmpeg --exact`
 - CUDA toolkit (RTX 5060): download from NVIDIA, match PyTorch's CUDA version
+
+**Finding more package IDs:** `winget search <keyword>` lists matches with their IDs, or browse [winget.run](https://winget.run) for a searchable web catalog.
 
 ### 2. GitHub auth
 
