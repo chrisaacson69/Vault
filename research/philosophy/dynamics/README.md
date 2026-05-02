@@ -17,6 +17,7 @@ Every concentration of power generates counter-forces. Every governing system fa
 ## Pages here
 
 - [Opposing Forces](./opposing-forces.md) — the core structural observation; candidate mechanisms (computational irreducibility, thermodynamic equilibrium, game-theoretic inevitability)
+- [Symmetry Breaking](./symmetry-breaking.md) — how something emerges from balanced forces: equal forces on asymmetric substrates, perfect balance is unstable, fluctuations get frozen by path-dependence into the load-bearing features later structure builds on; bridges Trunk 4 (dynamics) back to Trunk 1 (constitutive realism) by giving the propagation story behind constitutive features
 - [The Gödel Governance Problem](./the-godel-governance-problem.md) — can a system prevent monopoly without becoming one?
 - [The Technology-Governance Gap](./technology-governance-gap.md) — when systems exceed human comprehension
 - [Press Freedom and Governance](./press-freedom-and-governance.md) — pre-commitment enforcement and the observation problem

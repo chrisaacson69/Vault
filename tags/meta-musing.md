@@ -14,6 +14,7 @@ Sketch-level treatment is fine and encouraged. Don't wait for the full argument 
 ## Current meta-musings
 
 - [Opposing Forces](../research/philosophy/dynamics/opposing-forces.md) — every concentration of power generates its opposite; irreducibility, thermodynamic equilibrium, and game-theoretic niche-opening as candidate grounds (most developed; flagship)
+- [Symmetry Breaking](../research/philosophy/dynamics/symmetry-breaking.md) — the *origin* account opposing forces alone can't supply; equal forces on asymmetric substrates produce asymmetric outcomes; constitutive features as crystallized residue of path-dependently frozen asymmetries; stability-relative-to-timescale as the bridge from cosmology to morality
 - [Directional Truth and the Discrete Trap](../notes/directional-truth-and-the-discrete-trap.md) — we package directional insights as discrete destinations, which both overshoots the truth and triggers the opposing force; ancap as canonical case
 - [Individual vs. Collective](../notes/individual-collective.md) — the dichotomy that resists clean resolution; Aristotle's polis/citizen mutual-constitution as template
 - [Weaponized Nuance](../notes/weaponized-nuance.md) — "it's nuance, bro" — invoking context-dependence to refuse any specific commitment; mirror-pair to directional-truth; Wilson/Supreme as worked example

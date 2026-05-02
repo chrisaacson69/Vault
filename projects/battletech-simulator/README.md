@@ -8,6 +8,8 @@ published: true
 
 **Links:** [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [YouTube Migration](../youtube-migration/README.md)
 
+**Code:** https://github.com/chrisaacson69/battletech-sim
+
 ## Motivation
 
 The [BattleValue formula](../../research/gaming/battle-value.md) (BV = sqrt(Attack × HP)) works cleanly for simple combat systems. BattleTech breaks every assumption:

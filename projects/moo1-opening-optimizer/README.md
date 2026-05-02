@@ -8,6 +8,8 @@ published: true
 
 **Links:** [MOO1 Optimal Strategy](../../research/gaming/moo1/optimal-strategy.md), [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [BattleTech Simulator](../battletech-simulator/README.md)
 
+**Code:** https://github.com/chrisaacson69/moo1-opening-optimizer
+
 ## Motivation
 
 The [MOO1 strategy analysis](../../research/gaming/moo1/optimal-strategy.md) identifies the 2nd colony ship timing as the first big strategic decision — and shows it's a tractable optimization problem. The conventional wisdom ("build 100 factories first, then colonize") is likely wrong for long-horizon games, but proving it requires simulation because the variables interact:

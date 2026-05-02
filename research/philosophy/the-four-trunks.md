@@ -6,7 +6,7 @@ published: true
 # The Four Trunks — The Structure of the Vault's Philosophy
 > The vault's philosophy is not a single thesis with one name. It's four interlocking commitments, each doing distinct work. Two of the four have working names (constitutive realism, constitutive convergence); two are still unnamed. The umbrella name is deferred until the trunks are each named, because it has to be what the four names point at together.
 
-**Links:** [Philosophy](./README.md), [Constitutive/Elective Distinction](./morality/constitutive-elective.md), [Stance-Independence Retreat](./epistemology/stance-independence-retreat.md), [Relational Objectivity](./epistemology/relational-objectivity.md), [The Birthmark](./epistemology/the-birthmark.md), [Emergence, Convergence, and the Strange Loop](./logic-and-math/emergence-and-convergence.md), [Opposing Forces](./dynamics/opposing-forces.md), [Measurement, Causality, and Free Will](./metaphysics/measurement-causality.md), [The Gödel Governance Problem](./dynamics/the-godel-governance-problem.md)
+**Links:** [Philosophy](./README.md), [Constitutive/Elective Distinction](./morality/constitutive-elective.md), [Stance-Independence Retreat](./epistemology/stance-independence-retreat.md), [Relational Objectivity](./epistemology/relational-objectivity.md), [The Birthmark](./epistemology/the-birthmark.md), [Emergence, Convergence, and the Strange Loop](./logic-and-math/emergence-and-convergence.md), [Opposing Forces](./dynamics/opposing-forces.md), [Symmetry Breaking](./dynamics/symmetry-breaking.md), [Measurement, Causality, and Free Will](./metaphysics/measurement-causality.md), [The Gödel Governance Problem](./dynamics/the-godel-governance-problem.md)
 
 ## Why Four Trunks
 
@@ -90,6 +90,7 @@ The verification-layer thesis (accumulated state as the thing being verified aga
 
 **Core pages:**
 - [Opposing Forces](./dynamics/opposing-forces.md) — the core structural observation
+- [Symmetry Breaking](./dynamics/symmetry-breaking.md) — how constitutive features emerge from balanced forces; propagation story closing the bridge from Trunk 4 back to Trunk 1
 - [Civilizational Cycles](./dynamics/civilizational-cycles/README.md) — applied trunk-4 at civilizational timescales
 - [The Gödel Governance Problem](./dynamics/the-godel-governance-problem.md) — can a system prevent monopoly without becoming one?
 - [The Technology-Governance Gap](./dynamics/technology-governance-gap.md) — when systems exceed human comprehension
@@ -100,7 +101,7 @@ The verification-layer thesis (accumulated state as the thing being verified aga
 
 The trunks aren't independent silos. They divide the work:
 
-- **Trunk 1 ↔ Trunk 4 — the load-bearing partnership.** Trunk 1 answers *what holds, given conditions*. Trunk 4 answers *how those conditions persist, shift, and are discovered*. The apparent stability of moral facts comes from the stability of Trunk 4 conditions — humans have to eat, cooperate, die — so the norms downstream stay load-bearing across centuries. When conditions shift (contraception, AI, abundance), the facts update, but the constitutive *method of generation* stays the same. Stability and change are not in opposition; they're the same process at different timescales.
+- **Trunk 1 ↔ Trunk 4 — the load-bearing partnership.** Trunk 1 answers *what holds, given conditions*. Trunk 4 answers *how those conditions persist, shift, and are discovered*. The apparent stability of moral facts comes from the stability of Trunk 4 conditions — humans have to eat, cooperate, die — so the norms downstream stay load-bearing across centuries. When conditions shift (contraception, AI, abundance), the facts update, but the constitutive *method of generation* stays the same. Stability and change are not in opposition; they're the same process at different timescales. The [symmetry-breaking page](./dynamics/symmetry-breaking.md) closes this loop explicitly: constitutive features are crystallized residue of asymmetries that became load-bearing through path-dependence, stable across the timescales agents inhabit — so Trunk 4 supplies the *origin and persistence* account that makes Trunk 1's "real but mind-dependent" coherent without requiring eternalism.
 - **Trunk 1 needs Trunk 2.** Constitutive facts are real, but that's an empty claim without a method for identifying them. Convergence under reality-pressure is that method. Trunk 2 is what makes Trunk 1 more than assertion.
 - **Trunk 1 needs Trunk 3.** Constitutive facts are real *and* mind-dependent. That combination is coherent only if immaterial real patterns can arise from organized matter. Emergence supplies the metaphysical room for Trunk 1 to breathe.
 - **Trunk 3 needs Trunk 4.** Emergence explains how real patterns arise; dynamics explains how they behave once present. Without dynamics, emergence describes a static layer cake. With it, emergence is a living process with characteristic behaviors at scale.

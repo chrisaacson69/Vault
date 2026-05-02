@@ -57,6 +57,7 @@
     - [Structural-Institutional](./research/philosophy/dynamics/civilizational-cycles/structural-institutional.md) — Turchin, Tainter, Olson, Dalio
     - [Economic Theorists](./research/philosophy/dynamics/civilizational-cycles/economic-theorists.md) — Hayek, Sowell, Schumpeter, Kondratiev
   - [Opposing Forces](./research/philosophy/dynamics/opposing-forces.md) — why concentrations of power always generate counter-forces; structural principle across physics, computation, evolution, and agency
+  - [Symmetry Breaking](./research/philosophy/dynamics/symmetry-breaking.md) — how something emerges from balanced forces; equal forces on asymmetric substrates produce asymmetric outcomes; constitutive features as crystallized residue of path-dependently frozen asymmetries; stability-relative-to-timescale as the bridge from cosmology to morality; conditional ≠ arbitrary
   - [The Godel Governance Problem](./research/philosophy/dynamics/the-godel-governance-problem.md) — can a system prevent monopoly without becoming one? The central unsolved problem: state (inconsistent), ancap (incomplete), constitution (both)
   - [The Fallacy Fallacy](./research/philosophy/tangents/the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; the "why" requirement; misapplied labels; strange loops in fallacy hunting
   - [The Technology-Governance Gap](./research/philosophy/dynamics/technology-governance-gap.md) — when systems exceed human comprehension; the good fork (forced decentralization) vs the bad fork (informational monopoly); possible way out of the cycle
