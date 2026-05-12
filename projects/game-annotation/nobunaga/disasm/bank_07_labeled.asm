@@ -1918,7 +1918,7 @@ tab_b7_a751: ; 435 bytes
             ora ($44),y                 ; 1EB4D:  11 44
             ora ($44),y                 ; 1EB4F:  11 44
             bpl tab_b7_ab71+35          ; 1EB51:  10 41
-            ora ($90),y                 ; 1EB53:  11 90
+            ora (palette_alt),y                 ; 1EB53:  11 90
             rts                         ; 1EB55:  60
 
             hex 80 61 81 61 81 63 43 03 ; 1EB56:  80 61 81 61 81 63 43 03

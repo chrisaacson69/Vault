@@ -723,7 +723,7 @@ tab_b2_8b60: ; 889 bytes
             hex d7 56 90 3b e9 72 d7 02 ; 09042:  d7 56 90 3b e9 72 d7 02
             hex 8c 67 6d bb d3 d7       ; 0904A:  8c 67 6d bb d3 d7
 
-            lsr $90,x                   ; 09050:  56 90
+            lsr palette_alt,x                   ; 09050:  56 90
             rti                         ; 09052:  40
 
             hex d6 57 90 41 cf 20 23 e8 ; 09053:  d6 57 90 41 cf 20 23 e8

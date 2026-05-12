@@ -59,6 +59,11 @@ def build_label_maps(config: dict) -> tuple[dict[int, str], dict[tuple[int, int]
 RX_BANK_LABEL = re.compile(r"\bb(\d+)_([0-9a-fA-F]{4})\b")
 RX_ABS = re.compile(r"(?<!#)\$([0-9a-fA-F]{4})\b")
 RX_ZP = re.compile(r"(?<!#)\$([0-9a-fA-F]{2})\b")
+# disasm6 puts the PRG file offset in a trailing comment like "; 3C54F:" or "; 1A2B3:".
+# 5 or 6 hex digits depending on ROM size (32-256 KB PRG = offsets up to 6 digits).
+RX_PRG_OFFSET = re.compile(r";\s+([0-9a-fA-F]{4,6}):")
+# Detect an existing label at line start: identifier followed by ':'.
+RX_LABEL_AT_START = re.compile(r"^[a-zA-Z_][a-zA-Z0-9_]*:")
 
 
 def relabel_line(line: str,
@@ -101,12 +106,28 @@ def relabel_line(line: str,
 def relabel_file(input_path: Path,
                  output_path: Path,
                  ram_labels: dict[int, str],
-                 prg_labels: dict[tuple[int, int], str]) -> dict[str, int]:
-    counters = {"bank": 0, "abs": 0, "zp": 0, "lines": 0}
+                 prg_labels: dict[tuple[int, int], str],
+                 offset_to_name: dict[int, str]) -> dict[str, int]:
+    counters = {"bank": 0, "abs": 0, "zp": 0, "lines": 0, "injected": 0}
     with input_path.open(encoding="utf-8") as f_in, \
          output_path.open("w", encoding="utf-8", newline="") as f_out:
         for line in f_in:
-            f_out.write(relabel_line(line, ram_labels, prg_labels, counters))
+            # First: substitute address tokens with label names.
+            line = relabel_line(line, ram_labels, prg_labels, counters)
+
+            # Second: if this line has a PRG offset matching a known label and
+            # no label is present at line start, emit a label header above it.
+            m = RX_PRG_OFFSET.search(line)
+            if m:
+                offset = int(m.group(1), 16)
+                name = offset_to_name.get(offset)
+                if name is not None:
+                    stripped = line.lstrip()
+                    if not RX_LABEL_AT_START.match(stripped):
+                        f_out.write(name + ":\n")
+                        counters["injected"] += 1
+
+            f_out.write(line)
             counters["lines"] += 1
     return counters
 
@@ -134,6 +155,13 @@ def main() -> int:
     output_dir = args.output_dir or args.disasm_dir
     output_dir.mkdir(exist_ok=True, parents=True)
 
+    # Precompute PRG-offset -> name for the label-injection pass.
+    bank_size = config.get("meta", {}).get("prg_bank_size", 0x4000)
+    offset_to_name: dict[int, str] = {}
+    for (bank_idx, cpu_addr), name in prg_labels.items():
+        prg_offset = bank_idx * bank_size + (cpu_addr & (bank_size - 1))
+        offset_to_name[prg_offset] = name
+
     print(f"  config:     {args.config}")
     print(f"  RAM labels: {len(ram_labels)}")
     print(f"  PRG labels: {len(prg_labels)}")
@@ -145,20 +173,21 @@ def main() -> int:
         print(f"  warning: no bank_*.asm files found in {args.disasm_dir}", file=sys.stderr)
         return 1
 
-    grand = {"bank": 0, "abs": 0, "zp": 0, "lines": 0}
+    grand = {"bank": 0, "abs": 0, "zp": 0, "lines": 0, "injected": 0}
     for bank_file in bank_files:
         if bank_file.name.endswith("_labeled.asm"):
             continue  # don't re-process output of a previous run
         out = output_dir / bank_file.name.replace(".asm", "_labeled.asm")
-        c = relabel_file(bank_file, out, ram_labels, prg_labels)
+        c = relabel_file(bank_file, out, ram_labels, prg_labels, offset_to_name)
         total = c["bank"] + c["abs"] + c["zp"]
-        print(f"  {bank_file.name:20s}  bank={c['bank']:4d}  abs={c['abs']:4d}  zp={c['zp']:4d}  total={total:5d}")
+        print(f"  {bank_file.name:20s}  bank={c['bank']:4d}  abs={c['abs']:4d}  zp={c['zp']:4d}  inject={c['injected']:3d}  total={total:5d}")
         for k in grand:
             grand[k] += c[k]
 
     print()
     print(f"  grand total: bank={grand['bank']}  abs={grand['abs']}  zp={grand['zp']}  "
-          f"total={grand['bank']+grand['abs']+grand['zp']}")
+          f"injected={grand['injected']}  "
+          f"sub_total={grand['bank']+grand['abs']+grand['zp']}")
     return 0
 
 

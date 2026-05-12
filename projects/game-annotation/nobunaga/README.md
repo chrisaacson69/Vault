@@ -30,7 +30,7 @@ This is also the first of the series **without an external annotated disassembly
 | NMI    | $C0DA | VBlank: OAM DMA, controller poll, frame counter |
 | IRQ    | $C139 | **Software task dispatcher** keyed on $0050 via the BRK flag |
 
-The IRQ handler is the most interesting find from session 1: BRK is not a debug aid here — it's the **system-call instruction** for a 23-entry dispatch table at $C173. Game code yields between subsystems by issuing `BRK $nn`. See Chapter 1 for the full table.
+The IRQ handler is the most interesting find from session 1: a 23-entry dispatch table at $C173 implements an **OS-style syscall API**. Game code in banks 0-14 calls into bank-15 kernel services via `jsr syscall_dispatch` at $F226. See Chapters 1 and 4 — chapter 1 found the table; chapter 4 decoded it as a syscall surface (originally framed as "BRK-VM" but the actual mechanism is `PHP + JMP ($FFFE)`, not BRK).
 
 ## Chapter map
 
@@ -39,7 +39,7 @@ The IRQ handler is the most interesting find from session 1: BRK is not a debug 
 | 1 | [Boot, vectors, and the BRK dispatcher](./01-boot-and-dispatch.md) | session 1 draft |
 | 2 | [Zero-page memory map](./02-zero-page-map.md) | session 2 draft |
 | 3 | [NMI/VBlank pipeline (PPU + OAM + audio driver)](./03-nmi-pipeline.md) | session 3 draft |
-| 4 | The BRK-VM: what each of the 23 dispatch entries does | planned |
+| 4 | [The Syscall API: what each of the 23 dispatch entries does](./04-syscall-api.md) | session 4 draft |
 | 5 | Province table & SRAM save format | planned |
 | 6 | Daimyo AI decision engine | planned |
 | 7 | Combat resolution & hidden stat formulas | planned |

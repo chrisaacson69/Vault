@@ -67,10 +67,14 @@ prg_bank_count = 16        # 256 KB total
 "0x0723" = { name = "audio_active_v2",     comment = "Voice 2 active flag" }
 "0x0724" = { name = "audio_active_v3",     comment = "Voice 3 active flag" }
 
-"0x0730" = { name = "song_active",         comment = "Song header: active marker (high bit set = song playing)" }
-"0x0731" = { name = "song_tempo",          comment = "Song header: master tempo (e.g. $0A)" }
-"0x0732" = { name = "song_base_lo",        comment = "Song header: base pointer LO (forms $84AF etc.)" }
-"0x0733" = { name = "song_base_hi",        comment = "Song header: base pointer HI" }
+# Voice config array: 5 × 3-byte records starting at $0725, written by audio_load_voice (task $09).
+# Chapter 3 mis-identified $0730-$0733 as a "song header" — they are actually the tail of voices 3-4 here.
+# Each 3-byte record: { tempo_divider, song_ptr_lo, song_ptr_hi } per voice.
+"0x0725" = { name = "v0_config",           comment = "Voice 0 config (3 bytes: tempo_div, song_ptr_lo, song_ptr_hi); written by audio_load_voice ($C3AD)" }
+"0x0728" = { name = "v1_config",           comment = "Voice 1 config (3 bytes)" }
+"0x072B" = { name = "v2_config",           comment = "Voice 2 config (3 bytes)" }
+"0x072E" = { name = "v3_config",           comment = "Voice 3 config (3 bytes)" }
+"0x0731" = { name = "v4_config",           comment = "Voice 4 config (3 bytes)" }
 
 # Voice slots: 5 records × 9 bytes starting at $0734.
 # Per-record fields (offsets 0-8): trigger / vol-duty / sweep / timer-lo / timer-hi / tempo-div / ptr-lo / ptr-hi / countdown.
@@ -80,7 +84,8 @@ prg_bank_count = 16        # 256 KB total
 "0x074F" = { name = "v3_trigger",          comment = "Voice 3 byte 0" }
 "0x0758" = { name = "v4_trigger",          comment = "Voice 4 byte 0" }
 
-# --- Palette shadow (chapter 3) ---
+# --- Palette buffers (chapters 3 + 4) ---
+"0x0090" = { name = "palette_alt",         comment = "32-byte alt palette buffer ($0090-$00AF). Used by palette_swap ($C36C, task $12) to atomically swap with palette_shadow for fade/transition effects. Reset-fill $3E (paired with palette_shadow)." }
 "0x0700" = { name = "palette_shadow",      comment = "32-byte palette shadow ($0700-$071F); foreground writes here + sets palette_dirty; $C6D4 uploads to PPU $3F00 next NMI. Reset-fill $3E (medium grey)." }
 
 
@@ -94,7 +99,28 @@ prg_bank_count = 16        # 256 KB total
 "0xC000" = { name = "reset_handler",       comment = "Reset entry: MMC1 init via 5-write serial commit; RAM/OAM clear; APU enable; ends with JMP $8000" }
 "0xC0DA" = { name = "nmi_handler",         comment = "NMI/VBlank handler: OAM DMA from $0600, P1+P2 polls, palette upload, music tick, wall-clock tick; bracketed by nmi_off/nmi_on" }
 "0xC139" = { name = "irq_handler",         comment = "IRQ/BRK dispatcher: reads brk_dispatch_id, indirect-JMPs through 23-entry table at $C173" }
-"0xC173" = { name = "brk_dispatch_table",  comment = "23-entry JMP table (3 bytes each); dispatched by BRK via $0050 task ID" }
+"0xC173" = { name = "syscall_dispatch_table", comment = "23-entry JMP table (3 bytes each). Dispatched by syscall_dispatch ($F226) via the task ID at brk_dispatch_id ($0050). Chapter 4 renamed from 'BRK dispatch' — the mechanism uses PHP+JMP($FFFE), not BRK." }
+
+# --- The 23 syscall handlers (chapter 4) ---
+# These are the targets of the JMP entries at $C173+id*3.
+# Each handler reads its parameter block from $0050-$0065 (struct copied from caller's ($02/$03) by syscall_dispatch),
+# returns values via brk_scratch_lo/hi ($66/$67), and RTS's back into syscall_dispatch_return ($F23C).
+"0xC1B8" = { name = "syscall_wait_for_nmi", comment = "Task $13 (id=19): set nmi_busy=1, spin until NMI clears it. The canonical 'wait for next VBlank' primitive." }
+"0xC1C3" = { name = "syscall_rng_next",     comment = "Task $11 (id=17): 48-bit shift-and-add transform of the wall-clock state ($0083-$0088). Returns 16-bit pseudo-random value in brk_scratch_lo/hi. The game's RNG." }
+"0xC22C" = { name = "syscall_memcpy_banked", comment = "Task $10 (id=16): bank-switched memcpy. Switches to struct[2] bank, copies (struct[6:8]) -> (struct[8:10]) for length struct[10..11] (16-bit). Restores bank." }
+"0xC264" = { name = "syscall_ppu_upload_block", comment = "Task $01 (id=1): bank-switched bulk copy from PRG-ROM to PPU. Switches to struct[2] bank, copies chunks of 16 bytes from (struct[6:8]) to PPU @struct[8:10]; chunk count = struct[10]. Restores bank." }
+"0xC2CB" = { name = "syscall_set_sprite",   comment = "Task $03 (id=3): write 1 OAM sprite. struct[2]=sprite index (0-63), struct[6]=Y, struct[8]=attr, struct[a]=tile, struct[4]=X. Writes to OAM shadow at $0600 + idx*4." }
+"0xC2F0" = { name = "syscall_fill_attr_quadrant", comment = "Task $08 (id=8): fill 64 bytes of PPU attribute table. PPUADDR = $23C0 + struct[2]*4. Fill byte = struct[4]." }
+"0xC312" = { name = "syscall_fill_nametable", comment = "Task $05 (id=5): fill a full 30x32 nametable with one tile byte. struct[2] selects nametable; struct[4] = fill byte. Writes 960 bytes." }
+"0xC339" = { name = "syscall_call_bank",    comment = "Task $07 (id=7): save current bank, switch to struct[2], JSR $8000 (the bank's entry point), restore. The inter-bank call primitive." }
+"0xC34C" = { name = "syscall_palette_write", comment = "Task $04 (id=4): write one palette byte. struct[2]=palette index (0-31), struct[4]=color. Writes to palette_shadow + sets palette_dirty. If skip_vblank_wait is set, writes to palette_alt instead (no NMI flag)." }
+"0xC36C" = { name = "syscall_palette_swap", comment = "Task $12 (id=18): atomically swap palette_shadow ($0700-$071F) with palette_alt ($0090-$00AF), gated by struct[2] XOR skip_vblank_wait. Resolves chapter-3 mystery about $0090-$00AF — it's the alt palette buffer for fade/transition effects." }
+"0xC39E" = { name = "syscall_read_controller", comment = "Task $06 (id=6): read controller button state. struct[2]=player index (0=P1 from $006E, 1=P2 from $006F). Returns held buttons in brk_scratch_lo. Side effect: if any button pressed, sets skip_wallclock — game-time pauses while input is held." }
+"0xC3AD" = { name = "syscall_audio_load_voice", comment = "Task $09 (id=9): set voice config. struct[2]=voice index, struct[4]=tempo_div, struct[6]=song_ptr_lo, struct[8]=song_ptr_hi. Writes 3 bytes at $0725 + voice*3 (the voice config array)." }
+"0xC3CF" = { name = "syscall_audio_control", comment = "Task $0A (id=10): audio control. struct[2]=voice idx, struct[4]=mode. Mode 0: silence everything (clear all voice flags + records, mute SQ1/SQ2/TRI). Mode 1: mute triangle for voice (set audio_mute_triangle+idx, clear voice trigger). Mode 2: query mute state (returns audio_mute_triangle+idx)." }
+"0xC428" = { name = "syscall_ppu_blit_from_bank", comment = "Task $14 (id=20): bank-switched PPU blit. Switches to bank from struct[$E] (= $005E), then writes a block from that bank to a nametable region. Used for screen content rendering (menus, maps)." }
+"0xC437" = { name = "syscall_ppu_blit_nobank", comment = "Task $0C (id=12): sibling of syscall_ppu_blit_from_bank but enters with mode flag = 0 (no bank switch). Falls into the same code at $C439." }
+"0xC577" = { name = "set_prg_bank",         comment = "MMC1 PRG bank switch helper. Saves NMI state, writes the 5-bit serial sequence to $FFF0 to set the bank, restores NMI state. Updates kernel_var_73 ($0073) to track current bank. Used by every bank-switching syscall." }
 
 # --- PPU register shadow API (chapter 3) ---
 "0xC54F" = { name = "nmi_off",             comment = "Clear bit 7 of ppuctrl_shadow (disable NMI generation); used as the NMI re-entry guard" }

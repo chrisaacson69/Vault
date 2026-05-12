@@ -39,7 +39,7 @@ reset_handler:   sei                         ; 3C000:  78
             jsr write_ppumask                ; 3C057:  20 70 c5
             ldx #$00                    ; 3C05A:  a2 00
             lda #$3e                    ; 3C05C:  a9 3e
-b15_c05e:   hex 9d 90 00 ; sta $0090,x  ; 3C05E:  9d 90 00
+b15_c05e:   hex 9d 90 00 ; sta palette_alt,x  ; 3C05E:  9d 90 00
             sta palette_shadow,x                 ; 3C061:  9d 00 07
             inx                         ; 3C064:  e8
             cpx #$20                    ; 3C065:  e0 20
@@ -179,6 +179,7 @@ b15_c16c:   nop                         ; 3C16C:  ea
             pla                         ; 3C171:  68
             rti                         ; 3C172:  40
 
+syscall_dispatch_table:
             hex 4c 00 c0 4c 64 c2 4c 4b ; 3C173:  4c 00 c0 4c 64 c2 4c 4b
             hex c3 4c cb c2 4c 4c c3 4c ; 3C17B:  c3 4c cb c2 4c 4c c3 4c
             hex 12 c3 4c 9e c3 4c 39 c3 ; 3C183:  12 c3 4c 9e c3 4c 39 c3
@@ -189,12 +190,14 @@ b15_c16c:   nop                         ; 3C16C:  ea
             hex c3 4c b8 c1 4c 28 c4 4c ; 3C1AB:  c3 4c b8 c1 4c 28 c4 4c
             hex 0c c6 4c aa c5          ; 3C1B3:  0c c6 4c aa c5
 
+syscall_wait_for_nmi:
             lda #$01                    ; 3C1B8:  a9 01
             hex 8d 81 00 ; sta nmi_busy    ; 3C1BA:  8d 81 00
 b15_c1bd:   hex ad 81 00 ; lda nmi_busy    ; 3C1BD:  ad 81 00
             bne b15_c1bd                ; 3C1C0:  d0 fb
             rts                         ; 3C1C2:  60
 
+syscall_rng_next:
             hex ad 88 00 ; lda $0088    ; 3C1C3:  ad 88 00
             ora #$01                    ; 3C1C6:  09 01
             hex 8d 88 00 ; sta $0088    ; 3C1C8:  8d 88 00
@@ -244,10 +247,11 @@ b15_c20a:   hex bd 8a 00 ; lda $008a,x  ; 3C20A:  bd 8a 00
 b15_c226:   cmp $87                     ; 3C226:  c5 87
             ora ($0e,x)                 ; 3C228:  01 0e
             bcc b15_c20a+2              ; 3C22A:  90 e0
+syscall_memcpy_banked:
             hex ad 73 00 ; lda kernel_var_73    ; 3C22C:  ad 73 00
             pha                         ; 3C22F:  48
             hex ad 52 00 ; lda $0052    ; 3C230:  ad 52 00
-            jsr b15_c577                ; 3C233:  20 77 c5
+            jsr set_prg_bank                ; 3C233:  20 77 c5
             ldx #$00                    ; 3C236:  a2 00
 b15_c238:   hex ad 58 00 ; lda $0058    ; 3C238:  ad 58 00
             bne b15_c245                ; 3C23B:  d0 08
@@ -266,13 +270,14 @@ b15_c259:   hex ce 58 00 ; dec $0058    ; 3C259:  ce 58 00
             jmp b15_c238                ; 3C25C:  4c 38 c2
 
 b15_c25f:   pla                         ; 3C25F:  68
-            jsr b15_c577                ; 3C260:  20 77 c5
+            jsr set_prg_bank                ; 3C260:  20 77 c5
             rts                         ; 3C263:  60
 
+syscall_ppu_upload_block:
             hex ad 73 00 ; lda kernel_var_73    ; 3C264:  ad 73 00
             pha                         ; 3C267:  48
             hex ad 52 00 ; lda $0052    ; 3C268:  ad 52 00
-            jsr b15_c577                ; 3C26B:  20 77 c5
+            jsr set_prg_bank                ; 3C26B:  20 77 c5
             hex ad 57 00 ; lda $0057    ; 3C26E:  ad 57 00
             hex 8d 6b 00 ; sta $006b    ; 3C271:  8d 6b 00
             hex ad 56 00 ; lda $0056    ; 3C274:  ad 56 00
@@ -308,9 +313,10 @@ b15_c2aa:   dex                         ; 3C2AA:  ca
             hex ce 6c 00 ; dec $006c    ; 3C2C1:  ce 6c 00
             bne b15_c28e                ; 3C2C4:  d0 c8
             pla                         ; 3C2C6:  68
-            jsr b15_c577                ; 3C2C7:  20 77 c5
+            jsr set_prg_bank                ; 3C2C7:  20 77 c5
             rts                         ; 3C2CA:  60
 
+syscall_set_sprite:
             jsr nmi_off                ; 3C2CB:  20 4f c5
             hex ad 52 00 ; lda $0052    ; 3C2CE:  ad 52 00
             asl a                       ; 3C2D1:  0a
@@ -327,6 +333,7 @@ b15_c2aa:   dex                         ; 3C2AA:  ca
             jsr nmi_on                ; 3C2EC:  20 8a c6
             rts                         ; 3C2EF:  60
 
+syscall_fill_attr_quadrant:
             jsr ppu_safe_gate                ; 3C2F0:  20 93 c6
             hex ad 52 00 ; lda $0052    ; 3C2F3:  ad 52 00
             asl a                       ; 3C2F6:  0a
@@ -344,6 +351,7 @@ b15_c308:   sta PPUDATA                 ; 3C308:  8d 07 20
             jsr b15_c558                ; 3C30E:  20 58 c5
             rts                         ; 3C311:  60
 
+syscall_fill_nametable:
             jsr ppu_safe_gate                ; 3C312:  20 93 c6
             hex ad 52 00 ; lda $0052    ; 3C315:  ad 52 00
             asl a                       ; 3C318:  0a
@@ -364,22 +372,24 @@ b15_c32c:   sta PPUDATA                 ; 3C32C:  8d 07 20
             jsr b15_c558                ; 3C335:  20 58 c5
             rts                         ; 3C338:  60
 
+syscall_call_bank:
             hex ad 73 00 ; lda kernel_var_73    ; 3C339:  ad 73 00
             pha                         ; 3C33C:  48
             hex ad 52 00 ; lda $0052    ; 3C33D:  ad 52 00
-            jsr b15_c577                ; 3C340:  20 77 c5
+            jsr set_prg_bank                ; 3C340:  20 77 c5
             jsr $8000                   ; 3C343:  20 00 80
             pla                         ; 3C346:  68
-            jsr b15_c577                ; 3C347:  20 77 c5
+            jsr set_prg_bank                ; 3C347:  20 77 c5
             rts                         ; 3C34A:  60
 
             hex 60                      ; 3C34B:  60
 
+syscall_palette_write:
             hex ad 80 00 ; lda skip_vblank_wait    ; 3C34C:  ad 80 00
             beq b15_c35d                ; 3C34F:  f0 0c
             hex ae 52 00 ; ldx $0052    ; 3C351:  ae 52 00
             hex ad 54 00 ; lda $0054    ; 3C354:  ad 54 00
-            hex 9d 90 00 ; sta $0090,x  ; 3C357:  9d 90 00
+            hex 9d 90 00 ; sta palette_alt,x  ; 3C357:  9d 90 00
             jmp b15_c36b                ; 3C35A:  4c 6b c3
 
 b15_c35d:   hex ae 52 00 ; ldx $0052    ; 3C35D:  ae 52 00
@@ -389,15 +399,15 @@ b15_c35d:   hex ae 52 00 ; ldx $0052    ; 3C35D:  ae 52 00
             hex 8d 74 00 ; sta palette_dirty    ; 3C368:  8d 74 00
 b15_c36b:   rts                         ; 3C36B:  60
 
-b15_c36c:   hex ad 74 00 ; lda palette_dirty    ; 3C36C:  ad 74 00
-            bne b15_c36c                ; 3C36F:  d0 fb
+syscall_palette_swap:   hex ad 74 00 ; lda palette_dirty    ; 3C36C:  ad 74 00
+            bne syscall_palette_swap                ; 3C36F:  d0 fb
             hex ad 52 00 ; lda $0052    ; 3C371:  ad 52 00
             hex 4d 80 00 ; eor skip_vblank_wait    ; 3C374:  4d 80 00
             beq b15_c39d                ; 3C377:  f0 24
             ldx #$00                    ; 3C379:  a2 00
 b15_c37b:   lda palette_shadow,x                 ; 3C37B:  bd 00 07
-            hex bc 90 00 ; ldy $0090,x  ; 3C37E:  bc 90 00
-            hex 9d 90 00 ; sta $0090,x  ; 3C381:  9d 90 00
+            hex bc 90 00 ; ldy palette_alt,x  ; 3C37E:  bc 90 00
+            hex 9d 90 00 ; sta palette_alt,x  ; 3C381:  9d 90 00
             tya                         ; 3C384:  98
             sta palette_shadow,x                 ; 3C385:  9d 00 07
             inx                         ; 3C388:  e8
@@ -411,6 +421,7 @@ b15_c392:   hex ad 74 00 ; lda palette_dirty    ; 3C392:  ad 74 00
             hex 8d 80 00 ; sta skip_vblank_wait    ; 3C39A:  8d 80 00
 b15_c39d:   rts                         ; 3C39D:  60
 
+syscall_read_controller:
             hex ae 52 00 ; ldx $0052    ; 3C39E:  ae 52 00
             hex bd 6e 00 ; lda p1_buttons,x  ; 3C3A1:  bd 6e 00
             hex 8d 66 00 ; sta brk_scratch_lo    ; 3C3A4:  8d 66 00
@@ -418,6 +429,7 @@ b15_c39d:   rts                         ; 3C39D:  60
             hex 8d 89 00 ; sta skip_wallclock    ; 3C3A9:  8d 89 00
 b15_c3ac:   rts                         ; 3C3AC:  60
 
+syscall_audio_load_voice:
             jsr nmi_off                ; 3C3AD:  20 4f c5
             hex ad 52 00 ; lda $0052    ; 3C3B0:  ad 52 00
             asl a                       ; 3C3B3:  0a
@@ -429,10 +441,11 @@ b15_c3ac:   rts                         ; 3C3AC:  60
             hex ad 57 00 ; lda $0057    ; 3C3BF:  ad 57 00
             sta $0727,x                 ; 3C3C2:  9d 27 07
             hex ad 54 00 ; lda $0054    ; 3C3C5:  ad 54 00
-            sta $0725,x                 ; 3C3C8:  9d 25 07
+            sta v0_config,x                 ; 3C3C8:  9d 25 07
             jsr nmi_on                ; 3C3CB:  20 8a c6
             rts                         ; 3C3CE:  60
 
+syscall_audio_control:
             hex ae 52 00 ; ldx $0052    ; 3C3CF:  ae 52 00
             hex ad 54 00 ; lda $0054    ; 3C3D2:  ad 54 00
             beq b15_c3f9                ; 3C3D5:  f0 22
@@ -476,13 +489,15 @@ b15_c426:   rts                         ; 3C426:  60
 
             hex 60                      ; 3C427:  60
 
+syscall_ppu_blit_from_bank:
             hex ad 73 00 ; lda kernel_var_73    ; 3C428:  ad 73 00
             pha                         ; 3C42B:  48
             hex ad 5e 00 ; lda $005e    ; 3C42C:  ad 5e 00
-            jsr b15_c577                ; 3C42F:  20 77 c5
+            jsr set_prg_bank                ; 3C42F:  20 77 c5
             lda #$01                    ; 3C432:  a9 01
             jmp b15_c439                ; 3C434:  4c 39 c4
 
+syscall_ppu_blit_nobank:
             lda #$00                    ; 3C437:  a9 00
 b15_c439:   hex 8d 82 00 ; sta $0082    ; 3C439:  8d 82 00
             hex ac 56 00 ; ldy $0056    ; 3C43C:  ac 56 00
@@ -553,7 +568,7 @@ b15_c4b5:   sta PPUDATA                 ; 3C4B5:  8d 07 20
             hex ad 82 00 ; lda $0082    ; 3C4D6:  ad 82 00
             beq b15_c4df                ; 3C4D9:  f0 04
             pla                         ; 3C4DB:  68
-            jsr b15_c577                ; 3C4DC:  20 77 c5
+            jsr set_prg_bank                ; 3C4DC:  20 77 c5
 b15_c4df:   rts                         ; 3C4DF:  60
 
             hex ee 58 00 ; inc $0058    ; 3C4E0:  ee 58 00
@@ -628,7 +643,7 @@ write_ppumask:   sta PPUMASK                 ; 3C570:  8d 01 20
             hex 8d 72 00 ; sta ppumask_shadow    ; 3C573:  8d 72 00
             rts                         ; 3C576:  60
 
-b15_c577:   hex cd 73 00 ; cmp kernel_var_73    ; 3C577:  cd 73 00
+set_prg_bank:   hex cd 73 00 ; cmp kernel_var_73    ; 3C577:  cd 73 00
             beq b15_c5a9                ; 3C57A:  f0 2d
             pha                         ; 3C57C:  48
             hex ad 71 00 ; lda ppuctrl_shadow    ; 3C57D:  ad 71 00
@@ -893,6 +908,7 @@ tab_b15_c794: ; 22 bytes
             iny                         ; 3C7AA:  c8
             rts                         ; 3C7AB:  60
 
+music_trigger_pass:
             lda #$00                    ; 3C7AC:  a9 00
             hex 8d 79 00 ; sta music_voice_idx    ; 3C7AE:  8d 79 00
             lda #$34                    ; 3C7B1:  a9 34
@@ -951,6 +967,7 @@ b15_c80b:   lda (music_ptr_lo),y                 ; 3C80B:  b1 7a
             bne b15_c80b                ; 3C814:  d0 f5
 b15_c816:   rts                         ; 3C816:  60
 
+music_sequencer_pass:
             lda #$00                    ; 3C817:  a9 00
             hex 8d 79 00 ; sta music_voice_idx    ; 3C819:  8d 79 00
             lda #$34                    ; 3C81C:  a9 34
@@ -1003,7 +1020,7 @@ b15_c877:   hex ad 79 00 ; lda music_voice_idx    ; 3C877:  ad 79 00
             clc                         ; 3C87B:  18
             hex 6d 79 00 ; adc music_voice_idx    ; 3C87C:  6d 79 00
             tax                         ; 3C87F:  aa
-            lda $0725,x                 ; 3C880:  bd 25 07
+            lda v0_config,x                 ; 3C880:  bd 25 07
             ldy #$05                    ; 3C883:  a0 05
             sta (music_ptr_lo),y                 ; 3C885:  91 7a
             lda $0726,x                 ; 3C887:  bd 26 07
@@ -1018,7 +1035,7 @@ b15_c894:   hex ad 73 00 ; lda kernel_var_73    ; 3C894:  ad 73 00
             pha                         ; 3C897:  48
             ldy #$05                    ; 3C898:  a0 05
             lda (music_ptr_lo),y                 ; 3C89A:  b1 7a
-            jsr b15_c577                ; 3C89C:  20 77 c5
+            jsr set_prg_bank                ; 3C89C:  20 77 c5
             ldy #$06                    ; 3C89F:  a0 06
             lda (music_ptr_lo),y                 ; 3C8A1:  b1 7a
             hex 8d 7c 00 ; sta $007c    ; 3C8A3:  8d 7c 00
@@ -1034,7 +1051,7 @@ b15_c894:   hex ad 73 00 ; lda kernel_var_73    ; 3C894:  ad 73 00
             lda ($7c,x)                 ; 3C8B7:  a1 7c
             hex 8d 7e 00 ; sta $007e    ; 3C8B9:  8d 7e 00
             pla                         ; 3C8BC:  68
-            jsr b15_c577                ; 3C8BD:  20 77 c5
+            jsr set_prg_bank                ; 3C8BD:  20 77 c5
             hex ad 7e 00 ; lda $007e    ; 3C8C0:  ad 7e 00
             rts                         ; 3C8C3:  60
 
@@ -1083,7 +1100,7 @@ b15_c906:   hex ad 79 00 ; lda music_voice_idx    ; 3C906:  ad 79 00
             hex 6d 79 00 ; adc music_voice_idx    ; 3C90B:  6d 79 00
             tax                         ; 3C90E:  aa
             ldy #$05                    ; 3C90F:  a0 05
-            lda $0725,x                 ; 3C911:  bd 25 07
+            lda v0_config,x                 ; 3C911:  bd 25 07
             sta (music_ptr_lo),y                 ; 3C914:  91 7a
             iny                         ; 3C916:  c8
             lda $0726,x                 ; 3C917:  bd 26 07
