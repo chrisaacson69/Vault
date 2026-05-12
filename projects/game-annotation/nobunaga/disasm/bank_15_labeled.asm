@@ -571,6 +571,7 @@ b15_c4b5:   sta PPUDATA                 ; 3C4B5:  8d 07 20
             jsr set_prg_bank                ; 3C4DC:  20 77 c5
 b15_c4df:   rts                         ; 3C4DF:  60
 
+syscall_ppu_render_rect:
             hex ee 58 00 ; inc $0058    ; 3C4E0:  ee 58 00
             hex ad 58 00 ; lda $0058    ; 3C4E3:  ad 58 00
             sec                         ; 3C4E6:  38
@@ -668,9 +669,9 @@ b15_c586:   pla                         ; 3C586:  68
             jsr nmi_on                ; 3C5A6:  20 8a c6
 b15_c5a9:   rts                         ; 3C5A9:  60
 
-b15_c5aa:   lda ptr1_hi                     ; 3C5AA:  a5 03
+syscall_sram_block_with_checksum:   lda ptr1_hi                     ; 3C5AA:  a5 03
             cmp #$02                    ; 3C5AC:  c9 02
-            beq b15_c5aa                ; 3C5AE:  f0 fa
+            beq syscall_sram_block_with_checksum                ; 3C5AE:  f0 fa
             jsr nmi_off                ; 3C5B0:  20 4f c5
             lda #$00                    ; 3C5B3:  a9 00
             sta $bfff                   ; 3C5B5:  8d ff bf
@@ -711,6 +712,7 @@ b15_c5ed:   lda $0200,y                 ; 3C5ED:  b9 00 02
             jsr nmi_on                ; 3C608:  20 8a c6
             rts                         ; 3C60B:  60
 
+syscall_set_chr_bank0_reg:
             jsr nmi_off                ; 3C60C:  20 4f c5
             lda #$00                    ; 3C60F:  a9 00
             sta $bfff                   ; 3C611:  8d ff bf

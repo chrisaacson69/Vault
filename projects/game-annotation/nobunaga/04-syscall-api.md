@@ -80,7 +80,7 @@ The motivation is functional, not bytewise:
 
 ## The 23-syscall catalog
 
-Of the 23 entries, 16 were invoked during the captured trace (startup + reset → first-turn UI). The other 7 are likely combat/save/AI ticks that only fire in later game phases. Each table entry is reached as `JMP $XXXX` at `syscall_dispatch_table + id*3`:
+All 23 entries are characterized. 16 fired during the captured trace (startup + reset → first-turn UI); the rest were walked statically in the disasm. Each table entry is reached as `JMP $XXXX` at `syscall_dispatch_table + id*3`. (Note: disasm6 emitted the table as raw `hex 4c XX XX` bytes rather than decoded `jmp` instructions, because the only inbound reference is the indirect-JMP-through-$0068 in the IRQ handler — disasm6 couldn't trace through that to discover the table is code-targeted.)
 
 | ID | Target | Name | Function (key params marked struct[N]) |
 |---:|---|---|---|
@@ -97,18 +97,18 @@ Of the 23 entries, 16 were invoked during the captured trace (startup + reset �
 | 10 | $C3CF | `syscall_audio_control` | Audio control. struct[2]=voice idx, struct[4]=mode: 0 = silence all (clear audio state + APU); 1 = mute triangle for voice; 2 = query mute state |
 | 11 | $C427 | (RTS) | Single `RTS` at $C427; another placeholder slot |
 | 12 | $C437 | `syscall_ppu_blit_nobank` | Sibling of #20 (`ppu_blit_from_bank`) but enters with mode = 0 (no bank switch). Falls into the same code at $C439 |
-| 13 | $C4E0 | (TBD) | 8 invocations in the trace, not yet fully walked |
-| 14 | $C535 | (TBD) | Not invoked in trace |
-| 15 | $C536 | (TBD) | Not invoked. Note the table fallthrough: 14 → $C535 and 15 → $C536 differ by 1 byte — they share code, with #15 entering one instruction later |
+| 13 | $C4E0 | `syscall_ppu_render_rect` | 2D nametable region renderer. struct[6/8]=start (x,y), struct[10/12]=end (x,y), struct[14]=per-tile param. For each cell calls three helpers ($C640 addr, $C673 attr, $C711 write). Used for menu borders, status panels — anything with per-tile variation |
+| 14 | $C535 | (RTS placeholder) | Single `RTS` byte. Reserved slot |
+| 15 | $C536 | (RTS placeholder) | Single `RTS` byte. Reserved slot (sequential to #14 — `60 60` at $C535-$C536) |
 | 16 | $C22C | `syscall_memcpy_banked` | Bank-switched general memcpy with 16-bit length. struct[2]=src bank, [4:5]=src ptr, [6:7]=dest ptr, [8:9]=length |
 | 17 | $C1C3 | `syscall_rng_next` | 48-bit shift-and-add transform over wall-clock state ($0083-$0088). Returns 16-bit pseudo-random in $66/$67. The game's RNG |
 | 18 | $C36C | `syscall_palette_swap` | Atomically swap palette_shadow ($0700-$071F) with palette_alt ($0090-$00AF). Used for fade/transition effects |
 | 19 | $C1B8 | `syscall_wait_for_nmi` | Set nmi_busy=1, spin until NMI clears it. The canonical "wait for next VBlank" primitive |
 | 20 | $C428 | `syscall_ppu_blit_from_bank` | Bank-switched PPU blit. Switches to bank from struct[$E], copies block to nametable region |
-| 21 | $C60C | (TBD) | Not invoked in trace |
-| 22 | $C5AA | (TBD) | Not invoked in trace |
+| 21 | $C60C | `syscall_set_chr_bank0_reg` | Write 5-bit value (struct[2]) to MMC1 CHR-bank-0 register at $BFFF. On SOROM, bit 4 is the WRAM-enable gate — this is the bracket call that opens/closes SRAM access around save I/O |
+| 22 | $C5AA | `syscall_sram_block_with_checksum` | SRAM block read/write with 16-bit checksum. Toggles MMC1 WRAM gate via $BFFF writes, copies a block via $0200 buffer in two passes, accumulates a 16-bit checksum into $66/$67. The save-data I/O primitive |
 
-The TBD entries don't surface during startup+early UI. The trace took the game up to the first-turn cursor; chapters covering combat (5/6/7 in the planned map) will surface the remaining handlers.
+**All 23 dispatch slots characterized.** Final tally: **19 active syscalls + 4 RTS placeholders** (IDs 2, 11, 14, 15) **+ 1 reset-entry slot** (ID 0). The 4 placeholders are not at the end of the table — they sit at specific positions interleaved with active handlers. This is consistent with the table being a **generic Koei kernel surface** that defines a fixed set of syscall slots; Nobunaga's Ambition uses 19 of them and leaves the others as `RTS` no-ops. Other Koei MMC1 titles likely populate the remaining slots with their own game-specific primitives — an obvious cross-game investigation if a future chapter wants to confirm.
 
 ### Call frequency tells the role
 
@@ -154,8 +154,9 @@ This session produced four chapter-1-to-3 corrections:
 
 ## What's open for chapter 5+
 
-- **The remaining TBD syscalls** (IDs 0, 2, 13, 14, 15, 21, 22) need traces from combat / save / AI phases to surface. The capture methodology is now reproducible: filter to `(pc == $F228 && y == 2) || pc == $F239` and play through the desired phase.
 - **The static request templates** at $05B2, $05B4, $05BF, $05C7, $05CB etc. carry the syscall arguments that game code uses repeatedly. Walking the 22-byte content of each template tells us what each "macro" does (e.g., "this is the template for rendering the main map prompt").
+- **The SRAM save format.** Now that `syscall_sram_block_with_checksum` ($16) and `syscall_set_chr_bank0_reg` ($15) are named, the next investigation is to find the call sites and walk the SRAM layout — what fields make up the save record? This is the natural chapter 5 topic (province table + daimyo records + game state).
+- **Cross-game kernel comparison.** Other Koei MMC1 titles (Romance of the Three Kingdoms, Genghis Khan, Bandit Kings of Ancient China) likely share the same dispatcher template and use the 4 "placeholder" slots for their game-specific primitives. A short cross-game investigation could confirm the "generic Koei kernel" hypothesis.
 - **The chapter-4 ZP additions** ($66/$67/$08/$09 as syscall return values) are now stable. Future chapters can rely on the calling convention without re-deriving it.
 - **The Lua dispatch logger** stays in the project at `tools/dispatch-logger.lua` for the day we want caller PCs (which game routine invoked which syscall). The condition-filtered trace handles the simpler cases; Lua is reserved for when stack-walking is required.
 - **The disasm6-vs-real-code disagreements** (e.g., $C7A5 misread as a data table in chapter 3) continue to be a meaningful signal axis. Whenever disasm6 emits `hex XX XX XX` where the trace shows actual execution, the bytes are code mislabeled as data — and worth a closer look.
