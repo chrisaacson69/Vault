@@ -1,0 +1,117 @@
+# Mesen 2 labels for Nobunaga's Ambition (NES, USA, 1989).
+# Source of truth for all named addresses discovered across the annotation chapters.
+# Apply with:  python ../tools/mesen-labels.py mesen-labels.toml
+
+[meta]
+rom_name = "Nobunaga's Ambition (USA)"
+prg_bank_size = 0x4000     # 16 KB MMC1 banks
+prg_bank_count = 16        # 256 KB total
+
+
+# ============================================================================
+# Zero-page and main RAM ($0000-$07FF, CPU-visible)
+# ============================================================================
+
+[ram]
+
+# --- Shared scratch pointer pool (chapter 2) ---
+"0x0000" = { name = "ptr0_lo",            comment = "General scratch pointer LO (project-wide default; 13 of 16 banks touch this)" }
+"0x0001" = { name = "ptr0_hi",            comment = "General scratch pointer HI" }
+"0x0002" = { name = "ptr1_lo",            comment = "Pointer pair LO; reset-init to $FF (forms $05FF with $03)" }
+"0x0003" = { name = "ptr1_hi",            comment = "Pointer pair HI; reset-init to $05" }
+"0x0004" = { name = "ptr2_lo",            comment = "Pointer pair LO" }
+"0x0005" = { name = "ptr2_hi",            comment = "Pointer pair HI" }
+"0x0006" = { name = "ptr3_lo",            comment = "Pointer pair LO (second-busiest indirect after ptr0)" }
+"0x0007" = { name = "ptr3_hi",            comment = "Pointer pair HI" }
+
+# --- PPU pipeline pointers (chapter 2) ---
+"0x001C" = { name = "ppu_queue_a_lo",     comment = "Pointer LO into $0020 (PPU upload queue A?); reset-init = $20" }
+"0x001D" = { name = "ppu_queue_a_hi",     comment = "Pointer HI; reset-init = $00 (forms $0020)" }
+"0x001E" = { name = "ppu_queue_b_lo",     comment = "Pointer LO into $0030 (queue B?); reset-init = $30" }
+"0x001F" = { name = "ppu_queue_b_hi",     comment = "Pointer HI; reset-init = $00 (forms $0030)" }
+
+# --- BRK dispatcher state (chapters 1, 2) ---
+"0x0050" = { name = "brk_dispatch_id",    comment = "Task ID for next BRK; IRQ handler reads this and indirect-JMPs through $C173+id*3" }
+"0x0066" = { name = "brk_scratch_lo",     comment = "Cleared on every BRK dispatch entry" }
+"0x0067" = { name = "brk_scratch_hi",     comment = "Cleared on every BRK dispatch entry" }
+"0x0068" = { name = "brk_jmp_target_lo",  comment = "IRQ-computed indirect JMP target LO; reused later as general data-pointer LO (byte-meaning-by-context)" }
+"0x0069" = { name = "brk_jmp_target_hi",  comment = "IRQ-computed indirect JMP target HI; reused as data-pointer HI" }
+
+# --- Controller poll (chapter 3) ---
+"0x006E" = { name = "p1_buttons",         comment = "P1 held buttons (ABSS UDLR, MSB-first); written by controller_poll ($C628) every NMI" }
+"0x006F" = { name = "p2_buttons",         comment = "P2 held buttons (same format)" }
+
+# --- PPU register shadows (chapter 3) ---
+"0x0071" = { name = "ppuctrl_shadow",     comment = "PPUCTRL ($2000) shadow; the codebase never reads $2000 directly. Managed by $C6A6 ($C54F/nmi_off, $C68A/nmi_on)." }
+"0x0072" = { name = "ppumask_shadow",     comment = "PPUMASK ($2001) shadow; managed by $C570 ($C567/rendering_on, $C69D/rendering_off)." }
+"0x0073" = { name = "kernel_var_73",      comment = "Cleared at reset; used by $C6AD (the BRK multiply-by-3 helper)" }
+
+# --- Subsystem flags and counters (chapters 1, 2, 3) ---
+"0x0074" = { name = "palette_dirty",      comment = "Non-zero = palette upload pending; $C6D4 uploads $0700-$071F to PPU $3F00-$3F1F then clears this" }
+"0x0079" = { name = "music_voice_idx",    comment = "Outer-loop voice index (0-4) during music driver scan" }
+"0x007A" = { name = "music_ptr_lo",       comment = "Pointer LO into current voice record at $0734+N*9 ($7A/$7B)" }
+"0x007B" = { name = "music_ptr_hi",       comment = "Pointer HI into current voice record" }
+"0x0080" = { name = "skip_vblank_wait",   comment = "Non-zero = $C537 (wait-for-VBlank) returns immediately without spinning" }
+"0x0081" = { name = "nmi_busy",           comment = "Semaphore: foreground sets to 1, spin-waits for NMI to clear it. The 'wait for VBlank' handshake." }
+"0x0083" = { name = "clock_a_hi",         comment = "16-bit wall-clock A high byte; NMI adds +2 every frame (gated by $89); reset = $04 (init $04D2 = 1234)" }
+"0x0084" = { name = "clock_a_lo",         comment = "Wall-clock A low byte; reset = $D2" }
+"0x0085" = { name = "clock_b_hi",         comment = "16-bit wall-clock B high byte; reset = $04" }
+"0x0086" = { name = "clock_b_lo",         comment = "Wall-clock B low byte; reset = $D2" }
+"0x0089" = { name = "skip_wallclock",     comment = "Non-zero = NMI does OAM/audio/input but skips the wall-clock tick" }
+"0x00B0" = { name = "nmi_skip_all",       comment = "Non-zero = NMI bails after OAM DMA (skips controller/palette/audio/clock)" }
+
+# --- Music driver state ($0720-$0760, chapter 3 + runtime trace) ---
+"0x0720" = { name = "audio_mute_triangle", comment = "Non-zero = triangle channel writes suppressed (for sound-effect ducking)" }
+"0x0721" = { name = "audio_active_v0",     comment = "Voice 0 active flag (always $01 during song playback)" }
+"0x0722" = { name = "audio_active_v1",     comment = "Voice 1 active flag" }
+"0x0723" = { name = "audio_active_v2",     comment = "Voice 2 active flag" }
+"0x0724" = { name = "audio_active_v3",     comment = "Voice 3 active flag" }
+
+"0x0730" = { name = "song_active",         comment = "Song header: active marker (high bit set = song playing)" }
+"0x0731" = { name = "song_tempo",          comment = "Song header: master tempo (e.g. $0A)" }
+"0x0732" = { name = "song_base_lo",        comment = "Song header: base pointer LO (forms $84AF etc.)" }
+"0x0733" = { name = "song_base_hi",        comment = "Song header: base pointer HI" }
+
+# Voice slots: 5 records × 9 bytes starting at $0734.
+# Per-record fields (offsets 0-8): trigger / vol-duty / sweep / timer-lo / timer-hi / tempo-div / ptr-lo / ptr-hi / countdown.
+"0x0734" = { name = "v0_trigger",          comment = "Voice 0 byte 0: 1-4 = play on channel; 5-8 = just played (dormant); 0 = idle" }
+"0x073D" = { name = "v1_trigger",          comment = "Voice 1 byte 0 (same encoding)" }
+"0x0746" = { name = "v2_trigger",          comment = "Voice 2 byte 0" }
+"0x074F" = { name = "v3_trigger",          comment = "Voice 3 byte 0" }
+"0x0758" = { name = "v4_trigger",          comment = "Voice 4 byte 0" }
+
+# --- Palette shadow (chapter 3) ---
+"0x0700" = { name = "palette_shadow",      comment = "32-byte palette shadow ($0700-$071F); foreground writes here + sets palette_dirty; $C6D4 uploads to PPU $3F00 next NMI. Reset-fill $3E (medium grey)." }
+
+
+# ============================================================================
+# PRG-ROM bank 15 (the fixed kernel at CPU $C000-$FFFF)
+# ============================================================================
+
+[prg.bank15]
+
+# --- Vectors and boot ---
+"0xC000" = { name = "reset_handler",       comment = "Reset entry: MMC1 init via 5-write serial commit; RAM/OAM clear; APU enable; ends with JMP $8000" }
+"0xC0DA" = { name = "nmi_handler",         comment = "NMI/VBlank handler: OAM DMA from $0600, P1+P2 polls, palette upload, music tick, wall-clock tick; bracketed by nmi_off/nmi_on" }
+"0xC139" = { name = "irq_handler",         comment = "IRQ/BRK dispatcher: reads brk_dispatch_id, indirect-JMPs through 23-entry table at $C173" }
+"0xC173" = { name = "brk_dispatch_table",  comment = "23-entry JMP table (3 bytes each); dispatched by BRK via $0050 task ID" }
+
+# --- PPU register shadow API (chapter 3) ---
+"0xC54F" = { name = "nmi_off",             comment = "Clear bit 7 of ppuctrl_shadow (disable NMI generation); used as the NMI re-entry guard" }
+"0xC567" = { name = "rendering_on",        comment = "OR $18 into ppumask_shadow (enable BG + sprite rendering)" }
+"0xC570" = { name = "write_ppumask",       comment = "Write A to PPUMASK ($2001) and update ppumask_shadow" }
+"0xC68A" = { name = "nmi_on",              comment = "Set bit 7 of ppuctrl_shadow (enable NMI generation)" }
+"0xC693" = { name = "ppu_safe_gate",       comment = "Composite preamble for foreground PPU updates: nmi_off → wait_vblank → rendering_off" }
+"0xC69D" = { name = "rendering_off",       comment = "AND $E7 into ppumask_shadow (clear BG + sprite enable; blank screen)" }
+"0xC6A6" = { name = "write_ppuctrl",       comment = "Write A to PPUCTRL ($2000) and update ppuctrl_shadow" }
+"0xC537" = { name = "wait_vblank",         comment = "Spin until PPUSTATUS bit 7 set; early-out if skip_vblank_wait ($0080) non-zero. Calls music_driver during spin." }
+
+# --- NMI subsystems (chapter 3) ---
+"0xC628" = { name = "controller_poll",     comment = "Strobe $4016 and shift 8 bits into $006E (P1) or $006F (P2); X = player index" }
+"0xC6AD" = { name = "mul_xy_by_3",         comment = "Helper used by BRK dispatcher: multiply X register by 3 with carry, used to scale task ID to table offset" }
+"0xC6D4" = { name = "palette_upload",      comment = "If palette_dirty != 0: blank screen, set PPUADDR=$3F00, copy 32 bytes from palette_shadow to PPUDATA, restore rendering, clear palette_dirty" }
+"0xC7A5" = { name = "music_driver",        comment = "NMI music tick. Calls trigger pass at $C7AC, then sequencer pass at $C817, then RTS. (Disasm6 misread this region as a data table.)" }
+"0xC7AC" = { name = "music_trigger_pass",  comment = "Pass 1: scan 5 voices at $0734; for any voice with byte 0 in 1..4, write 4 APU register bytes and set byte 0 = byte 0 + 4 (one-shot)" }
+"0xC7DE" = { name = "music_voice_check",   comment = "Per-voice trigger check: skip if byte 0 is 0 (idle) or >= 5 (dormant), else call music_voice_play" }
+"0xC7EF" = { name = "music_voice_play",    comment = "Per-voice play: compute APU base from byte 0, optionally skip if triangle mute, write bytes 1-4 to APU registers" }
+"0xC817" = { name = "music_sequencer_pass", comment = "Pass 2: for each active voice, decrement byte 8 (duration countdown). When zero, advance song pointer (bytes 6-7), load new pitch (bytes 3-4), trigger (byte 0), reset countdown (byte 8)." }

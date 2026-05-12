@@ -1,0 +1,44 @@
+# Preset: brk-trace
+# Captures every BRK-VM dispatch event. Chapter 3's trace showed BRK doesn't fire
+# during steady-state rendering — to catch it, we need to be in a state where the
+# kernel is dispatching subsystems (menu navigation, AI ticks, save-screen, etc.).
+#
+# Watches the dispatch ID register and marks (a) every write to it (so we see
+# which task got scheduled) and (b) every execution of the IRQ handler (so we see
+# the dispatcher firing). Combined with the labels file, the trace should read
+# like "$0050 = 7, then irq_handler executes" — naming the task immediately.
+#
+# Apply with:
+#   python ..\tools\mesen-workspace.py presets\brk-trace.toml
+
+[meta]
+rom_name = "Nobunaga's Ambition (USA)"
+
+[preset]
+name = "brk-trace"
+description = "Watch BRK dispatch state; mark every dispatcher invocation"
+
+[watches]
+expressions = [
+    "[brk_dispatch_id]",
+    "[brk_scratch_lo]",
+    "[brk_scratch_hi]",
+    "[brk_jmp_target_lo]",
+    "[brk_jmp_target_hi]",
+]
+
+[[breakpoints]]
+type = "write"
+start = 0x0050
+end = 0x0050
+mark_only = true
+comment = "Mark every write to brk_dispatch_id (= a task scheduling event)"
+
+[[breakpoints]]
+type = "exec"
+memory_type = "prg"
+bank = 15
+start = 0xC139            # irq_handler entry
+end = 0xC139
+mark_only = true
+comment = "Mark every entry into the IRQ/BRK dispatcher"
