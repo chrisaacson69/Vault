@@ -125,6 +125,33 @@ prg_bank_count = 16        # 256 KB total
 "0xC60C" = { name = "syscall_set_chr_bank0_reg", comment = "Task $15 (id=21): write 5-bit value (struct[2]) to MMC1 CHR-bank-0 register at $BFFF. On SOROM, bit 4 of this register is the WRAM-enable gate; this syscall is the bracket call that opens/closes SRAM access around save I/O." }
 "0xC577" = { name = "set_prg_bank",         comment = "MMC1 PRG bank switch helper. Saves NMI state, writes the 5-bit serial sequence to $FFF0 to set the bank, restores NMI state. Updates kernel_var_73 ($0073) to track current bank. Used by every bank-switching syscall." }
 
+# --- The Bytecode VM (chapter 5) ---
+# Bank 15's $E823-$F225 region implements a stack-based virtual machine that interprets
+# bytecode in banks 0-14. The game's logic (boot, main loop, AI, menus, combat) is all
+# VM bytecode. The 23 syscalls are exposed to bytecode via VM opcode $E9 (host-call).
+"0xE823" = { name = "vm_entry",             comment = "VM entry point. Called as JSR vm_entry from bank 0 ($A778) with inline bytecode following. Pulls 4 bytes off stack (return + previous context), allocates new VM frame (ptr1 -= 9), saves old context, sets up ptr3 (bytecode IP) and begins dispatching." }
+"0xE867" = { name = "vm_dispatch",          comment = "VM main dispatch loop. Reads byte at ptr3 (bytecode IP), advances ptr3, looks up handler in tables at $F026/$F126, JMPs through. Handlers do their work and JMP back here (or to a tail at $EB9E that adjusts ptr1 first)." }
+"0xE87F" = { name = "vm_op_00_load_offset", comment = "VM opcode $00 handler. First of 12 entries (opcodes $00-$0B) at $E87F-$E8AB, each 4 bytes apart, each loading a different immediate ($E8/$EA/.../$FE) into A then branching to the common tail at $E8AD that adds A to ptr2 and reads 16-bit data from that location." }
+"0xE8AD" = { name = "vm_op_load_tail",      comment = "Common tail for VM opcodes $00-$0B. Adds immediate offset to ptr2, reads 16-bit value at the resulting address, stores it as the new VM bytecode IP base ($08/$09). Used by 'load offset from ptr2' opcode group." }
+"0xEB38" = { name = "vm_op_E9_host_call",   comment = "VM opcode $E9: host call with VM stack adjustment. Reads next 2 bytecode bytes as a native function address, JSR through it (using the indirect-JMP-trampoline trick), then advances ptr1 before next dispatch. THIS IS THE BRIDGE FROM BYTECODE TO KERNEL — bytecode pattern 'E9 26 F2' = host_call to $F226 = syscall_dispatch." }
+"0xEB4E" = { name = "vm_op_AC_host_call_simple", comment = "VM opcode $AC: simple host call without stack adjustment. Reads next 2 bytecode bytes as a native function address, JSR through it, then immediately dispatches the next opcode (no ptr1 adjustment). Different calling convention than $E9 (host call that returns no values to clean up)." }
+"0xEB57" = { name = "vm_call_native",       comment = "VM 'JSR through ptr0' helper. Saves the VM IP onto the VM stack at ptr1, then JSRs through the indirect_jmp_trampoline ($EB7A) which executes JMP ($0000) — effectively a JSR to wherever ptr0 points. After the called native code RTS's, restores the VM stack pointer." }
+"0xEB7A" = { name = "indirect_jmp_trampoline", comment = "3-byte data block '6C 00 00' = JMP ($0000). Used by vm_call_native to implement 'JSR through ptr0' which 6502 lacks natively. JSR to this block runs JMP indirect through $00/$01 (= ptr0), effectively calling whatever ptr0 points to." }
+"0xEB9E" = { name = "vm_dispatch_with_ptr1_adjust", comment = "Tail used by host_call opcode $E9. Reads a byte from the bytecode as the ptr1 adjustment amount, adds it to ptr1, then enters vm_dispatch. This is the 'host call returns N bytes' cleanup convention." }
+"0xEFD5" = { name = "vm_read_word_into_ptr0", comment = "VM helper: read the next 2 bytes from bytecode (at ptr3,Y=0 and ptr3,Y=1) into ptr0_lo / ptr0_hi. Advance ptr3 by 2. Used by host-call opcodes to fetch the native function address." }
+"0xF026" = { name = "vm_opcode_lo_table",   comment = "256-byte table of low bytes of VM opcode handler addresses, indexed by opcode byte. The full handler is at ($F126[op] << 8) | $F026[op]." }
+"0xF126" = { name = "vm_opcode_hi_table",   comment = "256-byte table of high bytes of VM opcode handler addresses, indexed by opcode byte. Together with vm_opcode_lo_table at $F026, forms the 256-entry dispatch table for VM bytecode opcodes. Immediately precedes syscall_dispatch at $F226." }
+"0xF226" = { name = "syscall_dispatch",     comment = "The 22-byte parameter-copy wrapper that fakes a BRK via PHP + JMP($FFFE). Called by VM bytecode via opcode $E9 with this as the address operand. Reads syscall parameters from ($02),Y=$17..$02 — i.e. directly from the current VM frame at ptr1." }
+
+# --- Bank 0 ---
+# Bank 0 is almost entirely VM bytecode + data, not native 6502 code.
+# The 3-byte entry at $8000 ('4C 78 A7' = JMP $A778) is essentially the only native code in this bank,
+# followed by JSR $E823 at $A778 which enters the VM. Everything after that is bytecode.
+
+[prg.bank0]
+"0x8000" = { name = "bank0_entry",          comment = "Bank 0 entry point. 3 bytes: JMP $A778. The 'rest of bank 0' is data — VM bytecode, sprite/tile data, and a few small native helpers callable from bytecode." }
+"0xA778" = { name = "vm_bootstrap",         comment = "First instruction reached after RESET. JSR vm_entry ($E823) followed by inline VM bytecode that orchestrates the entire boot sequence (audio init, palette load, screen setup) and ultimately becomes the main game loop." }
+
 # --- PPU register shadow API (chapter 3) ---
 "0xC54F" = { name = "nmi_off",             comment = "Clear bit 7 of ppuctrl_shadow (disable NMI generation); used as the NMI re-entry guard" }
 "0xC567" = { name = "rendering_on",        comment = "OR $18 into ppumask_shadow (enable BG + sprite rendering)" }

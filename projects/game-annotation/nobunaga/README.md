@@ -40,10 +40,12 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 2 | [Zero-page memory map](./02-zero-page-map.md) | session 2 draft |
 | 3 | [NMI/VBlank pipeline (PPU + OAM + audio driver)](./03-nmi-pipeline.md) | session 3 draft |
 | 4 | [The Syscall API: what each of the 23 dispatch entries does](./04-syscall-api.md) | session 4 draft |
-| 5 | Province table & SRAM save format | planned |
-| 6 | Daimyo AI decision engine | planned |
-| 7 | Combat resolution & hidden stat formulas | planned |
-| 8 | Synthesis: from bytecode to strategy counter-graph | planned |
+| 5 | [The Bytecode VM](./05-bytecode-vm.md) | session 5 draft |
+| 6 | VM disassembler tool + a frame walkthrough | planned |
+| 7 | Province table & SRAM save format | planned (was ch 5) |
+| 8 | Daimyo AI decision engine | planned |
+| 9 | Combat resolution & hidden stat formulas | planned |
+| 10 | Synthesis: from bytecode to strategy counter-graph | planned |
 
 Chapter numbers may shift as the structure clarifies — the M.U.L.E. project also reserved chapter 7.5 for strategic-frontier analysis once the mechanics were mapped. Expect the same pattern here.
 

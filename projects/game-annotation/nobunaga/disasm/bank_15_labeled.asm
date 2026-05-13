@@ -32,11 +32,11 @@ reset_handler:   sei                         ; 3C000:  78
             hex 8d 80 00 ; sta skip_vblank_wait    ; 3C044:  8d 80 00
             hex 8d b0 00 ; sta nmi_skip_all    ; 3C047:  8d b0 00
             lda #$10                    ; 3C04A:  a9 10
-            jsr write_ppuctrl                ; 3C04C:  20 a6 c6
-            jsr wait_vblank                ; 3C04F:  20 37 c5
-            jsr wait_vblank                ; 3C052:  20 37 c5
+            jsr b15_c6a6                ; 3C04C:  20 a6 c6
+            jsr b15_c537                ; 3C04F:  20 37 c5
+            jsr b15_c537                ; 3C052:  20 37 c5
             lda #$1e                    ; 3C055:  a9 1e
-            jsr write_ppumask                ; 3C057:  20 70 c5
+            jsr b15_c570                ; 3C057:  20 70 c5
             ldx #$00                    ; 3C05A:  a2 00
             lda #$3e                    ; 3C05C:  a9 3e
 b15_c05e:   hex 9d 90 00 ; sta palette_alt,x  ; 3C05E:  9d 90 00
@@ -94,7 +94,7 @@ b15_c0ae:   lda #$00                    ; 3C0AE:  a9 00
             hex 8d 86 00 ; sta clock_b_lo    ; 3C0C9:  8d 86 00
             lda #$00                    ; 3C0CC:  a9 00
             hex 8d 89 00 ; sta skip_wallclock    ; 3C0CE:  8d 89 00
-            jsr nmi_on                ; 3C0D1:  20 8a c6
+            jsr b15_c68a                ; 3C0D1:  20 8a c6
             jsr b15_c757                ; 3C0D4:  20 57 c7
             jmp $8000                   ; 3C0D7:  4c 00 80
 
@@ -104,7 +104,7 @@ nmi_handler:   pha                         ; 3C0DA:  48
             tya                         ; 3C0DD:  98
             pha                         ; 3C0DE:  48
             lda PPUSTATUS               ; 3C0DF:  ad 02 20
-            jsr nmi_off                ; 3C0E2:  20 4f c5
+            jsr b15_c54f                ; 3C0E2:  20 4f c5
             lda #$00                    ; 3C0E5:  a9 00
             sta OAMADDR                 ; 3C0E7:  8d 03 20
             lda #$06                    ; 3C0EA:  a9 06
@@ -112,10 +112,10 @@ nmi_handler:   pha                         ; 3C0DA:  48
             hex ad b0 00 ; lda nmi_skip_all    ; 3C0EF:  ad b0 00
             bne b15_c12b                ; 3C0F2:  d0 37
             lda #$00                    ; 3C0F4:  a9 00
-            jsr controller_poll                ; 3C0F6:  20 28 c6
+            jsr b15_c628                ; 3C0F6:  20 28 c6
             lda #$01                    ; 3C0F9:  a9 01
-            jsr controller_poll                ; 3C0FB:  20 28 c6
-            jsr palette_upload                ; 3C0FE:  20 d4 c6
+            jsr b15_c628                ; 3C0FB:  20 28 c6
+            jsr b15_c6d4                ; 3C0FE:  20 d4 c6
             jsr tab_b15_c794+17         ; 3C101:  20 a5 c7
             hex ad 89 00 ; lda skip_wallclock    ; 3C104:  ad 89 00
             bne b15_c12b                ; 3C107:  d0 22
@@ -135,7 +135,7 @@ nmi_handler:   pha                         ; 3C0DA:  48
             hex 8d 83 00 ; sta clock_a_hi    ; 3C128:  8d 83 00
 b15_c12b:   lda #$00                    ; 3C12B:  a9 00
             hex 8d 81 00 ; sta nmi_busy    ; 3C12D:  8d 81 00
-            jsr nmi_on                ; 3C130:  20 8a c6
+            jsr b15_c68a                ; 3C130:  20 8a c6
             pla                         ; 3C133:  68
             tay                         ; 3C134:  a8
             pla                         ; 3C135:  68
@@ -161,7 +161,7 @@ irq_handler:   pha                         ; 3C139:  48
             pha                         ; 3C153:  48
             hex ae 50 00 ; ldx brk_dispatch_id    ; 3C154:  ae 50 00
             ldy #$03                    ; 3C157:  a0 03
-            jsr mul_xy_by_3                ; 3C159:  20 ad c6
+            jsr b15_c6ad                ; 3C159:  20 ad c6
             clc                         ; 3C15C:  18
             tya                         ; 3C15D:  98
             adc #$73                    ; 3C15E:  69 73
@@ -290,7 +290,7 @@ syscall_ppu_upload_block:
             hex ad 58 00 ; lda $0058    ; 3C288:  ad 58 00
             hex 8d 6c 00 ; sta $006c    ; 3C28B:  8d 6c 00
 b15_c28e:   ldx #$10                    ; 3C28E:  a2 10
-            jsr ppu_safe_gate                ; 3C290:  20 93 c6
+            jsr b15_c693                ; 3C290:  20 93 c6
             hex ad 6b 00 ; lda $006b    ; 3C293:  ad 6b 00
             sta PPUADDR                 ; 3C296:  8d 06 20
             hex ad 6a 00 ; lda $006a    ; 3C299:  ad 6a 00
@@ -317,7 +317,7 @@ b15_c2aa:   dex                         ; 3C2AA:  ca
             rts                         ; 3C2CA:  60
 
 syscall_set_sprite:
-            jsr nmi_off                ; 3C2CB:  20 4f c5
+            jsr b15_c54f                ; 3C2CB:  20 4f c5
             hex ad 52 00 ; lda $0052    ; 3C2CE:  ad 52 00
             asl a                       ; 3C2D1:  0a
             asl a                       ; 3C2D2:  0a
@@ -330,11 +330,11 @@ syscall_set_sprite:
             sta $0602,x                 ; 3C2E3:  9d 02 06
             hex ad 54 00 ; lda $0054    ; 3C2E6:  ad 54 00
             sta $0603,x                 ; 3C2E9:  9d 03 06
-            jsr nmi_on                ; 3C2EC:  20 8a c6
+            jsr b15_c68a                ; 3C2EC:  20 8a c6
             rts                         ; 3C2EF:  60
 
 syscall_fill_attr_quadrant:
-            jsr ppu_safe_gate                ; 3C2F0:  20 93 c6
+            jsr b15_c693                ; 3C2F0:  20 93 c6
             hex ad 52 00 ; lda $0052    ; 3C2F3:  ad 52 00
             asl a                       ; 3C2F6:  0a
             asl a                       ; 3C2F7:  0a
@@ -352,7 +352,7 @@ b15_c308:   sta PPUDATA                 ; 3C308:  8d 07 20
             rts                         ; 3C311:  60
 
 syscall_fill_nametable:
-            jsr ppu_safe_gate                ; 3C312:  20 93 c6
+            jsr b15_c693                ; 3C312:  20 93 c6
             hex ad 52 00 ; lda $0052    ; 3C315:  ad 52 00
             asl a                       ; 3C318:  0a
             asl a                       ; 3C319:  0a
@@ -430,7 +430,7 @@ syscall_read_controller:
 b15_c3ac:   rts                         ; 3C3AC:  60
 
 syscall_audio_load_voice:
-            jsr nmi_off                ; 3C3AD:  20 4f c5
+            jsr b15_c54f                ; 3C3AD:  20 4f c5
             hex ad 52 00 ; lda $0052    ; 3C3B0:  ad 52 00
             asl a                       ; 3C3B3:  0a
             clc                         ; 3C3B4:  18
@@ -442,7 +442,7 @@ syscall_audio_load_voice:
             sta $0727,x                 ; 3C3C2:  9d 27 07
             hex ad 54 00 ; lda $0054    ; 3C3C5:  ad 54 00
             sta v0_config,x                 ; 3C3C8:  9d 25 07
-            jsr nmi_on                ; 3C3CB:  20 8a c6
+            jsr b15_c68a                ; 3C3CB:  20 8a c6
             rts                         ; 3C3CE:  60
 
 syscall_audio_control:
@@ -451,11 +451,11 @@ syscall_audio_control:
             beq b15_c3f9                ; 3C3D5:  f0 22
             cmp #$02                    ; 3C3D7:  c9 02
             beq b15_c3f0                ; 3C3D9:  f0 15
-            jsr nmi_off                ; 3C3DB:  20 4f c5
+            jsr b15_c54f                ; 3C3DB:  20 4f c5
             lda #$01                    ; 3C3DE:  a9 01
             sta audio_mute_triangle,x                 ; 3C3E0:  9d 20 07
             ldy #$09                    ; 3C3E3:  a0 09
-            jsr mul_xy_by_3                ; 3C3E5:  20 ad c6
+            jsr b15_c6ad                ; 3C3E5:  20 ad c6
             lda #$00                    ; 3C3E8:  a9 00
             sta v0_trigger,y                 ; 3C3EA:  99 34 07
             jmp b15_c423                ; 3C3ED:  4c 23 c4
@@ -464,7 +464,7 @@ b15_c3f0:   lda audio_mute_triangle,x                 ; 3C3F0:  bd 20 07
             hex 8d 66 00 ; sta brk_scratch_lo    ; 3C3F3:  8d 66 00
             jmp b15_c426                ; 3C3F6:  4c 26 c4
 
-b15_c3f9:   jsr nmi_off                ; 3C3F9:  20 4f c5
+b15_c3f9:   jsr b15_c54f                ; 3C3F9:  20 4f c5
             ldx #$00                    ; 3C3FC:  a2 00
             lda #$00                    ; 3C3FE:  a9 00
 b15_c400:   sta audio_mute_triangle,x                 ; 3C400:  9d 20 07
@@ -484,7 +484,7 @@ b15_c40a:   lda #$00                    ; 3C40A:  a9 00
             sta SQ1_VOL                 ; 3C41A:  8d 00 40
             sta SQ2_VOL                 ; 3C41D:  8d 04 40
             sta TRI_LINEAR              ; 3C420:  8d 08 40
-b15_c423:   jsr nmi_on                ; 3C423:  20 8a c6
+b15_c423:   jsr b15_c68a                ; 3C423:  20 8a c6
 b15_c426:   rts                         ; 3C426:  60
 
             hex 60                      ; 3C427:  60
@@ -502,7 +502,7 @@ syscall_ppu_blit_nobank:
 b15_c439:   hex 8d 82 00 ; sta $0082    ; 3C439:  8d 82 00
             hex ac 56 00 ; ldy $0056    ; 3C43C:  ac 56 00
             ldx #$20                    ; 3C43F:  a2 20
-            jsr mul_xy_by_3                ; 3C441:  20 ad c6
+            jsr b15_c6ad                ; 3C441:  20 ad c6
             tya                         ; 3C444:  98
             clc                         ; 3C445:  18
             hex 6d 54 00 ; adc $0054    ; 3C446:  6d 54 00
@@ -529,7 +529,7 @@ b15_c439:   hex 8d 82 00 ; sta $0082    ; 3C439:  8d 82 00
             hex ed 54 00 ; sbc $0054    ; 3C475:  ed 54 00
             hex 8d 75 00 ; sta $0075    ; 3C478:  8d 75 00
             ldx #$00                    ; 3C47B:  a2 00
-b15_c47d:   jsr ppu_safe_gate                ; 3C47D:  20 93 c6
+b15_c47d:   jsr b15_c693                ; 3C47D:  20 93 c6
             hex ad 68 00 ; lda brk_jmp_target_lo    ; 3C480:  ad 68 00
             sta PPUADDR                 ; 3C483:  8d 06 20
             hex ad 69 00 ; lda brk_jmp_target_hi    ; 3C486:  ad 69 00
@@ -591,7 +591,7 @@ b15_c503:   hex ad 77 00 ; lda $0077    ; 3C503:  ad 77 00
             hex 8d 54 00 ; sta $0054    ; 3C50C:  8d 54 00
 b15_c50f:   hex ad 5c 00 ; lda $005c    ; 3C50F:  ad 5c 00
             hex 8d 58 00 ; sta $0058    ; 3C512:  8d 58 00
-            jsr ppu_safe_gate                ; 3C515:  20 93 c6
+            jsr b15_c693                ; 3C515:  20 93 c6
             jsr b15_c640                ; 3C518:  20 40 c6
             jsr b15_c673                ; 3C51B:  20 73 c6
             jsr b15_c711                ; 3C51E:  20 11 c7
@@ -606,7 +606,7 @@ b15_c50f:   hex ad 5c 00 ; lda $005c    ; 3C50F:  ad 5c 00
 
             hex 60 60                   ; 3C535:  60 60
 
-wait_vblank:   hex ad 80 00 ; lda skip_vblank_wait    ; 3C537:  ad 80 00
+b15_c537:   hex ad 80 00 ; lda skip_vblank_wait    ; 3C537:  ad 80 00
             bne b15_c54e                ; 3C53A:  d0 12
             pha                         ; 3C53C:  48
             txa                         ; 3C53D:  8a
@@ -623,24 +623,24 @@ b15_c549:   lda PPUSTATUS               ; 3C549:  ad 02 20
             bpl b15_c549                ; 3C54C:  10 fb
 b15_c54e:   rts                         ; 3C54E:  60
 
-nmi_off:   hex ad 71 00 ; lda ppuctrl_shadow    ; 3C54F:  ad 71 00
+b15_c54f:   hex ad 71 00 ; lda ppuctrl_shadow    ; 3C54F:  ad 71 00
             and #$7f                    ; 3C552:  29 7f
-            jsr write_ppuctrl                ; 3C554:  20 a6 c6
+            jsr b15_c6a6                ; 3C554:  20 a6 c6
             rts                         ; 3C557:  60
 
 b15_c558:   lda #$00                    ; 3C558:  a9 00
             sta PPUSCROLL               ; 3C55A:  8d 05 20
             sta PPUSCROLL               ; 3C55D:  8d 05 20
-            jsr rendering_on                ; 3C560:  20 67 c5
-            jsr nmi_on                ; 3C563:  20 8a c6
+            jsr b15_c567                ; 3C560:  20 67 c5
+            jsr b15_c68a                ; 3C563:  20 8a c6
             rts                         ; 3C566:  60
 
-rendering_on:   hex ad 72 00 ; lda ppumask_shadow    ; 3C567:  ad 72 00
+b15_c567:   hex ad 72 00 ; lda ppumask_shadow    ; 3C567:  ad 72 00
             ora #$18                    ; 3C56A:  09 18
-            jsr write_ppumask                ; 3C56C:  20 70 c5
+            jsr b15_c570                ; 3C56C:  20 70 c5
             rts                         ; 3C56F:  60
 
-write_ppumask:   sta PPUMASK                 ; 3C570:  8d 01 20
+b15_c570:   sta PPUMASK                 ; 3C570:  8d 01 20
             hex 8d 72 00 ; sta ppumask_shadow    ; 3C573:  8d 72 00
             rts                         ; 3C576:  60
 
@@ -650,7 +650,7 @@ set_prg_bank:   hex cd 73 00 ; cmp kernel_var_73    ; 3C577:  cd 73 00
             hex ad 71 00 ; lda ppuctrl_shadow    ; 3C57D:  ad 71 00
             pha                         ; 3C580:  48
             bpl b15_c586                ; 3C581:  10 03
-            jsr nmi_off                ; 3C583:  20 4f c5
+            jsr b15_c54f                ; 3C583:  20 4f c5
 b15_c586:   pla                         ; 3C586:  68
             hex 8d 71 00 ; sta ppuctrl_shadow    ; 3C587:  8d 71 00
             pla                         ; 3C58A:  68
@@ -666,13 +666,13 @@ b15_c586:   pla                         ; 3C586:  68
             sta $fff0                   ; 3C59E:  8d f0 ff
             hex ad 71 00 ; lda ppuctrl_shadow    ; 3C5A1:  ad 71 00
             bpl b15_c5a9                ; 3C5A4:  10 03
-            jsr nmi_on                ; 3C5A6:  20 8a c6
+            jsr b15_c68a                ; 3C5A6:  20 8a c6
 b15_c5a9:   rts                         ; 3C5A9:  60
 
 syscall_sram_block_with_checksum:   lda ptr1_hi                     ; 3C5AA:  a5 03
             cmp #$02                    ; 3C5AC:  c9 02
             beq syscall_sram_block_with_checksum                ; 3C5AE:  f0 fa
-            jsr nmi_off                ; 3C5B0:  20 4f c5
+            jsr b15_c54f                ; 3C5B0:  20 4f c5
             lda #$00                    ; 3C5B3:  a9 00
             sta $bfff                   ; 3C5B5:  8d ff bf
             sta $bfff                   ; 3C5B8:  8d ff bf
@@ -709,11 +709,11 @@ b15_c5ed:   lda $0200,y                 ; 3C5ED:  b9 00 02
             tya                         ; 3C602:  98
             hex cd 58 00 ; cmp $0058    ; 3C603:  cd 58 00
             bne b15_c5ed                ; 3C606:  d0 e5
-            jsr nmi_on                ; 3C608:  20 8a c6
+            jsr b15_c68a                ; 3C608:  20 8a c6
             rts                         ; 3C60B:  60
 
 syscall_set_chr_bank0_reg:
-            jsr nmi_off                ; 3C60C:  20 4f c5
+            jsr b15_c54f                ; 3C60C:  20 4f c5
             lda #$00                    ; 3C60F:  a9 00
             sta $bfff                   ; 3C611:  8d ff bf
             sta $bfff                   ; 3C614:  8d ff bf
@@ -722,10 +722,10 @@ syscall_set_chr_bank0_reg:
             sta $bfff                   ; 3C61D:  8d ff bf
             lsr a                       ; 3C620:  4a
             sta $bfff                   ; 3C621:  8d ff bf
-            jsr nmi_on                ; 3C624:  20 8a c6
+            jsr b15_c68a                ; 3C624:  20 8a c6
             rts                         ; 3C627:  60
 
-controller_poll:   tax                         ; 3C628:  aa
+b15_c628:   tax                         ; 3C628:  aa
             lda #$01                    ; 3C629:  a9 01
             sta JOY1                    ; 3C62B:  8d 16 40
             lda #$00                    ; 3C62E:  a9 00
@@ -777,26 +777,26 @@ b15_c673:   hex ad 54 00 ; lda $0054    ; 3C673:  ad 54 00
             hex 8d 75 00 ; sta $0075    ; 3C686:  8d 75 00
             rts                         ; 3C689:  60
 
-nmi_on:   hex ad 71 00 ; lda ppuctrl_shadow    ; 3C68A:  ad 71 00
+b15_c68a:   hex ad 71 00 ; lda ppuctrl_shadow    ; 3C68A:  ad 71 00
             ora #$80                    ; 3C68D:  09 80
-            jsr write_ppuctrl                ; 3C68F:  20 a6 c6
+            jsr b15_c6a6                ; 3C68F:  20 a6 c6
             rts                         ; 3C692:  60
 
-ppu_safe_gate:   jsr nmi_off                ; 3C693:  20 4f c5
-            jsr wait_vblank                ; 3C696:  20 37 c5
-            jsr rendering_off                ; 3C699:  20 9d c6
+b15_c693:   jsr b15_c54f                ; 3C693:  20 4f c5
+            jsr b15_c537                ; 3C696:  20 37 c5
+            jsr b15_c69d                ; 3C699:  20 9d c6
             rts                         ; 3C69C:  60
 
-rendering_off:   hex ad 72 00 ; lda ppumask_shadow    ; 3C69D:  ad 72 00
+b15_c69d:   hex ad 72 00 ; lda ppumask_shadow    ; 3C69D:  ad 72 00
             and #$e7                    ; 3C6A0:  29 e7
-            jsr write_ppumask                ; 3C6A2:  20 70 c5
+            jsr b15_c570                ; 3C6A2:  20 70 c5
             rts                         ; 3C6A5:  60
 
-write_ppuctrl:   sta PPUCTRL                 ; 3C6A6:  8d 00 20
+b15_c6a6:   sta PPUCTRL                 ; 3C6A6:  8d 00 20
             hex 8d 71 00 ; sta ppuctrl_shadow    ; 3C6A9:  8d 71 00
             rts                         ; 3C6AC:  60
 
-mul_xy_by_3:   lda #$00                    ; 3C6AD:  a9 00
+b15_c6ad:   lda #$00                    ; 3C6AD:  a9 00
             hex 8d 75 00 ; sta $0075    ; 3C6AF:  8d 75 00
             hex 8d 76 00 ; sta $0076    ; 3C6B2:  8d 76 00
             cpx #$00                    ; 3C6B5:  e0 00
@@ -815,9 +815,9 @@ b15_c6cd:   hex ac 75 00 ; ldy $0075    ; 3C6CD:  ac 75 00
             hex ae 76 00 ; ldx $0076    ; 3C6D0:  ae 76 00
             rts                         ; 3C6D3:  60
 
-palette_upload:   hex ad 74 00 ; lda palette_dirty    ; 3C6D4:  ad 74 00
+b15_c6d4:   hex ad 74 00 ; lda palette_dirty    ; 3C6D4:  ad 74 00
             beq b15_c710                ; 3C6D7:  f0 37
-            jsr rendering_off                ; 3C6D9:  20 9d c6
+            jsr b15_c69d                ; 3C6D9:  20 9d c6
             lda #$3f                    ; 3C6DC:  a9 3f
             sta PPUADDR                 ; 3C6DE:  8d 06 20
             lda #$00                    ; 3C6E1:  a9 00
@@ -836,7 +836,7 @@ b15_c6e7:   lda palette_shadow,x                 ; 3C6E7:  bd 00 07
             sta PPUADDR                 ; 3C6FF:  8d 06 20
             sta PPUSCROLL               ; 3C702:  8d 05 20
             sta PPUSCROLL               ; 3C705:  8d 05 20
-            jsr rendering_on                ; 3C708:  20 67 c5
+            jsr b15_c567                ; 3C708:  20 67 c5
             lda #$00                    ; 3C70B:  a9 00
             hex 8d 74 00 ; sta palette_dirty    ; 3C70D:  8d 74 00
 b15_c710:   rts                         ; 3C710:  60
@@ -871,7 +871,7 @@ b15_c73b:   hex 2d 76 00 ; and $0076    ; 3C73B:  2d 76 00
             sta PPUDATA                 ; 3C753:  8d 07 20
             rts                         ; 3C756:  60
 
-b15_c757:   jsr ppu_safe_gate                ; 3C757:  20 93 c6
+b15_c757:   jsr b15_c693                ; 3C757:  20 93 c6
             lda #$00                    ; 3C75A:  a9 00
             sta PPUADDR                 ; 3C75C:  8d 06 20
             sta PPUADDR                 ; 3C75F:  8d 06 20
@@ -910,14 +910,13 @@ tab_b15_c794: ; 22 bytes
             iny                         ; 3C7AA:  c8
             rts                         ; 3C7AB:  60
 
-music_trigger_pass:
             lda #$00                    ; 3C7AC:  a9 00
             hex 8d 79 00 ; sta music_voice_idx    ; 3C7AE:  8d 79 00
             lda #$34                    ; 3C7B1:  a9 34
             hex 8d 7a 00 ; sta music_ptr_lo    ; 3C7B3:  8d 7a 00
             lda #$07                    ; 3C7B6:  a9 07
             hex 8d 7b 00 ; sta music_ptr_hi    ; 3C7B8:  8d 7b 00
-b15_c7bb:   jsr music_voice_check                ; 3C7BB:  20 de c7
+b15_c7bb:   jsr b15_c7de                ; 3C7BB:  20 de c7
             jsr b15_c7c9                ; 3C7BE:  20 c9 c7
             hex ad 79 00 ; lda music_voice_idx    ; 3C7C1:  ad 79 00
             cmp #$05                    ; 3C7C4:  c9 05
@@ -934,17 +933,17 @@ b15_c7c9:   hex ee 79 00 ; inc music_voice_idx    ; 3C7C9:  ee 79 00
             hex 8d 7b 00 ; sta music_ptr_hi    ; 3C7DA:  8d 7b 00
             rts                         ; 3C7DD:  60
 
-music_voice_check:   ldy #$00                    ; 3C7DE:  a0 00
+b15_c7de:   ldy #$00                    ; 3C7DE:  a0 00
             lda (music_ptr_lo),y                 ; 3C7E0:  b1 7a
             beq b15_c7ee                ; 3C7E2:  f0 0a
             cmp #$05                    ; 3C7E4:  c9 05
             bcc b15_c7eb                ; 3C7E6:  90 03
             jmp b15_c7ee                ; 3C7E8:  4c ee c7
 
-b15_c7eb:   jsr music_voice_play                ; 3C7EB:  20 ef c7
+b15_c7eb:   jsr b15_c7ef                ; 3C7EB:  20 ef c7
 b15_c7ee:   rts                         ; 3C7EE:  60
 
-music_voice_play:   tax                         ; 3C7EF:  aa
+b15_c7ef:   tax                         ; 3C7EF:  aa
             dex                         ; 3C7F0:  ca
             txa                         ; 3C7F1:  8a
             clc                         ; 3C7F2:  18
@@ -969,7 +968,6 @@ b15_c80b:   lda (music_ptr_lo),y                 ; 3C80B:  b1 7a
             bne b15_c80b                ; 3C814:  d0 f5
 b15_c816:   rts                         ; 3C816:  60
 
-music_sequencer_pass:
             lda #$00                    ; 3C817:  a9 00
             hex 8d 79 00 ; sta music_voice_idx    ; 3C819:  8d 79 00
             lda #$34                    ; 3C81C:  a9 34
@@ -1456,14 +1454,14 @@ tab_b15_ceb1: ; 154 bytes
 
             sbc #$54                    ; 3CF4B:  e9 54
             cpy tab_b15_ceb1+91         ; 3CF4D:  cc 0c cf
-            jsr b15_e823                ; 3CF50:  20 23 e8
+            jsr vm_entry                ; 3CF50:  20 23 e8
             brk                         ; 3CF53:  00
             hex 00                      ; 3CF54:  00
             adc ($60,x)                 ; 3CF55:  61 60
             adc $e9                     ; 3CF57:  65 e9
             rol $f2                     ; 3CF59:  26 f2
             asl $cf                     ; 3CF5B:  06 cf
-            jsr b15_e823                ; 3CF5D:  20 23 e8
+            jsr vm_entry                ; 3CF5D:  20 23 e8
             brk                         ; 3CF60:  00
             hex 00                      ; 3CF61:  00
             rts                         ; 3CF62:  60
@@ -2391,7 +2389,7 @@ tab_b15_e6fa: ; 28 bytes
             hex 22 e8 0c a8 cb 7f 6e e9 ; 3E817:  22 e8 0c a8 cb 7f 6e e9
             hex b1 cb 02 cf             ; 3E81F:  b1 cb 02 cf
 
-b15_e823:   pla                         ; 3E823:  68
+vm_entry:   pla                         ; 3E823:  68
             sta $08                     ; 3E824:  85 08
             pla                         ; 3E826:  68
             sta $09                     ; 3E827:  85 09
@@ -2429,7 +2427,7 @@ b15_e83e:   hex b9 00 00 ; lda ptr0_lo,y  ; 3E83E:  b9 00 00
             lda $09                     ; 3E861:  a5 09
             adc #$00                    ; 3E863:  69 00
             sta ptr3_hi                     ; 3E865:  85 07
-b15_e867:   ldy #$00                    ; 3E867:  a0 00
+vm_dispatch:   ldy #$00                    ; 3E867:  a0 00
             lda (ptr3_lo),y                 ; 3E869:  b1 06
             inc ptr3_lo                     ; 3E86B:  e6 06
             bne b15_e871                ; 3E86D:  d0 02
@@ -2441,30 +2439,31 @@ b15_e871:   tax                         ; 3E871:  aa
             sta ptr0_hi                     ; 3E87A:  85 01
             jmp (ptr0_lo)                 ; 3E87C:  6c 00 00
 
+vm_op_00_load_offset:
             lda #$e8                    ; 3E87F:  a9 e8
-            bne b15_e8ad                ; 3E881:  d0 2a
+            bne vm_op_load_tail                ; 3E881:  d0 2a
             lda #$ea                    ; 3E883:  a9 ea
-            bne b15_e8ad                ; 3E885:  d0 26
+            bne vm_op_load_tail                ; 3E885:  d0 26
             lda #$ec                    ; 3E887:  a9 ec
-            bne b15_e8ad                ; 3E889:  d0 22
+            bne vm_op_load_tail                ; 3E889:  d0 22
             lda #$ee                    ; 3E88B:  a9 ee
-            bne b15_e8ad                ; 3E88D:  d0 1e
+            bne vm_op_load_tail                ; 3E88D:  d0 1e
             lda #$f0                    ; 3E88F:  a9 f0
-            bne b15_e8ad                ; 3E891:  d0 1a
+            bne vm_op_load_tail                ; 3E891:  d0 1a
             lda #$f2                    ; 3E893:  a9 f2
-            bne b15_e8ad                ; 3E895:  d0 16
+            bne vm_op_load_tail                ; 3E895:  d0 16
             lda #$f4                    ; 3E897:  a9 f4
-            bne b15_e8ad                ; 3E899:  d0 12
+            bne vm_op_load_tail                ; 3E899:  d0 12
             lda #$f6                    ; 3E89B:  a9 f6
-            bne b15_e8ad                ; 3E89D:  d0 0e
+            bne vm_op_load_tail                ; 3E89D:  d0 0e
             lda #$f8                    ; 3E89F:  a9 f8
-            bne b15_e8ad                ; 3E8A1:  d0 0a
+            bne vm_op_load_tail                ; 3E8A1:  d0 0a
             lda #$fa                    ; 3E8A3:  a9 fa
-            bne b15_e8ad                ; 3E8A5:  d0 06
+            bne vm_op_load_tail                ; 3E8A5:  d0 06
             lda #$fc                    ; 3E8A7:  a9 fc
-            bne b15_e8ad                ; 3E8A9:  d0 02
+            bne vm_op_load_tail                ; 3E8A9:  d0 02
             lda #$fe                    ; 3E8AB:  a9 fe
-b15_e8ad:   clc                         ; 3E8AD:  18
+vm_op_load_tail:   clc                         ; 3E8AD:  18
             adc ptr2_lo                     ; 3E8AE:  65 04
             sta ptr0_lo                     ; 3E8B0:  85 00
             lda #$ff                    ; 3E8B2:  a9 ff
@@ -2475,7 +2474,7 @@ b15_e8ad:   clc                         ; 3E8AD:  18
             iny                         ; 3E8BC:  c8
             lda (ptr0_lo),y                 ; 3E8BD:  b1 00
             sta $09                     ; 3E8BF:  85 09
-            jmp b15_e867                ; 3E8C1:  4c 67 e8
+            jmp vm_dispatch                ; 3E8C1:  4c 67 e8
 
             ldy #$11                    ; 3E8C4:  a0 11
             bne b15_e8d2                ; 3E8C6:  d0 0a
@@ -2489,7 +2488,7 @@ b15_e8d2:   lda (ptr2_lo),y                 ; 3E8D2:  b1 04
             iny                         ; 3E8D6:  c8
             lda (ptr2_lo),y                 ; 3E8D7:  b1 04
             sta $09                     ; 3E8D9:  85 09
-            jmp b15_e867                ; 3E8DB:  4c 67 e8
+            jmp vm_dispatch                ; 3E8DB:  4c 67 e8
 
             lda #$e8                    ; 3E8DE:  a9 e8
             bne b15_e90c                ; 3E8E0:  d0 2a
@@ -2525,7 +2524,7 @@ b15_e90c:   clc                         ; 3E90C:  18
             iny                         ; 3E91B:  c8
             lda (ptr0_lo),y                 ; 3E91C:  b1 00
             sta $0d                     ; 3E91E:  85 0d
-            jmp b15_e867                ; 3E920:  4c 67 e8
+            jmp vm_dispatch                ; 3E920:  4c 67 e8
 
             ldy #$11                    ; 3E923:  a0 11
             bne b15_e931                ; 3E925:  d0 0a
@@ -2539,7 +2538,7 @@ b15_e931:   lda (ptr2_lo),y                 ; 3E931:  b1 04
             iny                         ; 3E935:  c8
             lda (ptr2_lo),y                 ; 3E936:  b1 04
             sta $0d                     ; 3E938:  85 0d
-            jmp b15_e867                ; 3E93A:  4c 67 e8
+            jmp vm_dispatch                ; 3E93A:  4c 67 e8
 
             lda #$e8                    ; 3E93D:  a9 e8
             bne b15_e96b                ; 3E93F:  d0 2a
@@ -2575,7 +2574,7 @@ b15_e96b:   clc                         ; 3E96B:  18
             iny                         ; 3E97A:  c8
             lda $09                     ; 3E97B:  a5 09
             sta (ptr0_lo),y                 ; 3E97D:  91 00
-            jmp b15_e867                ; 3E97F:  4c 67 e8
+            jmp vm_dispatch                ; 3E97F:  4c 67 e8
 
             ldy #$11                    ; 3E982:  a0 11
             bne b15_e990                ; 3E984:  d0 0a
@@ -2589,7 +2588,7 @@ b15_e990:   lda $08                     ; 3E990:  a5 08
             iny                         ; 3E994:  c8
             lda $09                     ; 3E995:  a5 09
             sta (ptr2_lo),y                 ; 3E997:  91 04
-            jmp b15_e867                ; 3E999:  4c 67 e8
+            jmp vm_dispatch                ; 3E999:  4c 67 e8
 
             lda #$e8                    ; 3E99C:  a9 e8
             bne b15_e9ca                ; 3E99E:  d0 2a
@@ -2644,21 +2643,21 @@ b15_e9ed:   lda (ptr2_lo),y                 ; 3E9ED:  b1 04
             and #$0f                    ; 3E9F7:  29 0f
             sta $08                     ; 3E9F9:  85 08
             sty $09                     ; 3E9FB:  84 09
-            jmp b15_e867                ; 3E9FD:  4c 67 e8
+            jmp vm_dispatch                ; 3E9FD:  4c 67 e8
 
             sty $08                     ; 3EA00:  84 08
             sty $09                     ; 3EA02:  84 09
-            jmp b15_e867                ; 3EA04:  4c 67 e8
+            jmp vm_dispatch                ; 3EA04:  4c 67 e8
 
             txa                         ; 3EA07:  8a
             and #$0f                    ; 3EA08:  29 0f
             sta $0c                     ; 3EA0A:  85 0c
             sty $0d                     ; 3EA0C:  84 0d
-            jmp b15_e867                ; 3EA0E:  4c 67 e8
+            jmp vm_dispatch                ; 3EA0E:  4c 67 e8
 
             sty $0c                     ; 3EA11:  84 0c
             sty $0d                     ; 3EA13:  84 0d
-            jmp b15_e867                ; 3EA15:  4c 67 e8
+            jmp vm_dispatch                ; 3EA15:  4c 67 e8
 
             txa                         ; 3EA18:  8a
             and #$0f                    ; 3EA19:  29 0f
@@ -2672,7 +2671,7 @@ b15_e9ed:   lda (ptr2_lo),y                 ; 3E9ED:  b1 04
             sta $08                     ; 3EA26:  85 08
             bcc b15_ea2c                ; 3EA28:  90 02
             inc $09                     ; 3EA2A:  e6 09
-b15_ea2c:   jmp b15_e867                ; 3EA2C:  4c 67 e8
+b15_ea2c:   jmp vm_dispatch                ; 3EA2C:  4c 67 e8
 
             jsr b15_efec                ; 3EA2F:  20 ec ef
             bcc b15_ea37                ; 3EA32:  90 03
@@ -2682,9 +2681,9 @@ b15_ea37:   lda (ptr0_lo),y                 ; 3EA37:  b1 00
             iny                         ; 3EA3B:  c8
             lda (ptr0_lo),y                 ; 3EA3C:  b1 00
             sta $09                     ; 3EA3E:  85 09
-            jmp b15_e867                ; 3EA40:  4c 67 e8
+            jmp vm_dispatch                ; 3EA40:  4c 67 e8
 
-            jsr b15_efd5                ; 3EA43:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3EA43:  20 d5 ef
             bcc b15_ea37                ; 3EA46:  90 ef
             jsr b15_efa6                ; 3EA48:  20 a6 ef
 b15_ea4b:   lda (ptr0_lo),y                 ; 3EA4B:  b1 00
@@ -2692,11 +2691,11 @@ b15_ea4b:   lda (ptr0_lo),y                 ; 3EA4B:  b1 00
             iny                         ; 3EA4F:  c8
             lda (ptr0_lo),y                 ; 3EA50:  b1 00
             sta $0d                     ; 3EA52:  85 0d
-            jmp b15_e867                ; 3EA54:  4c 67 e8
+            jmp vm_dispatch                ; 3EA54:  4c 67 e8
 
             jsr b15_efec                ; 3EA57:  20 ec ef
             bcc b15_ea4b                ; 3EA5A:  90 ef
-            jsr b15_efd5                ; 3EA5C:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3EA5C:  20 d5 ef
             bcc b15_ea4b                ; 3EA5F:  90 ea
             jsr b15_efa6                ; 3EA61:  20 a6 ef
 b15_ea64:   lda $08                     ; 3EA64:  a5 08
@@ -2704,11 +2703,11 @@ b15_ea64:   lda $08                     ; 3EA64:  a5 08
             iny                         ; 3EA68:  c8
             lda $09                     ; 3EA69:  a5 09
             sta (ptr0_lo),y                 ; 3EA6B:  91 00
-            jmp b15_e867                ; 3EA6D:  4c 67 e8
+            jmp vm_dispatch                ; 3EA6D:  4c 67 e8
 
             jsr b15_efec                ; 3EA70:  20 ec ef
             bcc b15_ea64                ; 3EA73:  90 ef
-            jsr b15_efd5                ; 3EA75:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3EA75:  20 d5 ef
             bcc b15_ea64                ; 3EA78:  90 ea
             jsr b15_efa6                ; 3EA7A:  20 a6 ef
 b15_ea7d:   iny                         ; 3EA7D:  c8
@@ -2720,7 +2719,7 @@ b15_ea7d:   iny                         ; 3EA7D:  c8
 
             jsr b15_efec                ; 3EA87:  20 ec ef
             bcc b15_ea7d                ; 3EA8A:  90 f1
-            jsr b15_efd5                ; 3EA8C:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3EA8C:  20 d5 ef
             bcc b15_ea7d                ; 3EA8F:  90 ec
             jsr b15_efbf                ; 3EA91:  20 bf ef
             adc ptr2_lo                     ; 3EA94:  65 04
@@ -2728,7 +2727,7 @@ b15_ea7d:   iny                         ; 3EA7D:  c8
             txa                         ; 3EA98:  8a
             adc ptr2_hi                     ; 3EA99:  65 05
             sta $09                     ; 3EA9B:  85 09
-            jmp b15_e867                ; 3EA9D:  4c 67 e8
+            jmp vm_dispatch                ; 3EA9D:  4c 67 e8
 
             jsr b15_efbf                ; 3EAA0:  20 bf ef
             adc ptr2_lo                     ; 3EAA3:  65 04
@@ -2736,19 +2735,19 @@ b15_ea7d:   iny                         ; 3EA7D:  c8
             txa                         ; 3EAA7:  8a
             adc ptr2_hi                     ; 3EAA8:  65 05
             sta $0d                     ; 3EAAA:  85 0d
-            jmp b15_e867                ; 3EAAC:  4c 67 e8
+            jmp vm_dispatch                ; 3EAAC:  4c 67 e8
 
             jsr b15_ef97                ; 3EAAF:  20 97 ef
 b15_eab2:   sta $08                     ; 3EAB2:  85 08
             stx $09                     ; 3EAB4:  86 09
-            jmp b15_e867                ; 3EAB6:  4c 67 e8
+            jmp vm_dispatch                ; 3EAB6:  4c 67 e8
 
             jsr b15_efbf                ; 3EAB9:  20 bf ef
             bcc b15_eab2                ; 3EABC:  90 f4
             jsr b15_ef97                ; 3EABE:  20 97 ef
 b15_eac1:   sta $0c                     ; 3EAC1:  85 0c
             stx $0d                     ; 3EAC3:  86 0d
-            jmp b15_e867                ; 3EAC5:  4c 67 e8
+            jmp vm_dispatch                ; 3EAC5:  4c 67 e8
 
             jsr b15_efbf                ; 3EAC8:  20 bf ef
             bcc b15_eac1                ; 3EACB:  90 f4
@@ -2764,7 +2763,7 @@ b15_eadc:   adc $08                     ; 3EADC:  65 08
             txa                         ; 3EAE0:  8a
             adc $09                     ; 3EAE1:  65 09
             sta $09                     ; 3EAE3:  85 09
-            jmp b15_e867                ; 3EAE5:  4c 67 e8
+            jmp vm_dispatch                ; 3EAE5:  4c 67 e8
 
             jsr b15_efbf                ; 3EAE8:  20 bf ef
             bcc b15_eadc                ; 3EAEB:  90 ef
@@ -2772,31 +2771,31 @@ b15_eadc:   adc $08                     ; 3EADC:  65 08
 b15_eaf0:   lda (ptr0_lo),y                 ; 3EAF0:  b1 00
             sta $08                     ; 3EAF2:  85 08
             sty $09                     ; 3EAF4:  84 09
-            jmp b15_e867                ; 3EAF6:  4c 67 e8
+            jmp vm_dispatch                ; 3EAF6:  4c 67 e8
 
-            jsr b15_efd5                ; 3EAF9:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3EAF9:  20 d5 ef
             bcc b15_eaf0                ; 3EAFC:  90 f2
             jsr b15_efec                ; 3EAFE:  20 ec ef
 b15_eb01:   lda (ptr0_lo),y                 ; 3EB01:  b1 00
             sta $0c                     ; 3EB03:  85 0c
             sty $0d                     ; 3EB05:  84 0d
-            jmp b15_e867                ; 3EB07:  4c 67 e8
+            jmp vm_dispatch                ; 3EB07:  4c 67 e8
 
-            jsr b15_efd5                ; 3EB0A:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3EB0A:  20 d5 ef
             bcc b15_eb01                ; 3EB0D:  90 f2
             jsr b15_efec                ; 3EB0F:  20 ec ef
 b15_eb12:   lda $08                     ; 3EB12:  a5 08
             sta (ptr0_lo),y                 ; 3EB14:  91 00
-            jmp b15_e867                ; 3EB16:  4c 67 e8
+            jmp vm_dispatch                ; 3EB16:  4c 67 e8
 
-            jsr b15_efd5                ; 3EB19:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3EB19:  20 d5 ef
             bcc b15_eb12                ; 3EB1C:  90 f4
             jsr b15_efec                ; 3EB1E:  20 ec ef
 b15_eb21:   lda (ptr0_lo),y                 ; 3EB21:  b1 00
             ldx #$00                    ; 3EB23:  a2 00
             jmp b15_f008                ; 3EB25:  4c 08 f0
 
-            jsr b15_efd5                ; 3EB28:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3EB28:  20 d5 ef
             bcc b15_eb21                ; 3EB2B:  90 f4
             lda $08                     ; 3EB2D:  a5 08
             sta ptr0_lo                     ; 3EB2F:  85 00
@@ -2804,10 +2803,11 @@ b15_eb21:   lda (ptr0_lo),y                 ; 3EB21:  b1 00
             sta ptr0_hi                     ; 3EB33:  85 01
             jmp b15_eb3b                ; 3EB35:  4c 3b eb
 
-            jsr b15_efd5                ; 3EB38:  20 d5 ef
-b15_eb3b:   jsr b15_eb57                ; 3EB3B:  20 57 eb
+vm_op_E9_host_call:
+            jsr vm_read_word_into_ptr0                ; 3EB38:  20 d5 ef
+b15_eb3b:   jsr vm_call_native                ; 3EB3B:  20 57 eb
             ldy #$00                    ; 3EB3E:  a0 00
-            jmp b15_eb9e                ; 3EB40:  4c 9e eb
+            jmp vm_dispatch_with_ptr1_adjust                ; 3EB40:  4c 9e eb
 
             lda $08                     ; 3EB43:  a5 08
             sta ptr0_lo                     ; 3EB45:  85 00
@@ -2815,11 +2815,12 @@ b15_eb3b:   jsr b15_eb57                ; 3EB3B:  20 57 eb
             sta ptr0_hi                     ; 3EB49:  85 01
             jmp b15_eb51                ; 3EB4B:  4c 51 eb
 
-            jsr b15_efd5                ; 3EB4E:  20 d5 ef
-b15_eb51:   jsr b15_eb57                ; 3EB51:  20 57 eb
-            jmp b15_e867                ; 3EB54:  4c 67 e8
+vm_op_AC_host_call_simple:
+            jsr vm_read_word_into_ptr0                ; 3EB4E:  20 d5 ef
+b15_eb51:   jsr vm_call_native                ; 3EB51:  20 57 eb
+            jmp vm_dispatch                ; 3EB54:  4c 67 e8
 
-b15_eb57:   sec                         ; 3EB57:  38
+vm_call_native:   sec                         ; 3EB57:  38
             lda ptr1_lo                     ; 3EB58:  a5 02
             sbc #$02                    ; 3EB5A:  e9 02
             sta ptr1_lo                     ; 3EB5C:  85 02
@@ -2840,6 +2841,7 @@ b15_eb62:   lda ptr3_lo                     ; 3EB62:  a5 06
 b15_eb79:   rts                         ; 3EB79:  60
 
 tab_b15_eb7a: ; 3 bytes
+indirect_jmp_trampoline:
             hex 6c 00 00                ; 3EB7A:  6c 00 00
 
             jsr b15_efbf                ; 3EB7D:  20 bf ef
@@ -2849,7 +2851,7 @@ tab_b15_eb7a: ; 3 bytes
             bne b15_eb8e                ; 3EB85:  d0 07
 b15_eb87:   dec ptr0_lo                     ; 3EB87:  c6 00
             bpl b15_eb8e                ; 3EB89:  10 03
-            jmp b15_e867                ; 3EB8B:  4c 67 e8
+            jmp vm_dispatch                ; 3EB8B:  4c 67 e8
 
 b15_eb8e:   lda ($08),y                 ; 3EB8E:  b1 08
             sta ($0c),y                 ; 3EB90:  91 0c
@@ -2860,12 +2862,12 @@ b15_eb8e:   lda ($08),y                 ; 3EB8E:  b1 08
 b15_eb99:   dex                         ; 3EB99:  ca
             beq b15_eb87                ; 3EB9A:  f0 eb
             bne b15_eb8e                ; 3EB9C:  d0 f0
-b15_eb9e:   jsr b15_ef97                ; 3EB9E:  20 97 ef
+vm_dispatch_with_ptr1_adjust:   jsr b15_ef97                ; 3EB9E:  20 97 ef
             adc ptr1_lo                     ; 3EBA1:  65 02
             sta ptr1_lo                     ; 3EBA3:  85 02
             bcc b15_eba9                ; 3EBA5:  90 02
             inc ptr1_hi                     ; 3EBA7:  e6 03
-b15_eba9:   jmp b15_e867                ; 3EBA9:  4c 67 e8
+b15_eba9:   jmp vm_dispatch                ; 3EBA9:  4c 67 e8
 
             jsr b15_efbf                ; 3EBAC:  20 bf ef
             adc ptr1_lo                     ; 3EBAF:  65 02
@@ -2873,18 +2875,18 @@ b15_eba9:   jmp b15_e867                ; 3EBA9:  4c 67 e8
             txa                         ; 3EBB3:  8a
             adc ptr1_hi                     ; 3EBB4:  65 03
             sta ptr1_hi                     ; 3EBB6:  85 03
-            jmp b15_e867                ; 3EBB8:  4c 67 e8
+            jmp vm_dispatch                ; 3EBB8:  4c 67 e8
 
 b15_ebbb:   jsr b15_efbf                ; 3EBBB:  20 bf ef
             sta ptr3_lo                     ; 3EBBE:  85 06
             stx ptr3_hi                     ; 3EBC0:  86 07
-            jmp b15_e867                ; 3EBC2:  4c 67 e8
+            jmp vm_dispatch                ; 3EBC2:  4c 67 e8
 
             lda $08                     ; 3EBC5:  a5 08
             ora $09                     ; 3EBC7:  05 09
             bne b15_ebbb                ; 3EBC9:  d0 f0
 b15_ebcb:   jsr b15_efbf                ; 3EBCB:  20 bf ef
-            jmp b15_e867                ; 3EBCE:  4c 67 e8
+            jmp vm_dispatch                ; 3EBCE:  4c 67 e8
 
             lda $08                     ; 3EBD1:  a5 08
             ora $09                     ; 3EBD3:  05 09
@@ -2895,13 +2897,13 @@ b15_ebd9:   jsr b15_ef97                ; 3EBD9:  20 97 ef
             sta ptr3_lo                     ; 3EBDE:  85 06
             bcs b15_ebe4                ; 3EBE0:  b0 02
             dec ptr3_hi                     ; 3EBE2:  c6 07
-b15_ebe4:   jmp b15_e867                ; 3EBE4:  4c 67 e8
+b15_ebe4:   jmp vm_dispatch                ; 3EBE4:  4c 67 e8
 
             lda $08                     ; 3EBE7:  a5 08
             ora $09                     ; 3EBE9:  05 09
             bne b15_ebd9                ; 3EBEB:  d0 ec
 b15_ebed:   jsr b15_ef97                ; 3EBED:  20 97 ef
-            jmp b15_e867                ; 3EBF0:  4c 67 e8
+            jmp vm_dispatch                ; 3EBF0:  4c 67 e8
 
             lda $08                     ; 3EBF3:  a5 08
             ora $09                     ; 3EBF5:  05 09
@@ -2912,13 +2914,13 @@ b15_ebfb:   jsr b15_ef97                ; 3EBFB:  20 97 ef
             sta ptr3_lo                     ; 3EC00:  85 06
             bcc b15_ec06                ; 3EC02:  90 02
             inc ptr3_hi                     ; 3EC04:  e6 07
-b15_ec06:   jmp b15_e867                ; 3EC06:  4c 67 e8
+b15_ec06:   jmp vm_dispatch                ; 3EC06:  4c 67 e8
 
             lda $08                     ; 3EC09:  a5 08
             ora $09                     ; 3EC0B:  05 09
             bne b15_ebfb                ; 3EC0D:  d0 ec
 b15_ec0f:   jsr b15_ef97                ; 3EC0F:  20 97 ef
-            jmp b15_e867                ; 3EC12:  4c 67 e8
+            jmp vm_dispatch                ; 3EC12:  4c 67 e8
 
             lda $08                     ; 3EC15:  a5 08
             ora $09                     ; 3EC17:  05 09
@@ -2964,7 +2966,7 @@ b15_ec57:   iny                         ; 3EC57:  c8
             lda (ptr3_lo),y                 ; 3EC5C:  b1 06
             sta ptr3_hi                     ; 3EC5E:  85 07
             stx ptr3_lo                     ; 3EC60:  86 06
-            jmp b15_e867                ; 3EC62:  4c 67 e8
+            jmp vm_dispatch                ; 3EC62:  4c 67 e8
 
             clc                         ; 3EC65:  18
             lda (ptr3_lo),y                 ; 3EC66:  b1 06
@@ -2997,7 +2999,7 @@ b15_ec91:   lda (ptr3_lo),y                 ; 3EC91:  b1 06
             lda (ptr3_lo),y                 ; 3EC95:  b1 06
             sta ptr3_hi                     ; 3EC97:  85 07
             stx ptr3_lo                     ; 3EC99:  86 06
-            jmp b15_e867                ; 3EC9B:  4c 67 e8
+            jmp vm_dispatch                ; 3EC9B:  4c 67 e8
 
             lda ($08),y                 ; 3EC9E:  b1 08
             tax                         ; 3ECA0:  aa
@@ -3005,12 +3007,12 @@ b15_ec91:   lda (ptr3_lo),y                 ; 3EC91:  b1 06
             lda ($08),y                 ; 3ECA2:  b1 08
             stx $08                     ; 3ECA4:  86 08
             sta $09                     ; 3ECA6:  85 09
-            jmp b15_e867                ; 3ECA8:  4c 67 e8
+            jmp vm_dispatch                ; 3ECA8:  4c 67 e8
 
             lda ($08),y                 ; 3ECAB:  b1 08
             sta $08                     ; 3ECAD:  85 08
             sty $09                     ; 3ECAF:  84 09
-            jmp b15_e867                ; 3ECB1:  4c 67 e8
+            jmp vm_dispatch                ; 3ECB1:  4c 67 e8
 
             jsr b15_ecdb                ; 3ECB4:  20 db ec
             lda $09                     ; 3ECB7:  a5 09
@@ -3018,20 +3020,20 @@ b15_ec91:   lda (ptr3_lo),y                 ; 3EC91:  b1 06
             dey                         ; 3ECBB:  88
             lda $08                     ; 3ECBC:  a5 08
             sta ($0c),y                 ; 3ECBE:  91 0c
-            jmp b15_e867                ; 3ECC0:  4c 67 e8
+            jmp vm_dispatch                ; 3ECC0:  4c 67 e8
 
             jsr b15_ecdb                ; 3ECC3:  20 db ec
             dey                         ; 3ECC6:  88
             lda $08                     ; 3ECC7:  a5 08
             sta ($0c),y                 ; 3ECC9:  91 0c
-            jmp b15_e867                ; 3ECCB:  4c 67 e8
+            jmp vm_dispatch                ; 3ECCB:  4c 67 e8
 
             lda $08                     ; 3ECCE:  a5 08
             ldx $09                     ; 3ECD0:  a6 09
             jmp b15_f008                ; 3ECD2:  4c 08 f0
 
             jsr b15_ecdb                ; 3ECD5:  20 db ec
-            jmp b15_e867                ; 3ECD8:  4c 67 e8
+            jmp vm_dispatch                ; 3ECD8:  4c 67 e8
 
 b15_ecdb:   lda (ptr1_lo),y                 ; 3ECDB:  b1 02
             sta $0c                     ; 3ECDD:  85 0c
@@ -3066,10 +3068,10 @@ b15_ed0a:   ror ptr0_hi                     ; 3ED0A:  66 01
             ror $08                     ; 3ED10:  66 08
             dey                         ; 3ED12:  88
             bne b15_ecf8                ; 3ED13:  d0 e3
-            jmp b15_e867                ; 3ED15:  4c 67 e8
+            jmp vm_dispatch                ; 3ED15:  4c 67 e8
 
             jsr b15_ed2e                ; 3ED18:  20 2e ed
-            jmp b15_e867                ; 3ED1B:  4c 67 e8
+            jmp vm_dispatch                ; 3ED1B:  4c 67 e8
 
             jsr b15_ed7a                ; 3ED1E:  20 7a ed
             jsr b15_ed2e                ; 3ED21:  20 2e ed
@@ -3120,7 +3122,7 @@ tab_b15_ed69: ; 3 bytes
             sta $08                     ; 3ED71:  85 08
             lda ptr0_hi                     ; 3ED73:  a5 01
             sta $09                     ; 3ED75:  85 09
-            jmp b15_e867                ; 3ED77:  4c 67 e8
+            jmp vm_dispatch                ; 3ED77:  4c 67 e8
 
 b15_ed7a:   lda $09                     ; 3ED7A:  a5 09
             sta $0b                     ; 3ED7C:  85 0b
@@ -3153,7 +3155,7 @@ b15_eda0:   rts                         ; 3EDA0:  60
             lda $09                     ; 3EDA8:  a5 09
             adc $0d                     ; 3EDAA:  65 0d
             sta $09                     ; 3EDAC:  85 09
-            jmp b15_e867                ; 3EDAE:  4c 67 e8
+            jmp vm_dispatch                ; 3EDAE:  4c 67 e8
 
             sec                         ; 3EDB1:  38
             lda $08                     ; 3EDB2:  a5 08
@@ -3162,13 +3164,13 @@ b15_eda0:   rts                         ; 3EDA0:  60
             lda $09                     ; 3EDB8:  a5 09
             sbc $0d                     ; 3EDBA:  e5 0d
             sta $09                     ; 3EDBC:  85 09
-            jmp b15_e867                ; 3EDBE:  4c 67 e8
+            jmp vm_dispatch                ; 3EDBE:  4c 67 e8
 
             ldx $0c                     ; 3EDC1:  a6 0c
             bne b15_edcc                ; 3EDC3:  d0 07
 b15_edc5:   dec $0d                     ; 3EDC5:  c6 0d
             bpl b15_edcc                ; 3EDC7:  10 03
-            jmp b15_e867                ; 3EDC9:  4c 67 e8
+            jmp vm_dispatch                ; 3EDC9:  4c 67 e8
 
 b15_edcc:   asl $08                     ; 3EDCC:  06 08
             rol $09                     ; 3EDCE:  26 09
@@ -3181,7 +3183,7 @@ b15_edcc:   asl $08                     ; 3EDCC:  06 08
             bne b15_ede4                ; 3EDDB:  d0 07
 b15_eddd:   dec $0d                     ; 3EDDD:  c6 0d
             bpl b15_ede4                ; 3EDDF:  10 03
-            jmp b15_e867                ; 3EDE1:  4c 67 e8
+            jmp vm_dispatch                ; 3EDE1:  4c 67 e8
 
 b15_ede4:   sec                         ; 3EDE4:  38
             ror $09                     ; 3EDE5:  66 09
@@ -3193,7 +3195,7 @@ b15_edee:   ldx $0c                     ; 3EDEE:  a6 0c
             bne b15_edf9                ; 3EDF0:  d0 07
 b15_edf2:   dec $0d                     ; 3EDF2:  c6 0d
             bpl b15_edf9                ; 3EDF4:  10 03
-            jmp b15_e867                ; 3EDF6:  4c 67 e8
+            jmp vm_dispatch                ; 3EDF6:  4c 67 e8
 
 b15_edf9:   lsr $09                     ; 3EDF9:  46 09
             ror $08                     ; 3EDFB:  66 08
@@ -3206,7 +3208,7 @@ b15_edf9:   lsr $09                     ; 3EDF9:  46 09
             lda $09                     ; 3EE08:  a5 09
             and $0d                     ; 3EE0A:  25 0d
             sta $09                     ; 3EE0C:  85 09
-            jmp b15_e867                ; 3EE0E:  4c 67 e8
+            jmp vm_dispatch                ; 3EE0E:  4c 67 e8
 
             lda $08                     ; 3EE11:  a5 08
             ora $0c                     ; 3EE13:  05 0c
@@ -3214,7 +3216,7 @@ b15_edf9:   lsr $09                     ; 3EDF9:  46 09
             lda $09                     ; 3EE17:  a5 09
             ora $0d                     ; 3EE19:  05 0d
             sta $09                     ; 3EE1B:  85 09
-            jmp b15_e867                ; 3EE1D:  4c 67 e8
+            jmp vm_dispatch                ; 3EE1D:  4c 67 e8
 
             lda $08                     ; 3EE20:  a5 08
             eor $0c                     ; 3EE22:  45 0c
@@ -3222,7 +3224,7 @@ b15_edf9:   lsr $09                     ; 3EDF9:  46 09
             lda $09                     ; 3EE26:  a5 09
             eor $0d                     ; 3EE28:  45 0d
             sta $09                     ; 3EE2A:  85 09
-            jmp b15_e867                ; 3EE2C:  4c 67 e8
+            jmp vm_dispatch                ; 3EE2C:  4c 67 e8
 
             lda $09                     ; 3EE2F:  a5 09
             cmp $0d                     ; 3EE31:  c5 0d
@@ -3233,7 +3235,7 @@ b15_edf9:   lsr $09                     ; 3EDF9:  46 09
             bne b15_ee3e                ; 3EE3B:  d0 01
             iny                         ; 3EE3D:  c8
 b15_ee3e:   sty $08                     ; 3EE3E:  84 08
-            jmp b15_e867                ; 3EE40:  4c 67 e8
+            jmp vm_dispatch                ; 3EE40:  4c 67 e8
 
             lda $09                     ; 3EE43:  a5 09
             cmp $0d                     ; 3EE45:  c5 0d
@@ -3244,7 +3246,7 @@ b15_ee3e:   sty $08                     ; 3EE3E:  84 08
             beq b15_ee52                ; 3EE4F:  f0 01
 b15_ee51:   iny                         ; 3EE51:  c8
 b15_ee52:   sty $08                     ; 3EE52:  84 08
-            jmp b15_e867                ; 3EE54:  4c 67 e8
+            jmp vm_dispatch                ; 3EE54:  4c 67 e8
 
             lda $08                     ; 3EE57:  a5 08
             cmp $0c                     ; 3EE59:  c5 0c
@@ -3257,7 +3259,7 @@ b15_ee64:   tya                         ; 3EE64:  98
             bvc b15_ee69                ; 3EE65:  50 02
             eor #$01                    ; 3EE67:  49 01
 b15_ee69:   sta $08                     ; 3EE69:  85 08
-            jmp b15_e867                ; 3EE6B:  4c 67 e8
+            jmp vm_dispatch                ; 3EE6B:  4c 67 e8
 
             lda $0c                     ; 3EE6E:  a5 0c
             cmp $08                     ; 3EE70:  c5 08
@@ -3270,7 +3272,7 @@ b15_ee7b:   tya                         ; 3EE7B:  98
             bvc b15_ee80                ; 3EE7C:  50 02
             eor #$01                    ; 3EE7E:  49 01
 b15_ee80:   sta $08                     ; 3EE80:  85 08
-            jmp b15_e867                ; 3EE82:  4c 67 e8
+            jmp vm_dispatch                ; 3EE82:  4c 67 e8
 
             lda $0c                     ; 3EE85:  a5 0c
             cmp $08                     ; 3EE87:  c5 08
@@ -3283,7 +3285,7 @@ b15_ee92:   tya                         ; 3EE92:  98
             bvc b15_ee97                ; 3EE93:  50 02
             eor #$01                    ; 3EE95:  49 01
 b15_ee97:   sta $08                     ; 3EE97:  85 08
-            jmp b15_e867                ; 3EE99:  4c 67 e8
+            jmp vm_dispatch                ; 3EE99:  4c 67 e8
 
             lda $08                     ; 3EE9C:  a5 08
             cmp $0c                     ; 3EE9E:  c5 0c
@@ -3296,7 +3298,7 @@ b15_eea9:   tya                         ; 3EEA9:  98
             bvc b15_eeae                ; 3EEAA:  50 02
             eor #$01                    ; 3EEAC:  49 01
 b15_eeae:   sta $08                     ; 3EEAE:  85 08
-            jmp b15_e867                ; 3EEB0:  4c 67 e8
+            jmp vm_dispatch                ; 3EEB0:  4c 67 e8
 
             lda $08                     ; 3EEB3:  a5 08
             cmp $0c                     ; 3EEB5:  c5 0c
@@ -3306,7 +3308,7 @@ b15_eeae:   sta $08                     ; 3EEAE:  85 08
             bcs b15_eec0                ; 3EEBD:  b0 01
             iny                         ; 3EEBF:  c8
 b15_eec0:   sty $08                     ; 3EEC0:  84 08
-            jmp b15_e867                ; 3EEC2:  4c 67 e8
+            jmp vm_dispatch                ; 3EEC2:  4c 67 e8
 
             lda $0c                     ; 3EEC5:  a5 0c
             cmp $08                     ; 3EEC7:  c5 08
@@ -3316,7 +3318,7 @@ b15_eec0:   sty $08                     ; 3EEC0:  84 08
             bcs b15_eed2                ; 3EECF:  b0 01
             iny                         ; 3EED1:  c8
 b15_eed2:   sty $08                     ; 3EED2:  84 08
-            jmp b15_e867                ; 3EED4:  4c 67 e8
+            jmp vm_dispatch                ; 3EED4:  4c 67 e8
 
             lda $0c                     ; 3EED7:  a5 0c
             cmp $08                     ; 3EED9:  c5 08
@@ -3326,7 +3328,7 @@ b15_eed2:   sty $08                     ; 3EED2:  84 08
             bcc b15_eee4                ; 3EEE1:  90 01
             iny                         ; 3EEE3:  c8
 b15_eee4:   sty $08                     ; 3EEE4:  84 08
-            jmp b15_e867                ; 3EEE6:  4c 67 e8
+            jmp vm_dispatch                ; 3EEE6:  4c 67 e8
 
             lda $08                     ; 3EEE9:  a5 08
             cmp $0c                     ; 3EEEB:  c5 0c
@@ -3336,7 +3338,7 @@ b15_eee4:   sty $08                     ; 3EEE4:  84 08
             bcc b15_eef6                ; 3EEF3:  90 01
             iny                         ; 3EEF5:  c8
 b15_eef6:   sty $08                     ; 3EEF6:  84 08
-            jmp b15_e867                ; 3EEF8:  4c 67 e8
+            jmp vm_dispatch                ; 3EEF8:  4c 67 e8
 
             lda $09                     ; 3EEFB:  a5 09
             sty $09                     ; 3EEFD:  84 09
@@ -3344,7 +3346,7 @@ b15_eef6:   sty $08                     ; 3EEF6:  84 08
             bne b15_ef04                ; 3EF01:  d0 01
             iny                         ; 3EF03:  c8
 b15_ef04:   sty $08                     ; 3EF04:  84 08
-            jmp b15_e867                ; 3EF06:  4c 67 e8
+            jmp vm_dispatch                ; 3EF06:  4c 67 e8
 
 b15_ef09:   sec                         ; 3EF09:  38
             tya                         ; 3EF0A:  98
@@ -3353,7 +3355,7 @@ b15_ef09:   sec                         ; 3EF09:  38
             tya                         ; 3EF0F:  98
             sbc $09                     ; 3EF10:  e5 09
             sta $09                     ; 3EF12:  85 09
-            jmp b15_e867                ; 3EF14:  4c 67 e8
+            jmp vm_dispatch                ; 3EF14:  4c 67 e8
 
             lda $08                     ; 3EF17:  a5 08
             eor #$ff                    ; 3EF19:  49 ff
@@ -3361,7 +3363,7 @@ b15_ef09:   sec                         ; 3EF09:  38
             lda $09                     ; 3EF1D:  a5 09
             eor #$ff                    ; 3EF1F:  49 ff
             sta $09                     ; 3EF21:  85 09
-            jmp b15_e867                ; 3EF23:  4c 67 e8
+            jmp vm_dispatch                ; 3EF23:  4c 67 e8
 
             lda $08                     ; 3EF26:  a5 08
             ldx $0c                     ; 3EF28:  a6 0c
@@ -3371,37 +3373,37 @@ b15_ef09:   sec                         ; 3EF09:  38
             ldx $0d                     ; 3EF30:  a6 0d
             stx $09                     ; 3EF32:  86 09
             sta $0d                     ; 3EF34:  85 0d
-            jmp b15_e867                ; 3EF36:  4c 67 e8
+            jmp vm_dispatch                ; 3EF36:  4c 67 e8
 
             inc $08                     ; 3EF39:  e6 08
             bne b15_ef3f                ; 3EF3B:  d0 02
             inc $09                     ; 3EF3D:  e6 09
-b15_ef3f:   jmp b15_e867                ; 3EF3F:  4c 67 e8
+b15_ef3f:   jmp vm_dispatch                ; 3EF3F:  4c 67 e8
 
             lda $08                     ; 3EF42:  a5 08
             bne b15_ef48                ; 3EF44:  d0 02
             dec $09                     ; 3EF46:  c6 09
 b15_ef48:   dec $08                     ; 3EF48:  c6 08
-            jmp b15_e867                ; 3EF4A:  4c 67 e8
+            jmp vm_dispatch                ; 3EF4A:  4c 67 e8
 
             asl $08                     ; 3EF4D:  06 08
             rol $09                     ; 3EF4F:  26 09
-            jmp b15_e867                ; 3EF51:  4c 67 e8
+            jmp vm_dispatch                ; 3EF51:  4c 67 e8
 
             jsr b15_efbf                ; 3EF54:  20 bf ef
             ldy #$08                    ; 3EF57:  a0 08
             jsr b15_f603                ; 3EF59:  20 03 f6
-            jmp b15_e867                ; 3EF5C:  4c 67 e8
+            jmp vm_dispatch                ; 3EF5C:  4c 67 e8
 
             jsr b15_efbf                ; 3EF5F:  20 bf ef
             ldy #$08                    ; 3EF62:  a0 08
             jsr b15_f5cd                ; 3EF64:  20 cd f5
-            jmp b15_e867                ; 3EF67:  4c 67 e8
+            jmp vm_dispatch                ; 3EF67:  4c 67 e8
 
             jsr b15_efbf                ; 3EF6A:  20 bf ef
             ldy #$0c                    ; 3EF6D:  a0 0c
             jsr b15_f62c                ; 3EF6F:  20 2c f6
-            jmp b15_e867                ; 3EF72:  4c 67 e8
+            jmp vm_dispatch                ; 3EF72:  4c 67 e8
 
             ldy #$07                    ; 3EF75:  a0 07
             lda ptr2_lo                     ; 3EF77:  a5 04
@@ -3420,7 +3422,7 @@ b15_ef8f:   jmp (ptr0_lo)                 ; 3EF8F:  6c 00 00
 
             brk                         ; 3EF92:  00
             hex 00                      ; 3EF93:  00
-            jmp b15_e867                ; 3EF94:  4c 67 e8
+            jmp vm_dispatch                ; 3EF94:  4c 67 e8
 
 b15_ef97:   ldx #$00                    ; 3EF97:  a2 00
             lda (ptr3_lo),y                 ; 3EF99:  b1 06
@@ -3464,7 +3466,7 @@ b15_efbf:   iny                         ; 3EFBF:  c8
 b15_efd3:   pla                         ; 3EFD3:  68
             rts                         ; 3EFD4:  60
 
-b15_efd5:   lda (ptr3_lo),y                 ; 3EFD5:  b1 06
+vm_read_word_into_ptr0:   lda (ptr3_lo),y                 ; 3EFD5:  b1 06
             sta ptr0_lo                     ; 3EFD7:  85 00
             iny                         ; 3EFD9:  c8
             lda (ptr3_lo),y                 ; 3EFDA:  b1 06
@@ -3510,12 +3512,13 @@ b15_f014:   tya                         ; 3F014:  98
             iny                         ; 3F019:  c8
             txa                         ; 3F01A:  8a
             sta (ptr1_lo),y                 ; 3F01B:  91 02
-            jmp b15_e867                ; 3F01D:  4c 67 e8
+            jmp vm_dispatch                ; 3F01D:  4c 67 e8
 
             jsr tab_b15_f679            ; 3F020:  20 79 f6
-            jmp b15_e867                ; 3F023:  4c 67 e8
+            jmp vm_dispatch                ; 3F023:  4c 67 e8
 
 tab_b15_f026: ; 512 bytes
+vm_opcode_lo_table:
             hex 7f 83 87 8b 8f 93 97 9b ; 3F026:  7f 83 87 8b 8f 93 97 9b
             hex 9f a3 a7 ab d0 cc c8 c4 ; 3F02E:  9f a3 a7 ab d0 cc c8 c4
             hex de e2 e6 ea ee f2 f6 fa ; 3F036:  de e2 e6 ea ee f2 f6 fa
@@ -3548,6 +3551,7 @@ tab_b15_f026: ; 512 bytes
             hex 15 38 2d 92 92 92 92 92 ; 3F10E:  15 38 2d 92 92 92 92 92
             hex 92 92 92 92 92 92 92 92 ; 3F116:  92 92 92 92 92 92 92 92
             hex 92 92 92 92 92 92 92 93 ; 3F11E:  92 92 92 92 92 92 92 93
+vm_opcode_hi_table:
             hex e8 e8 e8 e8 e8 e8 e8 e8 ; 3F126:  e8 e8 e8 e8 e8 e8 e8 e8
             hex e8 e8 e8 e8 e8 e8 e8 e8 ; 3F12E:  e8 e8 e8 e8 e8 e8 e8 e8
             hex e8 e8 e8 e8 e8 e8 e8 e8 ; 3F136:  e8 e8 e8 e8 e8 e8 e8 e8
@@ -3581,6 +3585,7 @@ tab_b15_f026: ; 512 bytes
             hex ef ef ef ef ef ef ef ef ; 3F216:  ef ef ef ef ef ef ef ef
             hex ef ef ef ef ef ef ef ef ; 3F21E:  ef ef ef ef ef ef ef ef
 
+syscall_dispatch:
             ldy #$17                    ; 3F226:  a0 17
 b15_f228:   lda (ptr1_lo),y                 ; 3F228:  b1 02
             hex 99 4e 00 ; sta $004e,y  ; 3F22A:  99 4e 00
@@ -4057,13 +4062,13 @@ b15_f56e:   hex b9 08 00 ; lda $0008,y  ; 3F56E:  b9 08 00
 
             jsr b15_efec                ; 3F577:  20 ec ef
             bcc b15_f58e                ; 3F57A:  90 12
-            jsr b15_efd5                ; 3F57C:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3F57C:  20 d5 ef
             bcc b15_f550                ; 3F57F:  90 cf
-            jsr b15_efd5                ; 3F581:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3F581:  20 d5 ef
             bcc b15_f55e                ; 3F584:  90 d8
-            jsr b15_efd5                ; 3F586:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3F586:  20 d5 ef
             bcc b15_f56c                ; 3F589:  90 e1
-            jsr b15_efd5                ; 3F58B:  20 d5 ef
+            jsr vm_read_word_into_ptr0                ; 3F58B:  20 d5 ef
 b15_f58e:   sec                         ; 3F58E:  38
             lda ptr1_lo                     ; 3F58F:  a5 02
             sbc #$04                    ; 3F591:  e9 04
