@@ -1,5 +1,6 @@
 .base $8000
 
+bank0_entry:
             hex 4c 78 a7 20 23 e8 fa ff ; 00000:  4c 78 a7 20 23 e8 fa ff
             hex 60 60 6a e9 26 f2 06 ac ; 00008:  60 60 6a e9 26 f2 06 ac
             hex 20 cd ac 28 d6 d8 1c 81 ; 00010:  20 cd ac 28 d6 d8 1c 81
@@ -296,8 +297,10 @@
             hex f8 b8 e9 26 d3 02 3c 8e ; 00685:  f8 b8 e9 26 d3 02 3c 8e
             hex 00 b9 e9 34 d1 04 cf 20 ; 0068D:  00 b9 e9 34 d1 04 cf 20
             hex 23 e8 fc ff a4 9d 6d 8b ; 00695:  23 e8 fc ff a4 9d 6d 8b
+rendering_off:
             hex 32 c0 d8 a6 86 42 d6 a7 ; 0069D:  32 c0 d8 a6 86 42 d6 a7
             hex 86 40 b3 e9 f2 e5 02 41 ; 006A5:  86 40 b3 e9 f2 e5 02 41
+mul_xy_by_3:
             hex a8 e0 7b 42 2b 3c e9 7f ; 006AD:  a8 e0 7b 42 2b 3c e9 7f
             hex 86 02 d6 f1 86 a4 cf 7f ; 006B5:  86 02 d6 f1 86 a4 cf 7f
             hex d1 a8 cf 7f 0a 8b ff c0 ; 006BD:  d1 a8 cf 7f 0a 8b ff c0
@@ -329,6 +332,7 @@
             hex 8d 10 e9 6a cf 0a 62 8d ; 0078D:  8d 10 e9 6a cf 0a 62 8d
             hex 12 8d 1a 8d 12 6e e9 6a ; 00795:  12 8d 1a 8d 12 6e e9 6a
             hex cf 0a 64 63 e9 7b cc 04 ; 0079D:  cf 0a 64 63 e9 7b cc 04
+music_driver:
             hex a4 5f 6f d0 b3 8e 57 b9 ; 007A5:  a4 5f 6f d0 b3 8e 57 b9
             hex e9 34 d1 04 66 63 e9 7b ; 007AD:  e9 34 d1 04 66 63 e9 7b
             hex cc 04 a4 5f 6f 5a b5 8c ; 007B5:  cc 04 a4 5f 6f 5a b5 8c

@@ -1,0 +1,68 @@
+# Nobunaga VM opcode operand-format spec
+# Each entry says: this opcode (or range of opcodes) consumes these operands
+# from the bytecode stream after the opcode byte.
+#
+# Used by vm-disasm.py to walk bytecode. Iteratively expanded as we decode
+# more handlers — unknown opcodes emit as raw bytes with the handler address
+# noted, telling us which routines to walk next.
+
+[meta]
+opcode_table_lo_prg = 0x3F026
+opcode_table_hi_prg = 0x3F126
+
+# --- Host calls (the bridge from bytecode to kernel) ---
+
+[[opcode]]
+op = 0xE9
+name = "host_call"
+operands = [
+    { type = "word" },
+    { type = "byte" },
+]
+description = "JSR to native function at <word>; ptr1 += <byte> after return"
+
+[[opcode]]
+op = 0xAC
+name = "host_call_simple"
+operands = [
+    { type = "word" },
+]
+description = "JSR to native function at <word>; no ptr1 adjust"
+
+
+# --- The 'load offset from ptr2' cluster (opcodes $00-$0B) ---
+# Handlers at $E87F + 4*op, each loading a different immediate ($E8, $EA, ...)
+# into A then falling into the common tail at $E8AD.
+
+[[opcode]]
+op_range = [0x00, 0x0B]
+name = "load_ptr2_offset"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "Load 16-bit from (ptr2 + immediate_E8_plus_op*2)"
+
+
+# --- Shared-handler clusters ($60-$6F all share $EA18, etc.) ---
+
+[[opcode]]
+op_range = [0x60, 0x6F]
+name = "op_6X"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "Shared handler at $EA18; operand in low 4 bits of opcode"
+
+[[opcode]]
+op_range = [0x80, 0x8F]
+name = "op_8X"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "Shared handler at $E918; operand in low 4 bits"
+
+[[opcode]]
+op_range = [0x66, 0x67]
+name = "op_66_67"
+operands = []
+description = "Within the $60-$6F cluster"
+
+# Note: $60-$6F as a range above already covers $66-$67, so the explicit entry
+# is redundant. Kept here for documentation. The range entry wins on lookup.
