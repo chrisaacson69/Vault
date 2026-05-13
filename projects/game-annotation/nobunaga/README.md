@@ -41,7 +41,7 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 3 | [NMI/VBlank pipeline (PPU + OAM + audio driver)](./03-nmi-pipeline.md) | session 3 draft |
 | 4 | [The Syscall API: what each of the 23 dispatch entries does](./04-syscall-api.md) | session 4 draft |
 | 5 | [The Bytecode VM](./05-bytecode-vm.md) | session 5 draft |
-| 6 | VM disassembler tool + a frame walkthrough | planned |
+| 6 | [The VM Disassembler](./06-vm-disassembler.md) | session 6 draft |
 | 7 | Province table & SRAM save format | planned (was ch 5) |
 | 8 | Daimyo AI decision engine | planned |
 | 9 | Combat resolution & hidden stat formulas | planned |
