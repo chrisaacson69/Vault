@@ -42,27 +42,51 @@ operand_in_opcode = "low_4_bits"
 description = "Load 16-bit from (ptr2 + immediate_E8_plus_op*2)"
 
 
-# --- Shared-handler clusters ($60-$6F all share $EA18, etc.) ---
+# --- Stack push opcodes (shared-handler clusters) ---
 
 [[opcode]]
 op_range = [0x60, 0x6F]
-name = "op_6X"
+name = "push16"
 operands = []
 operand_in_opcode = "low_4_bits"
-description = "Shared handler at $EA18; operand in low 4 bits of opcode"
+description = "Push 16-bit value (high=0, low=opcode&0x0F) onto VM stack at ptr1. Decoded session 1."
 
 [[opcode]]
 op_range = [0x80, 0x8F]
 name = "op_8X"
 operands = []
 operand_in_opcode = "low_4_bits"
-description = "Shared handler at $E918; operand in low 4 bits"
+description = "Shared handler at $E918; operand in low 4 bits — not yet fully decoded"
 
 [[opcode]]
-op_range = [0x66, 0x67]
-name = "op_66_67"
+op_range = [0x50, 0x5F]
+name = "set_local_0c"
 operands = []
-description = "Within the $60-$6F cluster"
+operand_in_opcode = "low_4_bits"
+description = "Set $0C/$0D = low 4 bits of opcode (as 16-bit). Decoded session 1."
 
-# Note: $60-$6F as a range above already covers $66-$67, so the explicit entry
-# is redundant. Kept here for documentation. The range entry wins on lookup.
+
+# --- Small-immediate opcodes with no operand ---
+
+[[opcode]]
+op_range = [0x40, 0x4F]
+name = "clear_aux_ptr"
+operands = []
+description = "Clear $08/$09 (the VM auxiliary table pointer). Multiple opcodes in this range share the same handler — exact semantic differentiator TBD. Decoded session 1."
+
+
+# --- Read-word opcodes (consume 2 bytes from bytecode) ---
+# Many opcodes in $A0-$BF range call vm_read_word_into_ptr0 ($EFD5) which
+# consumes 2 bytes. Adding the most common one we've seen.
+
+[[opcode]]
+op = 0xA8
+name = "load_word_A8"
+operands = [{ type = "word" }]
+description = "Read 16-bit word from bytecode (handler $EA75 calls vm_read_word_into_ptr0). Effect on VM state TBD. Decoded session 1."
+
+[[opcode]]
+op = 0xA7
+name = "load_word_A7"
+operands = [{ type = "word" }]
+description = "Read 16-bit word from bytecode (handler $EB0A calls vm_read_word_into_ptr0). Effect on VM state TBD. Decoded session 1."
