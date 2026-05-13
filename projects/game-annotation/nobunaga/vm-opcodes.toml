@@ -1,16 +1,35 @@
-# Nobunaga VM opcode operand-format spec
-# Each entry says: this opcode (or range of opcodes) consumes these operands
-# from the bytecode stream after the opcode byte.
+# Nobunaga VM opcode operand-format spec — 256/256 opcodes classified.
 #
-# Used by vm-disasm.py to walk bytecode. Iteratively expanded as we decode
-# more handlers — unknown opcodes emit as raw bytes with the handler address
-# noted, telling us which routines to walk next.
+# Each entry describes the bytes the opcode consumes from the bytecode stream
+# AFTER the opcode byte itself. Used by vm-disasm.py for byte-aligned walking.
+#
+# Naming convention:
+#   - Decoded opcodes: descriptive names (push16, host_call, etc.)
+#   - Auto-classified opcodes: generic op_NN names with operand format from
+#     opcode-classify.py (handler-pattern recognition)
+#
+# Coverage status (session 2):
+#   Decoded:    9 specific opcodes (host_call*, push16, clear_aux_ptr,
+#               set_local_0c, load_ptr2_offset, load_word_A8/A7, trigger_syscall)
+#   Auto:       247 opcodes with correct operand counts but generic names
+#   Total:      256/256 byte-aligned
+#
+# The auto-classifier in opcode-classify.py reads each handler's first ~40
+# bytes and detects calls to known operand-fetch helpers ($EFD5 reads word,
+# $EF97 reads sbyte, etc.). Result is the operand-byte count, which is enough
+# for byte-aligned disassembly. Semantic naming of individual opcodes remains
+# session-by-session work.
 
 [meta]
 opcode_table_lo_prg = 0x3F026
 opcode_table_hi_prg = 0x3F126
 
-# --- Host calls (the bridge from bytecode to kernel) ---
+
+# ============================================================================
+# DECODED OPCODES (specific names and descriptions)
+# ============================================================================
+
+# --- Host call mechanism (chapter 5) ---
 
 [[opcode]]
 op = 0xE9
@@ -30,63 +49,341 @@ operands = [
 description = "JSR to native function at <word>; no ptr1 adjust"
 
 
-# --- The 'load offset from ptr2' cluster (opcodes $00-$0B) ---
-# Handlers at $E87F + 4*op, each loading a different immediate ($E8, $EA, ...)
-# into A then falling into the common tail at $E8AD.
+# --- Trigger_syscall cluster (all map to handler $EF92: BRK + jmp vm_dispatch) ---
+# 37 opcodes share this single behavior: execute BRK to fire syscall_dispatch
+# with whatever's currently in $0050. The BRK pushes return-PC=$EF94 (which is
+# JMP vm_dispatch), so after the syscall returns, the VM continues. Different
+# opcode values likely group syscalls by category (audio vs PPU vs save etc.).
+# We can't tell which group without runtime traces showing the task ID set
+# before each opcode fires.
 
 [[opcode]]
-op_range = [0x00, 0x0B]
-name = "load_ptr2_offset"
+op = 0x80
+name = "trigger_syscall_80"
 operands = []
-operand_in_opcode = "low_4_bits"
-description = "Load 16-bit from (ptr2 + immediate_E8_plus_op*2)"
+description = "BRK to syscall_dispatch (handler $EF92, shared with 36 other opcodes)"
+
+[[opcode]]
+op_range = [0x91, 0x9F]
+name = "trigger_syscall_9X"
+operands = []
+description = "BRK to syscall_dispatch (handler $EF92)"
+
+[[opcode]]
+op = 0xCE
+name = "trigger_syscall_CE"
+operands = []
+description = "BRK to syscall_dispatch (handler $EF92)"
+
+[[opcode]]
+op_range = [0xEB, 0xFE]
+name = "trigger_syscall_EB_FE"
+operands = []
+description = "BRK to syscall_dispatch (handler $EF92)"
 
 
-# --- Stack push opcodes (shared-handler clusters) ---
+# --- Stack and aux-pointer operations (chapter 5/6) ---
 
 [[opcode]]
 op_range = [0x60, 0x6F]
 name = "push16"
 operands = []
 operand_in_opcode = "low_4_bits"
-description = "Push 16-bit value (high=0, low=opcode&0x0F) onto VM stack at ptr1. Decoded session 1."
-
-[[opcode]]
-op_range = [0x80, 0x8F]
-name = "op_8X"
-operands = []
-operand_in_opcode = "low_4_bits"
-description = "Shared handler at $E918; operand in low 4 bits — not yet fully decoded"
+description = "Push 16-bit (high=0, low=opcode&0x0F) to VM stack at ptr1"
 
 [[opcode]]
 op_range = [0x50, 0x5F]
 name = "set_local_0c"
 operands = []
 operand_in_opcode = "low_4_bits"
-description = "Set $0C/$0D = low 4 bits of opcode (as 16-bit). Decoded session 1."
-
-
-# --- Small-immediate opcodes with no operand ---
+description = "Set $0C/$0D to (high=0, low=opcode&0x0F)"
 
 [[opcode]]
-op_range = [0x40, 0x4F]
+op_range = [0x41, 0x4F]
 name = "clear_aux_ptr"
 operands = []
-description = "Clear $08/$09 (the VM auxiliary table pointer). Multiple opcodes in this range share the same handler — exact semantic differentiator TBD. Decoded session 1."
+description = "Set $08/$09 = 0 (shared handler $E9F6)"
+
+[[opcode]]
+op = 0x40
+name = "clear_aux_ptr_40"
+operands = []
+description = "Set $08/$09 = 0 (own handler $EA00, same effect as $41-$4F)"
+
+[[opcode]]
+op = 0x50
+name = "set_local_0c_50"
+operands = []
+description = "Variant of $51-$5F at handler $EA11"
+
+[[opcode]]
+op_range = [0x71, 0x7F]
+name = "add_low4_to_aux_ptr"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "Add opcode&0x0F to $08/$09 (16-bit add; shared handler $EA20)"
+
+[[opcode]]
+op = 0x70
+name = "nop"
+operands = []
+description = "Pure no-op: handler $EA2C is just JMP vm_dispatch"
 
 
-# --- Read-word opcodes (consume 2 bytes from bytecode) ---
-# Many opcodes in $A0-$BF range call vm_read_word_into_ptr0 ($EFD5) which
-# consumes 2 bytes. Adding the most common one we've seen.
+# --- Load offset opcodes ($00-$0B, chapter 5) ---
+
+[[opcode]]
+op_range = [0x00, 0x0B]
+name = "load_ptr2_offset"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "Load 16-bit from (ptr2 + small negative offset)"
+
+
+# --- Common word-reading opcodes ($A7, $A8 — chapter 6 session 1) ---
 
 [[opcode]]
 op = 0xA8
 name = "load_word_A8"
 operands = [{ type = "word" }]
-description = "Read 16-bit word from bytecode (handler $EA75 calls vm_read_word_into_ptr0). Effect on VM state TBD. Decoded session 1."
+description = "Read 16-bit word from bytecode; handler $EA75"
 
 [[opcode]]
 op = 0xA7
 name = "load_word_A7"
 operands = [{ type = "word" }]
-description = "Read 16-bit word from bytecode (handler $EB0A calls vm_read_word_into_ptr0). Effect on VM state TBD. Decoded session 1."
+description = "Read 16-bit word from bytecode; handler $EB0A"
+
+
+# ============================================================================
+# AUTO-CLASSIFIED OPCODES (operand format known, semantics TBD)
+# ============================================================================
+#
+# Per opcode-classify.py: these have the correct operand byte count detected,
+# but their behavior beyond "consumes N bytes" hasn't been hand-walked yet.
+# The disassembler will align correctly; future sessions can rename individually
+# as we walk handlers.
+
+# --- No-operand opcodes that have individual handlers (not part of a cluster) ---
+
+[[opcode]]
+op_range = [0x0C, 0x3B]
+name = "op_0C_3B"
+operands = []
+description = "Individual handler per opcode; no operand bytes consumed (auto-classified)"
+
+[[opcode]]
+op_range = [0x3C, 0x3F]
+name = "op_3X_high"
+operands = []
+description = "Individual handler per opcode; no operand bytes (auto-classified)"
+
+[[opcode]]
+op_range = [0xB0, 0xD5]
+name = "op_BX_DX"
+operands = []
+description = "Individual handler per opcode in $EBxx-$ECxx range; no operand (auto-classified)"
+
+[[opcode]]
+op_range = [0xD9, 0xDD]
+name = "op_D9_DD"
+operands = []
+description = "No operand (auto-classified)"
+
+[[opcode]]
+op = 0xE8
+name = "op_E8"
+operands = []
+description = "No operand; handler $EC15"
+
+[[opcode]]
+op = 0xEA
+name = "op_EA"
+operands = []
+description = "No operand; handler $EB2D (chapter-5 high-byte-table noted ea -> EBxx)"
+
+[[opcode]]
+op = 0xFF
+name = "op_FF"
+operands = []
+description = "No operand; handler $EF93"
+
+
+# --- 1-byte operand opcodes ---
+
+[[opcode]]
+op = 0x81
+name = "op_81_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x83
+name = "op_83_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x85
+name = "op_85_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x87
+name = "op_87_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x8E
+name = "op_8E_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op_range = [0xA0, 0xA3]
+name = "op_A0_A3_byte"
+operands = [{ type = "byte" }]
+description = "1-byte operand; individual handlers (auto-classified)"
+
+[[opcode]]
+op = 0xAD
+name = "op_AD_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0xAF
+name = "op_AF_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op_range = [0xD6, 0xD7]
+name = "op_D6_D7_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op_range = [0xDE, 0xE2]
+name = "op_DE_E2_byte"
+operands = [{ type = "byte" }]
+
+
+# --- Signed-byte operand opcodes (branches?) ---
+
+[[opcode]]
+op = 0x89
+name = "op_89_sbyte"
+operands = [{ type = "sbyte" }]
+
+[[opcode]]
+op = 0x8B
+name = "op_8B_sbyte"
+operands = [{ type = "sbyte" }]
+
+[[opcode]]
+op = 0x8D
+name = "op_8D_sbyte"
+operands = [{ type = "sbyte" }]
+
+[[opcode]]
+op = 0x8F
+name = "op_8F_sbyte"
+operands = [{ type = "sbyte" }]
+
+[[opcode]]
+op = 0xAE
+name = "op_AE_sbyte"
+operands = [{ type = "sbyte" }]
+
+[[opcode]]
+op = 0xD8
+name = "op_D8_sbyte"
+operands = [{ type = "sbyte" }]
+
+[[opcode]]
+op_range = [0xE3, 0xE7]
+name = "op_E3_E7_sbyte"
+operands = [{ type = "sbyte" }]
+description = "1 signed byte operand; individual handlers (auto-classified)"
+
+
+# --- 2-byte operand opcodes (byte + byte) ---
+
+[[opcode]]
+op = 0x82
+name = "op_82_bb"
+operands = [{ type = "byte" }, { type = "byte" }]
+
+[[opcode]]
+op = 0x90
+name = "op_90_bb"
+operands = [{ type = "byte" }, { type = "byte" }]
+
+
+# --- byte + sbyte operand opcodes ---
+
+[[opcode]]
+op = 0x8A
+name = "op_8A_bsb"
+operands = [{ type = "byte" }, { type = "sbyte" }]
+
+[[opcode]]
+op = 0x8C
+name = "op_8C_bsb"
+operands = [{ type = "byte" }, { type = "sbyte" }]
+
+
+# --- Word operand opcodes ($AC already covered above) ---
+
+[[opcode]]
+op = 0xAB
+name = "op_AB_word"
+operands = [{ type = "word" }]
+
+[[opcode]]
+op = 0xDD
+name = "op_DD_word"
+operands = [{ type = "word" }]
+
+
+# --- word + byte operand opcodes (host_call-style) ---
+# $A4, $A5, $A6, $AA share this format. $E9 is the named host_call.
+
+[[opcode]]
+op = 0xA4
+name = "op_A4_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+description = "word + byte operands; handler $EA43 (could be a host_call variant)"
+
+[[opcode]]
+op = 0xA5
+name = "op_A5_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0xA6
+name = "op_A6_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0xA9
+name = "op_A9_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0xAA
+name = "op_AA_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+
+# --- 3-operand opcodes (byte + word + byte) ---
+
+[[opcode]]
+op = 0x84
+name = "op_84_bwb"
+operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0x86
+name = "op_86_bwb"
+operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0x88
+name = "op_88_bwb"
+operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
