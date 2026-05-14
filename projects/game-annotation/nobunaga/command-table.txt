@@ -1,0 +1,97 @@
+Nobunaga's Ambition (USA) - lord-command driver table
+Table @ bank 1 $B9B2, 34 entries.
+In-game menu item N == table index N-1  (verified: item 7 'Grow' == index 6 $9D3D).
+Each entry is a bytecode subroutine; 'frame_off' is the stub's frame-pointer delta.
+========================================================================
+
+idx item#  driver  frame  first 8 bytecode bytes
+------------------------------------------------------------------------
+  0     1 $96D1  $FFF8  AA 5F 6F E9 3A 93 02 D7
+  1     2 $9850  $FFEA  A4 5F 6F 29 09 8C A2 6D
+  2     3 $999A  $FFF2  A4 5F 6F 8C 2D 6D BB 26
+  3     4 $9A5D  $FFF4  61 E9 10 E5 02 8E 89 6F
+  4     5 $9B7E  $FFF8  A4 5F 6F 8B 1A B5 8C 09
+  5     6 $9C4F  $FFFA  A4 5F 6F 8B 1A B5 8C 01
+  6     7 $9D3D  $FFFC  A4 5F 6F 8B 1A B5 8C 01
+  7     8 $9DC4  $FFF8  40 2A AC EA D7 28 A4 5F
+  8     9 $A1B6  $FFFC  AC 15 8A D8 49 A2 AC 69
+  9    10 $A5F4  $FFFC  AA 5F 6F E9 51 93 02 D8
+ 10    11 $A637  $FFFE  A4 5F 6F 8B 1A B5 8C 01
+ 11    12 $A6C7  $FFF6  A4 5F 6F 28 40 27 61 E9
+ 12    13 $A853  $FFFC  A4 5F 6F 8B 1A B5 8C 01
+ 13    14 $AA1F  $FFFA  A4 5F 6F 8B 1A B5 8C 01
+ 14    15 $AAAE  $FFFC  A4 5F 6F 8B 1A B5 8C 01
+ 15    16 $AD67  $FFFE  A4 5F 6F 8B 1A B5 8C 01
+ 16    17 $ADB3  $0000  A4 5F 6F 8C A2 6D BB D3
+ 17    18 $AF38  $FFFE  AC 20 CD A4 9D 6D 8B 32
+ 18    19 $AF66  $FFFA  A4 5F 6F 8C A2 6D BB D3
+ 19    20 $B23E  $FFF9  AC 69 CC 40 29 09 77 B3
+ 20    21 $B2A1  $0000  8E 83 BF E9 26 D3 02 AC
+ 21    22 $9F04  $FFFC  8E 06 BC E9 26 D3 02 0C
+ 22    23 $9FAF  $FFFE  8E 59 BC E9 26 D3 02 0C
+ 23    24 $A003  $FFFC  8E 75 BC E9 26 D3 02 0C
+ 24    25 $A068  $FFFC  8E A2 BC E9 26 D3 02 A4
+ 25    26 $A113  $FFFC  0C 8F 10 B0 50 C3 D8 2D
+ 26    27 $A1AF  $0000  40 CF 20 23 E8 FC FF AC
+ 27    28 $B066  $FFFE  8E B3 BE E9 26 D3 02 8E
+ 28    29 $B09D  $0000  8E C5 BE E9 26 D3 02 8E
+ 29    30 $B0D2  $FFFE  8E DB BE E9 26 D3 02 A4
+ 30    31 $B109  $0000  8E FA BE E9 26 D3 02 AC
+ 31    32 $B12B  $FFFE  8E 27 BF E9 26 D3 02 8E
+ 32    33 $B14B  $FFFC  8E 44 BF E9 26 D3 02 AC
+ 33    34 $A1AF  $0000  40 CF 20 23 E8 FC FF AC
+
+Command families (entries sharing an opening-byte signature):
+------------------------------------------------------------------------
+  [A4 5F 6F 8B 1A B5 8C 01]  x7  <- Grow is here
+      indices: 5($9C4F), 6($9D3D), 10($A637), 12($A853), 13($AA1F), 14($AAAE), 15($AD67)
+  [A4 5F 6F 8C A2 6D BB D3]  x2
+      indices: 16($ADB3), 18($AF66)
+  [40 CF 20 23 E8 FC FF AC]  x2
+      indices: 26($A1AF), 33($A1AF)
+  [AA 5F 6F E9 3A 93 02 D7]  x1
+      indices: 0($96D1)
+  [A4 5F 6F 29 09 8C A2 6D]  x1
+      indices: 1($9850)
+  [A4 5F 6F 8C 2D 6D BB 26]  x1
+      indices: 2($999A)
+  [61 E9 10 E5 02 8E 89 6F]  x1
+      indices: 3($9A5D)
+  [A4 5F 6F 8B 1A B5 8C 09]  x1
+      indices: 4($9B7E)
+  [40 2A AC EA D7 28 A4 5F]  x1
+      indices: 7($9DC4)
+  [AC 15 8A D8 49 A2 AC 69]  x1
+      indices: 8($A1B6)
+  [AA 5F 6F E9 51 93 02 D8]  x1
+      indices: 9($A5F4)
+  [A4 5F 6F 28 40 27 61 E9]  x1
+      indices: 11($A6C7)
+  [AC 20 CD A4 9D 6D 8B 32]  x1
+      indices: 17($AF38)
+  [AC 69 CC 40 29 09 77 B3]  x1
+      indices: 19($B23E)
+  [8E 83 BF E9 26 D3 02 AC]  x1
+      indices: 20($B2A1)
+  [8E 06 BC E9 26 D3 02 0C]  x1
+      indices: 21($9F04)
+  [8E 59 BC E9 26 D3 02 0C]  x1
+      indices: 22($9FAF)
+  [8E 75 BC E9 26 D3 02 0C]  x1
+      indices: 23($A003)
+  [8E A2 BC E9 26 D3 02 A4]  x1
+      indices: 24($A068)
+  [0C 8F 10 B0 50 C3 D8 2D]  x1
+      indices: 25($A113)
+  [8E B3 BE E9 26 D3 02 8E]  x1
+      indices: 27($B066)
+  [8E C5 BE E9 26 D3 02 8E]  x1
+      indices: 28($B09D)
+  [8E DB BE E9 26 D3 02 A4]  x1
+      indices: 29($B0D2)
+  [8E FA BE E9 26 D3 02 AC]  x1
+      indices: 30($B109)
+  [8E 27 BF E9 26 D3 02 8E]  x1
+      indices: 31($B12B)
+  [8E 44 BF E9 26 D3 02 AC]  x1
+      indices: 32($B14B)
