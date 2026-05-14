@@ -341,9 +341,9 @@ description = "regA = regA / regB  (signed quotient)"
 
 [[opcode]]
 op = 0xB7
-name = "op_B7"
-operands = []
-description = "handler $F246 (TBD)"
+name = "ext_op"
+operands = [{ type = "byte" }]
+description = "EXTENDED-OPCODE PREFIX. Handler $F246 reads the next byte as a sub-opcode index and dispatches through a ~47-entry secondary handler table at $F263. So `B7 xx` is a 2-byte instruction = extended opcode xx. The extended set appears to hold the VM's wide/32-bit arithmetic — the first handler ($F2C1) zeroes $10-$13 and runs a 32-iteration loop. Decoding the extended table is a future session; for now the disassembler stays byte-aligned by consuming the 1 sub-opcode byte."
 
 [[opcode]]
 op = 0xB8
