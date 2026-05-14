@@ -229,18 +229,21 @@ description = "1-byte operand; indexed load/store via ptr0 (handlers $EAED-$EB1E
 
 [[opcode]]
 op = 0xA4
-name = "op_A4_wb"
-operands = [{ type = "word" }, { type = "byte" }]
+name = "loadA_mem_word"
+operands = [{ type = "word" }]
+description = "regA = word at absolute address <word> (handler $EA43, normal path $EA37). Classifier mis-sized as word+byte — the $EFD5 fetch is word-only; the extra byte is a not-taken conditional path. Same fix as $A7/$A8."
 
 [[opcode]]
 op = 0xA5
-name = "op_A5_wb"
-operands = [{ type = "word" }, { type = "byte" }]
+name = "loadA_mem_byte"
+operands = [{ type = "word" }]
+description = "regA = byte at absolute address <word>, zero-extended (handler $EAF9, normal path $EAF0). Word operand (address), NOT word+byte."
 
 [[opcode]]
 op = 0xA6
-name = "op_A6_wb"
-operands = [{ type = "word" }, { type = "byte" }]
+name = "loadB_mem_word"
+operands = [{ type = "word" }]
+description = "regB = word at absolute address <word> (handler $EA5C, normal path $EA4B). Word operand, NOT word+byte."
 
 [[opcode]]
 op = 0xA7
@@ -256,8 +259,9 @@ description = "regA = word read using <word> as address (handler $EA75)"
 
 [[opcode]]
 op = 0xA9
-name = "op_A9_wb"
-operands = [{ type = "word" }, { type = "byte" }]
+name = "storeA_mem_byte"
+operands = [{ type = "word" }]
+description = "byte at absolute address <word> = regA low byte (handler $EB19, normal path $EB12). Word operand, NOT word+byte."
 
 [[opcode]]
 op = 0xAA
