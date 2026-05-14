@@ -149,7 +149,7 @@ bank0_entry:
             hex 00 7f c6 d7 a3 82       ; 002BC:  00 7f c6 d7 a3 82
 
             stx $81eb                   ; 002C2:  8e eb 81
-            stx $7f00                   ; 002C5:  8e 00 7f
+            stx ui_transient_state                   ; 002C5:  8e 00 7f
             rts                         ; 002C8:  60
 
             hex 61 8d 16 e9 26 f2 0a cd ; 002C9:  61 8d 16 e9 26 f2 0a cd

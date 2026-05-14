@@ -42,7 +42,7 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 4 | [The Syscall API: what each of the 23 dispatch entries does](./04-syscall-api.md) | session 4 draft |
 | 5 | [The Bytecode VM](./05-bytecode-vm.md) | session 5 draft |
 | 6 | [The VM Disassembler](./06-vm-disassembler.md) | session 6 draft |
-| 7 | Province table & SRAM save format | planned (was ch 5) |
+| 7 | [The SRAM Save Layer](./07-sram-save-layer.md) | session 7 draft |
 | 8 | Daimyo AI decision engine | planned |
 | 9 | Combat resolution & hidden stat formulas | planned |
 | 10 | Synthesis: from bytecode to strategy counter-graph | planned |

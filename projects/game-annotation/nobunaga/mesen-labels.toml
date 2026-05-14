@@ -84,6 +84,17 @@ prg_bank_count = 16        # 256 KB total
 "0x074F" = { name = "v3_trigger",          comment = "Voice 3 byte 0" }
 "0x0758" = { name = "v4_trigger",          comment = "Voice 4 byte 0" }
 
+# --- SRAM regions (chapter 7) ---
+# Battery-backed PRG-RAM at $6000-$7FFF holds all canonical game state plus a UI cache.
+"0x601A" = { name = "province_table",       comment = "17-fief scenario province table — 17 records x 26 bytes. Record format: header (base koku, 16-bit BE), then 11 stats (debt, town, rice, output, dams, loyalty, wealth, men, morale, skill, arms each 16-bit BE), then footer (16-bit BE, likely annual income). Mikawa is record 6 at $60B6 (matching in-game 'fief 8' display)." }
+"0x752F" = { name = "daimyo_table_17",      comment = "17-fief scenario daimyo records — 17 records x 7 bytes. Each: age, Health, Drive, Luck, Charisma, IQ, status. Index parallel to daimyo_name_table at $77A8. Tokugawa is record 7 at $7560." }
+"0x7560" = { name = "daimyo_rec_tokugawa",  comment = "Player slot in 17-fief scenario. Record 7 of daimyo_table_17. Format: age + H + D + L + Ch + IQ + status (7 bytes)." }
+"0x77A8" = { name = "daimyo_name_table",    comment = "17-fief daimyo names — 17 names x 9 bytes (8 ASCII chars + null pad). Indices parallel to daimyo_table_17. Order in 17-fief scenario: Hatakeyama, Uesugi, Hojo, Honganji, Asakura, Anekoji, Imagawa, Tokugawa, Iera, Tsutsui, Asai, Rokkaku, Kitabatake, Ashikaga, Miyoshi, Takeda, Oda." }
+"0x7C00" = { name = "map_tile_data",        comment = "Strategic-map background tile indices. ~558 bytes covering the 18x31 map grid." }
+"0x7F00" = { name = "ui_transient_state",   comment = "Transient UI cache: frame counter at $7FE9, animation timers, menu position, status flags. Boot bytecode zeroes $7FE7/$7FC7/$7FD3/$7FD1 on game start (chapter 6). NOT preserved across power cycles — only canonical tables survive a save." }
+"0x7FE9" = { name = "frame_counter",        comment = "Per-frame counter (60Hz tick). Drives animation timing, cursor blink, music transitions. Continuously incremented when game is unpaused, frozen when paused." }
+
+
 # --- Palette buffers (chapters 3 + 4) ---
 "0x0090" = { name = "palette_alt",         comment = "32-byte alt palette buffer ($0090-$00AF). Used by palette_swap ($C36C, task $12) to atomically swap with palette_shadow for fade/transition effects. Reset-fill $3E (paired with palette_shadow)." }
 "0x0700" = { name = "palette_shadow",      comment = "32-byte palette shadow ($0700-$071F); foreground writes here + sets palette_dirty; $C6D4 uploads to PPU $3F00 next NMI. Reset-fill $3E (medium grey)." }
