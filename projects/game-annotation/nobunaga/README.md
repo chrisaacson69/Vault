@@ -44,10 +44,12 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 6 | [The VM Disassembler](./06-vm-disassembler.md) | session 6 draft |
 | 7 | [The SRAM Save Layer](./07-sram-save-layer.md) | session 7 draft |
 | 8 | [The VM Instruction Set: Arithmetic, Control Flow & the 9999 Cap](./08-vm-instruction-set.md) | session 8 draft |
-| 9 | The economy: harvest, tax & development formulas | planned |
-| 10 | Daimyo AI decision engine | planned |
-| 11 | Combat resolution & hidden stat formulas | planned |
-| 12 | Synthesis: from bytecode to strategy counter-graph | planned |
+| 9 | [The Command System: how a menu pick becomes a formula (Grow fully traced)](./09-command-system-and-grow.md) | session 9 draft |
+| 10 | The Grow family + display-command family (diff against ch 9) | planned |
+| 11 | The economy: harvest & tax formulas | planned |
+| 12 | Daimyo AI decision engine | planned |
+| 13 | Combat resolution & hidden stat formulas | planned |
+| 14 | Synthesis: from bytecode to strategy counter-graph | planned |
 
 Chapter numbers may shift as the structure clarifies — the M.U.L.E. project also reserved chapter 7.5 for strategic-frontier analysis once the mechanics were mapped. Expect the same pattern here.
 
