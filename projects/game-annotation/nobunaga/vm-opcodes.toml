@@ -3,22 +3,17 @@
 # Each entry describes the bytes the opcode consumes from the bytecode stream
 # AFTER the opcode byte itself. Used by vm-disasm.py for byte-aligned walking.
 #
-# Naming convention:
-#   - Decoded opcodes: descriptive names (push16, host_call, etc.)
-#   - Auto-classified opcodes: generic op_NN names with operand format from
-#     opcode-classify.py (handler-pattern recognition)
+# Coverage status (session 8):
+#   The VM is a register machine. Two 16-bit working registers:
+#     regA = $08/$09   regB = $0C/$0D
+#   ptr2 ($04/$05) = frame pointer (local variable array, indexed +/-)
+#   ptr3 ($06/$07) = bytecode program counter
+#   ptr1 ($02/$03) = VM data stack pointer (grows down)
+#   Session 8 hand-decoded the full arithmetic/logic/compare/control-flow set
+#   plus the $00-$3F frame-local load/store matrix and vm_return. See chapter 8.
 #
-# Coverage status (session 2):
-#   Decoded:    9 specific opcodes (host_call*, push16, clear_aux_ptr,
-#               set_local_0c, load_ptr2_offset, load_word_A8/A7, trigger_syscall)
-#   Auto:       247 opcodes with correct operand counts but generic names
-#   Total:      256/256 byte-aligned
-#
-# The auto-classifier in opcode-classify.py reads each handler's first ~40
-# bytes and detects calls to known operand-fetch helpers ($EFD5 reads word,
-# $EF97 reads sbyte, etc.). Result is the operand-byte count, which is enough
-# for byte-aligned disassembly. Semantic naming of individual opcodes remains
-# session-by-session work.
+# The auto-classifier (opcode-classify.py) established operand byte counts;
+# session 8 added semantics by hand-walking handlers in bank_15_labeled.asm.
 
 [meta]
 opcode_table_lo_prg = 0x3F026
@@ -26,10 +21,621 @@ opcode_table_hi_prg = 0x3F126
 
 
 # ============================================================================
-# DECODED OPCODES (specific names and descriptions)
+# FRAME-LOCAL LOAD/STORE MATRIX ($00-$3F) — a clean 4x16 grid:
+#   {load, store} x {regA, regB} x {negative-offset block, positive-offset block}
+# "neg" opcodes address frame[-24..-2] (caller args / outer locals), 12 each.
+# "pos" opcodes address frame[+0x0B/0x0D/0x0F/0x11], 4 each.
 # ============================================================================
 
-# --- Host call mechanism (chapter 5) ---
+[[opcode]]
+op_range = [0x00, 0x0B]
+name = "loadA_local_neg"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "regA = word at frame[-24 + 2*n]  (n = opcode & 0x0F)"
+
+[[opcode]]
+op_range = [0x0C, 0x0F]
+name = "loadA_local_pos"
+operands = []
+description = "regA = word at frame[+0x0B/0x0D/0x0F/0x11]  (handlers $E8C4-$E8D0)"
+
+[[opcode]]
+op_range = [0x10, 0x1B]
+name = "loadB_local_neg"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "regB = word at frame[-24 + 2*(n-0x10)]"
+
+[[opcode]]
+op_range = [0x1C, 0x1F]
+name = "loadB_local_pos"
+operands = []
+description = "regB = word at frame[+0x0B/0x0D/0x0F/0x11]"
+
+[[opcode]]
+op_range = [0x20, 0x2B]
+name = "storeA_local_neg"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "word at frame[-24 + 2*(n-0x20)] = regA"
+
+[[opcode]]
+op_range = [0x2C, 0x2F]
+name = "storeA_local_pos"
+operands = []
+description = "word at frame[+0x0B/0x0D/0x0F/0x11] = regA"
+
+[[opcode]]
+op_range = [0x30, 0x3B]
+name = "storeB_local_neg"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "word at frame[-24 + 2*(n-0x30)] = regB"
+
+[[opcode]]
+op_range = [0x3C, 0x3F]
+name = "storeB_local_pos"
+operands = []
+description = "word at frame[+0x0B/0x0D/0x0F/0x11] = regB"
+
+
+# ============================================================================
+# AUX-POINTER / IMMEDIATE / STACK OPS ($40-$7F)
+# ============================================================================
+
+[[opcode]]
+op = 0x40
+name = "clearA_40"
+operands = []
+description = "regA = 0 (own handler $EA00, same effect as $41-$4F)"
+
+[[opcode]]
+op_range = [0x41, 0x4F]
+name = "clearA"
+operands = []
+description = "regA = 0 (shared handler $E9F6)"
+
+[[opcode]]
+op = 0x50
+name = "setB_imm4_50"
+operands = []
+description = "regB = 0 (variant handler $EA11)"
+
+[[opcode]]
+op_range = [0x51, 0x5F]
+name = "setB_imm4"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "regB = (opcode & 0x0F), high byte 0"
+
+[[opcode]]
+op_range = [0x60, 0x6F]
+name = "push_imm4"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "Push 16-bit (high=0, low=opcode&0x0F) to VM data stack at ptr1"
+
+[[opcode]]
+op = 0x70
+name = "nop"
+operands = []
+description = "Pure no-op: handler $EA2C is just JMP vm_dispatch"
+
+[[opcode]]
+op_range = [0x71, 0x7F]
+name = "addA_imm4"
+operands = []
+operand_in_opcode = "low_4_bits"
+description = "regA += (opcode & 0x0F)  (16-bit add with carry)"
+
+
+# ============================================================================
+# IMMEDIATE LOADS / FRAME-ADDRESS / MISC ($81-$AB)
+# Operand formats are auto-classified; semantics partially decoded.
+# ============================================================================
+
+[[opcode]]
+op = 0x81
+name = "op_81_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x82
+name = "op_82_bb"
+operands = [{ type = "byte" }, { type = "byte" }]
+
+[[opcode]]
+op = 0x83
+name = "op_83_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x84
+name = "op_84_bwb"
+operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0x85
+name = "op_85_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x86
+name = "op_86_bwb"
+operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0x87
+name = "op_87_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x88
+name = "op_88_bwb"
+operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0x89
+name = "loadA_imm_sbyte"
+operands = [{ type = "sbyte" }]
+description = "regA = sign-extended signed byte literal (handler $EAAF)"
+
+[[opcode]]
+op = 0x8A
+name = "loadA_imm_word"
+operands = [{ type = "word" }]
+description = "regA = 16-bit word literal (handler $EAB9). Classifier mis-tagged as byte+sbyte; confirmed word by the 9999-clamp sites (e.g. bank 1 $AB55)."
+
+[[opcode]]
+op = 0x8B
+name = "loadB_imm_byte"
+operands = [{ type = "sbyte" }]
+description = "regB = byte literal (handler $EABE)"
+
+[[opcode]]
+op = 0x8C
+name = "loadB_imm_word"
+operands = [{ type = "word" }]
+description = "regB = 16-bit word literal (handler $EAC8). Classifier mis-tagged as byte+sbyte; confirmed word by the 9999-clamp sites (e.g. bank 1 $AB49 'loadB_imm_word 9999')."
+
+[[opcode]]
+op = 0x8D
+name = "op_8D_sbyte"
+operands = [{ type = "sbyte" }]
+
+[[opcode]]
+op = 0x8E
+name = "op_8E_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0x8F
+name = "addA_imm_sbyte"
+operands = [{ type = "sbyte" }]
+description = "regA += sign-extended signed byte literal (handler $EAD9)"
+
+[[opcode]]
+op = 0x90
+name = "op_90_bb"
+operands = [{ type = "byte" }, { type = "byte" }]
+
+[[opcode]]
+op_range = [0xA0, 0xA3]
+name = "op_A0_A3_byte"
+operands = [{ type = "byte" }]
+description = "1-byte operand; indexed load/store via ptr0 (handlers $EAED-$EB1E)"
+
+[[opcode]]
+op = 0xA4
+name = "op_A4_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0xA5
+name = "op_A5_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0xA6
+name = "op_A6_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0xA7
+name = "loadA_addr_word"
+operands = [{ type = "word" }]
+description = "regA = word at absolute address <word> (handler $EB0A)"
+
+[[opcode]]
+op = 0xA8
+name = "loadA_mem_word"
+operands = [{ type = "word" }]
+description = "regA = word read using <word> as address (handler $EA75)"
+
+[[opcode]]
+op = 0xA9
+name = "op_A9_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0xAA
+name = "op_AA_wb"
+operands = [{ type = "word" }, { type = "byte" }]
+
+[[opcode]]
+op = 0xAB
+name = "op_AB_word"
+operands = [{ type = "word" }]
+
+[[opcode]]
+op = 0xAC
+name = "host_call_simple"
+operands = [{ type = "word" }]
+description = "JSR to native function / bytecode subroutine at <word>; no ptr1 adjust"
+
+[[opcode]]
+op = 0xAD
+name = "op_AD_byte"
+operands = [{ type = "byte" }]
+
+[[opcode]]
+op = 0xAE
+name = "adjust_stack_sbyte"
+operands = [{ type = "sbyte" }]
+description = "ptr1 += signed byte (VM data-stack pointer adjust; handler $EB9E)"
+
+[[opcode]]
+op = 0xAF
+name = "op_AF_byte"
+operands = [{ type = "byte" }]
+
+
+# ============================================================================
+# ARITHMETIC / LOGIC / COMPARE ($B0-$DC) — the core ALU. All no-operand;
+# they work on regA and regB. Comparisons leave a 0/1 boolean in regA.
+# ============================================================================
+
+[[opcode]]
+op = 0xB0
+name = "loadA_ind_word"
+operands = []
+description = "regA = word at [regA]  (dereference regA as pointer)"
+
+[[opcode]]
+op = 0xB1
+name = "storeA_ind_word"
+operands = []
+description = "word at [regB] = regA; regB is popped from the VM data stack"
+
+[[opcode]]
+op = 0xB2
+name = "pushA_B2"
+operands = []
+description = "Push regA to VM data stack (handler $F020)"
+
+[[opcode]]
+op = 0xB3
+name = "pushA"
+operands = []
+description = "Push regA to VM data stack (handler $ECCE)"
+
+[[opcode]]
+op = 0xB4
+name = "popB"
+operands = []
+description = "regB = pop from VM data stack (handler $ECD5 -> $ECDB)"
+
+[[opcode]]
+op = 0xB5
+name = "mul"
+operands = []
+description = "regA = regA * regB  (16-bit shift-add multiply)"
+
+[[opcode]]
+op = 0xB6
+name = "div_signed"
+operands = []
+description = "regA = regA / regB  (signed quotient)"
+
+[[opcode]]
+op = 0xB7
+name = "op_B7"
+operands = []
+description = "handler $F246 (TBD)"
+
+[[opcode]]
+op = 0xB8
+name = "div_unsigned"
+operands = []
+description = "regA = regA / regB  (unsigned quotient)"
+
+[[opcode]]
+op = 0xB9
+name = "mod_signed"
+operands = []
+description = "regA = regA % regB  (signed remainder)"
+
+[[opcode]]
+op = 0xBA
+name = "mod_unsigned"
+operands = []
+description = "regA = regA % regB  (unsigned remainder)"
+
+[[opcode]]
+op = 0xBB
+name = "add"
+operands = []
+description = "regA = regA + regB"
+
+[[opcode]]
+op = 0xBC
+name = "sub"
+operands = []
+description = "regA = regA - regB"
+
+[[opcode]]
+op = 0xBD
+name = "shl_by_regB"
+operands = []
+description = "regA <<= regB  (shift left by regB count)"
+
+[[opcode]]
+op = 0xBE
+name = "lshr_by_regB"
+operands = []
+description = "regA >>= regB  (logical shift right by regB count)"
+
+[[opcode]]
+op = 0xBF
+name = "ashr_by_regB"
+operands = []
+description = "regA >>= regB  (arithmetic shift right by regB count)"
+
+[[opcode]]
+op = 0xC0
+name = "cmp_eq"
+operands = []
+description = "regA = (regA == regB) ? 1 : 0"
+
+[[opcode]]
+op = 0xC1
+name = "cmp_ne"
+operands = []
+description = "regA = (regA != regB) ? 1 : 0"
+
+[[opcode]]
+op = 0xC2
+name = "cmp_slt"
+operands = []
+description = "regA = (regA < regB) ? 1 : 0   (signed)"
+
+[[opcode]]
+op = 0xC3
+name = "cmp_sge"
+operands = []
+description = "regA = (regA >= regB) ? 1 : 0  (signed)"
+
+[[opcode]]
+op = 0xC4
+name = "cmp_sgt"
+operands = []
+description = "regA = (regA > regB) ? 1 : 0   (signed)"
+
+[[opcode]]
+op = 0xC5
+name = "cmp_sle"
+operands = []
+description = "regA = (regA <= regB) ? 1 : 0  (signed)"
+
+[[opcode]]
+op = 0xC6
+name = "cmp_uge"
+operands = []
+description = "regA = (regA >= regB) ? 1 : 0  (unsigned)"
+
+[[opcode]]
+op = 0xC7
+name = "cmp_ule"
+operands = []
+description = "regA = (regA <= regB) ? 1 : 0  (unsigned)"
+
+[[opcode]]
+op = 0xC8
+name = "cmp_ugt"
+operands = []
+description = "regA = (regA > regB) ? 1 : 0   (unsigned)"
+
+[[opcode]]
+op = 0xC9
+name = "cmp_ult"
+operands = []
+description = "regA = (regA < regB) ? 1 : 0   (unsigned)"
+
+[[opcode]]
+op = 0xCA
+name = "is_zero"
+operands = []
+description = "regA = (regA == 0) ? 1 : 0   (logical NOT)"
+
+[[opcode]]
+op = 0xCB
+name = "op_CB"
+operands = []
+description = "handler $EF09 region (TBD — negate-related)"
+
+[[opcode]]
+op = 0xCC
+name = "bitnot"
+operands = []
+description = "regA = ~regA  (ones complement)"
+
+[[opcode]]
+op = 0xCD
+name = "swap_AB"
+operands = []
+description = "regA <-> regB"
+
+[[opcode]]
+op = 0xCE
+name = "trigger_syscall_CE"
+operands = []
+description = "BRK to syscall_dispatch (handler $EF92)"
+
+[[opcode]]
+op = 0xCF
+name = "vm_return"
+operands = []
+description = "Restore caller frame from frame[0..7], JMP (ptr0) — VM subroutine return"
+
+[[opcode]]
+op = 0xD0
+name = "incA"
+operands = []
+description = "regA += 1"
+
+[[opcode]]
+op = 0xD1
+name = "decA"
+operands = []
+description = "regA -= 1"
+
+[[opcode]]
+op = 0xD2
+name = "aslA"
+operands = []
+description = "regA <<= 1"
+
+[[opcode]]
+op = 0xD3
+name = "loadA_ind_byte"
+operands = []
+description = "regA = byte at [regA], zero-extended"
+
+[[opcode]]
+op = 0xD4
+name = "storeA_ind_byte"
+operands = []
+description = "byte at [regB] = regA low byte; regB popped from VM data stack"
+
+[[opcode]]
+op = 0xD5
+name = "switch"
+operands = []
+description = "Jump-table dispatch on regA (handler $EC65) — reads inline (value,target) pairs"
+
+[[opcode]]
+op_range = [0xD6, 0xD7]
+name = "op_D6_D7_byte"
+operands = [{ type = "byte" }]
+description = "ptr3 (PC) manipulation — control flow (handlers $EBBB/$EBC5)"
+
+[[opcode]]
+op = 0xD8
+name = "branch_z"
+operands = [{ type = "sbyte" }]
+description = "if regA == 0: ptr3 += signed byte (handler $EBD1). The dominant conditional branch — pairs with a cmp_* opcode that leaves 0/1 in regA."
+
+[[opcode]]
+op = 0xD9
+name = "op_D9"
+operands = []
+description = "handler $EC1D (TBD — reads via ptr3)"
+
+[[opcode]]
+op = 0xDA
+name = "bitand"
+operands = []
+description = "regA = regA & regB"
+
+[[opcode]]
+op = 0xDB
+name = "bitor"
+operands = []
+description = "regA = regA | regB"
+
+[[opcode]]
+op = 0xDC
+name = "bitxor"
+operands = []
+description = "regA = regA ^ regB"
+
+
+# ============================================================================
+# CONTROL FLOW & HOST CALLS ($DD-$EA)
+# ============================================================================
+
+[[opcode]]
+op = 0xDD
+name = "host_call_indirect_simple"
+operands = []
+description = "JSR to native code at address in regA; no ptr1 adjust (handler $EB43)"
+
+[[opcode]]
+op = 0xDE
+name = "loadA_frameaddr"
+operands = [{ type = "byte" }]
+description = "regA = ptr2 + byte  (address of a frame local; handler $EA91)"
+
+[[opcode]]
+op = 0xDF
+name = "loadB_frameaddr"
+operands = [{ type = "byte" }]
+description = "regB = ptr2 + byte  (address of a frame local; handler $EAA0)"
+
+[[opcode]]
+op = 0xE0
+name = "op_E0_byte"
+operands = [{ type = "byte" }]
+description = "fetch byte, jsr $F603 with Y=8 (handler $EF54)"
+
+[[opcode]]
+op = 0xE1
+name = "op_E1_byte"
+operands = [{ type = "byte" }]
+description = "fetch byte, jsr $F5CD with Y=8 (handler $EF5F)"
+
+[[opcode]]
+op = 0xE2
+name = "op_E2_byte"
+operands = [{ type = "byte" }]
+description = "fetch byte, jsr $F62C with Y=0x0C (handler $EF6A)"
+
+[[opcode]]
+op = 0xE3
+name = "jump_rel"
+operands = [{ type = "sbyte" }]
+description = "ptr3 += signed byte  (unconditional PC-relative jump; handler $EBD9)"
+
+[[opcode]]
+op = 0xE4
+name = "branch_nz_rel"
+operands = [{ type = "sbyte" }]
+description = "if regA != 0: ptr3 += signed byte (handler $EBE7)"
+
+[[opcode]]
+op = 0xE5
+name = "branch_z_rel"
+operands = [{ type = "sbyte" }]
+description = "if regA == 0: ptr3 += signed byte (handler $EBF3)"
+
+[[opcode]]
+op = 0xE6
+name = "jump_rel_fwd"
+operands = [{ type = "sbyte" }]
+description = "ptr3 += signed byte  (unconditional PC-relative jump variant; handler $EBFB)"
+
+[[opcode]]
+op = 0xE7
+name = "branch_nz_rel_fwd"
+operands = [{ type = "sbyte" }]
+description = "if regA != 0: ptr3 += signed byte (variant; handler $EC09)"
+
+[[opcode]]
+op = 0xE8
+name = "branch_z_rel_fwd"
+operands = [{ type = "sbyte" }]
+description = "if regA == 0: ptr3 += signed byte (variant; handler $EC15). Both handler paths call the sbyte fetch, so the operand is always consumed — classifier mis-counted this as 0-operand."
 
 [[opcode]]
 op = 0xE9
@@ -38,24 +644,19 @@ operands = [
     { type = "word" },
     { type = "byte" },
 ]
-description = "JSR to native function at <word>; ptr1 += <byte> after return"
+description = "JSR to native function / bytecode subroutine at <word>; ptr1 += <byte> after return"
 
 [[opcode]]
-op = 0xAC
-name = "host_call_simple"
-operands = [
-    { type = "word" },
-]
-description = "JSR to native function at <word>; no ptr1 adjust"
+op = 0xEA
+name = "host_call_indirect"
+operands = []
+description = "JSR to native code at address in regA; then ptr1 adjust (handler $EB2D)"
 
 
-# --- Trigger_syscall cluster (all map to handler $EF92: BRK + jmp vm_dispatch) ---
-# 37 opcodes share this single behavior: execute BRK to fire syscall_dispatch
-# with whatever's currently in $0050. The BRK pushes return-PC=$EF94 (which is
-# JMP vm_dispatch), so after the syscall returns, the VM continues. Different
-# opcode values likely group syscalls by category (audio vs PPU vs save etc.).
-# We can't tell which group without runtime traces showing the task ID set
-# before each opcode fires.
+# ============================================================================
+# TRIGGER_SYSCALL CLUSTER ($80, $91-$9F, $CE, $EB-$FE) — all handler $EF92:
+# BRK to syscall_dispatch with whatever task ID is in $0050. See chapter 6.
+# ============================================================================
 
 [[opcode]]
 op = 0x80
@@ -70,320 +671,13 @@ operands = []
 description = "BRK to syscall_dispatch (handler $EF92)"
 
 [[opcode]]
-op = 0xCE
-name = "trigger_syscall_CE"
-operands = []
-description = "BRK to syscall_dispatch (handler $EF92)"
-
-[[opcode]]
 op_range = [0xEB, 0xFE]
 name = "trigger_syscall_EB_FE"
 operands = []
 description = "BRK to syscall_dispatch (handler $EF92)"
 
-
-# --- Stack and aux-pointer operations (chapter 5/6) ---
-
-[[opcode]]
-op_range = [0x60, 0x6F]
-name = "push16"
-operands = []
-operand_in_opcode = "low_4_bits"
-description = "Push 16-bit (high=0, low=opcode&0x0F) to VM stack at ptr1"
-
-[[opcode]]
-op_range = [0x50, 0x5F]
-name = "set_local_0c"
-operands = []
-operand_in_opcode = "low_4_bits"
-description = "Set $0C/$0D to (high=0, low=opcode&0x0F)"
-
-[[opcode]]
-op_range = [0x41, 0x4F]
-name = "clear_aux_ptr"
-operands = []
-description = "Set $08/$09 = 0 (shared handler $E9F6)"
-
-[[opcode]]
-op = 0x40
-name = "clear_aux_ptr_40"
-operands = []
-description = "Set $08/$09 = 0 (own handler $EA00, same effect as $41-$4F)"
-
-[[opcode]]
-op = 0x50
-name = "set_local_0c_50"
-operands = []
-description = "Variant of $51-$5F at handler $EA11"
-
-[[opcode]]
-op_range = [0x71, 0x7F]
-name = "add_low4_to_aux_ptr"
-operands = []
-operand_in_opcode = "low_4_bits"
-description = "Add opcode&0x0F to $08/$09 (16-bit add; shared handler $EA20)"
-
-[[opcode]]
-op = 0x70
-name = "nop"
-operands = []
-description = "Pure no-op: handler $EA2C is just JMP vm_dispatch"
-
-
-# --- Load offset opcodes ($00-$0B, chapter 5) ---
-
-[[opcode]]
-op_range = [0x00, 0x0B]
-name = "load_ptr2_offset"
-operands = []
-operand_in_opcode = "low_4_bits"
-description = "Load 16-bit from (ptr2 + small negative offset)"
-
-
-# --- Common word-reading opcodes ($A7, $A8 — chapter 6 session 1) ---
-
-[[opcode]]
-op = 0xA8
-name = "load_word_A8"
-operands = [{ type = "word" }]
-description = "Read 16-bit word from bytecode; handler $EA75"
-
-[[opcode]]
-op = 0xA7
-name = "load_word_A7"
-operands = [{ type = "word" }]
-description = "Read 16-bit word from bytecode; handler $EB0A"
-
-
-# ============================================================================
-# AUTO-CLASSIFIED OPCODES (operand format known, semantics TBD)
-# ============================================================================
-#
-# Per opcode-classify.py: these have the correct operand byte count detected,
-# but their behavior beyond "consumes N bytes" hasn't been hand-walked yet.
-# The disassembler will align correctly; future sessions can rename individually
-# as we walk handlers.
-
-# --- No-operand opcodes that have individual handlers (not part of a cluster) ---
-
-[[opcode]]
-op_range = [0x0C, 0x3B]
-name = "op_0C_3B"
-operands = []
-description = "Individual handler per opcode; no operand bytes consumed (auto-classified)"
-
-[[opcode]]
-op_range = [0x3C, 0x3F]
-name = "op_3X_high"
-operands = []
-description = "Individual handler per opcode; no operand bytes (auto-classified)"
-
-[[opcode]]
-op_range = [0xB0, 0xD5]
-name = "op_BX_DX"
-operands = []
-description = "Individual handler per opcode in $EBxx-$ECxx range; no operand (auto-classified)"
-
-[[opcode]]
-op_range = [0xD9, 0xDD]
-name = "op_D9_DD"
-operands = []
-description = "No operand (auto-classified)"
-
-[[opcode]]
-op = 0xE8
-name = "op_E8"
-operands = []
-description = "No operand; handler $EC15"
-
-[[opcode]]
-op = 0xEA
-name = "op_EA"
-operands = []
-description = "No operand; handler $EB2D (chapter-5 high-byte-table noted ea -> EBxx)"
-
 [[opcode]]
 op = 0xFF
 name = "op_FF"
 operands = []
-description = "No operand; handler $EF93"
-
-
-# --- 1-byte operand opcodes ---
-
-[[opcode]]
-op = 0x81
-name = "op_81_byte"
-operands = [{ type = "byte" }]
-
-[[opcode]]
-op = 0x83
-name = "op_83_byte"
-operands = [{ type = "byte" }]
-
-[[opcode]]
-op = 0x85
-name = "op_85_byte"
-operands = [{ type = "byte" }]
-
-[[opcode]]
-op = 0x87
-name = "op_87_byte"
-operands = [{ type = "byte" }]
-
-[[opcode]]
-op = 0x8E
-name = "op_8E_byte"
-operands = [{ type = "byte" }]
-
-[[opcode]]
-op_range = [0xA0, 0xA3]
-name = "op_A0_A3_byte"
-operands = [{ type = "byte" }]
-description = "1-byte operand; individual handlers (auto-classified)"
-
-[[opcode]]
-op = 0xAD
-name = "op_AD_byte"
-operands = [{ type = "byte" }]
-
-[[opcode]]
-op = 0xAF
-name = "op_AF_byte"
-operands = [{ type = "byte" }]
-
-[[opcode]]
-op_range = [0xD6, 0xD7]
-name = "op_D6_D7_byte"
-operands = [{ type = "byte" }]
-
-[[opcode]]
-op_range = [0xDE, 0xE2]
-name = "op_DE_E2_byte"
-operands = [{ type = "byte" }]
-
-
-# --- Signed-byte operand opcodes (branches?) ---
-
-[[opcode]]
-op = 0x89
-name = "op_89_sbyte"
-operands = [{ type = "sbyte" }]
-
-[[opcode]]
-op = 0x8B
-name = "op_8B_sbyte"
-operands = [{ type = "sbyte" }]
-
-[[opcode]]
-op = 0x8D
-name = "op_8D_sbyte"
-operands = [{ type = "sbyte" }]
-
-[[opcode]]
-op = 0x8F
-name = "op_8F_sbyte"
-operands = [{ type = "sbyte" }]
-
-[[opcode]]
-op = 0xAE
-name = "op_AE_sbyte"
-operands = [{ type = "sbyte" }]
-
-[[opcode]]
-op = 0xD8
-name = "op_D8_sbyte"
-operands = [{ type = "sbyte" }]
-
-[[opcode]]
-op_range = [0xE3, 0xE7]
-name = "op_E3_E7_sbyte"
-operands = [{ type = "sbyte" }]
-description = "1 signed byte operand; individual handlers (auto-classified)"
-
-
-# --- 2-byte operand opcodes (byte + byte) ---
-
-[[opcode]]
-op = 0x82
-name = "op_82_bb"
-operands = [{ type = "byte" }, { type = "byte" }]
-
-[[opcode]]
-op = 0x90
-name = "op_90_bb"
-operands = [{ type = "byte" }, { type = "byte" }]
-
-
-# --- byte + sbyte operand opcodes ---
-
-[[opcode]]
-op = 0x8A
-name = "op_8A_bsb"
-operands = [{ type = "byte" }, { type = "sbyte" }]
-
-[[opcode]]
-op = 0x8C
-name = "op_8C_bsb"
-operands = [{ type = "byte" }, { type = "sbyte" }]
-
-
-# --- Word operand opcodes ($AC already covered above) ---
-
-[[opcode]]
-op = 0xAB
-name = "op_AB_word"
-operands = [{ type = "word" }]
-
-[[opcode]]
-op = 0xDD
-name = "op_DD_word"
-operands = [{ type = "word" }]
-
-
-# --- word + byte operand opcodes (host_call-style) ---
-# $A4, $A5, $A6, $AA share this format. $E9 is the named host_call.
-
-[[opcode]]
-op = 0xA4
-name = "op_A4_wb"
-operands = [{ type = "word" }, { type = "byte" }]
-description = "word + byte operands; handler $EA43 (could be a host_call variant)"
-
-[[opcode]]
-op = 0xA5
-name = "op_A5_wb"
-operands = [{ type = "word" }, { type = "byte" }]
-
-[[opcode]]
-op = 0xA6
-name = "op_A6_wb"
-operands = [{ type = "word" }, { type = "byte" }]
-
-[[opcode]]
-op = 0xA9
-name = "op_A9_wb"
-operands = [{ type = "word" }, { type = "byte" }]
-
-[[opcode]]
-op = 0xAA
-name = "op_AA_wb"
-operands = [{ type = "word" }, { type = "byte" }]
-
-
-# --- 3-operand opcodes (byte + word + byte) ---
-
-[[opcode]]
-op = 0x84
-name = "op_84_bwb"
-operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
-
-[[opcode]]
-op = 0x86
-name = "op_86_bwb"
-operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
-
-[[opcode]]
-op = 0x88
-name = "op_88_bwb"
-operands = [{ type = "byte" }, { type = "word" }, { type = "byte" }]
+description = "No operand; handler $EF93 (BRK signature byte region)"
