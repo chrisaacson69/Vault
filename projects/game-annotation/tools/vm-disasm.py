@@ -1,22 +1,32 @@
 r"""
 vm-disasm.py — Disassemble Nobunaga's Ambition VM bytecode.
 
-The game's logic lives as bytecode in banks 0-14, interpreted by a stack-based
+The game's logic lives as bytecode in banks 0-14, interpreted by a stack/register
 VM at bank 15 ($E823 onwards, chapter 5 details). This tool walks the bytecode,
 decodes opcodes against a configurable operand-format spec, and emits annotated
 VM-assembly listings.
 
-Strategy: iterative coverage. The opcode-spec TOML starts with the handful of
-opcodes we've decoded; unknown opcodes are emitted as raw bytes annotated with
-their handler addresses (so we know which routines to walk next). After each
-session decoding a few new handlers, we re-run and get richer output.
+Two traversal modes:
+  - flow (default): recursive-descent. Follows jumps and branches, queues their
+    targets, stops at vm_return. Does NOT walk through control flow into the
+    operand bytes that follow it — so it stays byte-aligned through a whole
+    subroutine. This is the mode you want for reading a real handler.
+  - linear (--linear): the original straight walk. Useful for dumping a raw
+    region when you don't trust the entry point or want to see data.
+
+The opcode spec (vm-opcodes.toml) gives each opcode its operand format and an
+optional `flow` field:
+    flow = "jump_rel"    unconditional, target = next_pc + sbyte operand
+    flow = "jump_abs"    unconditional, target = word operand
+    flow = "branch_rel"  conditional,   target = next_pc + sbyte operand
+    flow = "branch_abs"  conditional,   target = word operand
+    flow = "call"        host_call — target recorded, execution continues after
+    flow = "return"      ends the path (vm_return)
+    flow = "switch"      $D5 jump table — variable length, path stops here
 
 Usage:
     python vm-disasm.py <rom> <opcode-spec.toml> [--start ADDR] [--bank N]
-                                                   [--length N] [--labels FILE]
-
-Default: disassemble 200 bytes starting at $A77B in bank 0 (the VM bytecode
-entry point after the JSR $E823 at $A778).
+                        [--length N] [--max-insns N] [--labels FILE] [--linear]
 """
 
 import argparse
@@ -63,12 +73,7 @@ def load_opcode_spec(path: Path) -> dict:
 
 
 def load_labels(path: Path) -> dict[int, str]:
-    """Read mesen-labels.toml; return cpu_addr -> name for PRG (code) labels.
-
-    Returns a flat map of CPU address -> name across all banks. Note that a
-    name like 'syscall_dispatch' is in bank 15 at CPU $F226 — we use the
-    CPU address directly since that's what bytecode references via host_call.
-    """
+    """Read mesen-labels.toml; return cpu_addr -> name for PRG (code) labels."""
     out = {}
     with path.open("rb") as f:
         cfg = tomllib.load(f)
@@ -91,23 +96,13 @@ BYTECODE_SUB_SIGNATURE = bytes([0x20, 0x23, 0xE8])
 
 
 def classify_host_call_target(target_cpu_addr: int, rom: bytes, current_bank: int) -> str:
-    """Return a tag describing what's at the host_call target.
-
-    Returns 'bytecode' if the first 3 bytes are JSR $E823 (a bytecode subroutine
-    entry stub), 'native' otherwise.
-
-    Bank handling: targets at $C000-$FFFF are always in bank 15 (fixed). Targets
-    at $8000-$BFFF are in whichever bank is currently mapped — we use current_bank
-    as the best guess. For accurate cross-bank resolution we'd need to track bank
-    state through bytecode execution, which we don't (yet).
-    """
+    """Return 'bytecode', 'native', 'ram', or '?' for a host_call target."""
     if 0xC000 <= target_cpu_addr <= 0xFFFF:
-        # Bank 15 (fixed kernel area)
         prg_offset = 15 * PRG_BANK_SIZE + (target_cpu_addr & (PRG_BANK_SIZE - 1))
     elif 0x8000 <= target_cpu_addr <= 0xBFFF:
         prg_offset = current_bank * PRG_BANK_SIZE + (target_cpu_addr & (PRG_BANK_SIZE - 1))
     else:
-        return "ram"  # target in RAM is unusual but possible
+        return "ram"
     if prg_offset + 3 > len(rom):
         return "?"
     if rom[prg_offset:prg_offset + 3] == BYTECODE_SUB_SIGNATURE:
@@ -119,110 +114,208 @@ def cpu_to_prg_offset(cpu_addr: int, bank: int) -> int:
     return bank * PRG_BANK_SIZE + (cpu_addr & (PRG_BANK_SIZE - 1))
 
 
-def disasm(rom: bytes,
-           start_cpu_addr: int,
-           bank: int,
-           length: int,
-           handlers: list[int],
-           op_lookup: dict[int, dict],
-           labels: dict[int, str]) -> list[str]:
-    """Walk bytecode; return list of formatted lines.
+def bank_range(bank: int) -> tuple[int, int]:
+    """CPU address window a given bank occupies."""
+    if bank == 15:
+        return 0xC000, 0xFFFF
+    return 0x8000, 0xBFFF
 
-    Each line shows: PC, raw bytes, opcode name, decoded operands, annotations.
-    Unknown opcodes are emitted as 1-byte raw with a "(unknown)" tag and the
-    handler address for follow-up.
+
+def decode_instruction(rom, prg, pc, op, spec, bank, handlers, labels):
+    """Decode one opcode + operands at PRG offset `prg`.
+
+    Returns a dict:
+        consume        total instruction length in bytes
+        line           formatted listing line (without leading PC handling)
+        flow           the spec's flow tag, or None
+        target         resolved branch/jump target CPU addr, or None
+        call_target    host_call target CPU addr, or None
+        is_unknown     True if the opcode had no spec entry
     """
+    handler = handlers[op]
+
+    if spec is None:
+        line = (f"{op:02X}                          "
+                f"(unknown op ${op:02X})         ; handler={addr_str(handler, labels)}")
+        return dict(consume=1, line=line, flow=None, target=None,
+                    call_target=None, is_unknown=True)
+
+    operand_specs = spec.get("operands", [])
+    operand_bytes = []
+    operand_values = []
+    consume = 1
+    for opspec in operand_specs:
+        t = opspec["type"]
+        if t == "word":
+            if prg + consume + 1 >= len(rom):
+                break
+            low = rom[prg + consume]
+            high = rom[prg + consume + 1]
+            operand_bytes.extend([low, high])
+            operand_values.append(("word", (high << 8) | low))
+            consume += 2
+        elif t in ("byte", "sbyte"):
+            if prg + consume >= len(rom):
+                break
+            b = rom[prg + consume]
+            operand_bytes.append(b)
+            operand_values.append((t, b))
+            consume += 1
+
+    all_bytes = [op] + operand_bytes
+    bytes_str = " ".join(f"{b:02X}" for b in all_bytes)
+    op_name = spec.get("name", f"op_{op:02X}")
+    is_host_call = op_name.startswith("host_call")
+
+    operand_strs = []
+    for idx, (t, v) in enumerate(operand_values):
+        if t == "word":
+            s = addr_str(v, labels)
+            if is_host_call and idx == 0:
+                tag = classify_host_call_target(v, rom, bank)
+                if tag in ("bytecode", "native"):
+                    s += f" {{{tag}}}"
+            operand_strs.append(s)
+        elif t == "byte":
+            operand_strs.append(f"${v:02X}")
+        elif t == "sbyte":
+            sv = v - 256 if v >= 128 else v
+            operand_strs.append(f"{sv:+d}")
+    operand_text = ", ".join(operand_strs)
+
+    annotation = spec.get("description", "")
+    if spec.get("operand_in_opcode") == "low_4_bits":
+        annotation = f"{annotation}  (inline operand = {op & 0x0F})".strip()
+
+    line = f"{bytes_str:28s}{op_name:24s} {operand_text}"
+    if annotation:
+        line = f"{line:<78s} ; {annotation}"
+
+    # --- control-flow resolution ---
+    flow = spec.get("flow")
+    target = None
+    call_target = None
+    next_pc = pc + consume
+    if flow in ("jump_rel", "branch_rel") and operand_values:
+        t, v = operand_values[0]
+        sv = v - 256 if v >= 128 else v
+        target = next_pc + sv
+    elif flow in ("jump_abs", "branch_abs") and operand_values:
+        t, v = operand_values[0]
+        target = v
+    elif flow == "call" and operand_values and operand_values[0][0] == "word":
+        call_target = operand_values[0][1]
+
+    return dict(consume=consume, line=line, flow=flow, target=target,
+                call_target=call_target, is_unknown=False)
+
+
+def disasm_flow(rom, start, bank, op_lookup, handlers, labels, max_insns):
+    """Recursive-descent walk: follow jumps/branches, stop at returns.
+
+    Returns (lines, stats). Stays byte-aligned through a whole subroutine
+    because it never decodes the bytes that a control-flow opcode jumps over.
+    """
+    lo, hi = bank_range(bank)
+    decoded = {}            # cpu_addr -> dict from decode_instruction
+    worklist = [start]
+    queued = {start}        # everything ever placed on the worklist
+    call_targets = []       # (from_pc, target) for the summary
+    branch_targets = set()  # addrs that are jump/branch destinations (for labels)
+
+    while worklist:
+        pc = worklist.pop()
+        while True:
+            if pc in decoded:
+                break
+            if not (lo <= pc <= hi):
+                break
+            prg = cpu_to_prg_offset(pc, bank)
+            if prg >= len(rom):
+                break
+            op = rom[prg]
+            spec = op_lookup.get(op)
+            info = decode_instruction(rom, prg, pc, op, spec, bank, handlers, labels)
+            decoded[pc] = info
+            if len(decoded) >= max_insns:
+                worklist.clear()
+                break
+
+            flow = info["flow"]
+            if info["call_target"] is not None:
+                call_targets.append((pc, info["call_target"]))
+
+            if flow == "return" or flow == "switch":
+                break
+            if flow in ("jump_rel", "jump_abs"):
+                tgt = info["target"]
+                if tgt is not None and lo <= tgt <= hi:
+                    branch_targets.add(tgt)
+                    if tgt not in queued:
+                        queued.add(tgt)
+                        worklist.append(tgt)
+                break  # unconditional — no fall-through
+            if flow in ("branch_rel", "branch_abs"):
+                tgt = info["target"]
+                if tgt is not None and lo <= tgt <= hi:
+                    branch_targets.add(tgt)
+                    if tgt not in queued:
+                        queued.add(tgt)
+                        worklist.append(tgt)
+                # conditional — fall through to next_pc as well
+
+            pc = pc + info["consume"]
+
+    # --- render, sorted by address, with gap markers ---
+    lines = []
+    addrs = sorted(decoded)
+    known = sum(1 for a in addrs if not decoded[a]["is_unknown"])
+    unknown = len(addrs) - known
+    prev_end = None
+    for a in addrs:
+        info = decoded[a]
+        if prev_end is not None and a != prev_end:
+            if a > prev_end:
+                lines.append(f"  ; ---- gap ${prev_end:04X}-${a-1:04X} "
+                             f"({a - prev_end} bytes not on any traced path) ----")
+            else:
+                lines.append(f"  ; ---- overlap: ${a:04X} re-entered mid-stream ----")
+        marker = ">" if a in branch_targets else " "
+        lines.append(f" {marker}${a:04X}  {info['line']}")
+        prev_end = a + info["consume"]
+
+    lines.append("")
+    lines.append(f"  ; {known} known + {unknown} unknown opcodes across "
+                 f"{len(addrs)} instructions; {len(branch_targets)} branch targets")
+    if call_targets:
+        uniq = sorted(set(t for _, t in call_targets))
+        lines.append(f"  ; host_call targets: "
+                     + ", ".join(addr_str(t, labels) for t in uniq))
+    return lines
+
+
+def disasm_linear(rom, start_cpu_addr, bank, length, handlers, op_lookup, labels):
+    """Original straight-line walk — decode `length` bytes from `start`."""
     base_prg = cpu_to_prg_offset(start_cpu_addr, bank)
     lines = []
     pos = 0
     unknown_count = 0
     known_count = 0
-
     while pos < length:
         if base_prg + pos >= len(rom):
             lines.append(f"  ; ROM ended at PRG ${base_prg + pos:05X}")
             break
-
         pc = start_cpu_addr + pos
         op = rom[base_prg + pos]
-        handler = handlers[op]
         spec = op_lookup.get(op)
-
-        if spec is None:
-            # Unknown — emit raw byte with handler annotation
-            lines.append(
-                f"  ${pc:04X}  {op:02X}                          "
-                f"(unknown op ${op:02X})         ; handler={addr_str(handler, labels)}"
-            )
-            pos += 1
+        info = decode_instruction(rom, base_prg + pos, pc, op, spec,
+                                  bank, handlers, labels)
+        lines.append(f"  ${pc:04X}  {info['line']}")
+        pos += info["consume"]
+        if info["is_unknown"]:
             unknown_count += 1
-            continue
-
-        # Known opcode — consume operands
-        operand_specs = spec.get("operands", [])
-        operand_bytes = []
-        operand_values = []
-        consume = 1   # opcode byte itself
-        for opspec in operand_specs:
-            t = opspec["type"]
-            if t == "word":
-                if base_prg + pos + consume + 1 >= len(rom):
-                    break
-                low = rom[base_prg + pos + consume]
-                high = rom[base_prg + pos + consume + 1]
-                operand_bytes.extend([low, high])
-                operand_values.append(("word", (high << 8) | low))
-                consume += 2
-            elif t == "byte" or t == "sbyte":
-                if base_prg + pos + consume >= len(rom):
-                    break
-                b = rom[base_prg + pos + consume]
-                operand_bytes.append(b)
-                operand_values.append((t, b))
-                consume += 1
-
-        # Format the bytes column
-        all_bytes = [op] + operand_bytes
-        bytes_str = " ".join(f"{b:02X}" for b in all_bytes)
-
-        # Format the operand-rendering
-        op_name = spec.get("name", f"op_{op:02X}")
-        operand_strs = []
-        is_host_call = op_name.startswith("host_call")
-        for idx, (t, v) in enumerate(operand_values):
-            if t == "word":
-                operand_str = addr_str(v, labels)
-                # For host_call's first word operand, classify the target.
-                if is_host_call and idx == 0:
-                    tag = classify_host_call_target(v, rom, bank)
-                    if tag == "bytecode":
-                        operand_str += " {bytecode}"
-                    elif tag == "native":
-                        operand_str += " {native}"
-                operand_strs.append(operand_str)
-            elif t == "byte":
-                operand_strs.append(f"${v:02X}")
-            elif t == "sbyte":
-                # signed byte: show as +/-N
-                sv = v - 256 if v >= 128 else v
-                operand_strs.append(f"{sv:+d}")
-        operand_text = ", ".join(operand_strs)
-
-        # Opcode-as-operand annotation for shared-handler clusters
-        annotation = spec.get("description", "")
-        if spec.get("operand_in_opcode"):
-            field = spec["operand_in_opcode"]
-            if field == "low_4_bits":
-                inline = op & 0x0F
-                annotation = f"{annotation}  (inline operand = {inline})".strip()
-
-        line = f"  ${pc:04X}  {bytes_str:28s}{op_name:24s} {operand_text}"
-        if annotation:
-            line = f"{line:<80s} ; {annotation}"
-        lines.append(line)
-        pos += consume
-        known_count += 1
-
+        else:
+            known_count += 1
     lines.append("")
     lines.append(f"  ; {known_count} known, {unknown_count} unknown opcodes in {pos} bytes")
     return lines
@@ -233,11 +326,16 @@ def main() -> int:
     parser.add_argument("rom", type=Path, help="ROM file (.nes)")
     parser.add_argument("opcode_spec", type=Path, help="Opcode operand-format TOML")
     parser.add_argument("--start", type=lambda x: int(x, 0), default=0xA77B,
-                        help="Start CPU address (default $A77B = bytecode entry after JSR)")
+                        help="Start CPU address (default $A77B)")
     parser.add_argument("--bank", type=int, default=0, help="PRG bank index (default 0)")
-    parser.add_argument("--length", type=int, default=200, help="Bytes to disassemble")
+    parser.add_argument("--length", type=int, default=200,
+                        help="Bytes to disassemble in --linear mode (default 200)")
+    parser.add_argument("--max-insns", type=int, default=400,
+                        help="Instruction cap in flow mode (default 400)")
     parser.add_argument("--labels", type=Path, default=None,
-                        help="mesen-labels.toml to render label names in operands")
+                        help="mesen-labels.toml for friendly address rendering")
+    parser.add_argument("--linear", action="store_true",
+                        help="Use the old straight-line walk instead of flow following")
     args = parser.parse_args()
 
     rom = load_rom(args.rom)
@@ -245,17 +343,22 @@ def main() -> int:
     op_lookup = load_opcode_spec(args.opcode_spec)
     labels = load_labels(args.labels) if args.labels else {}
 
+    mode = "linear" if args.linear else "flow (control-flow following)"
     print(f"VM bytecode disassembly")
     print(f"  ROM:          {args.rom}  ({len(rom)} bytes after header)")
     print(f"  start:        ${args.start:04X} (bank {args.bank}, "
           f"PRG ${cpu_to_prg_offset(args.start, args.bank):05X})")
-    print(f"  length:       {args.length} bytes")
+    print(f"  mode:         {mode}")
     print(f"  opcode spec:  {args.opcode_spec} ({len(op_lookup)} of 256 opcodes defined)")
     print(f"  labels:       {len(labels)} CPU addresses named")
     print()
 
-    lines = disasm(rom, args.start, args.bank, args.length,
-                   handlers, op_lookup, labels)
+    if args.linear:
+        lines = disasm_linear(rom, args.start, args.bank, args.length,
+                              handlers, op_lookup, labels)
+    else:
+        lines = disasm_flow(rom, args.start, args.bank, op_lookup,
+                            handlers, labels, args.max_insns)
     for line in lines:
         print(line)
     return 0

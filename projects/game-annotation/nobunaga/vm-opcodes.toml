@@ -272,6 +272,7 @@ operands = [{ type = "word" }]
 op = 0xAC
 name = "host_call_simple"
 operands = [{ type = "word" }]
+flow = "call"
 description = "JSR to native function / bytecode subroutine at <word>; no ptr1 adjust"
 
 [[opcode]]
@@ -486,6 +487,7 @@ description = "BRK to syscall_dispatch (handler $EF92)"
 op = 0xCF
 name = "vm_return"
 operands = []
+flow = "return"
 description = "Restore caller frame from frame[0..7], JMP (ptr0) — VM subroutine return"
 
 [[opcode]]
@@ -522,19 +524,29 @@ description = "byte at [regB] = regA low byte; regB popped from VM data stack"
 op = 0xD5
 name = "switch"
 operands = []
-description = "Jump-table dispatch on regA (handler $EC65) — reads inline (value,target) pairs"
+flow = "switch"
+description = "Jump-table dispatch on regA (handler $EC65) — reads inline (value,target) pairs from the bytecode stream, jumps to the matching target. Variable-length; the disassembler stops the fall-through run here."
 
 [[opcode]]
-op_range = [0xD6, 0xD7]
-name = "op_D6_D7_byte"
-operands = [{ type = "byte" }]
-description = "ptr3 (PC) manipulation — control flow (handlers $EBBB/$EBC5)"
+op = 0xD6
+name = "jump_abs"
+operands = [{ type = "word" }]
+flow = "jump_abs"
+description = "ptr3 = word operand — unconditional absolute jump (handler $EBBB; fetches a word via $EFBF)"
+
+[[opcode]]
+op = 0xD7
+name = "branch_nz_abs"
+operands = [{ type = "word" }]
+flow = "branch_abs"
+description = "if regA != 0: ptr3 = word operand (handler $EBC5). Word operand, NOT sbyte — the classifier mis-sized this; $EFBF fetches 16 bits."
 
 [[opcode]]
 op = 0xD8
-name = "branch_z"
-operands = [{ type = "sbyte" }]
-description = "if regA == 0: ptr3 += signed byte (handler $EBD1). The dominant conditional branch — pairs with a cmp_* opcode that leaves 0/1 in regA."
+name = "branch_z_abs"
+operands = [{ type = "word" }]
+flow = "branch_abs"
+description = "if regA == 0: ptr3 = word operand (handler $EBD1). The dominant conditional branch — pairs with a cmp_* opcode that leaves 0/1 in regA. Word operand, NOT sbyte."
 
 [[opcode]]
 op = 0xD9
@@ -569,6 +581,7 @@ description = "regA = regA ^ regB"
 op = 0xDD
 name = "host_call_indirect_simple"
 operands = []
+flow = "call"
 description = "JSR to native code at address in regA; no ptr1 adjust (handler $EB43)"
 
 [[opcode]]
@@ -605,36 +618,42 @@ description = "fetch byte, jsr $F62C with Y=0x0C (handler $EF6A)"
 op = 0xE3
 name = "jump_rel"
 operands = [{ type = "sbyte" }]
+flow = "jump_rel"
 description = "ptr3 += signed byte  (unconditional PC-relative jump; handler $EBD9)"
 
 [[opcode]]
 op = 0xE4
 name = "branch_nz_rel"
 operands = [{ type = "sbyte" }]
+flow = "branch_rel"
 description = "if regA != 0: ptr3 += signed byte (handler $EBE7)"
 
 [[opcode]]
 op = 0xE5
 name = "branch_z_rel"
 operands = [{ type = "sbyte" }]
+flow = "branch_rel"
 description = "if regA == 0: ptr3 += signed byte (handler $EBF3)"
 
 [[opcode]]
 op = 0xE6
 name = "jump_rel_fwd"
 operands = [{ type = "sbyte" }]
+flow = "jump_rel"
 description = "ptr3 += signed byte  (unconditional PC-relative jump variant; handler $EBFB)"
 
 [[opcode]]
 op = 0xE7
 name = "branch_nz_rel_fwd"
 operands = [{ type = "sbyte" }]
+flow = "branch_rel"
 description = "if regA != 0: ptr3 += signed byte (variant; handler $EC09)"
 
 [[opcode]]
 op = 0xE8
 name = "branch_z_rel_fwd"
 operands = [{ type = "sbyte" }]
+flow = "branch_rel"
 description = "if regA == 0: ptr3 += signed byte (variant; handler $EC15). Both handler paths call the sbyte fetch, so the operand is always consumed — classifier mis-counted this as 0-operand."
 
 [[opcode]]
@@ -644,12 +663,14 @@ operands = [
     { type = "word" },
     { type = "byte" },
 ]
+flow = "call"
 description = "JSR to native function / bytecode subroutine at <word>; ptr1 += <byte> after return"
 
 [[opcode]]
 op = 0xEA
 name = "host_call_indirect"
 operands = []
+flow = "call"
 description = "JSR to native code at address in regA; then ptr1 adjust (handler $EB2D)"
 
 
