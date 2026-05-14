@@ -9,9 +9,9 @@ def read_name(cpu, slot):
     e = raw.find(0)
     return raw[:e if e >= 0 else slot].decode("ascii", "replace")
 
-# 17-fief anchors
-PROV_BASE, PROV_NAMES = 0xB01C, 0xB992
-DAIMYO_BASE, DAIMYO_NAMES = 0xB539, 0xB7B4
+# 17-fief anchors — dense tables, index 0 = Hatakeyama/Noto
+PROV_BASE, PROV_NAMES = 0xB002, 0xB988
+DAIMYO_BASE, DAIMYO_NAMES = 0xB532, 0xB7AB
 
 # Province fields: header,gold,debt,town,rice,output,dams,loyalty,wealth,men,morale,skill,arms
 PF = ["header","gold","debt","town","rice","output","dams","loyalty","wealth","men","morale","skill","arms"]
@@ -19,7 +19,7 @@ PF = ["header","gold","debt","town","rice","output","dams","loyalty","wealth","m
 DF = ["age","health","drive","luck","charisma","iq","status"]
 
 positions = []
-for i in range(16):  # 16 active clans (idx 16 is the garbage slot)
+for i in range(17):  # 17 clans, dense (idx 0 = Hatakeyama, idx 16 = Oda)
     prov = {PF[j]: rd16le(PROV_BASE + i*26 + j*2) for j in range(13)}
     o = c2p(DAIMYO_BASE + i*7)
     dai = {DF[j]: rom[o+j] for j in range(7)}
@@ -50,11 +50,8 @@ for axis in ("army", "econ", "leader"):
     print(f"Best {axis:>6}: " + ", ".join(f"{p['clan']}({p[axis]})" for p in ranked[:5]))
 print()
 
-# The garbage fief (idx 16)
-prov16 = {PF[j]: rd16le(PROV_BASE + 16*26 + j*2) for j in range(13)}
-print("Province idx 16 (the garbage fief) ROM defaults:")
-for k, v in prov16.items():
+# Province idx 17 is past the end of the 17-fief table (next scenario's data).
+prov17 = {PF[j]: rd16le(PROV_BASE + 17*26 + j*2) for j in range(13)}
+print("Province idx 17 (past end of 17-fief table) ROM bytes:")
+for k, v in prov17.items():
     print(f"  {k:>8}: {v}")
-avg_econ = sum(p["econ"] for p in positions) / len(positions)
-g16_econ = prov16["town"]+prov16["rice"]+prov16["output"]+prov16["dams"]+prov16["wealth"]+prov16["gold"]
-print(f"  -> econ score {g16_econ} vs 16-clan average {avg_econ:.0f}")

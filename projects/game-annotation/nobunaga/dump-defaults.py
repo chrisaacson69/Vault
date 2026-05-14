@@ -56,39 +56,36 @@ def read_daimyo_record(cpu):
 
 # --- Scenario table anchors (verified by inspection) ---
 # IMPORTANT — daimyo/province index alignment:
-#   daimyo[N] owns province[N] at game start (verified: all 16 pairings in the
-#   17-fief scenario are historically accurate — Uesugi/Echigo, Tokugawa/Mikawa,
-#   Oda/Owari, etc.). The daimyo table has ONE special leading record (the
-#   "$xx32" slot, named "Hatakeyama" / "Kakizaki" — a neutral/ronin/template
-#   entry, NOT a player clan), so the REAL daimyo table starts 7 bytes after the
-#   0F 27 marker + 7 (i.e. marker is at $xx30, special record $xx32, real table
-#   $xx39). The daimyo NAME table likewise has the special name first, so the
-#   real names start 9 bytes in.
+#   daimyo[N] owns province[N] at game start. Verified: all 17 pairings in the
+#   17-fief scenario are historically accurate — Hatakeyama/Noto, Uesugi/Echigo,
+#   Hojo/Musashi, Honganji/Kaga, Asakura/Echizen, Imagawa/Suruga, Tokugawa/Mikawa,
+#   Saito/Mino, Takeda/Shinano, Oda/Owari, etc.
+#
+#   There is NO "special" leading record. Every table is dense from index 0.
+#   Index 0 is simply the weakest clan (Hatakeyama / Kakizaki), whose province
+#   header (base koku) is 0. An earlier revision mistook index 0 for a neutral
+#   template slot and anchored all four tables one record too late — relative
+#   pairings still matched, but absolute indices were off by one and the real
+#   last entry (Oda) looked like it ran off the end into garbage.
+#
+#   The 0F 27 (= 9999) marker sits immediately BEFORE the daimyo table; the
+#   first real daimyo record is 2 bytes after it ($xx30 marker -> $xx32 table).
 SCENARIOS = {
     "50-fief": {
-        "province_defaults": 0x901C,
+        "province_defaults": 0x9002,
         "province_count": 50,
-        "daimyo_special": 0x9532,    # the leading special record
-        "daimyo_defaults": 0x9539,   # real daimyo table (matches province[N])
+        "daimyo_defaults": 0x9532,
         "daimyo_count": 50,
-        "daimyo_name_special": 0x97AB,
-        "daimyo_names": 0x97B4,      # 9-byte slots, real names
-        # Province NAME table has a special leading slot too ("Ezo" @ $9988),
-        # exactly like the daimyo table. Real index 0 ("Mutsu") starts at $9992.
-        # (An earlier $99E2 anchor was 8 slots too late and created a phantom
-        # +8 name/stats offset — see verify-50fief-align.py.)
-        "province_name_special": 0x9988,
-        "province_names": 0x9992,    # 10-byte slots, real names
+        "daimyo_names": 0x97AB,      # 9-byte slots
+        "province_names": 0x9988,    # 10-byte slots
     },
     "17-fief": {
-        "province_defaults": 0xB01C,
+        "province_defaults": 0xB002,
         "province_count": 17,
-        "daimyo_special": 0xB532,
-        "daimyo_defaults": 0xB539,
+        "daimyo_defaults": 0xB532,
         "daimyo_count": 17,
-        "daimyo_name_special": 0xB7AB,
-        "daimyo_names": 0xB7B4,
-        "province_names": 0xB992,
+        "daimyo_names": 0xB7AB,
+        "province_names": 0xB988,
     },
 }
 
@@ -120,13 +117,6 @@ for scen_name, cfg in SCENARIOS.items():
         emit(f"{i:>3}  {name:<12} " + " ".join(f"{v:>7}" for v in rec))
 
     # --- Daimyo defaults ---
-    emit()
-    # The leading special record (not a player clan)
-    sp_rec = read_daimyo_record(cfg["daimyo_special"])
-    sp_name = read_name(cfg["daimyo_name_special"], DAIMYO_NAME_SLOT)
-    emit(f"-- Daimyo special/leading record @ ${cfg['daimyo_special']:04X} "
-         f"(name '{sp_name}') — neutral/ronin/template slot, NOT index 0 --")
-    emit(f"     {sp_name:<12} " + " ".join(f"{v:>9}" for v in sp_rec))
     emit()
     emit(f"-- Daimyo defaults table @ ${cfg['daimyo_defaults']:04X} "
          f"({cfg['daimyo_count']} records x 7 bytes) — daimyo[N] owns province[N] --")

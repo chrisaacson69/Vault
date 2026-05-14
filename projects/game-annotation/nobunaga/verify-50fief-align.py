@@ -9,12 +9,12 @@ def read_name(cpu, slot):
     e = raw.find(0)
     return raw[:e if e >= 0 else slot].decode("ascii", "replace")
 
-# 50-fief anchors — P_NAMES has a special leading slot ("Ezo" @ $9988);
-# real index 0 ("Mutsu") is at $9992. (Earlier $99E2 anchor was 8 slots late.)
-P_STATS, P_NAMES = 0x901C, 0x9992
-D_STATS, D_NAMES = 0x9539, 0x97B4
-# 17-fief anchors
-P17_STATS, P17_NAMES = 0xB01C, 0xB992
+# Anchors — all tables are dense from index 0 (no "special" record).
+# 50-fief
+P_STATS, P_NAMES = 0x9002, 0x9988
+D_STATS, D_NAMES = 0x9532, 0x97AB
+# 17-fief
+P17_STATS, P17_NAMES = 0xB002, 0xB988
 
 # Province stats signature = the 12 stat fields (skip header)
 def prov_stats(base, i):

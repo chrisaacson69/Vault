@@ -77,7 +77,18 @@ $60CE   00 F4      $00F4=244   footer       hypothesis: annual income or compute
 
 2. **The header (base koku) is per-province** and lines up with historical Sengoku reality. Mikawa = 1794, which matches Mikawa's well-known high-yield rice fields. Other provinces seen: Echigo $074F=1871 (Uesugi Kenshin's heartland), Kaga $063D=1597, Echizen $0671=1649 (Asakura), Hida $064F=1615 (mountain province, lower), Suruga $063B=1595 (Imagawa). The footer at the end varies similarly.
 
-3. **The province table is 50 records, not 17.** `$B01C + 50×26 = $B530`, landing exactly on the daimyo-table marker — a clean structural proof. The "17-fief scenario" activates only records 0-16; records 17-49 are the rest of Japan's provinces, present in the data as unnamed/non-playable background. The header field confirms this: all 17 playable provinces start at exactly `1000`, while the 33 background provinces have `3000/7000/4500/2500` — established AI territory with pre-built stockpiles. The header is **dynamic** (Mikawa's grew 1000 → 1794 across two turns of play), most likely an accumulated rice/koku stockpile. This is the **generic-engine pattern** seen in chapters 4-5: one 50-province world engine, scenario-parameterized for which provinces are active. Index 6 = Mikawa.
+3. **The province record table is much larger than 17.** It runs from $B002 to
+   the daimyo-table marker at $B530 — `$B002 + 51×26 = $B530` exactly, so the
+   table is 51 fixed-size records. The "17-fief scenario" activates only records
+   0-16 (the 17 named, playable provinces); records 17-50 are the rest of Japan's
+   provinces, present as unnamed/non-playable background. The header field
+   confirms this: index 0 (Hatakeyama/Noto) is `0` and the other 16 playable
+   provinces start at `1000`, while the background provinces carry larger
+   `3000/7000/4500/2500` values — established AI territory with pre-built
+   stockpiles. The header is **dynamic** (Mikawa's grew 1000 → 1794 across two
+   turns of play), most likely an accumulated rice/koku stockpile. This is the
+   **generic-engine pattern** seen in chapters 4-5: one large world engine,
+   scenario-parameterized for which provinces are active. Index 7 = Mikawa.
 
 ## The ROM defaults table (LE in ROM, BE in SRAM)
 
@@ -167,36 +178,48 @@ The historical accuracy is striking: Tokugawa Ieyasu (born 1542) = 18 years old 
 
 The province table and the daimyo table are **aligned by index** — `daimyo[N]` owns `province[N]` at game start. There is no explicit "owner" field in the province record; ownership is implicit in the table position.
 
-This was verified against history for all 16 active 17-fief clans:
+This was verified against history for all 17 of the 17-fief clans:
 
 | idx | daimyo | province | historical check |
 |---:|---|---|---|
-| 0 | Uesugi | Echigo | ✓ Uesugi Kenshin's domain |
-| 1 | Hojo | Musashi | ✓ Hojo controlled the Kanto |
-| 2 | Honganji | Kaga | ✓ the Ikko-ikki "peasant kingdom" |
-| 3 | Asakura | Echizen | ✓ |
-| 4 | Anekoji | Hida | ✓ |
-| 5 | Imagawa | Suruga | ✓ Yoshimoto's base |
-| 6 | Tokugawa | Mikawa | ✓ Ieyasu's home province |
-| 7 | Saito | Mino | ✓ |
-| 8 | Tsutsui | Yamato | ✓ |
-| 9 | Asai | Omi | ✓ |
-| 10 | Rokkaku | Iga | ✓ (Rokkaku held southern Omi adjacent to Iga) |
-| 11 | Kitabatake | Iseshima | ✓ |
-| 12 | Ashikaga | Yamashiro | ✓ the shogunate, in Kyoto |
-| 13 | Miyoshi | Settsu | ✓ |
-| 14 | Takeda | Shinano | ✓ Shingen's conquest |
-| 15 | Oda | Owari | ✓ Nobunaga's home province |
+| 0 | Hatakeyama | Noto | ✓ Hatakeyama held Noto — the weakest start (base koku 0) |
+| 1 | Uesugi | Echigo | ✓ Uesugi Kenshin's domain |
+| 2 | Hojo | Musashi | ✓ Hojo controlled the Kanto |
+| 3 | Honganji | Kaga | ✓ the Ikko-ikki "peasant kingdom" |
+| 4 | Asakura | Echizen | ✓ |
+| 5 | Anekoji | Hida | ✓ |
+| 6 | Imagawa | Suruga | ✓ Yoshimoto's base |
+| 7 | Tokugawa | Mikawa | ✓ Ieyasu's home province |
+| 8 | Saito | Mino | ✓ |
+| 9 | Tsutsui | Yamato | ✓ |
+| 10 | Asai | Omi | ✓ |
+| 11 | Rokkaku | Iga | ✓ (Rokkaku held southern Omi adjacent to Iga) |
+| 12 | Kitabatake | Iseshima | ✓ |
+| 13 | Ashikaga | Yamashiro | ✓ the shogunate, in Kyoto |
+| 14 | Miyoshi | Settsu | ✓ |
+| 15 | Takeda | Shinano | ✓ Shingen's conquest |
+| 16 | Oda | Owari | ✓ Nobunaga's home province |
 
-16 of 16 correct. The daimyo table's record-0 is the FIRST real clan (Uesugi), at $B539 — **not** the $B532 record. The $B532 slot (named "Hatakeyama" in the name table) is a **special leading entry**: a neutral/ronin/template record that is not a playable clan in the 17-fief scenario. The earlier chapter-7 anchor of $752F (SRAM) / $B532 (ROM) for the daimyo table was off by one record — the correct real-table anchors are $7536 (SRAM) and $B539 (ROM), with the leading special record one slot before.
+17 of 17 correct. **There is no "special" leading record.** Every table — daimyo
+records, daimyo names, province records, province names — is dense from index 0.
+Index 0 is simply the weakest clan, Hatakeyama, whose province (Noto) has a base
+koku header of 0. The real table anchors are $752F (SRAM) / $B532 (ROM) for the
+daimyo records — exactly the $B532 the earlier draft tried to skip past.
 
-The same structure exists in the 50-fief scenario (special leading record, then index-aligned daimyo/province pairs).
+The 0F 27 (= 9999) sentinel sits immediately *before* the daimyo table, so the
+table genuinely begins at $B532; the sentinel is a table-boundary marker, not a
+record. An intermediate revision mistook index 0 for a neutral template slot and
+re-anchored all four tables one record late — relative pairings still matched, so
+the error hid until the last real clan (Oda) appeared to spill past the table end
+into garbage. With the dense anchors, Oda lands cleanly at index 16, the 17th and
+final clan, exactly where an in-game start shows him.
 
-**Erratum:** Chapter 7's earlier statement "Tokugawa is at index 7 in the daimyo table" is corrected: Tokugawa is at index **6** in the real daimyo table, matching Mikawa at province index 6. The off-by-one came from including the special leading record as index 0.
+The 50-fief scenario has the identical structure: 50 dense entries, index 0 =
+Kakizaki/Ezo (header 0), index 49 = Shimazu/Satsuma.
 
 ## The name tables (parallel-indexed by clan/fief ID)
 
-Both daimyo and province names are stored as **9-byte slots** (typically 8 ASCII chars + null pad), one slot per clan/fief, indexed identically to the records they describe.
+Names are stored in fixed-length slots — **daimyo names in 9-byte slots, province names in 10-byte slots** (ASCII chars + null pad), one slot per clan/fief, indexed identically to the records they describe.
 
 ### Daimyo name table at $77A8 (17 entries)
 
@@ -209,7 +232,7 @@ $77CC: Asakura
 $77D5: Anekoji
 $77DE: Imagawa
 $77E7: Tokugawa     ← index 7 = player
-$77F0: Iera         (new clan name not seen in earlier 50-fief data — possibly scenario-specific)
+$77F0: Saito        ← index 8
 $77F9: Tsutsui
 $7802: Asai
 $780B: Rokkaku
@@ -222,13 +245,13 @@ $7838: Oda          ← Nobunaga's clan
 
 ### Province name table
 
-17 historical Sengoku provinces, also 9-byte slots:
+17 historical Sengoku provinces, in 10-byte slots:
 ```
 Noto, Echigo, Musashi, Kaga, Echizen, Hida, Suruga, Mikawa, Mino,
 Yamato, Omi, Iga, Iseshima, Yamashir(o), Settsu, Shinano, Owari
 ```
 
-Mikawa is **index 7** in the province name list — matching the user's "fief 8" display (1-indexed) and the province record location at $601A + 6*26 = $60B6 (so the record table is 0-indexed, naming list is 0-indexed, UI is 1-indexed; standard off-by-one).
+Mikawa is **index 7** in the province name list — matching the user's "fief 8" display (1-indexed) and the province record location at $6000 + 7*26 = $60B6 (so the record table is 0-indexed, naming list is 0-indexed, UI is 1-indexed; standard off-by-one).
 
 ## The "transient UI cache" region ($7F00-$7FFF)
 
