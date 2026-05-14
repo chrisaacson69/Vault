@@ -36,9 +36,8 @@ Three artifacts were produced this session, all stored in the project folder for
 | Region | Content | Confidence |
 |---|---|---|
 | **$6000-$6019** | 26-byte preamble — possibly a header / global game state (we see partial Tokugawa stats here, mixed order, suggesting **live UI cache**) | high (region type), low (field meanings) |
-| **$601A-$61D3** | **Province table** — 17 records × 26 bytes each. This is the canonical state | **decoded** |
-| **$61D4-$629F** | Secondary province table — same 26-byte stride but with much larger headers (~$0B00 = 2800 range). Likely **NPC daimyo "armies" / "production capacity" / "per-fief military"** state. Same row indices as $601A table | partial (stride confirmed, fields TBD) |
-| **$62A0-$74CF** | Dense game state — sparse access patterns, contains 50-fief leftovers from earlier scenarios. Includes `1F 1A 14 0C 0B 20 1C` patterns from old 50-fief daimyo records | partial |
+| **$601A-$62F1** | **Province table — 50 records × 26 bytes each.** NOT 17 records: the "17-fief scenario" is a 17-province *window* into the full 50-province map of Japan. Records 0-16 are the playable fiefs; records 17-49 are the rest of Japan (unnamed, non-playable background territory). This mirrors the ROM defaults table layout exactly. | **decoded** |
+| **$62F2-$74CF** | Dense game state — daimyo records, additional per-province data, scenario leftovers | partial |
 | **$74D0-$752E** | Zeros / unused | high |
 | **$752F-$75A6** | **Daimyo table** — 17 records × 7 bytes each | **decoded** |
 | **$75A7-$76FF** | Zeros / unused in 17-fief (used in 50-fief for additional daimyo records) | high |
@@ -78,7 +77,7 @@ $60CE   00 F4      $00F4=244   footer       hypothesis: annual income or compute
 
 2. **The header (base koku) is per-province** and lines up with historical Sengoku reality. Mikawa = 1794, which matches Mikawa's well-known high-yield rice fields. Other provinces seen: Echigo $074F=1871 (Uesugi Kenshin's heartland), Kaga $063D=1597, Echizen $0671=1649 (Asakura), Hida $064F=1615 (mountain province, lower), Suruga $063B=1595 (Imagawa). The footer at the end varies similarly.
 
-3. **All 17 records use the same 26-byte stride** at $601A + 26*N. Index 6 = Mikawa (matching its in-game "fief 8" — possibly 1-indexed display vs. 0-indexed storage, or skipping some non-province slots; chapter 8 will pin down the index mapping).
+3. **The province table is 50 records, not 17.** `$B01C + 50×26 = $B530`, landing exactly on the daimyo-table marker — a clean structural proof. The "17-fief scenario" activates only records 0-16; records 17-49 are the rest of Japan's provinces, present in the data as unnamed/non-playable background. The header field confirms this: all 17 playable provinces start at exactly `1000`, while the 33 background provinces have `3000/7000/4500/2500` — established AI territory with pre-built stockpiles. The header is **dynamic** (Mikawa's grew 1000 → 1794 across two turns of play), most likely an accumulated rice/koku stockpile. This is the **generic-engine pattern** seen in chapters 4-5: one 50-province world engine, scenario-parameterized for which provinces are active. Index 6 = Mikawa.
 
 ## The ROM defaults table (LE in ROM, BE in SRAM)
 
