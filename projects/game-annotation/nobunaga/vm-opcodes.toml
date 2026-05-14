@@ -206,8 +206,9 @@ operands = [{ type = "sbyte" }]
 
 [[opcode]]
 op = 0x8E
-name = "op_8E_byte"
-operands = [{ type = "byte" }]
+name = "push_imm_word"
+operands = [{ type = "word" }]
+description = "Push a 16-bit word literal from the bytecode stream onto the VM data stack (handler $EAD3: jsr $EFBF 16-bit fetch, jmp $F008 push). Classifier mis-sized this as a 1-byte operand — $EFBF fetches a word, same mis-sizing as $D6/$D7/$D8/$8A/$8C."
 
 [[opcode]]
 op = 0x8F
