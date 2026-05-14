@@ -73,7 +73,12 @@ SCENARIOS = {
         "daimyo_count": 50,
         "daimyo_name_special": 0x97AB,
         "daimyo_names": 0x97B4,      # 9-byte slots, real names
-        "province_names": 0x99E2,    # 10-byte slots
+        # Province NAME table has a special leading slot too ("Ezo" @ $9988),
+        # exactly like the daimyo table. Real index 0 ("Mutsu") starts at $9992.
+        # (An earlier $99E2 anchor was 8 slots too late and created a phantom
+        # +8 name/stats offset — see verify-50fief-align.py.)
+        "province_name_special": 0x9988,
+        "province_names": 0x9992,    # 10-byte slots, real names
     },
     "17-fief": {
         "province_defaults": 0xB01C,
