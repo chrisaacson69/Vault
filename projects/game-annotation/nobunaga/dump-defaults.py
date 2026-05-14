@@ -55,22 +55,35 @@ def read_daimyo_record(cpu):
     return list(rom[o:o+7])
 
 # --- Scenario table anchors (verified by inspection) ---
+# IMPORTANT — daimyo/province index alignment:
+#   daimyo[N] owns province[N] at game start (verified: all 16 pairings in the
+#   17-fief scenario are historically accurate — Uesugi/Echigo, Tokugawa/Mikawa,
+#   Oda/Owari, etc.). The daimyo table has ONE special leading record (the
+#   "$xx32" slot, named "Hatakeyama" / "Kakizaki" — a neutral/ronin/template
+#   entry, NOT a player clan), so the REAL daimyo table starts 7 bytes after the
+#   0F 27 marker + 7 (i.e. marker is at $xx30, special record $xx32, real table
+#   $xx39). The daimyo NAME table likewise has the special name first, so the
+#   real names start 9 bytes in.
 SCENARIOS = {
     "50-fief": {
         "province_defaults": 0x901C,
         "province_count": 50,
-        "daimyo_defaults": 0x9532,   # after the 0F 27 marker at $9530
+        "daimyo_special": 0x9532,    # the leading special record
+        "daimyo_defaults": 0x9539,   # real daimyo table (matches province[N])
         "daimyo_count": 50,
-        "daimyo_names": 0x97AB,      # 9-byte slots
+        "daimyo_name_special": 0x97AB,
+        "daimyo_names": 0x97B4,      # 9-byte slots, real names
         "province_names": 0x99E2,    # 10-byte slots
     },
     "17-fief": {
         "province_defaults": 0xB01C,
         "province_count": 17,
-        "daimyo_defaults": 0xB532,   # after the 0F 27 marker at $B530
+        "daimyo_special": 0xB532,
+        "daimyo_defaults": 0xB539,
         "daimyo_count": 17,
-        "daimyo_names": 0xB7AB,      # 9-byte slots
-        "province_names": 0xB992,    # 10-byte slots
+        "daimyo_name_special": 0xB7AB,
+        "daimyo_names": 0xB7B4,
+        "province_names": 0xB992,
     },
 }
 
@@ -103,15 +116,26 @@ for scen_name, cfg in SCENARIOS.items():
 
     # --- Daimyo defaults ---
     emit()
+    # The leading special record (not a player clan)
+    sp_rec = read_daimyo_record(cfg["daimyo_special"])
+    sp_name = read_name(cfg["daimyo_name_special"], DAIMYO_NAME_SLOT)
+    emit(f"-- Daimyo special/leading record @ ${cfg['daimyo_special']:04X} "
+         f"(name '{sp_name}') — neutral/ronin/template slot, NOT index 0 --")
+    emit(f"     {sp_name:<12} " + " ".join(f"{v:>9}" for v in sp_rec))
+    emit()
     emit(f"-- Daimyo defaults table @ ${cfg['daimyo_defaults']:04X} "
-         f"({cfg['daimyo_count']} records x 7 bytes) --")
-    emit(f"{'idx':>3}  {'clan':<12} " + " ".join(f"{f:>9}" for f in DAIMYO_FIELDS))
+         f"({cfg['daimyo_count']} records x 7 bytes) — daimyo[N] owns province[N] --")
+    emit(f"{'idx':>3}  {'clan':<12} " + " ".join(f"{f:>9}" for f in DAIMYO_FIELDS)
+         + "   owns_province")
     dbase = cfg["daimyo_defaults"]
     dnbase = cfg["daimyo_names"]
+    pnbase = cfg["province_names"]
     for i in range(cfg["daimyo_count"]):
         rec = read_daimyo_record(dbase + i*7)
         name = read_name(dnbase + i*DAIMYO_NAME_SLOT, DAIMYO_NAME_SLOT)
-        emit(f"{i:>3}  {name:<12} " + " ".join(f"{v:>9}" for v in rec))
+        prov = read_name(pnbase + i*PROVINCE_NAME_SLOT, PROVINCE_NAME_SLOT)
+        emit(f"{i:>3}  {name:<12} " + " ".join(f"{v:>9}" for v in rec)
+             + f"   {prov}")
 
 with open(out_path, "w", encoding="utf-8") as f:
     f.write("\n".join(lines) + "\n")

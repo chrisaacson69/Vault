@@ -164,6 +164,37 @@ $7560:  12 61 5E 3A 52 54 00
 
 The historical accuracy is striking: Tokugawa Ieyasu (born 1542) = 18 years old in 1560; Uesugi Kenshin = 30; Imagawa Yoshimoto = 41 (he died at the Battle of Okehazama at 41 in 1560, the game's scenario start). The age field IS historical age in the year 1560, the scenario base year.
 
+## How daimyo matches fief: shared index
+
+The province table and the daimyo table are **aligned by index** — `daimyo[N]` owns `province[N]` at game start. There is no explicit "owner" field in the province record; ownership is implicit in the table position.
+
+This was verified against history for all 16 active 17-fief clans:
+
+| idx | daimyo | province | historical check |
+|---:|---|---|---|
+| 0 | Uesugi | Echigo | ✓ Uesugi Kenshin's domain |
+| 1 | Hojo | Musashi | ✓ Hojo controlled the Kanto |
+| 2 | Honganji | Kaga | ✓ the Ikko-ikki "peasant kingdom" |
+| 3 | Asakura | Echizen | ✓ |
+| 4 | Anekoji | Hida | ✓ |
+| 5 | Imagawa | Suruga | ✓ Yoshimoto's base |
+| 6 | Tokugawa | Mikawa | ✓ Ieyasu's home province |
+| 7 | Saito | Mino | ✓ |
+| 8 | Tsutsui | Yamato | ✓ |
+| 9 | Asai | Omi | ✓ |
+| 10 | Rokkaku | Iga | ✓ (Rokkaku held southern Omi adjacent to Iga) |
+| 11 | Kitabatake | Iseshima | ✓ |
+| 12 | Ashikaga | Yamashiro | ✓ the shogunate, in Kyoto |
+| 13 | Miyoshi | Settsu | ✓ |
+| 14 | Takeda | Shinano | ✓ Shingen's conquest |
+| 15 | Oda | Owari | ✓ Nobunaga's home province |
+
+16 of 16 correct. The daimyo table's record-0 is the FIRST real clan (Uesugi), at $B539 — **not** the $B532 record. The $B532 slot (named "Hatakeyama" in the name table) is a **special leading entry**: a neutral/ronin/template record that is not a playable clan in the 17-fief scenario. The earlier chapter-7 anchor of $752F (SRAM) / $B532 (ROM) for the daimyo table was off by one record — the correct real-table anchors are $7536 (SRAM) and $B539 (ROM), with the leading special record one slot before.
+
+The same structure exists in the 50-fief scenario (special leading record, then index-aligned daimyo/province pairs).
+
+**Erratum:** Chapter 7's earlier statement "Tokugawa is at index 7 in the daimyo table" is corrected: Tokugawa is at index **6** in the real daimyo table, matching Mikawa at province index 6. The off-by-one came from including the special leading record as index 0.
+
 ## The name tables (parallel-indexed by clan/fief ID)
 
 Both daimyo and province names are stored as **9-byte slots** (typically 8 ASCII chars + null pad), one slot per clan/fief, indexed identically to the records they describe.

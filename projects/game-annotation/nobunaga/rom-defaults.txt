@@ -60,58 +60,61 @@ idx  name          header    gold    debt    town    rice  output    dams loyalt
  48                   800      48       0      45      47      47      62      65      61      60      63      61      57
  49                   800      48       0      45      47      47      62      65      61      60      63      61      57
 
--- Daimyo defaults table @ $9532 (50 records x 7 bytes) --
-idx  clan               age    health     drive      luck  charisma        iq    status
-  0  Kakizaki            11       106        30        75        61        52         0
-  1  Tsugaru             10       102        98        74        69        72         0
-  2  Nanbu               62        63       102        88        73        81         0
-  3  Kasai               26        72        52        41        68        61         0
-  4  Akita               23        90        95       100        72        81         0
-  5  Date                17        81       108        48        92       102         0
-  6  Mogami              39        72       110        70        61       108         0
-  7  Yuki                27       108        45        51        75        64         0
-  8  Ashina              39       111        86        88        92        63         0
-  9  Uesugi              30        82       106        89       113       110         0
- 10  Satake              13        81        75       108        61        98         0
- 11  Utsunomi            17        77        59        75        31        64         0
- 12  Satomi              53        55       100        99        86        83         0
- 13  Hojo                22        91       101       104        88       106         0
- 14  Takeda              39        98       104        93       101       112         0
- 15  Hatakeya            21        95        81        83        46        70         0
- 16  Jinbo               22       102        60        51        78        69         0
- 17  Anekoji             20        90        85        46       109        88         0
- 18  Kiso                20        85        98       112        59        79         0
- 19  Imagawa             41        52       113        31        88        91         0
- 20  Honganji            30        83        96        88        80        65         0
- 21  Asakura             27        71       103       105        84       101         0
- 22  Saito               33        96        93        77        31        92         0
- 23  Tokugawa            18       104       102       115       110       115         0
- 24  Oda                 26       102       115       111       106       108         0
- 25  Kitabata            32       115       110       102        85        88         0
- 26  Asai                15        86        90        96        81        92         0
- 27  Rokkaku             39        90        36        52        60        81         0
- 28  Isshiki             49        81        88        69        52        68         0
- 29  Hatano              31        76        52        49        28        71         0
- 30  Ashikaga            23        73        98        82        52        86         0
- 31  Tsutsui             11        86        52        95        61        92         0
- 32  Miyoshi             38        96       106        86       101        81         0
- 33  Horiuchi            11        85        61        83        51        63         0
- 34  Yamana              12        91        85        75        41        36         0
- 35  Bessho               6        84        63        22        35        63         0
- 36  Amako               46        62        92        88        76        83         0
- 37  Ukita               30        70        43        61        76        88         0
- 38  Mori                63        75       102        93       111       113         0
- 39  Sogo                 6        95        91        76        61        70         0
- 40  Hosokawa            46        55        90        20        40        71         0
- 41  Kono                32        92        58        41        48        85         0
- 42  Chosokab            21        81       112       106        93       108         0
- 43  Ichijo              17        65        53        49        67        71         0
- 44  Kinoi               24        93        82        69        52        54         0
- 45  Ruzoji              31        82       110       107       103        96         0
- 46  Otomo               30        88       102        73        46        65         0
- 47  Aso                 39        76        59        85        82        88         0
- 48  Ito                 48        96        48        56        61        43         0
- 49  Shimazu             46       103        83        69        96        95         0
+-- Daimyo special/leading record @ $9532 (name 'Kakizaki') — neutral/ronin/template slot, NOT index 0 --
+     Kakizaki            11       106        30        75        61        52         0
+
+-- Daimyo defaults table @ $9539 (50 records x 7 bytes) — daimyo[N] owns province[N] --
+idx  clan               age    health     drive      luck  charisma        iq    status   owns_province
+  0  Tsugaru             10       102        98        74        69        72         0   Echigo
+  1  Nanbu               62        63       102        88        73        81         0   Hitachi
+  2  Kasai               26        72        52        41        68        61         0   Shimotsu
+  3  Akita               23        90        95       100        72        81         0   Awa
+  4  Date                17        81       108        48        92       102         0   Musashi
+  5  Mogami              39        72       110        70        61       108         0   Shinano
+  6  Yuki                27       108        45        51        75        64         0   Noto
+  7  Ashina              39       111        86        88        92        63         0   Ecchu
+  8  Uesugi              30        82       106        89       113       110         0   Hida
+  9  Satake              13        81        75       108        61        98         0   Kiso
+ 10  Utsunomi            17        77        59        75        31        64         0   Suruga
+ 11  Satomi              53        55       100        99        86        83         0   Kaga
+ 12  Hojo                22        91       101       104        88       106         0   Echizen
+ 13  Takeda              39        98       104        93       101       112         0   Mino
+ 14  Hatakeya            21        95        81        83        46        70         0   Mikawa
+ 15  Jinbo               22       102        60        51        78        69         0   Owari
+ 16  Anekoji             20        90        85        46       109        88         0   Iseshima
+ 17  Kiso                20        85        98       112        59        79         0   Omi
+ 18  Imagawa             41        52       113        31        88        91         0   Iga
+ 19  Honganji            30        83        96        88        80        65         0   Tango
+ 20  Asakura             27        71       103       105        84       101         0   Tanba
+ 21  Saito               33        96        93        77        31        92         0   Yamashir
+ 22  Tokugawa            18       104       102       115       110       115         0   Yamato
+ 23  Oda                 26       102       115       111       106       108         0   Settsu
+ 24  Kitabata            32       115       110       102        85        88         0   Kii
+ 25  Asai                15        86        90        96        81        92         0   Inaba
+ 26  Rokkaku             39        90        36        52        60        81         0   Harima
+ 27  Isshiki             49        81        88        69        52        68         0   Izumo
+ 28  Hatano              31        76        52        49        28        71         0   Sanbi
+ 29  Ashikaga            23        73        98        82        52        86         0   Aki
+ 30  Tsutsui             11        86        52        95        61        92         0   Sanuki
+ 31  Miyoshi             38        96       106        86       101        81         0   Awa
+ 32  Horiuchi            11        85        61        83        51        63         0   Iyo
+ 33  Yamana              12        91        85        75        41        36         0   Tosa
+ 34  Bessho               6        84        63        22        35        63         0   Nakamura
+ 35  Amako               46        62        92        88        76        83         0   Buzen
+ 36  Ukita               30        70        43        61        76        88         0   Chikuhi
+ 37  Mori                63        75       102        93       111       113         0   Bungo
+ 38  Sogo                 6        95        91        76        61        70         0   Higo
+ 39  Hosokawa            46        55        90        20        40        71         0   Hiyuga
+ 40  Kono                32        92        58        41        48        85         0   Satuma
+ 41  Chosokab            21        81       112       106        93       108         0   
+ 42  Ichijo              17        65        53        49        67        71         0   
+ 43  Kinoi               24        93        82        69        52        54         0   
+ 44  Ruzoji              31        82       110       107       103        96         0   
+ 45  Otomo               30        88       102        73        46        65         0   
+ 46  Aso                 39        76        59        85        82        88         0   
+ 47  Ito                 48        96        48        56        61        43         0   
+ 48  Shimazu             46       103        83        69        96        95         0   
+ 49  Akechi              32        91       113        89        85        93         0   
 
 ### SCENARIO: 17-fief ###
 
@@ -135,22 +138,25 @@ idx  name          header    gold    debt    town    rice  output    dams loyalt
  15  Owari           1000      62       0      58      80      80      80      71      72      78      77      78      80
  16                  1000      15       0      25       8      42      12      20      30      10      30       5      10
 
--- Daimyo defaults table @ $B532 (17 records x 7 bytes) --
-idx  clan               age    health     drive      luck  charisma        iq    status
-  0  Hatakeya            21        95        81        83        46        70         0
-  1  Uesugi              30        82       106        89       113       110         0
-  2  Hojo                22        91       101       104        88       106         0
-  3  Honganji            30        83        96        88        80        65         0
-  4  Asakura             27        71       103       105        84       101         0
-  5  Anekoji             20        90        85        46       109        88         0
-  6  Imagawa             41        52       113        31        88        91         0
-  7  Tokugawa            18       104       102       115       110       115         0
-  8  Saito               33        96        93        77        31        92         0
-  9  Tsutsui             11        86        52        95        51        81         0
- 10  Asai                15        86        90        96        81        92         0
- 11  Rokkaku             39        90        36        52        60        81         0
- 12  Kitabata            32       115       110       102        85        88         0
- 13  Ashikaga            23        73        98        82        52        86         0
- 14  Miyoshi             38        96       106        86       101        81         0
- 15  Takeda              39        98       104        93       101       112         0
- 16  Oda                 26       102       115       111       106       108         0
+-- Daimyo special/leading record @ $B532 (name 'Hatakeya') — neutral/ronin/template slot, NOT index 0 --
+     Hatakeya            21        95        81        83        46        70         0
+
+-- Daimyo defaults table @ $B539 (17 records x 7 bytes) — daimyo[N] owns province[N] --
+idx  clan               age    health     drive      luck  charisma        iq    status   owns_province
+  0  Uesugi              30        82       106        89       113       110         0   Echigo
+  1  Hojo                22        91       101       104        88       106         0   Musashi
+  2  Honganji            30        83        96        88        80        65         0   Kaga
+  3  Asakura             27        71       103       105        84       101         0   Echizen
+  4  Anekoji             20        90        85        46       109        88         0   Hida
+  5  Imagawa             41        52       113        31        88        91         0   Suruga
+  6  Tokugawa            18       104       102       115       110       115         0   Mikawa
+  7  Saito               33        96        93        77        31        92         0   Mino
+  8  Tsutsui             11        86        52        95        51        81         0   Yamato
+  9  Asai                15        86        90        96        81        92         0   Omi
+ 10  Rokkaku             39        90        36        52        60        81         0   Iga
+ 11  Kitabata            32       115       110       102        85        88         0   Iseshima
+ 12  Ashikaga            23        73        98        82        52        86         0   Yamashir
+ 13  Miyoshi             38        96       106        86       101        81         0   Settsu
+ 14  Takeda              39        98       104        93       101       112         0   Shinano
+ 15  Oda                 26       102       115       111       106       108         0   Owari
+ 16                       0         0         0         0         0         0         0   
