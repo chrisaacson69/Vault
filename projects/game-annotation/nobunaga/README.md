@@ -47,8 +47,8 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 9 | [The Command System: how a menu pick becomes a formula (Grow fully traced)](./09-command-system-and-grow.md) | session 9 draft |
 | 10 | [The Command Families: eight handlers diffed against Grow](./10-command-families.md) | session 10 draft |
 | 11 | [The Strategic Engine, Complete: all 21 lord commands](./11-strategic-engine-complete.md) | session 11 draft |
-| 12 | [The Daimyo AI: a cascade of weighted coin-flips](./12-daimyo-ai.md) | session 12 draft |
-| 13 | The turn loop & the economy cycle | planned |
+| 12 | [The Daimyo AI: a cascade of weighted coin-flips](./12-daimyo-ai.md) | session 12 draft (erratum'd) |
+| 13 | [The Turn Loop & the Harvest: what a round looks like](./13-turn-loop-and-harvest.md) | session 13 draft |
 | 14+ | Combat: map generation, the battle engine (multi-chapter) | planned |
 | — | Synthesis: from bytecode to the strategy counter-graph | planned |
 | A | Appendix: per-command effect formulas + AI thresholds; province adjacency | ongoing |
