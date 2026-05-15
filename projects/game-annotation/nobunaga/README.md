@@ -46,11 +46,10 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 8 | [The VM Instruction Set: Arithmetic, Control Flow & the 9999 Cap](./08-vm-instruction-set.md) | session 8 draft |
 | 9 | [The Command System: how a menu pick becomes a formula (Grow fully traced)](./09-command-system-and-grow.md) | session 9 draft |
 | 10 | [The Command Families: eight handlers diffed against Grow](./10-command-families.md) | session 10 draft |
-| 11 | The display-command family + unique commands (war, move, cede…) | planned |
-| 12 | The economy: harvest & tax formulas | planned |
-| 13 | Daimyo AI decision engine | planned |
-| 14 | Combat resolution & hidden stat formulas | planned |
-| 15 | Synthesis: from bytecode to strategy counter-graph | planned |
+| 11 | [The Strategic Engine, Complete: all 21 lord commands](./11-strategic-engine-complete.md) | session 11 draft |
+| 12 | Combat resolution & the tactical maps | planned |
+| 13 | The daimyo AI decision engine | planned |
+| 14 | Synthesis: from bytecode to the strategy counter-graph | planned |
 
 Chapter numbers may shift as the structure clarifies — the M.U.L.E. project also reserved chapter 7.5 for strategic-frontier analysis once the mechanics were mapped. Expect the same pattern here.
 
