@@ -83,7 +83,9 @@ This exact sequence appears **81 times** across banks 0, 1, 2, and 15 — it is 
 > |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 > | field | gold | debt | town | rice | output | dams | loyalty | wealth | men | morale | skill | arms | **header** (base koku) |
 >
-> The header (base koku) is the **last** field (offset 24), not the first. Sections 5a/5b below were written against the chapter-7 (header@0) layout and are corrected in **§5d**. `$6000` also holds province-shaped data but a longer dump is needed to characterize it — possibly a save-format copy with a different layout. The §5a/5b *offsets* are correct; only the *names* were wrong.
+> The header (base koku) is the **last** field (offset 24), not the first. Sections 5a/5b below were written against the chapter-7 (header@0) layout and are corrected in **§5d**. A second dump showed `$6000` is **not** a parallel province table: `$6000–$608F` holds 144 bytes of unrelated 16-bit data and everything up to `$6D1F` is empty. So `$7001` is the sole authoritative live province table, and chapter 7's "`$6000` province table" is a misidentified address — chapter 7's record offsets should be revisited against the layout above. The §5a/5b *offsets* are correct; only the *names* were wrong.
+>
+> The dump also grounded `word[$6D63] = 2` (the constant Grow's effect subtracts) — `$6D5F–$6D65` is a small config block `01 01 02 32`. And `$6F0B` holds a clean 17-element permutation of 0–16, almost certainly the daimyo turn order.
 
 ## 5. Grow, fully traced
 
@@ -203,7 +205,7 @@ The common cause: every one of these uses `$EFBF` or `$EFD5` (16-bit fetch helpe
 
 ## 8. What's open
 
-- **Chapter-7 reconciliation — mostly resolved.** The `$7001` table's layout is now confirmed (§4 note, §5d) and it differs from chapter 7's assumed layout. Still open: characterizing the `$6000` region (a longer dump is needed) and updating chapter 7 itself — its province-record offsets should be revisited against the confirmed `$7001` layout.
+- **Chapter-7 reconciliation — resolved.** The `$7001` table's layout is confirmed (§4 note, §5d) and differs from chapter 7's assumption; a second dump showed `$6000` is *not* a parallel province table (it's empty in a live game). Remaining action item is on chapter 7's side: its province-record offsets and the "`$6000` table" address should be revised to match the confirmed `$7001` layout.
 - **The Grow family diff.** Indices 4, 5, 10, 12, 13, 14, 15 share Grow's `A4 5F 6F 8B 1A B5 …` template. With the calling convention and the province idiom known, decoding them is mechanical — expect them to differ in which field offsets they read/write and which message IDs they push. That is the bulk of the lord-command menu in one short session.
 - **The display-command family.** Indices 20–32, the `8E xx / host_call $D326` group — likely the status/info screens. Cheap to sweep.
 - **`$CBCD`'s siblings.** Integer sqrt is one native math primitive; the percentage operator `$D70D` is another. The harvest and combat code will lean on the same primitives — cataloguing them now pays forward.
