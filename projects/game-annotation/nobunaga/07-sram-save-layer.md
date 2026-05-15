@@ -6,7 +6,23 @@ created: 2026-05-13
 
 > The 8 KB battery-backed PRG-RAM at $6000-$7FFF holds the game's complete persistent state — every province, every daimyo, every name. This chapter decodes it field-by-field using live SRAM dumps from a 17-fief Tokugawa playthrough. We find: a 26-byte province record matching the ROM defaults exactly (with an LE/BE byte-swap during boot), a 7-byte daimyo record packing age + 5 attributes, parallel name tables indexed by clan and province ID, and a $7FXX "transient UI cache" region whose contents (like the frame counter at $7FE9) get rewritten every frame and are zeroed at boot.
 
-**Links:** [Chapter 4 — Syscall API](./04-syscall-api.md) (SRAM I/O via syscalls $15/$16) · [Chapter 5 — Bytecode VM](./05-bytecode-vm.md) · [Chapter 6 — VM Disassembler](./06-vm-disassembler.md) · [Nobunaga README](./README.md)
+**Links:** [Chapter 4 — Syscall API](./04-syscall-api.md) (SRAM I/O via syscalls $15/$16) · [Chapter 5 — Bytecode VM](./05-bytecode-vm.md) · [Chapter 6 — VM Disassembler](./06-vm-disassembler.md) · [Chapter 9 — Command System](./09-command-system-and-grow.md) · [Nobunaga README](./README.md)
+
+## ⚠ Erratum (2026-05-14): the live province table — read this first
+
+Chapter 9 walked the command handlers down to the bytes they actually read and write, and a follow-up SRAM dump pinned the live province table precisely. The result **corrects three claims in this chapter's body**:
+
+1. **Address.** The live province table is at SRAM **`$7001`**, not `$6000`/`$601A`. The `$6000` region is *not* a province table in a live game — `$6000-$608F` holds unrelated 16-bit data and the rest up to `$6D1F` is empty. Every command handler computes its record pointer as `index × 26 + $7001` (an idiom that appears 81× across the ROM); `$6F5F` holds the selected-province index.
+2. **Endianness.** The `$7001` records are **little-endian** (the VM's `loadA_ind_word`, handler `$EC9E`, reads low byte first). The "BE in SRAM" claim below is wrong — it came from reading a mislabeled region.
+3. **Field order.** The confirmed 26-byte record layout, anchored against a known Mikawa save:
+
+   | byte | 0 | 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18 | 20 | 22 | **24** |
+   |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+   | field | gold | debt | town | rice | output | dams | loyalty | wealth | men | morale | skill | arms | **header** (base koku) |
+
+   The header (base koku) is the **last** field, not the first. The 12 visible stats occupy offsets 0–22.
+
+The body below (the `$60B6` decode, the "BE in SRAM" section, the `$601A` 50-record discussion) was written from mislabeled Memory-Viewer offsets and should be read *through* this erratum. The **ROM defaults table** (`$9258`/`$B0BE` in the body, `$B002` per chapter 8's correction) is a separate question — the static ROM template may genuinely differ from the live layout if the boot bytecode rearranges fields during new-game init; that has not been re-verified and is left as an open item. A full rewrite of this chapter's body against the confirmed layout is queued.
 
 ## The save problem
 
