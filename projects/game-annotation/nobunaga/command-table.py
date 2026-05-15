@@ -24,6 +24,15 @@ TABLE_CPU = 0xB9B2          # bank 1
 TABLE_BANK = 1
 STUB = bytes([0x20, 0x23, 0xE8])   # JSR $E823 — bytecode-subroutine entry stub
 
+# In-game lord-command menu, transcribed from the game. Item N == table index
+# N-1 (verified: item 7 "Grow" == index 6). Indices 0-20 are the 21 menu
+# commands; indices 21+ are sub-handlers, not top-level menu items.
+MENU_NAMES = [
+    "Move", "War", "Tax", "Send", "Dam", "Pact", "Grow", "Marry", "Trade",
+    "Hire", "Train", "View", "Build", "Give", "Bribe", "Assign", "Rest",
+    "Map", "Grant", "Other(save)", "Pass",
+]
+
 def b1(cpu):                # bank-1 CPU addr -> PRG offset
     return TABLE_BANK * 0x4000 + (cpu & 0x3FFF)
 
@@ -61,11 +70,12 @@ emit("In-game menu item N == table index N-1  (verified: item 7 'Grow' == index 
 emit("Each entry is a bytecode subroutine; 'frame_off' is the stub's frame-pointer delta.")
 emit("=" * 72)
 emit()
-emit(f"{'idx':>3} {'item#':>5} {'driver':>7} {'frame':>6}  first 8 bytecode bytes")
-emit("-" * 72)
+emit(f"{'idx':>3} {'item#':>5} {'command':<12} {'driver':>7} {'frame':>6}  first 8 bytecode bytes")
+emit("-" * 84)
 for idx, addr, foff, sig in entries:
     sig_hex = " ".join(f"{b:02X}" for b in sig)
-    emit(f"{idx:>3} {idx+1:>5} ${addr:04X}  ${foff:04X}  {sig_hex}")
+    name = MENU_NAMES[idx] if idx < len(MENU_NAMES) else "(sub-handler)"
+    emit(f"{idx:>3} {idx+1:>5} {name:<12} ${addr:04X}  ${foff:04X}  {sig_hex}")
 
 emit()
 emit("Command families (entries sharing an opening-byte signature):")

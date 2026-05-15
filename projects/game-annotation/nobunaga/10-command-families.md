@@ -39,29 +39,33 @@ display result ; redraw ; return
 
 And the effect skeleton (chapter 9 §5b/5d) is equally fixed: `amount < 1` guard → `$CBCD` integer square root of `field + amount` → `− word[$6D63]` (a global constant, **= 2**, grounded from the SRAM dump) → `$D6B8` 32-bit helper → clamp against `field@24` → the flat-100 branch → `$D70D` percentage redistribution out of other fields.
 
-What varies — the entire content of the diff:
+What varies — the entire content of the diff (command names confirmed from the in-game menu, item N = table index N+1):
 
-| idx | menu # | driver / effect | grows (√ target) | redistributes from | notes |
-|---:|---:|---|---|---|---|
-| 6 | 7 | `$9D3D` / `$87F0` | **output** (`@8`) | dams (`@10`), loyalty (`@12`) | "Grow" — fully traced in ch 9 |
-| 12 | 13 | `$A858` / `$88A6` | **town** (`@4`) | wealth (`@14`) | effect also chains `$887D` |
-| 4 | 5 | `$9B83` / `$87D8` + `$887D` | **output** (`@8`) + **debt** (`@2`) | — | two effect handlers — a two-field command |
-| 14 | 15 | `$AAB3` / `$8D4D` | **town** (`@4`) + **debt** (`@2`) + **output** (`@8`) | — | largest; shares the `$E510/$879F/$804C` cluster with idx 5 |
+| idx | command | driver / effect | grows (√ target) | redistributes from | notes |
+|---:|---|---|---|---|---|
+| 6 | **Grow** | `$9D3D` / `$87F0` | **output** (`@8`) | dams (`@10`), loyalty (`@12`) | fully traced in ch 9 |
+| 12 | **Build** | `$A858` / `$88A6` | **town** (`@4`) | wealth (`@14`) | effect also chains `$887D` |
+| 4 | **Dam** | `$9B83` / `$87D8` + `$887D` | **output** (`@8`) + **debt** (`@2`) | — | two effect handlers — a two-field command |
+| 14 | **Bribe** | `$AAB3` / `$8D4D` | **town** (`@4`) + **debt** (`@2`) + **output** (`@8`) | — | largest; shares the `$E510/$879F/$804C` cluster with Pact (idx 5) |
 
-So the readable picture: **Grow develops agricultural output; idx 12 develops the town (commerce); idx 4 and 14 are compound commands touching output/debt/town together.** Every one of them costs **gold** (debited from `field@0`, the prompt capped at it) and every one is gated by **`header == 0`** and a development-ceiling precondition. The √-curve diminishing returns and the silent cross-field drain are universal to the template — they are not Grow-specific quirks, they are *how this whole class of command works.*
+So the readable picture: **Grow develops agricultural output, Build develops the town (commerce), Dam touches output and debt, Bribe is the compound diplomatic-spend command.** Every one costs **gold** (debited from `field@0`, the prompt capped at it) and every one is gated by **`header == 0`** and a development-ceiling precondition. The √-curve diminishing returns and the silent cross-field drain are universal to the template — they are not Grow-specific quirks, they are *how this whole class of command works.*
+
+That Bribe rides the same template as Dam/Grow/Build is a small surprise worth noting: mechanically, "bribe a target" is built as "spend gold to move province fields" — the same shape as developing your own land, just pointed elsewhere. And Bribe sharing the `$E510/$879F/$804C` cluster with **Pact** (the immediate-action group, below) means that cluster is the **diplomacy subsystem** — the two diplomatic commands both invoke it.
 
 That is a strong result for the counter-graph: four menu options that look independent are one mechanic with four parameterizations, and they share a cost model (gold), a curve (√), and a hidden tax (redistribution).
 
 ## Template B — immediate-action (idx 5, 10, 13, 15)
 
-These four never call `$D5E9` — they take no amount from the player. They read the province's current state and act directly. They are *not* a single parameterized template the way Group A is; they share the province-access opening and not much else. Characterized from their field-touch and call patterns:
+These four never call `$D5E9` — they take no amount from the player. They read the province's current state and act directly. They are *not* a single parameterized template the way Group A is; they share the province-access opening and not much else. Characterized from their field-touch and call patterns (names confirmed from the menu):
 
-| idx | menu # | driver | touches | calls | likely role |
-|---:|---:|---|---|---|---|
-| 5 | 6 | `$9C54` | debt (`@2`, **byte** ops) | `$E510 $879F $CEC4 $804C $8B8F` | large; byte-level edits to debt; shares the `$E510/$879F/$804C` cluster with idx 14 |
-| 10 | 11 | `$A63C` | header (`@24`), skill (`@20`), men (`@16`) | `$CEC4` | compares men/skill/header; mixes word and byte stores |
-| 13 | 14 | `$AA24` | header, morale (`@18`), loyalty (`@12`), wealth (`@14`), town (`@4`) | `$A93A $A9D5 $A95E` | touches the most fields; uses three bank-1 helpers |
-| 15 | 16 | `$AD6C` | men (`@16`) | `$AC11` | smallest; a men-comparison gate then a single word store |
+| idx | command | driver | touches | calls | reading |
+|---:|---|---|---|---|---|
+| 5 | **Pact** | `$9C54` | debt (`@2`, **byte** ops) | `$E510 $879F $CEC4 $804C $8B8F` | diplomacy — the `$E510/$879F/$804C` cluster is the diplomacy subsystem (shared with Bribe, idx 14) |
+| 10 | **Train** | `$A63C` | header (`@24`), skill (`@20`), men (`@16`) | `$CEC4` | trains troops — reads men/skill against a header-derived cap, raises skill |
+| 13 | **Give** | `$AA24` | header, morale (`@18`), loyalty (`@12`), wealth (`@14`), town (`@4`) | `$A93A $A9D5 $A95E` | charity to the people — touches the most fields (loyalty/morale up); three bank-1 helpers |
+| 15 | **Assign** | `$AD6C` | men (`@16`) | `$AC11` | assign a retainer — a men-comparison gate then a single word store |
+
+The names make these legible: **Pact** is diplomacy (and confirms the shared cluster's role), **Train** raises skill against a cap, **Give** is the loyalty/morale charity command, **Assign** moves a retainer. None prompts for a number because none *needs* one — they are state transitions, not investments.
 
 Two things stand out. First, the immediate-action commands lean on **byte-level** field access (`loadA_ind_byte`/`storeA_ind_byte`, opcodes `$D3`/`$D4`) where Group A used word access — they are editing sub-fields or flags, not whole 16-bit stats. Second, the `$E510 / $879F / $804C` call cluster appears in **both idx 5 and idx 14**, which means there is a shared sub-system (cross-province? military?) those two commands both invoke — a thread worth pulling in a later chapter.
 
@@ -71,9 +75,9 @@ Chapter 9 cost a full session and produced one decoded command plus a pile of re
 
 The honest limits:
 
-- **Menu names.** The table is index-confirmed (item 7 = Grow, verified by trace), so the menu *numbers* are solid. But the in-game *names* of items 5, 6, 11, 13, 14, 15, 16 are inferred from behavior, not read — a single screenshot of the command menu would pin them.
-- **Group B internals.** idx 5, 10, 13, 15 are characterized, not fully traced. Each is a ~30-minute walk now that the convention is known.
-- **The shared clusters.** `$E510/$879F/$804C` (idx 5 + 14) and the bank-1 helpers `$A93A/$A9D5/$A95E` (idx 13) are sub-systems this chapter named but did not open.
+- **Menu names — resolved.** The full command menu, transcribed from the game: Move, War, Tax, Send, Dam, Pact, Grow, Marry, Trade, Hire, Train, View, Build, Give, Bribe, Assign, Rest, Map, Grant, Other (save), Pass. Item N = table index N−1; item 7 = Grow = index 6 matches the trace. So the 21 menu commands are indices 0–20; the remaining table entries (21–33) are sub-handlers, not top-level menu items.
+- **Group B internals.** Pact, Train, Give, Assign are characterized, not fully traced. Each is a ~30-minute walk now that the convention is known.
+- **The shared clusters.** `$E510/$879F/$804C` is the **diplomacy subsystem** (Pact + Bribe both call it); the bank-1 helpers `$A93A/$A9D5/$A95E` belong to Give. Named here, not yet opened.
 
 ## What's open
 
