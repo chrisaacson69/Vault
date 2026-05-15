@@ -121,6 +121,40 @@ def bank_range(bank: int) -> tuple[int, int]:
     return 0x8000, 0xBFFF
 
 
+def try_read_string(rom, cpu_addr, bank, maxlen=48):
+    """If cpu_addr points at a plausible null-terminated ASCII string, return it.
+
+    The game's in-game text is stored as plain ASCII: printable bytes, $0A line
+    breaks, $00 terminator, printf-style %s/%d format codes. Targets at
+    $C000-$FFFF resolve in bank 15 (fixed); $8000-$BFFF in the given bank.
+    Returns None if the bytes don't look like a string.
+    """
+    if 0xC000 <= cpu_addr <= 0xFFFF:
+        prg = 15 * PRG_BANK_SIZE + (cpu_addr & (PRG_BANK_SIZE - 1))
+    elif 0x8000 <= cpu_addr <= 0xBFFF:
+        prg = bank * PRG_BANK_SIZE + (cpu_addr & (PRG_BANK_SIZE - 1))
+    else:
+        return None
+    out = []
+    for i in range(maxlen):
+        if prg + i >= len(rom):
+            break
+        b = rom[prg + i]
+        if b == 0x00:
+            break
+        if b == 0x0A:
+            out.append("\\n")
+        elif 0x20 <= b <= 0x7E:
+            out.append(chr(b))
+        else:
+            return None  # non-text byte -> not a string
+    s = "".join(out)
+    # require some real letters so we don't tag stray printable data
+    if len(s) >= 3 and sum(c.isalpha() for c in s) >= 2:
+        return s
+    return None
+
+
 def decode_instruction(rom, prg, pc, op, spec, bank, handlers, labels):
     """Decode one opcode + operands at PRG offset `prg`.
 
@@ -167,7 +201,14 @@ def decode_instruction(rom, prg, pc, op, spec, bank, handlers, labels):
     op_name = spec.get("name", f"op_{op:02X}")
     is_host_call = op_name.startswith("host_call")
 
+    # Opcodes whose word literal is frequently a pointer to in-game ASCII text.
+    string_carrier = op_name in (
+        "push_imm_word", "loadA_imm_word", "loadB_imm_word",
+        "loadA_mem_word", "loadB_mem_word",
+    )
+
     operand_strs = []
+    string_hint = None
     for idx, (t, v) in enumerate(operand_values):
         if t == "word":
             s = addr_str(v, labels)
@@ -175,6 +216,8 @@ def decode_instruction(rom, prg, pc, op, spec, bank, handlers, labels):
                 tag = classify_host_call_target(v, rom, bank)
                 if tag in ("bytecode", "native"):
                     s += f" {{{tag}}}"
+            if string_carrier and string_hint is None:
+                string_hint = try_read_string(rom, v, bank)
             operand_strs.append(s)
         elif t == "byte":
             operand_strs.append(f"${v:02X}")
@@ -186,6 +229,9 @@ def decode_instruction(rom, prg, pc, op, spec, bank, handlers, labels):
     annotation = spec.get("description", "")
     if spec.get("operand_in_opcode") == "low_4_bits":
         annotation = f"{annotation}  (inline operand = {op & 0x0F})".strip()
+    if string_hint is not None:
+        # the resolved string is the most useful annotation — lead with it
+        annotation = f'"{string_hint}"' + (f"  | {annotation}" if annotation else "")
 
     line = f"{bytes_str:28s}{op_name:24s} {operand_text}"
     if annotation:
