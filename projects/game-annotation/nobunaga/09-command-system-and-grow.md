@@ -77,7 +77,13 @@ BB           add                       regA = index*26 + $7001  -> record pointe
 
 This exact sequence appears **81 times** across banks 0, 1, 2, and 15 — it is *the* province-access pattern, and recognizing it instantly orients you in any handler. (It also forced an opcode correction; see §7.)
 
-> **Reconciliation note.** Chapter 7 located a province table at SRAM `$6000`. The command handlers definitively use `$7001`. Both use 26-byte records. Whether these are two tables (a save copy vs. a live working copy) or chapter 7's anchor needs revisiting is an open chapter-7 question — see §8. The field *offsets* below are exact; the field *names* assume `$7001` shares the chapter-7 province layout (header@0, gold@2, debt@4, town@6, rice@8, output@10, dams@12, loyalty@14, wealth@16, men@18, morale@20, skill@22, arms@24).
+> **Reconciliation — RESOLVED (2026-05-14, post-draft).** A live SRAM dump settled the open question. The `$7001` table is the live working province table; its records are read **little-endian** (`loadA_ind_word`'s handler `$EC9E` reads low byte first). Anchoring record 7 to a known Mikawa save confirmed the layout — and it is **not** the layout chapter 7 assumed:
+>
+> | byte | 0 | 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18 | 20 | 22 | 24 |
+> |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+> | field | gold | debt | town | rice | output | dams | loyalty | wealth | men | morale | skill | arms | **header** (base koku) |
+>
+> The header (base koku) is the **last** field (offset 24), not the first. Sections 5a/5b below were written against the chapter-7 (header@0) layout and are corrected in **§5d**. `$6000` also holds province-shaped data but a longer dump is needed to characterize it — possibly a save-format copy with a different layout. The §5a/5b *offsets* are correct; only the *names* were wrong.
 
 ## 5. Grow, fully traced
 
@@ -147,6 +153,28 @@ Putting the driver and effect together, here is everything the in-game UI does *
 
 None of (1)–(5) is visible in the menu. This is precisely the class of opaque mechanic the project set out to surface — and it is the first concrete entry in the eventual strategy counter-graph.
 
+### 5d. Correction — Grow with the confirmed field layout
+
+§5a–5c above were written against chapter 7's assumed record layout (header@0). The live SRAM dump (see the reconciliation note in §4) shows the `$7001` table's real layout has **header at offset 24** and gold at offset 0. Re-stating the byte offsets the handlers actually touch, with the *confirmed* names:
+
+| handler reference | byte offset | confirmed field |
+|---|---|---|
+| driver precondition B, the cost (`word[record+0]`) | 0 | **gold** |
+| effect's `√` input (`word[record+8]`) | 8 | **output** |
+| effect redistribution (`word[record+10]`) | 10 | **dams** |
+| effect redistribution (`word[record+12]`) | 12 | **loyalty** |
+| both halves' clamp/precondition (`word[record+24]`) | 24 | **header** (base koku) |
+
+So the corrected mechanics — replacing points (1)–(5):
+
+1. **Grow costs gold**, debited from the province's `gold` field. The input prompt is capped at the current gold; if `gold == 0` the command is blocked outright (driver precondition B).
+2. **The benefit is `√(output + gold_spent)`** — Grow raises the province's **output** on a square-root curve. Doubling the gold spent yields ≈`1.41×` the gain, not `2×`; many small Grows beat one large one.
+3. **A development ceiling blocks it.** Driver precondition A refuses Grow when `header ≥ output` — base koku gates how far output can be pushed.
+4. **Grow silently drains loyalty and dams.** The effect's tail runs the `$D70D` percentage operator on `loyalty` and `dams` and **subtracts** the results. Raising output costs those two stats.
+5. **The flat-100 branch** in the effect still stands as decoded — a hard ceiling on the working value under one condition.
+
+The *structure* of §5a/5b — guard, sqrt, clamp, redistribution, the flat-100 branch — was correct; only the field *names* were shifted by chapter 7's layout assumption. The diff method and the calling convention are unaffected.
+
 ## 6. The extended instruction set — `$B7`
 
 Walking Grow's helpers (`$D6B8`, `$D6DE`) surfaced a structural discovery worth recording. The opcode `$B7` is not an operation — it is an **extended-opcode prefix**. Its handler `$F246` reads the *next* byte as a sub-opcode index and dispatches through a **second ~47-entry handler table at `$F263`**. So `B7 xx` is a two-byte instruction selecting from an entire secondary instruction set, and that set holds the VM's **wide / 32-bit arithmetic** (the first extended handler, `$F2C1`, zeroes a four-byte accumulator and runs a 32-iteration loop). The helper subroutines that do precise multi-precision math are dense with `B7 xx`. Decoding the 47 extended opcodes is its own future session; for now the disassembler stays byte-aligned by consuming the one sub-opcode byte.
@@ -175,7 +203,7 @@ The common cause: every one of these uses `$EFBF` or `$EFD5` (16-bit fetch helpe
 
 ## 8. What's open
 
-- **Chapter-7 reconciliation.** Is `$7001` a second province table (live working copy vs. save copy at `$6000`), or does chapter 7's anchor need revision? One Mesen memory-read of the `$7001` region with a known province selected settles both the table question and the field-name mapping in §4–5.
+- **Chapter-7 reconciliation — mostly resolved.** The `$7001` table's layout is now confirmed (§4 note, §5d) and it differs from chapter 7's assumed layout. Still open: characterizing the `$6000` region (a longer dump is needed) and updating chapter 7 itself — its province-record offsets should be revisited against the confirmed `$7001` layout.
 - **The Grow family diff.** Indices 4, 5, 10, 12, 13, 14, 15 share Grow's `A4 5F 6F 8B 1A B5 …` template. With the calling convention and the province idiom known, decoding them is mechanical — expect them to differ in which field offsets they read/write and which message IDs they push. That is the bulk of the lord-command menu in one short session.
 - **The display-command family.** Indices 20–32, the `8E xx / host_call $D326` group — likely the status/info screens. Cheap to sweep.
 - **`$CBCD`'s siblings.** Integer sqrt is one native math primitive; the percentage operator `$D70D` is another. The harvest and combat code will lean on the same primitives — cataloguing them now pays forward.
