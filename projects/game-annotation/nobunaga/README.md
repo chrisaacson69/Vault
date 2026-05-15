@@ -47,9 +47,12 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 9 | [The Command System: how a menu pick becomes a formula (Grow fully traced)](./09-command-system-and-grow.md) | session 9 draft |
 | 10 | [The Command Families: eight handlers diffed against Grow](./10-command-families.md) | session 10 draft |
 | 11 | [The Strategic Engine, Complete: all 21 lord commands](./11-strategic-engine-complete.md) | session 11 draft |
-| 12 | Combat resolution & the tactical maps | planned |
-| 13 | The daimyo AI decision engine | planned |
-| 14 | Synthesis: from bytecode to the strategy counter-graph | planned |
+| 12 | The turn loop, the economy cycle & the daimyo AI decision engine | planned |
+| 13+ | Combat: map generation, the battle engine (multi-chapter) | planned |
+| — | Synthesis: from bytecode to the strategy counter-graph | planned |
+| A | Appendix: per-command effect formulas | ongoing |
+
+Plan note: per-command effect formulas (Grow's `$87F0`, Tax's rate→loyalty, etc.) go in an **appendix** rather than their own chapters — they turned out simpler than expected. The daimyo AI is tackled **before** combat (combat needs map generation + the battle engine and will span several chapters). men/morale/skill/arms feed the combat formula.
 
 Chapter numbers may shift as the structure clarifies — the M.U.L.E. project also reserved chapter 7.5 for strategic-frontier analysis once the mechanics were mapped. Expect the same pattern here.
 
