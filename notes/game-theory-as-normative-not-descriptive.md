@@ -133,6 +133,47 @@ The vault's [bilateral trade valuation](../research/gaming/bilateral-trade-valua
 
 The mistake worth avoiding: **don't use these tools to predict behavior.** Use them to plan moves, to filter the decision space, and to identify where the convention layer kicks in. The convention layer is where actual gameplay happens, and it doesn't belong inside the game-theory toolkit — it belongs in the planner-LM composite as a separate component.
 
+## Closing generalization — free markets create, bargaining distributes
+
+The clearest framing of where bargaining theory sits in economics, recorded 2026-05-18 from the trade-theory discussion:
+
+> **Free markets are good because they incentivize profit creation. But they don't explain how the profit gets divided. That's all bargaining.**
+
+Most market-economics scholarship — Smith, Ricardo, the Austrians (Mises, Hayek, Rothbard), neoclassical equilibrium theory — addresses **why** trade creates value: comparative advantage, marginal utility, gains-from-trade, division of labor. That side of economics is well-developed. The vault's [Value and Profit](../research/economics/value-and-profit.md), [Risk and Entrepreneurship](../research/economics/risk-and-entrepreneurship.md), and the broader [economics thread](../research/economics/README.md) all live on the value-creation side.
+
+The **distribution side** — how the gains-from-trade actually split between the trading parties — is much less developed. Standard treatments either:
+
+1. **Assume the problem away** via perfect competition: prices clear at marginal cost, no surplus to bargain over. Convenient for theory; descriptively wrong for most real markets.
+2. **Punt to "market forces"** — a polite phrase for "we don't model how the actual price got there."
+3. **Use Nash cooperative bargaining axioms** — which we've now established import assumptions the strategic structure doesn't supply.
+4. **Use Rubinstein non-cooperative bargaining** — which needs the discount-factor import from outside the strategic structure.
+5. **Behavioral economics patches** — utility-function modifications that fit observed cooperation rates by tuning extra parameters, structurally identical to the GT patches called out earlier on this page.
+
+**The honest position:** mainstream economic theory has a strong value-creation account and a weak value-distribution account. The distribution side IS the bargaining problem, and the bargaining problem is genuinely open. This isn't a peripheral concern; it's the open layer of microeconomics.
+
+### Direct political consequences
+
+Disputes about value distribution are ubiquitous and politically charged:
+
+- **Wage rates** — how much of firm surplus goes to labor vs. capital
+- **M&A premiums** — how much of the synergy surplus the target captures
+- **Consumer surplus** vs. **producer surplus** distribution in any given transaction
+- **Contract terms** — payment schedules, risk allocation, IP rights
+- **Tax incidence** — who actually bears the cost when "the corporation" is taxed
+- **Tariff incidence** — same question, international
+- **Inheritance disputes** — distributing surplus across generations
+- **Union negotiations** — explicit collective bargaining
+
+These all reduce to "the value exists, who gets how much of it?" — i.e., bargaining. The political debates *appear* to be about whether markets work (they do, at value-creation); the actual disagreement is about distribution outcomes that bargaining theory doesn't pin down. **Treating "the market figured out the right division" as a value-creation argument is a category error — markets do creation, bargaining does distribution.**
+
+### What this means for the vault thread
+
+The vault has been doing the value-creation half cleanly (Austrian economics, comparative advantage, the trade-creates-mutual-benefit framework). The trade-theory work in [bilateral-trade-valuation](../research/gaming/bilateral-trade-valuation.md), [frontier trade theory](../research/gaming/monopoly/frontier-trade-theory.md), and the [Catan empirical analysis](../research/gaming/catan-47k-empirical.md) is the vault's actual engagement with the distribution-side problem — at game-board scale, but the structure is the same as wage negotiation, M&A pricing, or any commercial trade.
+
+**The Monopoly/Catan trade-theory work isn't just game analysis.** It's the bargaining-problem half of economics applied to a constrained domain where the rules are exact and the outcomes are observable. The insights — counterparty modeling, asymmetric externalities, focal-point conventions doing equilibrium selection, planner-LM composites where the LM is the convention layer — all transfer to real-economy bargaining problems where the same structure operates with messier data.
+
+**The "bargaining problem is the best unsolved research in game theory" framing is the right one.** Breakthroughs here improve more than game-AI; they improve the theoretical engagement with how markets actually distribute the surplus they create.
+
 ## Tags
 
 [game-theory](../tags/game-theory.md), [economics](../tags/economics.md), [epistemology](../tags/epistemology.md), [meta-musing](../tags/meta-musing.md)

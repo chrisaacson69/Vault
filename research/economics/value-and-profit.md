@@ -5,7 +5,7 @@ created: 2026-02-12
 # Value and Profit
 > Profit is mutual. It emerges from differences in utility between two parties. No profit, no trade. No trade, no reason to engage.
 
-**Links:** [Economics](./README.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md), [The Nash Bargaining Problem](../gaming/nash-bargaining-problem.md), [Comparative Advantage Bidding (Evo-Cap)](../evolutionary-capitalist/comparative-advantage-bidding.md), [Value/Utility via Evolutionary Game Theory (Evo-Cap)](../evolutionary-capitalist/value-utility-evolutionary-game-theory.md)
+**Links:** [Economics](./README.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md), [The Nash Bargaining Problem](../gaming/nash-bargaining-problem.md), [Comparative Advantage Bidding (Evo-Cap)](../evolutionary-capitalist/comparative-advantage-bidding.md), [Value/Utility via Evolutionary Game Theory (Evo-Cap)](../evolutionary-capitalist/value-utility-evolutionary-game-theory.md), [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md) — this page covers value *creation* (profit from mutual gains); the distribution of those gains between the trading parties is the bargaining problem, which standard economic theory doesn't solve and the linked meta-note explores
 
 ## Core Principle
 
