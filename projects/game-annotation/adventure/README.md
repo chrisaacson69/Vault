@@ -5,7 +5,7 @@ created: 2026-04-26
 # Adventure (Atari 2600)
 > Warren Robinett, 1980. 4 KB ROM, 128 bytes RAM, no frame buffer. The first console action-adventure, the first famous Easter egg, and a master class in fitting a world into nothing.
 
-**Links:** [6502 Annotation Series](../README.md), source: [`raw/adventure.asm`](../../../raw/adventure.asm)
+**Links:** [Game Annotation Series](../README.md), source: [`raw/adventure.asm`](../../../raw/adventure.asm)
 
 ## Why Adventure first
 

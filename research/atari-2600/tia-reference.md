@@ -5,7 +5,7 @@ created: 2026-04-26
 # TIA Reference (Atari 2600)
 > Load-bearing facts about the Television Interface Adaptor for reading 2600 source code. Curated from Stella Programmer's Guide and TIA hardware notes.
 
-**Links:** [6502 Annotation Series](../../projects/6502-annotation/README.md), [Adventure Display Kernel](../../projects/6502-annotation/adventure/02-display-kernel.md)
+**Links:** [Game Annotation Series](../../projects/game-annotation/README.md), [Adventure Display Kernel](../../projects/game-annotation/adventure/02-display-kernel.md)
 
 ## The big picture
 

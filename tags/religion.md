@@ -8,3 +8,4 @@
 - [HoP Ep 5: Pythagoras](../research/philosophy/tangents/history-of-philosophy/05-pythagoras.md)
 - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](../research/debates/noerr-logic-feelings-humane.md)
 - [Debate Prep: Morality and Religion](../notes/debate-prep-morality-religion-2026-03-14.md)
+- [Trent Horn vs NotSoErudite — Christian Nationalism](../research/debates/trent-horn-vs-notsoerudite-christian-nationalism.md) — soft Christian nationalism vs Madison-grounded procedural-pluralism; both Christians, both DCT; soft-vs-hard cleavage

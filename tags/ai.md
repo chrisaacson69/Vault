@@ -19,6 +19,8 @@
 - [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)
 - [H-Neurons: The Neural Basis of Hallucination](../research/h-neurons.md)
 - [Planner-LM Composites](../research/planner-lm-composites.md) — where the agent actually lives; Cicero, the 100,000× planning claim, the higher praxeology bar
+- [Energy-Based Models](../research/energy-based-models.md) — names the middle layer of the composite; Aleph + Lean at 99.4% on PutnamBench; LeCun's JEPA convergence; the Sudoku tell
+- [Claude Code Skill Engineering](../notes/claude-code-skill-engineering.md) — 4 rules + 2 patterns from Anthropic engineers; vault skill audit
 - [LLM Game Benchmark — Outline](../research/gaming/llm-game-benchmark.md)
 - [The Birthmark and the Search for Truth](../research/philosophy/epistemology/the-birthmark.md)
 - [Obsidian Plugin Setup](../notes/obsidian-plugin-setup.md)

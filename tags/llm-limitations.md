@@ -8,5 +8,6 @@
 - [The Birthmark and the Search for Truth](../research/philosophy/epistemology/the-birthmark.md)
 - [LLM Agents Across Strategic Games](../research/gaming/llm-agents-across-games.md) — Catan (Phase 5) isolates three LLM-general failures
 - [Planner-LM Composites](../research/planner-lm-composites.md) — bare LLMs don't act, planner-LM composites do
+- [Energy-Based Models](../research/energy-based-models.md) — the Sudoku tell: frontier LLMs only "solve" Sudoku by writing a Python script; tool-use ≠ reasoning; EBM + formal verifier as the architectural answer
 - [LLM Game Benchmark — Outline](../research/gaming/llm-game-benchmark.md)
-- [6502 Annotation Series](../projects/6502-annotation/README.md) — assembly as a stress test for LLM mechanical-modeling without rhetorical contagion; per-chapter LLM-interpretation logs
+- [Game Annotation Series](../projects/game-annotation/README.md) — assembly as a stress test for LLM mechanical-modeling without rhetorical contagion; per-chapter LLM-interpretation logs

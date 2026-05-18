@@ -6,11 +6,21 @@ Mid-level handler for extracting content from video sources. Called by content-e
 
 ## Metadata Extraction
 
+Two equivalent paths depending on whether you already have `info.json`:
+
+**If you have the info.json file** (you do, if you used `--write-info-json` below) — run the saved script:
+
+```bash
+node .claude/shared/scripts/yt-meta.js <path-to-info.json>
+```
+
+Prints a JSON object with title, uploader, channel, upload_date, duration, view_count, and a truncated description. Pass `--desc-chars=N` to change the description length.
+
+**If you only need a quick header from yt-dlp directly:**
+
 ```bash
 yt-dlp --skip-download --print title --print channel --print duration_string --print upload_date "URL"
 ```
-
-Returns: title, channel name, duration, upload date (one per line).
 
 ## Transcript Download
 
@@ -26,13 +36,15 @@ yt-dlp --write-sub --sub-lang en --sub-format srt --skip-download -o "/tmp/trans
 
 ## SRT Cleaning
 
-Auto-generated SRT files need cleaning before processing:
+Run the saved script:
 
-1. **Remove sequence numbers** — lines containing only a digit
-2. **Remove timestamp lines** — lines matching `HH:MM:SS,mmm --> HH:MM:SS,mmm`
-3. **Remove duplicate lines** — auto-captions often repeat phrases across segments
-4. **Remove formatting tags** — strip `<font>`, `<i>`, alignment tags
-5. **Join into paragraphs** — group sentences into flowing text, roughly by natural pauses
+```bash
+node .claude/shared/scripts/clean-srt.js <input.srt> <output.txt>
+```
+
+It strips SRT sequence numbers, timestamp lines, and consecutive duplicates (auto-captions repeat phrases across segments), then joins the remainder into a flat single-paragraph transcript with collapsed whitespace.
+
+The script is deterministic and replaces the previous per-ingest regeneration of equivalent inline Node code. If you ever need to extend it (e.g., to preserve paragraph breaks, or to filter out `<font>` / `<i>` formatting tags), edit the script — don't regenerate the logic.
 
 ## Audio Download (for lip-sync pipeline)
 

@@ -3,9 +3,9 @@ status: reference
 created: 2026-04-26
 ---
 # NES — Reference Material
-> Chip-level facts about the Nintendo Entertainment System / Famicom (Ricoh 2A03 + 2C02 + cartridge mapper). Curated from nesdev.org/wiki for use across the [6502 Annotation Series](../../projects/6502-annotation/README.md).
+> Chip-level facts about the Nintendo Entertainment System / Famicom (Ricoh 2A03 + 2C02 + cartridge mapper). Curated from nesdev.org/wiki for use across the [Game Annotation Series](../../projects/game-annotation/README.md).
 
-**Links:** [PPU Reference](./ppu-reference.md), [APU Reference](./apu-reference.md), [Mappers Reference](./mappers-reference.md), [TIA Reference (comparison)](../atari-2600/tia-reference.md), [6502 Annotation Series](../../projects/6502-annotation/README.md)
+**Links:** [PPU Reference](./ppu-reference.md), [APU Reference](./apu-reference.md), [Mappers Reference](./mappers-reference.md), [TIA Reference (comparison)](../atari-2600/tia-reference.md), [Game Annotation Series](../../projects/game-annotation/README.md)
 
 ## The NES platform
 
@@ -37,7 +37,7 @@ The 2A03's "no decimal mode" is the famous Ricoh amputation — relevant because
 
 ## The storytelling-vs-logic axis
 
-A throughline of the [6502 Annotation Series](../../projects/6502-annotation/README.md):
+A throughline of the [Game Annotation Series](../../projects/game-annotation/README.md):
 
 - **2600 era**: TIA forces the CPU to spend most cycles racing the beam. Game logic gets ~5,000 cycles per frame. Engines have to encode meaning structurally — Adventure's design IS the story; there's no spare cycles for runtime narrative state.
 - **NES era**: PPU does the rendering autonomously. CPU gets ~27,000 cycles per frame for game logic. Programmers spend that on richer state machines, scripted events, level scripting, music engines. **Stories can be told in code, not just in design.**

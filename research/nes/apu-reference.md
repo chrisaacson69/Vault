@@ -5,7 +5,7 @@ created: 2026-04-26
 # APU Reference (NES)
 > Load-bearing facts about the Audio Processing Unit (integrated into the Ricoh 2A03) for reading NES sound code. Curated from nesdev.org/wiki.
 
-**Links:** [NES Research](./README.md), [PPU Reference](./ppu-reference.md), [6502 Annotation Series](../../projects/6502-annotation/README.md)
+**Links:** [NES Research](./README.md), [PPU Reference](./ppu-reference.md), [Game Annotation Series](../../projects/game-annotation/README.md)
 
 ## Five channels
 

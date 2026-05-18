@@ -6,3 +6,4 @@
 - [HoP Ep 9: Plato's Metaphysics](../research/philosophy/tangents/history-of-philosophy/09-plato-metaphysics.md)
 - [HoP Ep 10: Plato's Epistemology](../research/philosophy/tangents/history-of-philosophy/10-plato-epistemology.md)
 - [HoP Ep 11: Plato's Ethics](../research/philosophy/tangents/history-of-philosophy/11-plato-ethics.md)
+- [Trent Horn vs NotSoErudite — Christian Nationalism](../research/debates/trent-horn-vs-notsoerudite-christian-nationalism.md) — divine command theory at the church-state interface; both sides DCT, disagree on whether DCT licenses state coercion

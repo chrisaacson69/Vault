@@ -5,7 +5,7 @@ created: 2026-04-26
 # PPU Reference (NES)
 > Load-bearing facts about the Picture Processing Unit (Ricoh 2C02) for reading NES source code. Curated from nesdev.org/wiki.
 
-**Links:** [NES Research](./README.md), [APU Reference](./apu-reference.md), [Mappers Reference](./mappers-reference.md), [TIA Reference (comparison)](../atari-2600/tia-reference.md), [6502 Annotation Series](../../projects/6502-annotation/README.md)
+**Links:** [NES Research](./README.md), [APU Reference](./apu-reference.md), [Mappers Reference](./mappers-reference.md), [TIA Reference (comparison)](../atari-2600/tia-reference.md), [Game Annotation Series](../../projects/game-annotation/README.md)
 
 ## The big picture — PPU is *not* a frame buffer (but kinda)
 

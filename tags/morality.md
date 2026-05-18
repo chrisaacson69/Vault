@@ -17,3 +17,5 @@
 - [Lance Bush Reviews Wilson on Triggernometry](../research/debates/lance-bush-review-wilson-triggernometry.md) — anti-realist steelman; Kaplan tree + Lance's 4-axis grid + vault's constitutive axis
 - [The Stance-Independence Retreat](../research/philosophy/epistemology/stance-independence-retreat.md)
 - [The Four Trunks — The Structure of the Vault's Philosophy](../research/philosophy/the-four-trunks.md)
+- [Capitalism vs Socialism: Which Is the Moral System? (1984)](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md) — Peikoff/Ridpath vs Vickers/Caplan; Objectivist foundationalism vs pragmatic democratic socialism
+- [Trent Horn vs NotSoErudite — Christian Nationalism](../research/debates/trent-horn-vs-notsoerudite-christian-nationalism.md) — Catholic integralism vs procedural-pluralism; both DCT; personhood via species-membership vs ensoulment

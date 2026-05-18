@@ -11,3 +11,7 @@
 - [The Fake Science of Economics (Yarvin x McCormack)](../research/debates/yarvin-mccormack-fake-science-economics.md)
 - [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - [MoM Tier System and MIRR](../research/gaming/master-of-magic/tier-system-and-mirr.md)
+- [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
+- [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
+- [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — empirical confirmation of bilateral trade valuation; Monopoly card as timing-conditional state-shock
+- [Catan 50-Game Validation](../research/gaming/catan-50-games-validation.md) — small-N empirical run; board-conditional theory refined

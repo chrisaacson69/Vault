@@ -11,3 +11,4 @@
 - [Inflation](../research/economics/inflation.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [Measuring Growth — Net Worth vs Transactions](../research/economics/measuring-growth.md)
+- [Capitalism vs Socialism: Which Is the Moral System? (1984)](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md) — Peikoff/Ridpath vs Vickers/Caplan; Objectivist foundationalism vs pragmatic democratic socialism

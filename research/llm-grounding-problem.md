@@ -6,7 +6,7 @@ published: true
 # The LLM Grounding Problem
 > LLMs live in the text world. Everything — physical presence, spatial relationships, direct experience — gets flattened into tokens. A well-constructed argument can outweigh a lived reality.
 
-**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [6502 Annotation Series](../projects/6502-annotation/README.md) — assembly as the inverse of natural language; mechanical-modeling test isolated from rhetorical contagion
+**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [Game Annotation Series](../projects/game-annotation/README.md) — assembly as the inverse of natural language; mechanical-modeling test isolated from rhetorical contagion
 
 ## The Core Problem
 
@@ -51,6 +51,25 @@ The same failure at a different level:
 - **The Among Us agents** didn't understand what it physically meant to *be together* and how that makes certain accusations physically impossible.
 
 In both cases: the LLM operated in language and failed to ground that language in physical constraints.
+
+## Case Study: Sudoku — Tool-Use Is Not Reasoning
+
+**Source:** [Aleph and Energy-Based Models](https://www.youtube.com/watch?v=NYmXYF8A3Q4) — Turing Post / Attention Span, 2026-05-15. Full analysis: [Energy-Based Models](./energy-based-models.md).
+
+Logical Intelligence's Kona (an energy-based model) solves a Sudoku puzzle in 0.4 seconds by descending a constraint-satisfaction landscape. Frontier LLMs given the same puzzle behave very differently:
+
+- With code execution **disabled**, every frontier LLM fails — either times out or solves incorrectly.
+- With code execution **enabled**, they succeed — by writing a Python brute-force solver and executing it.
+
+This is a *cleaner isolation* of the same grounding problem the Among Us case study above demonstrates. The rules of Sudoku fit in one sentence ("every row, column, and 3×3 box must contain 1–9 exactly once"). The constraints are completely explicit. And yet the LLM does not reason over them — it recognizes the problem class, generates a solver, and runs it. The video frames this as the difference between *a person solving the puzzle* and *a person saying "give me one second, I'll build the tiny Sudoku-solving machine."*
+
+Both produce the answer. They reveal different capabilities. And critically:
+
+- **Tool-use outsources grounding, it doesn't supply it.** The Python solver is grounded in the deterministic semantics of the Python interpreter. The LLM is just choosing to invoke it. The LLM's contribution is *problem-class recognition*, not constraint satisfaction. That's a meaningful capability, but it is not what the word "reasoning" usually means.
+- **Validation is fused with solving.** If the LLM-generated solver has a subtle bug, the answer is wrong and nothing downstream catches it. Compare with an EBM-plus-verifier pipeline where the constraint engine produces a candidate state and an independent verifier (Lean for proofs, a SAT solver for Boolean constraints, a domain simulator for physical ones) checks it. **Separation of proposer from verifier is what makes the result auditable.**
+- **The "I can build a tool" mode hides the grounding gap on easy cases.** When a problem class is well-known and tool generation is reliable (Sudoku, basic arithmetic, regex matching), the LLM looks like it reasoned. When the problem class is unfamiliar or the generated tool has a bug, the failure is silent — fluent output that doesn't match reality. This is the same failure mode as Among Us rhetorical contagion, just one level higher in the stack.
+
+The architectural implication is on the [planner-LM composites](./planner-lm-composites.md) and [energy-based-models](./energy-based-models.md) pages: a general-purpose constraint layer (EBM) with a domain-specific verifier downstream is the right shape, not "LLM that writes a fresh solver per problem." The latter is on-demand tool construction. The former is a named architectural layer that does constraint satisfaction as its job.
 
 ## Connection to Business Structure & Policy
 

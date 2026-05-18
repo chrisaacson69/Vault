@@ -10,3 +10,4 @@
 - [HoP Ep 4: Parmenides](../research/philosophy/tangents/history-of-philosophy/04-parmenides.md)
 - [A History of Logic](../research/philosophy/logic-and-math/history-of-logic.md)
 - [HoP Ep 15: Aristotle — Father of Logic](../research/philosophy/tangents/history-of-philosophy/15-aristotle-logic.md)
+- [Energy-Based Models](../research/energy-based-models.md) — Aleph generating Lean-checkable proofs; constraint satisfaction as logical-validity scoring

@@ -5,7 +5,7 @@ created: 2026-04-26
 # NES Mappers Reference
 > The cartridge logic that extends the NES beyond its base 32 KiB PRG / 8 KiB CHR address space. Curated from nesdev.org/wiki — currently covering NROM (Mappy's mapper). Will grow as we cover more games.
 
-**Links:** [NES Research](./README.md), [PPU Reference](./ppu-reference.md), [APU Reference](./apu-reference.md), [6502 Annotation Series](../../projects/6502-annotation/README.md)
+**Links:** [NES Research](./README.md), [PPU Reference](./ppu-reference.md), [APU Reference](./apu-reference.md), [Game Annotation Series](../../projects/game-annotation/README.md)
 
 ## Why mappers exist
 

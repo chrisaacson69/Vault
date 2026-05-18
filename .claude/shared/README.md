@@ -38,3 +38,17 @@ Specific Tools (system-level)     External APIs
 3. **Specific tools prove themselves** — yt-dlp earned its place by working reliably across vault-ingest and debate-review. New tools earn their place the same way.
 4. **Fix once, benefit everywhere** — improving web-fetch.md helps every skill that fetches web content
 5. **Graduate, don't prematurely promote** — MCP servers are overhead. Only build one when the lower layers create real friction.
+6. **Code over tokens** — if logic is deterministic and would otherwise be regenerated per session, save it as a script in [`scripts/`](./scripts/) and point at it from the relevant shared doc. Tokens are stochastic; code is deterministic. Established 2026-05-17 with `clean-srt.js` and `yt-meta.js` replacing per-ingest regenerated Node code.
+
+## Invocation flag discipline (for new skills)
+
+Every SKILL.md frontmatter can carry two flags that govern who can invoke the skill: the user (via `/`-menu), the model (auto-invocation based on the description), or both. Default behavior is "both" (`user-invocable: true`, no `disable-model-invocation` flag set). The table below is the forward-looking rule for any new skill — existing skills are correct as-is for their action class.
+
+| Action class | `user-invocable` | `disable-model-invocation` | Example |
+|---|---|---|---|
+| **Read-only / synthesis** | `true` | `false` (default) | context-brief, debate-review, salary-intel, company-research |
+| **Vault-local write** | `true` | `false` (default) | vault-ingest, vault-sync, vault-heartbeat, career-slides |
+| **External effect** (push, send, deploy) | `true` | **`true`** | future: a `/publish-skills-repo` skill that pushes to GitHub |
+| **Internal sub-skill** (dispatcher-only) | **`false`** | `false` | future: agent-only helpers a top-level skill orchestrates |
+
+**Rule of thumb:** if the wrong invocation by the model would have effects outside the local working directory and would be hard to reverse, set `disable-model-invocation: true` so only the human can trigger it. The default-on behavior is fine for vault-local work; cross system-boundary work earns the gate.

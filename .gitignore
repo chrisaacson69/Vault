@@ -5,6 +5,14 @@ request.token
 *.zip
 youtubeuploader.exe
 
+# Game ROMs and emulator save states — keep out of the repo
+*.nes
+*.mss
+
+# External tooling — third-party repos cloned into project folders
+# (Add as git submodule if you want to track the reference.)
+projects/game-annotation/nobunaga/tools/nes-disasm6/
+
 # Obsidian plugins — installed per-clone via Community Plugins
 .obsidian/plugins/
 .obsidian/community-plugins.json

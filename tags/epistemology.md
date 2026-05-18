@@ -35,3 +35,5 @@
 - [HoP Ep 15: Aristotle — Father of Logic](../research/philosophy/tangents/history-of-philosophy/15-aristotle-logic.md)
 - [Convergence Is a Process, Not a Destination](../notes/convergence-as-process.md) — extends the Weighting Problem to dynamic systems; no stance-independent optimum even given fixed values, because the PPF moves and time preferences differ
 - [Structure vs Adaptability](../notes/structure-vs-adaptability.md) — the universalization-as-tell ("for all" / "always" / "never" reveals overshooting); explains why most political disagreements are meta-disagreements about which pole is currently underweighted
+- [Capitalism vs Socialism: Which Is the Moral System? (1984)](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md) — Peikoff/Ridpath vs Vickers/Caplan; Objectivist foundationalism vs pragmatic democratic socialism
+- [Trent Horn vs NotSoErudite — Christian Nationalism](../research/debates/trent-horn-vs-notsoerudite-christian-nationalism.md) — "religious view" relabeling as scope expansion; verification-layer angle neither party uses

@@ -11,3 +11,5 @@
 - [Level 6 — Direct Execution](../research/level-6-direct-execution.md)
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [Planner-LM Composites](../research/planner-lm-composites.md) — refines the praxeology claim: bare LLMs don't act, composites do
+- [Energy-Based Models](../research/energy-based-models.md) — the named middle layer of the agent stack; constraint engine separated from proposer; LM-side ↔ EBM ↔ verifier integration is mostly plumbing
+- [Claude Code Skill Engineering](../notes/claude-code-skill-engineering.md) — 4 rules + 2 patterns Anthropic engineers use; vault audit; the application layer of agent design

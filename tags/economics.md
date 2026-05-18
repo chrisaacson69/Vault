@@ -35,3 +35,5 @@
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [Measuring Growth — Net Worth vs Transactions](../research/economics/measuring-growth.md)
 - [Convergence Is a Process, Not a Destination](../notes/convergence-as-process.md) — indifference curves and PPFs as the framing for happiness/longevity tradeoffs; scale-matching; markets as the temporal extension of Hayek's dispersed-knowledge argument
+- [Capitalism vs Socialism: Which Is the Moral System? (1984)](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md) — Peikoff/Ridpath vs Vickers/Caplan; Objectivist foundationalism vs pragmatic democratic socialism
+- [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — Catan as a small economy under uncertainty; trade-efficiency paradox as empirical bilateral-trade-valuation confirmation; resilience from trade graph not production graph

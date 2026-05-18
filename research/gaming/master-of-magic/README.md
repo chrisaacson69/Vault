@@ -109,6 +109,8 @@ The community gravitates to strategies that exploit the *most* hard counters (or
 ## Sub-Pages
 
 - [Tier System and MIRR](./tier-system-and-mirr.md) — time-gated combat tiers as investment decisions; Wraith rush, Halfling Slinger stacking, building option value, wizard book picks as capital allocation
+- [Caster of Magic — Anti-Colossus Counter Analysis](./com-anti-colossus.md) — streamer-inspired matchup study; Hydra and Great Drake emerge as top picks; Drake/Hydra/Colossus rock-paper; sim bugs found and fixed (First-Strike-on-defense, Doom, Life Steal)
+- [CoM Spell Counter-Graph](./com-counter-graph.md) — counters as a directed dominance graph (Warp Wood frontier, dispel taxonomy, asymmetric edges, Counter Magic as zone defense, Mana Leak as resource denial); same methodological pattern as the Monopoly efficient frontier
 
 ## Simulator Status and Next Steps
 

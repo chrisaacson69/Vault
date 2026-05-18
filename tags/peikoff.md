@@ -17,3 +17,4 @@
 - [HoP Ep 13: Aristotle Intro](../research/philosophy/tangents/history-of-philosophy/13-aristotle-intro.md)
 - [HoP Ep 14: Aristotle's Epistemology](../research/philosophy/tangents/history-of-philosophy/14-aristotle-epistemology.md)
 - [HoP Ep 15: Aristotle — Father of Logic](../research/philosophy/tangents/history-of-philosophy/15-aristotle-logic.md)
+- [Capitalism vs Socialism: Which Is the Moral System? (1984)](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md) — Peikoff in live debate form vs Vickers/Caplan; primary-source companion to lecture analyses

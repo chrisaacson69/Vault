@@ -18,3 +18,5 @@
 - [Lance Bush Reviews Wilson on Triggernometry](../research/debates/lance-bush-review-wilson-triggernometry.md) — anti-realist steelman reviews Wilson's metaethics; real hits, word-games, self-critique gap, constitutive axis neither taxonomy reaches
 - [Weaponized Nuance](../notes/weaponized-nuance.md) — "it's nuance, bro"; Wilson vs. Supreme as the worked example
 - [Peacecraft's Libertarian Syllogism — A Hoppe Inversion](../research/debates/peacecraft-libertarian-syllogism.md)
+- [Capitalism vs Socialism: Which Is the Moral System? (1984)](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md) — Peikoff/Ridpath vs Vickers/Caplan; Objectivist foundationalism vs pragmatic democratic socialism; clean fossil of the foundationalist-vs-pragmatist epistemic deadlock
+- [Trent Horn vs NotSoErudite — Christian Nationalism](../research/debates/trent-horn-vs-notsoerudite-christian-nationalism.md) — Kyla's 4th *Whatever* appearance; sophisticated Catholic Christian nationalist dismantles asymmetric-justification rule via parity-of-reasoning then declines to press; no positions changed; "soft" CN is just CN with better PR

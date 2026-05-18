@@ -5,7 +5,7 @@ created: 2026-03-15
 # Efficient Frontier Trade Theory
 > Using EPT frontier curves to solve the 3+ player trade valuation problem — reducing the permutation space through structural truths about development velocity and game horizon.
 
-**Links:** [Monopoly](../../../projects/monopoly/README.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Nash Bargaining Problem](../nash-bargaining-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Subgraph Investment Optimization](./subgraph-investment-optimization.md)
+**Links:** [Monopoly](../../../projects/monopoly/README.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Nash Bargaining Problem](../nash-bargaining-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Subgraph Investment Optimization](./subgraph-investment-optimization.md), [CoM Spell Counter-Graph](../master-of-magic/com-counter-graph.md) — same dominance-graph methodology applied to MoM spell economy
 
 ## The Problem
 

@@ -1,0 +1,18 @@
+idx  clan               age    health     drive      luck  charisma        iq    status   owns_province
+  0  Hatakeya            21        95        81        83        46        70         0   Noto
+  1  Uesugi              30        82       106        89       113       110         0   Echigo
+  2  Hojo                22        91       101       104        88       106         0   Musashi
+  3  Honganji            30        83        96        88        80        65         0   Kaga
+  4  Asakura             27        71       103       105        84       101         0   Echizen
+  5  Anekoji             20        90        85        46       109        88         0   Hida
+  6  Imagawa             41        52       113        31        88        91         0   Suruga
+  7  Tokugawa            18       104       102       115       110       115         0   Mikawa
+  8  Saito               33        96        93        77        31        92         0   Mino
+  9  Tsutsui             11        86        52        95        51        81         0   Yamato
+ 10  Asai                15        86        90        96        81        92         0   Omi
+ 11  Rokkaku             39        90        36        52        60        81         0   Iga
+ 12  Kitabata            32       115       110       102        85        88         0   Iseshima
+ 13  Ashikaga            23        73        98        82        52        86         0   Yamashir
+ 14  Miyoshi             38        96       106        86       101        81         0   Settsu
+ 15  Takeda              39        98       104        93       101       112         0   Shinano
+ 16  Oda                 26       102       115       111       106       108         0   Owari 
