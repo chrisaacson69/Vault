@@ -9,7 +9,9 @@ created: 2026-05-18
 
 **Data:** [lumins/settlers-of-catan-games on Kaggle](https://www.kaggle.com/datasets/lumins/settlers-of-catan-games) — 50 four-player games (200 player-rows), starting placements (settlement positions with adjacent tile numbers and resources), dice-roll histograms, port adjacencies, and resource-flow stats. Mirrored at [DevinRS/Settlers_of_Catan_Analysis](https://github.com/DevinRS/Settlers_of_Catan_Analysis). Local copy: `raw/datasets/catan-50games/catanstats.csv`.
 
-**Analysis script:** `raw/datasets/catan-50games/analyze.js` — saved tool (the "code over tokens" rule); rerunnable.
+**Analysis scripts** (saved tools, the "code over tokens" rule applied):
+- `raw/datasets/catan-50games/analyze.js` — board-archetype classifier, prediction-1 test
+- `raw/datasets/catan-50games/scorecard.js` — per-game scorecard + cross-game correlations, port-leverage analysis (added round 2)
 
 ---
 
@@ -113,6 +115,57 @@ But the comparison to Roman's 27% is **the wrong comparison**, and this finding 
 A fair test of Prediction 3 would require running Roman's analysis design on this dataset: train on a feature set excluding board archetype, then add board archetype as a feature, and see whether held-out across-game accuracy lifts. With N=50 across-game prediction is statistically underpowered to detect a 3-percentage-point lift (which is what Roman would expect to see at 27% → 30%), so this test is unreliable on this data regardless.
 
 **The intra-game classifier finding does tell us something useful:** between players on the same board, total pip exposure dominates archetype alignment. That's consistent with reading B above — the universal city-engine bias plus raw production rate together overwhelm the conditional archetype signal at this N.
+
+## Round 2 — per-game scorecard analyzer (added 2026-05-18)
+
+Built `scorecard.js` to do deeper per-game analysis: pip exposure per resource, expected vs. actual production, trade net, robber events (in/out), and port-leverage. Aggregated cross-game correlations across all 200 player-rows. **The most important finding falls out of the trade-net column.**
+
+### Cross-game correlations (Pearson r, N=200 player-rows, 50 games)
+
+| Metric | r vs. VP | r vs. win |
+|---|---|---|
+| **Production** | **+0.655** | **+0.392** |
+| **Production luck** (actual − expected) | **+0.649** | **+0.445** |
+| Production ratio | +0.578 | +0.407 |
+| pipTotal (starting position) | +0.295 | +0.219 |
+| Robber net (used − hit) | +0.105 | +0.185 |
+| City pip-share | +0.125 | +0.104 |
+| **Trade net (gain − loss)** | **−0.313** | **−0.173** |
+
+**The trade-efficiency paradox is replicated at N=50.** Players whose trade-net was *positive* (received more than they gave) **won less often** and had **fewer VPs**. The correlation is significant at this N (p < 0.001 for the VP coefficient). Roman's 8% / 25% / overpay-for-position finding at N=47k shows up here as r = −0.31 at N=200. Across two completely independent datasets, the direction is the same: **trade winners are not game winners.**
+
+The strongest single predictor of winning isn't pip exposure or city/road engine alignment — it's **production luck** (r = 0.445). Players who got the dice on their high-pip tiles won. This puts a useful number on how much of Catan is structural vs. random: starting position correlates at r = 0.22 with winning; dice variance on top of position correlates at r = 0.45. The luck layer is roughly twice as load-bearing as the strategic layer at this sample.
+
+### Port leverage finding
+
+| Port type | Count | Win rate | Mean VP |
+|---|---|---|---|
+| **Leveraged** (matching pip ≥ 5) | 16 | 25.0% | 6.8 |
+| **Unleveraged** (matching pip < 5) | 8 | 12.5% | 5.9 |
+| Baseline (random player) | — | 25.0% | 6.5 |
+
+A leveraged 2:1 port (with high matching production) yields baseline win rate. An unleveraged 2:1 port yields *half* baseline. Reading: **ports don't help above baseline, but bad ports hurt.** A 2:1 port replaces what would otherwise be a third tile-adjacency. If the matching resource isn't strong, you've sacrificed a productive vertex for a useless trade option. The port is a *don't-waste-it* play, not a *win-condition* play — Roman's 47k analysis didn't surface this because she didn't decompose ports by matching production strength.
+
+This is a sharper version of the [capability-value-over-face-value lens](./catan-47k-empirical.md#toward-the-prescription--capability-value-over-face-value): the face value of a 2:1 port is "trade efficiency"; the capability value is "trade efficiency *conditional on producing enough of the resource to use it*." Holders with no matching production are paying for an unused capability.
+
+### Per-game scorecards as a reading tool
+
+The scorecard format (one game = one card) is the right reading unit for spotting patterns the aggregate stats blur. Example findings from the top-3 most-extreme-board games:
+
+- **Game 23 (unlucky board, 18 sevens):** Winner P3 had 41 expected production, produced 65 (gap +24). Won despite the board favoring nobody. Their trade-net was −13 (overpayer).
+- **Game 30 (lucky board, +10 high-pip rolls):** P4 had ratio 2.33 (87 produced vs. 37 expected) and *still only got 7 VP*. Winner P3 produced less but converted better — trade-net −19 vs. P4's −26, but used the robber 8 times vs. P4's 2.
+- **Game 16 (lucky board, all four players overproduced):** Winner P2 (ratio 2.19) edged out P3 with ratio 1.78; the difference was probably in conversion efficiency (P2's pip exposure was more city-engine).
+
+The scorecard scaffolding is what's actually valuable here — when we get access to a turn-by-turn dataset (Roman's 47k or a successor), the same script extends naturally with per-turn columns. This is the proof-of-method for what an empirical Catan analyzer should look like.
+
+### What this round didn't and couldn't show
+
+The dataset's game-aggregate-only shape means several questions stayed out of reach:
+
+- **Robber-impact decomposition.** RobHit / RobUse columns expose the *count* of robber events targeting / used by each player, but production-blocked time per event isn't recoverable. The "production gap" column conflates robber-block, dice variance, and any other deviation from expected. To isolate the robber-block contribution we'd need per-turn data (which tile the robber was on, for how many rolls).
+- **Per-trade detail.** TradeNet is the sum of all trades; we can see the trade-efficiency paradox at aggregate, but can't see *which* trades were the pivotal overpays.
+- **Snake-position by archetype with statistical power.** The conditional cells (N=10 per board archetype × 4 positions) are too thin for meaningful claims.
+- **Counter-positioning.** The crowding/counter-positioning prediction (P2 from the board-frontier theory) needs opponent-modeling state across the board, which is fundamentally missing.
 
 ## What this exercise actually validated
 

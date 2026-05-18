@@ -5,7 +5,7 @@ created: 2026-02-23
 # Bilateral Trade Valuation
 > A trade's value isn't what you get — it's where both players end up 20 turns later.
 
-**Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [Monopoly](../../projects/monopoly/README.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Insurance](../economics/insurance.md), [Catan — 47,000 Games of Empirical Findings](./catan-47k-empirical.md) — the trade-efficiency paradox (players with perfectly even trades win 8% of the time vs. 25% baseline; winners systematically overpay for position) is the empirical confirmation of this page's thesis across 47k recorded games
+**Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [Monopoly](../../projects/monopoly/README.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Insurance](../economics/insurance.md), [Catan — 47,000 Games of Empirical Findings](./catan-47k-empirical.md) — the trade-efficiency paradox (players with perfectly even trades win 8% of the time vs. 25% baseline; winners systematically overpay for position) is the empirical confirmation of this page's thesis across 47k recorded games, [Catan 50-Game Validation](./catan-50-games-validation.md) — independent N=50 confirmation: tradeNet vs. VP correlation **r = −0.313** (p < 0.001); trade winners are not game winners, holds across two independent datasets
 
 ## The Problem
 
