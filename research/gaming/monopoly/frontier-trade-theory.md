@@ -13,6 +13,21 @@ Bilateral trade valuation is solved (trajectory-based, accounts for competitive 
 
 The brute-force approach (evaluate all permutations) is intractable. The frontier approach reduces the decision space by identifying structural truths that eliminate most options before evaluation begins.
 
+### The architectural relationship to bilateral evaluation
+
+Bilateral and frontier are **complementary tools that answer different questions**, not competing approaches to the same problem:
+
+| Tool | Question it answers | When it shines | When it fails |
+|---|---|---|---|
+| [Bilateral trade valuation](../bilateral-trade-valuation.md) | "Exactly what is THIS specific trade worth between THESE specific players?" | Apples-to-apples trades (both players completing monopolies); auction bid prices; high-stakes single-move decisions | Non-completion 1:1 trades where strategic value depends on the broader portfolio; combinatorial trade chains |
+| Frontier subgraph (this page) | "What's the strategic-value landscape for each player, and which trades are worth considering at all?" | Long-horizon planning; eliminating frivolous exchanges; identifying counterparty leverage points | Exact NPV of any specific trade — frontier gives strategic value, not prices |
+
+The frontier was created **explicitly because** the bilateral evaluator's narrow domain of cleanness (apples-to-apples monopoly completions) covered only a small fraction of real Monopoly trade decisions. The bilateral evaluator works wonderfully when two players are each completing monopolies and dominating the field — but it says little about 1:1 trades of non-completion properties, because the strategic value of a single non-completion property depends on what *else* the player might acquire over the rest of the game. That combinatorial structure is exactly what the frontier subgraph captures by showing each player's reachable Pareto-optimal expansion paths from their random portfolio.
+
+**Conceptual flow:** frontier subgraph identifies *which* trades are worth considering (which moves are on the frontier); bilateral evaluator prices the ones that survive that filter. Frontier without bilateral leaves pricing fuzzy; bilateral without frontier evaluates too many trades, most of them strategically irrelevant. Both together give you the right shape.
+
+This architectural relationship also applies to Catan ([catan-47k-empirical.md §"The exact-vs-frontier architectural distinction"](../catan-47k-empirical.md#the-exact-vs-frontier-architectural-distinction)). A Catan frontier graph would show each player's expansion-path Pareto frontier; a Catan bilateral evaluator would price specific trade offers. Same complementary architecture, different game.
+
 ## The Efficient Frontier
 
 For each player, the **efficient frontier** maps cash-on-hand to maximum achievable EPT across all possible development configurations of properties they currently own.

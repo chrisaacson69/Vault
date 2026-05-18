@@ -416,6 +416,72 @@ The 47k-game dataset Roman analyzed is **not publicly downloadable**. Twosheep.i
 
 **Strategic takeaway:** The frontier-and-bidding theory's empirical validation is gated by data access that doesn't currently exist. The theory remains internally coherent and connected to the [Monopoly project's frontier work](./monopoly/frontier-trade-theory.md), where Chris already has access to the simulator and can test analogous predictions. **Monopoly is the better proving ground for now** — same theoretical structure, full access to the data-generating process.
 
+### The exact-vs-frontier architectural distinction
+
+A genealogy point worth recording: the Monopoly project went through two distinct generations of trade-valuation tools, and the lessons map directly onto what a Catan frontier tool would and wouldn't be.
+
+**Generation 1 — Exact bilateral valuation.** The [bilateral trade valuation page](./bilateral-trade-valuation.md) is the trajectory-based exact calculator: simulate both players' development paths under hypothetical trades, compute who wins what 20 turns later, score the trade against position deltas. It works brilliantly for **apples-to-apples trades** — "I'll give you my orange to complete your monopoly, you give me your dark blue to complete mine." In that situation, both players are completing monopolies, both dominate the rest of the field, and the math closes cleanly. **It also was known at the time to say almost nothing about 1:1 trades of non-completion properties** — where the strategic value of any single property depends on what *else* you might acquire, and the exact NPV calculation can't see that combinatorial structure.
+
+**Generation 2 — Efficient frontier subgraphs.** The [frontier trade theory page](./monopoly/frontier-trade-theory.md) is the structural tool: each player has a *random portfolio* (the properties they hold from random landing), and the frontier subgraph shows the **Pareto-optimal expansion paths from that portfolio** — which trades or developments would move them toward dominance, which are strictly dominated. The frontier doesn't give exact valuations; it gives **strategic-value visibility** ("this property is on my critical path"; "that property is dominated for me but on Player B's frontier — so they'll trade hard for it") and eliminates frivolous exchanges by structural truth rather than enumeration.
+
+**The two tools are complementary, not competing:**
+
+| Tool | What it does | When to use |
+|---|---|---|
+| Exact bilateral simulation | Precise NPV-delta on a specific trade between two specific players | Apples-to-apples completion trades; bidding decisions on auctioned properties; high-stakes single-move evaluations |
+| Frontier subgraph | Map of reachable strategic positions and their dominance relations | Long-horizon planning; deciding which trades to even consider; identifying counterparty leverage points |
+
+The bilateral evaluator says "here's exactly what this trade is worth." The frontier subgraph says "here are the trades worth thinking about, here's what each player values, and here's the shape of the reachable strategy space."
+
+### What a Catan frontier graph would look like
+
+The Catan equivalent of the Monopoly frontier subgraph would map **possible expansion paths from each player's current state** — which is closer to the right shape for Catan than a bilateral evaluator would be (Catan has fewer crisp apples-to-apples trades than Monopoly's monopoly-completion structure).
+
+**Inputs the Catan frontier tool would need (and what we have / lack from the 50-game dataset):**
+
+| Input | Per-game cost to compute | Have in 50-game dataset? |
+|---|---|---|
+| Full hex layout (19 tiles with number tokens and resource types) | Read from game setup | ❌ Only the tiles a player's settlements touched |
+| Port layout (9 ports around the coast) | Read from game setup | ⚠️ Partial — only ports adjacent to player settlements |
+| Current settlements and cities for each player | Read from game state | ✅ Starting only; no mid-game expansion data |
+| Current road network for each player | Read from game state | ❌ Not in dataset |
+| Each player's current resource hand | Read from game state | ❌ Not in dataset |
+
+The 50-game dataset is **not enough to build the frontier tool** — it has starting positions but no mid-game state, and no full board layout. But the algorithmic shape can be specified independently:
+
+**The frontier algorithm (sketch):**
+
+1. **For each player, compute reachable expansion vertices.** A vertex is reachable if you have a road network connecting to it, or if you have the resources + road-build chain to extend to it.
+2. **For each reachable vertex, compute the build cost.** Number of roads + 1 settlement = (R × brick + R × wood) + (1 brick + 1 wood + 1 wheat + 1 sheep), where R is the number of new roads needed.
+3. **For each reachable vertex, compute the production gain.** Sum of pip-weights of the three adjacent hexes for the new settlement (plus city upgrades available there).
+4. **Pareto-filter the reachable positions.** A position is on the frontier if no other reachable position has both lower cost AND higher production gain.
+5. **Frontier subgraph output:** the set of (position, cost, gain) triples plus the build-order constraints (you need road A before road B before settlement C).
+
+**What the frontier graph shows:**
+
+- **For each player:** their reachable expansion frontier (what they should build, in what order, given infinite resources)
+- **Cross-player overlap:** if two players have a frontier-critical vertex in conflict, the player who reaches it first wins that vertex and the loser must reroute (this is the spatial-dominance angle of Longest Road)
+- **Trade-relevant resources:** the resources missing from the player's current hand to reach their next frontier position. *This is the "what they value" signal.*
+- **Threats:** opponents whose frontier includes blocking the current player's road network
+
+**What the frontier graph doesn't show (and intentionally doesn't):**
+
+- **Exact NPV of any single trade.** Frontier gives strategic value, not exact prices.
+- **How to actually acquire the missing resources.** "You need 2 wood and 1 brick to complete the road" — the graph tells you what's missing but not how to get it (trade? wait for dice? attack with the robber? port-convert?). That's a separate problem layer.
+- **Per-turn play.** Frontier is a planning artifact; per-turn decisions still need turn-level reasoning.
+
+**The "you need X, Y, Z to get here, but the graph doesn't know how to get X, Y, Z" structure is the same as Monopoly's frontier subgraph.** Both tools answer "what's the destination worth pursuing" and leave "how to procure the inputs" to other components. In Monopoly the procurement is mostly trade; in Catan it's trade + production timing + dice + robber play. The split keeps both tools focused on what they're good at.
+
+### Why this matters for the theory line
+
+The whole [board-frontier theory sketch](#board-as-efficient-frontier--a-prescription-theory-sketch) earlier in this page can now be more precisely typed:
+
+- The **opening placement** is a frontier problem at game start. Pick from the Pareto-optimal opening archetypes given the board.
+- The **mid-game expansion** is a frontier problem within the game. From your current portfolio, what's the next Pareto-optimal expansion?
+- The **trade decisions** are *implementation* problems that the frontier graph tells you *what to negotiate for* but not *how to price*. Pricing is the [bilateral trade valuation](./bilateral-trade-valuation.md) problem with the [asymmetric externality](./bilateral-trade-valuation.md#the-asymmetric-externality-reading-of-the-trade-efficiency-paradox) layer.
+
+The vault's two Monopoly-project tool generations map directly onto two complementary Catan tools. We don't have the data to build either yet, but the architectural shape is now specified.
+
 ### Connection back to vault frameworks
 
 This is **the [Monopoly project's frontier methodology](./monopoly/frontier-trade-theory.md) applied to Catan opening placement** — same shape, different game. The instinct generalizes:
