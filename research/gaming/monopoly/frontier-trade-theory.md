@@ -290,5 +290,52 @@ This is more expensive (more sims per trade decision), but it's the correct shap
 
 In any N≥3 game with bilateral trade and multi-player consequences, **the acceptor systematically underprices because they price on two-player math while the trade has three+-player effects.** Catan, Monopoly, Diplomacy alliance trades, M&A involving market consolidation — all instances of the same pattern. The bilateral-trade-valuation page is the canonical home; this page is the Monopoly-specific application.
 
+## The Brown trap — EPT-per-dollar vs. game-impact-share
+
+A specific empirical finding from the Monopoly project, sharpened 2026-05-18:
+
+The Brown monopoly (Mediterranean + Baltic) is **cheap to acquire and cheap to develop**, and on a naive EPT-per-dollar metric it looks attractive. The "Open Questions" item above notes that the current reserve algorithm gives a "false brown trap signal" — saying don't develop browns when actually browns are EPT-efficient per dollar.
+
+**The deeper truth is that the trap is real, the model just hasn't captured the right metric.** Browns:
+- Generate small absolute EPT (even fully built, the rents are modest)
+- Don't apply meaningful pressure to opponents (low landing rent → no real position threat)
+- Don't drain opponent reserves (no jail-rent terror)
+- Don't enable strategic blocks (Brown spaces aren't on high-traffic paths)
+
+So a player who spends 3 random properties + cash to acquire Browns from the global frontier looks like they moved up the EPT curve — but they spent their available trade capital on a monopoly that **doesn't translate into wins**. The 50-game Catan analog is the [unleveraged-port finding](../catan-50-games-validation.md#port-leverage-finding): 2:1 ports with low matching production yielded *half-baseline* win rates. Same pattern: capability-with-no-leverage is worse than no capability, because you've spent the acquisition cost on something that doesn't pay back.
+
+**The right metric isn't EPT-per-dollar; it's game-impact-share** — how much does this acquisition shift the leaderboard? Browns are EPT-efficient and impact-inefficient. The frontier construction is *correct* in identifying them as Pareto-improvements; the **counterparty-modeling layer** and the **game-impact filter** are the missing pieces that would tell you to skip them in favor of higher-impact monopolies that are also reachable.
+
+This sharpens what the frontier tool needs in its next generation: not just "reachable Pareto-optimal positions" but "reachable Pareto-optimal positions filtered by impact-share." See also the [Catan analog for capability-without-leverage](../catan-50-games-validation.md#port-leverage-finding).
+
+## Frontier reduces but doesn't eliminate — the choice-among-improvements problem
+
+A subtle limitation of the frontier construction worth naming explicitly: from your current fragment, **many** trades are frontier-improving. Trading 3 random properties for Light Blue is better than your starting position; so is trading for Purples, Oranges, Reds, or Yellows. The frontier filters out the dominated set (e.g., the Brown trap above), but it leaves multiple non-dominated paths. **Which one do you actually pursue?**
+
+The choice-among-improvements layer requires:
+
+1. **Target EPT** (frontier-visible) — what's the destination worth?
+2. **Acquisition feasibility** (counterparty-modeled, not solved) — will any counterparty actually agree to this trade chain?
+3. **Information cost** (sequencing-modeled, not solved) — what does revealing this strategy cost in subsequent trade prices?
+4. **Game-impact share** (related to the Brown trap above) — does this destination actually shift the leaderboard?
+
+The frontier construction handles row 1 cleanly. The other three rows are why "frontier identifies the destination, but the transfer problem is hard" is the right summary. **You can have a perfect frontier and still pick the wrong trade because you misjudged the counterparty's veto, leaked information that raised the next trade's price, or aimed at an impact-inefficient destination.**
+
+This is what makes Monopoly trade play hard at the expert level: the frontier is the *easy* part. Strong play differentiates on the other three rows.
+
+## Multi-counterparty trade sequences and information cascade
+
+Real-game Monopoly trades aren't 1-on-1 in isolation. The player executing a strategy is typically running a **trade sequence with 3 different counterparties**, and **each trade leaks information to the others** about what you're going for. Concrete sequence pattern:
+
+1. **Trade A:** offer Counterparty 1 something cheap to get a property on your target chain
+2. **Trade B:** offer Counterparty 2 a second property for the next piece — but C2 has now seen Trade A and can infer your target monopoly. C2's price goes up.
+3. **Trade C:** offer Counterparty 3 the final piece — by now your strategy is obvious. C3 charges the maximum extraction price, or refuses to trade because they understand the [acceptor-underpricing externality](../bilateral-trade-valuation.md#the-asymmetric-externality-reading-of-the-trade-efficiency-paradox).
+
+The information cascade is a real cost. A trade sequence that looks frontier-optimal in isolation can become **infeasible at later steps** because the early steps revealed too much. Strong play orders trades to *minimize information leakage* — for example, putting the high-cost / hard-to-disguise trade *first* (when counterparties haven't yet inferred the plan), or executing two trades simultaneously through a single offer (denying counterparties the chance to update between trades).
+
+This is a Monopoly-specific manifestation of a general principle in negotiation theory: **your moves are signals, and signal cost is part of the trade cost.** Vault has the related [Keynesian-beauty-contest framing](./catan-47k-empirical.md#common-knowledge-competition--the-counter-positioning-move) on the Catan page — same dynamic, different game. Worth naming on this page so it's discoverable from the Monopoly-trade thread.
+
+**Engineering implication:** trade evaluation can't be per-trade only. The AI needs to evaluate **trade sequences** with information-leakage costs across the sequence. Currently the vault's [subgraph-trade-engine-spec](./subgraph-investment-optimization.md) handles 3-way cycles but doesn't explicitly model information cost. That's another open layer of the transfer problem.
+
 ## Tags
 [game-ai](../../../tags/game-ai.md), [economics](../../../tags/economics.md), [game-theory](../../../tags/game-theory.md), [strategy](../../../tags/strategy.md)
