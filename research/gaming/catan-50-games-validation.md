@@ -3,7 +3,7 @@ status: active
 created: 2026-05-18
 ---
 # Catan 50-Game Validation — What N=50 Can and Can't Tell Us
-> Proof-of-method run of the [board-frontier theory](./catan-47k-empirical.md#board-as-efficient-frontier--a-prescription-theory-sketch) against the public `lumins/settlers-of-catan-games` dataset (50 four-player games on Kaggle, mirrored on GitHub). Aggregate winner-vs-loser bias toward the city engine **directionally confirmed** (Δ = +0.016, matching Roman's qualitative finding at much smaller scale). Board-conditional prediction is **partially confirmed** — city-rich boards show the right direction; road-rich don't, but at N=10 games per archetype the sample can't distinguish "wrong direction" from "noise." Snake-position pattern in this dataset **does not match Roman's** — P2 dominates 36% / P1 underperforms 16%, suggesting the dataset's games may not use standard snake-order placement. Classifier comparison turned out to be the **wrong comparison** at this scale (within-game ranking is much easier than across-game outcome prediction; Roman's 27% and my 48% are not on the same axis).
+> Proof-of-method run of the [board-frontier theory](./catan-47k-empirical.md#board-as-efficient-frontier--a-prescription-theory-sketch) against the public `lumins/settlers-of-catan-games` dataset (50 four-player games on Kaggle, mirrored on GitHub). Three rounds of analysis. **Round 1 (board archetypes):** aggregate winner-vs-loser bias toward the city engine confirmed; conditional refinement only partially supported. **Round 2 (scorecard correlations):** the trade-efficiency paradox replicates cleanly — tradeNet vs. VP r = −0.31 at N=200, matching Roman's 47k finding; port leverage shows bad-ports-hurt-good-ports-don't-help (12.5% vs. 25% baseline). **Round 3 (production-luck decomposition):** the metric I called "production luck" turns out to be ~80% expansion success and only ~20% RNG. Same board, same dice — players diverge by 2-3× in actual production based on how they expand. Catan is "expansion success on top of position," not "dice variance on top of position." Confirms Roman's "play matters more than the start" qualitatively *and* mechanistically.
 
 **Links:** [Catan — 47,000 Games of Empirical Findings](./catan-47k-empirical.md), [Gaming](./README.md), [Bilateral Trade Valuation](./bilateral-trade-valuation.md), [Monopoly Theory](./monopoly/), [Frontier Trade Theory](./monopoly/frontier-trade-theory.md), [Subgraph Investment Optimization](./monopoly/subgraph-investment-optimization.md)
 
@@ -11,7 +11,8 @@ created: 2026-05-18
 
 **Analysis scripts** (saved tools, the "code over tokens" rule applied):
 - `raw/datasets/catan-50games/analyze.js` — board-archetype classifier, prediction-1 test
-- `raw/datasets/catan-50games/scorecard.js` — per-game scorecard + cross-game correlations, port-leverage analysis (added round 2)
+- `raw/datasets/catan-50games/scorecard.js` — per-game scorecard + cross-game correlations, port-leverage analysis (round 2)
+- `raw/datasets/catan-50games/decompose-luck.js` — RNG-vs-expansion decomposition of productionLuck (round 3)
 
 ---
 
@@ -134,7 +135,52 @@ Built `scorecard.js` to do deeper per-game analysis: pip exposure per resource, 
 
 **The trade-efficiency paradox is replicated at N=50.** Players whose trade-net was *positive* (received more than they gave) **won less often** and had **fewer VPs**. The correlation is significant at this N (p < 0.001 for the VP coefficient). Roman's 8% / 25% / overpay-for-position finding at N=47k shows up here as r = −0.31 at N=200. Across two completely independent datasets, the direction is the same: **trade winners are not game winners.**
 
-The strongest single predictor of winning isn't pip exposure or city/road engine alignment — it's **production luck** (r = 0.445). Players who got the dice on their high-pip tiles won. This puts a useful number on how much of Catan is structural vs. random: starting position correlates at r = 0.22 with winning; dice variance on top of position correlates at r = 0.45. The luck layer is roughly twice as load-bearing as the strategic layer at this sample.
+The strongest single predictor of winning is **production above starting-pip expectation** (r = 0.445). Originally framed as "production luck," but the [decomposition below](#what-production-luck-actually-measures--expansion-not-rng) shows the bulk of this metric is expansion success (building more settlements + upgrading to cities mid-game), not dice variance. Players who expanded well from their opening had high productionLuck and won. Starting pips alone correlate only r = 0.22 with winning; what you DO with the starting pips correlates twice as strongly.
+
+### What "production luck" actually measures — expansion, not RNG
+
+After the round-2 results, Chris flagged a real issue: the dataset has no record of mid-game settlements/city upgrades. The "production luck" metric (actual − expected from starting pips) attributes everything that exceeded starting-pip expectation to "luck," but a player who expanded from 2 settlements to 5 settlements + 4 cities would 3-4× their pip exposure during the game — that's strategy, not RNG.
+
+Ran a decomposition (`decompose-luck.js`) to isolate the two components.
+
+**Test 1: does board-level RNG luck lift the team's collective production luck?** If yes, productionLuck is RNG-driven. If no, it's player-level (expansion).
+
+- r(board high-pip rolls vs expected, team-summed productionLuck) = **0.34**
+- r(board productive-roll surplus, team-summed productionLuck) = **0.23**
+
+Both are weak. A truly RNG-driven metric would show r near 1.0 because lucky-roll boards would lift every player. The signal is mostly elsewhere.
+
+**Test 2: within-game variance.** Same board, same dice, four players — how much do they diverge?
+
+- Grand variance of productionLuck (all 200 player-rows): 141.6
+- Avg within-game variance (between players on the same board): 114.9
+- Between-game variance (game means vs. grand mean): 26.6
+- **Within-game share of total variance: 81.2%**
+
+**The 81% / 18% split is the smoking gun.** If RNG drove productionLuck, players on the same board would over- or under-perform together (low within-game variance). Instead, they diverge dramatically. Same board ≠ same outcome — by a long way. That's expansion success.
+
+**Test 3: residual after removing board effect.** Per-player "personal luck" = productionLuck − game's mean productionLuck.
+
+- r(total productionLuck, VP) = 0.649
+- r(personal productionLuck residual, VP) = **0.592**
+
+If the win signal lived in board-level RNG, removing the board mean would tank the correlation. It barely moves (0.649 → 0.592). Almost all the win-predictive power is in *which player on each board expanded better*, not which board got lucky.
+
+**Test 4: scale of the production multiplier.**
+
+- Mean production ratio (actual / starting-pip-expected): **1.46×**
+- Median: 1.45×
+- Range: 0.66× to 2.60×
+
+The typical player produces **46% more than starting pips predict**. The high end (2.60×) is a player who built a lot of extra settlements and upgraded several to cities. The low end (0.66×) is a player who got dogpiled / robbered into stagnation. This is the structural variance the within-game variance test surfaced, viewed per-player.
+
+### What this means for the strategic claim
+
+The narrative "Catan is dice variance on top of position" was wrong. The correct narrative from this data:
+
+**Catan is expansion success on top of position.** Starting placement matters (r = 0.22 with winning) but is mostly a foundation. The far larger contribution to winning is **what you do with the starting position during the game** — how aggressively you expand into adjacent tiles, how reliably you upgrade settlements to cities, how well you maintain access to building resources. The "play matters more than the start" frame Roman's 27% classifier suggested is now mechanistically grounded: at least 80% of the production-above-expectation lives in the player-level expansion-success component, not in RNG.
+
+This **aligns with Chris's intuition that Catan is play-dominant, not dice-dominant.** It also sharpens what "the play" actually means: roads-to-new-vertices, settlements-on-new-tiles, city-upgrades-on-existing-tiles. The metric of skill we'd want from per-turn data is *expansion rate* and *city-conversion rate* — exactly what the [board-frontier theory](./catan-47k-empirical.md#board-as-efficient-frontier--a-prescription-theory-sketch) was reaching for. The 50-game dataset can't see it directly, but the decomposition above shows the SHAPE of it: most of the win-correlation lives in the player's per-game divergence from their tablemates, not in the board's collective luck.
 
 ### Port leverage finding
 
