@@ -17,7 +17,7 @@
 - [cyborg](./cyborg.md) — 4 files
 - [debates](./debates.md) — 15 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 35 files
+- [economics](./economics.md) — 36 files
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 10 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
@@ -38,7 +38,7 @@
 - [logic](./logic.md) — 10 files
 - [machine-learning](./machine-learning.md) — 5 files
 - [mathematics](./mathematics.md) — 13 files
-- [meta-musing](./meta-musing.md) — 8 files
+- [meta-musing](./meta-musing.md) — 9 files
 - [metaphysics](./metaphysics.md) — 1 file
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 16 files

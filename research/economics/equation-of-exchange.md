@@ -6,7 +6,7 @@ created: 2026-03-18
 > MV = PT looks simple. Decompose T through the GDP expenditure identity and the entire monetary transmission mechanism falls out.
 
 **Origin:** Discord banking thread → Copilot session (2025-11-19) → expanded here
-**Links:** [Economics](./README.md), [Inflation](./inflation.md), [Business Cycles](./business-cycles.md), [Value and Profit](./value-and-profit.md), [Yarvin x McCormack](../debates/yarvin-mccormack-fake-science-economics.md), [Weinstein x Murphy](../debates/weinstein-murphy-gauge-theory-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md)
+**Links:** [Economics](./README.md), [Inflation](./inflation.md), [Business Cycles](./business-cycles.md), [Value and Profit](./value-and-profit.md), [Yarvin x McCormack](../debates/yarvin-mccormack-fake-science-economics.md), [Weinstein x Murphy](../debates/weinstein-murphy-gauge-theory-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md), [The GDP-Identity Tariff Fallacy](./gdp-identity-tariff-fallacy.md) — companion piece on the C+I+G+X−M identity's hidden domain restrictions, [Accounting Identities as Domain-Matching](./accounting-identities-as-domain-matching.md) — the meta-pattern that ties this page and the GDP-identity page together as instances of one structural claim (macroeconomic identities are domain-matching tricks, not behavioral models)
 
 ## The Starting Point
 
