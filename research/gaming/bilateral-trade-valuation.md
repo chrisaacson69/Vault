@@ -337,6 +337,87 @@ New files:
 - `cached-engines.js` — Caches deterministic Markov/EPT tables to `.markov-cache.json` (89 KB). First run: 97ms computation. Subsequent: 2ms load (50x speedup).
 - `auction-bilateral-test.js` — Tournament framework for bilateral vs static bidding.
 
+## The asymmetric-externality reading of the trade-efficiency paradox
+
+The [trade-efficiency paradox](./catan-47k-empirical.md#7-the-trade-efficiency-paradox--winners-overpay) is usually read as "winners overpay for position." That's true, but it's only half the picture. The same finding, flipped, says something sharper about the other side of every overpaid trade:
+
+**Trade-acceptors systematically underprice their goods in N>2 settings.**
+
+If overpayers win, the market is mispricing. In a market where prices clear at rational valuations, you cannot consistently overpay AND find a counterparty — the counterparty would push back for a better price. The fact that overpayment trades happen frequently and that overpayers win means **the trade-acceptors aren't charging enough**. They're seeing the local two-player resource math, missing the multi-player strategic externality.
+
+### The asymmetric-stakeholder structure
+
+Every trade in an N≥3 game has at least three stakeholders, not two:
+
+- **The aggressor** (proposes / overpays): sees the full strategic value because they're proposing the trade *for* a position move
+- **The acceptor** (sells the resource): typically sees only their own balance sheet — "did I get more pips than I gave?"
+- **The third party (or parties)**: the player(s) the trade enables an action against (e.g., the one about to be blocked by the new road, the one about to lose Largest Army)
+
+The pricing collapses when the **acceptor doesn't include the third-party damage in their valuation.** They look at the trade as A-to-B and price it on A-B resource math. But the trade is really A-to-B-with-effects-on-C-D — and B's own future is materially worse if the trade lets A move ahead of B in the standings.
+
+Chris's example, paraphrased: A trades wood to B so A can build a road that blocks Player C's expansion. B sees "wood for wheat at fair pip-ratio, sure." But the road also raises A's win probability, which is bad for B — and B never priced that in. B might *also* be hurt by C losing position (because B benefits from C being a counter-weight to A), but B doesn't see this layer either.
+
+### The pricing model the acceptor should use
+
+For a trade to be correctly priced for an N=4 game, the acceptor needs to ask:
+
+1. **Direct math**: do I get more resource value than I give?
+2. **Aggressor's gain**: how much does this trade improve the aggressor's win probability?
+3. **Third-party damage**: does this trade enable an action that hurts other opponents, and does that change *my* position relative to those opponents?
+4. **Position substitution effect**: by selling this resource, am I helping the aggressor close the *specific* gap that was keeping them off the leaderboard?
+
+A "fair" trade in the resource-math sense (1:1 pip exchange) is *almost always underpriced* in N≥3 if the trade enables an aggressive action. The acceptor should charge a **premium proportional to the aggressor's strategic gain**, not just the resource difference.
+
+### Why this is "the trade-efficiency paradox from the other side"
+
+The paradox empirically shows:
+
+- Winners had **trade-net < 0** (they paid more than they received).
+- Their tablemates accepted those underpriced offers.
+
+Read forward: winners exploited the acceptor's underpricing.
+Read backward: the *losing players* were paying for everyone else's wins by accepting too-cheap trades. The 8% win rate for "perfectly even" traders isn't because they refused to overpay; it's because *they were the ones being overpaid against*. The market gave the strategic value to whoever was willing to charge for it, and the players doing the resource-math-only valuation gave it away.
+
+This sharpens the strategic prescription:
+- **Don't just consider overpaying for position.** Also consider **demanding overpayment when you're the resource holder.** The mirror image is just as valuable.
+- A player who walks away from "fair" trades unless the aggressor adds a position-tax to the price is playing the right game. A player who reflexively accepts pip-balanced trades is leaving win-equity on the table.
+
+### N>2 makes this non-obvious to the acceptor
+
+Why don't trade-acceptors charge correctly? Three bounded-rationality reasons:
+
+1. **The benefit to the aggressor is opaque-ish.** B sees A's settlements and roads, but not A's plan. B has to *infer* what A intends to do with the resource. This is hard.
+2. **The damage to third parties is even more opaque.** B might not realize that A's road blocks C; even if B does, B might not realize that C's diminishment hurts B (via coalition imbalance).
+3. **The aggressor benefits by *not* explaining the value.** A who says "I really need wood to block C's expansion" is asking for a 2× price. A who says "want to trade wood for wheat?" gets the 1:1.
+
+This is **why the trade-efficiency paradox is a sustainable equilibrium across thousands of games and against varied opponents**: the acceptor's underpricing is a stable bounded-rationality failure of the *acceptor population*, exploitable by any aggressor who plays for position. It will not be priced away by competition because the acceptors aren't pooling information across games.
+
+### Connection to Monopoly — the same pattern, never explicitly named there
+
+The [Monopoly project](../../projects/monopoly/README.md) and the [Frontier Trade Theory](./monopoly/frontier-trade-theory.md) page already handle related ideas (denial value, race conditions, knockout probability), but the **acceptor-underprices-because-they-only-see-the-two-player-math** framing isn't there yet. It should be.
+
+Concrete Monopoly instance: Player A holds Boardwalk; Player B holds Park Place; Player C and D have unrelated holdings. A trade between A and B forming the Dark Blue monopoly is **catastrophic for C and D** (highest rents on the board, accelerated by hotel buildouts). If C is the third property holder (Baltic, say) and B offers C a cash + minor-property trade to finalize the monopoly, C's correct pricing has to account for "this trade dramatically raises A and B's win probability simultaneously, and C is now competing against TWO compounding monopolies." A 1:1 NPV trade is wildly underpriced.
+
+This is the structural reason Monopoly's "fair trades" are rarely fair. The vault's existing [frontier trade theory](./monopoly/frontier-trade-theory.md) treats this implicitly via denial value (the *blocker's* value from preventing the trade), but the symmetric form — the *acceptor's* obligation to charge for the externality — has been latent. The Catan finding makes it explicit and worth porting back to Monopoly trade evaluation.
+
+**Engineering implication for the Monopoly bilateral evaluator:** the current model evaluates "is this trade good for me?" The improvement is "is this trade good for me *including the cost of the aggressor's strategic gain and any third-party damage that loops back to me through coalition imbalance*?" This is harder to compute but probably accounts for a meaningful slice of the current "trade-accepts-too-eagerly" symptom in the AI.
+
+### The general principle
+
+In any multiplayer trading game where bilateral trades have multi-player consequences:
+
+- **The trade's price should reflect ALL stakeholders' value/cost, not just the two parties at the table.**
+- **The party who sees more of the strategic structure (usually the aggressor) systematically wins** — not because they're better at trade math, but because they include the other layers and the counterparty doesn't.
+- **The trade-acceptor's correct play is to demand a position-tax** above the resource-math fair price, scaled by the aggressor's expected strategic gain.
+
+This generalizes well beyond games:
+- M&A: the target should price in the strategic value to the acquirer, not just the assets-on-balance-sheet value (this is well-known in corporate finance — "synergy premium")
+- Real estate: a seller in a redevelopment zone should charge for the developer's anticipated upside, not just the current property value
+- Talent markets: an employee with rare skills should charge the marginal hire-value to the employer, not just the salary-band median
+- Coalition politics: a swing vote should charge the coalition's marginal value of having them, not just the seat-share value
+
+**The Catan and Monopoly trade-efficiency paradoxes are instances of acceptor-underpricing-the-externality, a recurring pattern wherever bilateral pricing happens with multi-party consequences.**
+
 ## Open Questions
 
 - ~~**Convergence-point Nash:**~~ **RESOLVED.** Implemented and confirmed. Marginal improvement (33.8% vs 33.6%) but theoretically correct. Kept as canonical approach for negotiation foundation.

@@ -192,5 +192,56 @@ The structural reduction: most of the permutation space dies at step 1 (most inv
 - **Frontier recomputation after trades:** When A trades with B, C's frontier shifts even though C wasn't involved. The tool needs to recompute all frontiers after each hypothetical trade.
 - **The game-theoretic observation problem:** Murphy's critique of Weinstein applies here too — if a player knows they'll re-optimize next turn, they optimize differently today. Does the frontier calculation change if opponents know you're using it?
 
+## The acceptor-underprices-the-externality pattern (added 2026-05-18)
+
+This page covers **denial value** thoroughly — the blocker's value from preventing a trade that would create an opposing monopoly. The **symmetric form** hasn't been explicitly named here and is worth adding from the Catan trade-efficiency-paradox analysis ([[bilateral-trade-valuation]] §"asymmetric-externality reading").
+
+### The pattern in Monopoly
+
+Player A holds two Oranges. Player B holds the third Orange plus a Light Blue. Players C and D have unrelated holdings. A offers B a trade finalizing the Orange monopoly for A.
+
+The current bilateral evaluator on this page asks: "is the trajectory-NPV of future-Orange for A worth more than what A is giving up?" and "does B come out ahead on trajectory terms?" If both yes, the trade clears.
+
+**But the trade also catastrophically damages C and D.** A's Orange monopoly lands them in heavy-rent range repeatedly. C and D's win probability collapses. **The load-bearing point: B is also damaged** by:
+
+1. A's monopoly directly raises A's win probability — bad for B
+2. C and D being weakened accelerates A's dominance over the *remaining* opponents (B being one)
+3. B's coalition options shrink — fewer viable allies to dogpile A with later
+
+A 1:1 NPV-fair trade is **substantially underpriced** from B's correct perspective. B should be demanding cash + denial-tax + position-tax above the NPV-fair price.
+
+### Engineering implication
+
+The current bilateral simulator evaluates "does this trade improve my trajectory at least as much as theirs?" This is the symmetric form of "is the resource math fair?" extended to NPV. The next refinement is **N-body trajectory simulation:**
+
+1. Compute trade's NPV impact on all four players, not just the trading pair
+2. The acceptor's correct decision: does (my own gain) − (aggressor's gain × coupling) − (third-party damage that loops back through coalition imbalance) ≥ 0?
+3. If yes, accept; if no, demand a position-tax until it does
+
+```javascript
+// Current bilateral check:
+// myTrajectoryDelta >= theirTrajectoryDelta?
+
+// N-body extension:
+function tradeIsAcceptable(trade, me, them, others) {
+  const myDelta = simulateMyTrajectory(trade, me, them);
+  const theirDelta = simulateMyTrajectory(trade, them, me);
+  // Cost of aggressor's gain to me: their win-share increase × coupling factor.
+  const aggressorGainCostToMe = -theirDelta * couplingFactor(me, them);
+  // Damage to third parties that loops back through coalition imbalance.
+  const externalityFromOthers = others.reduce((sum, c) => {
+    const cDelta = simulateMyTrajectory(trade, c, [me, them]);
+    return sum + cDelta * couplingFactor(me, c);
+  }, 0);
+  return myDelta + aggressorGainCostToMe + externalityFromOthers >= 0;
+}
+```
+
+This is more expensive (more sims per trade decision), but it's the correct shape. The current Monopoly AI **accepts trades too eagerly** — empirically documented in the bilateral page — and the N-body acceptor pricing is the structural fix that derives the right selectivity rather than tuning a multiplier (gap #6 in the bilateral page's frontier-derivation table).
+
+### Generalizable
+
+In any N≥3 game with bilateral trade and multi-player consequences, **the acceptor systematically underprices because they price on two-player math while the trade has three+-player effects.** Catan, Monopoly, Diplomacy alliance trades, M&A involving market consolidation — all instances of the same pattern. The bilateral-trade-valuation page is the canonical home; this page is the Monopoly-specific application.
+
 ## Tags
 [game-ai](../../../tags/game-ai.md), [economics](../../../tags/economics.md), [game-theory](../../../tags/game-theory.md), [strategy](../../../tags/strategy.md)
