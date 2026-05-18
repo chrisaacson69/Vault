@@ -13,6 +13,38 @@ Bilateral trade valuation is solved (trajectory-based, accounts for competitive 
 
 The brute-force approach (evaluate all permutations) is intractable. The frontier approach reduces the decision space by identifying structural truths that eliminate most options before evaluation begins.
 
+### Methodological lineage — adapted from CAPM / Modern Portfolio Theory
+
+The "efficient frontier" name isn't borrowed loosely; it's borrowed *with the mathematical structure*. Modern Portfolio Theory (Markowitz 1952; CAPM, Sharpe 1964) represents all possible investment portfolios in a continuous risk-return space, then identifies the **Pareto-optimal subset** — the frontier where no other portfolio offers higher return at equal-or-lower risk. Investors don't enumerate portfolios; they think on the frontier.
+
+The Monopoly application is the **discrete-game form of the same construction:**
+
+| | CAPM / MPT (finance) | This frontier (Monopoly) |
+|---|---|---|
+| State space | Continuous (any weighted combination of assets) | Discrete (28 properties + 4 railroads + 2 utilities, integer holdings) |
+| Axes of efficiency | Expected return vs. variance/risk | EPT (earnings per turn) vs. cash cost + development time |
+| Frontier definition | Portfolios where no other has higher return at equal-or-lower risk | Portfolio paths where no other has higher EPT at equal-or-lower cost/time |
+| Starting point | Arbitrary (any allocation possible at trade time) | Your "fragment" — properties you've already landed on (random draws) |
+| Optimization | Free repositioning (subject to budget) | Constrained: must trade or land to acquire; opponents have veto |
+| Combinatorial bloat reduction | Reduces continuous space to a 1-D curve | Reduces game-tree subset of trade/build sequences to a small graph of frontier paths |
+
+The discrete-state-space reduction is **larger in proportional terms than CAPM's** because the starting fragment dominates the reachable set. From a typical mid-game state, only a handful of monopoly-completion paths are even reachable; most of the formally-possible state space is dominated by another reachable state (more EPT, less cost) and can be pruned. **The frontier collapses a combinatorial space to a tractable one for the same reason MPT works in continuous space: structural dominance means most options are strictly worse than other options on the same axes.**
+
+This is the key technical contribution: not the bilateral evaluator (which is a precise NPV calculator) and not the simulation (which is execution), but **the recognition that the property-trade decision space has a Pareto-optimal subset that can be computed from each player's current fragment** — turning "consider all trades" into "consider only the frontier paths." Without this step, the combinatorial bloat makes principled play infeasible.
+
+### Why the frontier generalizes
+
+The combinatorial-reduction-via-Pareto-dominance trick is what makes the frontier approach **transferable** to other discrete-portfolio games. The Catan version ([catan-47k-empirical.md §"The exact-vs-frontier architectural distinction"](../catan-47k-empirical.md#the-exact-vs-frontier-architectural-distinction)) is the same construction with:
+
+- State space = settlement vertices reachable from current road network
+- Axes = pip-weighted production gain vs. resource cost + build-order constraints
+- Starting point = current settlements + road network
+- Frontier = reachable vertices where no other reachable vertex has higher gain at equal-or-lower cost
+
+Same Markowitz/CAPM Pareto-frontier structure, different discrete game. The same generalization applies to MOO1 tech-tree branches, Diplomacy supply-center growth paths, Master of Magic spell-school progressions, anywhere a player has a starting fragment and a combinatorial set of reachable expansions with measurable cost/gain pairs.
+
+**The vault's frontier work is best read as discrete-game MPT.** That naming pins down what it is mathematically and what it shares structurally with two centuries of financial-economics scholarship. The contributions on top of MPT are: handling the constrained-acquisition layer (you can't repurchase freely; trades require counterparty consent), the asymmetric-externalities pricing layer ([[bilateral-trade-valuation]] §"asymmetric-externality reading"), and the build-order constraint layer (some frontier positions are only reachable in sequence). Those are real refinements but they're refinements *on top of* the Pareto-frontier construction, not replacements for it.
+
 ### The architectural relationship to bilateral evaluation
 
 Bilateral and frontier are **complementary tools that answer different questions**, not competing approaches to the same problem:
