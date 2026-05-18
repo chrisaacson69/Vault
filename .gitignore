@@ -9,9 +9,8 @@ youtubeuploader.exe
 *.nes
 *.mss
 
-# External tooling — third-party repos cloned into project folders
-# (Add as git submodule if you want to track the reference.)
-projects/game-annotation/nobunaga/tools/nes-disasm6/
+# External tools live in ~/source/repos/ and are pointed at from project
+# READMEs / tool-pointer files — see projects/game-annotation/nobunaga/tools/EXTERNAL.md
 
 # Obsidian plugins — installed per-clone via Community Plugins
 .obsidian/plugins/
