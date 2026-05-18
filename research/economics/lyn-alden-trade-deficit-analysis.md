@@ -253,6 +253,85 @@ The framework agrees with Alden's Level 7 caveat: this is long-horizon stuff. Pr
 
 ---
 
+## Trade deficits as thermometer, not fire
+
+Chris's nuanced position on Alden's case, made explicit:
+
+> **Long-term trade deficits are structurally unsustainable; current trade deficits are not the REAL problem™ either.**
+
+These are two different claims and popular discourse routinely conflates them. The framework distinguishes them cleanly:
+
+- **Are trade deficits unsustainable in the long run?** Yes — the framework agrees with Alden on this. The exorbitant privilege isn't infinite; the geopolitical erosion is real; eventually the structure has to rebalance.
+- **Are trade deficits the central economic problem right now?** No. They're a *symptom and indicator* of more fundamental problems, not the standalone primary cause of current pain.
+
+This separates careful analysis from two failure modes:
+
+| Failure mode | Mistake |
+|---|---|
+| **Trade-deficit doomers** (right-wing populist, sometimes left-wing protectionist) | Treat deficits as the central crisis; demand immediate tariff / industrial-policy response that adjusts the thermometer without putting out the fire |
+| **Trade-deficit deniers** (free-market libertarian, globalist establishment) | Treat deficits as not a problem at all because "the market works"; miss the structural unsustainability that Alden correctly identifies |
+
+The careful position: **trade deficits are symptom, indicator, and contributor — not standalone primary cause.** Address the underlying causes, the trade deficit moves as a side effect. Address the trade deficit directly without the underlying causes, the underlying causes get worse while the number you targeted ticks down.
+
+### The actual REAL problem™ (Chris's hierarchy)
+
+For the US specifically, the dominant *current* economic problem is the **affordability crisis**, which has two main causes:
+
+1. **Dollar devaluation** (monetary side) — QE-channeled asset-price inflation, real wage erosion, Cantillon-distributed wealth shift to asset-holders. The "Layer 3 inflation" from the [accounting-identities page](./accounting-identities-as-domain-matching.md) that doesn't show up in CPI but shows up brutally in housing, education, healthcare, and asset prices.
+
+2. **Government restrictions** (supply side) — zoning and permitting that prevent housing density where demand is highest; environmental review used as a veto; occupational licensing restricting labor supply; rent control destroying long-term supply incentives; building codes raising per-unit costs.
+
+These work *together*. Demand pressure from monetary expansion hits constrained supply from regulation; the affordability crisis is the *interaction*, not either cause alone. Neither would produce this magnitude of squeeze independently.
+
+### "We spend more than we earn, and it has to leak somehow"
+
+The conservation-of-imbalance principle from earlier in this page (CA + KA = 0; pressures don't disappear, they route somewhere) applies equally to *fiscal* imbalance. Government spending more than it earns must be matched by an offsetting flow somewhere:
+
+| Routing channel | What it looks like in practice |
+|---|---|
+| Domestic savings absorb the debt | Private savers buy Treasuries; modest credit crowd-out |
+| Foreign savings absorb the debt | Foreign CB/SWF buying Treasuries; runs through capital account → trade deficit (CA + KA = 0); **links fiscal deficit to trade deficit structurally** |
+| Monetary accommodation | Fed expands base; asset-price inflation channel |
+| Inflation tax | Real value of existing nominal debt erodes; *de facto partial default* on long-duration obligations |
+| Real economic growth absorbs it | g > r maintains debt/GDP stability; politically magic-bullet, empirically rare |
+
+**The US has been doing all five simultaneously** with different shares over different decades. This explains why **trade deficit, fiscal deficit, asset-price inflation, and real-wage erosion all move together** — they're not independent problems but different views of the same underlying fiscal-and-monetary imbalance, partially substituting through their respective routing channels.
+
+When foreign appetite for Treasuries slows (Level 5 erosion of the trade-deficit page), more pressure routes through monetary accommodation and inflation tax, which shows up as more asset-price inflation or higher CPI inflation. **The visible variables are coupled; addressing one without the others just shifts the bottleneck.**
+
+### What "addressing the underlying causes" looks like
+
+Policies that target trade deficit numbers directly (tariffs, currency manipulation, trade barriers) treat the thermometer. Policies that address the underlying causes would also produce trade-deficit improvement *as a side effect*:
+
+| Policy direction | Why it would help the underlying problem | Side effect on trade deficit |
+|---|---|---|
+| Sound monetary policy (less QE-channeled asset inflation) | Reduces affordability crisis directly; restores wage-vs-asset balance | Reduces foreign capital flow to chase US assets → less KA surplus → less CA deficit |
+| Housing deregulation (zoning, permitting reform) | Reduces affordability crisis directly via supply response | Indirect: more domestic productive activity, reduced need to import some categories |
+| Strategic-industry rebuilding (CHIPS-style targeted at national security categories) | Restores Level 4 productive capacity; supports g > r arithmetic | Reduces imports of strategic categories; modest CA improvement |
+| Fiscal discipline (reducing structural deficit) | Reduces pressure on all five conservation-of-imbalance routing channels | Reduces foreign-funding need; less KA surplus → less CA deficit |
+| Productivity-enhancing investment (R&D tax credits, immigration of skilled workers) | Improves g side of r-vs-g arithmetic | Increases competitive exports; reduces deficit |
+
+None of these target the trade deficit number directly. All of them would improve the trade deficit picture as a downstream consequence of addressing the actual underlying problems. **This is what "address the fire, not the thermometer" means in practical policy terms.**
+
+### Worked example: the Illinois Pritzker ad
+
+A real-time worked example of why voters need to disentangle policy packages rather than accept them whole:
+
+Governor Pritzker recently advertised two policies in the same ad: (a) housing deregulation reform (relaxing zoning and permitting restrictions) and (b) lower insulin prices (achieved via price controls).
+
+These operate on **opposite economic philosophies:**
+
+- **Housing deregulation:** "Remove government barriers; let supply respond to demand." Pro-market move. Framework-aligned response to the affordability crisis.
+- **Insulin price controls:** "Have government set price below market clearing; force supply to accept it." Statist move. Produces predictable distortions:
+  - Reduced R&D incentive for future insulin innovation
+  - Shortages or rationing when artificially-low prices clear less supply than demanded
+  - Quality erosion as producers cut corners to maintain profitability
+  - Hidden costs (insurance premiums, government subsidies) compensating producers — cost is *displaced*, not eliminated
+
+A consistent free-market governor would deregulate both. A consistent statist governor would control prices in both. Pritzker is picking what polls well — and the citizen's correct response is to **disentangle**: the housing-reform move is good regardless of the messenger; the insulin price-control move is bad regardless of the messenger. Don't grade on a political curve. Don't accept package deals just because some parts are good. Don't reject package deals just because some parts are bad.
+
+This is the same disentangling discipline the vault has been building across game-theory analysis, debate analysis, and economic analysis — applied to political marketing. **Policy packages from any politician are typically philosophically incoherent; the citizen's job is to evaluate each component independently.**
+
 ## Open questions for further refinement
 
 Chris flagged "this is just the start" — threads worth picking up in future sessions:
