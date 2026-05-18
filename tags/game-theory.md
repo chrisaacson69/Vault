@@ -15,3 +15,4 @@
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
 - [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — empirical confirmation of bilateral trade valuation; Monopoly card as timing-conditional state-shock
 - [Catan 50-Game Validation](../research/gaming/catan-50-games-validation.md) — small-N empirical run; board-conditional theory refined
+- [Game Theory as Normative, Not Descriptive](../notes/game-theory-as-normative-not-descriptive.md) — meta-level critique: famous solution concepts work only by importing extra-game assumptions; norms guide behavior more than self-interest

@@ -27,7 +27,7 @@
 - [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 6 files
 - [game-ai](./game-ai.md) — 7 files
-- [game-theory](./game-theory.md) — 13 files
+- [game-theory](./game-theory.md) — 14 files
 - [games](./games.md) — 15 files
 - [grounding](./grounding.md) — 4 files
 - [history](./history.md) — 10 files
@@ -38,7 +38,7 @@
 - [logic](./logic.md) — 10 files
 - [machine-learning](./machine-learning.md) — 5 files
 - [mathematics](./mathematics.md) — 13 files
-- [meta-musing](./meta-musing.md) — 7 files
+- [meta-musing](./meta-musing.md) — 8 files
 - [metaphysics](./metaphysics.md) — 1 file
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 16 files

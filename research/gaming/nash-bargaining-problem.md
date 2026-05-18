@@ -5,7 +5,7 @@ created: 2026-02-27
 # The Nash Bargaining Problem
 > Two people, $100, and a simple rule: agree or get nothing. The simplest game that reveals the structure of negotiation.
 
-**Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Economics](../economics/README.md), [Monopoly](../../projects/monopoly/README.md), [Comparative Advantage Bidding (Evo-Cap)](../evolutionary-capitalist/comparative-advantage-bidding.md)
+**Links:** [Gaming](./README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [Value and Profit](../economics/value-and-profit.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Economics](../economics/README.md), [Monopoly](../../projects/monopoly/README.md), [Comparative Advantage Bidding (Evo-Cap)](../evolutionary-capitalist/comparative-advantage-bidding.md), [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md) — meta-level critique: the famous bargaining solutions (Nash cooperative, Rubinstein non-cooperative) work only by importing assumptions (axioms, discount factor) the strategic structure doesn't itself contain; the bare game has a continuum of equilibria; what actually selects an outcome is norms and convention, not utility math.
 
 ## The Setup
 
