@@ -44,6 +44,20 @@ The −M term is a **correction**, not a subtraction from an otherwise-higher GD
 
 **Reducing imports doesn't unlock GDP, because the imports weren't adding to GDP in the first place.**
 
+### Where the imports actually live — C and I dominate; G is small
+
+The import slice isn't distributed evenly across C, I, and G. From BEA NIPA decomposition, recent-year US:
+
+| Component | Approx size | Import share within | What kind of imports show up here |
+|---|---|---|---|
+| C (Consumption) | ~$15–16T | ~12–13% | The biggest absolute slice of M. Consumer goods imports — electronics, apparel, autos, food, household items. |
+| I (Investment) | ~$4–5T | ~20% (highest %) | Capital goods, machinery, industrial supplies, software/IP imports. |
+| G (Government) | ~$4–5T | ~5% (smallest %) | Defense materiel, some IT, vehicles, medical supplies. Mostly small because G is dominated by domestic wages and domestic services. |
+
+The structural point doesn't depend on G containing zero imports — the −M is a correction for *whatever* imports were counted in C+I+G, regardless of the split. But practically, **most of the "imports inside spending" lives in C and I**, with G contributing a small slice. The clearest pedagogical example is consumer goods (buy an imported TV → +C and +M, cancel); the same logic applies less visibly to capital goods imports (business buys imported CNC machine → +I and +M, cancel) and to the small government-imports slice (DoD buys imported component → +G and +M, cancel).
+
+This is why focusing on C is the right move in debate — it's the largest absolute slice and the most intuitive example. But the underlying argument generalizes across all three components: any term that includes imports must have those imports stripped out by the −M correction to yield domestic-only production.
+
 ## Why the intuition feels so strong
 
 Three reasons the fallacy is sticky:
