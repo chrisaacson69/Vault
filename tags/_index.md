@@ -38,7 +38,7 @@
 - [logic](./logic.md) — 10 files
 - [machine-learning](./machine-learning.md) — 5 files
 - [mathematics](./mathematics.md) — 13 files
-- [meta-musing](./meta-musing.md) — 9 files
+- [meta-musing](./meta-musing.md) — 10 files
 - [metaphysics](./metaphysics.md) — 1 file
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 16 files

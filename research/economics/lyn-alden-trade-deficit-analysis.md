@@ -277,7 +277,7 @@ The careful position: **trade deficits are symptom, indicator, and contributor �
 
 For the US specifically, the dominant *current* economic problem is the **affordability crisis**, which has two main causes:
 
-1. **Dollar devaluation** (monetary side) — QE-channeled asset-price inflation, real wage erosion, Cantillon-distributed wealth shift to asset-holders. The "Layer 3 inflation" from the [accounting-identities page](./accounting-identities-as-domain-matching.md) that doesn't show up in CPI but shows up brutally in housing, education, healthcare, and asset prices.
+1. **Dollar devaluation** (monetary side) — QE-channeled asset-price inflation; Cantillon-distributed wealth shift to asset-holders (who receive the new money first); the "Layer 3 inflation" from the [accounting-identities page](./accounting-identities-as-domain-matching.md) that doesn't show up in CPI but shows up brutally in housing, education, healthcare, and equity prices. **Important framing correction:** this is *not* a real-income-decline story. Per FRED/BEA, US real disposable personal income per capita is ~$52,000 in 2024 (chained 2017 dollars), roughly double its 1970 level. Per Census, real median household income is ~$83,700 in 2024, up 2% real from 2023 and substantially up since 1967. **The affordability crisis is a relative-prices and distribution crisis, not an income-decline crisis.** Income rose; asset prices rose much faster; the top of the distribution captured a disproportionate share of both gains. Confusing "asset prices outpaced income" with "real income fell" is the most common framing mistake on this topic.
 
 2. **Government restrictions** (supply side) — zoning and permitting that prevent housing density where demand is highest; environmental review used as a veto; occupational licensing restricting labor supply; rent control destroying long-term supply incentives; building codes raising per-unit costs.
 
@@ -295,9 +295,27 @@ The conservation-of-imbalance principle from earlier in this page (CA + KA = 0; 
 | Inflation tax | Real value of existing nominal debt erodes; *de facto partial default* on long-duration obligations |
 | Real economic growth absorbs it | g > r maintains debt/GDP stability; politically magic-bullet, empirically rare |
 
-**The US has been doing all five simultaneously** with different shares over different decades. This explains why **trade deficit, fiscal deficit, asset-price inflation, and real-wage erosion all move together** — they're not independent problems but different views of the same underlying fiscal-and-monetary imbalance, partially substituting through their respective routing channels.
+**The US has been doing all five simultaneously** with different shares over different decades. This explains why **trade deficit, fiscal deficit, asset-price inflation, and asset-vs-income ratio worsening all move together** — they're not independent problems but different views of the same underlying fiscal-and-monetary imbalance, partially substituting through their respective routing channels. (The fourth in the list is the right framing — not "real-wage erosion," which is empirically false in aggregate and at the median; the ratio of asset prices to income is what has worsened, not income itself.)
 
 When foreign appetite for Treasuries slows (Level 5 erosion of the trade-deficit page), more pressure routes through monetary accommodation and inflation tax, which shows up as more asset-price inflation or higher CPI inflation. **The visible variables are coupled; addressing one without the others just shifts the bottleneck.**
+
+### Why the trade deficit is dwarfed by the fiscal deficit
+
+Sharp scale point worth being explicit about. US flows, recent years:
+
+| Imbalance | Magnitude (~2024) | % of GDP |
+|---|---|---|
+| Trade deficit (current account) | ~$900B | ~3.2% |
+| Federal fiscal deficit | ~$1.8T | ~6.3% |
+| **Fiscal/Trade ratio** | **~2×** | — |
+
+The federal fiscal deficit is roughly **twice** the trade deficit by magnitude, and substantially larger as a percent of GDP. It's also more persistent in directional trend (rising structural deficits driven by entitlement growth and interest costs).
+
+This recasts the priority stack. The trade-deficit-as-central-problem framing — popular in tariff-policy debate — has it backwards. **The trade deficit is the smaller of the two imbalances, and partly downstream of the fiscal one** (foreign Treasury purchases routing fiscal-deficit pressure through the CA + KA = 0 identity).
+
+Closing the trade deficit without addressing the fiscal one would just shift the routing — more domestic absorption of Treasury issuance (credit crowd-out, asset-price effects), more monetary accommodation (more asset-price inflation), more inflation tax (real-debt erosion via dollar devaluation). The fiscal pressure doesn't disappear; it just reroutes through more painful channels.
+
+The right policy ordering is **fiscal discipline first, trade deficit second** — because addressing the fiscal deficit reduces the structural drivers of the trade deficit as a side effect, while addressing the trade deficit first leaves the bigger fiscal driver intact and just shifts where the imbalance shows up.
 
 ### What "addressing the underlying causes" looks like
 
@@ -331,6 +349,10 @@ These operate on **opposite economic philosophies:**
 A consistent free-market governor would deregulate both. A consistent statist governor would control prices in both. Pritzker is picking what polls well — and the citizen's correct response is to **disentangle**: the housing-reform move is good regardless of the messenger; the insulin price-control move is bad regardless of the messenger. Don't grade on a political curve. Don't accept package deals just because some parts are good. Don't reject package deals just because some parts are bad.
 
 This is the same disentangling discipline the vault has been building across game-theory analysis, debate analysis, and economic analysis — applied to political marketing. **Policy packages from any politician are typically philosophically incoherent; the citizen's job is to evaluate each component independently.**
+
+### Pressure must leak somehow — pointer to the musings-tier note
+
+The broader speculation about *what the pressure release looks like over coming decades* belongs in the musings section, not the research-tier analysis here. See [Fiscal Pressure Must Leak Somehow — All of the Above](../../notes/fiscal-pressure-must-leak-somehow.md). The structural prediction (sketch level): we are likely to see all four conventional pressure-release modes simultaneously — foreclosures, forgiveness, inflation, defaults — because the political system cannot close the fiscal gap through the politically-acknowledged channels (fiscal discipline, real growth), so the pressure routes through the politically-deniable channels. Not a forecast of timing or magnitude; a structural prediction about the *form* of the release.
 
 ## Open questions for further refinement
 
