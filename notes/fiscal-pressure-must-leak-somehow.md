@@ -79,12 +79,45 @@ This is why "fixing the trade deficit" without fixing the fiscal deficit just re
 - A prescription (doesn't say what to do about it; the framework's view is fiscal discipline + housing deregulation + sound monetary policy, but those require political will the system has shown it doesn't have)
 - A doom prediction (the US has muddled through previous debt cycles; this could be another)
 
+## Sequence sketch — what likely goes first
+
+Most plausible ordering (sketch level):
+
+1. **Housing-anchored defaults** — leading candidate for first major release. Reasons:
+   - Largest household balance-sheet exposure (~$45T US housing equity)
+   - Most leveraged sector (mortgage + HELOC layered on appreciation)
+   - Most rate-sensitive (post-ZIRP normalization raises debt service)
+   - Affordability at multi-decade lows on the buying side
+   - Inventory imbalances (locked-in low rates suppressing turnover; pent-up supply if prices crack)
+   - *And the political class is actively talking about it* — both sides recognizing the problem and offering solutions, which is when the channel becomes politically tractable
+2. **Cascade through related sectors** — bank exposure to mortgages and CRE; pension funds with real-estate allocations; insurance companies with real-estate-backed assets
+3. **Political pressure for forgiveness** — but forgiveness comes *after* defaults at scale, not before. Political forgiveness requires acknowledged pain to justify intervention; without preceding defaults, forgiveness looks like a giveaway and is politically infeasible. HAMP came after the 2008 foreclosure wave; student loan forgiveness came after years of default-rate pressure. **Same pattern likely: defaults at scale create the political space for forgiveness.**
+4. **Monetary accommodation as triage** — Fed response to absorb the worst of the financial cascade
+5. **Inflation tax operating in the background** — chronic erosion of real debt burdens through the asset-price-inflation channel that's already operational
+
+## The 2008 analog — and why the playbook has less room this time
+
+The 2008 sequence (subprime defaults → MBS cascade → banking stress → TARP/QE/ZIRP → eventual recovery via monetary accommodation) is the natural reference for what an acute episode looks like. But the *response capacity* has been substantially consumed:
+
+| Variable | 2008 | Now (2026) |
+|---|---|---|
+| US federal debt | ~$10T (~65% GDP) | ~$36T (~125% GDP) |
+| Fed balance sheet | ~$900B | ~$7T |
+| Fed policy rate room | High (5%+ before crisis), could be cut sharply | Normalized from ZIRP but with less room |
+| Public tolerance for bailouts | Low but eventually accepted | Much lower (Occupy/Tea Party legacy) |
+| Geopolitical room for QE | Reserve-currency strength intact | Level 5 erosion limits dollar-strength assumption |
+| Existing inflation context | ~2% CPI | Recent CPI surge (5-9% range 2021-2023), public sensitivity high |
+
+**The crucial implication:** the 2008 playbook had absorption capacity (room to cut rates, room to expand Fed balance sheet, room to bail out without immediate inflation backlash). Now that capacity is significantly reduced. The conventional response is partially pre-consumed.
+
+This is *why* "all of the above" is more likely than another single-channel response — the standard playbook can't absorb the full release alone, so pressure spreads across multiple channels. Foreclosures + forgiveness + inflation + defaults simultaneously, rather than the 2008 pattern of "cascade then bailout then recovery."
+
 ## Open threads for future musings
 
-- **Sequence prediction** — which channel saturates first? Probably household debt service (foreclosures) given current rates and asset-price levels; then political pressure for forgiveness; then accelerated monetary accommodation; then defaults at the corporate/municipal level
-- **Triggering events** — what kind of shock concentrates the slow-burn into a crisis? Banking-system stress is the conventional candidate; geopolitical disruption to dollar-system is the more interesting one
+- **Triggering events** — what concentrates the slow-burn into a crisis? Banking-system stress is the conventional candidate; geopolitical disruption to dollar-system (currency confidence shock, oil-pricing-in-non-USD acceleration, central-bank-coordination break) is the more interesting one
 - **Distributional consequences** — who bears which kind of pain? The framework's [Cantillon-distribution work](../research/economics/inflation.md) handles the inflation side; less developed on the default/forgiveness side
 - **Historical analogs** — when has "all of the above" actually happened? US 1970s (inflation + slow growth + occasional corporate defaults); Japan post-1990 (deflation + asset crashes + zombie corporates); various LATAM episodes (sovereign defaults + currency crashes + inflation). Each is partial; no clean US analog to the current configuration
+- **Distributional shape of the income picture** — the aggregate-vs-distribution distinction is critical: top decile way up (most gains); bottom decile real decline in some measures (the lived experience political narratives weaponize); bottom quintile flat-ish; median up but slower than mean. There ARE pockets where "real wages declining" is true (bottom decile, specific blue-collar categories). The mistake is projecting those pockets onto the aggregate; the legitimate concern is that the pockets exist and represent real political-economy pain
 
 ## Tags
 
