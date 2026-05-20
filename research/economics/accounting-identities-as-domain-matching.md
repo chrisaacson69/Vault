@@ -3,9 +3,9 @@ status: active
 created: 2026-05-18
 ---
 # Accounting Identities as Domain-Matching, Not Behavioral Models
-> Macroeconomic identities like GDP = C+I+G+X−M and MV = PT *look* like equations with independent terms that can be moved around to predict policy outcomes. They're not. They're **domain-matching tricks** — each term has implicit domain restrictions that the notation hides, and the identity holds only when the restrictions are consistent on both sides. Each level of relaxation reveals different things about the economy. Treating any single restriction as canonical is a category error that produces a recurring class of policy confusions: the GDP-identity tariff fallacy, the "QE will cause runaway inflation" debate that played out over a decade, the velocity puzzle, the Wall-Street-vs-Main-Street decoupling. The disputes look substantive but are often actually disputes about which restriction to privilege. The substantive question — "which restriction matches the question you're actually asking?" — usually goes unasked.
+> Macroeconomic identities like GDP = C+I+G+X−M and MV = PT *look* like equations with independent terms that can be moved around to predict policy outcomes. They're not. They're **domain-matching tricks** — each term has implicit domain restrictions that the notation hides, and the identity holds only when the restrictions are consistent on both sides. Each level of relaxation reveals different things about the economy. Treating any single restriction as canonical is a category error that produces a recurring class of policy confusions: the GDP-identity tariff fallacy, the "QE will cause runaway inflation" debate that played out over a decade, the velocity puzzle, the Wall-Street-vs-Main-Street decoupling. The disputes look substantive but are often actually disputes about which restriction to privilege. The substantive question — "which restriction matches the question you're actually asking?" — usually goes unasked. **A specific recurring case worth pinning explicitly**: using aggregate GDP as the welfare metric when per-capita or distributional measures would tell a different story. "Tariffs raise GDP" and "immigration raises GDP" are different symptoms of the same identity-misreading; the symmetric form across both policy debates is named in this page.
 
-**Links:** [Equation of Exchange and the Transaction Multiplier](./equation-of-exchange.md), [The GDP-Identity Tariff Fallacy](./gdp-identity-tariff-fallacy.md), [Measuring Growth — Net Worth vs Transactions](./measuring-growth.md), [Inflation](./inflation.md), [Economics](./README.md), [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md) — same meta-pattern applied to a different field: formal apparatus that looks predictive but only closes by importing assumptions, [Hayek vs Mises: The Calculation Problem](../../notes/hayek-vs-mises-calculation.md)
+**Links:** [Equation of Exchange and the Transaction Multiplier](./equation-of-exchange.md), [The GDP-Identity Tariff Fallacy](./gdp-identity-tariff-fallacy.md), [Measuring Growth — Net Worth vs Transactions](./measuring-growth.md), [Inflation](./inflation.md), [Economics](./README.md), [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md) — the immigration-side worked instance of the GDP-as-welfare-metric meta-pattern, [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md) — same meta-pattern applied to a different field: formal apparatus that looks predictive but only closes by importing assumptions, [Hayek vs Mises: The Calculation Problem](../../notes/hayek-vs-mises-calculation.md)
 
 ---
 
@@ -158,6 +158,63 @@ When reading any policy argument that invokes a macro accounting identity:
 4. **Look at what the gap reveals.** When two restrictions diverge (CPI vs. GDP deflator; T_total vs. T_GDP; V_all vs. V_NGDP), the divergence is signal. Financialization, asset bubbles, foreign-money dynamics — these show up in the gaps.
 
 5. **Notice whose interests are served by privileging which restriction.** CPI ignores asset inflation. Trade-balance-focus ignores capital flows. GDP excludes household production and informal economy. Each restriction has constituents that benefit from its canonical status.
+
+## GDP-as-welfare-metric — the symmetric pattern across tariffs and immigration
+
+A specific application of the meta-pattern that recurs across policy debates: **using aggregate GDP as the welfare metric when per-capita or distributional measures would tell a different story.** Aggregate GDP responds to *quantity of activity*, not to *per-person welfare*. Policies that raise total GDP can lower GDP per capita; they can also improve some demographic / income categories at the cost of others. Treating aggregate GDP as the canonical welfare measure across policy debates is the same kind of domain-restriction error as treating CPI as the canonical inflation measure or treating MV = P_GDP · Q_GDP as the canonical money-output relation.
+
+The symmetric form across two policy debates the vault has analyzed:
+
+| Policy | Common argument | The misreading | The right measure |
+|---|---|---|---|
+| **Tariffs** | "Tariffs reduce M, M is in the GDP identity with a minus sign, so GDP rises" | Imports are already inside C/I/G; the −M is a correction, not an independent subtractor. Reducing M reduces the C/I/G inside it. | C_domestic + I_domestic + G_domestic + X (decomposed identity); but more importantly, *per-capita welfare* and *strategic-capacity* measures the GDP identity doesn't surface at all |
+| **Immigration** | "Immigrants add labor, more labor produces more output, so aggregate GDP rises" | Immigrants also generate marginal *consumption* demand (housing, services, infrastructure). The aggregate GDP number captures both effects but treats them as unambiguously good. | GDP per capita with distributional attention; specifically, whether each immigrant's marginal production exceeds or falls below the existing GDP/capita line |
+
+Both are **identity-misreadings using aggregate GDP as the welfare metric.** The tariff version misreads the C+I+G+X−M identity to argue that reducing M raises welfare. The immigration version uses the same aggregate metric to argue that adding workers raises welfare. Both lose the structural information that *per-capita* and *distributional* measures would supply.
+
+### The GDP/capita solvency test for immigration
+
+Sharper formalization of the immigration case, which makes the symmetry explicit:
+
+```
+Immigrant's net welfare contribution = (marginal production) − (marginal consumption)
+                                     ≈ (their productive output) − (their per-capita share of resource demand)
+```
+
+If marginal production > GDP/capita line → **net positive** on per-capita welfare; aggregate AND per-capita GDP both rise; existing residents are better off on average.
+
+If marginal production ≈ GDP/capita line → **neutral** on per-capita; aggregate up, per-capita flat; existing residents unchanged on average.
+
+If marginal production < GDP/capita line → **net negative** on per-capita welfare; aggregate GDP up but per-capita GDP DOWN; existing residents are worse off on average.
+
+The mainstream economist case ("immigration is unambiguously good because aggregate GDP rises") uses only the aggregate metric, which by construction cannot distinguish these three cases. **The right metric is GDP per capita with explicit attention to distribution.** Existing residents bearing the demand-side externalities (housing competition, service strain) need to be weighed against the supply-side benefits (more workers, more output) to get a complete picture. The aggregate GDP number conflates these.
+
+### Reciprocity-asymmetry as a sharper case for tariffs
+
+The corresponding refinement on the tariff side: **reciprocity tariffs against measurable asymmetric existing barriers are a substantively different case from "reciprocity feels fair."** The first is a real economic case; the second is rhetorical cover.
+
+Concrete instance: Canada maintains 100%+ tariffs on US dairy via the supply-management quota system; the US has historically maintained much lower tariffs on Canadian goods. A 10% US tariff on Canadian goods is reciprocity-correction against a long-standing asymmetry, not aggression at the "no tariffs anywhere" baseline. The framing "how can you tariff us?" is itself the manufactured-option-space pattern at the political level — implicitly treating the status quo as "no tariffs" when the actual status quo includes large existing barriers maintained by the counterparty.
+
+The test for legitimate reciprocity-as-leverage:
+- **Yes:** counterparty maintains material tariffs/non-tariff barriers on our goods that we don't maintain on theirs; correcting toward symmetry is justified
+- **No:** "reciprocity" rhetoric used to cover domestic rent-seeking when no real asymmetry exists; this is the political-cover case
+
+This sharpens the GDP-identity-tariff-fallacy page's existing "strategic leverage / credibility in negotiations" item by giving the explicit asymmetry test.
+
+### The political-vs-structural argument distinction
+
+Both refinements above expose a generalizable observation: **the arguments that persuade voters are often different from the arguments that economically justify the policy.** For current US tariffs:
+
+- **Political case (rhetorical workhorse):** reciprocity, fairness, "they're ripping us off." Polls well.
+- **Structural case (the economic justification):** strategic-industry capacity-building, defense supply-chain resilience, infant-industry scale economies, asymmetric-barrier correction. Less rhetorically vivid but more durably defensible.
+
+Both can be valid; they're not the same case. The danger is using the political case to enact policies the structural case wouldn't support — or applying tariffs in product categories where neither case actually holds. **Voters and analysts need to ask: which case does this specific tariff fit, and does the case match the structural reality?** Same disentangling discipline the vault applies to political-marketing packages (Pritzker housing-deregulation + insulin-price-control bundling).
+
+### The general meta-principle
+
+**Aggregate GDP is necessary but nowhere near sufficient as a welfare metric.** Per-capita measures, distributional measures, strategic-capacity measures, and externality-bearing measures all carry information that aggregate GDP doesn't. Any policy argument that justifies itself by "this raises GDP" should be inspected for whether it raises *the right measure for the welfare question being asked* — and "raises GDP" alone almost never is.
+
+This is the same meta-claim as the rest of this page applied to a specific recurring policy fallacy. Worth pinning explicitly so the next time the symmetric move appears in a different policy debate (housing reform "raises GDP," automation "raises GDP," AI productivity "raises GDP," whatever), the pattern is named in one place.
 
 ## Generalizes beyond macroeconomics
 

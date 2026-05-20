@@ -51,8 +51,10 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 13 | [The Turn Loop & the Harvest: what a round looks like](./13-turn-loop-and-harvest.md) | session 13 draft |
 | 14 | [Combat: Structure, Strings, and the Day Loop](./14-combat-overview.md) | session 14 draft (erratum'd) |
 | 15 | [The Tactical Map: Where the Battle Lives](./15-tactical-map.md) | session 15 draft |
-| 16 | Combat: the battle engine (damage formula) | planned |
-| 17 | Combat: resolution (commander death, retreats, supplies) | planned |
+| 16 | [The Render Pipeline: How a Tactical Map Becomes Pixels](./16-tactical-map-render.md) | session 16 draft |
+| 17 | [The Damage Formula: How Soldiers Die](./17-damage-formula.md) | session 17 draft |
+| 18 | [The Window Update Model: How a Turn-Based Game Renders](./18-window-updates.md) | session 18 draft |
+| 19 | Combat: resolution (commander death, retreats, supplies) | planned |
 | — | Synthesis: from bytecode to the strategy counter-graph | planned |
 | A | Appendix: per-command effect formulas + AI thresholds; province adjacency | ongoing |
 

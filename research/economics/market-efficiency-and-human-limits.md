@@ -5,7 +5,7 @@ created: 2026-02-28
 # Market Efficiency and Human Limits
 > The market always gives society exactly what they want within the constraints of what is possible — but humans may not be smart enough to live in a free market.
 
-**Links:** [Economics](./README.md), [Value and Profit](./value-and-profit.md), [US Spending Per Student](./us-spending-per-student.md), [K-12 Instruction vs. Administration](./k12-instruction-vs-administration.md), [The Limits of Utopia](../../notes/limits-of-utopia.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md)
+**Links:** [Economics](./README.md), [Value and Profit](./value-and-profit.md), [US Spending Per Student](./us-spending-per-student.md), [K-12 Instruction vs. Administration](./k12-instruction-vs-administration.md), [The Limits of Utopia](../../notes/limits-of-utopia.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Accounting Identities as Domain-Matching](./accounting-identities-as-domain-matching.md) — the meta-pattern (GDP-as-welfare-metric across tariffs and immigration), [The GDP-Identity Tariff Fallacy](./gdp-identity-tariff-fallacy.md) — the symmetric form on tariffs
 
 ---
 
@@ -27,9 +27,36 @@ But: a person who puts their own money into private school is sending the correc
 
 A persistent failure in economic analysis is evaluating only supply *or* demand, never both simultaneously. The market never makes this error — price *is* the intersection of both sides. But humans analyzing the market constantly isolate one variable and tell a story about it.
 
-**The immigration example:** Most economists say immigration is good because GDP goes up. This only looks at the supply side. Immigrant workers also put demand on the economy — they buy things, use services, occupy housing. More demand and more supply is not automatically better.
+<a id="the-immigration-example"></a>**The immigration example:** Most economists say immigration is good because GDP goes up. This only looks at the supply side. Immigrant workers also put demand on the economy — they buy things, use services, occupy housing. More demand and more supply is not automatically better.
 
 The fix is simple: **GDP per capita** — the economist's own definition of standard of living. If an immigrant contributes more than this measure, they are increasing the standard of living (GDP/cap goes up). If they don't, they are decreasing it. The market, absent coercive distortions, would naturally select for the first type — employers would recruit productive workers because it's profitable. Immigration policy that substitutes political criteria for economic ones is itself an anti-market force.
+
+### The GDP/capita solvency formula
+
+The formal version that makes the supply-demand symmetry explicit:
+
+```
+Immigrant's net welfare contribution = (marginal production) − (marginal consumption)
+                                     ≈ (their productive output) − (their per-capita share of resource demand)
+```
+
+The three cases:
+
+| Marginal production vs. GDP/capita | Effect on aggregate GDP | Effect on per-capita GDP | Effect on existing residents |
+|---|---|---|---|
+| **Above** the line (high-skilled, integrated, working-age, immediate productive contribution) | Up | Up | Better off on average |
+| **At** the line (matching median resident profile) | Up | Flat | Unchanged on average |
+| **Below** the line (low-skilled without integration, non-working dependents, language/credential barriers, service-heavy household composition) | Up | **Down** | Worse off on average |
+
+**Aggregate GDP rises in all three cases.** Per-capita GDP — the actual standard-of-living measure — rises only in the first case, holds in the second, and *falls* in the third. The mainstream economist case ("immigration is good because GDP rises") collapses these three by using only the aggregate metric. It treats the second and third cases as equivalent to the first, which they aren't.
+
+This is the **symmetric form** of the GDP-identity tariff fallacy: same identity-misreading, applied to the supply-side of immigration instead of to the −M term of the trade identity. Both arguments use aggregate GDP as the welfare metric when per-capita or distributional measures would tell a different story. See [accounting-identities-as-domain-matching.md §"GDP-as-welfare-metric"](./accounting-identities-as-domain-matching.md#gdp-as-welfare-metric--the-symmetric-pattern-across-tariffs-and-immigration) for the meta-pattern; [gdp-identity-tariff-fallacy.md](./gdp-identity-tariff-fallacy.md) for the tariff-side version.
+
+### Distributional layer
+
+The GDP/capita test handles the *aggregate* welfare question. The *distributional* layer is separate and also matters: immigration that increases per-capita aggregate may still hurt specific deciles (bottom-decile workers facing wage competition; lower-income residents facing housing competition; service-strained communities) while benefiting other deciles (high-end employers, asset-holders benefiting from housing-price appreciation, consumers of immigrant-provided services). The aggregate-vs-distribution distinction the vault has been building (see [Lyn Alden trade-deficit analysis](./lyn-alden-trade-deficit-analysis.md#trade-deficits-as-thermometer-not-fire)) applies here cleanly: a policy can raise aggregate per-capita welfare *and* concentrate the gains in specific deciles while concentrating the costs on others. Both observations can be true; treating either alone as the complete answer is the framing mistake.
+
+**The combined test:** does the policy improve per-capita aggregate welfare, AND is the distribution of gains and costs defensible? Either alone isn't enough. The mainstream "immigration is good for GDP" claim is silent on both questions.
 
 The pattern repeats everywhere:
 - "Housing starts are up!" — Supply. What about demand pressure?

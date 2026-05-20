@@ -84,14 +84,16 @@ The textbook simplification papers over all of these. The fallacy doesn't depend
 
 Tariffs may be defensible on several real grounds:
 
-- **National security** — strategic industries that need protection regardless of efficiency
-- **Strategic leverage** — credibility in negotiations / retaliation
-- **Infant-industry protection** — temporary support for industries that need scale to compete (Hamilton; Friedrich List)
+- **National security** — strategic industries that need protection regardless of efficiency (strongest *structural* case; see [Alden Level 4 analysis](./lyn-alden-trade-deficit-analysis.md))
+- **Reciprocity / asymmetric-barrier correction** — when a counterparty maintains material tariffs/non-tariff barriers on our goods that we don't maintain on theirs, tariffs that move toward symmetry are leverage-correction, not aggression at the "no tariffs anywhere" baseline. Test: does the asymmetry actually exist? (E.g., Canada maintains 100%+ tariffs on US dairy via supply-management quotas; a US 10% tariff on Canadian goods is asymmetric-correction, not initiation.) **Yes** when real measurable asymmetry exists; **no** when "reciprocity" is rhetorical cover for domestic rent-seeking with no actual counterparty barrier. This is the strongest *political* case for current US tariffs.
+- **Infant-industry protection** — temporary support for industries that need scale to compete (Hamilton; Friedrich List). Strong *structural* case when applied to industries with credible scale-economy paths; weak when applied to mature industries that have lost competitiveness for non-scale reasons.
 - **Anti-dumping** — countering subsidized foreign competition
 - **Distributional concerns** — protecting specific workers / regions from import shocks even at cost to aggregate efficiency
 - **Revenue** — tariffs ARE a tax; they raise revenue
 
 The fallacious argument *isn't* on this list: **tariffs don't raise GDP by closing the trade gap** because the trade gap isn't reducing GDP in the way the identity's notation suggests.
+
+**Political-vs-structural distinction worth noting:** the arguments that persuade voters and politicians are often different from the arguments that economically justify a policy. For current US tariffs, the rhetorical workhorse is reciprocity ("they tariff us, we tariff them; fairness"); the structural-economic case is national-security and infant-industry. Both can be valid; they aren't the same case. The danger is using the political case to enact policies the structural case wouldn't support, or applying tariffs in categories where neither case holds. **Voters and analysts evaluating any specific tariff should ask: which case does this fit, and does the case match the structural reality?** See [accounting-identities-as-domain-matching.md §"Reciprocity-asymmetry as a sharper case for tariffs"](./accounting-identities-as-domain-matching.md#reciprocity-asymmetry-as-a-sharper-case-for-tariffs) and §"Political-vs-structural argument distinction" for the framework's full treatment.
 
 A correct tariff argument has to engage with second-order effects the identity doesn't show:
 
@@ -102,6 +104,21 @@ A correct tariff argument has to engage with second-order effects the identity d
 - **Comparative-advantage costs** — the country foregoes the productivity benefits of specialization
 
 The empirical record (US 2018-2020 tariff episode, for instance) is broadly that tariffs had modestly negative effects on GDP on most analyses — opposite of what the identity-arithmetic argument predicts. This is consistent with the second-order story dominating: prices rose, consumption fell, retaliation cut exports, and the substitution to domestic production was smaller than the reduction in imports.
+
+## The symmetric form on immigration
+
+The same identity-misreading that powers "tariffs raise GDP" powers **"immigration raises GDP"** when deployed uncritically. Both use aggregate GDP as the welfare metric when per-capita or distributional measures would tell a different story:
+
+| Misreading | Structure |
+|---|---|
+| **Tariffs raise GDP** | Treats −M as independent subtractor; misses that imports are already inside C/I/G |
+| **Immigration raises GDP** | Treats labor supply as independent additive; misses that immigrants also generate marginal *consumption demand* (housing, services, infrastructure) |
+
+The right metric for immigration: **GDP per capita with distributional attention.** An immigrant whose marginal production exceeds the GDP/capita line is net-positive on per-capita welfare; one below is net-negative. The aggregate "immigration raises GDP" claim conflates these cases, just as the aggregate "tariffs raise GDP" claim conflates the −M correction with an independent subtractor.
+
+Full treatment in [accounting-identities-as-domain-matching.md §"GDP-as-welfare-metric"](./accounting-identities-as-domain-matching.md#gdp-as-welfare-metric--the-symmetric-pattern-across-tariffs-and-immigration). The specific immigration analysis lives in [market-efficiency-and-human-limits.md](./market-efficiency-and-human-limits.md#the-immigration-example).
+
+**The general principle:** aggregate GDP is necessary but nowhere near sufficient as a welfare metric. Any policy argument that justifies itself by "this raises GDP" should be inspected for whether it raises the right measure for the welfare question being asked.
 
 ## The "this causes problems in other ways too" downstream errors
 
