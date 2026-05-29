@@ -1,0 +1,752 @@
+==============================================================================
+NOBUNAGA VM DISPATCH TABLE (opcode -> handler in bank 15)
+==============================================================================
+  $00  ->  $E87F
+  $01  ->  $E883
+  $02  ->  $E887
+  $03  ->  $E88B
+  $04  ->  $E88F
+  $05  ->  $E893
+  $06  ->  $E897
+  $07  ->  $E89B
+  $08  ->  $E89F
+  $09  ->  $E8A3
+  $0A  ->  $E8A7
+  $0B  ->  $E8AB
+  $0C  ->  $E8D0
+  $0D  ->  $E8CC
+  $0E  ->  $E8C8
+  $0F  ->  $E8C4
+  $10  ->  $E8DE
+  $11  ->  $E8E2
+  $12  ->  $E8E6
+  $13  ->  $E8EA
+  $14  ->  $E8EE
+  $15  ->  $E8F2
+  $16  ->  $E8F6
+  $17  ->  $E8FA
+  $18  ->  $E8FE
+  $19  ->  $E902
+  $1A  ->  $E906
+  $1B  ->  $E90A
+  $1C  ->  $E92F
+  $1D  ->  $E92B
+  $1E  ->  $E927
+  $1F  ->  $E923
+  $20  ->  $E93D
+  $21  ->  $E941
+  $22  ->  $E945
+  $23  ->  $E949
+  $24  ->  $E94D
+  $25  ->  $E951
+  $26  ->  $E955
+  $27  ->  $E959
+  $28  ->  $E95D
+  $29  ->  $E961
+  $2A  ->  $E965
+  $2B  ->  $E969
+  $2C  ->  $E98E
+  $2D  ->  $E98A
+  $2E  ->  $E986
+  $2F  ->  $E982
+  $30  ->  $E99C
+  $31  ->  $E9A0
+  $32  ->  $E9A4
+  $33  ->  $E9A8
+  $34  ->  $E9AC
+  $35  ->  $E9B0
+  $36  ->  $E9B4
+  $37  ->  $E9B8
+  $38  ->  $E9BC
+  $39  ->  $E9C0
+  $3A  ->  $E9C4
+  $3B  ->  $E9C8
+  $3C  ->  $E9EB
+  $3D  ->  $E9E7
+  $3E  ->  $E9E3
+  $3F  ->  $E9DF
+  $40  ->  $EA00
+  $41  ->  $E9F6  (shared with $42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  $42  ->  $E9F6  (shared with $41,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  $43  ->  $E9F6  (shared with $41,$42,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  $44  ->  $E9F6  (shared with $41,$42,$43,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  $45  ->  $E9F6  (shared with $41,$42,$43,$44,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  $46  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  $47  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  $48  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$47,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  $49  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$47,$48,$4A,$4B,$4C,$4D,$4E,$4F)
+  $4A  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$47,$48,$49,$4B,$4C,$4D,$4E,$4F)
+  $4B  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4C,$4D,$4E,$4F)
+  $4C  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4D,$4E,$4F)
+  $4D  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4E,$4F)
+  $4E  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4F)
+  $4F  ->  $E9F6  (shared with $41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E)
+  $50  ->  $EA11
+  $51  ->  $EA07  (shared with $52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  $52  ->  $EA07  (shared with $51,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  $53  ->  $EA07  (shared with $51,$52,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  $54  ->  $EA07  (shared with $51,$52,$53,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  $55  ->  $EA07  (shared with $51,$52,$53,$54,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  $56  ->  $EA07  (shared with $51,$52,$53,$54,$55,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  $57  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  $58  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$57,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  $59  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$57,$58,$5A,$5B,$5C,$5D,$5E,$5F)
+  $5A  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$57,$58,$59,$5B,$5C,$5D,$5E,$5F)
+  $5B  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5C,$5D,$5E,$5F)
+  $5C  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5D,$5E,$5F)
+  $5D  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5E,$5F)
+  $5E  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5F)
+  $5F  ->  $EA07  (shared with $51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E)
+  $60  ->  $EA18  (shared with $61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $61  ->  $EA18  (shared with $60,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $62  ->  $EA18  (shared with $60,$61,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $63  ->  $EA18  (shared with $60,$61,$62,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $64  ->  $EA18  (shared with $60,$61,$62,$63,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $65  ->  $EA18  (shared with $60,$61,$62,$63,$64,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $66  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $67  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $68  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$67,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  $69  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$67,$68,$6A,$6B,$6C,$6D,$6E,$6F)
+  $6A  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6B,$6C,$6D,$6E,$6F)
+  $6B  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6C,$6D,$6E,$6F)
+  $6C  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6D,$6E,$6F)
+  $6D  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6E,$6F)
+  $6E  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6F)
+  $6F  ->  $EA18  (shared with $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E)
+  $70  ->  $EA2C
+  $71  ->  $EA20  (shared with $72,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  $72  ->  $EA20  (shared with $71,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  $73  ->  $EA20  (shared with $71,$72,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  $74  ->  $EA20  (shared with $71,$72,$73,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  $75  ->  $EA20  (shared with $71,$72,$73,$74,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  $76  ->  $EA20  (shared with $71,$72,$73,$74,$75,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  $77  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  $78  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$77,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  $79  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$77,$78,$7A,$7B,$7C,$7D,$7E,$7F)
+  $7A  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$77,$78,$79,$7B,$7C,$7D,$7E,$7F)
+  $7B  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$77,$78,$79,$7A,$7C,$7D,$7E,$7F)
+  $7C  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7D,$7E,$7F)
+  $7D  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7E,$7F)
+  $7E  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7F)
+  $7F  ->  $EA20  (shared with $71,$72,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E)
+  $80  ->  $EF92  (shared with $91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $81  ->  $EA34
+  $82  ->  $EA2F
+  $83  ->  $EA48
+  $84  ->  $EA57
+  $85  ->  $EA61
+  $86  ->  $EA70
+  $87  ->  $EA7A
+  $88  ->  $EA87
+  $89  ->  $EAAF
+  $8A  ->  $EAB9
+  $8B  ->  $EABE
+  $8C  ->  $EAC8
+  $8D  ->  $EACD
+  $8E  ->  $EAD3
+  $8F  ->  $EAD9
+  $90  ->  $EAE8
+  $91  ->  $EF92  (shared with $80,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $92  ->  $EF92  (shared with $80,$91,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $93  ->  $EF92  (shared with $80,$91,$92,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $94  ->  $EF92  (shared with $80,$91,$92,$93,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $95  ->  $EF92  (shared with $80,$91,$92,$93,$94,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $96  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $97  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $98  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $99  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $9A  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $9B  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $9C  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $9D  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $9E  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $9F  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $A0  ->  $EAED
+  $A1  ->  $EAFE
+  $A2  ->  $EB0F
+  $A3  ->  $EB1E
+  $A4  ->  $EA43
+  $A5  ->  $EAF9
+  $A6  ->  $EA5C
+  $A7  ->  $EB0A
+  $A8  ->  $EA75
+  $A9  ->  $EB19
+  $AA  ->  $EA8C
+  $AB  ->  $EB28
+  $AC  ->  $EB4E
+  $AD  ->  $EB7D
+  $AE  ->  $EB9E
+  $AF  ->  $EBAC
+  $B0  ->  $EC9E
+  $B1  ->  $ECB4
+  $B2  ->  $F020
+  $B3  ->  $ECCE
+  $B4  ->  $ECD5
+  $B5  ->  $ECF0
+  $B6  ->  $ED1E
+  $B7  ->  $F246
+  $B8  ->  $ED18
+  $B9  ->  $ED54
+  $BA  ->  $ED6C
+  $BB  ->  $EDA1
+  $BC  ->  $EDB1
+  $BD  ->  $EDC1
+  $BE  ->  $EDEE
+  $BF  ->  $EDD5
+  $C0  ->  $EE2F
+  $C1  ->  $EE43
+  $C2  ->  $EE57
+  $C3  ->  $EE85
+  $C4  ->  $EE6E
+  $C5  ->  $EE9C
+  $C6  ->  $EEB3
+  $C7  ->  $EED7
+  $C8  ->  $EEC5
+  $C9  ->  $EEE9
+  $CA  ->  $EEFB
+  $CB  ->  $EF09
+  $CC  ->  $EF17
+  $CD  ->  $EF26
+  $CE  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $CF  ->  $EF75
+  $D0  ->  $EF39
+  $D1  ->  $EF42
+  $D2  ->  $EF4D
+  $D3  ->  $ECAB
+  $D4  ->  $ECC3
+  $D5  ->  $EC65
+  $D6  ->  $EBBB
+  $D7  ->  $EBC5
+  $D8  ->  $EBD1
+  $D9  ->  $EC1D
+  $DA  ->  $EE02
+  $DB  ->  $EE11
+  $DC  ->  $EE20
+  $DD  ->  $EB43
+  $DE  ->  $EA91
+  $DF  ->  $EAA0
+  $E0  ->  $EF54
+  $E1  ->  $EF5F
+  $E2  ->  $EF6A
+  $E3  ->  $EBD9
+  $E4  ->  $EBE7
+  $E5  ->  $EBF3
+  $E6  ->  $EBFB
+  $E7  ->  $EC09
+  $E8  ->  $EC15
+  $E9  ->  $EB38
+  $EA  ->  $EB2D
+  $EB  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $EC  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $ED  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $EE  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $EF  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F0  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F1  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F2  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F3  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F4  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F5  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F6  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F7  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F8  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F9,$FA,$FB,$FC,$FD,$FE)
+  $F9  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$FA,$FB,$FC,$FD,$FE)
+  $FA  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FB,$FC,$FD,$FE)
+  $FB  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FC,$FD,$FE)
+  $FC  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FD,$FE)
+  $FD  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FE)
+  $FE  ->  $EF92  (shared with $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD)
+  $FF  ->  $EF93
+
+==============================================================================
+UNIQUE HANDLERS: 163 (out of 256 opcodes)
+==============================================================================
+
+$E87F   (opcodes: $00)
+  bytes: A9 E8 D0 2A A9 EA D0 26 A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16
+
+$E883   (opcodes: $01)
+  bytes: A9 EA D0 26 A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12
+
+$E887   (opcodes: $02)
+  bytes: A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E
+
+$E88B   (opcodes: $03)
+  bytes: A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A
+
+$E88F   (opcodes: $04)
+  bytes: A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06
+
+$E893   (opcodes: $05)
+  bytes: A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02
+
+$E897   (opcodes: $06)
+  bytes: A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65
+
+$E89B   (opcodes: $07)
+  bytes: A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9
+
+$E89F   (opcodes: $08)
+  bytes: A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85
+
+$E8A3   (opcodes: $09)
+  bytes: A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 B1 00 85
+
+$E8A7   (opcodes: $0A)
+  bytes: A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 B1 00 85 08 C8 B1 00
+
+$E8AB   (opcodes: $0B)
+  bytes: A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 B1 00 85 08 C8 B1 00 85 09 4C 67
+
+$E8C4   (opcodes: $0F)
+  bytes: A0 11 D0 0A A0 0F D0 06 A0 0D D0 02 A0 0B B1 04 85 08 C8 B1 04 85 09 4C
+
+$E8C8   (opcodes: $0E)
+  bytes: A0 0F D0 06 A0 0D D0 02 A0 0B B1 04 85 08 C8 B1 04 85 09 4C 67 E8 A9 E8
+
+$E8CC   (opcodes: $0D)
+  bytes: A0 0D D0 02 A0 0B B1 04 85 08 C8 B1 04 85 09 4C 67 E8 A9 E8 D0 2A A9 EA
+
+$E8D0   (opcodes: $0C)
+  bytes: A0 0B B1 04 85 08 C8 B1 04 85 09 4C 67 E8 A9 E8 D0 2A A9 EA D0 26 A9 EC
+
+$E8DE   (opcodes: $10)
+  bytes: A9 E8 D0 2A A9 EA D0 26 A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16
+
+$E8E2   (opcodes: $11)
+  bytes: A9 EA D0 26 A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12
+
+$E8E6   (opcodes: $12)
+  bytes: A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E
+
+$E8EA   (opcodes: $13)
+  bytes: A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A
+
+$E8EE   (opcodes: $14)
+  bytes: A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06
+
+$E8F2   (opcodes: $15)
+  bytes: A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02
+
+$E8F6   (opcodes: $16)
+  bytes: A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65
+
+$E8FA   (opcodes: $17)
+  bytes: A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9
+
+$E8FE   (opcodes: $18)
+  bytes: A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85
+
+$E902   (opcodes: $19)
+  bytes: A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 B1 00 85
+
+$E906   (opcodes: $1A)
+  bytes: A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 B1 00 85 0C C8 B1 00
+
+$E90A   (opcodes: $1B)
+  bytes: A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 B1 00 85 0C C8 B1 00 85 0D 4C 67
+
+$E923   (opcodes: $1F)
+  bytes: A0 11 D0 0A A0 0F D0 06 A0 0D D0 02 A0 0B B1 04 85 0C C8 B1 04 85 0D 4C
+
+$E927   (opcodes: $1E)
+  bytes: A0 0F D0 06 A0 0D D0 02 A0 0B B1 04 85 0C C8 B1 04 85 0D 4C 67 E8 A9 E8
+
+$E92B   (opcodes: $1D)
+  bytes: A0 0D D0 02 A0 0B B1 04 85 0C C8 B1 04 85 0D 4C 67 E8 A9 E8 D0 2A A9 EA
+
+$E92F   (opcodes: $1C)
+  bytes: A0 0B B1 04 85 0C C8 B1 04 85 0D 4C 67 E8 A9 E8 D0 2A A9 EA D0 26 A9 EC
+
+$E93D   (opcodes: $20)
+  bytes: A9 E8 D0 2A A9 EA D0 26 A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16
+
+$E941   (opcodes: $21)
+  bytes: A9 EA D0 26 A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12
+
+$E945   (opcodes: $22)
+  bytes: A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E
+
+$E949   (opcodes: $23)
+  bytes: A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A
+
+$E94D   (opcodes: $24)
+  bytes: A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06
+
+$E951   (opcodes: $25)
+  bytes: A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02
+
+$E955   (opcodes: $26)
+  bytes: A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65
+
+$E959   (opcodes: $27)
+  bytes: A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9
+
+$E95D   (opcodes: $28)
+  bytes: A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85
+
+$E961   (opcodes: $29)
+  bytes: A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 A5 08 91
+
+$E965   (opcodes: $2A)
+  bytes: A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 A5 08 91 00 C8 A5 09
+
+$E969   (opcodes: $2B)
+  bytes: A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 A5 08 91 00 C8 A5 09 91 00 4C 67
+
+$E982   (opcodes: $2F)
+  bytes: A0 11 D0 0A A0 0F D0 06 A0 0D D0 02 A0 0B A5 08 91 04 C8 A5 09 91 04 4C
+
+$E986   (opcodes: $2E)
+  bytes: A0 0F D0 06 A0 0D D0 02 A0 0B A5 08 91 04 C8 A5 09 91 04 4C 67 E8 A9 E8
+
+$E98A   (opcodes: $2D)
+  bytes: A0 0D D0 02 A0 0B A5 08 91 04 C8 A5 09 91 04 4C 67 E8 A9 E8 D0 2A A9 EA
+
+$E98E   (opcodes: $2C)
+  bytes: A0 0B A5 08 91 04 C8 A5 09 91 04 4C 67 E8 A9 E8 D0 2A A9 EA D0 26 A9 EC
+
+$E99C   (opcodes: $30)
+  bytes: A9 E8 D0 2A A9 EA D0 26 A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16
+
+$E9A0   (opcodes: $31)
+  bytes: A9 EA D0 26 A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12
+
+$E9A4   (opcodes: $32)
+  bytes: A9 EC D0 22 A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E
+
+$E9A8   (opcodes: $33)
+  bytes: A9 EE D0 1E A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A
+
+$E9AC   (opcodes: $34)
+  bytes: A9 F0 D0 1A A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06
+
+$E9B0   (opcodes: $35)
+  bytes: A9 F2 D0 16 A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02
+
+$E9B4   (opcodes: $36)
+  bytes: A9 F4 D0 12 A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65
+
+$E9B8   (opcodes: $37)
+  bytes: A9 F6 D0 0E A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9
+
+$E9BC   (opcodes: $38)
+  bytes: A9 F8 D0 0A A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85
+
+$E9C0   (opcodes: $39)
+  bytes: A9 FA D0 06 A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 C8 B1 00
+
+$E9C4   (opcodes: $3A)
+  bytes: A9 FC D0 02 A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 C8 B1 00 AA 88 B1 00
+
+$E9C8   (opcodes: $3B)
+  bytes: A9 FE 18 65 04 85 00 A9 FF 65 05 85 01 C8 B1 00 AA 88 B1 00 4C 08 F0 A0
+
+$E9DF   (opcodes: $3F)
+  bytes: A0 12 D0 0A A0 10 D0 06 A0 0E D0 02 A0 0C B1 04 AA 88 B1 04 4C 08 F0 8A
+
+$E9E3   (opcodes: $3E)
+  bytes: A0 10 D0 06 A0 0E D0 02 A0 0C B1 04 AA 88 B1 04 4C 08 F0 8A 29 0F 85 08
+
+$E9E7   (opcodes: $3D)
+  bytes: A0 0E D0 02 A0 0C B1 04 AA 88 B1 04 4C 08 F0 8A 29 0F 85 08 84 09 4C 67
+
+$E9EB   (opcodes: $3C)
+  bytes: A0 0C B1 04 AA 88 B1 04 4C 08 F0 8A 29 0F 85 08 84 09 4C 67 E8 84 08 84
+
+$E9F6   (opcodes: $41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)
+  bytes: 8A 29 0F 85 08 84 09 4C 67 E8 84 08 84 09 4C 67 E8 8A 29 0F 85 0C 84 0D
+
+$EA00   (opcodes: $40)
+  bytes: 84 08 84 09 4C 67 E8 8A 29 0F 85 0C 84 0D 4C 67 E8 84 0C 84 0D 4C 67 E8
+
+$EA07   (opcodes: $51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)
+  bytes: 8A 29 0F 85 0C 84 0D 4C 67 E8 84 0C 84 0D 4C 67 E8 8A 29 0F A2 00 4C 08
+
+$EA11   (opcodes: $50)
+  bytes: 84 0C 84 0D 4C 67 E8 8A 29 0F A2 00 4C 08 F0 8A 29 0F 18 65 08 85 08 90
+
+$EA18   (opcodes: $60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)
+  bytes: 8A 29 0F A2 00 4C 08 F0 8A 29 0F 18 65 08 85 08 90 02 E6 09 4C 67 E8 20
+
+$EA20   (opcodes: $71,$72,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)
+  bytes: 8A 29 0F 18 65 08 85 08 90 02 E6 09 4C 67 E8 20 EC EF 90 03 20 A6 EF B1
+
+$EA2C   (opcodes: $70)
+  bytes: 4C 67 E8 20 EC EF 90 03 20 A6 EF B1 00 85 08 C8 B1 00 85 09 4C 67 E8 20
+
+$EA2F   (opcodes: $82)
+  bytes: 20 EC EF 90 03 20 A6 EF B1 00 85 08 C8 B1 00 85 09 4C 67 E8 20 D5 EF 90
+
+$EA34   (opcodes: $81)
+  bytes: 20 A6 EF B1 00 85 08 C8 B1 00 85 09 4C 67 E8 20 D5 EF 90 EF 20 A6 EF B1
+
+$EA43   (opcodes: $A4)
+  bytes: 20 D5 EF 90 EF 20 A6 EF B1 00 85 0C C8 B1 00 85 0D 4C 67 E8 20 EC EF 90
+
+$EA48   (opcodes: $83)
+  bytes: 20 A6 EF B1 00 85 0C C8 B1 00 85 0D 4C 67 E8 20 EC EF 90 EF 20 D5 EF 90
+
+$EA57   (opcodes: $84)
+  bytes: 20 EC EF 90 EF 20 D5 EF 90 EA 20 A6 EF A5 08 91 00 C8 A5 09 91 00 4C 67
+
+$EA5C   (opcodes: $A6)
+  bytes: 20 D5 EF 90 EA 20 A6 EF A5 08 91 00 C8 A5 09 91 00 4C 67 E8 20 EC EF 90
+
+$EA61   (opcodes: $85)
+  bytes: 20 A6 EF A5 08 91 00 C8 A5 09 91 00 4C 67 E8 20 EC EF 90 EF 20 D5 EF 90
+
+$EA70   (opcodes: $86)
+  bytes: 20 EC EF 90 EF 20 D5 EF 90 EA 20 A6 EF C8 B1 00 AA 88 B1 00 4C 08 F0 20
+
+$EA75   (opcodes: $A8)
+  bytes: 20 D5 EF 90 EA 20 A6 EF C8 B1 00 AA 88 B1 00 4C 08 F0 20 EC EF 90 F1 20
+
+$EA7A   (opcodes: $87)
+  bytes: 20 A6 EF C8 B1 00 AA 88 B1 00 4C 08 F0 20 EC EF 90 F1 20 D5 EF 90 EC 20
+
+$EA87   (opcodes: $88)
+  bytes: 20 EC EF 90 F1 20 D5 EF 90 EC 20 BF EF 65 04 85 08 8A 65 05 85 09 4C 67
+
+$EA8C   (opcodes: $AA)
+  bytes: 20 D5 EF 90 EC 20 BF EF 65 04 85 08 8A 65 05 85 09 4C 67 E8 20 BF EF 65
+
+$EA91   (opcodes: $DE)
+  bytes: 20 BF EF 65 04 85 08 8A 65 05 85 09 4C 67 E8 20 BF EF 65 04 85 0C 8A 65
+
+$EAA0   (opcodes: $DF)
+  bytes: 20 BF EF 65 04 85 0C 8A 65 05 85 0D 4C 67 E8 20 97 EF 85 08 86 09 4C 67
+
+$EAAF   (opcodes: $89)
+  bytes: 20 97 EF 85 08 86 09 4C 67 E8 20 BF EF 90 F4 20 97 EF 85 0C 86 0D 4C 67
+
+$EAB9   (opcodes: $8A)
+  bytes: 20 BF EF 90 F4 20 97 EF 85 0C 86 0D 4C 67 E8 20 BF EF 90 F4 20 97 EF 4C
+
+$EABE   (opcodes: $8B)
+  bytes: 20 97 EF 85 0C 86 0D 4C 67 E8 20 BF EF 90 F4 20 97 EF 4C 08 F0 20 BF EF
+
+$EAC8   (opcodes: $8C)
+  bytes: 20 BF EF 90 F4 20 97 EF 4C 08 F0 20 BF EF 4C 08 F0 20 97 EF 65 08 85 08
+
+$EACD   (opcodes: $8D)
+  bytes: 20 97 EF 4C 08 F0 20 BF EF 4C 08 F0 20 97 EF 65 08 85 08 8A 65 09 85 09
+
+$EAD3   (opcodes: $8E)
+  bytes: 20 BF EF 4C 08 F0 20 97 EF 65 08 85 08 8A 65 09 85 09 4C 67 E8 20 BF EF
+
+$EAD9   (opcodes: $8F)
+  bytes: 20 97 EF 65 08 85 08 8A 65 09 85 09 4C 67 E8 20 BF EF 90 EF 20 EC EF B1
+
+$EAE8   (opcodes: $90)
+  bytes: 20 BF EF 90 EF 20 EC EF B1 00 85 08 84 09 4C 67 E8 20 D5 EF 90 F2 20 EC
+
+$EAED   (opcodes: $A0)
+  bytes: 20 EC EF B1 00 85 08 84 09 4C 67 E8 20 D5 EF 90 F2 20 EC EF B1 00 85 0C
+
+$EAF9   (opcodes: $A5)
+  bytes: 20 D5 EF 90 F2 20 EC EF B1 00 85 0C 84 0D 4C 67 E8 20 D5 EF 90 F2 20 EC
+
+$EAFE   (opcodes: $A1)
+  bytes: 20 EC EF B1 00 85 0C 84 0D 4C 67 E8 20 D5 EF 90 F2 20 EC EF A5 08 91 00
+
+$EB0A   (opcodes: $A7)
+  bytes: 20 D5 EF 90 F2 20 EC EF A5 08 91 00 4C 67 E8 20 D5 EF 90 F4 20 EC EF B1
+
+$EB0F   (opcodes: $A2)
+  bytes: 20 EC EF A5 08 91 00 4C 67 E8 20 D5 EF 90 F4 20 EC EF B1 00 A2 00 4C 08
+
+$EB19   (opcodes: $A9)
+  bytes: 20 D5 EF 90 F4 20 EC EF B1 00 A2 00 4C 08 F0 20 D5 EF 90 F4 A5 08 85 00
+
+$EB1E   (opcodes: $A3)
+  bytes: 20 EC EF B1 00 A2 00 4C 08 F0 20 D5 EF 90 F4 A5 08 85 00 A5 09 85 01 4C
+
+$EB28   (opcodes: $AB)
+  bytes: 20 D5 EF 90 F4 A5 08 85 00 A5 09 85 01 4C 3B EB 20 D5 EF 20 57 EB A0 00
+
+$EB2D   (opcodes: $EA)
+  bytes: A5 08 85 00 A5 09 85 01 4C 3B EB 20 D5 EF 20 57 EB A0 00 4C 9E EB A5 08
+
+$EB38   (opcodes: $E9)
+  bytes: 20 D5 EF 20 57 EB A0 00 4C 9E EB A5 08 85 00 A5 09 85 01 4C 51 EB 20 D5
+
+$EB43   (opcodes: $DD)
+  bytes: A5 08 85 00 A5 09 85 01 4C 51 EB 20 D5 EF 20 57 EB 4C 67 E8 38 A5 02 E9
+
+$EB4E   (opcodes: $AC)
+  bytes: 20 D5 EF 20 57 EB 4C 67 E8 38 A5 02 E9 02 85 02 B0 02 C6 03 A5 06 91 02
+
+$EB7D   (opcodes: $AD)
+  bytes: 20 BF EF A0 00 86 00 AA D0 07 C6 00 10 03 4C 67 E8 B1 08 91 0C C8 D0 04
+
+$EB9E   (opcodes: $AE)
+  bytes: 20 97 EF 65 02 85 02 90 02 E6 03 4C 67 E8 20 BF EF 65 02 85 02 8A 65 03
+
+$EBAC   (opcodes: $AF)
+  bytes: 20 BF EF 65 02 85 02 8A 65 03 85 03 4C 67 E8 20 BF EF 85 06 86 07 4C 67
+
+$EBBB   (opcodes: $D6)
+  bytes: 20 BF EF 85 06 86 07 4C 67 E8 A5 08 05 09 D0 F0 20 BF EF 4C 67 E8 A5 08
+
+$EBC5   (opcodes: $D7)
+  bytes: A5 08 05 09 D0 F0 20 BF EF 4C 67 E8 A5 08 05 09 F0 E4 D0 F2 20 97 EF 65
+
+$EBD1   (opcodes: $D8)
+  bytes: A5 08 05 09 F0 E4 D0 F2 20 97 EF 65 06 85 06 B0 02 C6 07 4C 67 E8 A5 08
+
+$EBD9   (opcodes: $E3)
+  bytes: 20 97 EF 65 06 85 06 B0 02 C6 07 4C 67 E8 A5 08 05 09 D0 EC 20 97 EF 4C
+
+$EBE7   (opcodes: $E4)
+  bytes: A5 08 05 09 D0 EC 20 97 EF 4C 67 E8 A5 08 05 09 F0 E0 D0 F2 20 97 EF 65
+
+$EBF3   (opcodes: $E5)
+  bytes: A5 08 05 09 F0 E0 D0 F2 20 97 EF 65 06 85 06 90 02 E6 07 4C 67 E8 A5 08
+
+$EBFB   (opcodes: $E6)
+  bytes: 20 97 EF 65 06 85 06 90 02 E6 07 4C 67 E8 A5 08 05 09 D0 EC 20 97 EF 4C
+
+$EC09   (opcodes: $E7)
+  bytes: A5 08 05 09 D0 EC 20 97 EF 4C 67 E8 A5 08 05 09 F0 E0 D0 F2 B1 06 AA C8
+
+$EC15   (opcodes: $E8)
+  bytes: A5 08 05 09 F0 E0 D0 F2 B1 06 AA C8 B1 06 85 0C 18 A5 06 69 02 85 06 90
+
+$EC1D   (opcodes: $D9)
+  bytes: B1 06 AA C8 B1 06 85 0C 18 A5 06 69 02 85 06 90 02 E6 07 A0 00 8A D0 07
+
+$EC65   (opcodes: $D5)
+  bytes: 18 B1 06 65 08 85 08 C8 B1 06 65 09 85 09 C8 A5 08 D1 06 C8 A5 09 F1 06
+
+$EC9E   (opcodes: $B0)
+  bytes: B1 08 AA C8 B1 08 86 08 85 09 4C 67 E8 B1 08 85 08 84 09 4C 67 E8 20 DB
+
+$ECAB   (opcodes: $D3)
+  bytes: B1 08 85 08 84 09 4C 67 E8 20 DB EC A5 09 91 0C 88 A5 08 91 0C 4C 67 E8
+
+$ECB4   (opcodes: $B1)
+  bytes: 20 DB EC A5 09 91 0C 88 A5 08 91 0C 4C 67 E8 20 DB EC 88 A5 08 91 0C 4C
+
+$ECC3   (opcodes: $D4)
+  bytes: 20 DB EC 88 A5 08 91 0C 4C 67 E8 A5 08 A6 09 4C 08 F0 20 DB EC 4C 67 E8
+
+$ECCE   (opcodes: $B3)
+  bytes: A5 08 A6 09 4C 08 F0 20 DB EC 4C 67 E8 B1 02 85 0C C8 B1 02 85 0D 18 A5
+
+$ECD5   (opcodes: $B4)
+  bytes: 20 DB EC 4C 67 E8 B1 02 85 0C C8 B1 02 85 0D 18 A5 02 69 02 85 02 90 02
+
+$ECF0   (opcodes: $B5)
+  bytes: A0 00 84 00 84 01 A0 10 A5 08 4A 90 0D 18 A5 00 65 0C 85 00 A5 01 65 0D
+
+$ED18   (opcodes: $B8)
+  bytes: 20 2E ED 4C 67 E8 20 7A ED 20 2E ED A5 0A 10 03 4C 09 EF 4C 67 E8 A0 00
+
+$ED1E   (opcodes: $B6)
+  bytes: 20 7A ED 20 2E ED A5 0A 10 03 4C 09 EF 4C 67 E8 A0 00 84 00 84 01 A0 10
+
+$ED54   (opcodes: $B9)
+  bytes: 20 7A ED 20 2E ED A5 00 85 08 A5 01 85 09 A5 0B 10 03 4C 09 EF 4C 67 E8
+
+$ED6C   (opcodes: $BA)
+  bytes: 20 2E ED A5 00 85 08 A5 01 85 09 4C 67 E8 A5 09 85 0B 45 0D 85 0A A5 09
+
+$EDA1   (opcodes: $BB)
+  bytes: 18 A5 08 65 0C 85 08 A5 09 65 0D 85 09 4C 67 E8 38 A5 08 E5 0C 85 08 A5
+
+$EDB1   (opcodes: $BC)
+  bytes: 38 A5 08 E5 0C 85 08 A5 09 E5 0D 85 09 4C 67 E8 A6 0C D0 07 C6 0D 10 03
+
+$EDC1   (opcodes: $BD)
+  bytes: A6 0C D0 07 C6 0D 10 03 4C 67 E8 06 08 26 09 CA F0 F2 D0 F7 A5 09 10 15
+
+$EDD5   (opcodes: $BF)
+  bytes: A5 09 10 15 A6 0C D0 07 C6 0D 10 03 4C 67 E8 38 66 09 66 08 CA F0 F1 D0
+
+$EDEE   (opcodes: $BE)
+  bytes: A6 0C D0 07 C6 0D 10 03 4C 67 E8 46 09 66 08 CA F0 F2 D0 F7 A5 08 25 0C
+
+$EE02   (opcodes: $DA)
+  bytes: A5 08 25 0C 85 08 A5 09 25 0D 85 09 4C 67 E8 A5 08 05 0C 85 08 A5 09 05
+
+$EE11   (opcodes: $DB)
+  bytes: A5 08 05 0C 85 08 A5 09 05 0D 85 09 4C 67 E8 A5 08 45 0C 85 08 A5 09 45
+
+$EE20   (opcodes: $DC)
+  bytes: A5 08 45 0C 85 08 A5 09 45 0D 85 09 4C 67 E8 A5 09 C5 0D 84 09 D0 07 A5
+
+$EE2F   (opcodes: $C0)
+  bytes: A5 09 C5 0D 84 09 D0 07 A5 08 C5 0C D0 01 C8 84 08 4C 67 E8 A5 09 C5 0D
+
+$EE43   (opcodes: $C1)
+  bytes: A5 09 C5 0D 84 09 D0 06 A5 08 C5 0C F0 01 C8 84 08 4C 67 E8 A5 08 C5 0C
+
+$EE57   (opcodes: $C2)
+  bytes: A5 08 C5 0C A5 09 E5 0D 84 09 10 01 C8 98 50 02 49 01 85 08 4C 67 E8 A5
+
+$EE6E   (opcodes: $C4)
+  bytes: A5 0C C5 08 A5 0D E5 09 84 09 10 01 C8 98 50 02 49 01 85 08 4C 67 E8 A5
+
+$EE85   (opcodes: $C3)
+  bytes: A5 0C C5 08 A5 0D E5 09 84 09 30 01 C8 98 50 02 49 01 85 08 4C 67 E8 A5
+
+$EE9C   (opcodes: $C5)
+  bytes: A5 08 C5 0C A5 09 E5 0D 84 09 30 01 C8 98 50 02 49 01 85 08 4C 67 E8 A5
+
+$EEB3   (opcodes: $C6)
+  bytes: A5 08 C5 0C A5 09 E5 0D 84 09 B0 01 C8 84 08 4C 67 E8 A5 0C C5 08 A5 0D
+
+$EEC5   (opcodes: $C8)
+  bytes: A5 0C C5 08 A5 0D E5 09 84 09 B0 01 C8 84 08 4C 67 E8 A5 0C C5 08 A5 0D
+
+$EED7   (opcodes: $C7)
+  bytes: A5 0C C5 08 A5 0D E5 09 84 09 90 01 C8 84 08 4C 67 E8 A5 08 C5 0C A5 09
+
+$EEE9   (opcodes: $C9)
+  bytes: A5 08 C5 0C A5 09 E5 0D 84 09 90 01 C8 84 08 4C 67 E8 A5 09 84 09 05 08
+
+$EEFB   (opcodes: $CA)
+  bytes: A5 09 84 09 05 08 D0 01 C8 84 08 4C 67 E8 38 98 E5 08 85 08 98 E5 09 85
+
+$EF09   (opcodes: $CB)
+  bytes: 38 98 E5 08 85 08 98 E5 09 85 09 4C 67 E8 A5 08 49 FF 85 08 A5 09 49 FF
+
+$EF17   (opcodes: $CC)
+  bytes: A5 08 49 FF 85 08 A5 09 49 FF 85 09 4C 67 E8 A5 08 A6 0C 86 08 85 0C A5
+
+$EF26   (opcodes: $CD)
+  bytes: A5 08 A6 0C 86 08 85 0C A5 09 A6 0D 86 09 85 0D 4C 67 E8 E6 08 D0 02 E6
+
+$EF39   (opcodes: $D0)
+  bytes: E6 08 D0 02 E6 09 4C 67 E8 A5 08 D0 02 C6 09 C6 08 4C 67 E8 06 08 26 09
+
+$EF42   (opcodes: $D1)
+  bytes: A5 08 D0 02 C6 09 C6 08 4C 67 E8 06 08 26 09 4C 67 E8 20 BF EF A0 08 20
+
+$EF4D   (opcodes: $D2)
+  bytes: 06 08 26 09 4C 67 E8 20 BF EF A0 08 20 03 F6 4C 67 E8 20 BF EF A0 08 20
+
+$EF54   (opcodes: $E0)
+  bytes: 20 BF EF A0 08 20 03 F6 4C 67 E8 20 BF EF A0 08 20 CD F5 4C 67 E8 20 BF
+
+$EF5F   (opcodes: $E1)
+  bytes: 20 BF EF A0 08 20 CD F5 4C 67 E8 20 BF EF A0 0C 20 2C F6 4C 67 E8 A0 07
+
+$EF6A   (opcodes: $E2)
+  bytes: 20 BF EF A0 0C 20 2C F6 4C 67 E8 A0 07 A5 04 85 0C A5 05 85 0D B1 0C 99
+
+$EF75   (opcodes: $CF)
+  bytes: A0 07 A5 04 85 0C A5 05 85 0D B1 0C 99 00 00 88 10 F8 E6 00 D0 04 E6 01
+
+$EF92   (opcodes: $80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE)
+  bytes: 00 00 4C 67 E8 A2 00 B1 06 10 01 CA E6 06 D0 02 E6 07 18 60 18 A2 00 B1
+
+$EF93   (opcodes: $FF)
+  bytes: 00 4C 67 E8 A2 00 B1 06 10 01 CA E6 06 D0 02 E6 07 18 60 18 A2 00 B1 06
+
+$F020   (opcodes: $B2)
+  bytes: 20 79 F6 4C 67 E8 7F 83 87 8B 8F 93 97 9B 9F A3 A7 AB D0 CC C8 C4 DE E2
+
+$F246   (opcodes: $B7)
+  bytes: B1 06 E6 06 D0 02 E6 07 0A AA BD 61 F2 85 00 BD 62 F2 85 01 A9 E8 48 A9

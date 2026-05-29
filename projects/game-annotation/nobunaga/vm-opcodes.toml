@@ -21,6 +21,19 @@ opcode_table_hi_prg = 0x3F126
 
 
 # ============================================================================
+# Decoded 2026-05-25 via walking Train (ca52/CA46 chain):
+# $8D = push_imm_sbyte — confirmed by the rng_next_wrapper at $CA46 which
+# uses `8D 11` to push 17 as the syscall ID before host_call $F226.
+# ============================================================================
+
+[[opcode]]
+op = 0x8D
+name = "push_imm_sbyte"
+operands = [{ type = "sbyte" }]
+description = "Push sign-extended signed byte literal as a 16-bit word onto the VM data stack. Confirmed via $CA46 (rng_next_wrapper) which uses '8D 11' to push 17 as the syscall ID before host_call syscall_dispatch."
+
+
+# ============================================================================
 # FRAME-LOCAL LOAD/STORE MATRIX ($00-$3F) — a clean 4x16 grid:
 #   {load, store} x {regA, regB} x {negative-offset block, positive-offset block}
 # "neg" opcodes address frame[-24..-2] (caller args / outer locals), 12 each.

@@ -69,7 +69,15 @@
       "Bash('C:\\\\Users\\\\Chris.Isaacson\\\\AppData\\\\Local\\\\Python\\\\bin\\\\python.exe' -c *)",
       "Bash(git -C \"C:\\\\Users\\\\Chris.Isaacson\\\\Vault\" add projects/game-annotation/nobunaga/dump-defaults.py projects/game-annotation/nobunaga/verify-50fief-align.py projects/game-annotation/nobunaga/tier-analysis.py projects/game-annotation/nobunaga/rom-defaults.txt projects/game-annotation/nobunaga/07-sram-save-layer.md)",
       "Bash(git -C 'C:\\\\Users\\\\Chris.Isaacson\\\\Vault' commit -m ' *)",
-      "Bash(git -C \"C:\\\\Users\\\\Chris.Isaacson\\\\Vault\" log --oneline -2)"
+      "Bash(git -C \"C:\\\\Users\\\\Chris.Isaacson\\\\Vault\" log --oneline -2)",
+      "Bash(where python 2)",
+      "Bash(py -3 ../tools/vm-disasm.py \"Nobunaga's Ambition \\(USA\\).nes\" vm-opcodes.toml --dump-bank 1 --labels mesen-labels.toml --max-insns 8000 --output disasm/bank_01_vm.asm)",
+      "Bash(py 2)",
+      "Bash(py *)",
+      "Bash(cmd /c \"dir C:\\\\Users\\\\Chris.Isaacson\\\\Pictures /b 2>nul\")",
+      "Bash(cmd /c \"where /r C:\\\\Users\\\\Chris.Isaacson Screenshots 2>nul | head -3\")",
+      "Bash(cmd *)",
+      "WebSearch"
     ]
   }
 }

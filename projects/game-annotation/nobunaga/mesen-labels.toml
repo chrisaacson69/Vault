@@ -84,12 +84,28 @@ prg_bank_count = 16        # 256 KB total
 "0x074F" = { name = "v3_trigger",          comment = "Voice 3 byte 0" }
 "0x0758" = { name = "v4_trigger",          comment = "Voice 4 byte 0" }
 
-# --- SRAM regions (chapter 7) ---
+# --- SRAM regions (chapters 7 + 9) ---
 # Battery-backed PRG-RAM at $6000-$7FFF holds all canonical game state plus a UI cache.
-"0x601A" = { name = "province_table",       comment = "17-fief scenario province table — 17 records x 26 bytes. Record format: header (base koku, 16-bit BE), then 11 stats (debt, town, rice, output, dams, loyalty, wealth, men, morale, skill, arms each 16-bit BE), then footer (16-bit BE, likely annual income). Mikawa is record 6 at $60B6 (matching in-game 'fief 8' display)." }
+#
+# CHAPTER-9 RECONCILIATION: chapter 7 identified $601A as the 17-fief province table.
+# Chapter 9 §4 corrected this — a live SRAM dump showed $6000-$6D1F is essentially
+# empty (just 144 bytes of unrelated 16-bit data at $6000-$608F), and the *real*
+# live working province table is at $7001. The confirmed record layout is also
+# different from chapter 7's assumption: header (base koku) is at offset 24, not 0.
+# The $601A label below is kept for historical reference but should be treated as
+# either an outdated address or, at most, an unused secondary copy.
+"0x6003" = { name = "fief_history_table",   comment = "Per-fief HIGH-WATER MARK table — 17 entries x 8 bytes each (136 bytes total at $6003-$608A). Tracks historical maxes of 4 economic stats so income harvest uses peaks, not current. FULLY DECODED 2026-05-25 from sub $A0A9 in bank 0. Per-slot layout (idx*8 from base $6003): +0=output_max, +2=dams_max, +4=loyalty_max, +6=wealth_max. Each updated via 'if current >= history: history = current' pattern. STRATEGIC IMPLICATION: stats drained by war/Train/tax don't hurt income — the peak is remembered permanently. 'Build everything to max once' is mathematically optimal because the high-water mark drives gold/rice harvest." }
+"0x6D5F" = { name = "config_block",         comment = "4-byte config block: 01 01 02 32. Chapter 9 §4 found this lives at $6D5F-$6D65. The '02' at offset $6D63 is the value Grow subtracts from sqrt(output+amount); see const_two below." }
+"0x6D63" = { name = "const_two",            comment = "16-bit constant = 2. Read by Grow's effect handler ($87F0 at $8809) as a subtrahend in the gain calculation: regA = sqrt(output+amount) - word[$6D63]. Same constant used by Build's effect ($88A6 at $88BF). Living in the config block at $6D5F." }
+"0x6F0B" = { name = "daimyo_turn_order",    comment = "17-byte permutation of 0..16 — the daimyo turn order for the current season. Re-randomized every turn (project_nobunaga_turn_order_randomization). Read order determines who acts when within a season." }
+"0x6F5F" = { name = "selected_province_idx", comment = "Word holding the currently-selected province index (0-16 for 17-fief scenario, 0-49 for 50-fief). The 'A4 5F 6F 8B 1A B5 8C 01 70 BB' province-access idiom (chapter 9 §4) reads this, multiplies by 26 (record size), and adds $7001 (table base) to get the record pointer. Appears 81+ times across banks 0/1/2/15. Idx=50 ($7515) is the zealot/uprising slot (header=9999 marks special)." }
+"0x6E15" = { name = "fief_to_daimyo_map",   comment = "17-byte array, position i = current owner-daimyo idx for fief i+1 (1-based). Found 2026-05-25 via SRAM cross-reference. Initial state: identity (fief i+1 owned by daimyo i). After conquests, values change — e.g. when Tokugawa took Owari, position 16 changed from 16 (Oda) to 7 (Tokugawa). Daimyos whose value doesn't appear anywhere have lost their home; they remain in daimyo_table_17 as 'wandering' (status=$01 in chapter 7 terms, vs $00 for fief-holding lords)." }
+"0x7515" = { name = "zealot_uprising_slot", comment = "Province-record-format slot (26 bytes, idx=50) for the zealot/Ikko-Ikki uprising force when it spawns. Uses standard 26-byte province record layout so it slots into combat engine without special-casing. Distinguishing markers: header=9999 (special), extreme loyalty/morale (1300/1516 observed), tiny skill/arms (4/4). Cleared after combat resolution. Spawn check likely lives in bank-0 season-turnover code." }
+"0x7001" = { name = "province_table_live",  comment = "AUTHORITATIVE live working province table (chapter 9 §4 reconciliation). 17 records x 26 bytes for the 17-fief scenario. Confirmed field layout (offsets, all 16-bit LE since loadA_ind_word reads low-byte-first): +0=gold, +2=debt, +4=town, +6=rice, +8=output, +10=dams, +12=loyalty, +14=wealth, +16=men, +18=morale, +20=skill, +22=arms, +24=header (base koku, the development ceiling). Record N is at $7001 + N*26." }
+"0x601A" = { name = "province_table_OLD",   comment = "DEPRECATED — chapter-7 identification, contradicted by chapter 9 §4 SRAM dump. The actual live province table is at $7001 (province_table_live). Kept as a label only to flag chapter-7 references for revisit." }
 "0x752F" = { name = "daimyo_table_17",      comment = "17-fief scenario daimyo records — 17 records x 7 bytes. Each: age, Health, Drive, Luck, Charisma, IQ, status. Index parallel to daimyo_name_table at $77A8. Tokugawa is record 7 at $7560." }
 "0x7560" = { name = "daimyo_rec_tokugawa",  comment = "Player slot in 17-fief scenario. Record 7 of daimyo_table_17. Format: age + H + D + L + Ch + IQ + status (7 bytes)." }
-"0x77A8" = { name = "daimyo_name_table",    comment = "17-fief daimyo names — 17 names x 9 bytes (8 ASCII chars + null pad). Indices parallel to daimyo_table_17. Order in 17-fief scenario: Hatakeyama, Uesugi, Hojo, Honganji, Asakura, Anekoji, Imagawa, Tokugawa, Iera, Tsutsui, Asai, Rokkaku, Kitabatake, Ashikaga, Miyoshi, Takeda, Oda." }
+"0x77A8" = { name = "daimyo_name_table",    comment = "17-fief daimyo names — 17 names x 9 bytes (8 ASCII chars + null pad). Indices parallel to daimyo_table_17. Order in 17-fief scenario: Hatakeyama, Uesugi, Hojo, Honganji, Asakura, Anekoji, Imagawa, Tokugawa, Iera, Tsutsui, Asai, Rokkaku, Kitabatake, Ashikaga, Miyoshi, Takeda, Oda. WHEN A DAIMYO IS DISPLACED AND REGENERATED (via zealot conquest, etc.), this entry is overwritten — sometimes cleanly (e.g. 'Iera' -> 'Saito'), sometimes with partial syllable-overwrite producing garbled names like 'Sate\\0ui' (from 'Tsutsui'). The name regenerator may use a clean-name table with a syllable-stitch fallback." }
 "0x7C00" = { name = "map_tile_data",        comment = "Strategic-map background tile indices. ~558 bytes covering the 18x31 map grid." }
 "0x7F00" = { name = "ui_transient_state",   comment = "Transient UI cache: frame counter at $7FE9, animation timers, menu position, status flags. Boot bytecode zeroes $7FE7/$7FC7/$7FD3/$7FD1 on game start (chapter 6). NOT preserved across power cycles — only canonical tables survive a save." }
 "0x7FE9" = { name = "frame_counter",        comment = "Per-frame counter (60Hz tick). Drives animation timing, cursor blink, music transitions. Continuously incremented when game is unpaused, frozen when paused." }
@@ -182,3 +198,149 @@ prg_bank_count = 16        # 256 KB total
 "0xC7DE" = { name = "music_voice_check",   comment = "Per-voice trigger check: skip if byte 0 is 0 (idle) or >= 5 (dormant), else call music_voice_play" }
 "0xC7EF" = { name = "music_voice_play",    comment = "Per-voice play: compute APU base from byte 0, optionally skip if triangle mute, write bytes 1-4 to APU registers" }
 "0xC817" = { name = "music_sequencer_pass", comment = "Pass 2: for each active voice, decrement byte 8 (duration countdown). When zero, advance song pointer (bytes 6-7), load new pitch (bytes 3-4), trigger (byte 0), reset countdown (byte 8)." }
+
+# ----------------------------------------------------------------------------
+# Bank-15 math + UI primitives (chapters 9-11, this-session decode)
+# Called pervasively from bank-1 command handlers via host_call. Decoded by
+# walking the bytecode subroutines in disasm/bank_15_vm.asm.
+# ----------------------------------------------------------------------------
+
+"0xCBCD" = { name = "sqrt_int",            comment = "Integer square root (native code; chapter 9). Classic restoring algorithm, 2 bits per iteration, 8 iterations over 16-bit input. Called as host_call sqrt_int, $02 with one word arg on the data stack. Used by Grow/Dam/Build/Train effects to drive the diminishing-returns curve." }
+"0xD70D" = { name = "pct_op",              comment = "Percentage operator (bytecode sub; this session fully decoded). Computes base * pct / 100 with integer truncation, split-by-10 so no intermediate product exceeds 16 bits. Args: arg1=base, arg2=pct. Fast path: if pct==100 return base. Otherwise return (base/10)*(pct/10) + (base%10)*pct/100 + (pct%10)*(base/10)/10. Used by all redistribution tails (Grow drains loyalty+dams, Build drains wealth, Tax response, etc.)." }
+"0xD6B8" = { name = "math32_3arg",         comment = "CONFIRMED 2026-05-25: 3-arg math helper computing (arg1 × arg2) / arg3 in 32-bit signed arithmetic. Uses ext-opcodes: $25 sign-extend 16→32, $14 push regA 32-bit, $15 pop into regB, $01 unsigned multiply, $02 signed divide, $27 RTS. Returns -1 if arg3==0. CRITICAL CAVEAT for Grow: callers push only 2 args explicitly (sqrt + neg-const_two); arg3 reads uninitialized stack memory at caller's frame[-4]. Runtime value of arg3 determined by execution history of the caller, not by an explicit push." }
+"0xD6DE" = { name = "math32_2arg",         comment = "2-arg extended-opcode math helper (bytecode sub). Returns 0 if both args are 0. Similar B7-prefix shape to math32_3arg but with ext_op $19 (a different multiply/scale primitive). Called by Grow/Build for a refinement step. EXACT formula pending ext-opcode decode." }
+
+"0xD326" = { name = "message_display",     comment = "Display a message string. Called by 30 distinct command drivers — the most-used helper in the lord-command menu. Args: typically a 16-bit string pointer pushed before the call. The 'show feedback prompt' primitive." }
+"0xD766" = { name = "confirm_prompt",      comment = "Show a confirmation prompt (likely 'OK?' / yes-no). Called by 22 drivers. Common tail of any command that has a destructive or committal step." }
+"0xCEC4" = { name = "redraw_window",       comment = "Redraw a screen region / window. Called by 17 drivers. The 'restore display after my prompts' primitive." }
+"0xD5E9" = { name = "number_input",        comment = "Number-input prompt with cap. Called by 15 drivers (Tax rate, Grow amount, Send rice/gold, etc.). Args appear to include the maximum allowed value — Chapter 9 noted the Grow input is capped at the province's gold." }
+"0xCC89" = { name = "ui_helper_cc89",      comment = "UI helper called by 14 drivers. Specific role TBD — appears in command pre-roll/post-roll. Candidate: cursor-restore or selection-reset." }
+"0xD134" = { name = "ui_helper_d134",      comment = "Helper called by 13 drivers. Often follows message_display. Candidate: format-and-print (the '%d' / '%s' substitution layer)." }
+"0xD3A7" = { name = "ui_helper_d3a7",      comment = "Helper called by 8 drivers. TBD." }
+"0xE80C" = { name = "ui_helper_e80c",      comment = "Helper called by 15 drivers. TBD." }
+"0xCC7B" = { name = "ui_helper_cc7b",      comment = "Helper called by 6 drivers. TBD." }
+"0xD7EA" = { name = "ui_helper_d7ea",      comment = "Helper called by 5 drivers. TBD." }
+"0xE510" = { name = "ui_helper_e510",      comment = "Helper called by 5 drivers (Send, Pact, View, Marry — the 'select target province from a list' command set). Candidate: cursor/menu enter primitive." }
+"0xD77E" = { name = "ui_helper_d77e",      comment = "Helper called by 5 drivers (Marry, Pact among them). TBD." }
+"0xCB5E" = { name = "min_word",            comment = "Tiny 11-instruction function: min(arg1, arg2) as signed words. Returns smaller of the two via cmp_slt + branch. The cap mechanism behind 'morale caps at koku', 'dams cap at 100', etc. Heavily used by the field-cap-sweep at $D836 and by command-post-cleanups (Build, Grow, etc. — anywhere a stat needs to be clamped to a ceiling)." }
+"0xD351" = { name = "ui_helper_d351",      comment = "Helper called by 4 drivers (Hire — chapter 11 notes the Men/Ninja type prompt routes through this). Candidate: 2-choice prompt." }
+"0xCD20" = { name = "ui_helper_cd20",      comment = "Helper called by 3 drivers. TBD." }
+"0xCA52" = { name = "rng_mod",             comment = "rng_next() mod arg1. 6-instruction bytecode wrapper: bails with 0 if arg1<1, else calls rng_next_wrapper ($CA46), then mod_signed by arg1. Returns 0..arg1-1 if rng is positive. Used by Train (X=ca52(20) for skill gain, Y=ca52(10) for Luck/IQ bonus check), and likely Marry too." }
+"0xCA46" = { name = "rng_next_wrapper",    comment = "3-instruction wrapper around syscall #17 (syscall_rng_next at $C1C3). Pushes 17 via op_8D_sbyte, fires syscall_dispatch, returns the 16-bit pseudo-random value. The bytecode-accessible entry point to the game's RNG." }
+"0xDAD7" = { name = "combat_helper_dad7",  comment = "Helper called by Move + War. Combat/military pre-roll." }
+"0xDD3A" = { name = "combat_helper_dd3a",  comment = "Helper called by Move + War. Combat/military pre-roll." }
+"0xD972" = { name = "war_helper_d972",     comment = "Helper called only by War. Combat-prep." }
+"0xE3A4" = { name = "diplomacy_helper",    comment = "Diplomacy subsystem helper. Called by Pact (chapter 11)." }
+"0xDA4F" = { name = "diplomacy_helper2",   comment = "Second diplomacy subsystem helper called by Pact." }
+"0xDA7D" = { name = "diplomacy_helper3",   comment = "Diplomacy helper called by Marry." }
+"0xE4DC" = { name = "marry_helper_e4dc",   comment = "Marry-specific helper." }
+"0xE315" = { name = "marry_helper_e315",   comment = "Marry-specific helper." }
+"0xE76F" = { name = "marry_helper_e76f",   comment = "Marry-specific helper." }
+"0xCC35" = { name = "marry_helper_cc35",   comment = "Marry-specific helper." }
+"0xCC69" = { name = "trade_helper_cc69",   comment = "Trade-specific helper." }
+"0xDB35" = { name = "ui_helper_db35",      comment = "Sub-handler helper." }
+"0xDB12" = { name = "tax_helper_db12",     comment = "Tax-specific helper." }
+"0xD759" = { name = "ui_helper_d759",      comment = "Helper called by 3 drivers." }
+"0xD772" = { name = "ui_helper_d772",      comment = "Helper called by 2 drivers." }
+"0xE5F2" = { name = "map_helper_e5f2",     comment = "Map-rendering helper called by Map (chapter 11)." }
+"0xC4DC" = { name = "ui_unused",           comment = "Reserved." }
+
+
+# ============================================================================
+# PRG-ROM bank 1 — the lord-command menu engine (chapters 9-11, this session)
+# ============================================================================
+# Bank 1 holds the entire lord-command menu surface: 21 command drivers + 13
+# sub-handlers (the $B9B2 driver table is 34 entries), the 28 effect handlers,
+# and the bank-1-local shared helpers ($871E, $804C, etc.). Plus the few small
+# native helpers Grow's effect calls into ($87F0's $D6B8/$D6DE etc. are bank-15,
+# but the drivers themselves live entirely in bank 1).
+
+[prg.bank1]
+
+# --- The command driver table ---
+"0xB9B2" = { name = "command_driver_table", comment = "34-entry pointer table — entry N points to the bytecode subroutine that drives menu command N+1. Entries 0-20 are the 21 lord commands, 21-33 are sub-handlers reachable from within those drivers. See command-table.txt for the full listing. Chapter 9's foundational find." }
+
+# --- The 21 command drivers (in-game menu order) ---
+"0x96D1" = { name = "driver_move",          comment = "Command 1 (Move) driver. Relocate troops between own provinces. Calls effect_move ($8CA5) after capacity-check, dest-pick, count-input, lead-personally prompt. Chapter 11." }
+"0x9850" = { name = "driver_war",           comment = "Command 2 (War) driver. Launch an attack. Heaviest single driver (154 insns, 19 unique host_call targets). Calls six combat-prep effect handlers ($81FC, $9323, $933A, $9351, $9368, $9814) plus the standard select/prompt cluster. Chapter 11." }
+"0x999A" = { name = "driver_tax",           comment = "Command 3 (Tax) driver. Set tax rate. Calls effect_tax ($82D6) twice — once after the rate input, once for the peasantry-reaction result. Chapter 11." }
+"0x9A5D" = { name = "driver_send",          comment = "Command 4 (Send) driver. Transfer rice/gold between own provinces. Calls effect_send ($8BE5). Chapter 11." }
+"0x9B7E" = { name = "driver_dam",           comment = "Command 5 (Dam) driver. Build dam infrastructure to raise output. Calls effect_dam ($87D8) and helper_dam_rounding ($887D). Two-effect command. Chapter 10 + 11." }
+"0x9C4F" = { name = "driver_pact",          comment = "Command 6 (Pact) driver. Form a non-aggression pact. Diplomacy subsystem. Chapter 11." }
+"0x9D3D" = { name = "driver_grow",          comment = "Command 7 (Grow) driver. Raise province output. The fully-traced reference command (Chapter 9). Driver handles the cost (debits gold from province) and silent preconditions (header >= output blocks; gold == 0 blocks). Calls effect_grow ($87F0) for the actual stat changes." }
+"0x9DC4" = { name = "driver_marry",         comment = "Command 8 (Marry) driver. Alliance by marriage. Costs gold (demanded by target), outcome not guaranteed. Chapter 11." }
+"0xA1B6" = { name = "driver_trade",         comment = "Command 9 (Trade) driver. Trade with a passing merchant. Calls effect_trade ($8A15). Requires a merchant present. Chapter 11." }
+"0xA5F4" = { name = "driver_hire",          comment = "Command 10 (Hire) driver. Recruit Men or Ninja. Thin driver — substance is in effect_hire ($A2D2). Chapter 11." }
+"0xA637" = { name = "driver_train",         comment = "Command 11 (Train) driver. Raise lord's skill against a header-derived cap. Calls effect_train ($9586). Chapter 10 + 11." }
+"0xA6C7" = { name = "driver_view",          comment = "Command 12 (View) driver. Inspect a fief; spy on others (costs gold, can fail). Heaviest non-War driver (189 insns). Calls FOUR effect handlers ($83FA, $85A7, $85EA, $A6B3) — different sub-behaviors. Chapter 11." }
+"0xA853" = { name = "driver_build",         comment = "Command 13 (Build) driver. Raise province town. Same prompt-and-apply shape as Grow. Calls effect_build ($88A6). Chapter 10 + 11. THIS SESSION: effect walked side-by-side with Grow as structural diff." }
+"0xAA1F" = { name = "driver_give",          comment = "Command 14 (Give) driver. Charity → loyalty/morale. Touches the MOST province fields of any command — calls THREE effect handlers ($A93A, $A95E, $A9D5). Chapter 11." }
+"0xAAAE" = { name = "driver_bribe",         comment = "Command 15 (Bribe) driver. Bribe a target's fields. Chapter 11." }
+"0xAD67" = { name = "driver_assign",        comment = "Command 16 (Assign) driver. Place a retainer. Calls effect_assign ($AC11). Chapter 10 + 11." }
+"0xADB3" = { name = "driver_rest",          comment = "Command 17 (Rest) driver. Skip turns to recover (health/age interplay). Chapter 11." }
+"0xAF38" = { name = "driver_map",           comment = "Command 18 (Map) driver. Render the strategic map. 18 instructions, no prompt, no cost — pure display. Calls map_helper_e5f2 + $AF10. Chapter 11." }
+"0xAF66" = { name = "driver_grant",         comment = "Command 19 (Grant) driver. Set a province's policy state. Chapter 11." }
+"0xB23E" = { name = "driver_other",         comment = "Command 20 (Other) driver — settings/save menu. Chapter 11." }
+"0xB2A1" = { name = "driver_pass",          comment = "Command 21 (Pass) driver. End the turn. Five instructions. Chapter 11." }
+
+# --- Sub-handlers (driver-table indices 21-33) ---
+"0x9F04" = { name = "subhandler_9F04",      comment = "Driver-table index 21. Probably reached from Other/save menu. Calls effect_subhandler_9F04 ($8B40)." }
+"0x9FAF" = { name = "subhandler_9FAF",      comment = "Driver-table index 22." }
+"0xA003" = { name = "subhandler_A003",      comment = "Driver-table index 23. Calls effect_subhandler_A003 ($8B0A)." }
+"0xA068" = { name = "subhandler_A068",      comment = "Driver-table index 24." }
+"0xA113" = { name = "subhandler_A113",      comment = "Driver-table index 25. Calls effect_subhandler_A113 ($A0ED)." }
+"0xA1AF" = { name = "subhandler_A1AF",      comment = "Driver-table indices 26 and 33 (appears twice). Tiny stub (frame_off=0, body starts with `40 CF` = clearA + vm_return) — effectively a no-op slot." }
+"0xB066" = { name = "subhandler_B066",      comment = "Driver-table index 27." }
+"0xB09D" = { name = "subhandler_B09D",      comment = "Driver-table index 28." }
+"0xB0D2" = { name = "subhandler_B0D2",      comment = "Driver-table index 29." }
+"0xB109" = { name = "subhandler_B109",      comment = "Driver-table index 30." }
+"0xB12B" = { name = "subhandler_B12B",      comment = "Driver-table index 31." }
+"0xB14B" = { name = "subhandler_B14B",      comment = "Driver-table index 32." }
+
+# --- The 28 EFFECT handlers (each called by exactly one driver) ---
+# These are where the arithmetic lives. Driver does UI + preconditions + cost
+# debit; effect does the stat math. Names follow command_effect_NAME convention.
+"0x87F0" = { name = "effect_grow",          comment = "Grow effect (chapter 9 reference decode). Args: arg1=record_ptr, arg2=gold_amount. Spine: guard amount<1; sqrt(output+amount); -2 (const_two); $D6B8 32-bit math; <<1; clamp to (header-output) headroom; flat-100 branch if gain/2>output else $D6DE refinement; $D70D drain LOYALTY; $D70D drain DAMS; output += gain. Returns gain/2 for driver to display." }
+"0x88A6" = { name = "effect_build",         comment = "Build effect (this session, structural diff against effect_grow). Same five-phase shape. Differences: operates on TOWN (record+4) not OUTPUT, headroom is header-TOWN, drains WEALTH (record+14) not LOYALTY/DAMS, has a secondary TOWN bump via helper_dam_rounding ($887D)." }
+"0x87D8" = { name = "effect_dam",           comment = "Dam effect (primary). Two-step command — driver calls this AND helper_dam_rounding ($887D)." }
+"0x887D" = { name = "helper_dam_rounding",  comment = "Secondary effect used by both driver_dam and effect_build. Does integer-divide-with-rounding-up, then `field += quotient`, then calls $82AC. Produces the 'capped add' increment on top of the main sqrt-driven gain. Used twice on the lord-command menu — anywhere there's a layered increment." }
+"0x82D6" = { name = "effect_tax",           comment = "Tax effect. Called twice from driver_tax — once for the rate-set, once for the peasantry-reaction result message (protesting/delighted)." }
+"0x8BE5" = { name = "effect_send",          comment = "Send effect. Apply rice/gold transfer between own provinces." }
+"0x8CA5" = { name = "effect_move",          comment = "Move effect. Apply troop relocation between own provinces." }
+"0x8A15" = { name = "effect_trade",         comment = "Trade effect (buy/sell with merchant)." }
+"0xA2D2" = { name = "effect_hire",          comment = "Hire effect (recruit Men or Ninja). Chapter 11 notes 'the substance is in the callee' — this is the substance." }
+"0x9586" = { name = "effect_train",         comment = "Train effect. Raises lord skill against header-derived cap. Chapter 10." }
+"0x8D4D" = { name = "effect_bribe",         comment = "Bribe effect. Like Grow but pointed at a target's fields." }
+"0xAC11" = { name = "effect_assign",        comment = "Assign effect. Places a retainer." }
+"0x83FA" = { name = "effect_view_a",        comment = "View effect, variant A (4 sub-effects total for View — own vs others, spy variants)." }
+"0x85EA" = { name = "effect_view_b",        comment = "View effect, variant B." }
+"0x85A7" = { name = "effect_view_c",        comment = "View effect, variant C." }
+"0xA6B3" = { name = "effect_view_d",        comment = "View effect, variant D." }
+"0xA93A" = { name = "effect_give_a",        comment = "Give effect, variant A (Give touches the most fields — 3 sub-effects)." }
+"0xA95E" = { name = "effect_give_b",        comment = "Give effect, variant B." }
+"0xA9D5" = { name = "effect_give_c",        comment = "Give effect, variant C." }
+"0x81FC" = { name = "effect_war_a",         comment = "War effect, variant A (6 combat-prep effects total)." }
+"0x9323" = { name = "effect_war_combat_prep_a", comment = "War combat-prep subroutine A (chapter 11)." }
+"0x933A" = { name = "effect_war_combat_prep_b", comment = "War combat-prep subroutine B." }
+"0x9351" = { name = "effect_war_combat_prep_c", comment = "War combat-prep subroutine C." }
+"0x9368" = { name = "effect_war_combat_prep_d", comment = "War combat-prep subroutine D." }
+"0x9814" = { name = "effect_war_e",         comment = "War effect, variant E." }
+"0x8B0A" = { name = "effect_subhandler_A003", comment = "Effect called by subhandler_A003." }
+"0x8B40" = { name = "effect_subhandler_9F04", comment = "Effect called by subhandler_9F04." }
+"0xA0ED" = { name = "effect_subhandler_A113", comment = "Effect called by subhandler_A113." }
+
+# --- Top SHARED bank-1 helpers (the lord-menu substrate) ---
+"0x804C" = { name = "province_select_prompt", comment = "Province selection prompt — 'select a fief' picker. Called by 7 drivers (Move, War, Send, Pact, Marry, View, Bribe). Returns the selected province index, typically into selected_province_idx ($6F5F)." }
+"0x879F" = { name = "province_select_helper", comment = "Companion to province_select_prompt. Called by the same 7 drivers immediately before/after the prompt. Probably an initialization or post-pick state mutation." }
+"0x871E" = { name = "fief_info_display",    comment = "Renders a fief's stat panel. Called by 3 drivers. Body at $8740-ish is a 12-iteration loop that calls $CEC4 (redraw_window) and $D134 per pass — the 12 visible province stats." }
+"0x87CB" = { name = "helper_87CB",          comment = "Helper called by 3 drivers." }
+"0x8B8F" = { name = "helper_8B8F",          comment = "Helper called by 2 drivers (Pact, Marry)." }
+"0xB1A6" = { name = "submenu_prompt",       comment = "Submenu prompt. Called by Trade (buy/sell) and others. The 'pick from a few options' primitive." }
+"0x82AC" = { name = "helper_82AC",          comment = "Helper called by 4 drivers. Tail of helper_dam_rounding." }
+"0x8357" = { name = "helper_8357",          comment = "Helper called by 4 drivers." }
+"0x8A4E" = { name = "helper_8A4E",          comment = "Helper called by 4 drivers." }
+"0x83C7" = { name = "helper_83C7",          comment = "Helper called by 2 drivers." }
+"0xAF10" = { name = "map_helper_af10",      comment = "Helper called by 2 drivers (Map)." }
+
+# Harvest / season-end stat cap sweep
+"0xD836" = { name = "cap_fief_stats",       comment = "Generic per-fief stat-cap sweep. Args: arg1 = fief idx. Loops over 12 fields (gold..arms at offsets 0,2,...,22), caps each at header via min_word ($CB5E), forces negatives to 0. Post-loop: special dams cap at 100. Called from bank 0 by the season-turnover code (3 sites at $A2CF/$A4A0/$A74C) AND from bank 1 by command-post-cleanups (5+ sites). This is NOT the income-add code — it's the cleanup pass that runs before and after income is added." }

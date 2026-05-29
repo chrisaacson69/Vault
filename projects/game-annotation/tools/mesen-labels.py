@@ -37,7 +37,10 @@ import json
 import os
 import shutil
 import sys
-import tomllib
+try:
+    import tomllib
+except ModuleNotFoundError:
+    import tomli as tomllib
 from pathlib import Path
 
 DEFAULT_MESEN_DEBUGGER_GLOB = (
@@ -45,7 +48,7 @@ DEFAULT_MESEN_DEBUGGER_GLOB = (
 )
 
 
-def find_default_workspace(rom_name: str) -> Path | None:
+def find_default_workspace(rom_name: str):
     """Search the standard WinGet install location for the workspace JSON."""
     local_appdata = os.environ.get("LOCALAPPDATA")
     if not local_appdata:

@@ -13,6 +13,9 @@ Two traversal modes:
     subroutine. This is the mode you want for reading a real handler.
   - linear (--linear): the original straight walk. Useful for dumping a raw
     region when you don't trust the entry point or want to see data.
+  - bulk (--dump-bank N): scan a whole bank for the `20 23 E8` (JSR vm_entry)
+    bytecode-subroutine signature, flow-walk each entry, and emit one combined
+    listing. The chapter-6 cache for "every subroutine in this bank, decoded."
 
 The opcode spec (vm-opcodes.toml) gives each opcode its operand format and an
 optional `flow` field:
@@ -26,7 +29,8 @@ optional `flow` field:
 
 Usage:
     python vm-disasm.py <rom> <opcode-spec.toml> [--start ADDR] [--bank N]
-                        [--length N] [--max-insns N] [--labels FILE] [--linear]
+                        [--length N] [--max-insns N] [--labels FILE]
+                        [--linear | --dump-bank N] [--output FILE]
 """
 
 import argparse
@@ -76,7 +80,12 @@ def load_opcode_spec(path: Path) -> dict:
 
 
 def load_labels(path: Path) -> dict[int, str]:
-    """Read mesen-labels.toml; return cpu_addr -> name for PRG (code) labels."""
+    """Read mesen-labels.toml; return addr -> name for PRG (code) and RAM labels.
+
+    PRG labels resolve addresses appearing as host_call targets and branch
+    destinations. RAM labels resolve addresses appearing as loadA/B_mem_*
+    and storeA/B_mem_* operands (the SRAM/zero-page reads in handler bodies).
+    """
     out = {}
     with path.open("rb") as f:
         cfg = tomllib.load(f)
@@ -84,6 +93,9 @@ def load_labels(path: Path) -> dict[int, str]:
         for hex_key, info in entries.items():
             addr = int(hex_key, 16)
             out[addr] = info["name"]
+    for hex_key, info in cfg.get("ram", {}).items():
+        addr = int(hex_key, 16)
+        out.setdefault(addr, info["name"])
     return out
 
 
@@ -370,6 +382,151 @@ def disasm_linear(rom, start_cpu_addr, bank, length, handlers, op_lookup, labels
     return lines
 
 
+def find_subroutine_entries(rom: bytes, bank: int) -> list[int]:
+    """Scan a bank for the `20 23 E8` (JSR vm_entry) stub. Returns CPU addrs
+    of stub starts, sorted. Bytecode bodies begin at stub+5.
+
+    False positives are possible in data regions (string tables, etc.) — the
+    multi-seed walker decodes each but the caller can prune by inspection.
+    """
+    lo, hi = bank_range(bank)
+    base_prg = bank * PRG_BANK_SIZE
+    sig = BYTECODE_SUB_SIGNATURE
+    out = []
+    end = min(len(rom), base_prg + PRG_BANK_SIZE) - 5
+    for prg in range(base_prg, end):
+        if rom[prg:prg + 3] == sig:
+            cpu = lo + (prg - base_prg)
+            out.append(cpu)
+    return out
+
+
+def disasm_multi_seed(rom, seeds, bank, op_lookup, handlers, labels,
+                      max_insns_per_seed):
+    """Flow-walk from many entry points, accumulate decoded instructions,
+    render in address order with per-subroutine separators.
+
+    `seeds` is a list of stub CPU addresses (where `20 23 E8` lives). Bytecode
+    bodies start at stub+5; the stub bytes themselves are rendered as a
+    `; --- sub $XXXX (frame_off=$YYYY) ---` header instead of decoded as opcodes.
+    """
+    lo, hi = bank_range(bank)
+    decoded = {}             # cpu_addr -> info dict
+    branch_targets = set()
+    call_targets = []
+    entry_set = set(seeds)
+    frame_offs = {}          # stub_addr -> signed frame offset
+    sub_starts = set()       # bytecode body addresses (stub + 5)
+
+    # Pre-register stub frame offsets and seed the worklist with each body.
+    worklist = []
+    queued = set()
+    for stub in seeds:
+        prg = cpu_to_prg_offset(stub, bank)
+        if prg + 5 > len(rom):
+            continue
+        raw_off = rom[prg + 3] | (rom[prg + 4] << 8)
+        if raw_off >= 0x8000:
+            raw_off -= 0x10000
+        frame_offs[stub] = raw_off
+        body = stub + 5
+        sub_starts.add(body)
+        if body not in queued:
+            queued.add(body)
+            worklist.append((body, stub))
+
+    while worklist:
+        pc, owning_sub = worklist.pop()
+        insns_in_walk = 0
+        while True:
+            if pc in decoded:
+                break
+            if not (lo <= pc <= hi):
+                break
+            # Don't decode through another subroutine's stub — stop here so
+            # the next sub gets its own header on the next outer iteration.
+            if pc in entry_set:
+                break
+            prg = cpu_to_prg_offset(pc, bank)
+            if prg >= len(rom):
+                break
+            op = rom[prg]
+            spec = op_lookup.get(op)
+            info = decode_instruction(rom, prg, pc, op, spec, bank, handlers, labels)
+            decoded[pc] = info
+            insns_in_walk += 1
+            if insns_in_walk >= max_insns_per_seed:
+                break
+
+            flow = info["flow"]
+            if info["call_target"] is not None:
+                call_targets.append((pc, info["call_target"]))
+
+            if flow == "return" or flow == "switch":
+                break
+            if flow in ("jump_rel", "jump_abs"):
+                tgt = info["target"]
+                if tgt is not None and lo <= tgt <= hi:
+                    branch_targets.add(tgt)
+                    if tgt not in queued and tgt not in decoded:
+                        queued.add(tgt)
+                        worklist.append((tgt, owning_sub))
+                break
+            if flow in ("branch_rel", "branch_abs"):
+                tgt = info["target"]
+                if tgt is not None and lo <= tgt <= hi:
+                    branch_targets.add(tgt)
+                    if tgt not in queued and tgt not in decoded:
+                        queued.add(tgt)
+                        worklist.append((tgt, owning_sub))
+            pc = pc + info["consume"]
+
+    # --- render ---
+    lines = []
+    addrs = sorted(decoded)
+    prev_end = None
+    current_sub = None
+    for a in addrs:
+        # If this address is a known subroutine body start, emit a header
+        # (and a gap-marker if we skipped over the stub).
+        if a in sub_starts:
+            stub = a - 5
+            off = frame_offs.get(stub, 0)
+            if prev_end is not None and prev_end != stub:
+                if a > prev_end:
+                    lines.append("")
+                    lines.append(f"  ; ---- gap ${prev_end:04X}-${stub-1:04X} "
+                                 f"({stub - prev_end} bytes, not on any traced path) ----")
+            lines.append("")
+            lines.append(f"; ============================================================")
+            label = f" ({labels[stub]})" if stub in labels else ""
+            lines.append(f"; sub ${stub:04X}{label}   "
+                         f"(frame_off={off:+d}, body @ ${a:04X})")
+            lines.append(f"; ============================================================")
+            current_sub = stub
+            prev_end = stub + 5     # we logically consumed the 5-byte stub
+        if prev_end is not None and a != prev_end:
+            if a > prev_end:
+                lines.append(f"  ; ---- gap ${prev_end:04X}-${a-1:04X} "
+                             f"({a - prev_end} bytes, not on any traced path) ----")
+            else:
+                lines.append(f"  ; ---- overlap: ${a:04X} re-entered mid-stream ----")
+        info = decoded[a]
+        marker = ">" if a in branch_targets else " "
+        lines.append(f" {marker}${a:04X}  {info['line']}")
+        prev_end = a + info["consume"]
+
+    known = sum(1 for a in addrs if not decoded[a]["is_unknown"])
+    unknown = len(addrs) - known
+    lines.append("")
+    lines.append(f"; ==== summary ====")
+    lines.append(f"; {len(seeds)} subroutines scanned; {len(addrs)} instructions decoded "
+                 f"({known} known + {unknown} unknown opcodes)")
+    lines.append(f"; {len(branch_targets)} branch targets, "
+                 f"{len(set(t for _, t in call_targets))} unique host_call targets")
+    return lines
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Disassemble Nobunaga VM bytecode.")
     parser.add_argument("rom", type=Path, help="ROM file (.nes)")
@@ -385,6 +542,11 @@ def main() -> int:
                         help="mesen-labels.toml for friendly address rendering")
     parser.add_argument("--linear", action="store_true",
                         help="Use the old straight-line walk instead of flow following")
+    parser.add_argument("--dump-bank", type=int, default=None, metavar="N",
+                        help="Scan bank N for `20 23 E8` subroutine stubs and "
+                             "flow-walk each one into a single combined listing")
+    parser.add_argument("--output", type=Path, default=None,
+                        help="Write listing to this file instead of stdout")
     args = parser.parse_args()
 
     rom = load_rom(args.rom)
@@ -392,24 +554,44 @@ def main() -> int:
     op_lookup = load_opcode_spec(args.opcode_spec)
     labels = load_labels(args.labels) if args.labels else {}
 
-    mode = "linear" if args.linear else "flow (control-flow following)"
-    print(f"VM bytecode disassembly")
-    print(f"  ROM:          {args.rom}  ({len(rom)} bytes after header)")
-    print(f"  start:        ${args.start:04X} (bank {args.bank}, "
-          f"PRG ${cpu_to_prg_offset(args.start, args.bank):05X})")
-    print(f"  mode:         {mode}")
-    print(f"  opcode spec:  {args.opcode_spec} ({len(op_lookup)} of 256 opcodes defined)")
-    print(f"  labels:       {len(labels)} CPU addresses named")
-    print()
+    if args.dump_bank is not None:
+        mode = f"bulk dump of bank {args.dump_bank}"
+    elif args.linear:
+        mode = "linear"
+    else:
+        mode = "flow (control-flow following)"
 
-    if args.linear:
+    header = []
+    header.append(f"VM bytecode disassembly")
+    header.append(f"  ROM:          {args.rom}  ({len(rom)} bytes after header)")
+    if args.dump_bank is None:
+        header.append(f"  start:        ${args.start:04X} (bank {args.bank}, "
+                      f"PRG ${cpu_to_prg_offset(args.start, args.bank):05X})")
+    header.append(f"  mode:         {mode}")
+    header.append(f"  opcode spec:  {args.opcode_spec} "
+                  f"({len(op_lookup)} of 256 opcodes defined)")
+    header.append(f"  labels:       {len(labels)} CPU addresses named")
+    header.append("")
+
+    if args.dump_bank is not None:
+        seeds = find_subroutine_entries(rom, args.dump_bank)
+        header.append(f"  bank {args.dump_bank}: found {len(seeds)} bytecode-subroutine stubs")
+        header.append("")
+        lines = disasm_multi_seed(rom, seeds, args.dump_bank, op_lookup,
+                                  handlers, labels, args.max_insns)
+    elif args.linear:
         lines = disasm_linear(rom, args.start, args.bank, args.length,
                               handlers, op_lookup, labels)
     else:
         lines = disasm_flow(rom, args.start, args.bank, op_lookup,
                             handlers, labels, args.max_insns)
-    for line in lines:
-        print(line)
+
+    out_text = "\n".join(header + lines) + "\n"
+    if args.output:
+        args.output.write_text(out_text, encoding="utf-8")
+        print(f"wrote {len(out_text):,} bytes to {args.output}")
+    else:
+        sys.stdout.write(out_text)
     return 0
 
 

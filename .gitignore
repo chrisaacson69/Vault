@@ -19,3 +19,8 @@ youtubeuploader.exe
 # Node dependencies and build output (eleventy)
 node_modules/
 _site/
+
+# Emulator trace dumps — multi-hundred-MB, regenerable, exceed GitHub's 100MB limit
+# (small .dmp SRAM snapshots in traces/ are kept)
+projects/game-annotation/nobunaga/traces/*.txt
+projects/game-annotation/nobunaga/traces/*.gz

@@ -1,0 +1,435 @@
+# NOBUNAGA VM OPCODE TABLE (authoritative)
+#
+# Source: nesdev.org forum thread t=15931 (page 2 has the complete table).
+# Cross-checked against Nobunaga's $F026/$F126 dispatch table handlers.
+# Same VM is used in Koei MMC1 games (Nobunaga, Genghis Khan, RoTK, FTM)
+# and MMC5 games (Bandit Kings, L'Empereur) — VM core is identical, only
+# the syscall dispatcher differs by mapper.
+#
+# Register conventions (per nesdev architecture doc):
+#   $00     - 16-bit temporary
+#   $02     - VM stack pointer (descending, starts $05FF)
+#   $04     - VM frame pointer
+#   $06     - VM instruction pointer (PC)
+#   $08     - regL (left register, 16/32-bit, arithmetic destination)
+#   $0C     - regR (right register, 16/32-bit, arithmetic source)
+#   $10     - 32-bit temporary
+#
+# Frame layout (descending stack):
+#   fp+17/+15/+13/+11 = args 4/3/2/1
+#   fp+9/+6/+4/+2/+0  = saved IP/FP/SP/return
+#   fp-2/-4/.../-24   = locals 1..12
+
+# ======================================================================
+# QUICK GROUP ($00-$7F) — operand in low nibble (0-15)
+# ======================================================================
+
+[op_00]   # $00-$0F
+mnemonic = "LOADL_quick"
+description = "regL = word at frame[fast(opcode)]; codes 0-B = locals 12..1, codes C-F = args 1..4"
+verified = true
+
+[op_10]   # $10-$1F
+mnemonic = "LOADR_quick"
+description = "regR = word at frame[fast(opcode)]; codes 0-B = locals 12..1, codes C-F = args 1..4"
+verified = true
+
+[op_20]   # $20-$2F
+mnemonic = "STORE_quick"
+description = "word at frame[fast(opcode)] = regL"
+verified = true
+
+[op_30]   # $30-$3F
+mnemonic = "PUSH_quick"
+description = "push word at frame[fast(opcode)]"
+verified = true
+
+[op_40]   # $40-$4F
+mnemonic = "LOADL_qimm"
+description = "regL = (opcode & 0x0F) — value 0..15"
+verified = true
+
+[op_50]   # $50-$5F
+mnemonic = "LOADR_qimm"
+description = "regR = (opcode & 0x0F)"
+verified = true
+
+[op_60]   # $60-$6F
+mnemonic = "PUSH_qimm"
+description = "push (opcode & 0x0F)"
+verified = true
+
+[op_70]   # $70-$7F
+mnemonic = "ADD_qimm"
+description = "regL += (opcode & 0x0F)"
+verified = true
+
+# ======================================================================
+# WORD LOAD/STORE/PUSH ($80-$88) — near/far/imm
+# ======================================================================
+
+[op_80]
+mnemonic = "ILLEGAL"
+verified = true
+
+[op_81]
+mnemonic = "LOADL_near"
+description = "regL = word at frame[+signed_byte]"
+
+[op_82]
+mnemonic = "LOADL_far"
+description = "regL = word at frame[+signed_word]"
+
+[op_83]
+mnemonic = "LOADR_near"
+description = "regR = word at frame[+signed_byte]"
+
+[op_84]
+mnemonic = "LOADR_far"
+description = "regR = word at frame[+signed_word]"
+
+[op_85]
+mnemonic = "STORE_near"
+description = "word at frame[+signed_byte] = regL  (CONFIRMED: handler $EA61)"
+verified = true
+
+[op_86]
+mnemonic = "STORE_far"
+description = "word at frame[+signed_word] = regL"
+
+[op_87]
+mnemonic = "PUSH_near"
+description = "push word at frame[+signed_byte]"
+
+[op_88]
+mnemonic = "PUSH_far"
+description = "push word at frame[+signed_word]"
+
+# ======================================================================
+# IMMEDIATES ($89-$90)
+# ======================================================================
+
+[op_89]
+mnemonic = "BYTE_LOADL_imm1"
+description = "regL = sign-extended byte from bytecode"
+
+[op_8A]
+mnemonic = "LOADL_imm2"
+description = "regL = word from bytecode"
+
+[op_8B]
+mnemonic = "BYTE_LOADR_imm1"
+
+[op_8C]
+mnemonic = "LOADR_imm2"
+description = "regR = word from bytecode"
+
+[op_8D]
+mnemonic = "BYTE_PUSH_imm1"
+
+[op_8E]
+mnemonic = "PUSH_imm2"
+description = "push word from bytecode"
+
+[op_8F]
+mnemonic = "BYTE_ADD_imm1"
+description = "regL += sign-extended byte"
+
+[op_90]
+mnemonic = "ADD_imm2"
+description = "regL += word from bytecode"
+
+# ======================================================================
+# BYTE FAR ($A0-$A3)
+# ======================================================================
+
+[op_A0]
+mnemonic = "BYTE_LOADL_far"
+description = "regL = (byte at frame[+signed_word], zero-extended)"
+
+[op_A1]
+mnemonic = "BYTE_LOADR_far"
+
+[op_A2]
+mnemonic = "BYTE_STORE_far"
+description = "byte at frame[+signed_word] = regL low byte"
+
+[op_A3]
+mnemonic = "BYTE_PUSH_far"
+
+# ======================================================================
+# ABSOLUTE ADDRESSING ($A4-$AB) — the previously-misclassified group
+# ======================================================================
+
+[op_A4]
+mnemonic = "LOADL_abs"
+description = "regL = word at absolute address"
+verified = true
+
+[op_A5]
+mnemonic = "BYTE_LOADL_abs"
+description = "regL = (byte at absolute address, zero-extended)"
+
+[op_A6]
+mnemonic = "LOADR_abs"
+description = "regR = word at absolute address"
+verified = true
+
+[op_A7]
+mnemonic = "BYTE_LOADR_abs"
+
+[op_A8]
+mnemonic = "STORE_abs"
+description = "word at absolute address = regL  (THIS IS THE KEY ONE — old disasm called it loadA_mem_word, which was WRONG)"
+verified = true
+
+[op_A9]
+mnemonic = "BYTE_STORE_abs"
+description = "byte at absolute address = regL low byte"
+
+[op_AA]
+mnemonic = "PUSH_abs"
+description = "push word from absolute address"
+verified = true
+
+[op_AB]
+mnemonic = "BYTE_PUSH_abs"
+
+# ======================================================================
+# CALL/COPY/UNSTACK ($AC-$AF)
+# ======================================================================
+
+[op_AC]
+mnemonic = "CALL_abs"
+description = "Call subroutine at absolute address"
+
+[op_AD]
+mnemonic = "COPY_imm2"
+description = "TBD - some 2-word immediate copy"
+
+[op_AE]
+mnemonic = "UNSTACK_imm1"
+description = "sp += byte"
+
+[op_AF]
+mnemonic = "UNSTACK_imm2"
+description = "sp += word"
+
+# ======================================================================
+# STACK + ARITHMETIC ($B0-$BF)
+# ======================================================================
+
+[op_B0]
+mnemonic = "DEREF"
+description = "regL = word at [regL]"
+
+[op_B1]
+mnemonic = "POPSTORE"
+description = "regR = pop; word at [regR] = regL"
+
+[op_B2]
+mnemonic = "NOP"
+
+[op_B3]
+mnemonic = "PUSHL"
+description = "push regL"
+
+[op_B4]
+mnemonic = "POPR"
+description = "regR = pop"
+
+[op_B5]
+mnemonic = "MULT"
+description = "regL *= regR"
+
+[op_B6]
+mnemonic = "SDIV"
+description = "regL = (signed) regL / regR"
+
+[op_B7]
+mnemonic = "LONG"
+description = "Prefix for 32-bit operations; next byte selects the 32-bit op (47 of them, see $B700-$B72F)"
+
+[op_B8]
+mnemonic = "UDIV"
+
+[op_B9]
+mnemonic = "SMOD"
+
+[op_BA]
+mnemonic = "UMOD"
+
+[op_BB]
+mnemonic = "ADD"
+description = "regL += regR"
+
+[op_BC]
+mnemonic = "SUB"
+description = "regL -= regR"
+
+[op_BD]
+mnemonic = "LSHIFT"
+description = "regL <<= regR"
+
+[op_BE]
+mnemonic = "URSHIFT"
+description = "regL = (unsigned) regL >> regR"
+
+[op_BF]
+mnemonic = "SRSHIFT"
+description = "regL = (signed) regL >> regR"
+
+# ======================================================================
+# COMPARISONS + UNARY ($C0-$CF)
+# ======================================================================
+
+[op_C0]
+mnemonic = "CMPEQ"
+
+[op_C1]
+mnemonic = "CMPNE"
+
+[op_C2]
+mnemonic = "SCMPLT"
+
+[op_C3]
+mnemonic = "SCMPLE"
+
+[op_C4]
+mnemonic = "SCMPGT"
+
+[op_C5]
+mnemonic = "SCMPGE"
+
+[op_C6]
+mnemonic = "UCMPLT"
+
+[op_C7]
+mnemonic = "UCMPLE"
+
+[op_C8]
+mnemonic = "UCMPGT"
+
+[op_C9]
+mnemonic = "UCMPGE"
+
+[op_CA]
+mnemonic = "NOT"
+
+[op_CB]
+mnemonic = "MINUS"
+description = "regL = -regL"
+
+[op_CC]
+mnemonic = "COMPL"
+description = "regL = ~regL"
+
+[op_CD]
+mnemonic = "SWAP"
+
+[op_CE]
+mnemonic = "ILLEGAL"
+
+[op_CF]
+mnemonic = "RETURN"
+description = "VM subroutine return; restore caller IP/FP/SP from frame"
+
+# ======================================================================
+# INC/DEC/JUMPS ($D0-$DF)
+# ======================================================================
+
+[op_D0]
+mnemonic = "INC"
+
+[op_D1]
+mnemonic = "DEC"
+
+[op_D2]
+mnemonic = "LSHIFT1"
+description = "regL <<= 1"
+
+[op_D3]
+mnemonic = "BYTE_DEREF"
+description = "regL = byte at [regL], zero-extended"
+
+[op_D4]
+mnemonic = "BYTE_POPSTORE"
+description = "regR = pop; byte at [regR] = regL low byte  (this is what writes $6FF4/$6FF5)"
+verified = true
+
+[op_D5]
+mnemonic = "SWITCH_contiguous"
+
+[op_D6]
+mnemonic = "JUMP_abs"
+
+[op_D7]
+mnemonic = "JUMPT_abs"
+description = "If regL != 0: PC = abs"
+verified = true
+
+[op_D8]
+mnemonic = "JUMPF_abs"
+description = "If regL == 0: PC = abs"
+verified = true
+
+[op_D9]
+mnemonic = "SWITCH_noncontiguous"
+
+[op_DA]
+mnemonic = "AND"
+
+[op_DB]
+mnemonic = "OR"
+
+[op_DC]
+mnemonic = "XOR"
+
+[op_DD]
+mnemonic = "CALLPTR"
+
+[op_DE]
+mnemonic = "LEAL_far"
+description = "regL = address of frame[+signed_word]"
+
+[op_DF]
+mnemonic = "LEAR_far"
+
+# ======================================================================
+# BITFIELD + REL JUMPS + CALL ($E0-$EA)
+# ======================================================================
+
+[op_E0]
+mnemonic = "SLOADBF"
+
+[op_E1]
+mnemonic = "ULOADBF"
+
+[op_E2]
+mnemonic = "STOREBF"
+
+[op_E3]
+mnemonic = "JUMP_back"
+
+[op_E4]
+mnemonic = "JUMPT_back"
+
+[op_E5]
+mnemonic = "JUMPF_back"
+
+[op_E6]
+mnemonic = "JUMP_ahead"
+
+[op_E7]
+mnemonic = "JUMPT_ahead"
+
+[op_E8]
+mnemonic = "JUMPF_ahead"
+
+[op_E9]
+mnemonic = "CALL_abs_imm1"
+description = "Call abs; sp -= byte after return (the 'host_call' pattern with adj byte)"
+verified = true
+
+[op_EA]
+mnemonic = "CALLPTR_imm1"
