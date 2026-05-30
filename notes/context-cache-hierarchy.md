@@ -63,6 +63,18 @@ A cache needs a janitor with an eviction policy. Right now nothing evicts — so
 
 This is the same persistence argument as [Principled LLM Code](../research/principled-llm-code.md), one level down: the architecture only holds if the *layer that stores the architecture* is itself maintained. An unmanaged memory hierarchy drifts for the identical reason an unmanaged codebase accretes — the **verification-layer thesis** applies to the verification layer's own plumbing. [Karpathy's convergence](./karpathy-llm-wiki-convergence.md) got the *layers* right but stopped before the *eviction* question; this is the next turn of that screw.
 
+## Where this goes — memory hierarchy → execution orchestration
+
+The CPU analogy has a second half. So far this note is about *memory*; the other axis is *compute*.
+
+- **A single agent is a single core** — sequential, one context window.
+- **Multiple agents are multiple cores** (we used one this session: a read-only Explore agent ran the NA1 inventory in parallel with the main thread).
+- **Superscalar** is the next step: an **orchestrator** that decomposes a task, dispatches sub-tasks to parallel cores, tracks dependencies, and reassembles results. The `Workflow` tool and dispatcher-skills are early forms of this front-end.
+
+The load-bearing claim: **the vault is not only the memory hierarchy — it's the coordination substrate.** Chunkable `.md` files are work units; the **pointers** between them are the dependency graph a scheduler walks; `CONTEXT.md` is the shared, coherent state every core reads. The structure that gives *one* core drift-free memory is the same structure that lets *many* cores coordinate without clobbering each other.
+
+Which is why "nail down the structure first" is not throat-clearing before the interesting work — it **is** the foundation. **Memory coherence precedes parallelism.** You cannot orchestrate cores over a drifting memory; parallel agents over an unregistered, re-deriving substrate just *multiply* the drift. Get single-core memory right — drift-free, pointer-addressable, chunked — and multi-core orchestration becomes possible. Skip it and you scale the chaos. The registration work is the prerequisite for the superscalar future, not a detour from it. See [[feedback_drift_is_rederivation]], [[user_verification_layer_thesis]].
+
 ## Tags
 
 [ai](../tags/ai.md), [cyborg](../tags/cyborg.md), [software-engineering](../tags/software-engineering.md)

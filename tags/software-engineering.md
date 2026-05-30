@@ -3,3 +3,4 @@
 
 - [Practicality vs. Precision — Principled LLM Code](../research/principled-llm-code.md) — legacy strata, worse-is-better as economics, the LLM refactor-cost inversion, persistence as the fix
 - [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md) — Claude Code memory layers as a CPU cache; eviction policy, drift, and a memory-hygiene check
+- [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — transpile-to-grounded-language as the technique for legacy/obscure code; COBOL modernization

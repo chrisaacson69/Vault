@@ -11,3 +11,4 @@
 - [Energy-Based Models](../research/energy-based-models.md) — the Sudoku tell: frontier LLMs only "solve" Sudoku by writing a Python script; tool-use ≠ reasoning; EBM + formal verifier as the architectural answer
 - [LLM Game Benchmark — Outline](../research/gaming/llm-game-benchmark.md)
 - [Game Annotation Series](../projects/game-annotation/README.md) — assembly as a stress test for LLM mechanical-modeling without rhetorical contagion; per-chapter LLM-interpretation logs
+- [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — LLMs are weakly grounded in obscure formal languages (6502, bespoke VMs, COBOL); transpile to a grounded one rather than reason in them

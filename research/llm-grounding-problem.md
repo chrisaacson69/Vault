@@ -6,7 +6,7 @@ published: true
 # The LLM Grounding Problem
 > LLMs live in the text world. Everything — physical presence, spatial relationships, direct experience — gets flattened into tokens. A well-constructed argument can outweigh a lived reality.
 
-**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [Game Annotation Series](../projects/game-annotation/README.md) — assembly as the inverse of natural language; mechanical-modeling test isolated from rhetorical contagion
+**Links:** [Economics](./economics/README.md), [Value and Profit](./economics/value-and-profit.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [Game Annotation Series](../projects/game-annotation/README.md) — assembly as the inverse of natural language; mechanical-modeling test isolated from rhetorical contagion, [Transpilation as a Grounding Strategy](./transpilation-as-grounding.md) — the gradient view: weakly-grounded formal languages solved by deterministic transpile to a grounded one
 
 ## The Core Problem
 

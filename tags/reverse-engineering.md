@@ -7,3 +7,4 @@
 - [Utopia (Intellivision)](../projects/game-annotation/utopia/README.md) — eight chapters; full economic engine extracted from CP1610 source; closed-loop adaptive AI in 1981; M.U.L.E. queued as the next paired comparison
 - [TIA Reference](../research/atari-2600/tia-reference.md) — Atari 2600 chip docs distilled for source-reading
 - [NES Research](../research/nes/README.md) — PPU/APU/Mappers references distilled for source-reading
+- [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — the RE payoff: bytecode→C transpile (Nobunaga's Sea-16 VM) as the general technique, COBOL modernization as the application

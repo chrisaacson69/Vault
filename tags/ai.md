@@ -39,3 +39,4 @@
 - [Presentation Generator Spec](../career/presentation-generator-spec.md)
 - [Practicality vs. Precision — Principled LLM Code](../research/principled-llm-code.md) — legacy slop, worse-is-better as economics, the refactor-cost inversion, persistence as the fix
 - [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md) — memory layers = CPU cache; drift = promotion with no eviction; the placement rule + a hygiene check
+- [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — formal-language grounding gradient; deterministic transpile to a grounded language; 6502→C, COBOL payoff

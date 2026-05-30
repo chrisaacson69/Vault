@@ -5,7 +5,7 @@ created: 2026-04-26
 # Game Annotation Series
 > Documenting classic game source code at the system level — and using it as a stress test for LLM interpretation of low-level code. Two arcs: hardware capability (6502) and mechanical complexity (early strategy engines).
 
-**Links:** [Adventure (Atari 2600)](./adventure/README.md), [Mappy (Famicom/NES)](./mappy/README.md), [Utopia (Intellivision)](./utopia/README.md), [M.U.L.E. (Atari 800)](./mule/README.md), [LLM Grounding Problem](../../research/llm-grounding-problem.md), [Planner-LM Composites](../../research/planner-lm-composites.md), [LLM Agents Across Strategic Games](../../research/gaming/llm-agents-across-games.md), [CoM Spell Counter-Graph](../../research/gaming/master-of-magic/com-counter-graph.md) — same dominance-frontier lens applied to game design
+**Links:** [Adventure (Atari 2600)](./adventure/README.md), [Mappy (Famicom/NES)](./mappy/README.md), [Utopia (Intellivision)](./utopia/README.md), [M.U.L.E. (Atari 800)](./mule/README.md), [LLM Grounding Problem](../../research/llm-grounding-problem.md), [Transpilation as a Grounding Strategy](../../research/transpilation-as-grounding.md), [Planner-LM Composites](../../research/planner-lm-composites.md), [LLM Agents Across Strategic Games](../../research/gaming/llm-agents-across-games.md), [CoM Spell Counter-Graph](../../research/gaming/master-of-magic/com-counter-graph.md) — same dominance-frontier lens applied to game design
 
 ## What this is
 
@@ -18,6 +18,8 @@ How well can an LLM interpret vintage assembly from cold reading?
 Assembly is the inverse of natural language: pure mechanical structure, no rhetoric, no narrative, no social cues. Our [seven-game LLM study](../../research/gaming/llm-agents-across-games.md) named three structural failures: action bias, absent mechanical modeling, rhetorical contagion. Assembly **isolates** mechanical modeling — there is nothing rhetorical to be contaminated by, and no actions to bias toward. If the model can build a mechanical picture of a 4KB ROM by reading bytes and labels, that's evidence for the verification-by-accumulated-state thesis. If it can't, the failure mode is unambiguous.
 
 This is also a control case for the [verification layer thesis](../../notes/conservation-of-complexity.md): the assembly source IS the accumulated state. There's no separate "ground truth" to drift from.
+
+**The thesis the series produced:** by Nobunaga, the meta-question got a sharper answer. When the source is a *weakly-grounded* formal language (a bespoke bytecode VM), the move isn't "read it cold" — it's **build a deterministic transpiler to a grounded language and let the LLM read that.** `vm_decompile.py` (bytecode → C) is the existence proof. See [Transpilation as a Grounding Strategy](../../research/transpilation-as-grounding.md) — grounding across formal languages is a gradient, solved one transpiler at a time, with COBOL/legacy modernization as the real-world payoff.
 
 ## Two Arcs
 

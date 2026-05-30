@@ -2,7 +2,7 @@
 > Master list of all tags used across the vault.
 
 - [6502](./6502.md) — 10 files
-- [ai](./ai.md) — 34 files
+- [ai](./ai.md) — 35 files
 - [agents](./agents.md) — 11 files
 - [assembly](./assembly.md) — 3 files
 - [atari-2600](./atari-2600.md) — 10 files
@@ -29,12 +29,12 @@
 - [game-ai](./game-ai.md) — 7 files
 - [game-theory](./game-theory.md) — 14 files
 - [games](./games.md) — 15 files
-- [grounding](./grounding.md) — 4 files
+- [grounding](./grounding.md) — 5 files
 - [history](./history.md) — 11 files
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
 - [libertarian-law](./libertarian-law.md) — 15 files
-- [llm-limitations](./llm-limitations.md) — 10 files
+- [llm-limitations](./llm-limitations.md) — 11 files
 - [logic](./logic.md) — 10 files
 - [machine-learning](./machine-learning.md) — 5 files
 - [mathematics](./mathematics.md) — 13 files
@@ -55,12 +55,12 @@
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 11 files
 - [religion](./religion.md) — 8 files
-- [reverse-engineering](./reverse-engineering.md) — 3 files
+- [reverse-engineering](./reverse-engineering.md) — 4 files
 - [scope-confusion](./scope-confusion.md) — 3 files
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 4 files
 - [simulation](./simulation.md) — 7 files
-- [software-engineering](./software-engineering.md) — 2 files
+- [software-engineering](./software-engineering.md) — 3 files
 - [strategy](./strategy.md) — 11 files
 - [tools](./tools.md) — 2 files
 - [transcription](./transcription.md) — 1 file
