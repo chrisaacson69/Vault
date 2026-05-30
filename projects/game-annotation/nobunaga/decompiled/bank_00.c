@@ -525,7 +525,7 @@ word sub_8C75(word arg1, word arg2, word arg3, word arg4) {
     goto L_8D36;    // $8C92
 L_8C95:
     if (!(sub_D98D(selected_province_idx))) goto L_8D0A;    // $8CA7
-    if (*(byte*)((ui_helper_d77e() + 0x6D67))) goto L_8D22;    // $8CB2
+    if (rest_turns_remaining[ui_helper_d77e()]) goto L_8D22;    // $8CB2
     // TODO: setB_imm4_50
     if ((*(word*)(((selected_province_idx * 26) + 0x7001)) > 0x7001)) {    // $8CC2
     if (ui_helper_d3a7()) {    // $8CE8
@@ -727,7 +727,7 @@ L_9006:
     local7 = (local5 + 12);    // $901A
     local6 = *(word*)(local7);    // $901D
     if (*(word*)(local8)) {    // $9020
-    if (*(byte*)((ui_helper_d77e() + 0x6D67))) goto L_908A;    // $902B
+    if (rest_turns_remaining[ui_helper_d77e()]) goto L_908A;    // $902B
     if (!(ui_helper_d3a7())) goto L_908A;    // $9046
     local5 = 0x6D67;    // $904C
     local5 = 0x6D67;    // $9051
@@ -1379,7 +1379,7 @@ L_9B1B:
     goto L_9B63;    // $9B36
 L_9B39:
     if (sub_8C1E()) {    // $9B47
-    if (*(byte*)((ui_helper_d77e() + 0x6D67))) goto L_9B5B;    // $9B52
+    if (rest_turns_remaining[ui_helper_d77e()]) goto L_9B5B;    // $9B52
     } else {
 L_9B63:
     local11 = (local11 + 1);    // $9B63
@@ -1421,7 +1421,7 @@ L_9BEE:
     local10 = rng_mod(scenario_fief_count);    // $9BF5
     local10 = ?;    // $9BF6
     if (sub_D98D(/*stack underflow*/ regA)) goto L_9C16;    // $9BFB
-    if (*(byte*)((ui_helper_d77e() + 0x6D67))) goto L_9C16;    // $9C09
+    if (rest_turns_remaining[ui_helper_d77e()]) goto L_9C16;    // $9C09
     goto L_9C21;    // $9C13
 L_9C16:
 L_9C18:
@@ -1961,7 +1961,7 @@ L_A55F:
     local10 = sub_D7CD(/*stack underflow*/ regA);    // $A564
     if ((*(byte*)((local10 + 1)) > 99)) goto L_A5C9;    // $A56B
     local9 = 99;    // $A56E
-    if (*(byte*)((ui_helper_d772(/*stack underflow*/ regA) + 0x6D67))) goto L_A5C9;    // $A578
+    if (rest_turns_remaining[ui_helper_d772(/*stack underflow*/ regA)]) goto L_A5C9;    // $A578
     ai_war_target_flags[local9] = ((rng_mod(0x0190) < (100 - *(byte*)((local10 + 1)))) | ai_war_target_flags[local9]);    // $A59C
     local9 = ai_war_target_flags[local9];    // $A5A1
     if (!(war_helper_d972(/*stack underflow*/ regA))) goto L_A5C9;    // $A5A6

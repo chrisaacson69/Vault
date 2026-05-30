@@ -938,7 +938,7 @@ word sub_9009(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $904B)
 
 word sub_9046(word arg1, word arg2, word arg3, word arg4) {
-    if (*(byte*)((selected_province_idx + 0x6D67))) goto L_906F;    // $9057
+    if (rest_turns_remaining[selected_province_idx]) goto L_906F;    // $9057
     if (*(byte*)((selected_province_idx + 0x6DA2))) {    // $9062
     } else {
     }
@@ -2547,7 +2547,7 @@ L_ADB1:
 
 word driver_rest(word arg1, word arg2, word arg3, word arg4) {
     if (!(*(byte*)((selected_province_idx + 0x6DA2)))) goto L_ADEE;    // $ADC0
-    *(byte*)((ui_helper_d77e() + 0x6D67)) = number_input(10, 1);    // $ADD8
+    rest_turns_remaining[ui_helper_d77e()] = number_input(10, 1);    // $ADD8
     if (number_input(10, 1)) {    // $ADD9
     return 0;    // $ADED
 L_ADEE:
@@ -3165,7 +3165,7 @@ L_B90E:
     if (mem_7BF9) goto L_B939;    // $B933
 L_B939:
     local10 = 0x6F1B;    // $B939
-    if (*(byte*)((ui_helper_d772(/*stack underflow*/ regA) + 0x6D67))) goto L_B97D;    // $B943
+    if (rest_turns_remaining[ui_helper_d772(/*stack underflow*/ regA)]) goto L_B97D;    // $B943
     // TODO: switch SWITCH_contig          limit=6
     goto L_B98D;    // $B962
     goto L_B98D;    // $B968
