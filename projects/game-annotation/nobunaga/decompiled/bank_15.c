@@ -1099,7 +1099,7 @@ word confirm_prompt(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $D777)
 
 word ui_helper_d772(word arg1, word arg2, word arg3, word arg4) {
-    return *(byte*)((arg1 + 0x6E15));    // $D77D
+    return fief_to_daimyo_map[arg1];    // $D77D
 }
 
 // $D77E ui_helper_d77e
@@ -1269,7 +1269,7 @@ word sub_D962(word arg1, word arg2, word arg3, word arg4) {
 
 word war_helper_d972(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $D977
-    return *(byte*)((ui_helper_d772(/*via arg1*/ ?) + 0x6DD4));    // $D981
+    return ai_war_target_flags[ui_helper_d772(/*via arg1*/ ?)];    // $D981
 }
 
 // (body @ $D987)
@@ -1527,7 +1527,7 @@ word sub_DC66(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_DC87:
-    return *(byte*)((arg1 + 0xF70E));    // $DC87
+    return province_to_mapid_table[arg1];    // $DC87
     }
 }
 
@@ -1684,7 +1684,7 @@ L_DEF6:
     if ((ui_helper_d772(/*stack underflow*/ regA) == local9)) {    // $DEFD
     local11 = local9;    // $DF00
     if (sub_D999(/*stack underflow*/ regA)) goto L_DF31;    // $DF05
-    *(byte*)((local11 + 0x6E15)) = local10;    // $DF0F
+    fief_to_daimyo_map[local11] = local10;    // $DF0F
     *(byte*)((local11 + 0x6DA2)) = 0;    // $DF17
     local8 = 0x6CF7;    // $DF1E
     if (sub_D98D((local11 + 0x6CF7))) {    // $DF23
@@ -1868,7 +1868,7 @@ L_E211:
 // (body @ $E220)
 
 word sub_E21B(word arg1, word arg2, word arg3, word arg4) {
-    *(byte*)((arg1 + 0x6E15)) = sub_DC0E(0x00FF);    // $E22D
+    fief_to_daimyo_map[arg1] = sub_DC0E(0x00FF);    // $E22D
     arg1 = 0x6E15;    // $E22E
     arg1 = 0x6E15;    // $E238
     *(byte*)((arg1 + 0x6CF7)) = 0;    // $E259

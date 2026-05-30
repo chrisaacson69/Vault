@@ -91,6 +91,28 @@ def annotate_field_access(expr, record_var="arg1", field_map=PROV_FIELDS):
     return pat.sub(rep, expr)
 
 
+# Rewrite byte-array accesses `*(byte*)((IDX + 0xNNNN))` as `array_label[IDX]`
+# when 0xNNNN is a labeled address. Restricted to byte derefs with a non-strided
+# index (no `*`), so it does NOT touch the word-stride province records
+# (`(arg1 * 26) + 0x7001`) that annotate_field_access handles. This is what turns
+# the per-fief/per-daimyo flag arrays (ai_war_target_flags, fief_to_daimyo_map, …)
+# legible across every indexed access.
+# Index = a bare identifier (local9, arg1) optionally with a call's arg-parens
+# (ui_helper_d772(arg1)). NOT a parenthesized arithmetic group like (arg1 * 26),
+# so word-stride record bases are excluded (they're also *(word*), not *(byte*)).
+_ARRAY_ACCESS_RE = re.compile(r'\*\(byte\*\)\(\((\w+(?:\([^()]*\))?) \+ 0x([0-9A-Fa-f]{4})\)\)')
+
+
+def annotate_array_access(text, labels):
+    if not labels:
+        return text
+    def rep(m):
+        idx, addr_hex = m.group(1), m.group(2)
+        name = _label_name(labels, int(addr_hex, 16))
+        return f"{name}[{idx}]" if name else m.group(0)
+    return _ARRAY_ACCESS_RE.sub(rep, text)
+
+
 # --- Spec-independent dispatch: normalize the mnemonic from the OPCODE BYTE ---
 # The decompile dispatch below keys on the original ("old-spec") mnemonics. Rather
 # than couple to ANY mnemonic spelling, we derive the canonical name from the
@@ -532,6 +554,7 @@ def decompile(filepath, sub_addr, labels=None):
         text = annotate_field_access(text, "arg1", PROV_FIELDS)
         for n in range(2, 5):
             text = annotate_field_access(text, f"arg{n}", PROV_FIELDS)
+        text = annotate_array_access(text, labels)
         text = simplify_expression(text)
         if text.endswith(':') and not text.startswith('//'):
             print(f"{text}")
