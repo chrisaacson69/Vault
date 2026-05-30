@@ -384,6 +384,25 @@ def decompile(filepath, sub_addr, labels=None):
             m = re.search(r'(-?\d+)', operand)
             val = int(m.group(1)) if m else 0
             state.stack.append(str(val))
+        elif mnem == 'op_8D_sbyte':
+            # $8D BYTE_PUSH_imm1 — push a 1-byte immediate (operand rendered "+NN").
+            m = re.search(r'(-?\d+)', operand)
+            val = int(m.group(1)) if m else 0
+            state.stack.append(str(val))
+        elif mnem == 'push_imm_word':
+            # $8E PUSH_imm2 — push a 2-byte immediate (usually a table/struct
+            # pointer; the label names that address, so push it by name).
+            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
+            val = int(m.group(1), 16) if m else 0
+            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
+            state.stack.append(label_m.group(1) if label_m else f"0x{val:04X}")
+        elif mnem == 'PUSH_abs':
+            # $AA PUSH_abs — push the VALUE stored at an absolute address.
+            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
+            addr = int(m.group(1), 16) if m else 0
+            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
+            name = label_m.group(1) if label_m else f"mem_{addr:04X}"
+            state.stack.append(name)
 
         # === Arithmetic ===
         elif mnem == 'add':
