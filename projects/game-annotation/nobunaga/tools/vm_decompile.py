@@ -91,6 +91,71 @@ def annotate_field_access(expr, record_var="arg1", field_map=PROV_FIELDS):
     return pat.sub(rep, expr)
 
 
+# --- Spec-independent dispatch: normalize the mnemonic from the OPCODE BYTE ---
+# The decompile dispatch below keys on the original ("old-spec") mnemonics. Rather
+# than couple to ANY mnemonic spelling, we derive the canonical name from the
+# opcode byte (bytes[0]) — invariant across spec revisions. This lets the
+# decompiler consume disasm produced with EITHER the old spec or the new
+# vm-disasm.py (v2 OPCODE_INFO names like LOADL_quick / CALL_abs / RETURN), since
+# the opcode byte is the same regardless of how the listing labels it.
+def _build_opcode_to_mnemonic():
+    m = {}
+    rng = lambda a, b, name: m.update({op: name for op in range(a, b + 1)})
+    rng(0x00, 0x0B, 'loadA_local_neg');  rng(0x0C, 0x0F, 'loadA_local_pos')
+    rng(0x10, 0x1B, 'loadB_local_neg');  rng(0x1C, 0x1F, 'loadB_local_pos')
+    rng(0x20, 0x2B, 'storeA_local_neg'); rng(0x2C, 0x2F, 'storeA_local_pos')
+    rng(0x30, 0x3B, 'storeB_local_neg'); rng(0x3C, 0x3F, 'storeB_local_pos')
+    m[0x40] = 'clearA_40';               rng(0x41, 0x4F, 'clearA')
+    m[0x50] = 'setB_imm4_50';            rng(0x51, 0x5F, 'setB_imm4')
+    rng(0x60, 0x6F, 'push_imm4');        m[0x70] = 'nop'
+    rng(0x71, 0x7F, 'addA_imm4')
+    m[0x80] = 'trigger_syscall_80'
+    m[0x81] = 'op_81_byte'; m[0x82] = 'op_82_bb'; m[0x83] = 'op_83_byte'
+    m[0x84] = 'op_84_bwb'; m[0x85] = 'op_85_byte'; m[0x86] = 'op_86_bwb'
+    m[0x87] = 'op_87_byte'; m[0x88] = 'op_88_bwb'
+    m[0x89] = 'loadA_imm_sbyte'; m[0x8A] = 'loadA_imm_word'
+    m[0x8B] = 'loadB_imm_byte';  m[0x8C] = 'loadB_imm_word'
+    m[0x8D] = 'op_8D_sbyte'
+    m[0x8E] = 'push_imm_word';   m[0x8F] = 'addA_imm_sbyte'
+    m[0x90] = 'op_90_bb'
+    rng(0x91, 0x9F, 'trigger_syscall_9X')
+    rng(0xA0, 0xA3, 'op_A0_A3_byte')
+    m[0xA4] = 'loadA_mem_word';  m[0xA5] = 'loadA_mem_byte'
+    m[0xA6] = 'loadB_mem_word';  m[0xA7] = 'loadA_addr_word'
+    m[0xA8] = 'loadA_mem_word';  m[0xA9] = 'storeA_mem_byte'
+    m[0xAB] = 'op_AB_word'; m[0xAD] = 'op_AD_byte'
+    m[0xAC] = 'host_call_simple'; m[0xAE] = 'adjust_stack_sbyte'
+    m[0xB0] = 'loadA_ind_word';  m[0xB1] = 'storeA_ind_word'
+    m[0xB2] = 'pushA_B2';        m[0xB3] = 'pushA';     m[0xB4] = 'popB'
+    m[0xB5] = 'mul';   m[0xB6] = 'div_signed';   m[0xB7] = 'ext_op'
+    m[0xB8] = 'div_unsigned'
+    m[0xB9] = 'mod_signed'; m[0xBA] = 'mod_unsigned'
+    m[0xBB] = 'add';   m[0xBC] = 'sub'
+    m[0xBD] = 'shl_by_regB'; m[0xBE] = 'lshr_by_regB'; m[0xBF] = 'ashr_by_regB'
+    m[0xC0] = 'cmp_eq'; m[0xC1] = 'cmp_ne'; m[0xC2] = 'cmp_slt'; m[0xC3] = 'cmp_sge'
+    m[0xC4] = 'cmp_sgt'; m[0xC5] = 'cmp_sle'; m[0xC6] = 'cmp_uge'; m[0xC7] = 'cmp_ule'
+    m[0xC8] = 'cmp_ugt'; m[0xC9] = 'cmp_ult'; m[0xCA] = 'is_zero'
+    m[0xCB] = 'op_CB';   m[0xCD] = 'swap_AB'; m[0xCE] = 'trigger_syscall_CE'
+    m[0xCF] = 'vm_return'
+    m[0xD0] = 'incA'; m[0xD1] = 'decA'; m[0xD2] = 'aslA'
+    m[0xD3] = 'loadA_ind_byte'; m[0xD4] = 'storeA_ind_byte'; m[0xD5] = 'switch'
+    m[0xD6] = 'jump_abs'; m[0xD7] = 'branch_nz_abs'; m[0xD8] = 'branch_z_abs'
+    m[0xD9] = 'op_D9'
+    m[0xDA] = 'bitand'; m[0xDB] = 'bitor'; m[0xDC] = 'bitxor'
+    m[0xDD] = 'host_call_indirect_simple'
+    m[0xDE] = 'loadA_frameaddr'; m[0xDF] = 'loadB_frameaddr'
+    m[0xE0] = 'op_E0_byte'; m[0xE1] = 'op_E1_byte'; m[0xE2] = 'op_E2_byte'
+    m[0xE4] = 'branch_nz_rel'; m[0xE5] = 'branch_z_rel'; m[0xE6] = 'jump_rel_fwd'
+    m[0xE7] = 'branch_nz_rel_fwd'; m[0xE8] = 'branch_z_rel_fwd'
+    m[0xE9] = 'host_call'; m[0xEA] = 'host_call_indirect'
+    for op in (0xEC, 0xED, 0xEE, 0xEF, 0xF2, 0xF3, 0xF4, 0xF6, 0xF7, 0xF9, 0xFA, 0xFB, 0xFE):
+        m[op] = 'trigger_syscall_EB_FE'
+    m[0xFF] = 'op_FF'
+    return m
+
+OPCODE_TO_MNEMONIC = _build_opcode_to_mnemonic()
+
+
 # Parse a line of the disasm output. Returns (addr, opcode_byte, mnemonic, inline_op, comment)
 LINE_RE = re.compile(
     r'^\s*[>]?\$([0-9A-Fa-f]{4})\s+([0-9A-Fa-f]{2}(?:\s+[0-9A-Fa-f]{2})*)\s+(\S+)(.*)$'
@@ -137,10 +202,14 @@ def parse_listing(filepath, sub_addr):
         else:
             operand_repr = rest.strip()
             comment = ""
+        raw_bytes = [int(b, 16) for b in bytes_hex]
+        # Normalize the mnemonic from the opcode byte — spec-independent, so this
+        # works whether the listing used old-spec names or vm-disasm.py's v2 names.
+        canonical = OPCODE_TO_MNEMONIC.get(raw_bytes[0], mnemonic)
         instructions.append({
             'addr': addr,
-            'bytes': [int(b, 16) for b in bytes_hex],
-            'mnemonic': mnemonic,
+            'bytes': raw_bytes,
+            'mnemonic': canonical,
             'operand': operand_repr,
             'comment': comment,
         })

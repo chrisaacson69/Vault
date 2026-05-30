@@ -409,7 +409,7 @@ class NobunagaVM:
         0x00: ("syscall_00",         "TODO"), 0x01: ("ppu_upload_block",   "STUB"),
         0x02: ("syscall_02",         "TODO"), 0x03: ("set_sprite",         "EMU"),
         0x04: ("palette_write",      "EMU"),  0x05: ("fill_nametable",     "STUB"),
-        0x06: ("read_controller",    "STUB"), 0x07: ("call_bank",          "TODO"),
+        0x06: ("read_controller",    "STUB"), 0x07: ("call_bank",          "EMU"),
         0x08: ("fill_attr_quadrant", "STUB"), 0x09: ("audio_load_voice",   "EMU"),
         0x0A: ("audio_control",      "STUB"), 0x0B: ("syscall_0B",         "TODO"),
         0x0C: ("ppu_blit_nobank",    "STUB"), 0x0D: ("ppu_render_rect",    "STUB"),
@@ -436,8 +436,13 @@ class NobunagaVM:
         task = rd(sp)
         name, kind = self.SYSCALLS.get(task, (f"syscall_{task:02X}", "TODO"))
 
-        if task == 0x10:        # memcpy_banked: [2]=bank [6:8]=src [8:10]=dst [10:11]=len
-            bank, src, dst, n = rd(sp + 2), rw(sp + 6), rw(sp + 8), rw(sp + 10)
+        if task == 0x10:        # memcpy_banked: struct = [task][bank][src][dst][len]
+            # at sp+0/+2/+4/+6/+8 (one word each; verified via the AFE1 battle-init
+            # cell-copy, where bank=4 src=$AA38(=$A57E+off) dst=frame-local len=1).
+            # NB the params sit immediately after the task id — the earlier offsets
+            # (src=sp+6/dst=sp+8/len=sp+10) skipped `src` by one word, which read a
+            # bogus 60KB length and scribbled over the $05xx VM stack (→ $EF76 crash).
+            bank, src, dst, n = rd(sp + 2), rw(sp + 4), rw(sp + 6), rw(sp + 8)
             for i in range(n & 0xFFFF):
                 self.mem.write((dst + i) & 0xFFFF, self.read_banked(bank, (src + i) & 0xFFFF))
         elif task == 0x11:      # rng_next -> brk_scratch ($66/$67), deterministic LCG
@@ -457,10 +462,68 @@ class NobunagaVM:
             o = 0x0725 + rd(sp + 2) * 3
             self.mem.write(o, rd(sp + 4)); self.mem.write(o + 1, rd(sp + 6))
             self.mem.write(o + 2, rd(sp + 8))
+        elif task == 0x07:      # call_bank: switch to bank [sp+2], run its native
+            # $8000 entry, restore bank. Mirrors native $C339 (save $0073 / set bank /
+            # jsr $8000 / restore). The bank arg is at sp+2 (verified empirically: the
+            # AFE1 battle-init call passes bank=10, an audio bank whose $8000 trampolines
+            # via $E823 into inline VM bytecode). We must run that inline VM through our
+            # own dispatcher loop so ITS $F226 syscalls hit this python layer, not the
+            # MMC1-dependent native handlers. The effect (audio/PPU) is headless-moot;
+            # what matters is leaving regL + the VM stack/frame as hardware would, so the
+            # caller's subsequent vm_return doesn't derail (the old no-op stub jumped a
+            # later return into the $EF76 frame-marker padding).
+            bank = rd(sp + 2)
+            saved_bank = self.mem.bank_lo
+            self.switch_bank(bank)
+            self._run_native_call(0x8000)
+            self.switch_bank(saved_bank)
         # STUB / TODO: no headless memory effect — recorded only. (controller
         # returns 0 = no input by leaving brk_scratch untouched; PPU/audio moot.)
         self.syscall_log.append((task, name, kind))
         return None  # $E9 stub plumbing pops the adj byte + advances vm_pc
+
+    # CPU PC sentinel used to detect return from a nested native call. Picked in
+    # the fixed bank-15 vector tail; never a legitimate instruction-fetch target
+    # (we test for it BEFORE fetching, so it is never executed).
+    NATIVE_CALL_SENTINEL = 0xFFF9
+
+    def _run_native_call(self, entry, max_steps=2_000_000):
+        """Run native 6502 code from `entry` until it RTSs back to a sentinel,
+        intercepting $F226 host_calls at the VM dispatcher boundary exactly as
+        step_one_vm_op does (so a switched-in bank's inline-VM syscalls resolve
+        through the python kernel layer instead of the MMC1-dependent native
+        handlers). Used by call_bank ($07).
+
+        Simulates `jsr entry`: pushes the sentinel as the return address, so the
+        whole native+VM call chain unwinds back to us. Restores cpu.pc to the
+        dispatcher on exit so the OUTER step_one_vm_op stays consistent.
+        Returns True if it returned cleanly, False on step-budget exhaustion.
+        """
+        sent = self.NATIVE_CALL_SENTINEL
+        self.cpu.push_word((sent - 1) & 0xFFFF)  # jsr pushes (return_addr - 1)
+        self.cpu.pc = entry
+        ok = False
+        for _ in range(max_steps):
+            pc = self.cpu.pc
+            if pc == sent:
+                ok = True
+                break
+            if pc == self.DISPATCHER_ADDR:
+                vpc = self.vm_pc
+                if self.mem.read(vpc) == 0xE9:  # CALL_abs_imm1 — maybe a host_call
+                    tgt = self.mem.read(vpc + 1) | (self.mem.read(vpc + 2) << 8)
+                    if tgt in self.host_call_stubs:
+                        res = self.host_call_stubs[tgt](self)
+                        if res is not None:
+                            self.regL = res & 0xFFFF
+                        adj = self.mem.read(vpc + 3)
+                        self.vm_sp = (self.vm_sp + adj) & 0xFFFF
+                        self.vm_pc = (vpc + 4) & 0xFFFF
+                        continue
+            self.cpu.step()
+        # Leave the CPU at the dispatcher boundary for the caller's outer loop.
+        self.cpu.pc = self.DISPATCHER_ADDR
+        return ok
 
 
 if __name__ == "__main__":

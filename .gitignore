@@ -24,3 +24,12 @@ _site/
 # (small .dmp SRAM snapshots in traces/ are kept)
 projects/game-annotation/nobunaga/traces/*.txt
 projects/game-annotation/nobunaga/traces/*.gz
+
+# Python bytecode cache — regenerable, never track
+__pycache__/
+*.pyc
+
+# Office temp/lock files
+~$*.xlsx
+~$*.docx
+~$*.pptx

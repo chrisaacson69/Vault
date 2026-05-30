@@ -373,6 +373,8 @@ class CPU6502:
         elif op == 0xF5: self._sbc(self.mem.read(self.addr_zp_x()))
         elif op == 0xFD: self._sbc(self.mem.read(self.addr_abs_x()))
         elif op == 0xF9: self._sbc(self.mem.read(self.addr_abs_y()))
+        elif op == 0xF1: self._sbc(self.mem.read(self.addr_ind_y()))   # SBC (zp),Y
+        elif op == 0xE1: self._sbc(self.mem.read(self.addr_ind_x()))   # SBC (zp,X)
         # ---- Compare ----------------------------------------------------
         elif op == 0xC9: self._cmp(self.a, self.imm_byte())           # CMP #
         elif op == 0xC5: self._cmp(self.a, self.mem.read(self.addr_zp()))

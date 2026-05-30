@@ -47,6 +47,8 @@ created: 2026-05-29
 ## Quick-routes — "to do X, use Y" (don't rebuild)
 
 - **Render a fief's tactical map (from PPU dump):** `tools/render-fief-from-ppu.py <fief>` *(parameterized; see tools/README — replaces the 16 per-fief copies)*.
+- **Render a fief map straight from ROM (no capture):** `tools/render-rom-to-map.py <province> [--scenario 17|50]` — seeds province+`$6D9D`, runs populate `$8903`, decodes `$7BFD`. Verified byte-exact 17-fief (Mino) + 50-fief (Tanba 55/55).
+- **Find/fetch a freshly-saved Mesen dump:** `tools/mesen-dump.py list|path|get [name] [--trace]` — `.dmp`=SRAM, `.txt`=tracelog, no name → latest. `get` copies into `traces/` + registers provenance.
 - **Test a command's effect:** follow [commands/README.md](./commands/README.md) snap protocol → `capture-test.py <tag> pre|post|diff`.
 - **Run an effect handler in the emulator:** `tools/run-effect.py`.
 - **Decode a bytecode routine to C:** `tools/vm_decompile.py`.

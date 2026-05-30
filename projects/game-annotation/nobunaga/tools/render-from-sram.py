@@ -141,8 +141,9 @@ def render(sram_path, out_name, label, dump_base=0x7B40):
     print(f"Wrote {out_path}")
     return grid
 
-# Render all captured fiefs
-captures = [
+def _render_all():
+  # Render all captured fiefs
+  captures = [
     ('atlas/iga-sram.txt',                 'iga-sram-render.png',  'Iga (all clear + castle/town center)',          0x7B40),
     ('traces/mino-save-ram.dmp',           'mino-sram-render.png', 'Mino (mountain spine + forest perimeter)',       0x6000),
     ('traces/kaga-save-ram.dmp',           'kaga-sram-render.png', 'Kaga (water NW + clear + forest SE, NO mountains)', 0x6000),
@@ -160,9 +161,22 @@ captures = [
     ('traces/owari-save-ram.dmp',          'owari-sram-render.png',    'Owari (fief 17) — Oda home, being invaded',        0x6000),
     ('traces/noto-save-ram.dmp',           'noto-sram-render.png',     'Noto (fief 1) — Hatakeya home, FINAL FIEF',        0x6000),
     ('traces/final-battle-sram.dmp',       'settsu-sram-render.png',   'Settsu (fief 15) — Osaka Bay, FINAL CONQUEST',    0x6000),
-]
-for path, out, label, base in captures:
+  ]
+  for path, out, label, base in captures:
     full = os.path.join(here, path) if not os.path.isabs(path) else path
     if os.path.exists(full):
         render(full, out, label, dump_base=base)
         print()
+
+
+if __name__ == '__main__':
+    # Single-file CLI: render-from-sram.py <dump> [base_hex] [out.png] [label]
+    # No args → render the full captured-fief set (legacy behaviour).
+    if len(sys.argv) > 1:
+        dump = sys.argv[1]
+        base = int(sys.argv[2], 16) if len(sys.argv) > 2 else 0x6000
+        out  = sys.argv[3] if len(sys.argv) > 3 else 'sram-render.png'
+        lbl  = sys.argv[4] if len(sys.argv) > 4 else os.path.basename(dump)
+        render(dump, out, lbl, dump_base=base)
+    else:
+        _render_all()

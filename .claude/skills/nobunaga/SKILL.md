@@ -21,6 +21,8 @@ Then route the request.
 | Ask | Tool | Invocation (from `PROJ`) |
 |---|---|---|
 | Render a fief tactical map | `render-fief-from-ppu.py` | `py tools/render-fief-from-ppu.py <fief>`  (`--list` shows available PPU dumps) |
+| **Render a fief map straight from ROM (no capture)** | `render-rom-to-map.py` | `py tools/render-rom-to-map.py <province> [--scenario 17\|50]` · validate a dump: `… --sram traces/<dump>.dmp`. Seeds province `$6F63` + scenario `$6D9D`, runs populate `$8903`, decodes `$7BFD`. Verified byte-exact on Mino (17-fief) AND Tanba/Ezo (50-fief, 55/55 cells). |
+| **Render the WHOLE atlas from ROM** | `render-rom-atlas.py` | `py tools/render-rom-atlas.py [--scenario 17\|50]` — all 50 (or 17) fiefs → `atlas/rom-50/` + terrain-distribution table + anomaly flags. All 50 verified clean; reproduces every hand-captured fief's terrain counts. |
 | Render the 17-fief strategic atlas | `render-strategic-atlas.py` | `py tools/render-strategic-atlas.py`  (no args; composites the 17 tactical maps + adjacency) |
 | Render the 50-fief adjacency graph | `render-strategic-50.py` | `py tools/render-strategic-50.py [rom] [out.png]`  (*separate tool — there is no `--variant`*) |
 | Test a command's effect | snap protocol | `py tools/capture-test.py <tag> pre` → make the move → `… <tag> post` → `… <tag> diff [--fief N]`; `--note "..."` on pre/post for provenance. See `commands/README.md`. |
@@ -35,6 +37,7 @@ Then route the request.
 | Decode a combat trace | `combat-trace-decode.py` | `py tools/combat-trace-decode.py <trace.txt[.gz]>` |
 | Find a named address | `mesen-labels.toml` | grep it — **never re-trace a known label** |
 | What is this dump / capture provenance | `data-index.py` | `py tools/data-index.py scan` (backlog) · `… auto` (bulk-classify by naming convention) · `… add <file> --note "…"` · `… show` |
+| **Find / fetch a Mesen dump** (battle SaveRam, tracelog) | `mesen-dump.py` | `py tools/mesen-dump.py list` · `… path [name] [--trace]` · `… get [name] [--trace]` (copies into `traces/` + registers provenance). Convention: `.dmp`=SRAM, `.txt`=tracelog; **no name → latest by timestamp**. `name` is a case-insensitive substring. Resolves Mesen's `Debugger\` output dir. |
 | What's the frontier / what's next | — | show `PROJ/ROADMAP.md` |
 
 **Emulator pattern** (for `nobunaga_vm.py`-based runs): load SRAM → switch bank → set `vm_pc`/`vm_sp` (pre-allocate locals!) → run. Details in `CONTEXT.md`.

@@ -145,3 +145,6 @@ yamato-combat-init.txt.gz	2026-05-29	trace	11469085	name-derived: per-fief comba
 yamato-ppu-memory.dmp	2026-05-29	memory	16384	name-derived: per-fief PPU dump (yamato, 16 KB) -> input to render-fief-from-ppu.py.
 yamato-save-ram.dmp	2026-05-29	memory	8192	name-derived: per-fief SRAM snapshot (yamato).
 zealots_PRE.dmp	2026-05-29	memory	8192	name-derived: command-test PRE snapshot (legacy, pre-auto-registration) - all-17-fief state before 'zealots'.
+TanmbaBattle.dmp	2026-05-30	memory	8192	Mesen SRAM fetched from Debugger dir
+EzoBattle.dmp	2026-05-30	memory	8192	Mesen SRAM fetched from Debugger dir
+ezo-post-battle.dmp	2026-05-30	memory	8192	Post-Ezo-defense 50-fief save: player Ezo/Kakizaki men 23->24 (NO deserter transfer after killing the routed general), Mutsu/Tsugaru daimyo dead+invaded, Oda taking Mino. PRE pair = EzoBattle.dmp. For combat-resolution / deserter-mechanic investigation.
