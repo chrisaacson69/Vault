@@ -11,14 +11,20 @@ created: 2026-05-29
 - *(empty — add tickets as they occur)*
 
 ## Now — current frontier
+> **The tooling-discipline meta-project is COMPLETE** (2026-05-29) — full record in Done below. The frontier returns to the *engine itself*. Teed up (not yet started):
+- **▶ NEXT: recover `vm-disasm.py`** — the bulk VM disassembler (documented ch6) drifted out of `tools/`; the 4 existing `disasm/*_vm.asm` files prove it ran once. This is **deterministic recovery, not open research**, and it's the prerequisite for the "see the whole picture" decode epic. *Single highest-value next step.* See Open (gap) + the EPIC.
+
+<details><summary>Completed meta-project checklist (2026-05-29) — kept for the audit trail</summary>
+
 - **Tooling-discipline pass (this project's project)** — making NA1 stop drifting. DONE 2026-05-29:
   - [x] Phase 1 — registration layer: `CONTEXT.md`, `tools/README.md`, `traces/README.md`, this file.
   - [x] Phase 2 — `/nobunaga` dispatcher skill over the deterministic tools (anti-drift Rule 0 baked in).
-  - [x] Phase 3 (started) — 16 `render-*-from-ppu.py` → `render-fief-from-ppu.py <fief>` (done); 3 stray scripts moved into `tools/` + made location-independent. **Still pending:** merge opcode trio, SRAM quartet, selector variants, `--variant` the 17/50 twins, resolve title-renderer duplicate.
+  - [x] Phase 3 — script consolidation **COMPLETE 2026-05-29**. 16 `render-*-from-ppu.py` → `render-fief-from-ppu.py <fief>`; 3 stray scripts relocated. Then: opcode trio → `analyze-vm-opcodes.py` (output verified byte-identical); SRAM pair → `analyze-sram.py` (byte-identical); `run-grow.py` folded into `run-effect.py grow`; 4 selector iterations retired (kept `run-selector-full.py` for provenance); `render-title2.py` retired (kept ROM-sourced `title-render.py`). Net **−11 scripts, +2**. The 17/50 "twins" (adjacency, strategic-render) and the two `*-fief-50` profilers were re-examined and **kept as parallel canonical tools** — different tables/artifacts/granularity, `--variant` merge rejected as pure churn (see tools/README rows). Only `render-mino/iga-full` generalization remains pending (low priority).
   - [x] Phase 4 — trace bloat **gzipped** (not deleted — they're empirical, not regenerable): ~2.9 GB → ~250 MB, lossless; `combat-trace-decode.py` reads `.gz` transparently.
   - [x] **Data-provenance system** — `tools/data-index.py` + `traces/INDEX.tsv`; `capture-test.py` auto-registers snaps. New captures are self-documenting.
-- **Backlog to triage:** `data-index.py scan` reports ~147 legacy un-contextualized dumps. Contextualize the recognizable ones, purge the rest — incrementally, not all at once.
-- **Remaining Phase-3 merges** (lower priority, each confirmed before deleting): opcode trio → `analyze-vm-opcodes.py`; SRAM quartet → `analyze-sram.py --mode`; selector/trace-selector variants → `--mode`; adjacency/strategic 17-vs-50 → `--variant`.
+  - [x] **Backlog triaged & cleared 2026-05-29.** Added `data-index.py auto` (classifies by the documented naming convention). All **145** legacy dumps registered with name-derived notes; **0 unrecognized, nothing to purge** — the ROADMAP's "provenance mostly lost" premise was pessimistic; the naming convention had preserved it. `scan` is now clean and will only flag genuinely new un-noted captures (the cry-wolf failure is averted).
+
+</details>
 
 ## Open — questions & blockers
 - **`math32_3arg` / `math32_2arg` ext-opcodes** — the standing blocker for exact *magnitudes* of several formulas. Until decoded, magnitudes are empirical fits, not derivations. *Highest-leverage unlock.*
@@ -49,6 +55,7 @@ created: 2026-05-29
 - **Visual atlas** — render all 17 tactical maps + strategic map for the synthesis ([[project_nobunaga_visual_extraction]]).
 
 ## Done — recent (newest first; trim to ~15, full history is in chapters + git)
+- **Tooling-discipline meta-project COMPLETE** (2026-05-29) — registration layer (CONTEXT + 3 registries), `/nobunaga` skill, script consolidation (−11/+2, every merge output-verified), trace gzip (2.9 GB→250 MB lossless), data-provenance system + `data-index.py auto` (145 legacy dumps contextualized → backlog clean). The anti-drift thesis applied to its own toolchain.
 - 50-fief adjacency cracked, verified 5 ways ([[project_nobunaga_50fief_adjacency]]).
 - Full NA1 economy engine unified (Grow/Build/Give/harvest verified; Dam partial) ([[project_nobunaga_full_econ_engine]]).
 - Natural-death + event-spawn formulas cracked.

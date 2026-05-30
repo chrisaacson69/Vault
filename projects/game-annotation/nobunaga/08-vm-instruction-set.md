@@ -96,7 +96,7 @@ The idiom is **compare-then-branch**: a `cmp_*` opcode sets regA to 0/1, and the
 
 ### A tooling correction: $8A and $8C are word loads
 
-`opcode-classify.py` tagged `$8A` and `$8C` as `byte + sbyte` (2 operand bytes). The 9999-clamp sites prove otherwise: the bytes `8C 0F 27` decode as `loadB_imm_word 9999`, and `8A 0F 27` as `loadA_imm_word 9999`. The handlers ($EAB9 / $EAC8) use the variable-length-immediate fetch helper, which the classifier's straight-line walk mis-read. The operand *length* is still 2 bytes, so disassembly alignment was never wrong — only the rendering. `vm-opcodes.toml` is corrected; this is exactly the kind of conditional-fetch over-count chapter 6 flagged for `$A7`/`$A8`.
+The operand classifier (then `opcode-classify.py`, now `tools/analyze-vm-opcodes.py classify`) tagged `$8A` and `$8C` as `byte + sbyte` (2 operand bytes). The 9999-clamp sites prove otherwise: the bytes `8C 0F 27` decode as `loadB_imm_word 9999`, and `8A 0F 27` as `loadA_imm_word 9999`. The handlers ($EAB9 / $EAC8) use the variable-length-immediate fetch helper, which the classifier's straight-line walk mis-read. The operand *length* is still 2 bytes, so disassembly alignment was never wrong — only the rendering. `vm-opcodes.toml` is corrected; this is exactly the kind of conditional-fetch over-count chapter 6 flagged for `$A7`/`$A8`.
 
 ## The 9999 cap — the "big number," confirmed
 

@@ -45,7 +45,9 @@ That single block carries more information than the disasm6 view of the same add
 
 ## The classifier: `opcode-classify.py`
 
-Manually walking 256 opcode handlers to determine each one's operand format would be a chapter on its own. Instead, the project includes `opcode-classify.py` (in `projects/game-annotation/nobunaga/`) that walks each unique handler's first ~40 bytes of native code and detects calls to known operand-fetch helpers:
+> **Tooling note (2026-05-29):** the classifier, the dispatch dumper, and the handler survey were consolidated into one tool — run `tools/analyze-vm-opcodes.py classify` (also `survey` / `dispatch`). The standalone `opcode-classify.py` described below no longer exists as a separate file; the logic is unchanged.
+
+Manually walking 256 opcode handlers to determine each one's operand format would be a chapter on its own. Instead, the project includes a classifier (`tools/analyze-vm-opcodes.py classify`) that walks each unique handler's first ~40 bytes of native code and detects calls to known operand-fetch helpers:
 
 ```python
 OPERAND_FETCH_HELPERS = {
@@ -208,8 +210,8 @@ After chapter 6, the project's tool flywheel covers:
 | `mesen-workspace.py` | TOML preset config | Mesen breakpoints + watches | One investigation |
 | `asm-relabel.py` | TOML labels + disasm6 output | Labeled disasm with substituted references + injected label headers | All chapters of one game |
 | `vm-disasm.py` | ROM + opcode-format TOML | Annotated VM-assembly | **All games in the catalog** (any game using a similar VM) |
-| `opcode-survey.py` | ROM | Opcode → handler clustering report | Initial setup per game |
-| `opcode-classify.py` | ROM | Auto-classified operand formats | Initial setup per game |
+| `analyze-vm-opcodes.py survey` | ROM | Opcode → handler clustering report | Initial setup per game |
+| `analyze-vm-opcodes.py classify` | ROM | Auto-classified operand formats | Initial setup per game |
 
 `vm-disasm.py` is the first tool whose payoff scales across **multiple games**. The chapter-4 prediction was that Koei MMC1 titles share a kernel; if they also share the VM (which is very likely given the kernel template), the disassembler works directly on Romance of the Three Kingdoms, Genghis Khan, Bandit Kings of Ancient China, etc., with only the per-game TOML changing.
 

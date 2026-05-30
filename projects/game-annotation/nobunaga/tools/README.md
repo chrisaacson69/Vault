@@ -39,20 +39,21 @@ created: 2026-05-29
 |---|---|---|
 | `render-atlas.py` | ✅ | All-17-fief overview grid from bank-4 cell data. |
 | `render-from-sram.py` | ✅ | Tactical map from SRAM `$7BFD` staging buffer. |
-| `render-strategic-atlas.py` | 🔁 | Province map + adjacency overlay (17). `-50` twin → `--variant`. |
-| `render-strategic-50.py` | 🔁 | 50-fief strategic map. (see above) |
+| `render-strategic-atlas.py` | ✅ | 17-fief: composites the 17 tactical-map PNGs at geographic positions + adjacency overlay. *Not a `-50` twin — see note below.* |
+| `render-strategic-50.py` | ✅ | 50-fief: node-link graph of the `$8004` adjacency table at approx-Japan positions (for eyeball verification). **Different render, different artifact** from the 17 atlas — `--variant` merge rejected 2026-05-29 (pure churn; both are fixed-output references). |
 | `render-fief-from-ppu.py <fief>` | ✅ | Parameterized fief PPU renderer (`--list` shows available dumps). **Replaced the 16 per-fief `render-<fief>-from-ppu.py` copies, 2026-05-29.** |
-| `render-mino-full.py`, `render-iga-full.py` | 🔁 | Full-map-from-SRAM variants → generalize. |
-| `title-render.py` / `render-title2.py` | 🔁🔎 | Two title renderers; **confirm which is canonical** before removing the other. |
+| `render-mino-full.py`, `render-iga-full.py` | 🔁 | Full-map-from-SRAM variants → generalize (still pending). |
+| `title-render.py` | ✅🧪 | Title-screen renderer, ROM-sourced CHR (`$AC4A`) → grayscale PPM. Canonical of the title one-shots; **`render-title2.py` retired 2026-05-29** (placeholder palette, depended on extracted intermediates). |
 | `title-nametable.py`, `title-tiles-extract.py`, `find-title-assets.py`, `extract-chr-from-trace.py` | 🧪 | Title-screen one-shots (asset located + rendered; keep for provenance). |
 
 ## Strategic / scenario analysis
 | Script | Status | Purpose |
 |---|---|---|
 | `adjacency.py` | ✅ | 17-fief adjacency from bank-4 `$8300` → `adjacency.txt`. |
-| `adjacency-50.py` | 🔁 | 50-fief adjacency → `adjacency-50.txt`. Merge under `--variant`. |
+| `adjacency-50.py` | ✅ | 50-fief adjacency from bank-4 `$8004` → `adjacency-50.txt` (+ names, degree stats, historical sanity checks). **Different table + artifact** from the 17 dumper — `--variant` merge rejected 2026-05-29 (different province numbering, output format; tables fixed & located → zero maintenance surface). |
 | `find-adjacency-50.py` | 🧪 | Located the 50-fief table offset (done). |
-| `fief-analysis-50.py` / `profile-fief-50.py` | 🔁🔎 | 50-fief stat profilers; confirm which is canonical. |
+| `fief-analysis-50.py` | ✅ | 50-fief **bulk** table: per-fief aggregates (Econ/Army/Daimyo geomeans) + neighbor threat/prey/ignition/backfield for all 50. |
+| `profile-fief-50.py` | ✅ | 50-fief **drill-down**: full play-profile for named fief(s) (`py profile-fief-50.py Ezo Noto …`). Distinct granularity from the bulk table — both canonical, not duplicates. |
 | `verify-17-subset-of-50.py` | 🧪 | Confirmed 17⊂50 (done). |
 | `tier-analysis.py` | ✅ | Fief tier heuristic. |
 
@@ -82,4 +83,5 @@ created: 2026-05-29
 
 ## ⚠️ Known gaps
 - **`mesen-labels.py` is referenced by `mesen-labels.toml` but does not exist.** Either (re)write the applier or fix the toml header. Until then, labels are applied manually.
-- Counts above are from one inventory pass; 🔎 entries need a purpose re-confirm.
+- **`vm-disasm.py` (bulk VM disassembler, documented ch6) is missing** — the 4 existing `disasm/*_vm.asm` files prove it ran once; recover from ch6 and save it. Prerequisite for the "see the whole picture" decode epic. See [ROADMAP](../ROADMAP.md).
+- Consolidation pass **complete 2026-05-29**: opcode trio → `analyze-vm-opcodes.py`; sram pair → `analyze-sram.py`; 4 selector iterations + `run-grow.py` + `render-title2.py` retired. The remaining 🔎 re-confirms resolved (the 17/50 "twins" and the two `*-fief-50` profilers are parallel canonical tools, not collapse targets — see their rows). Only `render-mino/iga-full` generalization still pending.

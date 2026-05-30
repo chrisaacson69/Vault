@@ -14,19 +14,27 @@ Project root: `C:\Users\Chris.Isaacson\Vault\projects\game-annotation\nobunaga` 
 2. Read `PROJ/tools/README.md` (the tool catalog — canonical ✅ / duplicate 🔁 / one-shot 🧪).
 3. If a tool seems missing, it is probably there under a different name, or its **output** already exists as a data file/label. Re-derive only after confirming it doesn't. If you do build one, add it to `tools/README.md` in the same session.
 
-Then route the request:
+Then route the request.
+
+> **Launcher: use `py`, not `python`** — `python` is not on PATH on this machine. All invocations are from `PROJ`. Signatures below were verified against the tools 2026-05-29 (the consolidation pass). If a tool changed, fix this table **and** `tools/README.md` in the same session — they must not disagree.
 
 | Ask | Tool | Invocation (from `PROJ`) |
 |---|---|---|
-| Render a fief tactical map | fief PPU renderer | `python tools/render-fief-from-ppu.py <fief>` (post-Phase-3) — until merged, the per-fief `render-<fief>-from-ppu.py` |
-| Render strategic / adjacency map | `render-strategic-atlas.py` | `python tools/render-strategic-atlas.py [--variant 17|50]` |
-| Test a command's effect | snap protocol | follow `commands/README.md`: `python tools/capture-test.py <tag> pre|post|diff --fief N` |
-| Run an effect handler | `run-effect.py` | `python tools/run-effect.py <effect> <amount>` |
-| Decompile bytecode → C | `vm_decompile.py` | `python tools/vm_decompile.py <bank> <addr>` |
+| Render a fief tactical map | `render-fief-from-ppu.py` | `py tools/render-fief-from-ppu.py <fief>`  (`--list` shows available PPU dumps) |
+| Render the 17-fief strategic atlas | `render-strategic-atlas.py` | `py tools/render-strategic-atlas.py`  (no args; composites the 17 tactical maps + adjacency) |
+| Render the 50-fief adjacency graph | `render-strategic-50.py` | `py tools/render-strategic-50.py [rom] [out.png]`  (*separate tool — there is no `--variant`*) |
+| Test a command's effect | snap protocol | `py tools/capture-test.py <tag> pre` → make the move → `… <tag> post` → `… <tag> diff`; add `--note "..."` for provenance. See `commands/README.md`. |
+| Run an effect handler in the emulator | `run-effect.py` | `py tools/run-effect.py <grow\|build\|dam\|give…> <sram_pre.dmp> [amount]` |
+| Analyze the VM opcode table | `analyze-vm-opcodes.py` | `py tools/analyze-vm-opcodes.py <survey\|dispatch\|classify>` |
+| Decompile a bytecode sub → C | `vm_decompile.py` | `py tools/vm_decompile.py disasm/bank_NN_vm.asm <addr_hex>`  (`_vm.asm` exists for banks 00/01/02/15 only — see ROADMAP epic) |
+| Analyze an SRAM dump (landscape) | `analyze-sram.py` | `py tools/analyze-sram.py <structure\|detail> <dump.dmp>` |
+| Decode the live province table | `sram-decode-province.py` | `py tools/sram-decode-province.py <dump.dmp> [--diff <other.dmp>]` |
+| Province adjacency table | `adjacency.py` / `adjacency-50.py` | `py tools/adjacency.py "<rom>"` (17-fief) · `py tools/adjacency-50.py "<rom>"` (50-fief) |
+| Fief strategic profile (50-fief) | bulk / drill-down | all-50 table → `py tools/fief-analysis-50.py` · one fief → `py tools/profile-fief-50.py <Name…>` |
+| Simulate economy / check a formula | `econ_sim.py` | `py tools/econ_sim.py` |
+| Decode a combat trace | `combat-trace-decode.py` | `py tools/combat-trace-decode.py <trace.txt[.gz]>` |
 | Find a named address | `mesen-labels.toml` | grep it — **never re-trace a known label** |
-| Simulate economy / check a formula | `econ_sim.py` | `python tools/econ_sim.py` |
-| Province adjacency table | `adjacency.py` | `python tools/adjacency.py [--variant 17|50]` |
-| Decode a combat trace | `combat-trace-decode.py` | `python tools/combat-trace-decode.py <trace.txt[.gz]>` |
+| What is this dump / capture provenance | `data-index.py` | `py tools/data-index.py scan` (backlog) · `… auto` (bulk-classify by naming convention) · `… add <file> --note "…"` · `… show` |
 | What's the frontier / what's next | — | show `PROJ/ROADMAP.md` |
 
 **Emulator pattern** (for `nobunaga_vm.py`-based runs): load SRAM → switch bank → set `vm_pc`/`vm_sp` (pre-allocate locals!) → run. Details in `CONTEXT.md`.
