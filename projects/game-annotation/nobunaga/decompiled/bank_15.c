@@ -399,15 +399,37 @@ L_CE16:
     }
 L_CE1D:
     // TODO: op_A0_A3_byte $000B
-    // TODO: op_D9 SWITCH_noncontig       count=12
+    switch ((58 - 40)) {    // $CE20
+        case 32: goto L_CE55;    // $CE20
+        case 33: goto L_CE55;    // $CE20
+        case 35: goto L_CE5A;    // $CE20
+        case 37: goto L_CE5F;    // $CE20
+        case 40: goto L_CE64;    // $CE20
+        case 41: goto L_CE64;    // $CE20
+        case 42: goto L_CE69;    // $CE20
+        case 43: goto L_CE69;    // $CE20
+        case 44: goto L_CE69;    // $CE20
+        case 60: goto L_CE73;    // $CE20
+        case 62: goto L_CE78;    // $CE20
+        case 63: goto L_CE78;    // $CE20
+        default: goto L_CE7D;    // $CE20
+    }    // $CE20
+L_CE55:
     goto L_CE11;    // $CE57
+L_CE5A:
     goto L_CE16;    // $CE5C
+L_CE5F:
     goto L_CE16;    // $CE61
+L_CE64:
     goto L_CE11;    // $CE66
+L_CE69:
     // TODO: op_A0_A3_byte $000B
     goto L_CE16;    // $CE70
+L_CE73:
     goto L_CE16;    // $CE75
+L_CE78:
     goto L_CE11;    // $CE7A
+L_CE7D:
     goto L_CE16;    // $CE7E
 }
 
@@ -588,13 +610,21 @@ L_D056:
     }
 L_D07F:
     // TODO: op_A0_A3_byte $FFFF
-    // TODO: op_D9 SWITCH_noncontig       count=4
+    switch (sub_CB30(*(byte*)(((0 + 1) - 1)))) {    // $D087
+        case 0: goto L_D12F;    // $D087
+        case 67: goto L_D0D0;    // $D087
+        case 68: goto L_D09C;    // $D087
+        case 83: goto L_D0B7;    // $D087
+        default: goto L_D00F;    // $D087
+    }    // $D087
+L_D09C:
     // TODO: op_81_byte $E9
     // TODO: op_85_byte $E9
     // TODO: loadA_frameaddr $FFF1
     // TODO: op_81_byte $ED
     // TODO: op_85_byte $ED
     goto L_D0E5;    // $D0B4
+L_D0B7:
     // TODO: op_81_byte $E9
     // TODO: op_85_byte $E9
     // TODO: op_85_byte $F1
@@ -602,6 +632,7 @@ L_D07F:
     // TODO: op_81_byte $ED
     // TODO: op_85_byte $ED
     goto L_D0FC;    // $D0CD
+L_D0D0:
     // TODO: op_81_byte $ED
     // TODO: op_85_byte $ED
     // TODO: op_81_byte $F1
@@ -643,6 +674,7 @@ L_D127:
     // TODO: op_81_byte $F1
     // TODO: op_85_byte $F1
     goto L_D107;    // $D12C
+L_D12F:
     return ((*(byte*)(((arg2 + 1) - 1)) - 1) + 1);    // $D12F
 L_D130:
     arg2 = sub_CA7E(/*stack underflow*/ regA);    // $D130
@@ -665,7 +697,15 @@ word ui_helper_d134(word arg1, word arg2, word arg3, word arg4) {
 
 word sub_D14E(word arg1, word arg2, word arg3, word arg4) {
     local11 = 0;    // $D154
-    // TODO: switch SWITCH_contig          limit=5
+    switch (mem_7FD3) {    // $D158
+        case 0: goto L_D169;    // $D158
+        case 1: goto L_D1E1;    // $D158
+        case 2: goto L_D1E8;    // $D158
+        case 3: goto L_D1EE;    // $D158
+        case 4: goto L_D24E;    // $D158
+        default: goto L_D16B;    // $D158
+    }    // $D158
+L_D169:
 L_D16A:
     local11 = 0;    // $D16A
 L_D16B:
@@ -681,17 +721,24 @@ L_D171:
     }
 L_D1AD:
     if ((mem_7FE7 == 2)) goto L_D269;    // $D1B2
-    // TODO: op_D9 SWITCH_noncontig       count=2
+    switch (frame_counter) {    // $D1BC
+        case 100: goto L_D252;    // $D1BC
+        case 0: goto L_D270;    // $D1BC
+        default: goto L_D269;    // $D1BC
+    }    // $D1BC
 L_D1C9:
 L_D1CA:
     local11 = 0;    // $D1CA
     local10 = 2;    // $D1CB
     if (!((*(byte*)((local11 + 0x7FD5)) != ui_helper_d772(/*stack underflow*/ regA)))) goto L_D171;    // $D1D9
     goto L_D1CA;    // $D1DE
+L_D1E1:
 L_D1E4:
     local10 = selected_province_idx;    // $D1E4
     goto L_D16B;    // $D1E5
+L_D1E8:
     goto L_D1E4;    // $D1EB
+L_D1EE:
     if ((mem_7FE1 == 0x00FF)) {    // $D1F5
     goto L_D1FE;    // $D1F9
 L_D1FC:
@@ -716,10 +763,13 @@ L_D23D:
     if (!(mem_7BE8)) goto L_D16B;    // $D244
     // TODO: bitxor
     goto L_D16A;    // $D24B
+L_D24E:
     goto L_D16A;    // $D24F
+L_D252:
 L_D269:
     local11 = 3;    // $D269
     return syscall_dispatch(/*stack underflow*/ regA, 6);    // $D26F
+L_D270:
     goto L_D269;    // $D284
 }
 
@@ -845,14 +895,25 @@ L_D3F8:
     local6 = 5;    // $D40E
     local2 = 0;    // $D426
 L_D427:
-    // TODO: op_D9 SWITCH_noncontig       count=6
+    switch (sub_D14E()) {    // $D42A
+        case 1: goto L_D459;    // $D42A
+        case 2: goto L_D447;    // $D42A
+        case 16: goto L_D469;    // $D42A
+        case 32: goto L_D4AF;    // $D42A
+        case 64: goto L_D4DB;    // $D42A
+        case 128: goto L_D511;    // $D42A
+        default: goto L_D460;    // $D42A
+    }    // $D42A
+L_D447:
     if (((mem_7BE0 == 1))) return -1;    // $D451
     return 0;    // $D458
+L_D459:
     local2 = 0;    // $D45F
 L_D460:
     if (!(local2)) goto L_D427;    // $D461
     local3 = 0;    // $D465
     goto L_D573;    // $D466
+L_D469:
     // TODO: loadA_frameaddr $FFF4
     *(word*)(((local4 << 1) + 0)) = (*(word*)(((local4 << 1) + 0)) + 1);    // $D474
     // TODO: cmp_ult
@@ -864,6 +925,7 @@ L_D485:
     // TODO: loadA_frameaddr $FFF4
 L_D492:
     goto L_D460;    // $D4AC
+L_D4AF:
     // TODO: loadA_frameaddr $FFF4
     *(word*)(((local4 << 1) + sub_D29D(1))) = (*(word*)(((local4 << 1) + sub_D29D(1))) - 1);    // $D4BA
     // TODO: cmp_ult
@@ -874,12 +936,14 @@ L_D492:
 L_D4CB:
     // TODO: loadA_frameaddr $FFF4
     goto L_D492;    // $D4D8
+L_D4DB:
     if (!(local4)) goto L_D460;    // $D4DC
     // TODO: loadA_frameaddr $FFF4
     local4 = (local4 - 1);    // $D4FF
     *(word*)(((((local4 - 1) + 1) << 1) + sub_D29D(1))) = 255;    // $D508
 L_D509:
     goto L_D460;    // $D50E
+L_D511:
     if (!(((arg1 - 1) != local4))) goto L_D460;    // $D515
     if (local4) goto L_D528;    // $D519
     // TODO: loadA_frameaddr $FFF4
@@ -1007,11 +1071,22 @@ word sub_D677(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $D68C)
 
 word sub_D687(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: switch SWITCH_contig          limit=4
+    switch (config_block) {    // $D68F
+        case 0: goto L_D69E;    // $D68F
+        case 1: goto L_D6A6;    // $D68F
+        case 2: goto L_D6AC;    // $D68F
+        case 3: goto L_D6B2;    // $D68F
+        default: goto L_D6A5;    // $D68F
+    }    // $D68F
+L_D69E:
 L_D6A1:
+L_D6A5:
     return redraw_window(0xF6C7);    // $D6A5
+L_D6A6:
     goto L_D6A1;    // $D6A9
+L_D6AC:
     goto L_D6A1;    // $D6AF
+L_D6B2:
     goto L_D6A1;    // $D6B5
 }
 
@@ -1658,11 +1733,20 @@ word sub_DE78(word arg1, word arg2, word arg3, word arg4) {
     if (!(!((? & 32)))) return 0xF72E;    // $DE83
     // TODO: loadA_mem_byte $6DA1
     if (!(!((0xF72E & 16)))) return 0x796A;    // $DE90
-    // TODO: op_D9 SWITCH_noncontig       count=4
+    switch (arg1) {    // $DE98
+        case 7: goto L_DEAD;    // $DE98
+        case 13: goto L_DEB3;    // $DE98
+        case 23: goto L_DEAD;    // $DE98
+        case 30: goto L_DEB3;    // $DE98
+        default: goto L_DEB9;    // $DE98
+    }    // $DE98
+L_DEAD:
 L_DEB0:
     local11 = 0xF720;    // $DEB0
     return local11;    // $DEB2
+L_DEB3:
     goto L_DEB0;    // $DEB6
+L_DEB9:
     arg1 = 16;    // $DEB9
     goto L_DEB0;    // $DEBE
 }

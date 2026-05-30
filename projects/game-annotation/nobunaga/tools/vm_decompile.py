@@ -162,7 +162,7 @@ def _build_opcode_to_mnemonic():
     m[0xD0] = 'incA'; m[0xD1] = 'decA'; m[0xD2] = 'aslA'
     m[0xD3] = 'loadA_ind_byte'; m[0xD4] = 'storeA_ind_byte'; m[0xD5] = 'switch'
     m[0xD6] = 'jump_abs'; m[0xD7] = 'branch_nz_abs'; m[0xD8] = 'branch_z_abs'
-    m[0xD9] = 'op_D9'
+    m[0xD9] = 'switch'   # SWITCH_noncontig (vm-disasm decodes the table into the comment)
     m[0xDA] = 'bitand'; m[0xDB] = 'bitor'; m[0xDC] = 'bitxor'
     m[0xDD] = 'host_call_indirect_simple'
     m[0xDE] = 'loadA_frameaddr'; m[0xDF] = 'loadB_frameaddr'
@@ -278,12 +278,17 @@ def decompile(filepath, sub_addr, labels=None):
             m = re.search(r'\$([0-9A-Fa-f]{4})', ins['operand'])
             if m:
                 branch_targets.add(int(m.group(1), 16))
+        elif ins['mnemonic'] == 'switch':
+            # Every case + default target (from the decoded "SWITCH …" comment).
+            for t in re.findall(r'=>\$([0-9A-Fa-f]{4})', ins['comment']):
+                branch_targets.add(int(t, 16))
 
     # Second pass: decompile
     for ins in instructions:
         state.cur_addr = ins['addr']
         mnem = ins['mnemonic']
         operand = ins['operand']
+        comment = ins['comment']
         opcode = ins['bytes'][0]
 
         # Label for branch targets
@@ -481,6 +486,23 @@ def decompile(filepath, sub_addr, labels=None):
             state.emit(f"goto L_{tgt:04X};")
         elif mnem == 'vm_return':
             state.emit(f"return {state.regA};")
+        elif mnem == 'switch':
+            # vm-disasm decoded the jump table into the comment:
+            #   "SWITCH <key>=>$<tgt> ... default=>$<tgt>"
+            # regA holds the switched value. Emit a C switch of goto-cases.
+            pairs = re.findall(r'(-?\d+)=>\$([0-9A-Fa-f]{4})', comment)
+            dflt = re.search(r'default=>\$([0-9A-Fa-f]{4})', comment)
+            if pairs:
+                state.emit(f"switch ({state.regA}) {{")
+                state.indent += 1
+                for key, tgt in pairs:
+                    state.emit(f"case {key}: goto L_{int(tgt, 16):04X};")
+                if dflt:
+                    state.emit(f"default: goto L_{int(dflt.group(1), 16):04X};")
+                state.indent -= 1
+                state.emit("}")
+            else:
+                state.emit(f"// TODO: switch {operand}")
 
         # === Host calls ===
         elif mnem == 'host_call' or mnem == 'host_call_simple':

@@ -148,11 +148,16 @@ def walk_sub(mem, body, end, labels):
         if op < 0x80:
             comment = f"inline operand = {op & 0x0F}"
         elif op == 0xD5:                            # contiguous: default + limit targets
+            offs = raw[1] | (raw[2] << 8)
             limit = raw[3] | (raw[4] << 8)
             operand_str = f"limit={limit}"
-            comment = f".table {limit} word targets (contiguous)"
-            tgts = [raw[5] | (raw[6] << 8)]         # default
-            tgts += [raw[7 + 2 * k] | (raw[8 + 2 * k] << 8) for k in range(limit)]
+            default = raw[5] | (raw[6] << 8)
+            case_tgts = [raw[7 + 2 * k] | (raw[8 + 2 * k] << 8) for k in range(limit)]
+            # Parseable switch table for the decompiler (cases = offs..offs+limit-1).
+            sw = " ".join(f"{offs + k}=>${case_tgts[k]:04X}" for k in range(limit))
+            comment = (f".table {limit} word targets (contiguous); "
+                       f"SWITCH {sw} default=>${default:04X}")
+            tgts = [default] + case_tgts
             for t in tgts:
                 if body <= t < end:
                     targets.add(t)
@@ -161,9 +166,13 @@ def walk_sub(mem, body, end, labels):
         elif op == 0xD9:                            # noncontig: per-entry target + default
             count = raw[1] | (raw[2] << 8)
             operand_str = f"count={count}"
-            comment = f".table {count} (key,target) + default (noncontiguous)"
-            tgts = [raw[3 + 4 * k + 2] | (raw[3 + 4 * k + 3] << 8) for k in range(count)]
-            tgts.append(raw[3 + 4 * count] | (raw[3 + 4 * count + 1] << 8))  # default
+            keys = [raw[3 + 4 * k] | (raw[3 + 4 * k + 1] << 8) for k in range(count)]
+            case_tgts = [raw[3 + 4 * k + 2] | (raw[3 + 4 * k + 3] << 8) for k in range(count)]
+            default = raw[3 + 4 * count] | (raw[3 + 4 * count + 1] << 8)
+            sw = " ".join(f"{keys[k]}=>${case_tgts[k]:04X}" for k in range(count))
+            comment = (f".table {count} (key,target) + default (noncontiguous); "
+                       f"SWITCH {sw} default=>${default:04X}")
+            tgts = case_tgts + [default]
             for t in tgts:
                 if body <= t < end:
                     targets.add(t)

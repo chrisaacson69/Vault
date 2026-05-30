@@ -57,13 +57,26 @@ word sub_8094(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $8134)
 
 word sub_812F(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: op_D9 SWITCH_noncontig       count=8
+    switch (arg1) {    // $8135
+        case 1: goto L_815A;    // $8135
+        case 2: goto L_8166;    // $8135
+        case 4: goto L_815A;    // $8135
+        case 6: goto L_8166;    // $8135
+        case 8: goto L_8166;    // $8135
+        case 15: goto L_8166;    // $8135
+        case 19: goto L_815A;    // $8135
+        case 255: goto L_8166;    // $8135
+        default: goto L_8164;    // $8135
+    }    // $8135
+L_815A:
     arg2 = ?;    // $815A
     goto L_8163;    // $815F
 L_8162:
 L_8163:
     local11 = 0;    // $8163
+L_8164:
     return local11;    // $8165
+L_8166:
     arg2 = ?;    // $8166
     if (sub_D9B7(/*via arg2*/ ?)) goto L_8162;    // $816B
     goto L_8163;    // $816F
@@ -649,25 +662,40 @@ L_8A48:
 word helper_8A4E(word arg1, word arg2, word arg3, word arg4) {
     local10 = mem_7FCD;    // $8A56
     local9 = mem_7FCF;    // $8A5A
-    // TODO: switch SWITCH_contig          limit=6
+    switch (arg1) {    // $8A61
+        case 0: goto L_8A74;    // $8A61
+        case 1: goto L_8ABC;    // $8A61
+        case 2: goto L_8AAA;    // $8A61
+        case 3: goto L_8AE6;    // $8A61
+        case 4: goto L_8AD4;    // $8A61
+        case 5: goto L_8AF8;    // $8A61
+        default: goto L_8A94;    // $8A61
+    }    // $8A61
+L_8A74:
     if ((mem_6E0B > 15)) {    // $8A80
     }
 L_8A8B:
 L_8A93:
     local11 = mem_6E0B;    // $8A93
+L_8A94:
     local9 = 10;    // $8AA3
     local10 = 10;    // $8AA4
     return ui_helper_cc7b(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $8AA9
+L_8AAA:
 L_8AAE:
     goto L_8A93;    // $8AB9
+L_8ABC:
     // TODO: cmp_sge
     if (mem_6E0D) {    // $8AC1
     } else {
     }
 L_8ACC:
     goto L_8AAE;    // $8AD1
+L_8AD4:
     goto L_8A93;    // $8AE3
+L_8AE6:
     goto L_8A93;    // $8AF5
+L_8AF8:
     goto L_8A93;    // $8B07
     }
 }
@@ -915,13 +943,23 @@ L_8F96:
     local7 = 0;    // $8F96
     }
 L_8FA1:
-    // TODO: switch SWITCH_contig          limit=4
+    switch (local7) {    // $8FBE
+        case 65535: goto L_8FCD;    // $8FBE
+        case 65536: goto L_8FD8;    // $8FBE
+        case 65537: goto L_8FDE;    // $8FBE
+        case 65538: goto L_8FF7;    // $8FBE
+        default: goto L_8FD4;    // $8FBE
+    }    // $8FBE
+L_8FCD:
 L_8FD0:
 L_8FD4:
     return sub_E03C();    // $8FD7
+L_8FD8:
     goto L_8FD0;    // $8FDB
+L_8FDE:
 L_8FED:
     goto L_8FD4;    // $8FF4
+L_8FF7:
     goto L_8FED;    // $9006
     }
     }
@@ -1947,7 +1985,15 @@ L_A360:
 L_A36C:
     arg1 = ((battle_defending_province * 26) + 0x7001);    // $A37B
     if ((*(byte*)((sub_D7DA(battle_defending_province) + 3)) < (*(byte*)((ui_helper_d7ea() + 3)) + 30))) {    // $A396
-    // TODO: switch SWITCH_contig          limit=5
+    switch (local10) {    // $A39A
+        case 65535: goto L_A3AB;    // $A39A
+        case 65536: goto L_A45A;    // $A39A
+        case 65537: goto L_A497;    // $A39A
+        case 65538: goto L_A508;    // $A39A
+        case 65539: goto L_A510;    // $A39A
+        default: goto L_A41D;    // $A39A
+    }    // $A39A
+L_A3AB:
     if (arg1->loyalty) goto L_A3BF;    // $A3AE
     if (arg1->wealth) goto L_A3BF;    // $A3B4
     local9 = (*(byte*)((ui_helper_d7ea() + 3)) + 30);    // $A3B7
@@ -1988,6 +2034,7 @@ L_A43B:
     local9 = 4;    // $A43B
     *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - sub_8303(/*stack underflow*/ regA, mem_6E13));    // $A452
     return 0;    // $A459
+L_A45A:
     local9 = sub_8303(/*stack underflow*/ regA, mem_6E13);    // $A45A
     local7 = sub_A255(/*stack underflow*/ regA, arg1->morale);    // $A464
     if ((arg1->morale <= local7)) {    // $A46B
@@ -2004,6 +2051,7 @@ L_A483:
     arg1->morale = (arg1->morale - local7);    // $A491
     local7 = local7;    // $A492
     goto L_A419;    // $A494
+L_A497:
     if (arg1->dams) goto L_A4AB;    // $A49A
     if (arg1->rice) goto L_A4AB;    // $A4A0
     local9 = local7;    // $A4A3
@@ -2035,8 +2083,10 @@ L_A4F6:
     arg1->rice = (arg1->rice - local7);    // $A502
     local7 = local7;    // $A503
     goto L_A419;    // $A505
+L_A508:
     local9 = local7;    // $A508
     goto L_A41D;    // $A50D
+L_A510:
     local9 = local7;    // $A510
     local7 = sub_A255(/*stack underflow*/ regA, arg1->town);    // $A519
     if ((arg1->town <= local7)) {    // $A51F
@@ -2104,9 +2154,15 @@ L_A5F2:
 word driver_hire(word arg1, word arg2, word arg3, word arg4) {
     if (effect_war_combat_prep_c(selected_province_idx)) {    // $A600
     local11 = ((selected_province_idx * 26) + 0x7001);    // $A614
-    // TODO: op_D9 SWITCH_noncontig       count=2
+    switch (ui_helper_d351(0xBDD1)) {    // $A61C
+        case 0: goto L_A629;    // $A61C
+        case 1: goto L_A62F;    // $A61C
+        default: goto L_A635;    // $A61C
+    }    // $A61C
+L_A629:
     local11 = 0x7001;    // $A629
     return effect_hire(/*stack underflow*/ regA);    // $A62E
+L_A62F:
     local11 = 0x7001;    // $A62F
     return sub_A553(/*stack underflow*/ regA);    // $A634
     }
@@ -2425,13 +2481,20 @@ L_AB29:
     *(word*)(((local11 << 1) + arg2)) = 0x270F;    // $AB58
     }
 L_AB59:
-    // TODO: op_D9 SWITCH_noncontig       count=2
+    switch (local11) {    // $AB70
+        case 1: goto L_AB7D;    // $AB70
+        case 2: goto L_ABB5;    // $AB70
+        default: goto L_ABB9;    // $AB70
+    }    // $AB70
+L_AB7D:
 L_AB7E:
     local10 = 0;    // $AB7E
     local11 = (local11 + 1);    // $ABAD
     if (((unsigned)local11 >= (unsigned)5)) goto L_AB29;    // $ABB1
     return ((unsigned)local11 >= (unsigned)5);    // $ABB4
+L_ABB5:
     goto L_AB7E;    // $ABB6
+L_ABB9:
     goto L_AB7E;    // $ABBA
 }
 
@@ -2472,7 +2535,16 @@ word effect_assign(word arg1, word arg2, word arg3, word arg4) {
     local10 = 0;    // $AC31
     local11 = 0;    // $AC32
 L_AC33:
-    // TODO: op_D9 SWITCH_noncontig       count=6
+    switch (sub_D14E()) {    // $AC36
+        case 1: goto L_AD4B;    // $AC36
+        case 2: goto L_AD5D;    // $AC36
+        case 16: goto L_AC92;    // $AC36
+        case 32: goto L_ACFA;    // $AC36
+        case 64: goto L_AC53;    // $AC36
+        case 128: goto L_AC7B;    // $AC36
+        default: goto L_AC33;    // $AC36
+    }    // $AC36
+L_AC53:
     local9 = (local9 - 1);    // $AC5A
     local10 = (local10 - 1);    // $AC5D
     // TODO: setB_imm4_50
@@ -2484,11 +2556,13 @@ L_AC67:
 L_AC68:
     local9 = 0x7017;    // $AC68
     goto L_AC33;    // $AC78
+L_AC7B:
     local9 = (local9 + 1);    // $AC82
     local10 = (local10 + 1);    // $AC85
     if (!(((local10 + 1) <= 5))) goto L_AC68;    // $AC88
     local10 = 0;    // $AC8C
     goto L_AC67;    // $AC8F
+L_AC92:
     if (!(local11)) goto L_AC33;    // $AC93
     if ((local10 != 2)) goto L_ACB2;    // $AC99
     // TODO: loadA_frameaddr $FFF0
@@ -2505,6 +2579,7 @@ L_ACC1:
 L_ACE8:
     local9 = ui_helper_cc7b(/*stack underflow*/ regA, 14);    // $ACEC
     goto L_AC33;    // $ACF7
+L_ACFA:
     if (local10) goto L_AD02;    // $ACFB
     goto L_AD03;    // $ACFF
 L_AD02:
@@ -2518,9 +2593,11 @@ L_AD03:
     // TODO: loadA_frameaddr $FFF0
     local11 = ui_helper_cc7b(/*stack underflow*/ regA, 14);    // $AD44
     goto L_ACE8;    // $AD48
+L_AD4B:
     local11 = ui_helper_cc7b(/*stack underflow*/ regA, 14);    // $AD53
     // TODO: loadA_frameaddr $FFF0
     return sub_ABBD(0xBE65, ui_helper_cc89());    // $AD5C
+L_AD5D:
     return 0;    // $AD66
 }
 
@@ -2598,7 +2675,15 @@ L_AE78:
     // TODO: op_85_byte $D5
     }
 L_AEA2:
-    // TODO: op_D9 SWITCH_noncontig       count=5
+    switch (sub_D14E()) {    // $AEA5
+        case 1: goto L_AEBE;    // $AEA5
+        case 16: goto L_AEDD;    // $AEA5
+        case 32: goto L_AEEE;    // $AEA5
+        case 64: goto L_AEEE;    // $AEA5
+        case 128: goto L_AEDD;    // $AEA5
+        default: goto L_AECF;    // $AEA5
+    }    // $AEA5
+L_AEBE:
     arg1 = 0;    // $AEBF
 L_AEC0:
     return arg1;    // $AEC1
@@ -2608,13 +2693,16 @@ L_AEC2:
     }
 L_AECE:
     arg1 = (arg1 - 1);    // $AECE
+L_AECF:
     // TODO: op_A0_A3_byte $FFD7
     if (((arg1 - 1) != arg1)) goto L_AEC0;    // $AED4
     // TODO: op_81_byte $D5
     goto L_AE78;    // $AEDA
+L_AEDD:
     if ((scenario_fief_count == 50)) goto L_AEC2;    // $AEE3
     if (arg1) goto L_AECC;    // $AEE7
     goto L_AECE;    // $AEEB
+L_AEEE:
     if ((scenario_fief_count != 50)) goto L_AF06;    // $AEF4
     if ((arg1 != 8)) goto L_AF01;    // $AEFA
     goto L_AECE;    // $AEFE
@@ -2706,11 +2794,18 @@ L_B09B:
 // (body @ $B0A2)
 
 word subhandler_B09D(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: op_D9 SWITCH_noncontig       count=2
+    switch (ui_helper_d351(0xBED0)) {    // $B0B0
+        case 1: goto L_B0BD;    // $B0B0
+        case 0: goto L_B0C8;    // $B0B0
+        default: goto L_B0C6;    // $B0B0
+    }    // $B0B0
+L_B0BD:
     // TODO: loadA_mem_byte $6DA1
 L_B0C3:
     // TODO: storeA_mem_byte $6DA1
+L_B0C6:
     return 0;    // $B0C7
+L_B0C8:
     // TODO: loadA_mem_byte $6DA1
     goto L_B0C3;    // $B0CF
 }
@@ -2785,10 +2880,19 @@ word submenu_prompt(word arg1, word arg2, word arg3, word arg4) {
     local11 = 0;    // $B1BD
 L_B1BE:
     if (!(!(local11))) return local10;    // $B1BF
-    // TODO: op_D9 SWITCH_noncontig       count=4
+    switch (sub_D14E()) {    // $B1C7
+        case 1: goto L_B1DF;    // $B1C7
+        case 2: goto L_B1DC;    // $B1C7
+        case 16: goto L_B1EC;    // $B1C7
+        case 32: goto L_B21A;    // $B1C7
+        default: goto L_B1BE;    // $B1C7
+    }    // $B1C7
+L_B1DC:
     local10 = (arg1 - 1);    // $B1DE
+L_B1DF:
     local11 = 0;    // $B1E5
     goto L_B1BE;    // $B1E9
+L_B1EC:
     if ((mem_7FCF == 6)) {    // $B1FA
     } else {
     }
@@ -2796,6 +2900,7 @@ L_B20B:
 L_B20C:
     local10 = (local10 - 1);    // $B20C
     goto L_B1BE;    // $B217
+L_B21A:
     if (!(((arg1 + 7) == mem_7FCF))) goto L_B239;    // $B22B
     goto L_B20C;    // $B236
 L_B239:
@@ -3043,12 +3148,23 @@ L_B6D3:
     local10 = 0;    // $B6D3
     local11 = 0;    // $B6D5
 L_B6D6:
-    // TODO: op_D9 SWITCH_noncontig       count=6
+    switch (sub_D14E()) {    // $B6D9
+        case 1: goto L_B6F9;    // $B6D9
+        case 2: goto L_B6F6;    // $B6D9
+        case 16: goto L_B75D;    // $B6D9
+        case 32: goto L_B773;    // $B6D9
+        case 64: goto L_B709;    // $B6D9
+        case 128: goto L_B709;    // $B6D9
+        default: goto L_B703;    // $B6D9
+    }    // $B6D9
+L_B6F6:
     local10 = 17;    // $B6F8
+L_B6F9:
     local11 = 0;    // $B6FF
 L_B703:
     if (!(local11)) goto L_B6D6;    // $B704
     return local10;    // $B708
+L_B709:
     if (mem_7BE2) goto L_B724;    // $B711
 L_B719:
     goto L_B74F;    // $B721
@@ -3062,8 +3178,10 @@ L_B746:
 L_B74F:
     local10 = 20;    // $B74F
     goto L_B703;    // $B75A
+L_B75D:
     if ((mem_7FCF == 6)) goto L_B734;    // $B76B
     goto L_B74F;    // $B770
+L_B773:
     if ((mem_7FCF == 19)) goto L_B729;    // $B782
     if ((mem_7FCF != 16)) goto L_B796;    // $B78B
     if ((mem_7BE2 == 1)) goto L_B719;    // $B793
@@ -3166,14 +3284,28 @@ L_B90E:
 L_B939:
     local10 = 0x6F1B;    // $B939
     if (rest_turns_remaining[ui_helper_d772(/*stack underflow*/ regA)]) goto L_B97D;    // $B943
-    // TODO: switch SWITCH_contig          limit=6
+    switch (*(byte*)((local10 + 0x6CF7))) {    // $B94C
+        case 0: goto L_B95F;    // $B94C
+        case 1: goto L_B965;    // $B94C
+        case 2: goto L_B96B;    // $B94C
+        case 3: goto L_B971;    // $B94C
+        case 4: goto L_B977;    // $B94C
+        case 5: goto L_B988;    // $B94C
+        default: goto L_B98D;    // $B94C
+    }    // $B94C
+L_B95F:
     goto L_B98D;    // $B962
+L_B965:
     goto L_B98D;    // $B968
+L_B96B:
     goto L_B98D;    // $B96E
+L_B971:
     goto L_B98D;    // $B974
+L_B977:
     goto L_B98D;    // $B97A
 L_B97D:
     if ((*(byte*)((local10 + 0x6CF7)) == 5)) {    // $B985
+L_B988:
     local10 = 5;    // $B988
     }
 L_B98D:
