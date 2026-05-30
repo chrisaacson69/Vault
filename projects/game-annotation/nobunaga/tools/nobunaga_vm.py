@@ -183,6 +183,9 @@ class NobunagaVM:
         self.trace_log = []
         self.vm_call_depth = 0   # nested VM call depth — used for outermost-return detection
         self.host_call_stubs = {}  # VM addr (target of CALL_abs) -> python callable(vm) -> regL value
+        self.syscall_log = []      # (task, name, kind) for each $F226 dispatch — observability
+        self._rng = 0x1234         # deterministic RNG state for syscall_rng_next
+        self.install_stub(0xF226, self._syscall_dispatch)  # kernel syscall dispatch ($F226)
 
         # Initialize VM zero-page state
         self.mem.write(0x02, 0xFF); self.mem.write(0x03, 0x05)  # VM SP = $05FF
@@ -384,6 +387,80 @@ class NobunagaVM:
         integer, that becomes regL.
         """
         self.host_call_stubs[target_addr] = fn
+
+    # ===================== Kernel syscall layer ($F226) =====================
+    # The 23-entry kernel syscall table at $C173, dispatched by syscall_dispatch
+    # ($F226). Headless we can't run the native handlers (PPU/NMI-wait spin/MMC1
+    # serial writes), so we resolve syscalls in Python. Calling convention
+    # (chapter-4 labels, verified against the map-render trace 2026-05-30):
+    #   - task id is pushed via op_8D just before `host_call $F226`, so it lands
+    #     at the TOP of the VM data stack -> struct[0] = mem[vm_sp].
+    #   - remaining params are struct[n] = mem[vm_sp + n] (words, LE).
+    #   - returns go in brk_scratch_lo/hi ($66/$67).
+    #   - the host_call adj byte (struct size) is popped by the $E9 stub plumbing.
+    # Bank switching is emulated by READING the target ROM page directly (per the
+    # "it's just pointing at a different page of memory" insight) — no MMC1 dance.
+    #
+    # kind: EMU = emulated (RAM/compute, reproducible) · STUB = no-op (PPU/audio/
+    # input/hardware — irrelevant to a headless RAM model) · TODO = not yet worked
+    # out (auto-stub + logged; the unnamed handlers + call_bank/sram are deferred
+    # until a use case forces them — see ROADMAP).
+    SYSCALLS = {
+        0x00: ("syscall_00",         "TODO"), 0x01: ("ppu_upload_block",   "STUB"),
+        0x02: ("syscall_02",         "TODO"), 0x03: ("set_sprite",         "EMU"),
+        0x04: ("palette_write",      "EMU"),  0x05: ("fill_nametable",     "STUB"),
+        0x06: ("read_controller",    "STUB"), 0x07: ("call_bank",          "TODO"),
+        0x08: ("fill_attr_quadrant", "STUB"), 0x09: ("audio_load_voice",   "EMU"),
+        0x0A: ("audio_control",      "STUB"), 0x0B: ("syscall_0B",         "TODO"),
+        0x0C: ("ppu_blit_nobank",    "STUB"), 0x0D: ("ppu_render_rect",    "STUB"),
+        0x0E: ("syscall_0E",         "TODO"), 0x0F: ("syscall_0F",         "TODO"),
+        0x10: ("memcpy_banked",      "EMU"),  0x11: ("rng_next",           "EMU"),
+        0x12: ("palette_swap",       "EMU"),  0x13: ("wait_for_nmi",       "STUB"),
+        0x14: ("ppu_blit_from_bank", "STUB"), 0x15: ("set_chr_bank0_reg",  "STUB"),
+        0x16: ("sram_block_checksum","TODO"),
+    }
+
+    def read_banked(self, bank, addr):
+        """Read one byte as if `bank` were mapped into $8000-$BFFF. $C000+ is the
+        fixed bank 15; below $8000 is live RAM/SRAM (bank-agnostic)."""
+        if addr >= 0xC000:
+            return self.rom[0x10 + 15 * 0x4000 + (addr - 0xC000)]
+        if addr >= 0x8000:
+            return self.rom[0x10 + (bank & 0x0F) * 0x4000 + (addr - 0x8000)]
+        return self.mem.read(addr)
+
+    def _syscall_dispatch(self, vm):
+        sp = self.vm_sp
+        rd = self.mem.read
+        rw = self.mem.read_word
+        task = rd(sp)
+        name, kind = self.SYSCALLS.get(task, (f"syscall_{task:02X}", "TODO"))
+
+        if task == 0x10:        # memcpy_banked: [2]=bank [6:8]=src [8:10]=dst [10:11]=len
+            bank, src, dst, n = rd(sp + 2), rw(sp + 6), rw(sp + 8), rw(sp + 10)
+            for i in range(n & 0xFFFF):
+                self.mem.write((dst + i) & 0xFFFF, self.read_banked(bank, (src + i) & 0xFFFF))
+        elif task == 0x11:      # rng_next -> brk_scratch ($66/$67), deterministic LCG
+            self._rng = (self._rng * 1103515245 + 12345) & 0xFFFF
+            self.mem.write(0x66, self._rng & 0xFF); self.mem.write(0x67, self._rng >> 8)
+        elif task == 0x03:      # set_sprite: OAM shadow $0600+idx*4 = [Y, tile, attr, X]
+            o = 0x0600 + (rd(sp + 2) & 0x3F) * 4
+            self.mem.write(o, rd(sp + 6)); self.mem.write(o + 1, rd(sp + 0x0A))
+            self.mem.write(o + 2, rd(sp + 8)); self.mem.write(o + 3, rd(sp + 4))
+        elif task == 0x04:      # palette_write: palette_shadow $0700+idx
+            self.mem.write(0x0700 + (rd(sp + 2) & 0x1F), rd(sp + 4))
+        elif task == 0x12:      # palette_swap: $0700-$071F <-> $0090-$00AF
+            for i in range(0x20):
+                a, c = self.mem.read(0x0700 + i), self.mem.read(0x0090 + i)
+                self.mem.write(0x0700 + i, c); self.mem.write(0x0090 + i, a)
+        elif task == 0x09:      # audio_load_voice: 3 bytes at $0725 + voice*3
+            o = 0x0725 + rd(sp + 2) * 3
+            self.mem.write(o, rd(sp + 4)); self.mem.write(o + 1, rd(sp + 6))
+            self.mem.write(o + 2, rd(sp + 8))
+        # STUB / TODO: no headless memory effect — recorded only. (controller
+        # returns 0 = no input by leaving brk_scratch untouched; PPU/audio moot.)
+        self.syscall_log.append((task, name, kind))
+        return None  # $E9 stub plumbing pops the adj byte + advances vm_pc
 
 
 if __name__ == "__main__":

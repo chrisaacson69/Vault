@@ -37,6 +37,7 @@ Action (praxeology) and morality aren't identical. Praxeological success = "did 
 - [Deontology vs. Consequentialism](./deontology-consequentialism.md) — false dichotomy; deontology as cached consequentialism
 - [Action/Inaction Asymmetry](./action-inaction-asymmetry.md) — grounds negative/positive rights
 - [Debate FAQ](./debate-faq.md) — living document of objections and responses
+- [The Constitutive Middle — Two Dialectics](./constitutive-middle-dialectics.md) — operational playbook: walking a *global anti-realist* (logic is constitutive, demonstrable in the act) and a *theistic realist* (read the law off the nature; God = Author, not truth-maker; Grotius) to constitutive realism. Quick-recall card up top.
 - [Open Problems](./open-problems.md) — unresolved tensions and dissolved ones
 
 ## Applied: Legal Theory

@@ -23,7 +23,7 @@ Then route the request.
 | Render a fief tactical map | `render-fief-from-ppu.py` | `py tools/render-fief-from-ppu.py <fief>`  (`--list` shows available PPU dumps) |
 | Render the 17-fief strategic atlas | `render-strategic-atlas.py` | `py tools/render-strategic-atlas.py`  (no args; composites the 17 tactical maps + adjacency) |
 | Render the 50-fief adjacency graph | `render-strategic-50.py` | `py tools/render-strategic-50.py [rom] [out.png]`  (*separate tool — there is no `--variant`*) |
-| Test a command's effect | snap protocol | `py tools/capture-test.py <tag> pre` → make the move → `… <tag> post` → `… <tag> diff`; add `--note "..."` for provenance. See `commands/README.md`. |
+| Test a command's effect | snap protocol | `py tools/capture-test.py <tag> pre` → make the move → `… <tag> post` → `… <tag> diff [--fief N]`; `--note "..."` on pre/post for provenance. See `commands/README.md`. |
 | Run an effect handler in the emulator | `run-effect.py` | `py tools/run-effect.py <grow\|build\|dam\|give…> <sram_pre.dmp> [amount]` |
 | Analyze the VM opcode table | `analyze-vm-opcodes.py` | `py tools/analyze-vm-opcodes.py <survey\|dispatch\|classify>` |
 | Decompile a bytecode sub → C | `vm_decompile.py` | `py tools/vm_decompile.py disasm/bank_NN_vm.asm <addr_hex>`  (`_vm.asm` exists for banks 00/01/02/15 only — see ROADMAP epic) |

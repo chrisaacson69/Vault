@@ -19,7 +19,9 @@ created: 2026-05-29
 |---|---|---|
 | `capture-test.py` | ✅ | PRE/POST snapshot manager (the snap protocol in [commands/README](../commands/README.md)). Auto-registers each snap via `data-index.py`; pass `--note` for provenance. *(moved from root → tools/, 2026-05-29)* |
 | `data-index.py` | ✅ | Provenance index for empirical captures (`add`/`scan`/`show`) → `traces/INDEX.tsv`. The fix for "what is this dump?" — see [traces/README](../traces/README.md). |
-| `run-effect.py` | ✅ | Generic effect-handler runner (`grow`/`build`/`dam`/`give…`); captures host_call args (sqrt_int/math32/pct_op). **Absorbed `run-grow.py`, 2026-05-29** — use `run-effect.py grow <pre> [amount]`. |
+| `run-effect.py` | ✅ | Generic effect-handler runner (`grow`/`build`/`dam`/`give…`); captures host_call args (sqrt_int/math32/pct_op). **Absorbed `run-grow.py`, 2026-05-29** — use `run-effect.py grow <pre> [amount]`. ⚠️ **reverses captured args for display** — true frame order is the reverse (see probe-math32). |
+| `probe-map-emit.py` | 🧪 | Harness w/ a working **syscall layer**: intercepts `host_call $F226`, reads the param struct from `vm_sp` (`struct[0]`=task id), dispatches — emulates `memcpy_banked`($10)/`rng`($11), stubs `wait_for_nmi`($13)/PPU, auto-stubs+logs unknowns. Runs `$885E` clean. **Finding: `$885E` is the staging→PPU *render* driver, not the ROM→SRAM populator** (task `$14`=ppu_blit reads `struct[12]` staging ptr → PPUDATA). Real emit still unfound — see ROADMAP step 2'. Promote the syscall layer into `nobunaga_vm` next. |
+| `probe-math32.py` | ✅ | Probes the 3 VM arithmetic helpers (`math32_3arg`/`math32_2arg`/`pct_op`) in the emulator with controlled args. **Cracked the ext-op blocker 2026-05-29**: `pct_op=⌊ab/100⌋`, `math32_3arg=⌊ab/c⌋`, `math32_2arg=⌊100a/(a+b)⌋`. Self-documents its conclusions. |
 | `run-selector-full.py` | 🧪 | Combat-selector ($9675) runner with host-call stub framework — provenance for the combat-damage-formula crack. Kept as the one selector runner; 4 thinner trace iterations retired 2026-05-29. |
 | `daimyo-table.py` | ✅ | Extract daimyo personality/stat table. |
 | `command-table.py` | ✅ | Walk lord-command driver pointer table at `$B9B2` → `command-table.txt`. |
@@ -37,7 +39,7 @@ created: 2026-05-29
 ## Rendering
 | Script | Status | Purpose |
 |---|---|---|
-| `render-atlas.py` | ✅ | All-17-fief overview grid from bank-4 cell data. |
+| `render-atlas.py` | ⚠️🧪 | **INVALIDATED — produces WRONG maps.** Reads bank-4 `$A57E` as a "cell-index table," but that hypothesis was disproven (2026-05-21) and re-verified 2026-05-29: its Mino = `{town:18, forest:35}` vs ground-truth `15 clear/26 forest/12 mountain`. Tactical maps are **VM-bytecode-emitted at battle init**, not a static table. Use `render-fief-from-ppu.py` for accurate maps. Kept as provenance for the dead-end. |
 | `render-from-sram.py` | ✅ | Tactical map from SRAM `$7BFD` staging buffer. |
 | `render-strategic-atlas.py` | ✅ | 17-fief: composites the 17 tactical-map PNGs at geographic positions + adjacency overlay. *Not a `-50` twin — see note below.* |
 | `render-strategic-50.py` | ✅ | 50-fief: node-link graph of the `$8004` adjacency table at approx-Japan positions (for eyeball verification). **Different render, different artifact** from the 17 atlas — `--variant` merge rejected 2026-05-29 (pure churn; both are fixed-output references). |

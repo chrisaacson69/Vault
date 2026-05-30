@@ -15,13 +15,13 @@
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 5 files
-- [debates](./debates.md) — 16 files
+- [debates](./debates.md) — 17 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 37 files
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 10 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
-- [epistemology](./epistemology.md) — 30 files
+- [epistemology](./epistemology.md) — 31 files
 - [ethics](./ethics.md) — 6 files
 - [externalities](./externalities.md) — 3 files
 - [food-safety](./food-safety.md) — 1 file
@@ -41,7 +41,7 @@
 - [meta-musing](./meta-musing.md) — 10 files
 - [metaphysics](./metaphysics.md) — 1 file
 - [mmc1](./mmc1.md) — 2 files
-- [morality](./morality.md) — 17 files
+- [morality](./morality.md) — 18 files
 - [music](./music.md) — 4 files
 - [natural-law](./natural-law.md) — 2 files
 - [nes](./nes.md) — 13 files
@@ -49,7 +49,7 @@
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 16 files
 - [peikoff](./peikoff.md) — 16 files
-- [philosophy](./philosophy.md) — 56 files
+- [philosophy](./philosophy.md) — 57 files
 - [politics](./politics.md) — 2 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file

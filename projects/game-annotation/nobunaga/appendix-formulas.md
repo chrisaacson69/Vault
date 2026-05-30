@@ -15,6 +15,9 @@ created: 2026-05-26
 - `header` = fief's max-economy ceiling (column at province record offset +24, e.g. 1640 for Mikawa)
 - `pct_op(b, p) = ⌊b × p ÷ 100⌋` — split-by-10 to avoid 16-bit overflow ($D70D)
 - `math32_3arg(a, b, c) = ⌊(a × b) ÷ c⌋` — 32-bit signed ($D6B8)
+- `math32_2arg(a, b) = ⌊100 × a ÷ (a + b)⌋` — `a`'s share of the total `(a+b)` as a percent ($D6DE; `(0,0)→0` guard)
+
+> **All three helpers emulator-verified 2026-05-29** via `tools/probe-math32.py` (direct execution of the real native handlers, all test vectors matched — ground truth, not inference). The underlying `B7` extended-opcode table was never decoded and is not needed: these three composite helpers are the interface every formula calls. ⚠️ `run-effect.py` *reverses* captured arg order for display — true frame order is arg1@fp+0x0B, arg2@+0x0D, arg3@+0x0F.
 
 ## 1. Grow ($87F0) — develop output
 
