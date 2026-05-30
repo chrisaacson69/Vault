@@ -4,10 +4,19 @@
 Trace format (filtered):
   PC  MNEMONIC  ...  A:NN X:NN Y:NN  S:NN  P:flags  Fr:NNNN  Cycle:NNNN  BC:bytes
 """
-import os, re, sys
+import os, re, sys, gzip
 
 here = os.path.dirname(os.path.abspath(__file__))
-TRACE = r"C:\Users\Chris.Isaacson\AppData\Local\Microsoft\WinGet\Packages\SourMesen.Mesen2_Microsoft.Winget.Source_8wekyb3d8bbwe\Debugger\Nobunaga's Ambition (USA).txt"
+# Default = Mesen's live trace; pass a path (incl. an archived traces/*.txt[.gz]) to decode that instead.
+DEFAULT_TRACE = r"C:\Users\Chris.Isaacson\AppData\Local\Microsoft\WinGet\Packages\SourMesen.Mesen2_Microsoft.Winget.Source_8wekyb3d8bbwe\Debugger\Nobunaga's Ambition (USA).txt"
+TRACE = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_TRACE
+
+
+def _open_trace(path):
+    """Transparent gzip: archived traces can be gzipped without breaking decode."""
+    if str(path).endswith(".gz"):
+        return gzip.open(path, "rt", encoding="latin-1")
+    return open(path, encoding="latin-1")
 
 # Regexes
 PC_RE   = re.compile(r"^([0-9A-F]{4}) ")
@@ -22,7 +31,7 @@ current_row = None
 bulk_blocks = []
 current_bulk = None
 
-with open(TRACE, encoding='latin-1') as f:
+with _open_trace(TRACE) as f:
     for line in f:
         pc_m = PC_RE.match(line)
         if not pc_m: continue

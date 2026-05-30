@@ -77,7 +77,17 @@
       "Bash(cmd /c \"dir C:\\\\Users\\\\Chris.Isaacson\\\\Pictures /b 2>nul\")",
       "Bash(cmd /c \"where /r C:\\\\Users\\\\Chris.Isaacson Screenshots 2>nul | head -3\")",
       "Bash(cmd *)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(grep -niC2 \"tax\" appendix-formulas.md)",
+      "Bash(grep -niC1 \"tax\" ui-strings.txt)",
+      "Bash(grep -niC1 \"tax\\\\|cede\\\\|search\" command-table.txt)",
+      "Bash(grep -nA40 \"999A\" disasm/bank_01_vm.asm)",
+      "Bash(grep -nA30 \"DB12\\\\b\" disasm/bank_15_labeled.asm)",
+      "Bash(grep -rnA34 'sub $DB12\\\\|$DB12 .*driver\\\\|^; sub $DB12' disasm/)",
+      "Bash(grep -nA34 'sub $B875' disasm/bank_01_vm.asm)",
+      "Bash(export PYTHONIOENCODING=utf-8)",
+      "Bash(grep -nA60 'sub $B6B4' disasm/bank_01_vm.asm)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

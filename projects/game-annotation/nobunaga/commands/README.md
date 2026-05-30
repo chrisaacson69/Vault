@@ -26,11 +26,11 @@ created: 2026-05-24
 Mesen rewrites its live SRAM dump (`...NesSaveRam.dmp`) on every "Save Memory Dump" click. To capture pre/post snapshots:
 
 ```
-py capture-test.py <tag> pre              ; immediately BEFORE issuing the command
+py tools/capture-test.py <tag> pre              ; immediately BEFORE issuing the command
 (issue the command in-game)
 (save memory dump in Mesen: Tools -> Memory Tools -> File -> Save)
-py capture-test.py <tag> post             ; after the command applied
-py capture-test.py <tag> diff --fief 8    ; show the diff for Tokugawa (or any --fief N)
+py tools/capture-test.py <tag> post             ; after the command applied
+py tools/capture-test.py <tag> diff --fief 8    ; show the diff for Tokugawa (or any --fief N)
 ```
 
 Files land in `traces/<tag>_PRE.dmp` and `traces/<tag>_POST.dmp` so they survive the next overwrite.

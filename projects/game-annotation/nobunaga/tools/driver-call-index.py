@@ -18,8 +18,9 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-DUMP = Path("disasm/bank_01_vm.asm")
-TABLE = Path("command-table.txt")
+PROJ = Path(__file__).resolve().parent.parent      # project root (works from any CWD)
+DUMP = PROJ / "disasm/bank_01_vm.asm"
+TABLE = PROJ / "command-table.txt"
 
 SUB_HEADER_RE = re.compile(r"; sub \$([0-9A-F]{4})")
 INSN_RE = re.compile(r"^ [> ]\$([0-9A-F]{4})  ")

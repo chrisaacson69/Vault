@@ -5,7 +5,7 @@ created: 2026-04-07
 # Karpathy LLM Wiki — Independent Convergence
 > This vault and Karpathy's "LLM Wiki" pattern arrived at the same architecture independently. When two systems converge from different starting points, the shared structure is likely load-bearing.
 
-**Links:** [Obsidian Plugin Setup](./obsidian-plugin-setup.md), [Working With Claude](./working-with-claude.md), [Cyborg Model](../research/cyborg-model.md)
+**Links:** [Obsidian Plugin Setup](./obsidian-plugin-setup.md), [Working With Claude](./working-with-claude.md), [Cyborg Model](../research/cyborg-model.md), [The Context Cache Hierarchy](./context-cache-hierarchy.md)
 
 ## Source
 

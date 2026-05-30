@@ -1,0 +1,2 @@
+file	date	kind	size_bytes	note
+echigo-ppu-memory.dmp	2026-05-29	memory	16384	Echigo combat scene PPU dump; input to render-fief-from-ppu echigo (ch16 render pipeline)

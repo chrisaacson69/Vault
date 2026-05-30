@@ -2,7 +2,7 @@
 > Master list of all tags used across the vault.
 
 - [6502](./6502.md) — 10 files
-- [ai](./ai.md) — 32 files
+- [ai](./ai.md) — 34 files
 - [agents](./agents.md) — 11 files
 - [assembly](./assembly.md) — 3 files
 - [atari-2600](./atari-2600.md) — 10 files
@@ -14,7 +14,7 @@
 - [collectivism](./collectivism.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [crypto](./crypto.md) — 1 file
-- [cyborg](./cyborg.md) — 4 files
+- [cyborg](./cyborg.md) — 5 files
 - [debates](./debates.md) — 15 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 37 files
@@ -30,7 +30,7 @@
 - [game-theory](./game-theory.md) — 14 files
 - [games](./games.md) — 15 files
 - [grounding](./grounding.md) — 4 files
-- [history](./history.md) — 10 files
+- [history](./history.md) — 11 files
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
 - [libertarian-law](./libertarian-law.md) — 15 files
@@ -60,6 +60,7 @@
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 4 files
 - [simulation](./simulation.md) — 7 files
+- [software-engineering](./software-engineering.md) — 2 files
 - [strategy](./strategy.md) — 11 files
 - [tools](./tools.md) — 2 files
 - [transcription](./transcription.md) — 1 file

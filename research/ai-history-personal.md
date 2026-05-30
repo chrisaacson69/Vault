@@ -5,7 +5,7 @@ created: 2026-04-09
 # AI History — A Personal Arc
 > From ELIZA to OOP neurons to LLMs. Each step got something right and something wrong. The trajectory reveals what the current moment actually is.
 
-**Links:** [ELIZA](./eliza.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [Cyborg Model](./cyborg-model.md), [OOP Neuron Project](../projects/oop-neurons/README.md)
+**Links:** [ELIZA](./eliza.md), [LLMs as Praxeological Actors](./economics/llm-praxeology.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [H-Neurons](./h-neurons.md), [Cyborg Model](./cyborg-model.md), [OOP Neuron Project](../projects/oop-neurons/README.md), [Principled LLM Code](./principled-llm-code.md)
 
 ## The Arc
 

@@ -5,7 +5,7 @@ created: 2026-05-17
 # Claude Code Skill Engineering — Principles & Vault Audit
 > The best use of Claude is **tools-layer tools and pointers**. Three independent sources converge on this: Anthropic's EBM/JEPA architectural prescription (LM → constraint engine → verifier), Anthropic engineers' published skill patterns (description → instructions → tools, with most leverage in tools), and Pocock's 68k-star repo executing the pattern in practice. Same architecture at three scales — between models, within a skill, across a catalog. The LLM is the language organ; the real work is deterministic tools that the LLM coordinates through pointer-based markdown. This page is the unified thesis, the reference card, the audit of the 9 current vault skills, and the borrowables list from Pocock.
 
-**Links:** [Working With Claude](./working-with-claude.md), [Karpathy LLM Wiki — Independent Convergence](./karpathy-llm-wiki-convergence.md), [Career Strategy — The Performative Loop](../career/strategy.md), [Tools Roadmap](../career/tools-roadmap.md), [Planner-LM Composites](../research/planner-lm-composites.md), [Energy-Based Models](../research/energy-based-models.md), [Level 6 — Direct Execution](../research/level-6-direct-execution.md), [Game Annotation Series](../projects/game-annotation/README.md) — ch 7 methodology shift is the canonical "build a feedback loop" exercise
+**Links:** [Working With Claude](./working-with-claude.md), [Karpathy LLM Wiki — Independent Convergence](./karpathy-llm-wiki-convergence.md), [The Context Cache Hierarchy](./context-cache-hierarchy.md), [Principled LLM Code](../research/principled-llm-code.md), [Career Strategy — The Performative Loop](../career/strategy.md), [Tools Roadmap](../career/tools-roadmap.md), [Planner-LM Composites](../research/planner-lm-composites.md), [Energy-Based Models](../research/energy-based-models.md), [Level 6 — Direct Execution](../research/level-6-direct-execution.md), [Game Annotation Series](../projects/game-annotation/README.md) — ch 7 methodology shift is the canonical "build a feedback loop" exercise
 
 **Primary sources (three videos, one architecture):**
 - [Aleph and Energy-Based Models](https://www.youtube.com/watch?v=NYmXYF8A3Q4) — Turing Post, 2026-05-15. The three-layer reasoning stack (LM / EBM / formal verifier). ([transcript](../raw/yt-NYmXYF8A3Q4.transcript.txt))
@@ -127,6 +127,20 @@ The two architectures rhyme because they're solving the same problem: *how does 
 
 This page completes the symmetry: the vault has explicit guidance for creating pages ([vault-page.md](../.claude/shared/vault-page.md), [vault-sync](../.claude/skills/vault-sync/SKILL.md)). Now it has the symmetric guidance for creating skills.
 
+### The deeper unification — drift is re-derivation
+
+The two architectures don't merely *rhyme*; they fail by the **same mechanism**, at three layers:
+
+| Layer | Re-derivation looks like | Result | The instance page |
+|---|---|---|---|
+| **Code** | regenerating architecture from corpus median each session | slop, one-use tools, big ball of mud | [Principled LLM Code](../research/principled-llm-code.md) |
+| **Memory** | re-deriving a fact you couldn't recall (index over budget → partial load) | content drift | [The Context Cache Hierarchy](./context-cache-hierarchy.md) |
+| **Tools** | rebuilding the same script because you couldn't find it (the SRT tell) | duplicate tools | this page (Gap #1) |
+
+**Drift is accumulated variance from re-derivation.** Each re-derivation draws a fresh *stochastic* sample; the samples diverge from the canonical artifact; that divergence *is* the drift. Tokens are stochastic, artifacts are deterministic — re-deriving reintroduces the variance you already paid to eliminate. The cure is identical at every layer: **point to the artifact, don't re-derive it** ("the point, not the principle," generalized).
+
+Duplication specifically is a **recall failure** — the artifact exists but isn't surfaced in the hot layer (`description` field, shared index), so it's rebuilt. That's the same nondeterministic-recall problem that drives memory drift. So the anti-drift janitor has two faces that are really one: **eviction** keeps the hot layer from bloating (push content down, leave a pointer); **registration** keeps artifacts discoverable (so they're invoked, not rebuilt). Both keep the map matching the territory. `/vault-heartbeat` is the natural home for this consolidation pass — today it lints knowledge-link health only; the memory-hygiene check ([context cache hierarchy](./context-cache-hierarchy.md)) and the skill compounding-loop ([Gap #3](#gap-3-the-compounding-loop-is-not-explicit)) are the two unbuilt faces.
+
 ## Worked example: Pocock's catalog as the executed pattern
 
 [mattpocock/skills](https://github.com/mattpocock/skills) is the principles operating at scale: 17 skills, 68k stars in 90 days, no runtime, no orchestrator. Most of the catalog is programming-specific (the vault doesn't need most of it), but several patterns transfer directly and the architectural lessons apply universally.
@@ -193,10 +207,10 @@ Most of the engineering-specific Pocock skills (`/triage`, `/to-prd`, `/to-issue
 
 ## Recommended next steps (in priority order)
 
-1. ✅ **Gap #1 fixed 2026-05-17** — clean-srt.js and yt-meta.js saved into `.claude/shared/scripts/`, video-extract.md updated to point at them.
+1. ✅ **Gap #1 fixed 2026-05-17** — clean-srt.js and yt-meta.js saved into `.claude/shared/scripts/`, video-extract.md updated to point at them. *(Verified still in place 2026-05-29.)*
 2. **Add the flag-discipline table to `shared/README.md`** as the forward-looking rule for new skills. No code change to existing skills. ~5 minutes when convenient.
-3. **Fork `/grill-me`, `/diagnose`, `/handoff`, `/write-a-skill` from Pocock** into the vault. ~15-30 minutes each, mostly adaptation of trigger phrases and any vault-specific glossary references. `/diagnose` is the highest-leverage import.
-4. **Write `projects/game-annotation/nobunaga/CONTEXT.md`** distilling the VM/bytecode/syscall vocabulary from the 13 chapters into a single glossary file. Token savings start immediately on the next nobunaga session.
+3. ~~Fork `/grill-me`, `/diagnose`, `/handoff`, `/write-a-skill` from Pocock~~ — **OBSOLETE 2026-05-29: Claude Code now ships all four natively** as built-in skills, so no vault fork is needed. The platform absorbed the work item. (Canonical example of [drift is re-derivation](#the-deeper-unification--drift-is-re-derivation) at the roadmap layer — the plan drifted from reality until verified against ground truth.)
+4. **Write `projects/game-annotation/nobunaga/CONTEXT.md`** distilling the VM/bytecode/syscall vocabulary from the chapters into a single glossary file. Token savings start immediately on the next nobunaga session. *(Confirmed still missing 2026-05-29 — genuinely open.)*
 5. **Optional, forward-looking:** sanitize-and-publish a public vault-skills repo as a portfolio artifact ([[user_career_priorities]] — architecture IS the portfolio). Lower urgency; high signal value when timed right.
 
 ## What changed in this audit pass (2026-05-17)

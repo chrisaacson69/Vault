@@ -180,7 +180,28 @@
       "Bash(cp C:/Users/Chris.Isaacson/Vault/.claude/shared/web-fetch.md C:/Users/Chris.Isaacson/source/repos/claude-skills/shared/web-fetch.md)",
       "Bash(cp C:/Users/Chris.Isaacson/Vault/.claude/shared/web-research.md C:/Users/Chris.Isaacson/source/repos/claude-skills/shared/web-research.md)",
       "Bash(git init *)",
-      "PowerShell(Rename-Item *)"
+      "PowerShell(Rename-Item *)",
+      "Bash(awk '{print length}' C:/Users/Chris.Isaacson/.claude/projects/C--Users-Chris-Isaacson-Vault/memory/MEMORY.md)",
+      "Bash(awk length>200{print length\": \"$0} *)",
+      "Bash(ls .claude/skills/)",
+      "Bash(ls .claude/shared/)",
+      "Bash(ls .claude/shared/scripts/)",
+      "Bash(Get-ChildItem *)",
+      "Bash(awk '{print $9, $5}')",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Chris.Isaacson\\\\Vault\\\\projects\\\\game-annotation\\\\nobunaga\\\\\" -File | Where-Object {$_.Name -match \"\\(test|tmp|old|debug|scratch\\)\" -or $_.CreationTime -lt \\(Get-Date\\).AddMonths\\(-2\\)} | Select-Object Name, LastWriteTime)",
+      "Bash(awk '{printf \"%10s  %s\\\\n\", $5, $9}')",
+      "Bash(sed 's/.*\\\\.//')",
+      "Bash(awk '{print $5, $9}')",
+      "Bash(py tools/render-fief-from-ppu.py --list)",
+      "Bash(py tools/render-fief-from-ppu.py echigo)",
+      "Bash(awk '{print \"PNG:\", $5, \"bytes\", $9}')",
+      "Bash(rm -f render-__TRACKED_VAR__-from-ppu.py)",
+      "Bash(ls render-*.py)",
+      "Bash(py tools/driver-call-index.py)",
+      "Read(//c/tmp/**)",
+      "Bash(py \"C:/Users/Chris.Isaacson/Vault/projects/game-annotation/nobunaga/tools/driver-call-index.py\")",
+      "Bash(py \"C:/Users/Chris.Isaacson/Vault/projects/game-annotation/nobunaga/tools/capture-test.py\" testtag pre)",
+      "Bash(cd *)"
     ]
   }
 }
