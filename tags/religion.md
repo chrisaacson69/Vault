@@ -9,3 +9,4 @@
 - [Would a Perfectly Logical Society Be Less Humane? (Noerr)](../research/debates/noerr-logic-feelings-humane.md)
 - [Debate Prep: Morality and Religion](../notes/debate-prep-morality-religion-2026-03-14.md)
 - [Trent Horn vs NotSoErudite — Christian Nationalism](../research/debates/trent-horn-vs-notsoerudite-christian-nationalism.md) — soft Christian nationalism vs Madison-grounded procedural-pluralism; both Christians, both DCT; soft-vs-hard cleavage
+- [Lance Bush vs Ryan Mullally — Realism vs Global Anti-Realism](../research/debates/lance-bush-mullally-metaethics.md) — deist's "God is good" as a stance-independent moral fact; why theistic realism survives the motivation problem that sinks secular realism

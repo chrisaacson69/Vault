@@ -87,7 +87,9 @@
       "Bash(grep -nA34 'sub $B875' disasm/bank_01_vm.asm)",
       "Bash(export PYTHONIOENCODING=utf-8)",
       "Bash(grep -nA60 'sub $B6B4' disasm/bank_01_vm.asm)",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(where py *)",
+      "Bash(where python3 *)"
     ]
   }
 }

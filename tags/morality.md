@@ -19,3 +19,4 @@
 - [The Four Trunks — The Structure of the Vault's Philosophy](../research/philosophy/the-four-trunks.md)
 - [Capitalism vs Socialism: Which Is the Moral System? (1984)](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md) — Peikoff/Ridpath vs Vickers/Caplan; Objectivist foundationalism vs pragmatic democratic socialism
 - [Trent Horn vs NotSoErudite — Christian Nationalism](../research/debates/trent-horn-vs-notsoerudite-christian-nationalism.md) — Catholic integralism vs procedural-pluralism; both DCT; personhood via species-membership vs ensoulment
+- [Lance Bush vs Ryan Mullally — Realism vs Global Anti-Realism](../research/debates/lance-bush-mullally-metaethics.md) — anti-realist concedes theistic metaethic is realist; both run the constitutive move toward opposite ends; anti-realism's best case is vs *secular* realism only

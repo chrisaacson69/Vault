@@ -12,17 +12,15 @@ created: 2026-05-29
 | `cpu6502.py` | ✅ | MOS 6502 interpreter backing the VM runner. |
 | `vm_decompile.py` | ✅ | Bytecode → readable C. Default path for new routine investigations. |
 | `econ_sim.py` | ✅ | Verified economy simulator (Grow/Build/Give/Dam/harvest). |
-| `dump-dispatch.py` | 🔁 | Extract opcode→handler dispatch table from `$F026/$F126`. Overlaps `opcode-classify`/`opcode-survey` → merge to one `analyze-vm-opcodes.py`. |
-| `opcode-classify.py` | 🔁 | Auto-classify operand fetch patterns. (see above) |
-| `opcode-survey.py` | 🔁 | Cluster opcodes by handler/frequency. (see above) |
+| `analyze-vm-opcodes.py` | ✅ | Opcode dispatch-table analysis, 3 modes: `survey` (handler clustering), `dispatch` (handler byte dumps), `classify` (operand-fetch patterns). **Merged the opcode trio (dump-dispatch/opcode-classify/opcode-survey), 2026-05-29** — output verified byte-identical. |
 
 ## Command / effect testing
 | Script | Status | Purpose |
 |---|---|---|
 | `capture-test.py` | ✅ | PRE/POST snapshot manager (the snap protocol in [commands/README](../commands/README.md)). Auto-registers each snap via `data-index.py`; pass `--note` for provenance. *(moved from root → tools/, 2026-05-29)* |
 | `data-index.py` | ✅ | Provenance index for empirical captures (`add`/`scan`/`show`) → `traces/INDEX.tsv`. The fix for "what is this dump?" — see [traces/README](../traces/README.md). |
-| `run-effect.py` | ✅ | Generic effect-handler runner (Grow/Dam/Build/Give); captures host_call args. |
-| `run-grow.py` | 🔁 | Grow-specialized variant of `run-effect.py` → fold into it with an effect arg. |
+| `run-effect.py` | ✅ | Generic effect-handler runner (`grow`/`build`/`dam`/`give…`); captures host_call args (sqrt_int/math32/pct_op). **Absorbed `run-grow.py`, 2026-05-29** — use `run-effect.py grow <pre> [amount]`. |
+| `run-selector-full.py` | 🧪 | Combat-selector ($9675) runner with host-call stub framework — provenance for the combat-damage-formula crack. Kept as the one selector runner; 4 thinner trace iterations retired 2026-05-29. |
 | `daimyo-table.py` | ✅ | Extract daimyo personality/stat table. |
 | `command-table.py` | ✅ | Walk lord-command driver pointer table at `$B9B2` → `command-table.txt`. |
 | `driver-call-index.py` | ✅ | For each lord-command driver, list every host_call it reaches (EFFECT/SHARED/BANK15) — drives the per-command formula pass. Reads `disasm/bank_01_vm.asm`. *(moved from root → tools/, 2026-05-29)* |
@@ -30,12 +28,11 @@ created: 2026-05-29
 ## SRAM / combat decode
 | Script | Status | Purpose |
 |---|---|---|
-| `sram-analyze.py` | 🔁 | Parse SRAM structure / field offsets. Overlaps `sram-detail`/`sram-decode`/`combat-map-decode` → merge to `analyze-sram.py --mode fields|detail|landmarks|tactical`. |
-| `sram-detail.py` | 🔁 | Field-level fief-record inspection. (see above) |
-| `sram-decode.py` | 🔁 | Find landmark strings / metatile patterns. (see above) |
-| `combat-map-decode.py` | 🔁 | Decode tactical metatiles from `$7BFD` buffer. (see above) |
+| `analyze-sram.py` | ✅ | Analyze an 8 KB SRAM `.dmp`, 2 modes: `structure` (byte distribution / runs / page summaries) and `detail` (ASCII strings / record stride-fitting / region dumps). **Merged sram-analyze + sram-detail, 2026-05-29** — verified byte-identical. |
 | `sram-decode-province.py` | ✅ | Decode the live 17×26 province table from an SRAM dump; `--diff <other>` for PRE/POST. The decoder `capture-test.py diff` calls. *(moved from root → tools/, 2026-05-29)* |
 | `combat-trace-decode.py` | ✅ | Decode the large `*-combat-init.txt` traces. |
+| `sram-decode.py` | 🧪 | Discovery one-shot: located the `$7BFE` tactical staging buffer + metatile patterns. **Its input `sram_dump.txt` no longer exists; finding is canonical in `render-from-sram.py`.** Kept for provenance only. |
+| `combat-map-decode.py` | 🧪 | Discovery one-shot: reconstructed the tactical nametable from a Mesen *trace* (not SRAM — wrong cluster). Superseded by `combat-trace-decode.py`. Hardcoded trace path. Provenance only. |
 
 ## Rendering
 | Script | Status | Purpose |
