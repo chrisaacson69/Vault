@@ -216,17 +216,38 @@ def parse_listing(filepath, sub_addr):
     return body_addr, instructions
 
 
-def decompile(filepath, sub_addr):
+def _label_name(labels, addr):
+    """Look up a label name for `addr`. Accepts either addr->name (str) or
+    addr->(name, comment) (the nobunaga_vm.labels shape). Returns None if absent.
+    Sanitizes to a valid C identifier."""
+    if not labels:
+        return None
+    v = labels.get(addr)
+    if v is None:
+        return None
+    name = v[0] if isinstance(v, tuple) else v
+    name = re.sub(r'[^A-Za-z0-9_]', '_', name)
+    if name and name[0].isdigit():
+        name = "_" + name
+    return name or None
+
+
+def decompile(filepath, sub_addr, labels=None):
     body_addr, instructions = parse_listing(filepath, sub_addr)
     if not instructions:
         print(f"// sub ${sub_addr:04X} not found in {filepath}")
         return
 
     state = State()
+    # Name the function from its mesen label when one exists (header + the
+    # `sub_XXXX(...)` declaration). Falls back to sub_XXXX for anonymous subs.
+    fn_name = _label_name(labels, sub_addr) or f"sub_{sub_addr:04X}"
     print(f"// Decompiled from {filepath} sub ${sub_addr:04X}")
+    if fn_name != f"sub_{sub_addr:04X}":
+        print(f"// ${sub_addr:04X} {fn_name}")
     print(f"// (body @ ${body_addr:04X})")
     print()
-    print(f"word sub_{sub_addr:04X}(word arg1, word arg2, word arg3, word arg4) {{")
+    print(f"word {fn_name}(word arg1, word arg2, word arg3, word arg4) {{")
 
     # First pass: find branch targets (need labels)
     branch_targets = set()
@@ -428,9 +449,13 @@ def decompile(filepath, sub_addr):
             # Extract bytes-popped from "...{kind}, $NN" suffix — N bytes = N/2 args
             ptr1_m = re.search(r',\s*\$([0-9A-Fa-f]+)\s*$', operand)
             bytes_popped = int(ptr1_m.group(1), 16) if ptr1_m else 0
-            # Try to extract label
+            # Try to extract label: prefer the disasm operand's inline (label),
+            # else fall back to the mesen labels dict, else sub_XXXX.
             label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
-            fname = label_m.group(1) if label_m else f"sub_{tgt:04X}"
+            if label_m:
+                fname = label_m.group(1)
+            else:
+                fname = _label_name(labels, tgt) or f"sub_{tgt:04X}"
             # Known host_call arities (override the bytes-popped estimate)
             arity_map = {
                 0xCBCD: 1,  # sqrt_int(x)
@@ -677,7 +702,14 @@ def main():
         return
     filepath = sys.argv[1]
     sub_addr = int(sys.argv[2], 16)
-    decompile(filepath, sub_addr)
+    # Load mesen labels so standalone runs name functions like the batch driver.
+    labels = None
+    try:
+        from nobunaga_vm import load_labels
+        labels = load_labels()
+    except Exception:
+        pass
+    decompile(filepath, sub_addr, labels)
 
 
 if __name__ == "__main__":

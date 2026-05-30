@@ -1117,9 +1117,10 @@ L_930F:
     return 0;    // $9322
 }
 
+// $9323 effect_war_combat_prep_a
 // (body @ $9328)
 
-word sub_9323(word arg1, word arg2, word arg3, word arg4) {
+word effect_war_combat_prep_a(word arg1, word arg2, word arg3, word arg4) {
     return sub_92F9(((battle_defending_province * 26) + 0x700B));    // $9337
 }
 
@@ -2359,9 +2360,10 @@ L_A76E:
     return ((unsigned)local11 >= (unsigned)scenario_fief_count);    // $A777
 }
 
+// $A778 vm_bootstrap
 // (body @ $A77D)
 
-word sub_A778(word arg1, word arg2, word arg3, word arg4) {
+word vm_bootstrap(word arg1, word arg2, word arg3, word arg4) {
 L_A77D:
 L_A785:
     if ((mem_6E48 == 1)) {    // $A791

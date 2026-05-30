@@ -394,9 +394,10 @@ L_8591:
     goto L_856C;    // $85A4
 }
 
+// $85A7 effect_view_c
 // (body @ $85AC)
 
-word sub_85A7(word arg1, word arg2, word arg3, word arg4) {
+word effect_view_c(word arg1, word arg2, word arg3, word arg4) {
     local11 = sub_D14E();    // $85AF
     // TODO: op_D9 SWITCH_noncontig       count=6
     if (sub_960E(0)) goto L_85FE;    // $85D2
@@ -546,9 +547,10 @@ word sub_882A(word arg1, word arg2, word arg3, word arg4) {
     return sub_CF7C(3, (arg2 * 48), ((arg1 * 49) + 0x9C25), 5);    // $885D
 }
 
+// $885E map_render_driver
 // (body @ $8863)
 
-word sub_885E(word arg1, word arg2, word arg3, word arg4) {
+word map_render_driver(word arg1, word arg2, word arg3, word arg4) {
     local9 = 0;    // $8864
 L_8865:
     local11 = (((local9 << 1) << 1) + 10);    // $8869
@@ -578,9 +580,10 @@ L_88F9:
     }
 }
 
+// $8903 map_populate
 // (body @ $8908)
 
-word sub_8903(word arg1, word arg2, word arg3, word arg4) {
+word map_populate(word arg1, word arg2, word arg3, word arg4) {
     local10 = 0;    // $8909
 L_890A:
     local11 = 0;    // $890B
@@ -3483,9 +3486,10 @@ L_AFE0:
     }
 }
 
+// $AFE1 battle_init_driver
 // (body @ $AFE6)
 
-word sub_AFE1(word arg1, word arg2, word arg3, word arg4) {
+word battle_init_driver(word arg1, word arg2, word arg3, word arg4) {
     local6 = sub_92CA();    // $B005
     if ((scenario_fief_count == 50)) {    // $B00F
     } else {

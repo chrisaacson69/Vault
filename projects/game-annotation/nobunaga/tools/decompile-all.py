@@ -78,7 +78,7 @@ def decompile_bank(bank, out_dir, tmp_dir):
     for stub in stubs:
         buf = io.StringIO()
         with redirect_stdout(buf):
-            vm_decompile.decompile(str(asm_path), stub)
+            vm_decompile.decompile(str(asm_path), stub, labels)
         # Drop the per-sub "// Decompiled from <path>" line: it names the ephemeral
         # temp listing (non-deterministic path) and is redundant with the bank
         # header. Everything else is a pure function of the ROM.
