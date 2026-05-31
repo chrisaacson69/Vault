@@ -22,7 +22,7 @@ word sub_8086(word arg1, word arg2, word arg3, word arg4) {
     // TODO: mod_unsigned
     local8 = local8;    // $80AC
     arg1 = 0xAD84;    // $80F8
-    return sub_CBBD(12, (arg1 + 24), ((local7 * 12) + 0xAEAC), 9);    // $813B
+    return syscall16_sram_wrap(12, (arg1 + 24), ((local7 * 12) + 0xAEAC), 9);    // $813B
 }
 
 // (body @ $8141)
@@ -54,14 +54,14 @@ L_81B6:
     // TODO: loadA_frameaddr $FFDC
     // TODO: op_81_byte $D7
     // TODO: op_A0_A3_byte $FFD9
-    *(byte*)((sub_CBBD(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8) + sub_CBBD(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8))) = ((sub_CBBD(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8) + sub_CBBD(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8)) + 36);    // $81D0
+    *(byte*)((syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8) + syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8))) = ((syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8) + syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8)) + 36);    // $81D0
     // TODO: op_81_byte $D7
     // TODO: op_85_byte $D7
     // TODO: op_81_byte $DA
     // TODO: op_85_byte $DA
 L_81DD:
     // TODO: op_81_byte $D7
-    if (((unsigned)((((((sub_CBBD(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8) + sub_CBBD(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8)) + 36) + 1) - 1) + 1) - 1) >= (unsigned)36)) goto L_81B6;    // $81E2
+    if (((unsigned)((((((syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8) + syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((sub_DC66(mem_6F5B) * 36) + 0xB144), 8)) + 36) + 1) - 1) + 1) - 1) >= (unsigned)36)) goto L_81B6;    // $81E2
     goto L_8218;    // $81E5
 L_81E8:
     // TODO: loadA_frameaddr $FFDC
@@ -1192,7 +1192,7 @@ word sub_90BB(word arg1, word arg2, word arg3, word arg4) {
     local7 = ui_helper_d772(/*via arg1*/ ?);    // $90C9
     goto L_90F0;    // $90CD
 L_90D0:
-    if (sub_D999(*(byte*)(local6))) goto L_90EE;    // $90D7
+    if (province_state_is_FF(*(byte*)(local6))) goto L_90EE;    // $90D7
     if ((ui_helper_d772(*(byte*)(local6)) == local5)) {    // $90E3
     local7 = (local7 + 1);    // $90E8
     *(byte*)(((local7 + 1) - 1)) = *(byte*)(local6);    // $90ED
@@ -1204,7 +1204,7 @@ L_90F0:
     local7 = 0x00FF;    // $90FA
     *(byte*)(0x00FF) = -1;    // $90FD
     // TODO: loadA_frameaddr $FFF8
-    return sub_CBBD(8, 0x6F4F, -1, 2);    // $910B
+    return syscall16_sram_wrap(8, 0x6F4F, -1, 2);    // $910B
 }
 
 // (body @ $9111)
@@ -2969,8 +2969,8 @@ L_A887:
     if (sub_D9E5(mem_7BE8)) {    // $A8B1
     local10 = 0x00FF;    // $A8B4
     local11 = 0x00FF;    // $A8B5
-    if (*(byte*)((local10 + 0x6CF7))) {    // $A8C0
-    *(byte*)((local10 + 0x6CF7)) = 0;    // $A8CA
+    if (province_ai_state[local10]) {    // $A8C0
+    province_ai_state[local10] = 0;    // $A8CA
     }
 L_A8CB:
     return 0;    // $A8CC
@@ -3119,7 +3119,7 @@ word sub_AAA7(word arg1, word arg2, word arg3, word arg4) {
     if (!(sub_D9E5(mem_7BE8))) goto L_AB30;    // $AB1F
     local10 = 0x00FF;    // $AB22
     local11 = 0x00FF;    // $AB23
-    *(byte*)((local10 + 0x6CF7)) = 0;    // $AB2F
+    province_ai_state[local10] = 0;    // $AB2F
 L_AB30:
     return 0;    // $AB31
 L_AB32:

@@ -236,9 +236,10 @@ word sub_CBB1(word arg1, word arg2, word arg3, word arg4) {
     return syscall_dispatch(/*via arg1*/ ?, 7);    // $CBBC
 }
 
+// $CBBD syscall16_sram_wrap
 // (body @ $CBC2)
 
-word sub_CBBD(word arg1, word arg2, word arg3, word arg4) {
+word syscall16_sram_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg4 = ?;    // $CBC2
     arg3 = ?;    // $CBC3
     arg2 = ?;    // $CBC4
@@ -1357,13 +1358,14 @@ word sub_D982(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $D992)
 
 word sub_D98D(word arg1, word arg2, word arg3, word arg4) {
-    return *(byte*)((arg1 + 0x6CF7));    // $D998
+    return province_ai_state[arg1];    // $D998
 }
 
+// $D999 province_state_is_FF
 // (body @ $D99E)
 
-word sub_D999(word arg1, word arg2, word arg3, word arg4) {
-    return (*(byte*)((arg1 + 0x6CF7)) == 0x00FF);    // $D9A8
+word province_state_is_FF(word arg1, word arg2, word arg3, word arg4) {
+    return (province_ai_state[arg1] == 0x00FF);    // $D9A8
 }
 
 // (body @ $D9AE)
@@ -1372,9 +1374,10 @@ word sub_D9A9(word arg1, word arg2, word arg3, word arg4) {
     return *(byte*)((selected_province_idx + 0x6DA2));    // $D9B6
 }
 
+// $D9B7 is_enemy_owned
 // (body @ $D9BC)
 
-word sub_D9B7(word arg1, word arg2, word arg3, word arg4) {
+word is_enemy_owned(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $D9C0
     return (ui_helper_d772(ui_helper_d77e()) == ?);    // $D9C7
 }
@@ -1506,7 +1509,7 @@ L_DB4A:
 // (body @ $DB50)
 
 word sub_DB4B(word arg1, word arg2, word arg3, word arg4) {
-    if ((*(byte*)((arg1 + 0x6CF7)) != 0x00FF)) {    // $DB5A
+    if ((province_ai_state[arg1] != 0x00FF)) {    // $DB5A
     arg1 = 0x00FF;    // $DB5D
     }
 L_DB6D:
@@ -1516,7 +1519,7 @@ L_DB6D:
 // (body @ $DB73)
 
 word sub_DB6E(word arg1, word arg2, word arg3, word arg4) {
-    if ((*(byte*)((arg1 + 0x6CF7)) != 0x00FF)) {    // $DB7D
+    if ((province_ai_state[arg1] != 0x00FF)) {    // $DB7D
     arg1 = 0x00FF;    // $DB80
     } else {
     }
@@ -1611,7 +1614,7 @@ L_DC87:
 word sub_DC88(word arg1, word arg2, word arg3, word arg4) {
     // TODO: loadA_frameaddr $FFFF
     // TODO: op_A0_A3_byte $FFFF
-    return sub_CBBD(1, ?, ((((sub_DC66(battle_defending_province) * 55) + (arg2 * 11)) + arg1) + 0xA57E), 4);    // $DCB1
+    return syscall16_sram_wrap(1, ?, ((((sub_DC66(battle_defending_province) * 55) + (arg2 * 11)) + arg1) + 0xA57E), 4);    // $DCB1
 }
 
 // (body @ $DCB7)
@@ -1660,8 +1663,8 @@ word combat_helper_dd3a(word arg1, word arg2, word arg3, word arg4) {
     goto L_DD67;    // $DD44
 L_DD47:
     // TODO: bitxor
-    if (sub_D9B7(*(byte*)(local7))) goto L_DD65;    // $DD50
-    if (sub_D999(*(byte*)(local7))) goto L_DD65;    // $DD5A
+    if (is_enemy_owned(*(byte*)(local7))) goto L_DD65;    // $DD50
+    if (province_state_is_FF(*(byte*)(local7))) goto L_DD65;    // $DD5A
     local6 = (local6 + 1);    // $DD5F
     *(byte*)(((local6 + 1) - 1)) = *(byte*)(local7);    // $DD64
 L_DD65:
@@ -1672,7 +1675,7 @@ L_DD67:
     *(byte*)(0x00FF) = -1;    // $DD74
     arg2 = 0x00FF;    // $DD76
     // TODO: loadA_frameaddr $FFF8
-    return sub_CBBD(/*via arg2*/ 0x00FF, 8, -1, 0);    // $DD80
+    return syscall16_sram_wrap(/*via arg2*/ 0x00FF, 8, -1, 0);    // $DD80
 }
 
 // (body @ $DD86)
@@ -1767,7 +1770,7 @@ L_DEF6:
     local11 = battle_defending_province;    // $DEF6
     if ((ui_helper_d772(/*stack underflow*/ regA) == local9)) {    // $DEFD
     local11 = local9;    // $DF00
-    if (sub_D999(/*stack underflow*/ regA)) goto L_DF31;    // $DF05
+    if (province_state_is_FF(/*stack underflow*/ regA)) goto L_DF31;    // $DF05
     fief_to_daimyo_map[local11] = local10;    // $DF0F
     *(byte*)((local11 + 0x6DA2)) = 0;    // $DF17
     local8 = 0x6CF7;    // $DF1E
@@ -1955,7 +1958,7 @@ word sub_E21B(word arg1, word arg2, word arg3, word arg4) {
     fief_to_daimyo_map[arg1] = sub_DC0E(0x00FF);    // $E22D
     arg1 = 0x6E15;    // $E22E
     arg1 = 0x6E15;    // $E238
-    *(byte*)((arg1 + 0x6CF7)) = 0;    // $E259
+    province_ai_state[arg1] = 0;    // $E259
     *(byte*)((arg1 + 0x6DA2)) = 0;    // $E261
     arg1 = 0x6DA2;    // $E262
     arg1 = 0x6DA2;    // $E267
@@ -2077,8 +2080,8 @@ L_E44A:
 // (body @ $E459)
 
 word sub_E454(word arg1, word arg2, word arg3, word arg4) {
-    if ((*(byte*)((arg1 + 0x6CF7)) != 0x00FF)) {    // $E463
-    *(byte*)((arg1 + 0x6CF7)) = -1;    // $E482
+    if ((province_ai_state[arg1] != 0x00FF)) {    // $E463
+    province_ai_state[arg1] = -1;    // $E482
     *(byte*)((arg1 + 0x6DA2)) = 0;    // $E48A
     *(byte*)((arg1 + 0x6D2D)) = 20;    // $E493
     arg1 = 0x6D2D;    // $E497
@@ -2136,10 +2139,10 @@ word ui_helper_e510(word arg1, word arg2, word arg3, word arg4) {
     goto L_E545;    // $E51C
 L_E51F:
     local11 = ?;    // $E51F
-    if (sub_D999(/*stack underflow*/ regA)) goto L_E543;    // $E524
+    if (province_state_is_FF(/*stack underflow*/ regA)) goto L_E543;    // $E524
     local11 = ?;    // $E527
     // TODO: bitxor
-    if (sub_D9B7(/*stack underflow*/ regA)) goto L_E543;    // $E52E
+    if (is_enemy_owned(/*stack underflow*/ regA)) goto L_E543;    // $E52E
     if ((selected_province_idx != local11)) {    // $E536
     local9 = (local9 + 1);    // $E53B
     *(byte*)(((local9 + 1) - 1)) = local11;    // $E53F
@@ -2165,7 +2168,7 @@ word sub_E554(word arg1, word arg2, word arg3, word arg4) {
     // TODO: op_85_byte $D8
 L_E584:
     // TODO: op_81_byte $D8
-    if ((*(byte*)(sub_CBBD(34, mem_7FCF, ((mem_6F5D * 34) + 0x9E3C), 4)) != 0x00FF)) goto L_E595;    // $E58B
+    if ((*(byte*)(syscall16_sram_wrap(34, mem_7FCF, ((mem_6F5D * 34) + 0x9E3C), 4)) != 0x00FF)) goto L_E595;    // $E58B
 L_E58E:
     local10 = 0x00FF;    // $E58E
     local11 = 0x00FF;    // $E58F
@@ -2239,7 +2242,7 @@ word sub_E6B9(word arg1, word arg2, word arg3, word arg4) {
     // TODO: mod_unsigned
     local8 = local8;    // $E6DF
     arg1 = 0xAD84;    // $E72B
-    return sub_CBBD(12, (arg1 + 24), ((local7 * 12) + 0xAEAC), 9);    // $E76E
+    return syscall16_sram_wrap(12, (arg1 + 24), ((local7 * 12) + 0xAEAC), 9);    // $E76E
 }
 
 // $E76F marry_helper_e76f

@@ -95,6 +95,7 @@ prg_bank_count = 16        # 256 KB total
 # The $601A label below is kept for historical reference but should be treated as
 # either an outdated address or, at most, an unused secondary copy.
 "0x6003" = { name = "fief_history_table",   comment = "Per-fief HIGH-WATER MARK table — 17 entries x 8 bytes each (136 bytes total at $6003-$608A). Tracks historical maxes of 4 economic stats so income harvest uses peaks, not current. FULLY DECODED 2026-05-25 from sub $A0A9 in bank 0. Per-slot layout (idx*8 from base $6003): +0=output_max, +2=dams_max, +4=loyalty_max, +6=wealth_max. Each updated via 'if current >= history: history = current' pattern. STRATEGIC IMPLICATION: stats drained by war/Train/tax don't hurt income — the peak is remembered permanently. 'Build everything to max once' is mathematically optimal because the high-water mark drives gold/rice harvest." }
+"0x6CF7" = { name = "province_ai_state",     comment = "Per-province state byte (values 0-5, 0xFF=excluded). THE eligibility gate for AI target selection: count_eligible_targets ($8172) requires !=0xFF, province_state_is_FF ($D999) tests ==0xFF, and the per-fief AI driver sub_B89B switches on it (cases 0-5). Set on ownership change by sub_98A3 ($98A3: $6CF7[fief]=arg3); cleared to 0 by many command effects. Reading 2026-05-31 showed the AI target-selection chain filters on THIS + ownership, NOT on troop men — so what writes the non-zero state (and whether it considers men/strength) is the real driver of 'which fief gets attacked'. OPEN: enumerate the state values + their setters." }
 "0x6D5F" = { name = "config_block",         comment = "4-byte config block: 01 01 02 32. Chapter 9 §4 found this lives at $6D5F-$6D65. The '02' at offset $6D63 is the value Grow subtracts from sqrt(output+amount); see const_two below." }
 "0x6D63" = { name = "const_two",            comment = "16-bit constant = 2. Read by Grow's effect handler ($87F0 at $8809) as a subtrahend in the gain calculation: regA = sqrt(output+amount) - word[$6D63]. Same constant used by Build's effect ($88A6 at $88BF). Living in the config block at $6D5F." }
 "0x6F0B" = { name = "daimyo_turn_order",    comment = "17-byte permutation of 0..16 — the daimyo turn order for the current season. Re-randomized every turn (project_nobunaga_turn_order_randomization). Read order determines who acts when within a season." }
@@ -235,7 +236,10 @@ prg_bank_count = 16        # 256 KB total
 "0xCA46" = { name = "rng_next_wrapper",    comment = "3-instruction wrapper around syscall #17 (syscall_rng_next at $C1C3). Pushes 17 via op_8D_sbyte, fires syscall_dispatch, returns the 16-bit pseudo-random value. The bytecode-accessible entry point to the game's RNG." }
 "0xDAD7" = { name = "combat_helper_dad7",  comment = "Helper called by Move + War. Combat/military pre-roll." }
 "0xDD3A" = { name = "combat_helper_dd3a",  comment = "Helper called by Move + War. Combat/military pre-roll." }
-"0xD972" = { name = "war_helper_d972",     comment = "Helper called only by War. Combat-prep." }
+"0xD972" = { name = "war_helper_d972",     comment = "Helper called only by War. Combat-prep. = daimyo_weakness_flag[fief_to_daimyo_map[arg1]] (reads the weakness/condition mark of a province's owner)." }
+"0xD9B7" = { name = "is_enemy_owned",      comment = "Candidate target predicate: returns (fief_to_daimyo_map[ui_helper_d77e()] == arg) — i.e. the candidate fief's owner matches the target daimyo (enemy-ownership match). Eligibility, not strength. Read 2026-05-31." }
+"0xD999" = { name = "province_state_is_FF", comment = "Returns ($6CF7[arg1] == 0xFF) — province is in the EXCLUDED state. Eligibility filter used by combat_helper_dd3a. Read 2026-05-31." }
+"0xCBBD" = { name = "syscall16_sram_wrap", comment = "Thin wrapper around syscall 16 (sram_block_checksum/copy). Called by combat_helper_dd3a after filtering the candidate list — plumbing, not scoring. Read 2026-05-31." }
 "0xE3A4" = { name = "diplomacy_helper",    comment = "Diplomacy subsystem helper. Called by Pact (chapter 11)." }
 "0xDA4F" = { name = "diplomacy_helper2",   comment = "Second diplomacy subsystem helper called by Pact." }
 "0xDA7D" = { name = "diplomacy_helper3",   comment = "Diplomacy helper called by Marry." }
@@ -326,6 +330,10 @@ prg_bank_count = 16        # 256 KB total
 "0xA95E" = { name = "effect_give_b",        comment = "Give effect, variant B." }
 "0xA9D5" = { name = "effect_give_c",        comment = "Give effect, variant C." }
 "0x81FC" = { name = "effect_war_a",         comment = "War effect, variant A (6 combat-prep effects total)." }
+# --- AI/player target-selection chain (read 2026-05-31; ALL eligibility-filtering, NO men-scoring) ---
+"0x8172" = { name = "count_eligible_targets", comment = "Walks a 0xFF-terminated candidate-fief list; keeps each that passes target_eligible_by_cmd ($812F) AND province_state ($6CF7[cand]) != 0xFF; returns the COUNT of valid targets. arg3=0 count / =1 commit. The candidate FILTER for province_select_helper. Filters by ELIGIBILITY (ownership+state), not troop strength." }
+"0x812F" = { name = "target_eligible_by_cmd", comment = "switch(arg1=command/context code 1/2/4/6/8/15/19/255) -> for war-type modes calls is_enemy_owned ($D9B7) on candidate arg2; returns valid/0. Per-command target validity." }
+"0x8DE1" = { name = "dedup_owners_to_6F4F",  comment = "Builds a de-duplicated-by-OWNER candidate list from a 0xFF-terminated input list into the $6F4F[] array (0xFF-terminated); returns count. Owner-uniqueness via fief_to_daimyo_map." }
 "0x9323" = { name = "effect_war_combat_prep_a", comment = "War combat-prep subroutine A (chapter 11)." }
 "0x933A" = { name = "effect_war_combat_prep_b", comment = "War combat-prep subroutine B." }
 "0x9351" = { name = "effect_war_combat_prep_c", comment = "War combat-prep subroutine C." }
