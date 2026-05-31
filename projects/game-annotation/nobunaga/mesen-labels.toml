@@ -131,7 +131,11 @@ prg_bank_count = 16        # 256 KB total
 "0xC000" = { name = "reset_handler",       comment = "Reset entry: MMC1 init via 5-write serial commit; RAM/OAM clear; APU enable; ends with JMP $8000" }
 "0xC0DA" = { name = "nmi_handler",         comment = "NMI/VBlank handler: OAM DMA from $0600, P1+P2 polls, palette upload, music tick, wall-clock tick; bracketed by nmi_off/nmi_on" }
 "0xC139" = { name = "irq_handler",         comment = "IRQ/BRK dispatcher: reads brk_dispatch_id, indirect-JMPs through 23-entry table at $C173" }
-"0xC173" = { name = "syscall_dispatch_table", comment = "23-entry JMP table (3 bytes each). Dispatched by syscall_dispatch ($F226) via the task ID at brk_dispatch_id ($0050). Chapter 4 renamed from 'BRK dispatch' — the mechanism uses PHP+JMP($FFFE), not BRK." }
+"0xC173" = { name = "syscall_dispatch_table", comment = "23-entry JMP table (3 bytes each). Dispatched by syscall_dispatch ($F226) via the task ID at brk_dispatch_id ($0050). Chapter 4 renamed from 'BRK dispatch' — the mechanism uses PHP+JMP($FFFE), not BRK. TABLE DECODED 2026-05-31 from ROM ($C173 hex in bank_15_named.asm): 18 ids map to real handlers; id $00->reset_handler ($C000, soft-reset); ids $02/$0B/$0E/$0F are NO-OP stubs (JMP straight to an RTS) -> syscall_noop_02/_0b/_0e/_0f below. Finding the bytecode callers of the no-op ids (by task id) is a later task." }
+"0xC34B" = { name = "syscall_noop_02",      comment = "No-op handler for syscall id $02. The dispatch-table entry (id 2) JMPs here; body is an RTS stub (sits just before syscall_palette_write at $C34C). Unimplemented/reserved syscall — returns immediately. Walked 2026-05-31." }
+"0xC427" = { name = "syscall_noop_0b",      comment = "No-op handler for syscall id $0B. Dispatch-table entry (id 11) JMPs here; RTS stub (just before syscall_ppu_blit_from_bank at $C428). Unimplemented/reserved syscall. Walked 2026-05-31." }
+"0xC535" = { name = "syscall_noop_0e",      comment = "No-op handler for syscall id $0E. Dispatch-table entry (id 14) JMPs here; RTS stub (just before $C536/$C537=wait_vblank region). Unimplemented/reserved syscall. Walked 2026-05-31." }
+"0xC536" = { name = "syscall_noop_0f",      comment = "No-op handler for syscall id $0F. Dispatch-table entry (id 15) JMPs here; RTS stub. Unimplemented/reserved syscall. Walked 2026-05-31." }
 
 # --- The 23 syscall handlers (chapter 4) ---
 # These are the targets of the JMP entries at $C173+id*3.
