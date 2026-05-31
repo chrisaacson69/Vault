@@ -168,11 +168,24 @@ CODE_TOKEN_RE = re.compile(r"\bb(\d+)_([0-9a-fA-F]{4})\b")
 # (?<!#) so an IMMEDIATE constant `#$73` is never mistaken for a reference to
 # address $0073 -- only true memory operands ($73 / $0073 / $0073,x) get labeled.
 RAM_OPERAND_RE = re.compile(r"(?<!#)\$([0-9a-fA-F]{2,4})\b")
+# A line already carries an anchor iff it begins with `ident:` (labels are the
+# only line-start token followed by a colon; mnemonics/`hex` never are).
+EXISTING_ANCHOR_RE = re.compile(r"^\s*[A-Za-z_]\w*:")
+# The final per-line comment encodes the PRG file offset: `; 3C22C:  ad 73 00`.
+TRAIL_OFFSET_RE = re.compile(r";\s*([0-9A-Fa-f]{4,6}):")
+# Column the disassembler indents instruction bodies to (matches existing anchors
+# like `b15_c54f:   hex` = 9 + 3 = 12). Anchors longer than this just shift right.
+ANCHOR_COL = 12
 
 
-def apply_to_asm(text, code, ram):
+def apply_to_asm(text, code, ram, anchors=None):
+    """Rewrite a raw disasm. `anchors`, if given, maps PRG file-offset -> name and
+    INSERTS a `name:` anchor on any line whose trailing `; OFFSET:` matches and
+    that has no anchor yet -- recovering jump-table-reached entries (e.g. the
+    syscall handlers) that the recursive-descent disassembler never anchored."""
     n_code = [0]
     n_ram = [0]
+    inserted = []  # (offset, name) actually anchored
 
     def code_sub(m):
         bank, addr = int(m.group(1)), int(m.group(2), 16)
@@ -201,10 +214,30 @@ def apply_to_asm(text, code, ram):
         # bytes), so those labeled variables get substituted too.
         idx = line.rfind(";")
         if idx == -1:
-            out_lines.append(RAM_OPERAND_RE.sub(ram_sub, line))
+            line = RAM_OPERAND_RE.sub(ram_sub, line)
         else:
-            out_lines.append(RAM_OPERAND_RE.sub(ram_sub, line[:idx]) + line[idx:])
-    return "\n".join(out_lines), n_code[0], n_ram[0]
+            line = RAM_OPERAND_RE.sub(ram_sub, line[:idx]) + line[idx:]
+
+        # Anchor insertion: only on a still-unanchored line whose trailing offset
+        # exactly matches a requested address. The exact line-start match is the
+        # safety -- native routines start a line, while fixed-bank VM-bytecode subs
+        # (e.g. math32_3arg $D6B8) sit mid-`hex`-line so they never match here.
+        if anchors and not EXISTING_ANCHOR_RE.match(line):
+            mo = TRAIL_OFFSET_RE.search(line)
+            if mo:
+                off = int(mo.group(1), 16)
+                name = anchors.get(off)
+                if name:
+                    ind = re.match(r"^( +)", line)
+                    indent = ind.group(1) if ind else ""
+                    body = line[len(indent):]
+                    anchor = name + ":"
+                    pad = max(1, ANCHOR_COL - len(anchor))
+                    line = anchor + (" " * pad) + body
+                    inserted.append((off, name))
+
+        out_lines.append(line)
+    return "\n".join(out_lines), n_code[0], n_ram[0], inserted
 
 
 # Only banks 0/1/2/15 contain code (3-14 are data per the ROADMAP). Bank 15's
@@ -214,18 +247,36 @@ def apply_to_asm(text, code, ram):
 CODE_BANKS = (0, 1, 2, 15)
 
 
-def emit_named_asm(labels):
+def build_anchor_map(labels):
+    """PRG file-offset -> name, for FIXED-bank (bank 15, $C000-$FFFF) labels only.
+    These are address-authoritative, so anchoring them carries no section risk.
+    The switchable window ($8000-$BFFF in banks 0-14) is deliberately excluded
+    until the toml section hygiene is settled (a wrong section there would anchor
+    the wrong bank's code)."""
+    anchors = {}
+    for lab in labels:
+        if lab.bank == 15 and lab.addr >= 0xC000:
+            off = 15 * BANK_SIZE + (lab.addr & 0x3FFF)
+            anchors[off] = lab.name
+    return anchors
+
+
+def emit_named_asm(labels, dry_run=False):
     code, ram = build_name_maps(labels)
+    anchors = build_anchor_map(labels)
     results = []
     for bank in CODE_BANKS:
         raw = DISASM / f"bank_{bank:02d}.asm"
         if not raw.exists():
             continue
         text = raw.read_text(encoding="utf-8")
-        named, nc, nr = apply_to_asm(text, code, ram)
-        out = raw.with_name(raw.stem + "_named.asm")
-        out.write_text(named, encoding="utf-8")
-        results.append((out.name, nc, nr))
+        # Anchor insertion is fixed-bank only -> bank 15's file.
+        bank_anchors = anchors if bank == 15 else None
+        named, nc, nr, inserted = apply_to_asm(text, code, ram, bank_anchors)
+        if not dry_run:
+            out = raw.with_name(raw.stem + "_named.asm")
+            out.write_text(named, encoding="utf-8")
+        results.append((f"bank_{bank:02d}_named.asm", nc, nr, inserted))
     return results
 
 
@@ -238,6 +289,8 @@ def main():
                     help="write disasm/bank_NN_named.asm with toml names applied")
     ap.add_argument("--check", action="store_true",
                     help="parse + classify only; print stats, write nothing")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="with --asm: report anchor insertions but write no files")
     args = ap.parse_args()
 
     labels = parse_toml()
@@ -266,9 +319,13 @@ def main():
         for t, n in sorted(by_type.items()):
             print(f"  {t:16s} {n}")
 
-    if args.asm:
-        for name, nc, nr in emit_named_asm(labels):
-            print(f"Wrote {name}: {nc} code labels, {nr} RAM operands applied")
+    if args.asm or args.dry_run:
+        verb = "Would write" if args.dry_run else "Wrote"
+        for name, nc, nr, inserted in emit_named_asm(labels, dry_run=args.dry_run):
+            tail = f", {len(inserted)} anchors inserted" if inserted else ""
+            print(f"{verb} {name}: {nc} code labels, {nr} RAM operands applied{tail}")
+            for off, nm in inserted:
+                print(f"    + anchor @file ${off:05X} (cpu ${0xC000 + (off & 0x3FFF):04X}): {nm}")
 
 
 if __name__ == "__main__":
