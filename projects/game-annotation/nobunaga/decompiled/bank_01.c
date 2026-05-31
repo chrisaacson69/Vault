@@ -31,8 +31,8 @@ L_8059:
     local8 = ?;    // $8059
     local9 = ?;    // $805A
     local11 = arg1;    // $8060
-    local10 = sub_D59D(scenario_fief_count, 1);    // $8069
-    if (sub_D59D(scenario_fief_count, 1)) goto L_8088;    // $806A
+    local10 = select_province_by_cursor(scenario_fief_count, 1);    // $8069
+    if (select_province_by_cursor(scenario_fief_count, 1)) goto L_8088;    // $806A
     return 0;    // $806E
 L_806F:
     if (!((*(byte*)(local11) == (local10 - 1)))) goto L_8085;    // $8076
@@ -2226,7 +2226,7 @@ L_A713:
     local7 = 0;    // $A72B
     }
 L_A72C:
-    local10 = sub_D59D(99, 1);    // $A737
+    local10 = select_province_by_cursor(99, 1);    // $A737
     if ((local10 != 1)) goto L_A768;    // $A740
     if ((scenario_fief_count != 50)) goto L_A6FD;    // $A74C
 L_A753:

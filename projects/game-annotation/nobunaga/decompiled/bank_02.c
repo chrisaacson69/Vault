@@ -556,7 +556,7 @@ word sub_8792(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $8798
     arg2 = ?;    // $87A0
     arg1 = ?;    // $87A1
-    local11 = sub_D59D(/*via arg2*/ ?, /*via arg2*/ ?);    // $87A6
+    local11 = select_province_by_cursor(/*via arg2*/ ?, /*via arg2*/ ?);    // $87A6
     if (local11) {    // $87A8
     if ((local11 != 1)) {    // $87AF
     }
@@ -1247,8 +1247,8 @@ L_919F:
 
 word sub_91A1(word arg1, word arg2, word arg3, word arg4) {
     local10 = 0x6F4F;    // $91A9
-    local11 = sub_D59D(scenario_fief_count, 1);    // $91B2
-    if (sub_D59D(scenario_fief_count, 1)) {    // $91B3
+    local11 = select_province_by_cursor(scenario_fief_count, 1);    // $91B2
+    if (select_province_by_cursor(scenario_fief_count, 1)) {    // $91B3
     local11 = (local11 - 1);    // $91B8
     goto L_91C8;    // $91B9
 L_91BC:

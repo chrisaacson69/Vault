@@ -881,9 +881,10 @@ L_D3E7:
     }
 }
 
+// $D3ED cursor_nav_loop
 // (body @ $D3F2)
 
-word sub_D3ED(word arg1, word arg2, word arg3, word arg4) {
+word cursor_nav_loop(word arg1, word arg2, word arg3, word arg4) {
     local4 = 0;    // $D3F3
     local6 = 0;    // $D3F5
     local5 = 0;    // $D3F7
@@ -977,9 +978,10 @@ L_D596:
     return local11;    // $D59C
 }
 
+// $D59D select_province_by_cursor
 // (body @ $D5A2)
 
-word sub_D59D(word arg1, word arg2, word arg3, word arg4) {
+word select_province_by_cursor(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $D5A2
     local11 = sub_D586(/*via arg2*/ ?);    // $D5A7
     local9 = mem_7FCD;    // $D5AB
@@ -995,7 +997,7 @@ L_D5C2:
     local8 = local11;    // $D5C9
     local9 = local11;    // $D5CA
     local11 = local11;    // $D5CF
-    local7 = sub_D3ED(/*stack underflow*/ regA);    // $D5D4
+    local7 = cursor_nav_loop(/*stack underflow*/ regA);    // $D5D4
     // TODO: setB_imm4_50
     // TODO: cmp_sge
     if (local7) goto L_D5E7;    // $D5D8
@@ -1014,7 +1016,7 @@ word number_input(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $D5EF
     arg2 = ?;    // $D5F7
     arg1 = ?;    // $D5F8
-    local11 = sub_D59D(/*via arg2*/ ?, /*via arg2*/ ?);    // $D5FD
+    local11 = select_province_by_cursor(/*via arg2*/ ?, /*via arg2*/ ?);    // $D5FD
     // TODO: setB_imm4_50
     if ((local11 > ?)) {    // $D601
     }
