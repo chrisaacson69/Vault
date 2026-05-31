@@ -96,9 +96,22 @@ created: 2026-05-29
 >  └─ call_bank(2)                          ← bank 2 = combat resolution
 > ```
 > Why mid-level subs ($B79B issuer, $B89B/$B8A0 per-fief driver) had NO direct callers: they're in bank 1, reached via **call_bank(1)** (cross-bank, indirect) + the **$B9B2 driver table** (CALLPTR). The decompiler can't see those edges; that's why bottom-up stalled.
-- [ ] **1. Find the bank-1 turn-processor root.** `call_bank(1)` runs bank-1's NATIVE `$8000` entry → `$E823` vm_entry → inline bytecode. `sub_8003` (first bytecode sub) is just window setup — the real turn root is elsewhere. Find the bytecode entry the native `$8000` trampolines to; that's the per-turn dispatch.
-- [ ] **2. Find the player-vs-AI branch + the turn loop.** The iteration over `daimyo_turn_order` ($6F0B) and the "is this daimyo the player?" test appear to be NATIVE (no bytecode reads $6F0B). Options: decode the native `$8000`-area 6502, OR Lua-trace the turn flow (write-callbacks work now) to capture the branch live.
-- [ ] **3. Map the AI executor sequence (bank 1):** `$B79B` (command issuer → $B9B2 driver dispatch), `$B89B/$B8A0` (per-fief driver), `$B875` (maybe-train), `$B3AA` (AI send), `$B4D5` (recruit). Order + gating = the AI's "what do I do this turn" decision tree.
+- [x] **1. Bank-1 turn-processor root FOUND 2026-05-30.** Native `$8000` (bank 1) = `4C 9B B8` = **`JMP $B89B`**. So `call_bank(1)` runs **`sub_B89B`** (body `$B8A0`) — the per-fief driver IS the turn root. (Native disasm `disasm/bank_01_labeled.asm` is the tool for these trampolines, not the bytecode decompile.)
+- [x] **3. AI executor chain MAPPED 2026-05-30** (did this before 2, the calls revealed it):
+> ```
+> sub_B89B (turn root)  — loops provinces local11=0..fief_count:
+>   per province (selected_province_idx):
+>     - $6DA1 AI-budget counter ++/-- (read+write each step; the per-turn action budget?)
+>     - war_helper_d972(prov) && rng_mod(4)   → weakness-war check (daimyo_weakness_flag gate, 25%)
+>     - board checks sub_D628 / sub_D982 / sub_D609
+>     - switch $6CF7[prov] (per-province STATE 0-5)
+>     - CALL $B79B ($B989)  ← command issuer
+>         → if rest_turns_remaining[$6D67][daimyo] != 0: consume rest, skip
+>         → else: loop sub_B6B4() pick cmd-idx → command_driver_table[$B9B2][idx] → run driver (SAME as player menu)
+>             sub_B6B4 → sub_D14E (cursor/menu-item engine; reads controller via syscall 6 = read_controller)
+> ```
+> So the AI issues commands through the EXACT player path ($B6B4→$B9B2 driver), confirming Chris's "AI uses the same map." `$6CF7` = per-province action-state (0-5); `$6DA1` = an AI counter manipulated every step (budget/aggression — pin its exact role next). `$B875`/`$B3AA`/`$B4D5` (maybe-train / AI-send / recruit) are likely $B9B2-table targets reached via the driver dispatch, not separate top-level calls.
+- [ ] **2. Player-vs-AI fork — LOCALIZED, not pinned.** The player and AI share `sub_B89B → $B79B → sub_B6B4 → sub_D14E`; the fork (read controller for player vs auto-select for AI) is inside the **menu/cursor engine** (`sub_D14E`, gated by mode flags `mem_7FE7`/`mem_6F79`/`$7FE1`), which is intricate UI code. **Pin it empirically:** Lua write-callback on `selected_province_idx` ($6F5F) + a flag like `$7FE7`, watch which provinces hit `read_controller` (only the player's should). Cleaner than static-decoding the cursor engine. (Turn-ORDER iteration over `daimyo_turn_order` $6F0B is still native — separate.)
 - [ ] **4. Decode the troop-based invasion target selection** (the path that took Mutsu — neighbor-`men` scan, distinct from the health weakness-mark). Folds into step 3.
 - **NATIVE-CODE WRINKLE:** turn-order iteration + player/AI branch are native 6502, NOT VM bytecode — the bytecode→C decompiler is blind to them. This epic may need a native-6502 read of the bank-1 `$8000` entry and/or live Lua tracing, not just `decompiled/`.
 
