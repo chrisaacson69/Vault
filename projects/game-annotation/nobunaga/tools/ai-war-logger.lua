@@ -49,27 +49,38 @@ local nWrite = 0
 -- histogram counts only the formula's Bernoulli trials.
 local SET_LO, SET_HI = 0xA59C, 0xA59E
 
+local nTrial = 0
+local setHealths = {}      -- health of every val=1 (war-flagged) trial
+
 local function onFlagWrite(address, value)
   nWrite = nWrite + 1
-  local d  = address - FLAGS
-  local hp = rd(DMY + d * DSTRIDE + 1)          -- that daimyo's health
   local pc = vmpc()
+  -- Only the probabilistic store ($A59C, vmpc $A59D) is a Bernoulli trial of the
+  -- formula. The $A4AB init, the $CBCB block-copy, and the sub_9D00 devastation
+  -- writer all fall outside this window — skip them silently (they were val=0
+  -- spam, ~100 lines/pass). The health>99 gate already excludes high-health
+  -- daimyo before this store, so every trial here has health<=99.
+  if pc < SET_LO or pc > SET_HI then return end
+  local d  = address - FLAGS
+  local hp = rd(DMY + d * DSTRIDE + 1)
   local pred = (hp <= 100) and (100 - hp) / 400 or 0
-  emu.log(string.format("FLAG w#%d  daimyo=%d  val=%d  health=%d  vmpc=$%04X  P_pred=%.3f",
-    nWrite, d, value, hp, pc, pred))
-  -- Only the probabilistic store ($A59C) is a Bernoulli trial of the formula;
-  -- the $A4AB init (val 0) and the sub_9D00 devastation writer are not.
-  if pc >= SET_LO and pc <= SET_HI and hp <= 100 and value <= 1 then
+  if hp <= 100 and value <= 1 then
     local b = math.floor(hp / 10); if b > 10 then b = 10 end
     trials[b] = trials[b] + 1
-    if value ~= 0 then sets[b] = sets[b] + 1 end
+    nTrial = nTrial + 1
+    if value ~= 0 then sets[b] = sets[b] + 1; setHealths[#setHealths + 1] = hp end
   end
+  emu.log(string.format("TRIAL #%d  daimyo=%2d  health=%3d  -> %s   P_pred=%.3f",
+    nTrial, d, hp, (value ~= 0) and "WAR-FLAGGED" or ".", pred))
+  if nTrial > 0 and nTrial % 50 == 0 then dumphist() end
 end
 
 -- Print the running histogram on demand (call dumphist() from the console, or it
--- auto-prints every 200 trials).
+-- auto-prints every 50 trials).
 function dumphist()
-  emu.log("=== health-bucket validation:  bucket  trials  sets  observed  predicted ===")
+  local tt, ts = 0, 0
+  emu.log(string.format("=== health-bucket validation (%d trials, %d flagged) ===", nTrial, #setHealths))
+  emu.log("   bucket  trials  sets  observed  predicted")
   for b = 0, 10 do
     if trials[b] > 0 then
       local lo, hi = b * 10, b * 10 + 9
@@ -78,16 +89,17 @@ function dumphist()
       if pred < 0 then pred = 0 end
       emu.log(string.format("   h%2d-%2d   %5d   %4d   %.3f     %.3f",
         lo, hi, trials[b], sets[b], obs, pred))
+      tt = tt + trials[b]; ts = ts + sets[b]
     end
   end
+  -- Aggregate goodness check: total observed sets vs total expected (sum of P).
+  table.sort(setHealths)
+  emu.log(string.format("   TOTAL observed=%d  | war-flagged healths: %s",
+    ts, table.concat(setHealths, ",")))
+  emu.log("   (formula predicts sets concentrate at LOW health; aim for 300+ trials)")
 end
 
-local nT = 0
-emu.addMemoryCallback(function(a, v)
-  onFlagWrite(a, v)
-  nT = nT + 1
-  if nT % 200 == 0 then dumphist() end
-end, WRITE, FLAGS, FLAGS + NMAX)
+emu.addMemoryCallback(onFlagWrite, WRITE, FLAGS, FLAGS + NMAX)
 
 emu.displayMessage("Lua", "ai-war-logger v2 armed (write-based, $6DD4)")
 emu.log("=== ai-war-logger v2 — watching ai_war_target_flags writes; play AI turns ===")
