@@ -42,13 +42,12 @@ local trials, sets = {}, {}
 for b = 0, 10 do trials[b] = 0; sets[b] = 0 end
 local nWrite = 0
 
--- VM PC of the planner's probabilistic store ($A59C). The PC in $06/$07 at
--- write time may have advanced a byte or two into the handler, so match a small
--- window. RUN 1 = CALIBRATION: read the raw "FLAG w#" lines, find the vmpc that
--- accompanies the health-correlated 0/1 writes, and tighten this window to it.
--- (The $A4AB init always writes 0; sub_9D00's devastation writer writes a stat
--- byte, often >1 — both are excluded from the histogram by PC + the val<=1 cap.)
-local SET_LO, SET_HI = 0xA598, 0xA5A2
+-- VM PC of the planner's probabilistic store. CONFIRMED 2026-05-30: the store
+-- opcode is $A59C ($D4 BYTE_POPSTORE) and $06/$07 reads $A59D at write time (PC
+-- advanced one byte into the handler). The $A4AB init (vmpc ~$A4AC) and the
+-- sub_9D00 devastation writer (vmpc ~$9D79) fall outside this window, so the
+-- histogram counts only the formula's Bernoulli trials.
+local SET_LO, SET_HI = 0xA59C, 0xA59E
 
 local function onFlagWrite(address, value)
   nWrite = nWrite + 1
