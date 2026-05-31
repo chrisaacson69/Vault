@@ -50,6 +50,7 @@ local nWrite = 0
 local SET_LO, SET_HI = 0xA59C, 0xA59E
 
 local nTrial = 0
+local expSum = 0.0         -- sum of per-trial predicted P (expected sets under formula)
 local setHealths = {}      -- health of every val=1 (war-flagged) trial
 
 local function onFlagWrite(address, value)
@@ -68,6 +69,7 @@ local function onFlagWrite(address, value)
     local b = math.floor(hp / 10); if b > 10 then b = 10 end
     trials[b] = trials[b] + 1
     nTrial = nTrial + 1
+    expSum = expSum + pred
     if value ~= 0 then sets[b] = sets[b] + 1; setHealths[#setHealths + 1] = hp end
   end
   emu.log(string.format("TRIAL #%d  daimyo=%2d  health=%3d  -> %s   P_pred=%.3f",
@@ -94,9 +96,11 @@ function dumphist()
   end
   -- Aggregate goodness check: total observed sets vs total expected (sum of P).
   table.sort(setHealths)
-  emu.log(string.format("   TOTAL observed=%d  | war-flagged healths: %s",
-    ts, table.concat(setHealths, ",")))
-  emu.log("   (formula predicts sets concentrate at LOW health; aim for 300+ trials)")
+  local ratio = (expSum > 0) and (ts / expSum) or 0
+  emu.log(string.format("   TOTAL observed=%d  expected(sum P)=%.2f  ratio=%.2f  (want ~1.0 if /400 exact)",
+    ts, expSum, ratio))
+  emu.log(string.format("   war-flagged healths: %s", table.concat(setHealths, ",")))
+  emu.log("   (shape confirmed; ratio>>1 sustained over 300+ trials => denominator < 400)")
 end
 
 emu.addMemoryCallback(onFlagWrite, WRITE, FLAGS, FLAGS + NMAX)
