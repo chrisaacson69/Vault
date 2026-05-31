@@ -74,5 +74,8 @@ local function on_dispatcher(addr)
     end
 end
 
-emu.addMemoryCallback(on_dispatcher, emu.callbackType.exec, DISPATCHER, DISPATCHER)
+-- Mesen 2's exec enum is `cpuExec`; `exec` is nil and the callback never fires.
+local EXEC = emu.callbackType.cpuExec or emu.callbackType.exec
+assert(EXEC ~= nil, "no exec callback type in emu.callbackType (cpuExec/exec)")
+emu.addMemoryCallback(on_dispatcher, EXEC, DISPATCHER, DISPATCHER)
 emu.displayMessage("Lua", "Waiting for VM PC=$967A")

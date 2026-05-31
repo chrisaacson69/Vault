@@ -142,6 +142,12 @@ local function onDispatch()
   end
 end
 
-emu.addMemoryCallback(onDispatch, emu.callbackType.exec, DISPATCHER, DISPATCHER)
+-- Mesen 2's exec-callback enum is `cpuExec` (see dispatch-logger.lua); older
+-- notes used `exec`, which is nil -> the callback registers with a nil type and
+-- NEVER fires (the "onDispatch was never called" bug). Resolve both spellings
+-- and assert non-nil so this can never silently no-op again.
+local EXEC = emu.callbackType.cpuExec or emu.callbackType.exec
+assert(EXEC ~= nil, "no exec callback type in emu.callbackType (cpuExec/exec) — check Mesen version")
+emu.addMemoryCallback(onDispatch, EXEC, DISPATCHER, DISPATCHER)
 emu.displayMessage("Lua", "ai-war-logger armed (run 1 = calibration)")
 emu.log("=== ai-war-logger started — play one AI round ===")
