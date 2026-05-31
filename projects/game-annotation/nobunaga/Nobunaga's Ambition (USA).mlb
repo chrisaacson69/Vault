@@ -1,0 +1,251 @@
+NesInternalRam:0:ptr0_lo:General scratch pointer LO (project-wide default; 13 of 16 banks touch this)
+NesInternalRam:1:ptr0_hi:General scratch pointer HI
+NesInternalRam:2:ptr1_lo:Pointer pair LO; reset-init to $FF (forms $05FF with $03)
+NesInternalRam:3:ptr1_hi:Pointer pair HI; reset-init to $05
+NesInternalRam:4:ptr2_lo:Pointer pair LO
+NesInternalRam:5:ptr2_hi:Pointer pair HI
+NesInternalRam:6:ptr3_lo:Pointer pair LO (second-busiest indirect after ptr0)
+NesInternalRam:7:ptr3_hi:Pointer pair HI
+NesInternalRam:1C:ppu_queue_a_lo:Pointer LO into $0020 (PPU upload queue A?); reset-init = $20
+NesInternalRam:1D:ppu_queue_a_hi:Pointer HI; reset-init = $00 (forms $0020)
+NesInternalRam:1E:ppu_queue_b_lo:Pointer LO into $0030 (queue B?); reset-init = $30
+NesInternalRam:1F:ppu_queue_b_hi:Pointer HI; reset-init = $00 (forms $0030)
+NesInternalRam:50:brk_dispatch_id:Task ID for next BRK; IRQ handler reads this and indirect-JMPs through $C173+id*3
+NesInternalRam:66:brk_scratch_lo:Cleared on every BRK dispatch entry
+NesInternalRam:67:brk_scratch_hi:Cleared on every BRK dispatch entry
+NesInternalRam:68:brk_jmp_target_lo:IRQ-computed indirect JMP target LO; reused later as general data-pointer LO (byte-meaning-by-context)
+NesInternalRam:69:brk_jmp_target_hi:IRQ-computed indirect JMP target HI; reused as data-pointer HI
+NesInternalRam:6E:p1_buttons:P1 held buttons (ABSS UDLR, MSB-first); written by controller_poll ($C628) every NMI
+NesInternalRam:6F:p2_buttons:P2 held buttons (same format)
+NesInternalRam:71:ppuctrl_shadow:PPUCTRL ($2000) shadow; the codebase never reads $2000 directly. Managed by $C6A6 ($C54F/nmi_off, $C68A/nmi_on).
+NesInternalRam:72:ppumask_shadow:PPUMASK ($2001) shadow; managed by $C570 ($C567/rendering_on, $C69D/rendering_off).
+NesInternalRam:73:kernel_var_73:Cleared at reset; used by $C6AD (the BRK multiply-by-3 helper)
+NesInternalRam:74:palette_dirty:Non-zero = palette upload pending; $C6D4 uploads $0700-$071F to PPU $3F00-$3F1F then clears this
+NesInternalRam:79:music_voice_idx:Outer-loop voice index (0-4) during music driver scan
+NesInternalRam:7A:music_ptr_lo:Pointer LO into current voice record at $0734+N*9 ($7A/$7B)
+NesInternalRam:7B:music_ptr_hi:Pointer HI into current voice record
+NesInternalRam:80:skip_vblank_wait:Non-zero = $C537 (wait-for-VBlank) returns immediately without spinning
+NesInternalRam:81:nmi_busy:Semaphore: foreground sets to 1, spin-waits for NMI to clear it. The 'wait for VBlank' handshake.
+NesInternalRam:83:clock_a_hi:16-bit wall-clock A high byte; NMI adds +2 every frame (gated by $89); reset = $04 (init $04D2 = 1234)
+NesInternalRam:84:clock_a_lo:Wall-clock A low byte; reset = $D2
+NesInternalRam:85:clock_b_hi:16-bit wall-clock B high byte; reset = $04
+NesInternalRam:86:clock_b_lo:Wall-clock B low byte; reset = $D2
+NesInternalRam:89:skip_wallclock:Non-zero = NMI does OAM/audio/input but skips the wall-clock tick
+NesInternalRam:B0:nmi_skip_all:Non-zero = NMI bails after OAM DMA (skips controller/palette/audio/clock)
+NesInternalRam:720:audio_mute_triangle:Non-zero = triangle channel writes suppressed (for sound-effect ducking)
+NesInternalRam:721:audio_active_v0:Voice 0 active flag (always $01 during song playback)
+NesInternalRam:722:audio_active_v1:Voice 1 active flag
+NesInternalRam:723:audio_active_v2:Voice 2 active flag
+NesInternalRam:724:audio_active_v3:Voice 3 active flag
+NesInternalRam:725:v0_config:Voice 0 config (3 bytes: tempo_div, song_ptr_lo, song_ptr_hi); written by audio_load_voice ($C3AD)
+NesInternalRam:728:v1_config:Voice 1 config (3 bytes)
+NesInternalRam:72B:v2_config:Voice 2 config (3 bytes)
+NesInternalRam:72E:v3_config:Voice 3 config (3 bytes)
+NesInternalRam:731:v4_config:Voice 4 config (3 bytes)
+NesInternalRam:734:v0_trigger:Voice 0 byte 0: 1-4 = play on channel; 5-8 = just played (dormant); 0 = idle
+NesInternalRam:73D:v1_trigger:Voice 1 byte 0 (same encoding)
+NesInternalRam:746:v2_trigger:Voice 2 byte 0
+NesInternalRam:74F:v3_trigger:Voice 3 byte 0
+NesInternalRam:758:v4_trigger:Voice 4 byte 0
+NesSaveRam:3:fief_history_table:Per-fief HIGH-WATER MARK table — 17 entries x 8 bytes each (136 bytes total at $6003-$608A). Tracks historical maxes of 4 economic stats so income harvest uses peaks, not current. FULLY DECODED 2026-05-25 from sub $A0A9 in bank 0. Per-slot layout (idx*8 from base $6003): +0=output_max, +2=dams_max, +4=loyalty_max, +6=wealth_max. Each updated via 'if current >= history: history = current' pattern. STRATEGIC IMPLICATION: stats drained by war/Train/tax don't hurt income — the peak is remembered permanently. 'Build everything to max once' is mathematically optimal because the high-water mark drives gold/rice harvest.
+NesSaveRam:CF7:province_ai_state:Per-province state byte (values 0-5, 0xFF=excluded). THE eligibility gate for AI target selection: count_eligible_targets ($8172) requires !=0xFF, province_state_is_FF ($D999) tests ==0xFF, and the per-fief AI driver sub_B89B switches on it (cases 0-5). Set on ownership change by sub_98A3 ($98A3: $6CF7[fief]=arg3); cleared to 0 by many command effects. Reading 2026-05-31 showed the AI target-selection chain filters on THIS + ownership, NOT on troop men — so what writes the non-zero state (and whether it considers men/strength) is the real driver of 'which fief gets attacked'. OPEN: enumerate the state values + their setters.
+NesSaveRam:D5F:config_block:4-byte config block: 01 01 02 32. Chapter 9 §4 found this lives at $6D5F-$6D65. The '02' at offset $6D63 is the value Grow subtracts from sqrt(output+amount); see const_two below.
+NesSaveRam:D63:const_two:16-bit constant = 2. Read by Grow's effect handler ($87F0 at $8809) as a subtrahend in the gain calculation: regA = sqrt(output+amount) - word[$6D63]. Same constant used by Build's effect ($88A6 at $88BF). Living in the config block at $6D5F.
+NesSaveRam:F0B:daimyo_turn_order:17-byte permutation of 0..16 — the daimyo turn order for the current season. Re-randomized every turn (project_nobunaga_turn_order_randomization). Read order determines who acts when within a season.
+NesSaveRam:F5F:selected_province_idx:Word holding the currently-selected province index (0-16 for 17-fief scenario, 0-49 for 50-fief). The 'A4 5F 6F 8B 1A B5 8C 01 70 BB' province-access idiom (chapter 9 §4) reads this, multiplies by 26 (record size), and adds $7001 (table base) to get the record pointer. Appears 81+ times across banks 0/1/2/15. Idx=50 ($7515) is the zealot/uprising slot (header=9999 marks special).
+NesSaveRam:F63:battle_defending_province:Word: the province whose tactical map is loaded for the current battle (the defender's fief). Read by map_populate ($8903, bank 2) to index province_to_mapid_table ($F70E) -> map_id -> tactical_map_cell_pool ($A57E + map_id*55, bank 4). Distinct from selected_province_idx ($6F5F). Seeding this + scenario_fief_count is sufficient to drive the ROM->SRAM map populate (render-rom-to-map.py). Session 2026-05-30.
+NesSaveRam:D67:rest_turns_remaining:Per-daimyo turn-skip counter (Rest command). PINNED 2026-05-30 by driver_rest ($ADB3, Command 17): sets $6D67[d77e()] = number_input(1..10) — 'rest for N turns' (health/age recovery, ch11). The turn loop then: sub_B79B, if $6D67[daimyo]!=0, decrements one and skips the daimyo's command-pick (resting = no action this turn); the war-target planner ($A578) skips flagging a resting daimyo as prey; several other action drivers gate on it too ($8CB2/$902B/$9B52/$9C09/$9057/$B943). I.e. a resting daimyo is inert and untouchable-as-target until the counter drains.
+NesSaveRam:D9D:scenario_fief_count:Word: the active scenario's fief count — 17 or 50. The 17-vs-50 selector the battle map-populate path branches on (sub_DC88: UCMPGT 50). With battle_defending_province ($6F63), the only SRAM input map_populate ($8903) needs. Session 2026-05-30.
+NesSaveRam:DD4:daimyo_weakness_flag:Per-daimyo 0/1 WEAKNESS/CONDITION mark (NOT a pure war-target flag — that was an over-read, see below). WRITER (AI planning pass, bank 0 $A4AB-$A5AF): cleared to 0, then $6DD4[D] |= (rng_mod(400) < (100 - daimyo_health)) for health<=99 daimyo (gates: skip if health>99 at $A56A, or rest_turns_remaining[$6D67][D]!=0 at $A578). So P(marked) = (100-health)/400 per pass — empirically SHAPE-confirmed 2026-05-30 (flagged mean health 66.6 vs 81.9). READ BY TWO SYSTEMS: (a) war-targeting — war_helper_d972 ($D972, 'called only by War', 8 read sites incl. per-fief AI driver $B8A0) treats a marked daimyo as preferred/weak prey; (b) natural-death/health — sub_9154 ($9187) reads it in the death-roll result. RECONCILES the 2026-05-28 5-dump finding that called $6DD4 a chronic-illness/condition flag: it's a per-TURN low-health-weighted mark, but sustained-low-health daimyo (e.g. Saito) get re-marked every turn, so it LOOKS chronic across yearly dumps. **CAUTION (empirical, 2026-05-30): NOT a hard war-immunity gate** — a health>99 daimyo (never marked) was still invaded, so the mark is a PREFERENCE/vulnerability signal that biases AI targeting, not the sole war trigger. Index per-daimyo (writer loops D=0..fief_count, indexes daimyo_table_17[D] via sub_D7CD AND $6DD4[D] by same D; fief-indexed uses ride the scenario identity). Daimyo record +1 = health CONFIRMED via 50Diamyo cross-check (31/38 = start+5). Exact war role pending SRAM-dump confirmation.
+NesSaveRam:E15:fief_to_daimyo_map:17-byte array, position i = current owner-daimyo idx for fief i+1 (1-based). Found 2026-05-25 via SRAM cross-reference. Initial state: identity (fief i+1 owned by daimyo i). After conquests, values change — e.g. when Tokugawa took Owari, position 16 changed from 16 (Oda) to 7 (Tokugawa). Daimyos whose value doesn't appear anywhere have lost their home; they remain in daimyo_table_17 as 'wandering' (status=$01 in chapter 7 terms, vs $00 for fief-holding lords).
+NesSaveRam:1515:zealot_uprising_slot:Province-record-format slot (26 bytes, idx=50) for the zealot/Ikko-Ikki uprising force when it spawns. Uses standard 26-byte province record layout so it slots into combat engine without special-casing. Distinguishing markers: header=9999 (special), extreme loyalty/morale (1300/1516 observed), tiny skill/arms (4/4). Cleared after combat resolution. Spawn check likely lives in bank-0 season-turnover code.
+NesSaveRam:1001:province_table_live:AUTHORITATIVE live working province table (chapter 9 §4 reconciliation). 17 records x 26 bytes for the 17-fief scenario. Confirmed field layout (offsets, all 16-bit LE since loadA_ind_word reads low-byte-first): +0=gold, +2=debt, +4=town, +6=rice, +8=output, +10=dams, +12=loyalty, +14=wealth, +16=men, +18=morale, +20=skill, +22=arms, +24=header (base koku, the development ceiling). Record N is at $7001 + N*26.
+NesSaveRam:1A:province_table_OLD:DEPRECATED — chapter-7 identification, contradicted by chapter 9 §4 SRAM dump. The actual live province table is at $7001 (province_table_live). Kept as a label only to flag chapter-7 references for revisit.
+NesSaveRam:152F:daimyo_table_17:17-fief scenario daimyo records — 17 records x 7 bytes. Each: age, Health, Drive, Luck, Charisma, IQ, status. Index parallel to daimyo_name_table at $77A8. Tokugawa is record 7 at $7560.
+NesSaveRam:1560:daimyo_rec_tokugawa:Player slot in 17-fief scenario. Record 7 of daimyo_table_17. Format: age + H + D + L + Ch + IQ + status (7 bytes).
+NesSaveRam:17A8:daimyo_name_table:17-fief daimyo names — 17 names x 9 bytes (8 ASCII chars + null pad). Indices parallel to daimyo_table_17. Order in 17-fief scenario: Hatakeyama, Uesugi, Hojo, Honganji, Asakura, Anekoji, Imagawa, Tokugawa, Iera, Tsutsui, Asai, Rokkaku, Kitabatake, Ashikaga, Miyoshi, Takeda, Oda. WHEN A DAIMYO IS DISPLACED AND REGENERATED (via zealot conquest, etc.), this entry is overwritten — sometimes cleanly (e.g. 'Iera' -> 'Saito'), sometimes with partial syllable-overwrite producing garbled names like 'Sate\0ui' (from 'Tsutsui'). The name regenerator may use a clean-name table with a syllable-stitch fallback.
+NesSaveRam:1C00:map_tile_data:Strategic-map background tile indices. ~558 bytes covering the 18x31 map grid.
+NesSaveRam:1F00:ui_transient_state:Transient UI cache: frame counter at $7FE9, animation timers, menu position, status flags. Boot bytecode zeroes $7FE7/$7FC7/$7FD3/$7FD1 on game start (chapter 6). NOT preserved across power cycles — only canonical tables survive a save.
+NesSaveRam:1FE9:frame_counter:Per-frame counter (60Hz tick). Drives animation timing, cursor blink, music transitions. Continuously incremented when game is unpaused, frozen when paused.
+NesInternalRam:90:palette_alt:32-byte alt palette buffer ($0090-$00AF). Used by palette_swap ($C36C, task $12) to atomically swap with palette_shadow for fade/transition effects. Reset-fill $3E (paired with palette_shadow).
+NesInternalRam:700:palette_shadow:32-byte palette shadow ($0700-$071F); foreground writes here + sets palette_dirty; $C6D4 uploads to PPU $3F00 next NMI. Reset-fill $3E (medium grey).
+NesPrgRom:3C000:reset_handler:Reset entry: MMC1 init via 5-write serial commit; RAM/OAM clear; APU enable; ends with JMP $8000
+NesPrgRom:3C0DA:nmi_handler:NMI/VBlank handler: OAM DMA from $0600, P1+P2 polls, palette upload, music tick, wall-clock tick; bracketed by nmi_off/nmi_on
+NesPrgRom:3C139:irq_handler:IRQ/BRK dispatcher: reads brk_dispatch_id, indirect-JMPs through 23-entry table at $C173
+NesPrgRom:3C173:syscall_dispatch_table:23-entry JMP table (3 bytes each). Dispatched by syscall_dispatch ($F226) via the task ID at brk_dispatch_id ($0050). Chapter 4 renamed from 'BRK dispatch' — the mechanism uses PHP+JMP($FFFE), not BRK.
+NesPrgRom:3C1B8:syscall_wait_for_nmi:Task $13 (id=19): set nmi_busy=1, spin until NMI clears it. The canonical 'wait for next VBlank' primitive.
+NesPrgRom:3C1C3:syscall_rng_next:Task $11 (id=17): 48-bit shift-and-add transform of the wall-clock state ($0083-$0088). Returns 16-bit pseudo-random value in brk_scratch_lo/hi. The game's RNG.
+NesPrgRom:3C22C:syscall_memcpy_banked:Task $10 (id=16): bank-switched memcpy. Switches to struct[2] bank, copies (struct[6:8]) -> (struct[8:10]) for length struct[10..11] (16-bit). Restores bank.
+NesPrgRom:3C264:syscall_ppu_upload_block:Task $01 (id=1): bank-switched bulk copy from PRG-ROM to PPU. Switches to struct[2] bank, copies chunks of 16 bytes from (struct[6:8]) to PPU @struct[8:10]; chunk count = struct[10]. Restores bank.
+NesPrgRom:3C2CB:syscall_set_sprite:Task $03 (id=3): write 1 OAM sprite. struct[2]=sprite index (0-63), struct[6]=Y, struct[8]=attr, struct[a]=tile, struct[4]=X. Writes to OAM shadow at $0600 + idx*4.
+NesPrgRom:3C2F0:syscall_fill_attr_quadrant:Task $08 (id=8): fill 64 bytes of PPU attribute table. PPUADDR = $23C0 + struct[2]*4. Fill byte = struct[4].
+NesPrgRom:3C312:syscall_fill_nametable:Task $05 (id=5): fill a full 30x32 nametable with one tile byte. struct[2] selects nametable; struct[4] = fill byte. Writes 960 bytes.
+NesPrgRom:3C339:syscall_call_bank:Task $07 (id=7): save current bank, switch to struct[2], JSR $8000 (the bank's entry point), restore. The inter-bank call primitive.
+NesPrgRom:3C34C:syscall_palette_write:Task $04 (id=4): write one palette byte. struct[2]=palette index (0-31), struct[4]=color. Writes to palette_shadow + sets palette_dirty. If skip_vblank_wait is set, writes to palette_alt instead (no NMI flag).
+NesPrgRom:3C36C:syscall_palette_swap:Task $12 (id=18): atomically swap palette_shadow ($0700-$071F) with palette_alt ($0090-$00AF), gated by struct[2] XOR skip_vblank_wait. Resolves chapter-3 mystery about $0090-$00AF — it's the alt palette buffer for fade/transition effects.
+NesPrgRom:3C39E:syscall_read_controller:Task $06 (id=6): read controller button state. struct[2]=player index (0=P1 from $006E, 1=P2 from $006F). Returns held buttons in brk_scratch_lo. Side effect: if any button pressed, sets skip_wallclock — game-time pauses while input is held.
+NesPrgRom:3C3AD:syscall_audio_load_voice:Task $09 (id=9): set voice config. struct[2]=voice index, struct[4]=tempo_div, struct[6]=song_ptr_lo, struct[8]=song_ptr_hi. Writes 3 bytes at $0725 + voice*3 (the voice config array).
+NesPrgRom:3C3CF:syscall_audio_control:Task $0A (id=10): audio control. struct[2]=voice idx, struct[4]=mode. Mode 0: silence everything (clear all voice flags + records, mute SQ1/SQ2/TRI). Mode 1: mute triangle for voice (set audio_mute_triangle+idx, clear voice trigger). Mode 2: query mute state (returns audio_mute_triangle+idx).
+NesPrgRom:3C428:syscall_ppu_blit_from_bank:Task $14 (id=20): bank-switched PPU blit. Switches to bank from struct[$E] (= $005E), then writes a block from that bank to a nametable region. Used for screen content rendering (menus, maps).
+NesPrgRom:3C437:syscall_ppu_blit_nobank:Task $0C (id=12): sibling of syscall_ppu_blit_from_bank but enters with mode flag = 0 (no bank switch). Falls into the same code at $C439.
+NesPrgRom:3C4E0:syscall_ppu_render_rect:Task $0D (id=13): 2D nametable region renderer. struct[6/8]=start (x,y), struct[10/12]=end (x,y), struct[14]=per-tile param. Loops through every cell calling 3 helpers ($C640 compute-addr, $C673 compute-attr, $C711 write). Used for menu borders, status panels, map sections — anything with per-tile variation.
+NesPrgRom:3C173:syscall_dispatch_table:23-entry kernel syscall jump table (task ids 0-22), reached via JSR $F226 (which copies the param struct from the VM stack then JMP ($FFFE) into the handler). Each entry is a 3-byte `JMP abs`. Decoded ids: 0?,1=ppu_upload_block,3=set_sprite,4=palette_write,5=fill_nametable,6=read_controller,7=call_bank,9=audio_load_voice,$10=memcpy_banked,$11=rng_next,$12=palette_swap,$13=wait_for_nmi,$14=ppu_blit_from_bank,$16=sram_block_checksum. Mirrored in tools/nobunaga_vm.SYSCALLS.
+NesPrgRom:3F70E:province_to_mapid_table:Per-province -> tactical-map-id table (bank 15, fixed). map_id = F70E[province]; the cell data is then at tactical_map_cell_pool ($A57E) + map_id*55. 17-fief values [0..16] verified = [15,9,13,20,21,17,19,23,22,31,26,27,25,30,32,14,24] (Mino=22). The 50-fief path selects a parallel/extended table via scenario_fief_count. Session 2026-05-30.
+NesPrgRom:3C5AA:syscall_sram_block_with_checksum:Task $16 (id=22): SRAM block read/write with 16-bit checksum. Writes 5-bit value (struct[2]) to MMC1 CHR-bank-0 register at $BFFF (SOROM WRAM-enable gate), copies ($56)->$0200 of length struct[10], writes second 5-bit value (struct[4]) to $BFFF, copies $0200->($56) while computing checksum into brk_scratch_lo/hi. The save-data I/O primitive.
+NesPrgRom:3C60C:syscall_set_chr_bank0_reg:Task $15 (id=21): write 5-bit value (struct[2]) to MMC1 CHR-bank-0 register at $BFFF. On SOROM, bit 4 of this register is the WRAM-enable gate; this syscall is the bracket call that opens/closes SRAM access around save I/O.
+NesPrgRom:3C577:set_prg_bank:MMC1 PRG bank switch helper. Saves NMI state, writes the 5-bit serial sequence to $FFF0 to set the bank, restores NMI state. Updates kernel_var_73 ($0073) to track current bank. Used by every bank-switching syscall.
+NesPrgRom:3E823:vm_entry:VM entry point. Called as JSR vm_entry from bank 0 ($A778) with inline bytecode following. Pulls 4 bytes off stack (return + previous context), allocates new VM frame (ptr1 -= 9), saves old context, sets up ptr3 (bytecode IP) and begins dispatching.
+NesPrgRom:3E867:vm_dispatch:VM main dispatch loop. Reads byte at ptr3 (bytecode IP), advances ptr3, looks up handler in tables at $F026/$F126, JMPs through. Handlers do their work and JMP back here (or to a tail at $EB9E that adjusts ptr1 first).
+NesPrgRom:3E87F:vm_op_00_load_offset:VM opcode $00 handler. First of 12 entries (opcodes $00-$0B) at $E87F-$E8AB, each 4 bytes apart, each loading a different immediate ($E8/$EA/.../$FE) into A then branching to the common tail at $E8AD that adds A to ptr2 and reads 16-bit data from that location.
+NesPrgRom:3E8AD:vm_op_load_tail:Common tail for VM opcodes $00-$0B. Adds immediate offset to ptr2, reads 16-bit value at the resulting address, stores it as the new VM bytecode IP base ($08/$09). Used by 'load offset from ptr2' opcode group.
+NesPrgRom:3EB38:vm_op_E9_host_call:VM opcode $E9: host call with VM stack adjustment. Reads next 2 bytecode bytes as a native function address, JSR through it (using the indirect-JMP-trampoline trick), then advances ptr1 before next dispatch. THIS IS THE BRIDGE FROM BYTECODE TO KERNEL — bytecode pattern 'E9 26 F2' = host_call to $F226 = syscall_dispatch.
+NesPrgRom:3EB4E:vm_op_AC_host_call_simple:VM opcode $AC: simple host call without stack adjustment. Reads next 2 bytecode bytes as a native function address, JSR through it, then immediately dispatches the next opcode (no ptr1 adjustment). Different calling convention than $E9 (host call that returns no values to clean up).
+NesPrgRom:3EB57:vm_call_native:VM 'JSR through ptr0' helper. Saves the VM IP onto the VM stack at ptr1, then JSRs through the indirect_jmp_trampoline ($EB7A) which executes JMP ($0000) — effectively a JSR to wherever ptr0 points. After the called native code RTS's, restores the VM stack pointer.
+NesPrgRom:3EB7A:indirect_jmp_trampoline:3-byte data block '6C 00 00' = JMP ($0000). Used by vm_call_native to implement 'JSR through ptr0' which 6502 lacks natively. JSR to this block runs JMP indirect through $00/$01 (= ptr0), effectively calling whatever ptr0 points to.
+NesPrgRom:3EB9E:vm_dispatch_with_ptr1_adjust:Tail used by host_call opcode $E9. Reads a byte from the bytecode as the ptr1 adjustment amount, adds it to ptr1, then enters vm_dispatch. This is the 'host call returns N bytes' cleanup convention.
+NesPrgRom:3EFD5:vm_read_word_into_ptr0:VM helper: read the next 2 bytes from bytecode (at ptr3,Y=0 and ptr3,Y=1) into ptr0_lo / ptr0_hi. Advance ptr3 by 2. Used by host-call opcodes to fetch the native function address.
+NesPrgRom:3F026:vm_opcode_lo_table:256-byte table of low bytes of VM opcode handler addresses, indexed by opcode byte. The full handler is at ($F126[op] << 8) | $F026[op].
+NesPrgRom:3F126:vm_opcode_hi_table:256-byte table of high bytes of VM opcode handler addresses, indexed by opcode byte. Together with vm_opcode_lo_table at $F026, forms the 256-entry dispatch table for VM bytecode opcodes. Immediately precedes syscall_dispatch at $F226.
+NesPrgRom:3F226:syscall_dispatch:The 22-byte parameter-copy wrapper that fakes a BRK via PHP + JMP($FFFE). Called by VM bytecode via opcode $E9 with this as the address operand. Reads syscall parameters from ($02),Y=$17..$02 — i.e. directly from the current VM frame at ptr1.
+NesPrgRom:0:bank0_entry:Bank 0 entry point. 3 bytes: JMP $A778. The 'rest of bank 0' is data — VM bytecode, sprite/tile data, and a few small native helpers callable from bytecode.
+NesPrgRom:2778:vm_bootstrap:First instruction reached after RESET. JSR vm_entry ($E823) followed by inline VM bytecode that orchestrates the entire boot sequence (audio init, palette load, screen setup) and ultimately becomes the main game loop.
+NesPrgRom:3C54F:nmi_off:Clear bit 7 of ppuctrl_shadow (disable NMI generation); used as the NMI re-entry guard
+NesPrgRom:3C567:rendering_on:OR $18 into ppumask_shadow (enable BG + sprite rendering)
+NesPrgRom:3C570:write_ppumask:Write A to PPUMASK ($2001) and update ppumask_shadow
+NesPrgRom:3C68A:nmi_on:Set bit 7 of ppuctrl_shadow (enable NMI generation)
+NesPrgRom:3C693:ppu_safe_gate:Composite preamble for foreground PPU updates: nmi_off → wait_vblank → rendering_off
+NesPrgRom:3C69D:rendering_off:AND $E7 into ppumask_shadow (clear BG + sprite enable; blank screen)
+NesPrgRom:3C6A6:write_ppuctrl:Write A to PPUCTRL ($2000) and update ppuctrl_shadow
+NesPrgRom:3C537:wait_vblank:Spin until PPUSTATUS bit 7 set; early-out if skip_vblank_wait ($0080) non-zero. Calls music_driver during spin.
+NesPrgRom:3C628:controller_poll:Strobe $4016 and shift 8 bits into $006E (P1) or $006F (P2); X = player index
+NesPrgRom:3C6AD:mul_xy_by_3:Helper used by BRK dispatcher: multiply X register by 3 with carry, used to scale task ID to table offset
+NesPrgRom:3C6D4:palette_upload:If palette_dirty != 0: blank screen, set PPUADDR=$3F00, copy 32 bytes from palette_shadow to PPUDATA, restore rendering, clear palette_dirty
+NesPrgRom:3C7A5:music_driver:NMI music tick. Calls trigger pass at $C7AC, then sequencer pass at $C817, then RTS. (Disasm6 misread this region as a data table.)
+NesPrgRom:3C7AC:music_trigger_pass:Pass 1: scan 5 voices at $0734; for any voice with byte 0 in 1..4, write 4 APU register bytes and set byte 0 = byte 0 + 4 (one-shot)
+NesPrgRom:3C7DE:music_voice_check:Per-voice trigger check: skip if byte 0 is 0 (idle) or >= 5 (dormant), else call music_voice_play
+NesPrgRom:3C7EF:music_voice_play:Per-voice play: compute APU base from byte 0, optionally skip if triangle mute, write bytes 1-4 to APU registers
+NesPrgRom:3C817:music_sequencer_pass:Pass 2: for each active voice, decrement byte 8 (duration countdown). When zero, advance song pointer (bytes 6-7), load new pitch (bytes 3-4), trigger (byte 0), reset countdown (byte 8).
+NesPrgRom:3CBCD:sqrt_int:Integer square root (native code; chapter 9). Classic restoring algorithm, 2 bits per iteration, 8 iterations over 16-bit input. Called as host_call sqrt_int, $02 with one word arg on the data stack. Used by Grow/Dam/Build/Train effects to drive the diminishing-returns curve.
+NesPrgRom:3D70D:pct_op:Percentage operator (bytecode sub; this session fully decoded). Computes base * pct / 100 with integer truncation, split-by-10 so no intermediate product exceeds 16 bits. Args: arg1=base, arg2=pct. Fast path: if pct==100 return base. Otherwise return (base/10)*(pct/10) + (base%10)*pct/100 + (pct%10)*(base/10)/10. Used by all redistribution tails (Grow drains loyalty+dams, Build drains wealth, Tax response, etc.).
+NesPrgRom:3D6B8:math32_3arg:CONFIRMED 2026-05-25: 3-arg math helper computing (arg1 × arg2) / arg3 in 32-bit signed arithmetic. Uses ext-opcodes: $25 sign-extend 16→32, $14 push regA 32-bit, $15 pop into regB, $01 unsigned multiply, $02 signed divide, $27 RTS. Returns -1 if arg3==0. CRITICAL CAVEAT for Grow: callers push only 2 args explicitly (sqrt + neg-const_two); arg3 reads uninitialized stack memory at caller's frame[-4]. Runtime value of arg3 determined by execution history of the caller, not by an explicit push.
+NesPrgRom:3D6DE:math32_2arg:2-arg extended-opcode math helper (bytecode sub). Returns 0 if both args are 0. Similar B7-prefix shape to math32_3arg but with ext_op $19 (a different multiply/scale primitive). Called by Grow/Build for a refinement step. EXACT formula pending ext-opcode decode.
+NesPrgRom:3D326:message_display:Display a message string. Called by 30 distinct command drivers — the most-used helper in the lord-command menu. Args: typically a 16-bit string pointer pushed before the call. The 'show feedback prompt' primitive.
+NesPrgRom:3D766:confirm_prompt:Show a confirmation prompt (likely 'OK?' / yes-no). Called by 22 drivers. Common tail of any command that has a destructive or committal step.
+NesPrgRom:3CEC4:redraw_window:Redraw a screen region / window. Called by 17 drivers. The 'restore display after my prompts' primitive.
+NesPrgRom:3D5E9:number_input:Number-input prompt with cap. Called by 15 drivers (Tax rate, Grow amount, Send rice/gold, etc.). Args appear to include the maximum allowed value — Chapter 9 noted the Grow input is capped at the province's gold.
+NesPrgRom:3CC89:ui_helper_cc89:UI helper called by 14 drivers. Specific role TBD — appears in command pre-roll/post-roll. Candidate: cursor-restore or selection-reset.
+NesPrgRom:3D134:ui_helper_d134:Helper called by 13 drivers. Often follows message_display. Candidate: format-and-print (the '%d' / '%s' substitution layer).
+NesPrgRom:3D3A7:ui_helper_d3a7:Helper called by 8 drivers. TBD.
+NesPrgRom:3E80C:ui_helper_e80c:Helper called by 15 drivers. TBD.
+NesPrgRom:3CC7B:ui_helper_cc7b:Helper called by 6 drivers. TBD.
+NesPrgRom:3D7EA:ui_helper_d7ea:Helper called by 5 drivers. TBD.
+NesPrgRom:3E510:ui_helper_e510:Helper called by 5 drivers (Send, Pact, View, Marry — the 'select target province from a list' command set). Candidate: cursor/menu enter primitive.
+NesPrgRom:3D77E:ui_helper_d77e:Helper called by 5 drivers (Marry, Pact among them). TBD.
+NesPrgRom:3CB5E:min_word:Tiny 11-instruction function: min(arg1, arg2) as signed words. Returns smaller of the two via cmp_slt + branch. The cap mechanism behind 'morale caps at koku', 'dams cap at 100', etc. Heavily used by the field-cap-sweep at $D836 and by command-post-cleanups (Build, Grow, etc. — anywhere a stat needs to be clamped to a ceiling).
+NesPrgRom:3D351:ui_helper_d351:Helper called by 4 drivers (Hire — chapter 11 notes the Men/Ninja type prompt routes through this). Candidate: 2-choice prompt.
+NesPrgRom:3CD20:ui_helper_cd20:Helper called by 3 drivers. TBD.
+NesPrgRom:3CA52:rng_mod:rng_next() mod arg1. 6-instruction bytecode wrapper: bails with 0 if arg1<1, else calls rng_next_wrapper ($CA46), then mod_signed by arg1. Returns 0..arg1-1 if rng is positive. Used by Train (X=ca52(20) for skill gain, Y=ca52(10) for Luck/IQ bonus check), and likely Marry too.
+NesPrgRom:3CA46:rng_next_wrapper:3-instruction wrapper around syscall #17 (syscall_rng_next at $C1C3). Pushes 17 via op_8D_sbyte, fires syscall_dispatch, returns the 16-bit pseudo-random value. The bytecode-accessible entry point to the game's RNG.
+NesPrgRom:3DAD7:combat_helper_dad7:Helper called by Move + War. Combat/military pre-roll.
+NesPrgRom:3DD3A:combat_helper_dd3a:Helper called by Move + War. Combat/military pre-roll.
+NesPrgRom:3D972:war_helper_d972:Helper called only by War. Combat-prep. = daimyo_weakness_flag[fief_to_daimyo_map[arg1]] (reads the weakness/condition mark of a province's owner).
+NesPrgRom:3D59D:select_province_by_cursor:Returns the cursor-selected fief index (1..fief_count) for province_select_prompt: walks via sub_D3ED, bounds by arg1=scenario_fief_count. The selection PICK — same machinery for player AND AI (no separate AI scorer).
+NesPrgRom:3D3ED:cursor_nav_loop:Menu/cursor navigation loop: switch(sub_D14E()) on NES button bits (1=R,2=L,16=Start,32=Sel,64=B,128=A) to move the selection cursor over candidates. The war-target PICK bottoms out HERE — controller input, not a target-scorer (read 2026-05-31). AI drives the same path via sub_D14E's AI branch.
+NesPrgRom:3D9B7:is_enemy_owned:Candidate target predicate: returns (fief_to_daimyo_map[ui_helper_d77e()] == arg) — i.e. the candidate fief's owner matches the target daimyo (enemy-ownership match). Eligibility, not strength. Read 2026-05-31.
+NesPrgRom:3D999:province_state_is_FF:Returns ($6CF7[arg1] == 0xFF) — province is in the EXCLUDED state. Eligibility filter used by combat_helper_dd3a. Read 2026-05-31.
+NesPrgRom:3CBBD:syscall16_sram_wrap:Thin wrapper around syscall 16 (sram_block_checksum/copy). Called by combat_helper_dd3a after filtering the candidate list — plumbing, not scoring. Read 2026-05-31.
+NesPrgRom:3E3A4:diplomacy_helper:Diplomacy subsystem helper. Called by Pact (chapter 11).
+NesPrgRom:3DA4F:diplomacy_helper2:Second diplomacy subsystem helper called by Pact.
+NesPrgRom:3DA7D:diplomacy_helper3:Diplomacy helper called by Marry.
+NesPrgRom:3E4DC:marry_helper_e4dc:Marry-specific helper.
+NesPrgRom:3E315:marry_helper_e315:Marry-specific helper.
+NesPrgRom:3E76F:marry_helper_e76f:Marry-specific helper.
+NesPrgRom:3CC35:marry_helper_cc35:Marry-specific helper.
+NesPrgRom:3CC69:trade_helper_cc69:Trade-specific helper.
+NesPrgRom:3DB35:ui_helper_db35:Sub-handler helper.
+NesPrgRom:3DB12:tax_helper_db12:Tax-specific helper.
+NesPrgRom:3D759:ui_helper_d759:Helper called by 3 drivers.
+NesPrgRom:3D772:ui_helper_d772:Helper called by 2 drivers.
+NesPrgRom:3E5F2:map_helper_e5f2:Map-rendering helper called by Map (chapter 11).
+NesPrgRom:3C4DC:ui_unused:Reserved.
+NesPrgRom:79B2:command_driver_table:34-entry pointer table — entry N points to the bytecode subroutine that drives menu command N+1. Entries 0-20 are the 21 lord commands, 21-33 are sub-handlers reachable from within those drivers. See command-table.txt for the full listing. Chapter 9's foundational find.
+NesPrgRom:56D1:driver_move:Command 1 (Move) driver. Relocate troops between own provinces. Calls effect_move ($8CA5) after capacity-check, dest-pick, count-input, lead-personally prompt. Chapter 11.
+NesPrgRom:5850:driver_war:Command 2 (War) driver. Launch an attack. Heaviest single driver (154 insns, 19 unique host_call targets). Calls six combat-prep effect handlers ($81FC, $9323, $933A, $9351, $9368, $9814) plus the standard select/prompt cluster. Chapter 11.
+NesPrgRom:599A:driver_tax:Command 3 (Tax) driver. Set tax rate. Calls effect_tax ($82D6) twice — once after the rate input, once for the peasantry-reaction result. Chapter 11.
+NesPrgRom:5A5D:driver_send:Command 4 (Send) driver. Transfer rice/gold between own provinces. Calls effect_send ($8BE5). Chapter 11.
+NesPrgRom:5B7E:driver_dam:Command 5 (Dam) driver. Build dam infrastructure to raise output. Calls effect_dam ($87D8) and helper_dam_rounding ($887D). Two-effect command. Chapter 10 + 11.
+NesPrgRom:5C4F:driver_pact:Command 6 (Pact) driver. Form a non-aggression pact. Diplomacy subsystem. Chapter 11.
+NesPrgRom:5D3D:driver_grow:Command 7 (Grow) driver. Raise province output. The fully-traced reference command (Chapter 9). Driver handles the cost (debits gold from province) and silent preconditions (header >= output blocks; gold == 0 blocks). Calls effect_grow ($87F0) for the actual stat changes.
+NesPrgRom:5DC4:driver_marry:Command 8 (Marry) driver. Alliance by marriage. Costs gold (demanded by target), outcome not guaranteed. Chapter 11.
+NesPrgRom:61B6:driver_trade:Command 9 (Trade) driver. Trade with a passing merchant. Calls effect_trade ($8A15). Requires a merchant present. Chapter 11.
+NesPrgRom:65F4:driver_hire:Command 10 (Hire) driver. Recruit Men or Ninja. Thin driver — substance is in effect_hire ($A2D2). Chapter 11.
+NesPrgRom:6637:driver_train:Command 11 (Train) driver. Raise lord's skill against a header-derived cap. Calls effect_train ($9586). Chapter 10 + 11.
+NesPrgRom:66C7:driver_view:Command 12 (View) driver. Inspect a fief; spy on others (costs gold, can fail). Heaviest non-War driver (189 insns). Calls FOUR effect handlers ($83FA, $85A7, $85EA, $A6B3) — different sub-behaviors. Chapter 11.
+NesPrgRom:6853:driver_build:Command 13 (Build) driver. Raise province town. Same prompt-and-apply shape as Grow. Calls effect_build ($88A6). Chapter 10 + 11. THIS SESSION: effect walked side-by-side with Grow as structural diff.
+NesPrgRom:6A1F:driver_give:Command 14 (Give) driver. Charity → loyalty/morale. Touches the MOST province fields of any command — calls THREE effect handlers ($A93A, $A95E, $A9D5). Chapter 11.
+NesPrgRom:6AAE:driver_bribe:Command 15 (Bribe) driver. Bribe a target's fields. Chapter 11.
+NesPrgRom:6D67:driver_assign:Command 16 (Assign) driver. Place a retainer. Calls effect_assign ($AC11). Chapter 10 + 11.
+NesPrgRom:6DB3:driver_rest:Command 17 (Rest) driver. Skip turns to recover (health/age interplay). Chapter 11.
+NesPrgRom:6F38:driver_map:Command 18 (Map) driver. Render the strategic map. 18 instructions, no prompt, no cost — pure display. Calls map_helper_e5f2 + $AF10. Chapter 11.
+NesPrgRom:6F66:driver_grant:Command 19 (Grant) driver. Set a province's policy state. Chapter 11.
+NesPrgRom:723E:driver_other:Command 20 (Other) driver — settings/save menu. Chapter 11.
+NesPrgRom:72A1:driver_pass:Command 21 (Pass) driver. End the turn. Five instructions. Chapter 11.
+NesPrgRom:5F04:subhandler_9F04:Driver-table index 21. Probably reached from Other/save menu. Calls effect_subhandler_9F04 ($8B40).
+NesPrgRom:5FAF:subhandler_9FAF:Driver-table index 22.
+NesPrgRom:6003:subhandler_A003:Driver-table index 23. Calls effect_subhandler_A003 ($8B0A).
+NesPrgRom:6068:subhandler_A068:Driver-table index 24.
+NesPrgRom:6113:subhandler_A113:Driver-table index 25. Calls effect_subhandler_A113 ($A0ED).
+NesPrgRom:61AF:subhandler_A1AF:Driver-table indices 26 and 33 (appears twice). Tiny stub (frame_off=0, body starts with `40 CF` = clearA + vm_return) — effectively a no-op slot.
+NesPrgRom:7066:subhandler_B066:Driver-table index 27.
+NesPrgRom:709D:subhandler_B09D:Driver-table index 28.
+NesPrgRom:70D2:subhandler_B0D2:Driver-table index 29.
+NesPrgRom:7109:subhandler_B109:Driver-table index 30.
+NesPrgRom:712B:subhandler_B12B:Driver-table index 31.
+NesPrgRom:714B:subhandler_B14B:Driver-table index 32.
+NesPrgRom:47F0:effect_grow:Grow effect (chapter 9 reference decode). Args: arg1=record_ptr, arg2=gold_amount. Spine: guard amount<1; sqrt(output+amount); -2 (const_two); $D6B8 32-bit math; <<1; clamp to (header-output) headroom; flat-100 branch if gain/2>output else $D6DE refinement; $D70D drain LOYALTY; $D70D drain DAMS; output += gain. Returns gain/2 for driver to display.
+NesPrgRom:48A6:effect_build:Build effect (this session, structural diff against effect_grow). Same five-phase shape. Differences: operates on TOWN (record+4) not OUTPUT, headroom is header-TOWN, drains WEALTH (record+14) not LOYALTY/DAMS, has a secondary TOWN bump via helper_dam_rounding ($887D).
+NesPrgRom:47D8:effect_dam:Dam effect (primary). Two-step command — driver calls this AND helper_dam_rounding ($887D).
+NesPrgRom:487D:helper_dam_rounding:Secondary effect used by both driver_dam and effect_build. Does integer-divide-with-rounding-up, then `field += quotient`, then calls $82AC. Produces the 'capped add' increment on top of the main sqrt-driven gain. Used twice on the lord-command menu — anywhere there's a layered increment.
+NesPrgRom:42D6:effect_tax:Tax effect. Called twice from driver_tax — once for the rate-set, once for the peasantry-reaction result message (protesting/delighted).
+NesPrgRom:4BE5:effect_send:Send effect. Apply rice/gold transfer between own provinces.
+NesPrgRom:4CA5:effect_move:Move effect. Apply troop relocation between own provinces.
+NesPrgRom:4A15:effect_trade:Trade effect (buy/sell with merchant).
+NesPrgRom:62D2:effect_hire:Hire effect (recruit Men or Ninja). Chapter 11 notes 'the substance is in the callee' — this is the substance.
+NesPrgRom:5586:effect_train:Train effect. Raises lord skill against header-derived cap. Chapter 10.
+NesPrgRom:4D4D:effect_bribe:Bribe effect. Like Grow but pointed at a target's fields.
+NesPrgRom:6C11:effect_assign:Assign effect. Places a retainer.
+NesPrgRom:43FA:effect_view_a:View effect, variant A (4 sub-effects total for View — own vs others, spy variants).
+NesPrgRom:45EA:effect_view_b:View effect, variant B.
+NesPrgRom:45A7:effect_view_c:View effect, variant C.
+NesPrgRom:66B3:effect_view_d:View effect, variant D.
+NesPrgRom:693A:effect_give_a:Give effect, variant A (Give touches the most fields — 3 sub-effects).
+NesPrgRom:695E:effect_give_b:Give effect, variant B.
+NesPrgRom:69D5:effect_give_c:Give effect, variant C.
+NesPrgRom:41FC:effect_war_a:War effect, variant A (6 combat-prep effects total).
+NesPrgRom:4172:count_eligible_targets:Walks a 0xFF-terminated candidate-fief list; keeps each that passes target_eligible_by_cmd ($812F) AND province_state ($6CF7[cand]) != 0xFF; returns the COUNT of valid targets. arg3=0 count / =1 commit. The candidate FILTER for province_select_helper. Filters by ELIGIBILITY (ownership+state), not troop strength.
+NesPrgRom:412F:target_eligible_by_cmd:switch(arg1=command/context code 1/2/4/6/8/15/19/255) -> for war-type modes calls is_enemy_owned ($D9B7) on candidate arg2; returns valid/0. Per-command target validity.
+NesPrgRom:4DE1:dedup_owners_to_6F4F:Builds a de-duplicated-by-OWNER candidate list from a 0xFF-terminated input list into the $6F4F[] array (0xFF-terminated); returns count. Owner-uniqueness via fief_to_daimyo_map.
+NesPrgRom:5323:effect_war_combat_prep_a:War combat-prep subroutine A (chapter 11).
+NesPrgRom:533A:effect_war_combat_prep_b:War combat-prep subroutine B.
+NesPrgRom:5351:effect_war_combat_prep_c:War combat-prep subroutine C.
+NesPrgRom:5368:effect_war_combat_prep_d:War combat-prep subroutine D.
+NesPrgRom:5814:effect_war_e:War effect, variant E.
+NesPrgRom:4B0A:effect_subhandler_A003:Effect called by subhandler_A003.
+NesPrgRom:4B40:effect_subhandler_9F04:Effect called by subhandler_9F04.
+NesPrgRom:60ED:effect_subhandler_A113:Effect called by subhandler_A113.
+NesPrgRom:404C:province_select_prompt:Province selection prompt — 'select a fief' picker. Called by 7 drivers (Move, War, Send, Pact, Marry, View, Bribe). Returns the selected province index, typically into selected_province_idx ($6F5F).
+NesPrgRom:479F:province_select_helper:Companion to province_select_prompt. Called by the same 7 drivers immediately before/after the prompt. Probably an initialization or post-pick state mutation.
+NesPrgRom:471E:fief_info_display:Renders a fief's stat panel. Called by 3 drivers. Body at $8740-ish is a 12-iteration loop that calls $CEC4 (redraw_window) and $D134 per pass — the 12 visible province stats.
+NesPrgRom:47CB:helper_87CB:Helper called by 3 drivers.
+NesPrgRom:4B8F:helper_8B8F:Helper called by 2 drivers (Pact, Marry).
+NesPrgRom:71A6:submenu_prompt:Submenu prompt. Called by Trade (buy/sell) and others. The 'pick from a few options' primitive.
+NesPrgRom:42AC:helper_82AC:Helper called by 4 drivers. Tail of helper_dam_rounding.
+NesPrgRom:4357:helper_8357:Helper called by 4 drivers.
+NesPrgRom:4A4E:helper_8A4E:Helper called by 4 drivers.
+NesPrgRom:43C7:helper_83C7:Helper called by 2 drivers.
+NesPrgRom:6F10:map_helper_af10:Helper called by 2 drivers (Map).
+NesPrgRom:3D836:cap_fief_stats:Generic per-fief stat-cap sweep. Args: arg1 = fief idx. Loops over 12 fields (gold..arms at offsets 0,2,...,22), caps each at header via min_word ($CB5E), forces negatives to 0. Post-loop: special dams cap at 100. Called from bank 0 by the season-turnover code (3 sites at $A2CF/$A4A0/$A74C) AND from bank 1 by command-post-cleanups (5+ sites). This is NOT the income-add code — it's the cleanup pass that runs before and after income is added.
+NesPrgRom:AFE1:battle_init_driver:Battle-init driver (bank 2 entry, via $8000 = JMP here). Calls map_populate ($8903) at $AFFC to fill the SRAM staging buffer from ROM, then map_render_driver (via $8977 -> $885E) at $AFFF to blit staging -> PPU. Run headless via probe-map-emit.py / render-rom-to-map.py.
+NesPrgRom:8903:map_populate:Tactical-map POPULATOR: expands the per-fief cell data from ROM into the SRAM staging buffer at $7BFD (11 cols x 88 stride, 5 rows of metatiles). Inputs: battle_defending_province ($6F63) + scenario_fief_count ($6D9D); source = tactical_map_cell_pool ($A57E, bank 4) via province_to_mapid_table ($F70E). Reads cells one byte at a time through syscall_memcpy_banked ($10). Verified cell-exact on Mino/Tanba/Ezo + the whole 50-fief atlas. Returns clean with only memcpy syscalls.
+NesPrgRom:885E:map_render_driver:Tactical-map RENDER driver: walks the populated $7BFD staging buffer (col*88 stride) and blits each column to the PPU via syscall_ppu_blit_from_bank ($14). This is staging->PPU, NOT the populator (that's map_populate $8903). Uses host_call $CC54 for the metatile-pattern copy (exact behavior still open — ROADMAP).
+NesPrgRom:1257E:tactical_map_cell_pool:Per-fief tactical-map cell data, ~33+ maps of 55 bytes each. The live per-cell metatile source map_populate ($8903) reads one byte at a time, indexed as $A57E + province_to_mapid_table[province]*55. NOT a directly-renderable flat table (that older interpretation, in render-atlas.py, was the disproven dead-end) — correct path is to RUN $8903, not read this flat. Session 2026-05-30.

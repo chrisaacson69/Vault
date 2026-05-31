@@ -36,6 +36,7 @@ Then route the request.
 | Simulate economy / check a formula | `econ_sim.py` | `py tools/econ_sim.py` |
 | Decode a combat trace | `combat-trace-decode.py` | `py tools/combat-trace-decode.py <trace.txt[.gz]>` |
 | Find a named address | `mesen-labels.toml` | grep it — **never re-trace a known label** |
+| **Update Mesen with the latest labels** | `mesen-labels.py` | `py tools/mesen-labels.py --mlb` → writes `Nobunaga's Ambition (USA).mlb` beside the ROM. Mesen 2 **auto-loads** it (same basename, same folder) on next ROM load; or in Mesen: Debugger → File → Workspace → Import Labels. Run this after adding labels to `mesen-labels.toml` so the debugger reflects them. Add `--asm` to also refresh `disasm/bank_NN_named.asm` (named native disasm; bank 15 = full call-site propagation). `mesen-labels.toml` is the single source of truth — edit it, then re-project. |
 | What is this dump / capture provenance | `data-index.py` | `py tools/data-index.py scan` (backlog) · `… auto` (bulk-classify by naming convention) · `… add <file> --note "…"` · `… show` |
 | **Find / fetch a Mesen dump** (battle SaveRam, tracelog) | `mesen-dump.py` | `py tools/mesen-dump.py list` · `… path [name] [--trace]` · `… get [name] [--trace]` (copies into `traces/` + registers provenance). Convention: `.dmp`=SRAM, `.txt`=tracelog; **no name → latest by timestamp**. `name` is a case-insensitive substring. Resolves Mesen's `Debugger\` output dir. |
 | What's the frontier / what's next | — | show `PROJ/ROADMAP.md` |

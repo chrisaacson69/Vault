@@ -23,7 +23,7 @@ created: 2026-05-29
 
 | Artifact | Is the source of truth for | Notes |
 |---|---|---|
-| `mesen-labels.toml` | every named address (RAM/SRAM/ROM, all 16 banks) | ⚠️ its header references `tools/mesen-labels.py` which is **missing** — applier needs (re)writing; until then labels are applied by hand. |
+| `mesen-labels.toml` | every named address (RAM/SRAM/ROM, all 16 banks) | The **single source of truth** for labels — edit here, never in derived output. Project it with `tools/mesen-labels.py` (**built 2026-05-31**): `--mlb` → Mesen `.mlb` (debugger auto-loads it beside the ROM), `--asm` → named native disasm; `vm_decompile.py` reads the toml directly so `decompiled/*.c` is covered. ⚠️ ≈60 kernel labels at `$C000-$FFFF` are mis-filed under `[prg.bank0]` — the tool normalizes them to the fixed bank 15 (address is authoritative) and warns; cleaning the sections in the toml is a pending nicety. |
 | `tools/vm-opcodes-v2.toml` | the VM opcode spec (256 ops, `verified=true` flags) | sole version; there is no v1. Sourced from nesdev t=15931 + ROM dispatch. |
 | `tools/nobunaga_vm.py` + `tools/cpu6502.py` | runnable VM/6502 emulator (the "ask the ROM" tool) | loads `mesen-labels.toml` for symbolic trace. Standard pattern: load SRAM → switch bank → set vm_pc/vm_sp (pre-allocate locals!) → run. |
 | `tools/vm_decompile.py` | bytecode → readable C | new investigations are "decompile and read," not "walk bytecode by hand." |
