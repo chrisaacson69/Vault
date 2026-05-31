@@ -185,6 +185,34 @@ prg_bank_count = 16        # 256 KB total
 "0xF126" = { name = "vm_opcode_hi_table",   comment = "256-byte table of high bytes of VM opcode handler addresses, indexed by opcode byte. Together with vm_opcode_lo_table at $F026, forms the 256-entry dispatch table for VM bytecode opcodes. Immediately precedes syscall_dispatch at $F226." }
 "0xF226" = { name = "syscall_dispatch",     comment = "The 22-byte parameter-copy wrapper that fakes a BRK via PHP + JMP($FFFE). Called by VM bytecode via opcode $E9 with this as the address operand. Reads syscall parameters from ($02),Y=$17..$02 — i.e. directly from the current VM frame at ptr1." }
 
+# --- The VM 16/32-bit arithmetic runtime ($EC-$F6) + ext-op table (walked 2026-05-31) ---
+# The native substrate UNDER the cracked math32 helpers. Operands live in a register file in zero page:
+#   32-bit accumulator A = $08-$0B, operand B = $0C-$0F, scratch/remainder = $10-$13.
+# RESOLVES the ROADMAP Inbox "B7 extended-opcode table" item: it is ext_op_table ($F263), reached via
+# ext_op_dispatch ($F246) from VM opcode $AB. It was in our own disasm all along — no nesdev lookup needed.
+"0xF246" = { name = "ext_op_dispatch",       comment = "Extended-opcode dispatcher (VM opcode $AB). Reads the next bytecode byte as an ext-op index, *2, indexes ext_op_table ($F263), and JMPs to the handler (pushing a return into vm_dispatch). This is the 'B7 ext-op' mechanism the math32 helpers ride on." }
+"0xF263" = { name = "ext_op_table",          comment = "Extended-opcode address table (the 'B7 ext-op table' from the ROADMAP Inbox). ~44 little-endian handler addresses for the 16/32-bit math/logic/bitfield ops, indexed by ext_op_dispatch ($F246). Entry 0 = $F2C1 (umul32), then div/add/sub/cmp/bitfield/etc. DECODED from this ROM's own disasm 2026-05-31 — the external nesdev t=15931 spec was never needed." }
+"0xF2C1" = { name = "umul32",                comment = "Unsigned 32-bit multiply: A($08-$0B) * B($0C-$0F) -> product accumulated in $14-block. 32-iteration shift-add (lsr A, add B to running sum on carry, ror down). ext_op_table entry 0." }
+"0xF2FE" = { name = "sdiv32_setup",          comment = "Signed 32-bit divide front-end: record result sign in $40 (sign A ^ sign B) and dividend sign in $41, take |A| and |B| (via negate32_operand), then run udiv32. The signed-division ext-op." }
+"0xF31C" = { name = "udiv32",                comment = "Unsigned 32-bit restoring divide: A($08-$0B) / B($0C-$0F); quotient -> $08-$0B, remainder -> $10-$13. Clears the remainder hi then runs the 32-iteration shift-subtract loop at $F328." }
+"0xF427" = { name = "negate32_operand",      comment = "4-byte two's-complement negate of operand B ($0C-$0F): 0 - B. Used by the signed mul/div setups to take absolute value." }
+"0xF43B" = { name = "test_nonzero32",        comment = "Boolean-ize the 32-bit accumulator: set $08:$09 = 1 if any byte of $08-$0B is nonzero, else 0. (The $F433 sibling EORs the result with 1 = logical NOT.)" }
+"0xF4C3" = { name = "cmp32_a_minus_b",       comment = "4-byte compare computing A($08-$0B) - B($0C-$0F) via cmp/sbc chain, leaving N/V/C/Z for the signed+unsigned comparison opcodes. Backs the lt/le/eq family at $F467-$F4C2." }
+"0xF4D6" = { name = "cmp32_b_minus_a",       comment = "Reversed-operand 4-byte compare B($0C-$0F) - A($08-$0B); the gt/ge sibling of cmp32_a_minus_b." }
+"0xF5CD" = { name = "vm_bitfield_read",      comment = "Bitfield read: load the 16-bit word at ptr0[Y], shift it right by X bits (alignment), AND with an X-wide mask from make_bitmask. Extracts a packed bitfield into $08:$09." }
+"0xF603" = { name = "vm_bitfield_read_test", comment = "Reads a bitfield (vm_bitfield_read) then tests it against the inverted mask (boolean result in A / $08). Exact predicate (field != all-ones vs masked-compare) to confirm on next read; behavior verified, naming descriptive." }
+"0xF62C" = { name = "vm_bitfield_write",     comment = "Bitfield write/insert: build the X-wide mask (make_bitmask), shift the value left X bits, then read-modify-write the word at ptr0[Y] = (old & ~mask) | (value & mask). The packed-field setter." }
+"0xF669" = { name = "make_bitmask",          comment = "Build an N-bit mask (2^N - 1) into $0A:$0B, with N passed in A (rol a 1-bit at a time). Shared helper for the bitfield read/write ops." }
+
+# 16-bit math leaves (reached from the VM opcode tables / mul-div setup; jsr-targets walked 2026-05-31)
+"0xECDB" = { name = "vm_pop_operand16",      comment = "Pop a 16-bit operand off the VM eval stack (ptr1) into operand-B low half $0C:$0D; ptr1 += 2." }
+"0xED2E" = { name = "udiv16",                comment = "Unsigned 16-bit restoring divide: $08:$09 / $0C:$0D; quotient -> $08:$09, remainder -> ptr0. 16-iteration shift-subtract. (The $ECF0 sibling is the matching 16-bit multiply.)" }
+"0xED7A" = { name = "sdiv16_setup_signs",    comment = "Signed-divide front-end for udiv16: store the quotient sign (A^B) in $0A, take |dividend| and |divisor| in place; paired with udiv16 at the $ED1E/$ED54 signed-div opcodes." }
+"0xEF97" = { name = "vm_fetch_sbyte",        comment = "Fetch a signed immediate byte from the bytecode stream (ptr3),Y; sign-extend into X; ptr3++. clc on exit." }
+"0xEFA6" = { name = "vm_addr_ptr2_plus_sbyte", comment = "Compute ptr0 = ptr2 + signed_byte(bytecode); ptr3++. 8-bit-signed-offset indexed addressing off base pointer ptr2." }
+"0xEFBF" = { name = "vm_fetch_word",         comment = "Fetch a 16-bit immediate from the bytecode (ptr3): low byte in A, high byte in X; ptr3 += 2." }
+"0xEFEC" = { name = "vm_addr_ptr2_plus_word", comment = "Compute ptr0 = ptr2 + word(bytecode); ptr3 += 2. 16-bit indexed addressing off base pointer ptr2 (the array-access addressing mode)." }
+
 # --- Bank 0 ---
 # Bank 0 is almost entirely VM bytecode + data, not native 6502 code.
 # The 3-byte entry at $8000 ('4C 78 A7' = JMP $A778) is essentially the only native code in this bank,
@@ -213,6 +241,24 @@ prg_bank_count = 16        # 256 KB total
 "0xC7DE" = { name = "music_voice_check",   comment = "Per-voice trigger check: skip if byte 0 is 0 (idle) or >= 5 (dormant), else call music_voice_play" }
 "0xC7EF" = { name = "music_voice_play",    comment = "Per-voice play: compute APU base from byte 0, optionally skip if triangle mute, write bytes 1-4 to APU registers" }
 "0xC817" = { name = "music_sequencer_pass", comment = "Pass 2: for each active voice, decrement byte 8 (duration countdown). When zero, advance song pointer (bytes 6-7), load new pitch (bytes 3-4), trigger (byte 0), reset countdown (byte 8)." }
+
+# --- Music driver internal helpers (walked 2026-05-31, native 6502 walk increment 4) ---
+# All operate on the 9-byte-per-voice record at $0734 (5 voices), via music_ptr ($7A/$7B) + music_voice_idx ($79).
+"0xC7C9" = { name = "music_advance_voice",   comment = "music_ptr += 9 (advance to next 9-byte voice record); music_voice_idx++. The scan-step shared by trigger_pass and sequencer_pass." }
+"0xC83D" = { name = "music_voice_step",      comment = "Per-voice sequencer tick (called from music_sequencer_pass for active voices). If stream byte < 5: load note (music_load_note). Else: countdown record[8] via music_dec_duration; on expiry, music_next_event drives the next stream event." }
+"0xC857" = { name = "music_load_note",       comment = "Start a note: music_load_voice_cfg then write 4 note-parameter bytes (from the stream) into record offsets [0,1,2,4] via music_read_stream_byte." }
+"0xC877" = { name = "music_load_voice_cfg",  comment = "Copy the voice's 3-byte instrument config from v0_config[voice_idx*3] ($0725) into record offsets [5,6,7] (bank + stream pointer)." }
+"0xC894" = { name = "music_read_stream_byte", comment = "Banked song-stream fetch: save current bank, switch to record[5] (song bank), read one byte via the record[6,7] pointer, increment that pointer (record[6,7]), restore bank. Returns byte in A. The cross-bank stream reader the whole driver runs on." }
+"0xC8C4" = { name = "music_dec_duration",    comment = "Decrement record[8] (note-duration countdown) and store back. Returns Z when it hits zero (time for next event)." }
+"0xC8CE" = { name = "music_next_event",      comment = "Process one stream event: music_read_stream_byte; if < $F0 it's a note -> music_set_pitch + music_set_duration; if >= $F0 it's a command -> music_handle_command. Loops until a playable event is set." }
+"0xC8E4" = { name = "music_handle_command",  comment = "Stream control byte >= $F0. $F0 = note-off (silence the APU channel for this voice, clear its active flag, return C set = stop). Other values fall through to music_restart_stream (pattern loop/restart)." }
+"0xC906" = { name = "music_restart_stream",  comment = "Reload the 3-byte voice config into record[5,6,7] and clear record[0] — i.e. restart the voice's pattern stream from its configured start (the loop command target). jmp-reached from music_handle_command." }
+"0xC929" = { name = "music_set_pitch",       comment = "Convert note -> APU timer period via music_note_to_period, then splice the period hi/lo into record[3,4] (the channel's timer bytes), preserving the low control bits of record[4]." }
+"0xC94B" = { name = "music_note_to_period",  comment = "Note byte -> 16-bit APU period in $7E/$7F: low nibble indexes the 12-entry base-period table tab_c96f (2 bytes each); high nibble is the octave (right-shift the period that many times)." }
+"0xC990" = { name = "music_set_duration",    comment = "Read the next stream byte (note length), shift left 3 (x8 = ticks), store into record[8] (the duration countdown)." }
+
+# Reset-path PPU init (adjacent to the audio block; NOT audio). Sole caller: reset_handler.
+"0xC757" = { name = "reset_ppu_init",        comment = "Reset-path PPU init: ppu_safe_gate, then upload $30 bytes from tab_c775 to PPU $0000, then screen_on. Walked 2026-05-31; was the pre-identified b15_c757." }
 
 # ----------------------------------------------------------------------------
 # Bank-15 math + UI primitives (chapters 9-11, this-session decode)
