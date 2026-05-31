@@ -1344,7 +1344,7 @@ word sub_D962(word arg1, word arg2, word arg3, word arg4) {
 
 word war_helper_d972(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $D977
-    return ai_war_target_flags[ui_helper_d772(/*via arg1*/ ?)];    // $D981
+    return daimyo_weakness_flag[ui_helper_d772(/*via arg1*/ ?)];    // $D981
 }
 
 // (body @ $D987)

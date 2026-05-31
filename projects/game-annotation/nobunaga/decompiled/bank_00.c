@@ -830,7 +830,7 @@ word sub_9154(word arg1, word arg2, word arg3, word arg4) {
     local11 = sub_D7CD(/*via arg1*/ ?);    // $915E
     if (!(*(byte*)((local11 + 1)))) return 0;    // $9162
     if ((!((*(byte*)(local11) >= 70)))) return 0;    // $916C
-    if ((!((rng_mod(0x012C) >= ((*(byte*)(local11) + -10) - (*(byte*)((local11 + 1)) / 4)))))) return (ai_war_target_flags[arg1] + 1);    // $9187
+    if ((!((rng_mod(0x012C) >= ((*(byte*)(local11) + -10) - (*(byte*)((local11 + 1)) / 4)))))) return (daimyo_weakness_flag[arg1] + 1);    // $9187
     return 0;    // $9193
 }
 
@@ -1961,7 +1961,7 @@ L_A498:
     goto L_A4AE;    // $A49C
 L_A49F:
     local9 = 3;    // $A49F
-    ai_war_target_flags[local9] = 0;    // $A4AB
+    daimyo_weakness_flag[local9] = 0;    // $A4AB
 L_A4AE:
     local9 = (local9 + 1);    // $A4AE
     if (((unsigned)local9 >= (unsigned)scenario_fief_count)) goto L_A49F;    // $A4B4
@@ -2006,11 +2006,11 @@ L_A55F:
     if ((*(byte*)((local10 + 1)) > 99)) goto L_A5C9;    // $A56B
     local9 = 99;    // $A56E
     if (rest_turns_remaining[ui_helper_d772(/*stack underflow*/ regA)]) goto L_A5C9;    // $A578
-    ai_war_target_flags[local9] = ((rng_mod(0x0190) < (100 - *(byte*)((local10 + 1)))) | ai_war_target_flags[local9]);    // $A59C
-    local9 = ai_war_target_flags[local9];    // $A5A1
+    daimyo_weakness_flag[local9] = ((rng_mod(0x0190) < (100 - *(byte*)((local10 + 1)))) | daimyo_weakness_flag[local9]);    // $A59C
+    local9 = daimyo_weakness_flag[local9];    // $A5A1
     if (!(war_helper_d972(/*stack underflow*/ regA))) goto L_A5C9;    // $A5A6
     if (!(sub_8C1E())) goto L_A5C9;    // $A5AC
-    local9 = ai_war_target_flags[local9];    // $A5AF
+    local9 = daimyo_weakness_flag[local9];    // $A5AF
 L_A5C9:
 L_A5CB:
     local9 = (local9 + 1);    // $A5CB
