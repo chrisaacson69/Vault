@@ -86,6 +86,22 @@ created: 2026-05-29
   - [x] **FULL 50-FIEF ATLAS GENERATED 2026-05-30** via `render-rom-atlas.py` → `atlas/rom-50/` (50 PNGs + terrain-distribution table). **All 50 clean** (1 castle + 1 town each, no unknown cells, no run-fail, no TODO syscalls). **Atlas-wide cross-validation:** every ROM-rendered map reproduces the matching previously-hand-captured fief's terrain counts EXACTLY (Iga 53-clear, Mino 15/26/12, Echigo 12/13/15+13water, Owari 36+17water, Shinano 7/31/15, Suruga 26/6/6/12+3void, Iseshima 8-void, …) — independent proof the whole atlas is correct, not just the 3 byte-checked fiefs. Confirms 17- & 50-fief share the map pool via `$F70E`. New extremes surfaced: Iwashiro(8)/Kiso(18) = ZERO clear (most rugged), Hitachi(10) = 47 clear (most open), Kii(33) = 11 void (most irregular shape).
   - **The 50-fief map epic is essentially CLOSED.** Remaining optional threads: (a) pixel-exact rendering (the ~18% render-overlay chrome — Path B / Inbox PPU ticket); (b) feed the terrain-distribution table into the synthesis chapter / dominance-frontier (Parked); (c) add `$6D9D`/`$F70E`/`$A57E` to `mesen-labels.toml`.
 
+### EPIC: AI turn, TOP-DOWN (the "how does the AI choose" decode — like the player command-list chapter)
+> Chris's framing (2026-05-30): stop spelunking mid-level subs; find "start of AI turn" and work DOWN through all the logic. The AI reuses the SAME command-driver table ($B9B2) as the player menu, so *issuing* a chosen command is trivial — the interesting part is *how commands/targets are chosen*. Skeleton found this session:
+> ```
+> vm_bootstrap ($A778, bank 0)              ← post-RESET; BECOMES the main game loop
+>  ├─ daimyo_turn_order ($6F0B)             ← per-season permutation, re-randomized; READ IN NATIVE CODE (not bytecode!)
+>  ├─ sub_A455 ($A455)                      ← weakness-mark planner (sets daimyo_weakness_flag $6DD4, health-weighted)
+>  ├─ call_bank(1)  [sub_CBB1 = syscall 7]  ← bank 1 = TURN PROCESSOR (player input + AI executor)
+>  └─ call_bank(2)                          ← bank 2 = combat resolution
+> ```
+> Why mid-level subs ($B79B issuer, $B89B/$B8A0 per-fief driver) had NO direct callers: they're in bank 1, reached via **call_bank(1)** (cross-bank, indirect) + the **$B9B2 driver table** (CALLPTR). The decompiler can't see those edges; that's why bottom-up stalled.
+- [ ] **1. Find the bank-1 turn-processor root.** `call_bank(1)` runs bank-1's NATIVE `$8000` entry → `$E823` vm_entry → inline bytecode. `sub_8003` (first bytecode sub) is just window setup — the real turn root is elsewhere. Find the bytecode entry the native `$8000` trampolines to; that's the per-turn dispatch.
+- [ ] **2. Find the player-vs-AI branch + the turn loop.** The iteration over `daimyo_turn_order` ($6F0B) and the "is this daimyo the player?" test appear to be NATIVE (no bytecode reads $6F0B). Options: decode the native `$8000`-area 6502, OR Lua-trace the turn flow (write-callbacks work now) to capture the branch live.
+- [ ] **3. Map the AI executor sequence (bank 1):** `$B79B` (command issuer → $B9B2 driver dispatch), `$B89B/$B8A0` (per-fief driver), `$B875` (maybe-train), `$B3AA` (AI send), `$B4D5` (recruit). Order + gating = the AI's "what do I do this turn" decision tree.
+- [ ] **4. Decode the troop-based invasion target selection** (the path that took Mutsu — neighbor-`men` scan, distinct from the health weakness-mark). Folds into step 3.
+- **NATIVE-CODE WRINKLE:** turn-order iteration + player/AI branch are native 6502, NOT VM bytecode — the bytecode→C decompiler is blind to them. This epic may need a native-6502 read of the bank-1 `$8000` entry and/or live Lua tracing, not just `decompiled/`.
+
 ## Parked — intentional, not forgotten
 - **Chapter 19** — combat resolution (commander death, retreats, supplies). Planned; combat terminators already understood ([[project_nobunaga_combat_terminators_and_illness]]).
 - **Synthesis chapter** — bytecode → strategy counter-graph / dominance frontier. The payoff chapter; waits until mechanics are fully mapped.
