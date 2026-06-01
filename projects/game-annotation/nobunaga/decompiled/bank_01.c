@@ -53,7 +53,7 @@ word view_render_five_stats(word arg1, word arg2, word arg3, word arg4) {
     local11 = arms_buy_price_rate;    // $80E7
     local11 = gold_men_hire_rate;    // $8101
     local11 = hire_gold_rate;    // $811B
-    mem_7BF9 = 0;    // $812B
+    ui_state_flag_7bf9 = 0;    // $812B
     return 0;    // $812E
 }
 
@@ -318,7 +318,7 @@ L_83F9:
 // (body @ $83FF)
 
 word effect_view_a(word arg1, word arg2, word arg3, word arg4) {
-    mem_7FC9 = 0;    // $845B
+    ui_pending_flag_7fc9 = 0;    // $845B
     arg1 = ?;    // $8470
     arg1 = ?;    // $847B
     if (province_state_is_FF(/*via arg1*/ ?)) {    // $8480
@@ -473,8 +473,8 @@ L_870F:
 // (body @ $8723)
 
 word fief_info_display(word arg1, word arg2, word arg3, word arg4) {
-    mem_7BE2 = arg1;    // $8724
-    if (mem_7BE2) goto L_876B;    // $873B
+    fief_menu_info_mode_flag = arg1;    // $8724
+    if (fief_menu_info_mode_flag) goto L_876B;    // $873B
     local11 = 0;    // $873F
 L_8740:
     local11 = (local11 + 1);    // $8761
@@ -922,7 +922,7 @@ word resolve_siege_assault_outcome(word arg1, word arg2, word arg3, word arg4) {
     *(word*)(fp - 30) = (*(word*)(fp - 28) + 2);    // $8E3C
     *(word*)(fp - 32) = (*(word*)(fp - 30) + 2);    // $8E41
     *(word*)(fp - 34) = (*(word*)(fp - 26) + 2);    // $8E46
-    mem_6F66 = (*(byte*)((battle_defending_province + 0x6DA2)) << 7);    // $8E57
+    battle_defender_status_flag_6f66 = (*(byte*)((battle_defending_province + 0x6DA2)) << 7);    // $8E57
     local11 = ((((((war_side_state_flag & 0x0080) != 0) + 2) * *(word*)(local0)) + (((*(word*)(local1) / 2) + (*(word*)(local2) / 2)) << 1)) + *(word*)(local3));    // $8E7D
     local10 = ((((*(byte*)((battle_defending_province + 0x6DA2)) + 2) * *(word*)(*(word*)(fp - 34))) + (((*(word*)(*(word*)(fp - 32)) / 2) + (*(word*)(*(word*)(fp - 30)) / 2)) << 1)) + *(word*)(*(word*)(fp - 28)));    // $8EA4
     local5 = fief_to_daimyo_record_addr(battle_defending_province);    // $8EAC
@@ -958,7 +958,7 @@ L_8F42:
     if (!(rng_mod((*(byte*)((local5 + 3)) / 10)))) goto L_8F95;    // $8F76
     *(byte*)((selected_province_idx + 0x6DA2)) = 0;    // $8F82
     *(byte*)((deduped_owner_list + 0x6DA2)) = 0;    // $8F8C
-    mem_6F66 = 0;    // $8F8E
+    battle_defender_status_flag_6f66 = 0;    // $8F8E
     goto L_8F96;    // $8F92
 L_8F95:
 L_8F96:
@@ -1032,7 +1032,7 @@ L_90E8:
 L_9130:
     war_attacker_rice = min_word(pct_op(/*stack underflow*/ regA, (rng_mod(10) + 50)), (*(word*)((local11 + 6)) - 1));    // $9130
     *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) - war_attacker_rice);    // $913C
-    if (mem_6E7D) goto L_914F;    // $9140
+    if (ui_confirm_flag_6e7d) goto L_914F;    // $9140
     if ((get_province_ai_state(battle_defending_province) == 5)) {    // $914C
 L_914F:
     ai_turn_loop_redispatch_flag = 0;    // $9153
@@ -2827,7 +2827,7 @@ L_B0C8:
 word subhandler_B0D2(word arg1, word arg2, word arg3, word arg4) {
     local11 = number_input(10, 1);    // $B0F6
     if (number_input(10, 1)) {    // $B0F7
-    mem_6D65 = ((local11 * local11) << 1);    // $B0FE
+    delay_loop_count = ((local11 * local11) << 1);    // $B0FE
     } else {
     }
 L_B107:
@@ -2840,7 +2840,7 @@ L_B107:
 
 word subhandler_B109(word arg1, word arg2, word arg3, word arg4) {
     if (ui_helper_d3a7()) {    // $B118
-    mem_6F61 = 0;    // $B11C
+    sram_save_pending_flag = 0;    // $B11C
     }
 L_B129:
     return 0;    // $B12A
@@ -2852,7 +2852,7 @@ L_B129:
 word subhandler_B12B(word arg1, word arg2, word arg3, word arg4) {
     local11 = ui_helper_d351(0xBF3C);    // $B13E
     if ((local11 != 2)) {    // $B142
-    mem_6E7D = local11;    // $B146
+    ui_confirm_flag_6e7d = local11;    // $B146
     }
 L_B149:
     return 0;    // $B14A
@@ -3139,7 +3139,7 @@ L_B6B0:
 // (body @ $B6B9)
 
 word command_menu_select_loop(word arg1, word arg2, word arg3, word arg4) {
-    if (mem_7BE2) {    // $B6CB
+    if (fief_menu_info_mode_flag) {    // $B6CB
     } else {
     }
 L_B6D3:
@@ -3163,14 +3163,14 @@ L_B703:
     if (!(local11)) goto L_B6D6;    // $B704
     return local10;    // $B708
 L_B709:
-    if (mem_7BE2) goto L_B724;    // $B711
+    if (fief_menu_info_mode_flag) goto L_B724;    // $B711
 L_B719:
     goto L_B74F;    // $B721
 L_B724:
 L_B729:
     goto L_B74F;    // $B731
 L_B734:
-    if (mem_7BE2) goto L_B746;    // $B737
+    if (fief_menu_info_mode_flag) goto L_B746;    // $B737
     goto L_B74F;    // $B743
 L_B746:
 L_B74F:
@@ -3184,7 +3184,7 @@ L_B773:
     ui_cursor_row = (ui_cursor_row + 1);    // $B77C
     if (((ui_cursor_row + 1) == 19)) goto L_B729;    // $B782
     if ((ui_cursor_row != 16)) goto L_B796;    // $B78B
-    if ((mem_7BE2 == 1)) goto L_B719;    // $B793
+    if ((fief_menu_info_mode_flag == 1)) goto L_B719;    // $B793
 L_B796:
     goto L_B74F;    // $B798
     }
@@ -3194,7 +3194,7 @@ L_B796:
 // (body @ $B7A0)
 
 word issue_province_command(word arg1, word arg2, word arg3, word arg4) {
-    mem_7FDD = selected_province_idx;    // $B7A3
+    selected_province_idx_latch_7fdd = selected_province_idx;    // $B7A3
     arg1 = ?;    // $B7A6
     local8 = (ui_helper_d772(/*via arg1*/ ?) + 0x6D67);    // $B7AF
     if (!(*(byte*)(local8))) goto L_B7DA;    // $B7B2
@@ -3282,7 +3282,7 @@ L_B90E:
     ai_turn_loop_redispatch_flag = 0;    // $B90F
     selected_province_idx = *(byte*)((local11 + 0x6F1B));    // $B918
     local10 = *(byte*)((local11 + 0x6F1B));    // $B91B
-    if (mem_7BF9) goto L_B939;    // $B933
+    if (ui_state_flag_7bf9) goto L_B939;    // $B933
 L_B939:
     local10 = 0x6F1B;    // $B939
     if (rest_turns_remaining[ui_helper_d772(/*stack underflow*/ regA)]) goto L_B97D;    // $B943
@@ -3313,7 +3313,7 @@ L_B988:
 L_B98D:
     if (ai_turn_loop_redispatch_flag) {    // $B990
     local11 = (local11 + 1);    // $B995
-    mem_6001 = (local11 + 1);    // $B996
+    ai_per_fief_loop_index = (local11 + 1);    // $B996
     } else {
 L_B99E:
     local11 = (local11 + 1);    // $B99E
@@ -3321,7 +3321,7 @@ L_B99E:
     }
 L_B9A7:
     if (ai_turn_loop_redispatch_flag) goto L_B9B1;    // $B9AA
-    mem_6001 = 0;    // $B9AE
+    ai_per_fief_loop_index = 0;    // $B9AE
 L_B9B1:
     return 0;    // $B9B1
     }

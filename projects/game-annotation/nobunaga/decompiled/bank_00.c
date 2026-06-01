@@ -85,7 +85,7 @@ L_8226:
 L_8235:
     if (!(!(ui_helper_d3a7()))) return 0;    // $823F
     if (strcmp(0xB88B, 0x7FED)) goto L_8226;    // $8253
-    local8 = syscall_sram_block_with_checksum(0x00FF, 0x6001, 0, 1);    // $8269
+    local8 = syscall_sram_block_with_checksum(0x00FF, ai_per_fief_loop_index, 0, 1);    // $8269
     local11 = 0x6100;    // $826D
 L_826E:
     local11 = ?;    // $8271
@@ -102,7 +102,7 @@ L_82A3:
     local8 = (local8 + syscall_sram_block_with_checksum(0x81EB, ui_transient_state, 0, 1));    // $82D3
     if ((sram_save_checksum == local8)) {    // $82DE
     ui_msg_col_shift_flag = 0;    // $82E7
-    mem_6F61 = 0;    // $82EB
+    sram_save_pending_flag = 0;    // $82EB
     local9 = 0;    // $8322
 L_8323:
     local9 = 0xB852;    // $832A
@@ -112,7 +112,7 @@ L_8323:
     return 0;    // $8342
     }
 L_8343:
-    mem_6D65 = 50;    // $8354
+    delay_loop_count = 50;    // $8354
     audio_wait_gate = 0;    // $8358
     ui_pending_flag_7fc7 = 0;    // $835C
     ui_input_mode = 0;    // $8360
@@ -272,7 +272,7 @@ L_8630:
 L_865E:
     local11 = 0x8004;    // $865E
     local11 = 0x6001;    // $866B
-    mem_6E7D = ui_helper_d3a7();    // $867B
+    ui_confirm_flag_6e7d = ui_helper_d3a7();    // $867B
     return ui_helper_d3a7();    // $867E
     }
 }
@@ -329,7 +329,7 @@ L_873E:
     ui_input_prompt_active_flag = 0;    // $8745
     province_ai_state[local10] = 0;    // $874F
     selected_province_idx = local10;    // $8751
-    mem_7FDD = local10;    // $8755
+    selected_province_idx_latch_7fdd = local10;    // $8755
     *(byte*)((arg1 + 0x7FD4)) = ui_helper_d77e();    // $8761
     return ui_helper_d77e();    // $8762
     }
@@ -369,7 +369,7 @@ L_886F:
 // (body @ $88B1)
 
 word render_boot_title_screens(word arg1, word arg2, word arg3, word arg4) {
-    mem_7FC5 = 0;    // $88B2
+    ui_msg_oneshot_flag_7fc5 = 0;    // $88B2
     local11 = 0;    // $88E2
 L_88E3:
     local11 = 0xB862;    // $88EA
@@ -397,8 +397,8 @@ L_8988:
 
 word init_new_game_state(word arg1, word arg2, word arg3, word arg4) {
     audio_wait_gate = 0;    // $89A9
-    mem_7FE7 = 0;    // $89B5
-    mem_6D65 = 50;    // $89BA
+    ui_timer_gate_flag_7fe7 = 0;    // $89B5
+    delay_loop_count = 50;    // $89BA
     ui_pending_flag_7fc7 = 0;    // $89BE
 L_89C1:
     ui_input_mode = 0;    // $89C2
@@ -422,7 +422,7 @@ L_8A13:
     local11 = (local11 + 1);    // $8A13
     if (((unsigned)local11 >= (unsigned)(scenario_fief_count + 4))) goto L_8A09;    // $8A1C
 L_8A1F:
-    mem_6D61 = number_input(8, 1);    // $8A2C
+    newgame_player_count = number_input(8, 1);    // $8A2C
     if (!(number_input(8, 1))) goto L_8A1F;    // $8A2F
     local11 = 0;    // $8A33
 L_8A34:
@@ -445,7 +445,7 @@ L_8AAF:
     local11 = 1;    // $8AB2
 L_8ABC:
     local11 = (local11 + 1);    // $8ABC
-    if (((unsigned)local11 <= (unsigned)mem_6D61)) goto L_8A91;    // $8AC2
+    if (((unsigned)local11 <= (unsigned)newgame_player_count)) goto L_8A91;    // $8AC2
     ui_input_mode = 0;    // $8AC6
 L_8AC9:
     const_two = number_input(5, 1);    // $8AD6
@@ -462,7 +462,7 @@ L_8B2A:
     if (((unsigned)local11 >= (unsigned)32)) goto L_8B19;    // $8B39
     goto L_89C1;    // $8B41
 L_8B44:
-    newgame_setup_count_complement = (-mem_6D61);    // $8B50
+    ai_player_count = (-newgame_player_count);    // $8B50
     ui_pending_flag_7fc7 = 0;    // $8B57
     return palette_write_wrap(48, 11);    // $8B6F
     }
@@ -1253,7 +1253,7 @@ L_9734:
     if ((war_attacker_men > *(word*)(((selected_province_idx * 26) + 0x7011)))) {    // $974F
     if (((unsigned)ui_helper_e510(1) < (unsigned)3)) {    // $9759
     ai_turn_flags = (ai_turn_flags | 0);    // $9762
-    mem_6E48 = 0;    // $9769
+    ai_turn_planner_resume_flag = 0;    // $9769
     local10 = 0;    // $976D
     }
     }
@@ -1547,7 +1547,7 @@ L_9C35:
     local11 = 3;    // $9C40
     if (get_province_ai_state(/*stack underflow*/ regA)) goto L_9C78;    // $9C45
     local10 = (local10 + 1);    // $9C50
-    if (!(((unsigned)((local10 + 1) - 1) >= (unsigned)(-newgame_setup_count_complement)))) goto L_9C78;    // $9C54
+    if (!(((unsigned)((local10 + 1) - 1) >= (unsigned)(-ai_player_count)))) goto L_9C78;    // $9C54
     battle_defending_province = local11;    // $9C5B
     } else {
 L_9C7A:
@@ -2004,7 +2004,7 @@ L_A347:
 L_A349:
     local11 = (local11 + 1);    // $A349
     if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_A316;    // $A34F
-    mem_6F67 = -1;    // $A369
+    battle_defender_province_staging = -1;    // $A369
     switch (config_block) {    // $A36F
         case 0: goto L_A37E;    // $A36F
         case 1: goto L_A385;    // $A36F
@@ -2033,9 +2033,9 @@ L_A3A0:
 // (body @ $A3AF)
 
 word write_sram_save_checksum_and_signature(word arg1, word arg2, word arg3, word arg4) {
-    local9 = mem_6F61;    // $A3B2
+    local9 = sram_save_pending_flag;    // $A3B2
     local9 = ?;    // $A3B9
-    local10 = syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x00FF, 0x6001, 0);    // $A3C1
+    local10 = syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x00FF, ai_per_fief_loop_index, 0);    // $A3C1
     local11 = 0x6100;    // $A3C5
 L_A3C6:
     local11 = ?;    // $A3C9
@@ -2055,7 +2055,7 @@ L_A3FB:
     local9 = 0x7F00;    // $A420
     local10 = (local10 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x81EB, ui_transient_state, 0));    // $A42B
     sram_save_checksum = local10;    // $A42D
-    mem_6F61 = 0;    // $A440
+    sram_save_pending_flag = 0;    // $A440
     return confirm_prompt();    // $A454
 }
 
@@ -2064,10 +2064,10 @@ L_A3FB:
 
 word ai_strategic_turn_planner(word arg1, word arg2, word arg3, word arg4) {
     ui_input_mode = 0;    // $A45B
-    if ((mem_6E48 == 1)) {    // $A466
-    mem_6E48 = 0;    // $A46D
+    if ((ai_turn_planner_resume_flag == 1)) {    // $A466
+    ai_turn_planner_resume_flag = 0;    // $A46D
     } else {
-    if (!(mem_6F61)) goto L_A47F;    // $A479
+    if (!(sram_save_pending_flag)) goto L_A47F;    // $A479
 L_A47F:
     config_block = (config_block + 1);    // $A483
     config_block = ((config_block + 1) & 3);    // $A488
@@ -2116,7 +2116,7 @@ L_A534:
     if (((unsigned)local9 >= (unsigned)scenario_fief_count)) goto L_A505;    // $A539
     *(byte*)((local8 + 0x7BAD)) = -1;    // $A544
     if (!(local8)) goto L_A55B;    // $A546
-    if (((mem_6E48 == 1))) return (mem_6E48 == 1);    // $A557
+    if (((ai_turn_planner_resume_flag == 1))) return (ai_turn_planner_resume_flag == 1);    // $A557
     goto L_A5CB;    // $A55C
 L_A55F:
     local9 = 1;    // $A55F
@@ -2240,15 +2240,15 @@ word vm_bootstrap(word arg1, word arg2, word arg3, word arg4) {
 L_A77D:
 L_A785:
     ai_turn_loop_redispatch_flag = 0;    // $A786
-    if ((mem_6E48 == 1)) {    // $A791
-    mem_6F67 = -1;    // $A796
+    if ((ai_turn_planner_resume_flag == 1)) {    // $A791
+    battle_defender_province_staging = -1;    // $A796
     if ((ai_turn_flags & 0x0080)) goto L_A7AD;    // $A7A5
 L_A7AD:
     }
 L_A7B0:
     if ((ai_turn_flags & 0x0080)) goto L_A843;    // $A7B7
-    battle_defending_province = mem_6F67;    // $A7BD
-    if ((mem_6F67 != 0x00FF)) {    // $A7C4
+    battle_defending_province = battle_defender_province_staging;    // $A7BD
+    if ((battle_defender_province_staging != 0x00FF)) {    // $A7C4
     if ((mem_6F68 == 1)) {    // $A7CC
     }
 L_A7D9:

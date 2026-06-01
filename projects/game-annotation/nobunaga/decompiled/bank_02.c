@@ -79,7 +79,7 @@ L_826A:
 // (body @ $8275)
 
 word set_combat_state_pair_7bf5_7bf7(word arg1, word arg2, word arg3, word arg4) {
-    mem_7BF5 = arg1;    // $8276
+    tactical_cursor_cell_7bf5 = arg1;    // $8276
     mem_7BF7 = arg2;    // $827A
     return arg2;    // $827D
 }
@@ -252,9 +252,9 @@ L_8403:
 // (body @ $8410)
 
 word draw_tactical_cursor_region(word arg1, word arg2, word arg3, word arg4) {
-    if (!(is_cell_valid_for_phase(mem_7BF5))) return is_cell_valid_for_phase(mem_7BF5);    // $8417
+    if (!(is_cell_valid_for_phase(tactical_cursor_cell_7bf5))) return is_cell_valid_for_phase(tactical_cursor_cell_7bf5);    // $8417
     if ((arg1 == 1)) {    // $841E
-    local10 = mem_7BF5;    // $8424
+    local10 = tactical_cursor_cell_7bf5;    // $8424
     local9 = mem_7BF7;    // $8428
     local11 = 0;    // $8436
 L_8437:
@@ -801,7 +801,7 @@ L_8B77:
 // (body @ $8B8F)
 
 word draw_unit_stat_field(word arg1, word arg2, word arg3, word arg4) {
-    if ((mem_7BFB != 2)) goto L_8BD7;    // $8B94
+    if ((combat_unit_window_mode_flag != 2)) goto L_8BD7;    // $8B94
     local11 = ui_window_col;    // $8B9A
     local10 = ui_cursor_row;    // $8B9E
     if (arg1) {    // $8BA0
@@ -837,7 +837,7 @@ L_8BE1:
 // (body @ $8BEF)
 
 word combat_unit_window_refresh(word arg1, word arg2, word arg3, word arg4) {
-    if (((mem_7BFB == 2))) return (mem_7BFB == 2);    // $8BF4
+    if (((combat_unit_window_mode_flag == 2))) return (combat_unit_window_mode_flag == 2);    // $8BF4
     local11 = 0;    // $8BFC
 L_8BFD:
     if (local11) goto L_8C1D;    // $8BFE
@@ -853,7 +853,7 @@ L_8C30:
     local11 = 0x77A8;    // $8C45
     local11 = (local11 - 1);    // $8C55
     if ((local11 <= 0)) goto L_8BFD;    // $8C59
-    mem_7BFB = 0;    // $8C5D
+    combat_unit_window_mode_flag = 0;    // $8C5D
     return 0;    // $8C60
     }
 }
@@ -931,7 +931,7 @@ word draw_combat_fief_day_header(word arg1, word arg2, word arg3, word arg4) {
 
 word draw_combat_roster_window(word arg1, word arg2, word arg3, word arg4) {
     ui_input_sel_latch_7fdf = 255;    // $8DB1
-    mem_7BFB = 0;    // $8DB5
+    combat_unit_window_mode_flag = 0;    // $8DB5
     if (is_no_province_selected()) {    // $8DC1
     } else {
     }
@@ -1360,7 +1360,7 @@ L_92A5:
 word battle_init_clear_defending_province_fields(word arg1, word arg2, word arg3, word arg4) {
     mem_7FE1 = 255;    // $92D2
     local11 = 0;    // $92D6
-    mem_6F66 = (*(byte*)((battle_defending_province + 0x6DA2)) << 7);    // $92E1
+    battle_defender_status_flag_6f66 = (*(byte*)((battle_defending_province + 0x6DA2)) << 7);    // $92E1
     war_defender_gold = *(word*)(((battle_defending_province * 26) + 0x7001));    // $92EF
     if ((*(word*)(((battle_defending_province * 26) + 0x7001)) >= 0)) {    // $92F4
     *(word*)(((battle_defending_province * 26) + 0x7001)) = 0;    // $9303
@@ -2221,7 +2221,7 @@ word resolve_attack_apply_casualties(word arg1, word arg2, word arg3, word arg4)
     local11 = ((rng_mod((-const_two)) + *(word*)(((local9 * 26) + 0x7013))) + *(byte*)((fief_to_daimyo_record_addr(/*stack underflow*/ regA) + 4)));    // $9EC1
     local8 = *(byte*)((fief_to_daimyo_record_addr(/*stack underflow*/ regA) + 4));    // $9EC7
     local10 = ((*(word*)(((local8 * 26) + 0x7013)) + *(byte*)((fief_to_daimyo_record_addr((const_two << 1)) + 4))) + *(byte*)((fief_to_daimyo_record_addr((const_two << 1)) + 4)));    // $9EDC
-    if (mem_7BF3) goto L_9F37;    // $9EE0
+    if (combat_casualty_skip_flag_7bf3) goto L_9F37;    // $9EE0
     if ((local11 <= local10)) goto L_9F37;    // $9EE6
     arg1 = local10;    // $9EE9
     local7 = local10;    // $9EEA
@@ -2266,7 +2266,7 @@ L_9FA9:
     local11 = *(word*)((unit_record_ptr(cur_combat_side) + 4));    // $9FB8
     }
 L_9FC7:
-    mem_7BF3 = 0;    // $9FC8
+    combat_casualty_skip_flag_7bf3 = 0;    // $9FC8
     goto L_9F46;    // $9FCB
     }
 L_9FCE:
@@ -3042,7 +3042,7 @@ L_A9EE:
 word combat_command_select_target_resolve_attack(word arg1, word arg2, word arg3, word arg4) {
     local9 = get_battle_side_province(cur_combat_side);    // $AA07
     if (is_no_province_selected()) goto L_AA22;    // $AA17
-    if ((mem_6E48 != 1)) goto L_AA32;    // $AA1F
+    if ((ai_turn_planner_resume_flag != 1)) goto L_AA32;    // $AA1F
 L_AA22:
 L_AA25:
     goto L_AA62;    // $AA29
@@ -3159,11 +3159,11 @@ L_AC27:
 L_AC29:
     local10 = (local10 + 1);    // $AC41
     if (((unsigned)local10 >= (unsigned)7)) goto L_AC29;    // $AC45
-    mem_7FC5 = 0;    // $AC49
+    ui_msg_oneshot_flag_7fc5 = 0;    // $AC49
     local8 = (local8 + 1);    // $AC4E
     arg1 = 7;    // $AC51
     local11 = ai_select_unit_combat_action(/*via arg1*/ 7, ((local8 + 1) - 1));    // $AC56
-    mem_7FC5 = 0;    // $AC58
+    ui_msg_oneshot_flag_7fc5 = 0;    // $AC58
     if (local11) {    // $AC5C
     local9 = 0;    // $AC60
     } else {
@@ -3190,12 +3190,12 @@ word combat_command_dispatch_loop_per_unit(word arg1, word arg2, word arg3, word
 L_AC8C:
     if (!(test_unit_type_present_flag(cur_combat_unit_slot, cur_combat_side))) goto L_AD27;    // $AC96
 L_AC99:
-    if ((mem_7BFB != 1)) {    // $AC9E
+    if ((combat_unit_window_mode_flag != 1)) {    // $AC9E
     local11 = 0;    // $ACA8
 L_ACA9:
     local11 = (local11 + 1);    // $ACBF
     if (((unsigned)local11 >= (unsigned)6)) goto L_ACA9;    // $ACC3
-    mem_7BFB = 0;    // $ACC7
+    combat_unit_window_mode_flag = 0;    // $ACC7
     }
 L_ACCA:
     local9 = *(byte*)(cur_unit_field_ptr_6fd0());    // $ACCE
@@ -3264,7 +3264,7 @@ L_ADD0:
 word run_both_sides_combat_turn(word arg1, word arg2, word arg3, word arg4) {
     local10 = 0;    // $ADDA
 L_ADDB:
-    mem_7BF3 = 0;    // $ADDC
+    combat_casualty_skip_flag_7bf3 = 0;    // $ADDC
     local11 = 0;    // $ADE0
 L_ADE1:
     *(byte*)((local11 + 0x7BEE)) = 0;    // $ADE8
@@ -3354,7 +3354,7 @@ L_AF5C:
     if ((war_side_state_flag[0] & 31)) goto L_AF6A;    // $AF64
     arg1 = (arg1 + 1);    // $AF69
 L_AF6A:
-    if ((mem_6E48 == 1)) goto L_AFA2;    // $AF6F
+    if ((ai_turn_planner_resume_flag == 1)) goto L_AFA2;    // $AF6F
     if (is_no_province_selected()) goto L_AF80;    // $AF75
     arg1 = 1;    // $AF78
 L_AF80:
