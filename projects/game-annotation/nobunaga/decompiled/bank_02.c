@@ -5,10 +5,10 @@
 // Pipeline: vm-disasm.py (v2, execution-validated lengths) -> vm_decompile.py (opcode-keyed).
 // ============================================================
 
-// $8086 unpack_base5_digits_upload_blocks
+// $8086 compose_upload_daimyo_portrait
 // (body @ $808B)
 
-word unpack_base5_digits_upload_blocks(word arg1, word arg2, word arg3, word arg4) {
+word compose_upload_daimyo_portrait(word arg1, word arg2, word arg3, word arg4) {
     local11 = *(word*)(((active_province_idx_copy << 1) + 0x6EB1));    // $8094
     local9 = ((unsigned)local11 / (unsigned)5);    // $8098
     local10 = ((unsigned)local11 % (unsigned)5);    // $809C

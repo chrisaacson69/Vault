@@ -1520,10 +1520,10 @@ L_DB92:
     }
 }
 
-// $DB97 assign_unique_id_6eb1
+// $DB97 assign_unique_daimyo_face_code
 // (body @ $DB9C)
 
-word assign_unique_id_6eb1(word arg1, word arg2, word arg3, word arg4) {
+word assign_unique_daimyo_face_code(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $DB9C
     *(byte*)((fief_to_daimyo_record_addr(/*via arg1*/ ?) + 6)) = 1;    // $DBA4
     local8 = 0;    // $DBA6
