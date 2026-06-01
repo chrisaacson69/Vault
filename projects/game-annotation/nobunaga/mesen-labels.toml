@@ -559,6 +559,30 @@ prg_bank_count = 16        # 256 KB total
 "0x8000" = { name = "bank0_entry",          comment = "Bank 0 entry point. 3 bytes: JMP $A778. The 'rest of bank 0' is data — VM bytecode, sprite/tile data, and a few small native helpers callable from bytecode." }
 "0xA778" = { name = "vm_bootstrap",         comment = "First instruction reached after RESET. JSR vm_entry ($E823) followed by inline VM bytecode that orchestrates the entire boot sequence (audio init, palette load, screen setup) and ultimately becomes the main game loop." }
 
+# --- bank-0 bytecode subs: label-walk batch 1 (leaves-first clusters 1-3), 2026-06-01 ---
+# Names from the label-walk skill: propose@decompiled-C -> independent verify@bytecode. 15 CONFIRMED / 6 AMENDED / 0 REFUTED.
+"0x8003" = { name = "display_fullscreen_graphic_sequence", comment = "[MED AMENDED] ~530-byte multi-phase full-screen graphic/cinematic presenter: PPU blob uploads (ppu_upload_block_wrap) + 4 palette-fade loops + input-gated phase transitions + audio; ends two conditional message_display + infinite-hang JUMP. Proposer's cited calls were fabricated/mis-tiled; corrected from bytecode." }
+"0x821E" = { name = "verify_sram_save_integrity", comment = "[MED CONFIRMED] load-game gate: strcmp magic-string vs $7FED + running-sum checksum over $6001-$7FFF compared to stored $7FEB; match -> continue (ret 1), mismatch -> rewrite signature/flags + reformat prompt. Caller $89C9 (load path, $89A3)." }
+"0x8377" = { name = "transfer_arms_field_pct", comment = "[HIGH CONFIRMED] moves arg3% of source byte field (*arg2) into dest field (*arg1) via pct_op; caller $839A specializes it on the $76A9 per-fief arms record (stride 5)." }
+"0x85FC" = { name = "prompt_roll_stat_value", comment = "[HIGH CONFIRMED] rolls a stat = rng_mod(50)+60 (60-109) with a roll/keep input loop; caller $8763 rolls the 5 daimyo stats." }
+"0x862B" = { name = "prompt_select_scenario_size", comment = "[HIGH CONFIRMED] 17-vs-50 fief scenario-size prompt; sets scenario_fief_count $6D9D = 17 or 50 + the map pointer, then SRAM init via syscall16_sram_wrap." }
+"0x867F" = { name = "display_prompt_message_b900", comment = "[MED CONFIRMED] message_display($B8F8) + ui_helper_d134(12,$B900) prompt wrapper; sole caller $86B3 (fief/scenario setup)." }
+"0x88AC" = { name = "render_boot_title_screens", comment = "[MED AMENDED] boot/title two-screen opening (nametable+attr+tile blits, palette loops, press-A continue); reached only from vm_bootstrap via $89A3. NOT the Marry screen - cc35 is a generic screen enter/exit primitive (20 callers)." }
+"0x8B70" = { name = "select_msg_by_state_7b79", comment = "[HIGH CONFIRMED] 3-way state -> message-string selector over the byte at base+$7B79 (6->$BA28, 7->$BA31, else->$BA3A)." }
+"0x8B9D" = { name = "select_message_string_by_flags_and_arg", comment = "[MED AMENDED] picks a $BA-region message string by $6DA1 flag bits, then a 4-key switch on arg, default delegates to select_msg_by_state_7b79; feeds message_display." }
+"0x8BE6" = { name = "find_first_enemy_owned_fief", comment = "[HIGH AMENDED] scans the FF-terminated owned-fief list ($6F89) and returns the first fief INDEX where is_enemy_owned; returns a province index, not an owner id." }
+"0x8C0E" = { name = "is_selected_province_ai_state_5", comment = "[HIGH CONFIRMED] pure predicate: province_ai_state[$6CF7][selected_province_idx $6F5F] == 5." }
+"0x8C35" = { name = "relations_matrix_cell_addr", comment = "[HIGH CONFIRMED] &relations[arg1][arg2] = arg1*54 + arg2 + $6193 (relations-matrix base, row stride 54; sibling of relations_matrix_get $8250)." }
+"0x8DE1" = { name = "dedup_owners_to_6f4f", comment = "[HIGH CONFIRMED] reads an FF-terminated fief list, dedups by owning daimyo (fief_to_daimyo_map via ui_helper_d772), writes the unique set to $6F4F (FF-terminated), returns the count." }
+"0x8E99" = { name = "append_candidate_entry_6f67", comment = "[HIGH CONFIRMED] writes a 2-byte (value,flag) record at idx into the $6F67/$6F68 dual-lane list and rewrites the FF terminator; callers push flag 0 ($8FDB) / 1 ($961C)." }
+"0x8EBC" = { name = "compare_greater_with_coinflip_tiebreak", comment = "[HIGH CONFIRMED] returns (arg_a > arg_b) signed (SCMPLT); on equal returns a 50/50 rng_mod(2) coinflip." }
+"0x8FE0" = { name = "stat_above_threshold_and_gap_predicate", comment = "[HIGH AMENDED] returns 1 iff (hi > 25) AND (hi - lo > 5); an absolute-threshold(25) + gap(5) test (not a truncation)." }
+"0x90C6" = { name = "reset_byte_if_ge_100", comment = "[MED AMENDED] if *ptr >= 100 then *ptr = 0 (carry/wrap of a 0-99 stat, NOT a clamp-to-100); wrapper $90D7 = bump-then-wrap." }
+"0x9154" = { name = "check_daimyo_natural_death", comment = "[HIGH CONFIRMED] the VERIFIED natural-death formula: gated age>=70, triggers when (age-10-health/4) < rng_mod(300); returns weakness_flag[$6DD4]+1 on death, 2 if health==0. Caller $9194 runs the death-removal path." }
+"0x91FD" = { name = "clamp_value_to_range", comment = "[HIGH CONFIRMED] clamp arg2 to [arg1, arg3] (median-of-three); pure arithmetic." }
+"0x9214" = { name = "calc_year_scaled_random_value", comment = "[HIGH CONFIRMED] ((year $6D9F - 1560)/2 + 2)*10 + rng_mod(51); deterministic part grows +5/year, plus 0-50 noise." }
+"0x922E" = { name = "roll_small_or_large_random", comment = "[HIGH CONFIRMED] coinflip rng_mod(2) selects a small roll (5-10) vs a large roll (30-39); bimodal RNG helper." }
+
 # --- PPU register shadow API (chapter 3) ---
 "0xC54F" = { name = "nmi_off",             comment = "Clear bit 7 of ppuctrl_shadow (disable NMI generation); used as the NMI re-entry guard" }
 "0xC567" = { name = "rendering_on",        comment = "OR $18 into ppumask_shadow (enable BG + sprite rendering)" }

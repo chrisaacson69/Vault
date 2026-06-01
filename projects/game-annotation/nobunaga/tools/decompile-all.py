@@ -32,24 +32,30 @@ sys.path.insert(0, str(HERE))
 LABELS_TOML = ROOT / "mesen-labels.toml"
 
 
-def _switchable_label_banks():
-    """addr -> bank for labels in the switchable $8000-$BFFF window, keyed by their
-    [prg.bankN] toml section.
+def _switchable_section_labels():
+    """Per-bank names for the switchable $8000-$BFFF window, parsed straight from the
+    [prg.bankN] toml sections. Returns (bank_names, sectioned):
+      bank_names[bank][addr] = name  — the authoritative name for that addr IN that bank
+      sectioned = {addr, ...}        — every window addr that appears in ANY [prg.bankN]
 
-    Banks 0/1/2 share the $8000-$BFFF CPU window, so a [prg.bank1] label must NOT
-    leak onto bank 2's code at the same address. `nobunaga_vm.load_labels()` flattens
-    the toml to {addr: name} and discards the section, so without this map the
-    decompiler is bank-blind for the window (bug surfaced 2026-05-31 by the regen
-    cross-bank guard: bank-1's $83A2 label bled onto bank-2 combat code).
+    Banks 0/1/2 share the $8000-$BFFF CPU window, and the SAME CPU address can hold a
+    DIFFERENT function in each bank (different ROM bytes at the same address — e.g. $8003
+    is display_fullscreen_graphic_sequence in bank 0 but prompt_message_and_redraw in
+    bank 1). `nobunaga_vm.load_labels()` flattens the toml to {addr: name}, which (a)
+    discards the section AND (b) keeps only one name per address — so the decompiler was
+    both bank-blind and dual-bank-blind for the window (bug surfaced 2026-05-31 by the
+    regen guard for the section problem; the dual-bank case surfaced 2026-06-01 by the
+    bank_00 label-walk: $8003/$8DE1 stayed anon because bank 1's entries shadowed bank 0's).
+    Keying names by (bank, addr) resolves both: each bank's C uses its own section's name.
 
-    RAM/ZP (<$8000) and fixed bank-15 ($C000+) labels are bank-independent and are
-    intentionally excluded here so they stay global. ~73 $C000+ labels mis-filed
-    under [prg.bank0] are >= $C000, so they fall outside the window and remain global.
+    RAM/ZP (<$8000) and fixed bank-15 ($C000+) labels are bank-independent and stay global
+    (applied from vm.labels), so they are intentionally not collected here. ~73 $C000+
+    labels mis-filed under [prg.bank0] are >= $C000, fall outside the window, remain global.
     """
     text = LABELS_TOML.read_text(encoding="utf-8")
     sec_re = re.compile(r'^\s*\[prg\.bank(\d+)\]')
-    lbl_re = re.compile(r'"0x([0-9A-Fa-f]+)"\s*=\s*\{')
-    out, cur = {}, None
+    lbl_re = re.compile(r'"0x([0-9A-Fa-f]+)"\s*=\s*\{\s*name\s*=\s*"([^"]*)"')
+    bank_names, sectioned, cur = {}, set(), None
     for line in text.splitlines():
         m = sec_re.match(line)
         if m:
@@ -60,11 +66,12 @@ def _switchable_label_banks():
         if m and cur is not None:
             addr = int(m.group(1), 16)
             if 0x8000 <= addr < 0xC000:
-                out[addr] = cur
-    return out
+                bank_names.setdefault(cur, {})[addr] = m.group(2)
+                sectioned.add(addr)
+    return bank_names, sectioned
 
 
-SWITCHABLE_BANK = _switchable_label_banks()
+SWITCHABLE_NAMES, SECTIONED_WINDOW = _switchable_section_labels()
 
 
 def _load(name, filename):
@@ -88,12 +95,15 @@ def decompile_bank(bank, out_dir, tmp_dir):
     mem = vm.mem
     base, size = vmdisasm.bank_range(bank)
     stubs = vmdisasm.find_stubs(mem, base, size)
-    # Bank-aware label set: drop switchable-window ($8000-$BFFF) labels that belong
-    # to a DIFFERENT bank's section so they don't leak onto this bank's code at the
-    # same CPU address. <$8000 (RAM/ZP) and >=$C000 (fixed bank 15) stay global.
-    # Unknown switchable addrs (no recorded section) default to kept.
+    # Bank-aware label set. Global labels (<$8000 RAM/ZP, >=$C000 fixed bank 15) and
+    # any window addr with NO [prg.bankN] section entry come from the flattened vm.labels
+    # (the latter preserves prior default-keep behavior). For the switchable $8000-$BFFF
+    # window, names come from THIS bank's toml section (SWITCHABLE_NAMES[bank]) — never the
+    # flattened dict, which holds only one name per address and would bleed another bank's
+    # name onto a CPU address that legitimately holds a different function in each bank.
     labels = {a: n for a, (n, _c) in vm.labels.items()
-              if not (0x8000 <= a < 0xC000) or SWITCHABLE_BANK.get(a, bank) == bank}
+              if not (0x8000 <= a < 0xC000) or a not in SECTIONED_WINDOW}
+    labels.update(SWITCHABLE_NAMES.get(bank, {}))
 
     # 1. Render the execution-validated v2 listing for this bank (intermediate;
     #    not committed — vm-disasm.py regenerates it deterministically on demand).
