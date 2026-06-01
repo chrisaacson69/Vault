@@ -374,10 +374,9 @@ L_8591:
     goto L_856C;    // $85A4
 }
 
-// $85A7 effect_view_c
 // (body @ $85AC)
 
-word effect_view_c(word arg1, word arg2, word arg3, word arg4) {
+word sub_85A7(word arg1, word arg2, word arg3, word arg4) {
     local11 = poll_input();    // $85AF
     switch (poll_input()) {    // $85B0
         case 1: goto L_8600;    // $85B0
@@ -419,16 +418,16 @@ word sub_8623(word arg1, word arg2, word arg3, word arg4) {
 L_862E:
     local10 = 0;    // $8634
 L_8635:
-    local11 = effect_view_c();    // $8638
-    if (effect_view_c()) goto L_8646;    // $8639
+    local11 = sub_85A7();    // $8638
+    if (sub_85A7()) goto L_8646;    // $8639
     local10 = (local10 + 1);    // $863E
     if (((unsigned)local10 >= (unsigned)100)) goto L_8635;    // $8643
 L_8646:
     if (!(!(local11))) return local11;    // $864C
     local10 = 0;    // $8652
 L_8653:
-    local11 = effect_view_c();    // $8656
-    if (!(!(effect_view_c()))) return local11;    // $8657
+    local11 = sub_85A7();    // $8656
+    if (!(!(sub_85A7()))) return local11;    // $8657
     local10 = (local10 + 1);    // $865E
     if (((unsigned)local10 >= (unsigned)100)) goto L_8653;    // $8663
     goto L_862E;    // $8666

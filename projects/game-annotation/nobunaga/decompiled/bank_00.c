@@ -570,10 +570,9 @@ L_8DE0:
     }
 }
 
-// $8DE1 dedup_owners_to_6F4F
 // (body @ $8DE6)
 
-word dedup_owners_to_6F4F(word arg1, word arg2, word arg3, word arg4) {
+word sub_8DE1(word arg1, word arg2, word arg3, word arg4) {
     arg1 = (arg1 + 1);    // $8DE8
     *(byte*)(fp - 14) = *(byte*)(((arg1 + 1) - 1));    // $8DEB
     local10 = 0;    // $8DEF
@@ -909,10 +908,9 @@ L_930F:
     return 0;    // $9322
 }
 
-// $9323 effect_war_combat_prep_a
 // (body @ $9328)
 
-word effect_war_combat_prep_a(word arg1, word arg2, word arg3, word arg4) {
+word sub_9323(word arg1, word arg2, word arg3, word arg4) {
     return sub_92F9(((battle_defending_province * 26) + 0x700B));    // $9337
 }
 
@@ -954,7 +952,7 @@ word sub_93AA(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $93C4)
 
 word sub_93BF(word arg1, word arg2, word arg3, word arg4) {
-    if (effect_war_combat_prep_a()) goto L_944E;    // $93F0
+    if (sub_9323()) goto L_944E;    // $93F0
     if (sub_936B()) goto L_944E;    // $93F6
     if (sub_93AA()) goto L_944E;    // $93FC
     if (sub_9395()) goto L_944E;    // $9402

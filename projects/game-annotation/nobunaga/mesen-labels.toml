@@ -752,6 +752,17 @@ prg_bank_count = 16        # 256 KB total
 # Harvest / season-end stat cap sweep
 "0xD836" = { name = "cap_fief_stats",       comment = "Generic per-fief stat-cap sweep. Args: arg1 = fief idx. Loops over 12 fields (gold..arms at offsets 0,2,...,22), caps each at header via min_word ($CB5E), forces negatives to 0. Post-loop: special dams cap at 100. Called from bank 0 by the season-turnover code (3 sites at $A2CF/$A4A0/$A74C) AND from bank 1 by command-post-cleanups (5+ sites). This is NOT the income-add code — it's the cleanup pass that runs before and after income is added." }
 
+# --- Pilot cluster $8250-$83D5 (2026-05-31) — bank_01 anon-sub walk, framework-discovery batch ---
+# Method: propose@decompiled-C -> independent verify@bytecode (vm-disasm + ext-op table + call-index) -> root write.
+# Every name below survived a bytecode-altitude refutation pass; the decompiled C alone mis-stated 3 of these.
+"0x8250" = { name = "relations_matrix_get",  comment = "[HIGH] Pure getter: returns byte $6193[arg2*54 + arg1] (the 54-stride per-fief adjacency/relations matrix; cf. clear_fief_pair_6193 $E1E7). Leading if/XOR canonicalizes index order; no side effects. arg2=row/from, arg1=col/to." }
+"0x8271" = { name = "relations_rng_predicate", comment = "[MED] Probabilistic predicate over the relations matrix: two rng_mod(100) rolls ($8290,$82A3), each UCMPLT against relations_matrix_get keyed by ui_helper_d772 (fief->daimyo). Returns 0/1 boolean = 1 iff EITHER roll satisfies rng<relation (OR, early-out). Caller $9046 uses it as an AI-decision gate. (Bytecode-corrected: NOT 'always returns 0'.)" }
+"0x8303" = { name = "math32_muladddiv",      comment = "[HIGH] 32-bit fixed-point mul-add-div: sign_extend->umul32->add32->sdiv32 ($8308-$8326) = floor((a*b + c)/d). Distinct from math32_3arg (no add term). The general primitive specialized by sub_8327." }
+"0x8327" = { name = "scale_div10_capcheck",  comment = "[MED] Scales via math32_muladddiv then range-checks: computes rounded (a*b+9)/10, and if it exceeds arg3 returns -1 (0xFFFFFFFF sentinel); otherwise returns the plain floor(a*b/10) ($832C-$8356). NOT a clamp — overflow yields a sentinel, and tested value (+9 rounding) differs from returned value. Caller $B4D5 (AI command-cost eval). (Bytecode-corrected.)" }
+"0x8379" = { name = "apply_two_grows_const1_override", comment = "[MED] Saves config const $6D63 (const_two, the Grow/Build subtrahend), forces it to 1 (=> stronger grow), calls record_apply_two_grows ($D940) on a record pair, then *(word*)arg1 -= arg2 with floor-at-0, restores $6D63, returns its prior value. Caller $95C9 (rng_mod + ui_helper_d7ea). (Bytecode-corrected: does NOT 'return 2' — returns saved $6D63; the load-bearing mechanic is the temporary const override.)" }
+"0x83A2" = { name = "province_window_redraw_ba6f", comment = "[HIGH-structure] Redraws province window/message $BA6F via redraw_window ($CEC4); also calls ui_helper_d134 ($D134). Gated on province_ai_state[arg1] != 0xFF (arg2 forced to 0xFF otherwise). Callers effect_view_a + AI driver $B79B. The $BA6F string's exact text is unlabeled." }
+"0x83D5" = { name = "province_window_redraw_ba78", comment = "[HIGH-structure] Sibling of province_window_redraw_ba6f: identical mechanism (redraw_window $CEC4 + ui_helper_d134), differs only in window/message ptr $BA78. Same province_ai_state gate, same callers." }
+
 
 # ============================================================================
 # PRG bank 2 — battle setup / tactical-map code (session 2026-05-30)

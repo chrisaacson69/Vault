@@ -19,6 +19,7 @@ Usage:
 import argparse
 import io
 import importlib.util
+import re
 import sys
 import tempfile
 from contextlib import redirect_stdout
@@ -27,6 +28,43 @@ from pathlib import Path
 HERE = Path(__file__).parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
+
+LABELS_TOML = ROOT / "mesen-labels.toml"
+
+
+def _switchable_label_banks():
+    """addr -> bank for labels in the switchable $8000-$BFFF window, keyed by their
+    [prg.bankN] toml section.
+
+    Banks 0/1/2 share the $8000-$BFFF CPU window, so a [prg.bank1] label must NOT
+    leak onto bank 2's code at the same address. `nobunaga_vm.load_labels()` flattens
+    the toml to {addr: name} and discards the section, so without this map the
+    decompiler is bank-blind for the window (bug surfaced 2026-05-31 by the regen
+    cross-bank guard: bank-1's $83A2 label bled onto bank-2 combat code).
+
+    RAM/ZP (<$8000) and fixed bank-15 ($C000+) labels are bank-independent and are
+    intentionally excluded here so they stay global. ~73 $C000+ labels mis-filed
+    under [prg.bank0] are >= $C000, so they fall outside the window and remain global.
+    """
+    text = LABELS_TOML.read_text(encoding="utf-8")
+    sec_re = re.compile(r'^\s*\[prg\.bank(\d+)\]')
+    lbl_re = re.compile(r'"0x([0-9A-Fa-f]+)"\s*=\s*\{')
+    out, cur = {}, None
+    for line in text.splitlines():
+        m = sec_re.match(line)
+        if m:
+            cur = int(m.group(1)); continue
+        if line.lstrip().startswith('['):      # left the prg.bankN sections
+            cur = None; continue
+        m = lbl_re.search(line)
+        if m and cur is not None:
+            addr = int(m.group(1), 16)
+            if 0x8000 <= addr < 0xC000:
+                out[addr] = cur
+    return out
+
+
+SWITCHABLE_BANK = _switchable_label_banks()
 
 
 def _load(name, filename):
@@ -50,7 +88,12 @@ def decompile_bank(bank, out_dir, tmp_dir):
     mem = vm.mem
     base, size = vmdisasm.bank_range(bank)
     stubs = vmdisasm.find_stubs(mem, base, size)
-    labels = {a: n for a, (n, _c) in vm.labels.items()}
+    # Bank-aware label set: drop switchable-window ($8000-$BFFF) labels that belong
+    # to a DIFFERENT bank's section so they don't leak onto this bank's code at the
+    # same CPU address. <$8000 (RAM/ZP) and >=$C000 (fixed bank 15) stay global.
+    # Unknown switchable addrs (no recorded section) default to kept.
+    labels = {a: n for a, (n, _c) in vm.labels.items()
+              if not (0x8000 <= a < 0xC000) or SWITCHABLE_BANK.get(a, bank) == bank}
 
     # 1. Render the execution-validated v2 listing for this bank (intermediate;
     #    not committed — vm-disasm.py regenerates it deterministically on demand).

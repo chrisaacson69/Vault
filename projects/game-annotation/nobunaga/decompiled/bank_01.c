@@ -141,9 +141,10 @@ L_8247:
     }
 }
 
+// $8250 relations_matrix_get
 // (body @ $8255)
 
-word sub_8250(word arg1, word arg2, word arg3, word arg4) {
+word relations_matrix_get(word arg1, word arg2, word arg3, word arg4) {
     if ((((unsigned)arg1 >= (unsigned)arg2) ^ arg3)) {    // $825A
     } else {
     }
@@ -152,15 +153,16 @@ L_826A:
     }
 }
 
+// $8271 relations_rng_predicate
 // (body @ $8276)
 
-word sub_8271(word arg1, word arg2, word arg3, word arg4) {
+word relations_rng_predicate(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $8277
     arg1 = ?;    // $827D
-    if (((unsigned)rng_mod(100) >= (unsigned)sub_8250(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1))))) goto L_82AA;    // $8290
-    arg2 = sub_8250(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1)));    // $8294
-    arg1 = sub_8250(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1)));    // $8295
-    if (((unsigned)rng_mod(100) >= (unsigned)sub_8250(/*via arg2*/ sub_8250(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1))), /*via arg2*/ sub_8250(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1))), 0))) goto L_82AA;    // $82A3
+    if (((unsigned)rng_mod(100) >= (unsigned)relations_matrix_get(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1))))) goto L_82AA;    // $8290
+    arg2 = relations_matrix_get(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1)));    // $8294
+    arg1 = relations_matrix_get(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1)));    // $8295
+    if (((unsigned)rng_mod(100) >= (unsigned)relations_matrix_get(/*via arg2*/ relations_matrix_get(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1))), /*via arg2*/ relations_matrix_get(/*stack underflow*/ regA, /*stack underflow*/ regA, ui_helper_d772(ui_helper_d772(1))), 0))) goto L_82AA;    // $82A3
     goto L_82AB;    // $82A7
 L_82AA:
 L_82AB:
@@ -205,9 +207,10 @@ L_8300:
     }
 }
 
+// $8303 math32_muladddiv
 // (body @ $8308)
 
-word sub_8303(word arg1, word arg2, word arg3, word arg4) {
+word math32_muladddiv(word arg1, word arg2, word arg3, word arg4) {
     // ext_op sign_extend16_to_32
     // ext_op push_a32_to_vm_stack
     // ext_op sign_extend16_to_32
@@ -219,12 +222,13 @@ word sub_8303(word arg1, word arg2, word arg3, word arg4) {
     return arg1;    // $8326
 }
 
+// $8327 scale_div10_capcheck
 // (body @ $832C)
 
-word sub_8327(word arg1, word arg2, word arg3, word arg4) {
+word scale_div10_capcheck(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $832C
     arg1 = ?;    // $832D
-    if ((sub_8303(/*via arg2*/ ?, /*via arg2*/ ?) > arg3)) {    // $8334
+    if ((math32_muladddiv(/*via arg2*/ ?, /*via arg2*/ ?) > arg3)) {    // $8334
     } else {
     // ext_op sign_extend16_to_32
     // ext_op push_a32_to_vm_stack
@@ -254,9 +258,10 @@ word helper_8357(word arg1, word arg2, word arg3, word arg4) {
     return min_word(/*via arg3*/ ?, arg1);    // $8378
 }
 
+// $8379 apply_two_grows_const1_override
 // (body @ $837E)
 
-word sub_8379(word arg1, word arg2, word arg3, word arg4) {
+word apply_two_grows_const1_override(word arg1, word arg2, word arg3, word arg4) {
     local11 = const_two;    // $8381
     arg2 = ?;    // $8386
     arg1 = ?;    // $8387
@@ -270,9 +275,10 @@ L_839D:
     return const_two;    // $83A1
 }
 
+// $83A2 province_window_redraw_ba6f
 // (body @ $83A7)
 
-word sub_83A2(word arg1, word arg2, word arg3, word arg4) {
+word province_window_redraw_ba6f(word arg1, word arg2, word arg3, word arg4) {
     if ((province_ai_state[arg1] != 0x00FF)) {    // $83B1
     arg2 = 0x00FF;    // $83B4
     } else {
@@ -287,12 +293,13 @@ L_83C6:
 
 word helper_83C7(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $83CC
-    return sub_83A2(/*via arg1*/ ?, selected_province_idx);    // $83D4
+    return province_window_redraw_ba6f(/*via arg1*/ ?, selected_province_idx);    // $83D4
 }
 
+// $83D5 province_window_redraw_ba78
 // (body @ $83DA)
 
-word sub_83D5(word arg1, word arg2, word arg3, word arg4) {
+word province_window_redraw_ba78(word arg1, word arg2, word arg3, word arg4) {
     if ((province_ai_state[arg1] != 0x00FF)) {    // $83E4
     arg2 = 0x00FF;    // $83E7
     } else {
@@ -696,9 +703,9 @@ word effect_subhandler_A003(word arg1, word arg2, word arg3, word arg4) {
     local9 = mem_6E0D;    // $8B25
     arg1 = 0x7001;    // $8B26
     local9 = 0x7001;    // $8B27
-    *(word*)(local10) = (*(word*)(local10) + sub_8303(/*via arg1*/ 0x7001, /*via arg1*/ 0x7001));    // $8B32
-    arg1 = sub_8303(/*via arg1*/ 0x7001, /*via arg1*/ 0x7001);    // $8B33
-    *(word*)(local11) = (*(word*)(local11) - sub_8303(/*via arg1*/ 0x7001, /*via arg1*/ 0x7001));    // $8B39
+    *(word*)(local10) = (*(word*)(local10) + math32_muladddiv(/*via arg1*/ 0x7001, /*via arg1*/ 0x7001));    // $8B32
+    arg1 = math32_muladddiv(/*via arg1*/ 0x7001, /*via arg1*/ 0x7001);    // $8B33
+    *(word*)(local11) = (*(word*)(local11) - math32_muladddiv(/*via arg1*/ 0x7001, /*via arg1*/ 0x7001));    // $8B39
     return helper_8A4E(1);    // $8B3F
 }
 
@@ -719,7 +726,7 @@ word effect_subhandler_9F04(word arg1, word arg2, word arg3, word arg4) {
     local10 = *(word*)(local8);    // $8B75
     }
 L_8B7A:
-    local11 = sub_8303(/*via arg1*/ *(word*)(local8), /*via arg1*/ *(word*)(local8));    // $8B7A
+    local11 = math32_muladddiv(/*via arg1*/ *(word*)(local8), /*via arg1*/ *(word*)(local8));    // $8B7A
     local11 = *(word*)(local8);    // $8B7B
     *(word*)(local8) = (*(word*)(local8) + *(word*)(local8));    // $8B81
     arg1 = *(word*)(local8);    // $8B82
@@ -955,7 +962,7 @@ L_9070:
     local10 = min_word(min_word(*(word*)(local11), *(word*)((local11 + 16))), (*(word*)((local11 + 6)) << 1));    // $9094
     if ((!((local10 >= 5)))) return 0;    // $9098
     if ((!((min_word(*(word*)(((battle_defending_province * 26) + 0x7011)), *(word*)(((battle_defending_province * 26) + 0x7007))) <= local10)))) return 0;    // $90BB
-    if (!(!(sub_8271(selected_province_idx, battle_defending_province)))) return 0;    // $90CA
+    if (!(!(relations_rng_predicate(selected_province_idx, battle_defending_province)))) return 0;    // $90CA
     if (mem_6F65) goto L_90E0;    // $90D2
     goto L_90E8;    // $90DD
 L_90E0:
@@ -1146,9 +1153,9 @@ L_93D2:
 
 word sub_93DD(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $93ED
-    if (((unsigned)sub_8250(rng_mod(100), 0, selected_province_idx) > (unsigned)?)) goto L_9412;    // $93F4
+    if (((unsigned)relations_matrix_get(rng_mod(100), 0, selected_province_idx) > (unsigned)?)) goto L_9412;    // $93F4
     arg1 = ?;    // $9403
-    if (!(((unsigned)sub_8250(rng_mod(100), 1, ui_helper_d772(ui_helper_d77e())) > (unsigned)?))) goto L_941D;    // $940F
+    if (!(((unsigned)relations_matrix_get(rng_mod(100), 1, ui_helper_d772(ui_helper_d77e())) > (unsigned)?))) goto L_941D;    // $940F
 L_9412:
     if ((*(byte*)((ui_helper_d7ea() + 2)) < 50)) goto L_9421;    // $941A
 L_941D:
@@ -1366,7 +1373,7 @@ word sub_97EA(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $9809
     }
 L_980D:
-    return ((unsigned)sub_8250(ui_helper_d772(1), ui_helper_d77e(), selected_province_idx) > (unsigned)rng_mod(100));    // $9813
+    return ((unsigned)relations_matrix_get(ui_helper_d772(1), ui_helper_d77e(), selected_province_idx) > (unsigned)rng_mod(100));    // $9813
     }
 }
 
@@ -1775,9 +1782,9 @@ word subhandler_A068(word arg1, word arg2, word arg3, word arg4) {
     local10 = number_input(/*stack underflow*/ regA, 1);    // $A0AF
     if (number_input(/*stack underflow*/ regA, 1)) {    // $A0B0
     local10 = arg1->rice;    // $A0B3
-    *(word*)(arg1) = (*(word*)(arg1) - sub_8303(/*stack underflow*/ regA, mem_6E0D));    // $A0C1
-    local10 = sub_8303(/*stack underflow*/ regA, mem_6E0D);    // $A0C2
-    arg1->rice = (arg1->rice + sub_8303(/*stack underflow*/ regA, mem_6E0D));    // $A0C9
+    *(word*)(arg1) = (*(word*)(arg1) - math32_muladddiv(/*stack underflow*/ regA, mem_6E0D));    // $A0C1
+    local10 = math32_muladddiv(/*stack underflow*/ regA, mem_6E0D);    // $A0C2
+    arg1->rice = (arg1->rice + math32_muladddiv(/*stack underflow*/ regA, mem_6E0D));    // $A0C9
     return 0;    // $A0D7
 L_A0D8:
     goto L_A0E1;    // $A0DB
@@ -1812,10 +1819,10 @@ word subhandler_A113(word arg1, word arg2, word arg3, word arg4) {
     local10 = number_input(/*stack underflow*/ regA, 1);    // $A169
     if (number_input(/*stack underflow*/ regA, 1)) {    // $A16A
     local10 = arg1->arms;    // $A16D
-    *(word*)(arg1) = (*(word*)(arg1) - sub_8303(/*stack underflow*/ regA, mem_6E0F));    // $A17B
-    local10 = sub_8303(/*stack underflow*/ regA, mem_6E0F);    // $A17C
-    arg1 = sub_8303(/*stack underflow*/ regA, mem_6E0F);    // $A17D
-    arg1->arms = (arg1->arms + effect_subhandler_A113(/*via arg1*/ sub_8303(/*stack underflow*/ regA, mem_6E0F), /*via arg1*/ sub_8303(/*stack underflow*/ regA, mem_6E0F)));    // $A18A
+    *(word*)(arg1) = (*(word*)(arg1) - math32_muladddiv(/*stack underflow*/ regA, mem_6E0F));    // $A17B
+    local10 = math32_muladddiv(/*stack underflow*/ regA, mem_6E0F);    // $A17C
+    arg1 = math32_muladddiv(/*stack underflow*/ regA, mem_6E0F);    // $A17D
+    arg1->arms = (arg1->arms + effect_subhandler_A113(/*via arg1*/ math32_muladddiv(/*stack underflow*/ regA, mem_6E0F), /*via arg1*/ math32_muladddiv(/*stack underflow*/ regA, mem_6E0F)));    // $A18A
     return 0;    // $A199
 L_A19A:
     goto L_A1A3;    // $A19D
@@ -1882,7 +1889,7 @@ L_A28D:
 
 word sub_A29B(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $A2B4
-    *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - sub_8303(/*via arg2*/ ?, mem_6E13));    // $A2CB
+    *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - math32_muladddiv(/*via arg2*/ ?, mem_6E13));    // $A2CB
     return helper_8A4E(5);    // $A2D1
 }
 
@@ -1955,10 +1962,10 @@ L_A41D:
     }
 L_A43B:
     local9 = 4;    // $A43B
-    *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - sub_8303(/*stack underflow*/ regA, mem_6E13));    // $A452
+    *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - math32_muladddiv(/*stack underflow*/ regA, mem_6E13));    // $A452
     return 0;    // $A459
 L_A45A:
-    local9 = sub_8303(/*stack underflow*/ regA, mem_6E13);    // $A45A
+    local9 = math32_muladddiv(/*stack underflow*/ regA, mem_6E13);    // $A45A
     local7 = sub_A255(/*stack underflow*/ regA, arg1->morale);    // $A464
     if ((arg1->morale <= local7)) {    // $A46B
     } else {
@@ -2055,10 +2062,10 @@ word sub_A553(word arg1, word arg2, word arg3, word arg4) {
     local10 = number_input(/*stack underflow*/ regA, 1);    // $A580
     if (number_input(/*stack underflow*/ regA, 1)) {    // $A581
     local10 = arg1->men;    // $A584
-    *(word*)(arg1) = (*(word*)(arg1) - sub_8303(/*stack underflow*/ regA, mem_6E11));    // $A592
-    local10 = sub_8303(/*stack underflow*/ regA, mem_6E11);    // $A593
-    arg1 = sub_8303(/*stack underflow*/ regA, mem_6E11);    // $A594
-    arg1 = sub_8303(/*stack underflow*/ regA, mem_6E11);    // $A599
+    *(word*)(arg1) = (*(word*)(arg1) - math32_muladddiv(/*stack underflow*/ regA, mem_6E11));    // $A592
+    local10 = math32_muladddiv(/*stack underflow*/ regA, mem_6E11);    // $A593
+    arg1 = math32_muladddiv(/*stack underflow*/ regA, mem_6E11);    // $A594
+    arg1 = math32_muladddiv(/*stack underflow*/ regA, mem_6E11);    // $A599
     return 0;    // $A5DC
 L_A5DD:
     if (local9) {    // $A5DE
@@ -2875,14 +2882,14 @@ word sub_B338(word arg1, word arg2, word arg3, word arg4) {
     if (!(((unsigned)sub_B32B() > (unsigned)mem_6E0D))) goto L_B3A3;    // $B36E
     local10 = helper_8357((*(word*)((local11 + 24)) - *(word*)((local11 + 6))), mem_6E0D, *(word*)(arg1));    // $B386
     local10 = *(word*)((local11 + 6));    // $B387
-    *(word*)(local11) = (*(word*)(local11) - sub_8303(/*stack underflow*/ regA, mem_6E0D));    // $B395
-    local10 = sub_8303(/*stack underflow*/ regA, mem_6E0D);    // $B396
-    *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) + sub_8303(/*stack underflow*/ regA, mem_6E0D));    // $B39D
+    *(word*)(local11) = (*(word*)(local11) - math32_muladddiv(/*stack underflow*/ regA, mem_6E0D));    // $B395
+    local10 = math32_muladddiv(/*stack underflow*/ regA, mem_6E0D);    // $B396
+    *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) + math32_muladddiv(/*stack underflow*/ regA, mem_6E0D));    // $B39D
     }
 L_B3A3:
-    arg2 = sub_8303(/*stack underflow*/ regA, mem_6E0D);    // $B3A3
-    arg1 = sub_8303(/*stack underflow*/ regA, mem_6E0D);    // $B3A4
-    return sub_B2EF(/*via arg2*/ sub_8303(/*stack underflow*/ regA, mem_6E0D), /*via arg2*/ sub_8303(/*stack underflow*/ regA, mem_6E0D));    // $B3A9
+    arg2 = math32_muladddiv(/*stack underflow*/ regA, mem_6E0D);    // $B3A3
+    arg1 = math32_muladddiv(/*stack underflow*/ regA, mem_6E0D);    // $B3A4
+    return sub_B2EF(/*via arg2*/ math32_muladddiv(/*stack underflow*/ regA, mem_6E0D), /*via arg2*/ math32_muladddiv(/*stack underflow*/ regA, mem_6E0D));    // $B3A9
     }
 }
 
@@ -2960,13 +2967,13 @@ L_B571:
     local8 = *(word*)((local11 + 16));    // $B589
     *(word*)((local11 + 18)) = (*(word*)((local11 + 18)) + *(word*)((local11 + 16)));    // $B591
     *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) - (*(word*)((local11 + 16)) * local8));    // $B59F
-    local8 = sub_8327(*(word*)((local11 + 24)), mem_6E0F, *(word*)((local11 + 16)));    // $B5B1
+    local8 = scale_div10_capcheck(*(word*)((local11 + 24)), mem_6E0F, *(word*)((local11 + 16)));    // $B5B1
     if ((*(word*)(local11) <= local8)) {    // $B5B6
     if ((local8 != 1)) {    // $B5BD
     local8 = (local10 / local8);    // $B5C3
     if ((local10 / local8)) {    // $B5C4
     local8 = local8;    // $B5CD
-    *(word*)(local11) = (*(word*)(local11) - sub_8327(/*stack underflow*/ regA, *(word*)(local11), mem_6E0F));    // $B5D8
+    *(word*)(local11) = (*(word*)(local11) - scale_div10_capcheck(/*stack underflow*/ regA, *(word*)(local11), mem_6E0F));    // $B5D8
     *(word*)((local11 + 22)) = (*(word*)((local11 + 22)) + (local8 << 1));    // $B5E3
     }
     }
