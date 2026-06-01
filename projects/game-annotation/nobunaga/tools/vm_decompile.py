@@ -194,7 +194,7 @@ def _build_opcode_to_mnemonic():
     rng(0xA0, 0xA3, 'op_A0_A3_byte')
     m[0xA4] = 'loadA_mem_word';  m[0xA5] = 'loadA_mem_byte'
     m[0xA6] = 'loadB_mem_word';  m[0xA7] = 'loadA_addr_word'
-    m[0xA8] = 'loadA_mem_word';  m[0xA9] = 'storeA_mem_byte'
+    m[0xA8] = 'storeA_mem_word'; m[0xA9] = 'storeA_mem_byte'
     m[0xAB] = 'op_AB_word'; m[0xAD] = 'op_AD_byte'
     m[0xAC] = 'host_call_simple'; m[0xAE] = 'adjust_stack_sbyte'
     m[0xB0] = 'loadA_ind_word';  m[0xB1] = 'storeA_ind_word'
@@ -821,6 +821,14 @@ def decompile(filepath, sub_addr, labels=None):
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             addr = int(m.group(1), 16) if m else 0
             state.regA = _mem_name(operand, addr, labels)
+        elif mnem == 'storeA_mem_word':
+            # $A8 STORE_abs — store regA's WORD to an absolute address. (Was wrongly
+            # mapped to loadA_mem_word: every $A8 store rendered as a phantom read.
+            # PROVEN $A8=store by the year++ at $A48E LOADL_abs / INC / $A492 STORE_abs.)
+            # regA is the SOURCE and is left unchanged by the store.
+            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
+            addr = int(m.group(1), 16) if m else 0
+            state.emit(f"{_mem_name(operand, addr, labels)} = {state.regA};")
         elif mnem == 'storeA_mem_byte':
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             addr = int(m.group(1), 16) if m else 0
