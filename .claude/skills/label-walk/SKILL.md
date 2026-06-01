@@ -28,39 +28,47 @@ bytecode (`disasm/bank_NN_vm.asm` + ext-op table + `native-call-index`) because 
 nothing. The bank_01 run proved the verifier corrected 29/50 proposer names; self-QA would have
 rubber-stamped them.
 
-## The batch loop (regen between batches = the fixpoint)
+## The batch loop (regen between batches = the fixpoint) — now 3 calls per batch
 
 Each Workflow run handles ONE batch of clusters. Regen after each batch "relinks": the new toml
 names propagate into every call-site, so the next batch reads a less-sparse `bank_NN.c`. Order
-**leaves-first** so roots (turn loop, AI planner) are named against already-named callees.
+**leaves-first** so roots (turn loop, AI planner) are named against already-named callees. Two
+scripts (`label-walk-prep.py`, `label-walk-apply.py`) make the mechanical work deterministic — the
+coordinator only drives the Workflow. **Proven across bank_01 + bank_00 (2026-06-01); the glue was
+scripted after bank_00 to make whole-bank runs hands-off.**
 
-1. **Cluster (leaves-first):**
-   `py -3 tools/cluster-anon-subs.py <bank> --by-callgraph --json` → 14ish clusters. Take the first
-   few un-done clusters as this batch (early batches = leaves; commit between batches).
-2. **Gather OPTIONAL seeds** (degrade gracefully — bank_00 has almost none): named callees a root
-   would lean on. Inject `vm_bootstrap $A778`, the AI war-target planner `$A4AB-$A5AF`
-   ([[project_nobunaga_ai_war_architecture]]), and any bank_15/01 callees the batch calls. Oracle
-   hints (econ formulas) only for oracle-rich banks.
-3. **Run the Workflow** (the saved harness — do not inline a fresh script):
+Per batch (loop until `prep` reports 0 anon = bank done):
+
+1. **PREP — next batch + auto-seeds (deterministic):**
    ```
-   Workflow({ scriptPath: "<this-skill>/scripts/label-walk.workflow.js",
-              args: { bank: 0, clusters: <slice of the --json>, seeds: "<text>", oracle: "<text|omit>" } })
+   py -3 tools/label-walk-prep.py <bank> --batch-clusters 3 [--landmarks "<bank-specific context>"] --json
    ```
-   Returns `{ bank, verified:[{addr, final_name, verdict, confidence, evidence}] }`.
-4. **ROOT writes survivors** to `mesen-labels.toml` `[prg.bankN]` — one consolidated block, each
-   line flagged `# [HIGH]/[MED]/[LOW] <verdict>`. REFUTED → `helper_<addr>` (honest, not a guess).
-   Dedup against existing labels; resolve any address collision before writing.
-5. **Regen guard** (the relink + the cross-bank-bleed detector):
+   Emits `{bank, clusters:[first 3 leaves-first], seeds}` — `seeds` auto-pulls every already-named
+   sub in the bank from the toml. Pass `--landmarks` ONCE per bank for the analytical context a
+   script can't know (e.g. combat: the `$AFE1/$9647/$9675/$830B` engine spine from
+   [[project_nobunaga_combat_architecture]]; oracle-rich banks: the econ formulas). Run without
+   `--json` first for a human summary + remaining count.
+2. **WORKFLOW — propose→verify (the agents; the only non-deterministic step):**
    ```
-   py -3 tools/mesen-labels.py --mlb --asm
-   py -3 tools/decompile-all.py
-   git diff --numstat decompiled/      # ONLY bank_NN.c may change — any other bank = STOP (bleed)
-   git diff decompiled/bank_NN.c       # diff must be PURE RENAMES (sub_XXXX→name), zero logic lines
+   Workflow({ scriptPath: "<this-skill>/scripts/label-walk.workflow.js", args: <prep's JSON> })
    ```
-   If another bank's `.c` changed, a switchable-window label leaked banks — fix the section, don't
-   commit. (This guard is how the bank_01 walk caught a real decompiler bug.)
-6. **Commit** the batch (`mesen-labels.toml` + `.mlb` + `disasm/*_named.asm` + `decompiled/*.c`),
-   then loop to step 1 for the next batch reading the now-enriched C.
+   Returns `{ bank, verified:[{addr, final_name, verdict, confidence, summary, evidence}] }`; the
+   full result is also written to the task-output file (path in the completion notice).
+3. **APPLY — write + regen + guard + commit (deterministic, HARD-GATED):**
+   ```
+   py -3 tools/label-walk-apply.py <bank> <task-output-file.json> --commit
+   ```
+   Writes survivors to `[prg.bankN]` (verdict/confidence-flagged, `summary` as the comment, REFUTED
+   → `helper_<addr>`, dedup + collision guard), regens (`mesen-labels.py --mlb --asm` +
+   `decompile-all.py`), then **HARD-FAILS (exit 2)** unless only `bank_NN.c` changed (no cross-bank
+   bleed) and its diff is pure renames — then commits. A non-zero exit means STOP and inspect (a
+   switchable-window label leaked banks, or logic moved); do not paper over it. Run once without
+   `--commit` to preview the guard.
+
+**Why auto-writing is correct, not a shortcut:** the verifier IS the check (lateral, lower-altitude
+bytecode); a coordinator self-review rubber-stamps ([[feedback_verification_independence_is_altitude]]).
+The only thing that must gate the write is the deterministic guard, which `apply` makes a hard
+assertion. Mechanical→scripts, analytical→agents ([[feedback_mechanical_vs_analytical_fanout]]).
 
 ## Done / register
 

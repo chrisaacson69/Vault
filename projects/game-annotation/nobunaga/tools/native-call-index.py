@@ -103,9 +103,14 @@ def parse_native(bank, entry_targets):
     return edges, defs
 
 
-# bytecode host_call edges -------------------------------------------------
+# bytecode call edges ------------------------------------------------------
+# The VM disasm expresses EVERY inter-sub call as `CALL_abs $XXXX` / `CALL_abs_imm1
+# $XXXX ..., $NN` (the imm1 form carries an arg-count byte). An older revision used a
+# `host_call` mnemonic — kept here for back-compat, but today's disasm has 0 of those and
+# 600+ CALL_abs per bank, so matching ONLY host_call silently dropped the whole bytecode
+# call graph (every bytecode sub reported "0 callers"). Both forms become edges.
 VM_SUB_RE = re.compile(r";\s*sub\s+\$([0-9A-Fa-f]{4})")
-VM_HOSTCALL_RE = re.compile(r"host_call(?:_simple)?\s+\$([0-9A-Fa-f]{4})")
+VM_CALL_RE = re.compile(r"\b(?:host_call(?:_simple)?|CALL_abs(?:_imm1)?)\s+\$([0-9A-Fa-f]{4})")
 
 
 def parse_bytecode(bank):
@@ -118,9 +123,10 @@ def parse_bytecode(bank):
         s = VM_SUB_RE.search(line)
         if s:
             cur = int(s.group(1), 16)
-        h = VM_HOSTCALL_RE.search(line)
-        if h and cur is not None:
-            edges.append((cur, int(h.group(1), 16), "host_call", None))
+            continue
+        c = VM_CALL_RE.search(line)
+        if c and cur is not None:
+            edges.append((cur, int(c.group(1), 16), "call_abs", None))
     return edges
 
 

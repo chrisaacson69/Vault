@@ -59,13 +59,14 @@ const PROPOSE_SCHEMA = {
 const VERDICT_SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['addr', 'final_name', 'verdict', 'confidence', 'evidence'],
+  required: ['addr', 'final_name', 'verdict', 'confidence', 'summary', 'evidence'],
   properties: {
     addr: { type: 'string' },
     final_name: { type: 'string', description: 'the name to write; on REFUTED use helper_<addr>' },
     verdict: { enum: ['CONFIRMED', 'AMENDED', 'REFUTED'] },
     confidence: { enum: ['HIGH', 'MED', 'LOW'] },
-    evidence: { type: 'string', description: 'what the BYTECODE showed; cite opcodes/ext_ops/callers' },
+    summary: { type: 'string', description: 'ONE line (<=220 chars), the CONCLUSION not the trace: what the sub does + the key fields/formula. This becomes the toml comment verbatim, so make it a clean human-readable description (no leading "Bytecode @ ...").' },
+    evidence: { type: 'string', description: 'the full bytecode basis; cite opcodes/ext_ops/callers (kept in the run log, not the toml)' },
   },
 }
 
@@ -94,6 +95,8 @@ Verdicts:
 - CONFIRMED: bytecode supports the proposed name as-is.
 - AMENDED: the function is real but the name is wrong/imprecise -> give the correct final_name.
 - REFUTED: not enough evidence to name by purpose -> final_name = "helper_${p.addr}".
+Also return a one-line 'summary' (the CONCLUSION, not the trace) — it is written verbatim as the sub's toml comment, so it must read as a clean human description (what it does + key fields/formula), no "Bytecode @ ..." preamble.
+Note: native-call-index now resolves bytecode CALL_abs edges, so 'callers'/'calls' return real data — trust them (a genuine 0 means indirect/table-dispatched).
 Proposer evidence (for reference, NOT authority): ${p.evidence}
 ${seeds}
 ${CAVEATS}
