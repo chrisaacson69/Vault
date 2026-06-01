@@ -14,15 +14,20 @@ prg_bank_count = 16        # 256 KB total
 
 [ram]
 
-# --- Shared scratch pointer pool (chapter 2) ---
-"0x0000" = { name = "ptr0_lo",            comment = "General scratch pointer LO (project-wide default; 13 of 16 banks touch this)" }
-"0x0001" = { name = "ptr0_hi",            comment = "General scratch pointer HI" }
-"0x0002" = { name = "ptr1_lo",            comment = "Pointer pair LO; reset-init to $FF (forms $05FF with $03)" }
-"0x0003" = { name = "ptr1_hi",            comment = "Pointer pair HI; reset-init to $05" }
-"0x0004" = { name = "ptr2_lo",            comment = "Pointer pair LO" }
-"0x0005" = { name = "ptr2_hi",            comment = "Pointer pair HI" }
-"0x0006" = { name = "ptr3_lo",            comment = "Pointer pair LO (second-busiest indirect after ptr0)" }
-"0x0007" = { name = "ptr3_hi",            comment = "Pointer pair HI" }
+# --- Shared scratch pointer pool / VM machine registers (chapter 2; renamed 2026-05-31) ---
+# These ZP pointer pairs got descriptive names by their DOMINANT/owning role. ptr0 stays
+# generic (it is genuinely project-wide scratch); ptr1/2/3 are the VM's machine registers
+# (the VM owns them, though a few kernel syscalls transiently borrow ptr1 as scratch).
+# NOTE: older comments elsewhere in this file still use the "ptr1/ptr2/ptr3" shorthand;
+# the mapping is ptr1=vm_sp, ptr2=vm_fp, ptr3=vm_ip, ptr0=scratch_ptr.
+"0x0000" = { name = "scratch_ptr_lo",     comment = "General-purpose ZP scratch pointer LO (project-wide default; 13 of 16 banks touch this). In the VM = computed-address + indirect-call target (was ptr0). Kept generic deliberately -- NOT VM-exclusive." }
+"0x0001" = { name = "scratch_ptr_hi",     comment = "General-purpose ZP scratch pointer HI (was ptr0)." }
+"0x0002" = { name = "vm_sp_lo",           comment = "VM operand-stack pointer LO (was ptr1). Reset-inits to $FF -> $05FF stack base; VM frame alloc does vm_sp -= 9; syscall_dispatch reads params via (vm_sp),Y. CAVEAT: a few kernel syscalls (e.g. sram checksum $C5AA) transiently borrow $02/$03 as a scratch pointer." }
+"0x0003" = { name = "vm_sp_hi",           comment = "VM operand-stack pointer HI (was ptr1); reset-init to $05." }
+"0x0004" = { name = "vm_fp_lo",           comment = "VM frame-base pointer LO (was ptr2). Frame-local address = vm_fp + signed offset (the local/array access base; see vm_addr_ptr2_plus_word/sbyte)." }
+"0x0005" = { name = "vm_fp_hi",           comment = "VM frame-base pointer HI (was ptr2)." }
+"0x0006" = { name = "vm_ip_lo",           comment = "VM bytecode instruction-pointer LO (was ptr3). The dispatch loop does lda (vm_ip),Y / inc vm_ip to fetch opcodes + inline operands. Second-busiest indirect after scratch_ptr." }
+"0x0007" = { name = "vm_ip_hi",           comment = "VM bytecode instruction-pointer HI (was ptr3)." }
 
 # --- PPU pipeline pointers (chapter 2) ---
 "0x001C" = { name = "ppu_queue_a_lo",     comment = "Pointer LO into $0020 (PPU upload queue A?); reset-init = $20" }

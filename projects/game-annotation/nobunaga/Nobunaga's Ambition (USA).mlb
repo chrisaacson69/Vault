@@ -1,11 +1,11 @@
-NesInternalRam:0:ptr0_lo:General scratch pointer LO (project-wide default; 13 of 16 banks touch this)
-NesInternalRam:1:ptr0_hi:General scratch pointer HI
-NesInternalRam:2:ptr1_lo:Pointer pair LO; reset-init to $FF (forms $05FF with $03)
-NesInternalRam:3:ptr1_hi:Pointer pair HI; reset-init to $05
-NesInternalRam:4:ptr2_lo:Pointer pair LO
-NesInternalRam:5:ptr2_hi:Pointer pair HI
-NesInternalRam:6:ptr3_lo:Pointer pair LO (second-busiest indirect after ptr0)
-NesInternalRam:7:ptr3_hi:Pointer pair HI
+NesInternalRam:0:scratch_ptr_lo:General-purpose ZP scratch pointer LO (project-wide default; 13 of 16 banks touch this). In the VM = computed-address + indirect-call target (was ptr0). Kept generic deliberately -- NOT VM-exclusive.
+NesInternalRam:1:scratch_ptr_hi:General-purpose ZP scratch pointer HI (was ptr0).
+NesInternalRam:2:vm_sp_lo:VM operand-stack pointer LO (was ptr1). Reset-inits to $FF -> $05FF stack base; VM frame alloc does vm_sp -= 9; syscall_dispatch reads params via (vm_sp),Y. CAVEAT: a few kernel syscalls (e.g. sram checksum $C5AA) transiently borrow $02/$03 as a scratch pointer.
+NesInternalRam:3:vm_sp_hi:VM operand-stack pointer HI (was ptr1); reset-init to $05.
+NesInternalRam:4:vm_fp_lo:VM frame-base pointer LO (was ptr2). Frame-local address = vm_fp + signed offset (the local/array access base; see vm_addr_ptr2_plus_word/sbyte).
+NesInternalRam:5:vm_fp_hi:VM frame-base pointer HI (was ptr2).
+NesInternalRam:6:vm_ip_lo:VM bytecode instruction-pointer LO (was ptr3). The dispatch loop does lda (vm_ip),Y / inc vm_ip to fetch opcodes + inline operands. Second-busiest indirect after scratch_ptr.
+NesInternalRam:7:vm_ip_hi:VM bytecode instruction-pointer HI (was ptr3).
 NesInternalRam:1C:ppu_queue_a_lo:Pointer LO into $0020 (PPU upload queue A?); reset-init = $20
 NesInternalRam:1D:ppu_queue_a_hi:Pointer HI; reset-init = $00 (forms $0020)
 NesInternalRam:1E:ppu_queue_b_lo:Pointer LO into $0030 (queue B?); reset-init = $30
