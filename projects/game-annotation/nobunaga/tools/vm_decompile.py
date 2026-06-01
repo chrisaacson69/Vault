@@ -177,7 +177,7 @@ def _build_opcode_to_mnemonic():
     rng(0x10, 0x1B, 'loadB_local_neg');  rng(0x1C, 0x1F, 'loadB_local_pos')
     rng(0x20, 0x2B, 'storeA_local_neg'); rng(0x2C, 0x2F, 'storeA_local_pos')
     rng(0x30, 0x3B, 'storeB_local_neg'); rng(0x3C, 0x3F, 'storeB_local_pos')
-    m[0x40] = 'clearA_40';               rng(0x41, 0x4F, 'clearA')
+    rng(0x40, 0x4F, 'loadA_imm4')   # LOADL_qimm: regL = opcode & 0x0F (0..15), NOT a clear
     m[0x50] = 'setB_imm4_50';            rng(0x51, 0x5F, 'setB_imm4')
     rng(0x60, 0x6F, 'push_imm4');        m[0x70] = 'nop'
     rng(0x71, 0x7F, 'addA_imm4')
@@ -643,8 +643,10 @@ def decompile(filepath, sub_addr, labels=None):
             state.regA = f"({state.regA} | {state.regB})"
         elif mnem == 'swap_AB':
             state.regA, state.regB = state.regB, state.regA
-        elif mnem in ('clearA', 'clearA_40'):
-            state.regA = "0"
+        elif mnem == 'loadA_imm4':
+            # $40-$4F LOADL_qimm: regL = low nibble (0..15). $40 == 0 (was a "clearA"
+            # special case); $41-$4F carry a real immediate the old handler dropped.
+            state.regA = str(opcode & 0x0F)
 
         # === Branches & control flow ===
         elif mnem == 'branch_z_abs':

@@ -66,7 +66,7 @@ L_CA78:
     goto L_CA7D;    // $CA79
 L_CA7C:
 L_CA7D:
-    return 0;    // $CA7D
+    return 1;    // $CA7D
 }
 
 // $CA7E strlen
@@ -148,7 +148,7 @@ L_CB2A:
     goto L_CB2F;    // $CB2B
 L_CB2E:
 L_CB2F:
-    return 0;    // $CB2F
+    return 1;    // $CB2F
 }
 
 // $CB30 to_upper
@@ -380,13 +380,13 @@ L_CD99:
 // (body @ $CDB4)
 
 word ui_get_menu_count_7fcf(word arg1, word arg2, word arg3, word arg4) {
-    ui_window_col = 0;    // $CDB5
+    ui_window_col = 2;    // $CDB5
     ui_cursor_row = (ui_cursor_row + 1);    // $CDBC
     if (((unsigned)(ui_cursor_row + 1) > (unsigned)27)) {    // $CDC2
-    ui_cursor_row = 0;    // $CDC6
+    ui_cursor_row = 3;    // $CDC6
     }
 L_CDC9:
-    return 0;    // $CDC9
+    return 3;    // $CDC9
 }
 
 // $CDCA char_classify
@@ -545,7 +545,7 @@ word num_to_ascii(word arg1, word arg2, word arg3, word arg4) {
     }
 L_CFB9:
     *(byte*)(((*(word*)(arg1) + 1) - 1)) = (arg2 + 55);    // $CFB9
-    return 0;    // $CFBB
+    return 1;    // $CFBB
 L_CFBC:
     arg3 = 10;    // $CFBC
     arg1 = arg3;    // $CFC1
@@ -589,7 +589,7 @@ L_D018:
     if (!(*(byte*)(((*(word*)(fp - 3) + 1) - 1)))) goto L_D130;    // $D022
     if (!((*(byte*)(fp - 1) == 37))) goto L_D00F;    // $D02B
     *(word*)(fp - 15) = (fp - 13);    // $D031
-    *(word*)(fp - 21) = 0;    // $D034
+    *(word*)(fp - 21) = 6;    // $D034
     *(word*)(fp - 17) = 0;    // $D037
     *(byte*)(fp - 1) = *(byte*)(*(word*)(fp - 3));    // $D03C
     if (is_digit(*(byte*)(fp - 1))) {    // $D047
@@ -601,7 +601,7 @@ L_D056:
     *(byte*)(fp - 1) = *(byte*)(((*(word*)(fp - 3) + 1) - 1));    // $D05F
     if ((*(byte*)(((*(word*)(fp - 3) + 1) - 1)) == 46)) {    // $D065
     *(word*)(fp - 21) = atoi_decimal((fp - 3));    // $D070
-    *(word*)(fp - 17) = 0;    // $D073
+    *(word*)(fp - 17) = 1;    // $D073
     *(word*)(fp - 3) = (*(word*)(fp - 3) + 1);    // $D078
     *(byte*)(fp - 1) = *(byte*)(((*(word*)(fp - 3) + 1) - 1));    // $D07C
     }
@@ -670,7 +670,7 @@ word ui_helper_d134(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $D153)
 
 word poll_input(word arg1, word arg2, word arg3, word arg4) {
-    local11 = 0;    // $D154
+    local11 = 2;    // $D154
     switch (ui_input_mode) {    // $D158
         case 0: goto L_D169;    // $D158
         case 1: goto L_D1E1;    // $D158
@@ -769,7 +769,7 @@ word read_frame_timer(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_D2AC:
-    ui_timer_gate_flag_7fe7 = 0;    // $D2AC
+    ui_timer_gate_flag_7fe7 = 2;    // $D2AC
     if (arg1) goto L_D2CA;    // $D2B0
     goto L_D2F8;    // $D2C7
 L_D2CA:
@@ -840,7 +840,7 @@ L_D378:
 L_D3A0:
     }
 L_D3A1:
-    local11 = 0;    // $D3A1
+    local11 = 2;    // $D3A1
     return local11;    // $D3A6
     }
 }
@@ -869,7 +869,7 @@ L_D3E7:
 word cursor_nav_loop(word arg1, word arg2, word arg3, word arg4) {
     local4 = 0;    // $D3F3
     local6 = 0;    // $D3F5
-    local5 = 0;    // $D3F7
+    local5 = 1;    // $D3F7
 L_D3F8:
     *(word*)(((local5 << 1) + &local6)) = 255;    // $D404
     local5 = (local5 + 1);    // $D407
@@ -891,7 +891,7 @@ L_D447:
     if (((ui_input_prompt_active_flag == 1))) return -1;    // $D451
     return 0;    // $D458
 L_D459:
-    local2 = 0;    // $D45F
+    local2 = 1;    // $D45F
 L_D460:
     if (!(local2)) goto L_D427;    // $D461
     local3 = 0;    // $D465
@@ -908,13 +908,13 @@ L_D492:
 L_D4AF:
     *(word*)(((local4 << 1) + &local6)) = (*(word*)(((local4 << 1) + &local6)) - 1);    // $D4BA
     if (((unsigned)(*(word*)(((local4 << 1) + &local6)) - 1) < (unsigned)10)) {    // $D4BD
-    *(word*)(((local4 << 1) + &local6)) = 0;    // $D4CA
+    *(word*)(((local4 << 1) + &local6)) = 9;    // $D4CA
     }
 L_D4CB:
     goto L_D492;    // $D4D8
 L_D4DB:
     if (!(local4)) goto L_D460;    // $D4DC
-    ui_window_col = (ui_window_col - 0);    // $D4F1
+    ui_window_col = (ui_window_col - 2);    // $D4F1
     local4 = (local4 - 1);    // $D4FF
     *(word*)(((((local4 - 1) + 1) << 1) + &local6)) = 255;    // $D508
 L_D509:
@@ -943,7 +943,7 @@ L_D573:
 word count_div_iterations_d586(word arg1, word arg2, word arg3, word arg4) {
     goto L_D596;    // $D58C
 L_D58F:
-    arg1 = (arg1 / 0);    // $D593
+    arg1 = (arg1 / 10);    // $D593
 L_D596:
     local11 = (local11 + 1);    // $D596
     if (arg1) goto L_D58F;    // $D598
@@ -1023,13 +1023,13 @@ L_D64E:
     } else {
     }
 L_D667:
-    local11 = (local11 & 0);    // $D66A
+    local11 = (local11 & 1);    // $D66A
 L_D66B:
     if ((local11 != 1)) {    // $D66E
     } else {
     }
 L_D676:
-    return 0;    // $D676
+    return 1;    // $D676
     }
     }
     }
@@ -1275,8 +1275,8 @@ word develop_gain(word arg1, word arg2, word arg3, word arg4) {
     if ((!((arg1 >= 1)))) return 0;    // $D8C2
     arg1 = 1;    // $D8C7
     arg1 = const_two;    // $D8E4
-    local11 = math32_3arg(/*via arg1*/ const_two, (sqrt_int(((*(word*)(arg2) + *(word*)(arg3)) / 2)) + sqrt_int(/*via arg1*/ 1)), (-const_two));    // $D8E9
-    if (!(local11)) return 0;    // $D8EB
+    local11 = math32_3arg(/*via arg1*/ const_two, (sqrt_int(((*(word*)(arg2) + *(word*)(arg3)) / 2)) + sqrt_int(/*via arg1*/ 1)), (6 - const_two));    // $D8E9
+    if (!(local11)) return 1;    // $D8EB
     return local11;    // $D8F1
 }
 
@@ -1525,7 +1525,7 @@ L_DB92:
 
 word assign_unique_id_6eb1(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $DB9C
-    *(byte*)((fief_to_daimyo_record_addr(/*via arg1*/ ?) + 6)) = 0;    // $DBA4
+    *(byte*)((fief_to_daimyo_record_addr(/*via arg1*/ ?) + 6)) = 1;    // $DBA4
     local8 = 0;    // $DBA6
 L_DBA7:
     local10 = ((((rng_mod(5) * 125) + (rng_mod(5) * 25)) + (rng_mod(5) * 5)) + rng_mod(5));    // $DBCC
@@ -1535,7 +1535,7 @@ L_DBA7:
 L_DBDD:
     local9 = 17;    // $DBDD
     local11 = 0;    // $DBDF
-    local8 = 0;    // $DBE1
+    local8 = 1;    // $DBE1
     goto L_DBF6;    // $DBE2
 L_DBE5:
     if ((*(word*)(((local11 << 1) + 0x6EB1)) == local10)) {    // $DBEE
@@ -1630,7 +1630,7 @@ L_DCB7:
     goto L_DD1C;    // $DCFF
 L_DD02:
     if (strcmp(((local11 * 9) + 0x77A8), (fp - 13))) goto L_DD1A;    // $DD12
-    local8 = 0;    // $DD16
+    local8 = 1;    // $DD16
     goto L_DD25;    // $DD17
 L_DD1A:
 L_DD1C:
@@ -1867,7 +1867,7 @@ L_E0B3:
     goto L_E0B8;    // $E0B4
 L_E0B7:
 L_E0B8:
-    local7 = 0;    // $E0B8
+    local7 = 1;    // $E0B8
     if (local7) {    // $E0BA
     if (local9) goto L_E0CB;    // $E0BE
     war_attacker_men = 0;    // $E0C2
@@ -1950,7 +1950,7 @@ word install_new_daimyo(word arg1, word arg2, word arg3, word arg4) {
     arg1 = 0x6E15;    // $E22E
     arg1 = 0x6E15;    // $E238
     province_ai_state[arg1] = 0;    // $E259
-    *(byte*)((arg1 + 0x6DA2)) = 0;    // $E261
+    *(byte*)((arg1 + 0x6DA2)) = 1;    // $E261
     arg1 = 0x6DA2;    // $E262
     arg1 = 0x6DA2;    // $E267
     arg1 = 0x6DA2;    // $E26C
@@ -2001,7 +2001,7 @@ word draw_daimyo_name_menu(word arg1, word arg2, word arg3, word arg4) {
 word marry_helper_e315(word arg1, word arg2, word arg3, word arg4) {
     if (get_province_ai_state(battle_defending_province)) {    // $E321
     local9 = ui_input_mode;    // $E327
-    ui_input_mode = 0;    // $E329
+    ui_input_mode = 2;    // $E329
     if (!(ui_helper_d3a7())) goto L_E359;    // $E33D
     local11 = number_input(0x270F, 1);    // $E34F
     if (number_input(0x270F, 1)) goto L_E35B;    // $E350
@@ -2032,7 +2032,7 @@ L_E3A2:
 word diplomacy_helper(word arg1, word arg2, word arg3, word arg4) {
     if (get_province_ai_state(battle_defending_province)) {    // $E3B0
     local9 = ui_input_mode;    // $E3B6
-    ui_input_mode = 0;    // $E3B8
+    ui_input_mode = 2;    // $E3B8
     local11 = number_input(0x270F, 1);    // $E3D1
     if (number_input(0x270F, 1)) goto L_E3D8;    // $E3D2
 L_E3D8:
@@ -2254,8 +2254,8 @@ L_E7EE:
 L_E7FA:
     arg2 = 0xB144;    // $E801
     arg1 = 0xB144;    // $E802
-    ui_pending_flag_7fc7 = 0;    // $E808
-    return 0;    // $E80B
+    ui_pending_flag_7fc7 = 1;    // $E808
+    return 1;    // $E80B
 }
 
 // $E80C ui_helper_e80c

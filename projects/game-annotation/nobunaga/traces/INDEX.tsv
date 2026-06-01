@@ -148,3 +148,4 @@ zealots_PRE.dmp	2026-05-29	memory	8192	name-derived: command-test PRE snapshot (
 TanmbaBattle.dmp	2026-05-30	memory	8192	Mesen SRAM fetched from Debugger dir
 EzoBattle.dmp	2026-05-30	memory	8192	Mesen SRAM fetched from Debugger dir
 ezo-post-battle.dmp	2026-05-30	memory	8192	Post-Ezo-defense 50-fief save: player Ezo/Kakizaki men 23->24 (NO deserter transfer after killing the routed general), Mutsu/Tsugaru daimyo dead+invaded, Oda taking Mino. PRE pair = EzoBattle.dmp. For combat-resolution / deserter-mechanic investigation.
+highhealthinvasion.dmp	2026-06-01	memory	8192	Mesen SRAM dump: player=Kakizaki(d0,Ezo,h103), conquered Mutsu(13 men) from Tsugaru via the troop-strength invasion path. Validates daimyo_weakness_flag=HEALTH gate AND proves the separate adjacency/low-men invasion path. Evidence for ROADMAP:167 + the parked troop-based-invasion question.
