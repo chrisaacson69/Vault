@@ -167,7 +167,6 @@ L_CB4B:
 
 word byte_helper_cb4c(word arg1, word arg2, word arg3, word arg4) {
     if ((arg1 < 0)) {    // $CB54
-    // TODO: op_CB
     } else {
     }
 L_CB5D:
@@ -1070,12 +1069,11 @@ word math32_2arg(word arg1, word arg2, word arg3, word arg4) {
     // ext_op add32
     // ext_op push_a32_to_vm_stack
     // ext_op clear_a_high16
-    // ext_op load_b32_from_ptr3
     // ext_op umul32
     // ext_op pop_b32_from_vm_stack
     // ext_op sdiv32
     // ext_op ext_op_nop
-    return local0;    // $D70C
+    return arg1;    // $D70C
 }
 
 // $D70D pct_op

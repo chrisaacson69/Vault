@@ -1935,7 +1935,6 @@ L_A534:
     if (((unsigned)local9 >= (unsigned)scenario_fief_count)) goto L_A505;    // $A539
     *(byte*)((local8 + 0x7BAD)) = -1;    // $A544
     if (!(local8)) goto L_A55B;    // $A546
-    // TODO: host_call_indirect_simple
     if (((mem_6E48 == 1))) return (mem_6E48 == 1);    // $A557
     goto L_A5CB;    // $A55C
 L_A55F:

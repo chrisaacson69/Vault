@@ -619,20 +619,45 @@ def decompile(filepath, sub_addr, labels=None):
             else:
                 state.regA = f"{fname}({', '.join(args)})"
 
+        # === Indirect host calls — VM opcodes $EA / $DD (call through regA) ===
+        # The callee address is computed (in regA), not an inline label. $EA carries a
+        # ptr1-adjust byte (= bytes popped, like $E9); $DD takes none (like $AC). Args
+        # come off the VM stack, same as host_call.
+        elif mnem in ('host_call_indirect', 'host_call_indirect_simple'):
+            callee = state.regA
+            bp = re.search(r'\$([0-9A-Fa-f]+)', operand)
+            arity = (int(bp.group(1), 16) // 2) if bp else 0
+            args = []
+            for _ in range(arity):
+                args.append(state.stack.pop() if state.stack else "/*stack underflow*/ regA")
+            args.reverse()
+            state.regA = f"(*({callee}))({', '.join(args)})"
+
         # === Extended (32-bit / bitfield) ops — VM opcode $B7 ('ext_op') ===
         # The operand is the ext-op INDEX byte ("$NN"). Resolve it through EXT_OP_TABLE
         # to a handler address, then name it via the mesen labels (Session A walk).
         # ext_ops form a postfix stack-machine sequence on the A/B register file
         # ($08-$0F), so we name the operation rather than fake an f(regA,regB) call.
+        # EXCEPT $18/$19 (load_a32/b32_from_ptr3): these carry a 4-byte inline LE
+        # immediate (vm-disasm.py gives the instruction length 6), so render the load.
         elif mnem == 'ext_op':
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             idx = int(m.group(1), 16) if m else -1
-            haddr = EXT_OP_TABLE.get(idx)
-            if haddr:
-                name = _label_name(labels, haddr) or f"ext_op_{haddr:04X}"
-                state.emit(f"// ext_op {name}")
+            b = ins['bytes']
+            if idx in (0x18, 0x19) and len(b) >= 6:
+                imm = b[2] | (b[3] << 8) | (b[4] << 16) | (b[5] << 24)
+                lit = str(imm) if imm < 256 else f"0x{imm:08X}"
+                if idx == 0x18:   # load_a32_from_ptr3
+                    state.regA = lit
+                else:             # $19 load_b32_from_ptr3
+                    state.regB = lit
             else:
-                state.emit(f"// ext_op ${idx:02X} (unmapped)")
+                haddr = EXT_OP_TABLE.get(idx)
+                if haddr:
+                    name = _label_name(labels, haddr) or f"ext_op_{haddr:04X}"
+                    state.emit(f"// ext_op {name}")
+                else:
+                    state.emit(f"// ext_op ${idx:02X} (unmapped)")
 
         # === General frame-local access (vm_fp + signed offset) ===
         # Decoded from the handlers $EA34-$EB25 (see _WORD_SLOT/frame_* helpers).
@@ -692,6 +717,8 @@ def decompile(filepath, sub_addr, labels=None):
             state.regA = f"({state.regA} >> {state.regB})"
         elif mnem == 'pushA_B2':
             state.stack.append(state.regA)
+        elif mnem == 'op_CB':            # $CB: 16-bit two's-complement negate of regA
+            state.regA = f"(-{state.regA})"
 
         # === Absolute byte memory (byte mirrors of loadA_mem_word/store) ===
         elif mnem == 'loadA_mem_byte':

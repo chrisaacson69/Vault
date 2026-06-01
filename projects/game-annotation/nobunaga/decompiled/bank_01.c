@@ -213,12 +213,10 @@ word sub_8303(word arg1, word arg2, word arg3, word arg4) {
     // ext_op sign_extend16_to_32
     // ext_op pop_b32_from_vm_stack
     // ext_op umul32
-    // ext_op load_b32_from_ptr3
     // ext_op add32
-    // ext_op load_b32_from_ptr3
     // ext_op sdiv32
     // ext_op ext_op_nop
-    return local0;    // $8326
+    return arg1;    // $8326
 }
 
 // (body @ $832C)
@@ -227,23 +225,17 @@ word sub_8327(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $832C
     arg1 = ?;    // $832D
     if ((sub_8303(/*via arg2*/ ?, /*via arg2*/ ?) > arg3)) {    // $8334
-    // ext_op load_a32_from_ptr3
-    // TODO: op_FF
-    // TODO: op_FF
-    // TODO: op_FF
-    // TODO: op_FF
     } else {
     // ext_op sign_extend16_to_32
     // ext_op push_a32_to_vm_stack
     // ext_op sign_extend16_to_32
     // ext_op pop_b32_from_vm_stack
     // ext_op umul32
-    // ext_op load_b32_from_ptr3
     // ext_op sdiv32
     }
 L_8354:
     // ext_op ext_op_nop
-    return local0;    // $8356
+    return arg1;    // $8356
     }
 }
 
@@ -255,12 +247,11 @@ word helper_8357(word arg1, word arg2, word arg3, word arg4) {
     // ext_op sign_extend16_to_32
     // ext_op push_a32_to_vm_stack
     // ext_op sign_extend16_to_32
-    // ext_op load_b32_from_ptr3
     // ext_op umul32
     // ext_op pop_b32_from_vm_stack
     // ext_op sdiv32
     // ext_op ext_op_nop
-    return min_word(/*via arg3*/ ?, local0);    // $8378
+    return min_word(/*via arg3*/ ?, arg1);    // $8378
 }
 
 // (body @ $837E)
@@ -1855,8 +1846,7 @@ L_A1E9:
 L_A1F0:
     local11 = submenu_prompt(6);    // $A1FC
     local10 = *(word*)(((submenu_prompt(6) << 1) + 0xB9DC));    // $A203
-    // TODO: host_call_indirect $02
-    if (!(local10)) goto L_A231;    // $A212
+    if (!((*(local10))(((selected_province_idx * 26) + 0x7001)))) goto L_A231;    // $A212
     if (!(local11)) return 0;    // $A225
     return 0;    // $A230
 L_A231:
@@ -2822,8 +2812,7 @@ L_B248:
 L_B270:
     local10 = submenu_prompt(7);    // $B27C
     local11 = *(word*)(((local10 << 1) + 0xB9E8));    // $B284
-    // TODO: host_call_indirect_simple
-    *(byte*)(fp - 7) = local11;    // $B287
+    *(byte*)(fp - 7) = (*(local11))();    // $B287
     if ((local10 == 6)) goto L_B298;    // $B28D
     if ((*(byte*)(fp - 7) != 1)) goto L_B270;    // $B295
 L_B298:
@@ -3089,9 +3078,8 @@ L_B7E8:
 L_B7F2:
     local7 = sub_B6B4();    // $B806
     local5 = *(word*)(((sub_B6B4() << 1) + 0xB9B2));    // $B80D
-    // TODO: host_call_indirect_simple
 L_B810:
-    local6 = local5;    // $B810
+    local6 = (*(local5))();    // $B810
     if (!(local6)) goto L_B7E8;    // $B812
     if ((local7 == 1)) goto L_B874;    // $B818
     if ((local7 == 20)) goto L_B874;    // $B81F

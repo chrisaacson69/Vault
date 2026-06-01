@@ -3018,8 +3018,7 @@ L_ACCA:
 L_ACDC:
     local11 = sub_8669(*(byte*)(sub_82B9()), *(byte*)(sub_82A9()));    // $AD07
     local8 = *(word*)(((local11 << 1) + 0xB9F8));    // $AD0F
-    // TODO: host_call_indirect_simple
-    if (local8) goto L_AC99;    // $AD12
+    if ((*(local8))()) goto L_AC99;    // $AD12
     if ((local11 == 3)) {    // $AD18
     local10 = 0;    // $AD1C
     } else {

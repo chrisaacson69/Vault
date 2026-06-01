@@ -94,6 +94,13 @@ def instr_len(mem, pc):
         return 5 + 4 * count
     if op == 0xAD:                                 # COPY: 1 count byte (handler $EB7D)
         return 2
+    if op == 0xB7:                                 # LONG/ext_op: 1 index byte at pc+1,
+        idx = mem.read(pc + 1)                     # plus a 4-byte inline immediate for
+        # ext_op $18/$19 = load_a32/b32_from_ptr3, which copy (ptr3),Y=0..3 and advance
+        # ptr3 by 4 (handlers $F4F4/$F500). All other ext_ops take no inline operand.
+        # Without this, the 4 immediate bytes get mis-decoded as opcodes (e.g. a 32-bit
+        # 0xFFFFFFFF reads as four $FF traps), corrupting the rest of the sub.
+        return 6 if idx in (0x18, 0x19) else 2
     info = OPCODE_INFO.get(op)
     n = info[1] if info else 0
     if n < 0:
