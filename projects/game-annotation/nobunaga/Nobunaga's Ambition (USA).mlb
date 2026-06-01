@@ -179,6 +179,167 @@ NesPrgRom:3F58B:push_value32_to_vm_stack:ext_op entry $13: jsr vm_read_word_into
 NesPrgRom:3F5A3:push_a32_to_vm_stack:ext_op entry $14: ptr0 = $0008 (address of A), jmp $F58E push primitive. Pushes accumulator A onto the VM operand stack.
 NesPrgRom:3F5AC:pop_b32_from_vm_stack:ext_op entry $15: copy (ptr1),Y=3..0 -> B($0C-$0F), then ptr1 += 4. Pops a 32-bit value off the VM operand stack into B.
 NesPrgRom:3F5C2:load_a32_via_a_ptr:ext_op entry $16: ptr0 = low 16 bits of A, jmp load_a32_from_addr body ($F550). Dereferences A-as-pointer into A.
+NesPrgRom:3F008:vm_push16_AX:Shared 16-bit VM-stack push tail: ptr1 -= 2, store A (low) then X (high) at (ptr1), jmp vm_dispatch. 8 opcode handlers jmp here after computing a 16-bit result in A:X. The 16-bit analog of the $F58E push32 tail.
+NesPrgRom:3F550:load_a32_from_ptr0:Inner body of load_a32_from_addr ($F54D): copy (ptr0),Y=3..0 -> A($08-$0B). Shared jmp-target of the indirect / A-as-pointer ext-op variants $F57C and $F5C2.
+NesPrgRom:3F58E:vm_push32_tail:Shared 32-bit VM-stack push tail: ptr1 -= 4, copy (ptr0),Y=3..0 -> (ptr1). Used by ext-ops $F577 (store-or-push), $F58B (push value) and $F5A3 (push A).
+NesPrgRom:3E883:vm_op_01_loadA_local_neg:VM opcode $01 handler (loadA_local_neg).
+NesPrgRom:3E887:vm_op_02_loadA_local_neg:VM opcode $02 handler (loadA_local_neg).
+NesPrgRom:3E88B:vm_op_03_loadA_local_neg:VM opcode $03 handler (loadA_local_neg).
+NesPrgRom:3E88F:vm_op_04_loadA_local_neg:VM opcode $04 handler (loadA_local_neg).
+NesPrgRom:3E893:vm_op_05_loadA_local_neg:VM opcode $05 handler (loadA_local_neg).
+NesPrgRom:3E897:vm_op_06_loadA_local_neg:VM opcode $06 handler (loadA_local_neg).
+NesPrgRom:3E89B:vm_op_07_loadA_local_neg:VM opcode $07 handler (loadA_local_neg).
+NesPrgRom:3E89F:vm_op_08_loadA_local_neg:VM opcode $08 handler (loadA_local_neg).
+NesPrgRom:3E8A3:vm_op_09_loadA_local_neg:VM opcode $09 handler (loadA_local_neg).
+NesPrgRom:3E8A7:vm_op_0A_loadA_local_neg:VM opcode $0A handler (loadA_local_neg).
+NesPrgRom:3E8AB:vm_op_0B_loadA_local_neg:VM opcode $0B handler (loadA_local_neg).
+NesPrgRom:3E8C4:vm_op_0F_loadA_local_pos:VM opcode $0F handler (loadA_local_pos).
+NesPrgRom:3E8C8:vm_op_0E_loadA_local_pos:VM opcode $0E handler (loadA_local_pos).
+NesPrgRom:3E8CC:vm_op_0D_loadA_local_pos:VM opcode $0D handler (loadA_local_pos).
+NesPrgRom:3E8D0:vm_op_0C_loadA_local_pos:VM opcode $0C handler (loadA_local_pos).
+NesPrgRom:3E8DE:vm_op_10_loadB_local_neg:VM opcode $10 handler (loadB_local_neg).
+NesPrgRom:3E8E2:vm_op_11_loadB_local_neg:VM opcode $11 handler (loadB_local_neg).
+NesPrgRom:3E8E6:vm_op_12_loadB_local_neg:VM opcode $12 handler (loadB_local_neg).
+NesPrgRom:3E8EA:vm_op_13_loadB_local_neg:VM opcode $13 handler (loadB_local_neg).
+NesPrgRom:3E8EE:vm_op_14_loadB_local_neg:VM opcode $14 handler (loadB_local_neg).
+NesPrgRom:3E8F2:vm_op_15_loadB_local_neg:VM opcode $15 handler (loadB_local_neg).
+NesPrgRom:3E8F6:vm_op_16_loadB_local_neg:VM opcode $16 handler (loadB_local_neg).
+NesPrgRom:3E8FA:vm_op_17_loadB_local_neg:VM opcode $17 handler (loadB_local_neg).
+NesPrgRom:3E8FE:vm_op_18_loadB_local_neg:VM opcode $18 handler (loadB_local_neg).
+NesPrgRom:3E902:vm_op_19_loadB_local_neg:VM opcode $19 handler (loadB_local_neg).
+NesPrgRom:3E906:vm_op_1A_loadB_local_neg:VM opcode $1A handler (loadB_local_neg).
+NesPrgRom:3E90A:vm_op_1B_loadB_local_neg:VM opcode $1B handler (loadB_local_neg).
+NesPrgRom:3E923:vm_op_1F_loadB_local_pos:VM opcode $1F handler (loadB_local_pos).
+NesPrgRom:3E927:vm_op_1E_loadB_local_pos:VM opcode $1E handler (loadB_local_pos).
+NesPrgRom:3E92B:vm_op_1D_loadB_local_pos:VM opcode $1D handler (loadB_local_pos).
+NesPrgRom:3E92F:vm_op_1C_loadB_local_pos:VM opcode $1C handler (loadB_local_pos).
+NesPrgRom:3E93D:vm_op_20_storeA_local_neg:VM opcode $20 handler (storeA_local_neg).
+NesPrgRom:3E941:vm_op_21_storeA_local_neg:VM opcode $21 handler (storeA_local_neg).
+NesPrgRom:3E945:vm_op_22_storeA_local_neg:VM opcode $22 handler (storeA_local_neg).
+NesPrgRom:3E949:vm_op_23_storeA_local_neg:VM opcode $23 handler (storeA_local_neg).
+NesPrgRom:3E94D:vm_op_24_storeA_local_neg:VM opcode $24 handler (storeA_local_neg).
+NesPrgRom:3E951:vm_op_25_storeA_local_neg:VM opcode $25 handler (storeA_local_neg).
+NesPrgRom:3E955:vm_op_26_storeA_local_neg:VM opcode $26 handler (storeA_local_neg).
+NesPrgRom:3E959:vm_op_27_storeA_local_neg:VM opcode $27 handler (storeA_local_neg).
+NesPrgRom:3E95D:vm_op_28_storeA_local_neg:VM opcode $28 handler (storeA_local_neg).
+NesPrgRom:3E961:vm_op_29_storeA_local_neg:VM opcode $29 handler (storeA_local_neg).
+NesPrgRom:3E965:vm_op_2A_storeA_local_neg:VM opcode $2A handler (storeA_local_neg).
+NesPrgRom:3E969:vm_op_2B_storeA_local_neg:VM opcode $2B handler (storeA_local_neg).
+NesPrgRom:3E982:vm_op_2F_storeA_local_pos:VM opcode $2F handler (storeA_local_pos).
+NesPrgRom:3E986:vm_op_2E_storeA_local_pos:VM opcode $2E handler (storeA_local_pos).
+NesPrgRom:3E98A:vm_op_2D_storeA_local_pos:VM opcode $2D handler (storeA_local_pos).
+NesPrgRom:3E98E:vm_op_2C_storeA_local_pos:VM opcode $2C handler (storeA_local_pos).
+NesPrgRom:3E99C:vm_op_30_storeB_local_neg:VM opcode $30 handler (storeB_local_neg).
+NesPrgRom:3E9A0:vm_op_31_storeB_local_neg:VM opcode $31 handler (storeB_local_neg).
+NesPrgRom:3E9A4:vm_op_32_storeB_local_neg:VM opcode $32 handler (storeB_local_neg).
+NesPrgRom:3E9A8:vm_op_33_storeB_local_neg:VM opcode $33 handler (storeB_local_neg).
+NesPrgRom:3E9AC:vm_op_34_storeB_local_neg:VM opcode $34 handler (storeB_local_neg).
+NesPrgRom:3E9B0:vm_op_35_storeB_local_neg:VM opcode $35 handler (storeB_local_neg).
+NesPrgRom:3E9B4:vm_op_36_storeB_local_neg:VM opcode $36 handler (storeB_local_neg).
+NesPrgRom:3E9B8:vm_op_37_storeB_local_neg:VM opcode $37 handler (storeB_local_neg).
+NesPrgRom:3E9BC:vm_op_38_storeB_local_neg:VM opcode $38 handler (storeB_local_neg).
+NesPrgRom:3E9C0:vm_op_39_storeB_local_neg:VM opcode $39 handler (storeB_local_neg).
+NesPrgRom:3E9C4:vm_op_3A_storeB_local_neg:VM opcode $3A handler (storeB_local_neg).
+NesPrgRom:3E9C8:vm_op_3B_storeB_local_neg:VM opcode $3B handler (storeB_local_neg).
+NesPrgRom:3E9DF:vm_op_3F_storeB_local_pos:VM opcode $3F handler (storeB_local_pos).
+NesPrgRom:3E9E3:vm_op_3E_storeB_local_pos:VM opcode $3E handler (storeB_local_pos).
+NesPrgRom:3E9E7:vm_op_3D_storeB_local_pos:VM opcode $3D handler (storeB_local_pos).
+NesPrgRom:3E9EB:vm_op_3C_storeB_local_pos:VM opcode $3C handler (storeB_local_pos).
+NesPrgRom:3E9F6:vm_op_clearA_shared:Shared VM-opcode handler for 15 opcodes ($41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F).
+NesPrgRom:3EA00:vm_op_40_clearA_40:VM opcode $40 handler (clearA_40).
+NesPrgRom:3EA07:vm_op_setB_imm4_shared:Shared VM-opcode handler for 15 opcodes ($51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F).
+NesPrgRom:3EA11:vm_op_50_setB_imm4_50:VM opcode $50 handler (setB_imm4_50).
+NesPrgRom:3EA18:vm_op_push_imm4_shared:Shared VM-opcode handler for 16 opcodes ($60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F).
+NesPrgRom:3EA20:vm_op_addA_imm4_shared:Shared VM-opcode handler for 15 opcodes ($71,$72,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F).
+NesPrgRom:3EA2C:vm_op_70_nop:VM opcode $70 handler (nop).
+NesPrgRom:3EA2F:vm_op_82_bb:VM opcode $82 handler (op_82_bb).
+NesPrgRom:3EA34:vm_op_81_byte:VM opcode $81 handler (op_81_byte).
+NesPrgRom:3EA43:vm_op_A4_loadA_mem_word:VM opcode $A4 handler (loadA_mem_word).
+NesPrgRom:3EA48:vm_op_83_byte:VM opcode $83 handler (op_83_byte).
+NesPrgRom:3EA57:vm_op_84_bwb:VM opcode $84 handler (op_84_bwb).
+NesPrgRom:3EA5C:vm_op_A6_loadB_mem_word:VM opcode $A6 handler (loadB_mem_word).
+NesPrgRom:3EA61:vm_op_85_byte:VM opcode $85 handler (op_85_byte).
+NesPrgRom:3EA70:vm_op_86_bwb:VM opcode $86 handler (op_86_bwb).
+NesPrgRom:3EA75:vm_op_A8_loadA_mem_word:VM opcode $A8 handler (loadA_mem_word).
+NesPrgRom:3EA7A:vm_op_87_byte:VM opcode $87 handler (op_87_byte).
+NesPrgRom:3EA87:vm_op_88_bwb:VM opcode $88 handler (op_88_bwb).
+NesPrgRom:3EA8C:vm_op_AA:VM opcode $AA handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode).
+NesPrgRom:3EA91:vm_op_DE_loadA_frameaddr:VM opcode $DE handler (loadA_frameaddr).
+NesPrgRom:3EAA0:vm_op_DF_loadB_frameaddr:VM opcode $DF handler (loadB_frameaddr).
+NesPrgRom:3EAAF:vm_op_89_loadA_imm_sbyte:VM opcode $89 handler (loadA_imm_sbyte).
+NesPrgRom:3EAB9:vm_op_8A_loadA_imm_word:VM opcode $8A handler (loadA_imm_word).
+NesPrgRom:3EABE:vm_op_8B_loadB_imm_byte:VM opcode $8B handler (loadB_imm_byte).
+NesPrgRom:3EAC8:vm_op_8C_loadB_imm_word:VM opcode $8C handler (loadB_imm_word).
+NesPrgRom:3EACD:vm_op_8D_sbyte:VM opcode $8D handler (op_8D_sbyte).
+NesPrgRom:3EAD3:vm_op_8E_push_imm_word:VM opcode $8E handler (push_imm_word).
+NesPrgRom:3EAD9:vm_op_8F_addA_imm_sbyte:VM opcode $8F handler (addA_imm_sbyte).
+NesPrgRom:3EAE8:vm_op_90_bb:VM opcode $90 handler (op_90_bb).
+NesPrgRom:3EAED:vm_op_A0_A3_byte:VM opcode $A0 handler (op_A0_A3_byte).
+NesPrgRom:3EAF9:vm_op_A5_loadA_mem_byte:VM opcode $A5 handler (loadA_mem_byte).
+NesPrgRom:3EAFE:vm_op_A1_A3_byte:VM opcode $A1 handler (op_A0_A3_byte).
+NesPrgRom:3EB0A:vm_op_A7_loadA_addr_word:VM opcode $A7 handler (loadA_addr_word).
+NesPrgRom:3EB0F:vm_op_A2_A3_byte:VM opcode $A2 handler (op_A0_A3_byte).
+NesPrgRom:3EB19:vm_op_A9_storeA_mem_byte:VM opcode $A9 handler (storeA_mem_byte).
+NesPrgRom:3EB1E:vm_op_A3_A3_byte:VM opcode $A3 handler (op_A0_A3_byte).
+NesPrgRom:3EB28:vm_op_AB_word:VM opcode $AB handler (op_AB_word).
+NesPrgRom:3EB2D:vm_op_EA_host_call_indirect:VM opcode $EA handler (host_call_indirect).
+NesPrgRom:3EB43:vm_op_DD_host_call_indirect_simple:VM opcode $DD handler (host_call_indirect_simple).
+NesPrgRom:3EB7D:vm_op_AD_byte:VM opcode $AD handler (op_AD_byte).
+NesPrgRom:3EBAC:vm_op_AF:VM opcode $AF handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode).
+NesPrgRom:3EBBB:vm_op_D6_jump_abs:VM opcode $D6 handler (jump_abs).
+NesPrgRom:3EBC5:vm_op_D7_branch_nz_abs:VM opcode $D7 handler (branch_nz_abs).
+NesPrgRom:3EBD1:vm_op_D8_branch_z_abs:VM opcode $D8 handler (branch_z_abs).
+NesPrgRom:3EBD9:vm_op_E3:VM opcode $E3 handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode).
+NesPrgRom:3EBE7:vm_op_E4_branch_nz_rel:VM opcode $E4 handler (branch_nz_rel).
+NesPrgRom:3EBF3:vm_op_E5_branch_z_rel:VM opcode $E5 handler (branch_z_rel).
+NesPrgRom:3EBFB:vm_op_E6_jump_rel_fwd:VM opcode $E6 handler (jump_rel_fwd).
+NesPrgRom:3EC09:vm_op_E7_branch_nz_rel_fwd:VM opcode $E7 handler (branch_nz_rel_fwd).
+NesPrgRom:3EC15:vm_op_E8_branch_z_rel_fwd:VM opcode $E8 handler (branch_z_rel_fwd).
+NesPrgRom:3EC1D:vm_op_D9_switch:VM opcode $D9 handler (switch).
+NesPrgRom:3EC65:vm_op_D5_switch:VM opcode $D5 handler (switch).
+NesPrgRom:3EC9E:vm_op_B0_loadA_ind_word:VM opcode $B0 handler (loadA_ind_word).
+NesPrgRom:3ECAB:vm_op_D3_loadA_ind_byte:VM opcode $D3 handler (loadA_ind_byte).
+NesPrgRom:3ECB4:vm_op_B1_storeA_ind_word:VM opcode $B1 handler (storeA_ind_word).
+NesPrgRom:3ECC3:vm_op_D4_storeA_ind_byte:VM opcode $D4 handler (storeA_ind_byte).
+NesPrgRom:3ECCE:vm_op_B3_pushA:VM opcode $B3 handler (pushA).
+NesPrgRom:3ECD5:vm_op_B4_popB:VM opcode $B4 handler (popB).
+NesPrgRom:3ECF0:vm_op_B5_mul:VM opcode $B5 handler (mul).
+NesPrgRom:3ED18:vm_op_B8_div_unsigned:VM opcode $B8 handler (div_unsigned).
+NesPrgRom:3ED1E:vm_op_B6_div_signed:VM opcode $B6 handler (div_signed).
+NesPrgRom:3ED54:vm_op_B9_mod_signed:VM opcode $B9 handler (mod_signed).
+NesPrgRom:3ED6C:vm_op_BA_mod_unsigned:VM opcode $BA handler (mod_unsigned).
+NesPrgRom:3EDA1:vm_op_BB_add:VM opcode $BB handler (add).
+NesPrgRom:3EDB1:vm_op_BC_sub:VM opcode $BC handler (sub).
+NesPrgRom:3EDC1:vm_op_BD_shl_by_regB:VM opcode $BD handler (shl_by_regB).
+NesPrgRom:3EDD5:vm_op_BF_ashr_by_regB:VM opcode $BF handler (ashr_by_regB).
+NesPrgRom:3EDEE:vm_op_BE_lshr_by_regB:VM opcode $BE handler (lshr_by_regB).
+NesPrgRom:3EE02:vm_op_DA_bitand:VM opcode $DA handler (bitand).
+NesPrgRom:3EE11:vm_op_DB_bitor:VM opcode $DB handler (bitor).
+NesPrgRom:3EE20:vm_op_DC_bitxor:VM opcode $DC handler (bitxor).
+NesPrgRom:3EE2F:vm_op_C0_cmp_eq:VM opcode $C0 handler (cmp_eq).
+NesPrgRom:3EE43:vm_op_C1_cmp_ne:VM opcode $C1 handler (cmp_ne).
+NesPrgRom:3EE57:vm_op_C2_cmp_slt:VM opcode $C2 handler (cmp_slt).
+NesPrgRom:3EE6E:vm_op_C4_cmp_sgt:VM opcode $C4 handler (cmp_sgt).
+NesPrgRom:3EE85:vm_op_C3_cmp_sge:VM opcode $C3 handler (cmp_sge).
+NesPrgRom:3EE9C:vm_op_C5_cmp_sle:VM opcode $C5 handler (cmp_sle).
+NesPrgRom:3EEB3:vm_op_C6_cmp_uge:VM opcode $C6 handler (cmp_uge).
+NesPrgRom:3EEC5:vm_op_C8_cmp_ugt:VM opcode $C8 handler (cmp_ugt).
+NesPrgRom:3EED7:vm_op_C7_cmp_ule:VM opcode $C7 handler (cmp_ule).
+NesPrgRom:3EEE9:vm_op_C9_cmp_ult:VM opcode $C9 handler (cmp_ult).
+NesPrgRom:3EEFB:vm_op_CA_is_zero:VM opcode $CA handler (is_zero).
+NesPrgRom:3EF09:vm_op_CB:VM opcode $CB handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode).
+NesPrgRom:3EF17:vm_op_CC:VM opcode $CC handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode).
+NesPrgRom:3EF26:vm_op_CD_swap_AB:VM opcode $CD handler (swap_AB).
+NesPrgRom:3EF39:vm_op_D0_incA:VM opcode $D0 handler (incA).
+NesPrgRom:3EF42:vm_op_D1_decA:VM opcode $D1 handler (decA).
+NesPrgRom:3EF4D:vm_op_D2_aslA:VM opcode $D2 handler (aslA).
+NesPrgRom:3EF54:vm_op_E0_byte:VM opcode $E0 handler (op_E0_byte).
+NesPrgRom:3EF5F:vm_op_E1_byte:VM opcode $E1 handler (op_E1_byte).
+NesPrgRom:3EF6A:vm_op_E2_byte:VM opcode $E2 handler (op_E2_byte).
+NesPrgRom:3EF75:vm_op_CF_vm_return:VM opcode $CF handler (vm_return).
+NesPrgRom:3EF92:vm_op_trigger_syscall_shared:Shared VM-opcode handler that triggers a host syscall, reached by 37 opcodes ($80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE). The opcode byte selects the syscall.
+NesPrgRom:3EF93:vm_op_FF:VM opcode $FF handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode).
+NesPrgRom:3F020:vm_op_B2_pushA_B2:VM opcode $B2 handler (pushA_B2).
 NesPrgRom:0:bank0_entry:Bank 0 entry point. 3 bytes: JMP $A778. The 'rest of bank 0' is data — VM bytecode, sprite/tile data, and a few small native helpers callable from bytecode.
 NesPrgRom:2778:vm_bootstrap:First instruction reached after RESET. JSR vm_entry ($E823) followed by inline VM bytecode that orchestrates the entire boot sequence (audio init, palette load, screen setup) and ultimately becomes the main game loop.
 NesPrgRom:3C54F:nmi_off:Clear bit 7 of ppuctrl_shadow (disable NMI generation); used as the NMI re-entry guard

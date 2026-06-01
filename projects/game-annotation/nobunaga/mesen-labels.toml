@@ -268,6 +268,173 @@ prg_bank_count = 16        # 256 KB total
 "0xF5A3" = { name = "push_a32_to_vm_stack",  comment = "ext_op entry $14: ptr0 = $0008 (address of A), jmp $F58E push primitive. Pushes accumulator A onto the VM operand stack." }
 "0xF5AC" = { name = "pop_b32_from_vm_stack", comment = "ext_op entry $15: copy (ptr1),Y=3..0 -> B($0C-$0F), then ptr1 += 4. Pops a 32-bit value off the VM operand stack into B." }
 "0xF5C2" = { name = "load_a32_via_a_ptr",    comment = "ext_op entry $16: ptr0 = low 16 bits of A, jmp load_a32_from_addr body ($F550). Dereferences A-as-pointer into A." }
+# Shared inner bodies / VM-stack push tails (jmp-reached, not table entries; Session B):
+"0xF008" = { name = "vm_push16_AX",          comment = "Shared 16-bit VM-stack push tail: ptr1 -= 2, store A (low) then X (high) at (ptr1), jmp vm_dispatch. 8 opcode handlers jmp here after computing a 16-bit result in A:X. The 16-bit analog of the $F58E push32 tail." }
+"0xF550" = { name = "load_a32_from_ptr0",    comment = "Inner body of load_a32_from_addr ($F54D): copy (ptr0),Y=3..0 -> A($08-$0B). Shared jmp-target of the indirect / A-as-pointer ext-op variants $F57C and $F5C2." }
+"0xF58E" = { name = "vm_push32_tail",        comment = "Shared 32-bit VM-stack push tail: ptr1 -= 4, copy (ptr0),Y=3..0 -> (ptr1). Used by ext-ops $F577 (store-or-push), $F58B (push value) and $F5A3 (push A)." }
+
+# >>> AUTO: VM-opcode handler labels (tools/vm-opcode-labels.py --write)
+# 256 VM opcodes -> handlers via $F026/$F126; mechanically named from the
+# validated vm_decompile.OPCODE_TO_MNEMONIC. Regenerate: vm-opcode-labels.py --write.
+"0xE883" = { name = "vm_op_01_loadA_local_neg", comment = "VM opcode $01 handler (loadA_local_neg)." }
+"0xE887" = { name = "vm_op_02_loadA_local_neg", comment = "VM opcode $02 handler (loadA_local_neg)." }
+"0xE88B" = { name = "vm_op_03_loadA_local_neg", comment = "VM opcode $03 handler (loadA_local_neg)." }
+"0xE88F" = { name = "vm_op_04_loadA_local_neg", comment = "VM opcode $04 handler (loadA_local_neg)." }
+"0xE893" = { name = "vm_op_05_loadA_local_neg", comment = "VM opcode $05 handler (loadA_local_neg)." }
+"0xE897" = { name = "vm_op_06_loadA_local_neg", comment = "VM opcode $06 handler (loadA_local_neg)." }
+"0xE89B" = { name = "vm_op_07_loadA_local_neg", comment = "VM opcode $07 handler (loadA_local_neg)." }
+"0xE89F" = { name = "vm_op_08_loadA_local_neg", comment = "VM opcode $08 handler (loadA_local_neg)." }
+"0xE8A3" = { name = "vm_op_09_loadA_local_neg", comment = "VM opcode $09 handler (loadA_local_neg)." }
+"0xE8A7" = { name = "vm_op_0A_loadA_local_neg", comment = "VM opcode $0A handler (loadA_local_neg)." }
+"0xE8AB" = { name = "vm_op_0B_loadA_local_neg", comment = "VM opcode $0B handler (loadA_local_neg)." }
+"0xE8C4" = { name = "vm_op_0F_loadA_local_pos", comment = "VM opcode $0F handler (loadA_local_pos)." }
+"0xE8C8" = { name = "vm_op_0E_loadA_local_pos", comment = "VM opcode $0E handler (loadA_local_pos)." }
+"0xE8CC" = { name = "vm_op_0D_loadA_local_pos", comment = "VM opcode $0D handler (loadA_local_pos)." }
+"0xE8D0" = { name = "vm_op_0C_loadA_local_pos", comment = "VM opcode $0C handler (loadA_local_pos)." }
+"0xE8DE" = { name = "vm_op_10_loadB_local_neg", comment = "VM opcode $10 handler (loadB_local_neg)." }
+"0xE8E2" = { name = "vm_op_11_loadB_local_neg", comment = "VM opcode $11 handler (loadB_local_neg)." }
+"0xE8E6" = { name = "vm_op_12_loadB_local_neg", comment = "VM opcode $12 handler (loadB_local_neg)." }
+"0xE8EA" = { name = "vm_op_13_loadB_local_neg", comment = "VM opcode $13 handler (loadB_local_neg)." }
+"0xE8EE" = { name = "vm_op_14_loadB_local_neg", comment = "VM opcode $14 handler (loadB_local_neg)." }
+"0xE8F2" = { name = "vm_op_15_loadB_local_neg", comment = "VM opcode $15 handler (loadB_local_neg)." }
+"0xE8F6" = { name = "vm_op_16_loadB_local_neg", comment = "VM opcode $16 handler (loadB_local_neg)." }
+"0xE8FA" = { name = "vm_op_17_loadB_local_neg", comment = "VM opcode $17 handler (loadB_local_neg)." }
+"0xE8FE" = { name = "vm_op_18_loadB_local_neg", comment = "VM opcode $18 handler (loadB_local_neg)." }
+"0xE902" = { name = "vm_op_19_loadB_local_neg", comment = "VM opcode $19 handler (loadB_local_neg)." }
+"0xE906" = { name = "vm_op_1A_loadB_local_neg", comment = "VM opcode $1A handler (loadB_local_neg)." }
+"0xE90A" = { name = "vm_op_1B_loadB_local_neg", comment = "VM opcode $1B handler (loadB_local_neg)." }
+"0xE923" = { name = "vm_op_1F_loadB_local_pos", comment = "VM opcode $1F handler (loadB_local_pos)." }
+"0xE927" = { name = "vm_op_1E_loadB_local_pos", comment = "VM opcode $1E handler (loadB_local_pos)." }
+"0xE92B" = { name = "vm_op_1D_loadB_local_pos", comment = "VM opcode $1D handler (loadB_local_pos)." }
+"0xE92F" = { name = "vm_op_1C_loadB_local_pos", comment = "VM opcode $1C handler (loadB_local_pos)." }
+"0xE93D" = { name = "vm_op_20_storeA_local_neg", comment = "VM opcode $20 handler (storeA_local_neg)." }
+"0xE941" = { name = "vm_op_21_storeA_local_neg", comment = "VM opcode $21 handler (storeA_local_neg)." }
+"0xE945" = { name = "vm_op_22_storeA_local_neg", comment = "VM opcode $22 handler (storeA_local_neg)." }
+"0xE949" = { name = "vm_op_23_storeA_local_neg", comment = "VM opcode $23 handler (storeA_local_neg)." }
+"0xE94D" = { name = "vm_op_24_storeA_local_neg", comment = "VM opcode $24 handler (storeA_local_neg)." }
+"0xE951" = { name = "vm_op_25_storeA_local_neg", comment = "VM opcode $25 handler (storeA_local_neg)." }
+"0xE955" = { name = "vm_op_26_storeA_local_neg", comment = "VM opcode $26 handler (storeA_local_neg)." }
+"0xE959" = { name = "vm_op_27_storeA_local_neg", comment = "VM opcode $27 handler (storeA_local_neg)." }
+"0xE95D" = { name = "vm_op_28_storeA_local_neg", comment = "VM opcode $28 handler (storeA_local_neg)." }
+"0xE961" = { name = "vm_op_29_storeA_local_neg", comment = "VM opcode $29 handler (storeA_local_neg)." }
+"0xE965" = { name = "vm_op_2A_storeA_local_neg", comment = "VM opcode $2A handler (storeA_local_neg)." }
+"0xE969" = { name = "vm_op_2B_storeA_local_neg", comment = "VM opcode $2B handler (storeA_local_neg)." }
+"0xE982" = { name = "vm_op_2F_storeA_local_pos", comment = "VM opcode $2F handler (storeA_local_pos)." }
+"0xE986" = { name = "vm_op_2E_storeA_local_pos", comment = "VM opcode $2E handler (storeA_local_pos)." }
+"0xE98A" = { name = "vm_op_2D_storeA_local_pos", comment = "VM opcode $2D handler (storeA_local_pos)." }
+"0xE98E" = { name = "vm_op_2C_storeA_local_pos", comment = "VM opcode $2C handler (storeA_local_pos)." }
+"0xE99C" = { name = "vm_op_30_storeB_local_neg", comment = "VM opcode $30 handler (storeB_local_neg)." }
+"0xE9A0" = { name = "vm_op_31_storeB_local_neg", comment = "VM opcode $31 handler (storeB_local_neg)." }
+"0xE9A4" = { name = "vm_op_32_storeB_local_neg", comment = "VM opcode $32 handler (storeB_local_neg)." }
+"0xE9A8" = { name = "vm_op_33_storeB_local_neg", comment = "VM opcode $33 handler (storeB_local_neg)." }
+"0xE9AC" = { name = "vm_op_34_storeB_local_neg", comment = "VM opcode $34 handler (storeB_local_neg)." }
+"0xE9B0" = { name = "vm_op_35_storeB_local_neg", comment = "VM opcode $35 handler (storeB_local_neg)." }
+"0xE9B4" = { name = "vm_op_36_storeB_local_neg", comment = "VM opcode $36 handler (storeB_local_neg)." }
+"0xE9B8" = { name = "vm_op_37_storeB_local_neg", comment = "VM opcode $37 handler (storeB_local_neg)." }
+"0xE9BC" = { name = "vm_op_38_storeB_local_neg", comment = "VM opcode $38 handler (storeB_local_neg)." }
+"0xE9C0" = { name = "vm_op_39_storeB_local_neg", comment = "VM opcode $39 handler (storeB_local_neg)." }
+"0xE9C4" = { name = "vm_op_3A_storeB_local_neg", comment = "VM opcode $3A handler (storeB_local_neg)." }
+"0xE9C8" = { name = "vm_op_3B_storeB_local_neg", comment = "VM opcode $3B handler (storeB_local_neg)." }
+"0xE9DF" = { name = "vm_op_3F_storeB_local_pos", comment = "VM opcode $3F handler (storeB_local_pos)." }
+"0xE9E3" = { name = "vm_op_3E_storeB_local_pos", comment = "VM opcode $3E handler (storeB_local_pos)." }
+"0xE9E7" = { name = "vm_op_3D_storeB_local_pos", comment = "VM opcode $3D handler (storeB_local_pos)." }
+"0xE9EB" = { name = "vm_op_3C_storeB_local_pos", comment = "VM opcode $3C handler (storeB_local_pos)." }
+"0xE9F6" = { name = "vm_op_clearA_shared", comment = "Shared VM-opcode handler for 15 opcodes ($41,$42,$43,$44,$45,$46,$47,$48,$49,$4A,$4B,$4C,$4D,$4E,$4F)." }
+"0xEA00" = { name = "vm_op_40_clearA_40", comment = "VM opcode $40 handler (clearA_40)." }
+"0xEA07" = { name = "vm_op_setB_imm4_shared", comment = "Shared VM-opcode handler for 15 opcodes ($51,$52,$53,$54,$55,$56,$57,$58,$59,$5A,$5B,$5C,$5D,$5E,$5F)." }
+"0xEA11" = { name = "vm_op_50_setB_imm4_50", comment = "VM opcode $50 handler (setB_imm4_50)." }
+"0xEA18" = { name = "vm_op_push_imm4_shared", comment = "Shared VM-opcode handler for 16 opcodes ($60,$61,$62,$63,$64,$65,$66,$67,$68,$69,$6A,$6B,$6C,$6D,$6E,$6F)." }
+"0xEA20" = { name = "vm_op_addA_imm4_shared", comment = "Shared VM-opcode handler for 15 opcodes ($71,$72,$73,$74,$75,$76,$77,$78,$79,$7A,$7B,$7C,$7D,$7E,$7F)." }
+"0xEA2C" = { name = "vm_op_70_nop", comment = "VM opcode $70 handler (nop)." }
+"0xEA2F" = { name = "vm_op_82_bb", comment = "VM opcode $82 handler (op_82_bb)." }
+"0xEA34" = { name = "vm_op_81_byte", comment = "VM opcode $81 handler (op_81_byte)." }
+"0xEA43" = { name = "vm_op_A4_loadA_mem_word", comment = "VM opcode $A4 handler (loadA_mem_word)." }
+"0xEA48" = { name = "vm_op_83_byte", comment = "VM opcode $83 handler (op_83_byte)." }
+"0xEA57" = { name = "vm_op_84_bwb", comment = "VM opcode $84 handler (op_84_bwb)." }
+"0xEA5C" = { name = "vm_op_A6_loadB_mem_word", comment = "VM opcode $A6 handler (loadB_mem_word)." }
+"0xEA61" = { name = "vm_op_85_byte", comment = "VM opcode $85 handler (op_85_byte)." }
+"0xEA70" = { name = "vm_op_86_bwb", comment = "VM opcode $86 handler (op_86_bwb)." }
+"0xEA75" = { name = "vm_op_A8_loadA_mem_word", comment = "VM opcode $A8 handler (loadA_mem_word)." }
+"0xEA7A" = { name = "vm_op_87_byte", comment = "VM opcode $87 handler (op_87_byte)." }
+"0xEA87" = { name = "vm_op_88_bwb", comment = "VM opcode $88 handler (op_88_bwb)." }
+"0xEA8C" = { name = "vm_op_AA", comment = "VM opcode $AA handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode)." }
+"0xEA91" = { name = "vm_op_DE_loadA_frameaddr", comment = "VM opcode $DE handler (loadA_frameaddr)." }
+"0xEAA0" = { name = "vm_op_DF_loadB_frameaddr", comment = "VM opcode $DF handler (loadB_frameaddr)." }
+"0xEAAF" = { name = "vm_op_89_loadA_imm_sbyte", comment = "VM opcode $89 handler (loadA_imm_sbyte)." }
+"0xEAB9" = { name = "vm_op_8A_loadA_imm_word", comment = "VM opcode $8A handler (loadA_imm_word)." }
+"0xEABE" = { name = "vm_op_8B_loadB_imm_byte", comment = "VM opcode $8B handler (loadB_imm_byte)." }
+"0xEAC8" = { name = "vm_op_8C_loadB_imm_word", comment = "VM opcode $8C handler (loadB_imm_word)." }
+"0xEACD" = { name = "vm_op_8D_sbyte", comment = "VM opcode $8D handler (op_8D_sbyte)." }
+"0xEAD3" = { name = "vm_op_8E_push_imm_word", comment = "VM opcode $8E handler (push_imm_word)." }
+"0xEAD9" = { name = "vm_op_8F_addA_imm_sbyte", comment = "VM opcode $8F handler (addA_imm_sbyte)." }
+"0xEAE8" = { name = "vm_op_90_bb", comment = "VM opcode $90 handler (op_90_bb)." }
+"0xEAED" = { name = "vm_op_A0_A3_byte", comment = "VM opcode $A0 handler (op_A0_A3_byte)." }
+"0xEAF9" = { name = "vm_op_A5_loadA_mem_byte", comment = "VM opcode $A5 handler (loadA_mem_byte)." }
+"0xEAFE" = { name = "vm_op_A1_A3_byte", comment = "VM opcode $A1 handler (op_A0_A3_byte)." }
+"0xEB0A" = { name = "vm_op_A7_loadA_addr_word", comment = "VM opcode $A7 handler (loadA_addr_word)." }
+"0xEB0F" = { name = "vm_op_A2_A3_byte", comment = "VM opcode $A2 handler (op_A0_A3_byte)." }
+"0xEB19" = { name = "vm_op_A9_storeA_mem_byte", comment = "VM opcode $A9 handler (storeA_mem_byte)." }
+"0xEB1E" = { name = "vm_op_A3_A3_byte", comment = "VM opcode $A3 handler (op_A0_A3_byte)." }
+"0xEB28" = { name = "vm_op_AB_word", comment = "VM opcode $AB handler (op_AB_word)." }
+"0xEB2D" = { name = "vm_op_EA_host_call_indirect", comment = "VM opcode $EA handler (host_call_indirect)." }
+"0xEB43" = { name = "vm_op_DD_host_call_indirect_simple", comment = "VM opcode $DD handler (host_call_indirect_simple)." }
+"0xEB7D" = { name = "vm_op_AD_byte", comment = "VM opcode $AD handler (op_AD_byte)." }
+"0xEBAC" = { name = "vm_op_AF", comment = "VM opcode $AF handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode)." }
+"0xEBBB" = { name = "vm_op_D6_jump_abs", comment = "VM opcode $D6 handler (jump_abs)." }
+"0xEBC5" = { name = "vm_op_D7_branch_nz_abs", comment = "VM opcode $D7 handler (branch_nz_abs)." }
+"0xEBD1" = { name = "vm_op_D8_branch_z_abs", comment = "VM opcode $D8 handler (branch_z_abs)." }
+"0xEBD9" = { name = "vm_op_E3", comment = "VM opcode $E3 handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode)." }
+"0xEBE7" = { name = "vm_op_E4_branch_nz_rel", comment = "VM opcode $E4 handler (branch_nz_rel)." }
+"0xEBF3" = { name = "vm_op_E5_branch_z_rel", comment = "VM opcode $E5 handler (branch_z_rel)." }
+"0xEBFB" = { name = "vm_op_E6_jump_rel_fwd", comment = "VM opcode $E6 handler (jump_rel_fwd)." }
+"0xEC09" = { name = "vm_op_E7_branch_nz_rel_fwd", comment = "VM opcode $E7 handler (branch_nz_rel_fwd)." }
+"0xEC15" = { name = "vm_op_E8_branch_z_rel_fwd", comment = "VM opcode $E8 handler (branch_z_rel_fwd)." }
+"0xEC1D" = { name = "vm_op_D9_switch", comment = "VM opcode $D9 handler (switch)." }
+"0xEC65" = { name = "vm_op_D5_switch", comment = "VM opcode $D5 handler (switch)." }
+"0xEC9E" = { name = "vm_op_B0_loadA_ind_word", comment = "VM opcode $B0 handler (loadA_ind_word)." }
+"0xECAB" = { name = "vm_op_D3_loadA_ind_byte", comment = "VM opcode $D3 handler (loadA_ind_byte)." }
+"0xECB4" = { name = "vm_op_B1_storeA_ind_word", comment = "VM opcode $B1 handler (storeA_ind_word)." }
+"0xECC3" = { name = "vm_op_D4_storeA_ind_byte", comment = "VM opcode $D4 handler (storeA_ind_byte)." }
+"0xECCE" = { name = "vm_op_B3_pushA", comment = "VM opcode $B3 handler (pushA)." }
+"0xECD5" = { name = "vm_op_B4_popB", comment = "VM opcode $B4 handler (popB)." }
+"0xECF0" = { name = "vm_op_B5_mul", comment = "VM opcode $B5 handler (mul)." }
+"0xED18" = { name = "vm_op_B8_div_unsigned", comment = "VM opcode $B8 handler (div_unsigned)." }
+"0xED1E" = { name = "vm_op_B6_div_signed", comment = "VM opcode $B6 handler (div_signed)." }
+"0xED54" = { name = "vm_op_B9_mod_signed", comment = "VM opcode $B9 handler (mod_signed)." }
+"0xED6C" = { name = "vm_op_BA_mod_unsigned", comment = "VM opcode $BA handler (mod_unsigned)." }
+"0xEDA1" = { name = "vm_op_BB_add", comment = "VM opcode $BB handler (add)." }
+"0xEDB1" = { name = "vm_op_BC_sub", comment = "VM opcode $BC handler (sub)." }
+"0xEDC1" = { name = "vm_op_BD_shl_by_regB", comment = "VM opcode $BD handler (shl_by_regB)." }
+"0xEDD5" = { name = "vm_op_BF_ashr_by_regB", comment = "VM opcode $BF handler (ashr_by_regB)." }
+"0xEDEE" = { name = "vm_op_BE_lshr_by_regB", comment = "VM opcode $BE handler (lshr_by_regB)." }
+"0xEE02" = { name = "vm_op_DA_bitand", comment = "VM opcode $DA handler (bitand)." }
+"0xEE11" = { name = "vm_op_DB_bitor", comment = "VM opcode $DB handler (bitor)." }
+"0xEE20" = { name = "vm_op_DC_bitxor", comment = "VM opcode $DC handler (bitxor)." }
+"0xEE2F" = { name = "vm_op_C0_cmp_eq", comment = "VM opcode $C0 handler (cmp_eq)." }
+"0xEE43" = { name = "vm_op_C1_cmp_ne", comment = "VM opcode $C1 handler (cmp_ne)." }
+"0xEE57" = { name = "vm_op_C2_cmp_slt", comment = "VM opcode $C2 handler (cmp_slt)." }
+"0xEE6E" = { name = "vm_op_C4_cmp_sgt", comment = "VM opcode $C4 handler (cmp_sgt)." }
+"0xEE85" = { name = "vm_op_C3_cmp_sge", comment = "VM opcode $C3 handler (cmp_sge)." }
+"0xEE9C" = { name = "vm_op_C5_cmp_sle", comment = "VM opcode $C5 handler (cmp_sle)." }
+"0xEEB3" = { name = "vm_op_C6_cmp_uge", comment = "VM opcode $C6 handler (cmp_uge)." }
+"0xEEC5" = { name = "vm_op_C8_cmp_ugt", comment = "VM opcode $C8 handler (cmp_ugt)." }
+"0xEED7" = { name = "vm_op_C7_cmp_ule", comment = "VM opcode $C7 handler (cmp_ule)." }
+"0xEEE9" = { name = "vm_op_C9_cmp_ult", comment = "VM opcode $C9 handler (cmp_ult)." }
+"0xEEFB" = { name = "vm_op_CA_is_zero", comment = "VM opcode $CA handler (is_zero)." }
+"0xEF09" = { name = "vm_op_CB", comment = "VM opcode $CB handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode)." }
+"0xEF17" = { name = "vm_op_CC", comment = "VM opcode $CC handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode)." }
+"0xEF26" = { name = "vm_op_CD_swap_AB", comment = "VM opcode $CD handler (swap_AB)." }
+"0xEF39" = { name = "vm_op_D0_incA", comment = "VM opcode $D0 handler (incA)." }
+"0xEF42" = { name = "vm_op_D1_decA", comment = "VM opcode $D1 handler (decA)." }
+"0xEF4D" = { name = "vm_op_D2_aslA", comment = "VM opcode $D2 handler (aslA)." }
+"0xEF54" = { name = "vm_op_E0_byte", comment = "VM opcode $E0 handler (op_E0_byte)." }
+"0xEF5F" = { name = "vm_op_E1_byte", comment = "VM opcode $E1 handler (op_E1_byte)." }
+"0xEF6A" = { name = "vm_op_E2_byte", comment = "VM opcode $E2 handler (op_E2_byte)." }
+"0xEF75" = { name = "vm_op_CF_vm_return", comment = "VM opcode $CF handler (vm_return)." }
+"0xEF92" = { name = "vm_op_trigger_syscall_shared", comment = "Shared VM-opcode handler that triggers a host syscall, reached by 37 opcodes ($80,$91,$92,$93,$94,$95,$96,$97,$98,$99,$9A,$9B,$9C,$9D,$9E,$9F,$CE,$EB,$EC,$ED,$EE,$EF,$F0,$F1,$F2,$F3,$F4,$F5,$F6,$F7,$F8,$F9,$FA,$FB,$FC,$FD,$FE). The opcode byte selects the syscall." }
+"0xEF93" = { name = "vm_op_FF", comment = "VM opcode $FF handler. UNDECODED -- no decompiler mnemonic yet; analytical target (read body to decode)." }
+"0xF020" = { name = "vm_op_B2_pushA_B2", comment = "VM opcode $B2 handler (pushA_B2)." }
+# <<< AUTO: VM-opcode handler labels
 
 # --- Bank 0 ---
 # Bank 0 is almost entirely VM bytecode + data, not native 6502 code.
