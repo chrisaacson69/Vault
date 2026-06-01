@@ -290,7 +290,7 @@ word trade_helper_cc69(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $CC80)
 
 word ui_helper_cc7b(word arg1, word arg2, word arg3, word arg4) {
-    return mem_7FCF;    // $CC88
+    return ui_cursor_row;    // $CC88
 }
 
 // $CC89 ui_helper_cc89
@@ -335,10 +335,10 @@ word ui_get_cursor_sel_7fdf(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $CCFE)
 
 word get_6f5d_or_ff(word arg1, word arg2, word arg3, word arg4) {
-    if ((mem_6F5D != 0x00FF)) {    // $CD10
+    if ((selected_record_idx_9e3c != 0x00FF)) {    // $CD10
     }
 L_CD1F:
-    return mem_6F5D;    // $CD1F
+    return selected_record_idx_9e3c;    // $CD1F
 }
 
 // $CD20 ui_helper_cd20
@@ -356,7 +356,7 @@ L_CD57:
     if (((unsigned)local11 >= (unsigned)4)) goto L_CD57;    // $CD6A
     }
 L_CD7E:
-    if ((mem_6F5D != 0x00FF)) {    // $CD8A
+    if ((selected_record_idx_9e3c != 0x00FF)) {    // $CD8A
     }
 L_CD99:
     return mem_7BFB;    // $CDAE
@@ -366,10 +366,10 @@ L_CD99:
 // (body @ $CDB4)
 
 word ui_get_menu_count_7fcf(word arg1, word arg2, word arg3, word arg4) {
-    if (((unsigned)mem_7FCF > (unsigned)27)) {    // $CDC2
+    if (((unsigned)ui_cursor_row > (unsigned)27)) {    // $CDC2
     }
 L_CDC9:
-    return mem_7FCF;    // $CDC9
+    return ui_cursor_row;    // $CDC9
 }
 
 // $CDCA char_classify
@@ -433,7 +433,7 @@ L_CE7D:
 word char_advance_width(word arg1, word arg2, word arg3, word arg4) {
     if ((!((*(byte*)(fp + 11) != 10)))) return ui_get_menu_count_7fcf();    // $CE8B
     *(byte*)(fp + 11) = char_classify(*(byte*)(fp + 11));    // $CE9A
-    if (((unsigned)mem_7FCD > (unsigned)31)) {    // $CEBD
+    if (((unsigned)ui_window_col > (unsigned)31)) {    // $CEBD
     }
 L_CEC3:
     return ui_get_menu_count_7fcf();    // $CEC3
@@ -446,28 +446,28 @@ word redraw_window(word arg1, word arg2, word arg3, word arg4) {
     goto L_CF1E;    // $CEC9
 L_CECC:
     if (!((*(byte*)(fp - 3) == 10))) goto L_CEEC;    // $CED1
-    if ((local11 == mem_7FCD)) goto L_CF1B;    // $CED9
+    if ((local11 == ui_window_col)) goto L_CF1B;    // $CED9
     goto L_CF13;    // $CEE9
 L_CEEC:
     *(word*)(fp - 5) = (*(word*)(fp - 5) + 1);    // $CEEF
     *(byte*)(((*(word*)(fp - 5) + 1) - 1)) = char_classify(*(byte*)(fp - 3));    // $CEFB
-    if ((mem_7FCD == 32)) {    // $CF06
+    if ((ui_window_col == 32)) {    // $CF06
 L_CF13:
     local11 = 32;    // $CF16
 L_CF1B:
 L_CF1E:
-    local11 = mem_7FCD;    // $CF21
+    local11 = ui_window_col;    // $CF21
     *(word*)(fp - 5) = (fp - 37);    // $CF25
     }
 L_CF27:
     arg1 = (arg1 + 1);    // $CF29
     *(byte*)(fp - 3) = *(byte*)(((arg1 + 1) - 1));    // $CF2C
     if (*(byte*)(((arg1 + 1) - 1))) goto L_CECC;    // $CF2F
-    if ((local11 != mem_7FCD)) {    // $CF37
-    local11 = mem_7FCD;    // $CF4A
+    if ((local11 != ui_window_col)) {    // $CF37
+    local11 = ui_window_col;    // $CF4A
     }
 L_CF4F:
-    return ppu_blit_from_bank_wrap(mem_7FCF, 4, (fp - 37), mem_7FCF, (mem_7FCD - 1), mem_7FCF);    // $CF4F
+    return ppu_blit_from_bank_wrap(ui_cursor_row, 4, (fp - 37), ui_cursor_row, (ui_window_col - 1), ui_cursor_row);    // $CF4F
 }
 
 // $CF50 fill_nametable_wrap
@@ -652,7 +652,7 @@ word ui_helper_d134(word arg1, word arg2, word arg3, word arg4) {
 
 word poll_input(word arg1, word arg2, word arg3, word arg4) {
     local11 = 0;    // $D154
-    switch (mem_7FD3) {    // $D158
+    switch (ui_input_mode) {    // $D158
         case 0: goto L_D169;    // $D158
         case 1: goto L_D1E1;    // $D158
         case 2: goto L_D1E8;    // $D158
@@ -668,8 +668,8 @@ L_D16B:
 L_D171:
     local11 = (local11 & 1);    // $D174
     if (((local11 & 1) != mem_7FDF)) {    // $D179
-    local9 = mem_7FCD;    // $D17F
-    local8 = mem_7FCF;    // $D183
+    local9 = ui_window_col;    // $D17F
+    local8 = ui_cursor_row;    // $D183
     local8 = mem_7FDF;    // $D1A3
     local9 = mem_7FDF;    // $D1A4
     }
@@ -713,7 +713,7 @@ L_D237:
     }
 L_D23D:
     local11 = mem_7FE1;    // $D240
-    if (!(mem_7BE8)) goto L_D16B;    // $D244
+    if (!(cur_combat_side)) goto L_D16B;    // $D244
     goto L_D16A;    // $D24B
 L_D24E:
     goto L_D16A;    // $D24F
@@ -925,8 +925,8 @@ L_D596:
 word select_province_by_cursor(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $D5A2
     local11 = count_div_iterations_d586(/*via arg2*/ ?);    // $D5A7
-    local9 = mem_7FCD;    // $D5AB
-    local8 = mem_7FCF;    // $D5AF
+    local9 = ui_window_col;    // $D5AB
+    local8 = ui_cursor_row;    // $D5AF
 L_D5B0:
     local8 = ?;    // $D5B0
     local9 = ?;    // $D5B1
@@ -1008,7 +1008,7 @@ L_D676:
 // (body @ $D67C)
 
 word draw_window_f6c4(word arg1, word arg2, word arg3, word arg4) {
-    return ui_helper_d134(mem_6D9F, 0xF6C4);    // $D686
+    return ui_helper_d134(current_game_year, 0xF6C4);    // $D686
 }
 
 // $D687 redraw_window_f6c7
@@ -1288,8 +1288,8 @@ word record_apply_two_grows(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $D967)
 
 word set_6da1_bit7(word arg1, word arg2, word arg3, word arg4) {
-    mem_6DA1 = (mem_6DA1 | -128);    // $D96E
-    return (mem_6DA1 | -128);    // $D971
+    ai_turn_flags = (ai_turn_flags | -128);    // $D96E
+    return (ai_turn_flags | -128);    // $D971
 }
 
 // $D972 war_helper_d972
@@ -1354,7 +1354,7 @@ word draw_window_row_7985(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $D9EA)
 
 word test_6f65_bit7(word arg1, word arg2, word arg3, word arg4) {
-    return ((*(byte*)((arg1 + 0x6F65)) & 0x0080) != 0);    // $D9F6
+    return ((war_side_state_flag[arg1] & 0x0080) != 0);    // $D9F6
 }
 
 // $D9F7 classify_7b79
@@ -1686,8 +1686,8 @@ L_DE45:
 // (body @ $DE7D)
 
 word select_message_string_de78(word arg1, word arg2, word arg3, word arg4) {
-    if (!(!((mem_6DA1 & 32)))) return 0xF72E;    // $DE83
-    if (!(!((mem_6DA1 & 16)))) return 0x796A;    // $DE90
+    if (!(!((ai_turn_flags & 32)))) return 0xF72E;    // $DE83
+    if (!(!((ai_turn_flags & 16)))) return 0x796A;    // $DE90
     switch (arg1) {    // $DE98
         case 7: goto L_DEAD;    // $DE98
         case 13: goto L_DEB3;    // $DE98
@@ -1710,13 +1710,13 @@ L_DEB9:
 // (body @ $DEC6)
 
 word reassign_fiefs_to_conqueror(word arg1, word arg2, word arg3, word arg4) {
-    if ((mem_6F57 == battle_defending_province)) {    // $DECD
+    if ((battle_winner_province_sel == battle_defending_province)) {    // $DECD
     } else {
     }
 L_DED9:
     local8 = battle_defending_province;    // $DED9
     local10 = ui_helper_d772(battle_defending_province);    // $DEDF
-    local9 = ui_helper_d772(mem_6F57);    // $DEE7
+    local9 = ui_helper_d772(battle_winner_province_sel);    // $DEE7
     local9 = battle_defending_province;    // $DEED
     goto L_DF33;    // $DEF3
 L_DEF6:
@@ -1771,7 +1771,7 @@ word transfer_force_triplet(word arg1, word arg2, word arg3, word arg4) {
 L_DF94:
     local10 = 0x7013;    // $DF94
     local11 = 0x7013;    // $DF95
-    *(word*)(0x7013) = scaled_transfer_da24(/*stack underflow*/ regA, mem_6F87, mem_6F81, *(word*)(local9), *(word*)(local10));    // $DFA6
+    *(word*)(0x7013) = scaled_transfer_da24(/*stack underflow*/ regA, mem_6F87, war_attacker_men, *(word*)(local9), *(word*)(local10));    // $DFA6
     local8 = (local8 + 1);    // $DFA9
     local10 = (local10 + 2);    // $DFAD
     local9 = (local9 + 2);    // $DFB2
@@ -1816,7 +1816,7 @@ L_E03B:
 word apply_conquest_outcome(word arg1, word arg2, word arg3, word arg4) {
     local6 = ((battle_defending_province * 26) + 0x7001);    // $E052
     local8 = (selected_province_idx == 50);    // $E059
-    local9 = (mem_6F57 == battle_defending_province);    // $E061
+    local9 = (battle_winner_province_sel == battle_defending_province);    // $E061
     if (local9) {    // $E063
     }
 L_E080:
@@ -1827,7 +1827,7 @@ L_E080:
     }
 L_E0A2:
 L_E0A6:
-    if ((mem_6DA1 & 32)) goto L_E0B3;    // $E0AC
+    if ((ai_turn_flags & 32)) goto L_E0B3;    // $E0AC
     if (local8) goto L_E0B7;    // $E0B0
 L_E0B3:
     goto L_E0B8;    // $E0B4
@@ -1841,7 +1841,7 @@ L_E0CB:
     local6 = 32;    // $E0CB
     *(word*)(selected_province_idx) = (mem_6F7D + mem_6F83);    // $E0D3
     *(word*)((local6 + 6)) = (mem_6F7F + mem_6F85);    // $E0DE
-    *(word*)((local6 + 16)) = (mem_6F81 + mem_6F87);    // $E0EA
+    *(word*)((local6 + 16)) = (war_attacker_men + mem_6F87);    // $E0EA
     if (local7) {    // $E0EC
     *(word*)((local6 + 8)) = (*(word*)((local6 + 8)) - pct_op((rng_mod(10) + 10), *(word*)((local6 + 8))));    // $E105
     }
@@ -1879,11 +1879,11 @@ L_E194:
 L_E19C:
     if (local8) goto L_E1C7;    // $E19D
     if (local9) {    // $E1A1
-    *(byte*)((battle_defending_province + 0x6DA2)) = (mem_6F65 >> 7);    // $E1B1
+    *(byte*)((battle_defending_province + 0x6DA2)) = (war_side_state_flag >> 7);    // $E1B1
     *(byte*)((selected_province_idx + 0x6DA2)) = (*(byte*)((selected_province_idx + 0x6DA2)) ^ *(byte*)((battle_defending_province + 0x6DA2)));    // $E1C6
     }
 L_E1C7:
-    mem_6DA1 = (mem_6DA1 & -113);    // $E1CE
+    ai_turn_flags = (ai_turn_flags & -113);    // $E1CE
     if (local8) goto L_E1E6;    // $E1DC
 L_E1E6:
     return cap_fief_stats(selected_province_idx);    // $E1E6
@@ -1963,7 +1963,7 @@ word draw_daimyo_name_menu(word arg1, word arg2, word arg3, word arg4) {
 
 word marry_helper_e315(word arg1, word arg2, word arg3, word arg4) {
     if (get_province_ai_state(battle_defending_province)) {    // $E321
-    local9 = mem_7FD3;    // $E327
+    local9 = ui_input_mode;    // $E327
     if (!(ui_helper_d3a7())) goto L_E359;    // $E33D
     local11 = number_input(0x270F, 1);    // $E34F
     if (number_input(0x270F, 1)) goto L_E35B;    // $E350
@@ -1992,7 +1992,7 @@ L_E3A2:
 
 word diplomacy_helper(word arg1, word arg2, word arg3, word arg4) {
     if (get_province_ai_state(battle_defending_province)) {    // $E3B0
-    local9 = mem_7FD3;    // $E3B6
+    local9 = ui_input_mode;    // $E3B6
     local11 = number_input(0x270F, 1);    // $E3D1
     if (number_input(0x270F, 1)) goto L_E3D8;    // $E3D2
 L_E3D8:
@@ -2119,9 +2119,9 @@ L_E545:
 // (body @ $E559)
 
 word find_record_9e3c(word arg1, word arg2, word arg3, word arg4) {
-    if (!(((unsigned)mem_6F5D <= (unsigned)8))) goto L_E594;    // $E55E
-    local11 = mem_7FCD;    // $E564
-    local10 = mem_7FCF;    // $E568
+    if (!(((unsigned)selected_record_idx_9e3c <= (unsigned)8))) goto L_E594;    // $E55E
+    local11 = ui_window_col;    // $E564
+    local10 = ui_cursor_row;    // $E568
     *(word*)(fp - 40) = (fp - 38);    // $E582
 L_E584:
     if ((*(byte*)(*(word*)(fp - 40)) != 0x00FF)) goto L_E595;    // $E58B
@@ -2143,9 +2143,9 @@ L_E595:
 // (body @ $E5F7)
 
 word map_helper_e5f2(word arg1, word arg2, word arg3, word arg4) {
-    if ((arg1 != mem_6F5D)) {    // $E5FC
-    local11 = mem_7FCD;    // $E63D
-    local10 = mem_7FCF;    // $E641
+    if ((arg1 != selected_record_idx_9e3c)) {    // $E5FC
+    local11 = ui_window_col;    // $E63D
+    local10 = ui_cursor_row;    // $E641
     *(word*)(fp - 40) = (fp - 38);    // $E659
     goto L_E67E;    // $E65B
 L_E65E:
@@ -2177,7 +2177,7 @@ L_E6B1:
 // (body @ $E6BE)
 
 word unpack_record_to_sram_e6b9(word arg1, word arg2, word arg3, word arg4) {
-    local11 = *(word*)(((mem_6F5B << 1) + 0x6EB1));    // $E6C7
+    local11 = *(word*)(((active_province_idx_copy << 1) + 0x6EB1));    // $E6C7
     local9 = ((unsigned)local11 / (unsigned)5);    // $E6CB
     local10 = ((unsigned)local11 % (unsigned)5);    // $E6CF
     local8 = ((unsigned)local9 / (unsigned)5);    // $E6D3
@@ -2196,10 +2196,10 @@ word marry_helper_e76f(word arg1, word arg2, word arg3, word arg4) {
 L_E777:
     *(word*)(fp - 38) = (*(word*)(fp - 38) + 1);    // $E789
     if (((unsigned)*(word*)(fp - 38) >= (unsigned)4)) goto L_E777;    // $E78F
-    if (((unsigned)mem_6F5B < (unsigned)53)) goto L_E7A7;    // $E798
-    if (*(byte*)((daimyo_record_addr(mem_6F5B) + 6))) goto L_E7EE;    // $E7A4
+    if (((unsigned)active_province_idx_copy < (unsigned)53)) goto L_E7A7;    // $E798
+    if (*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6))) goto L_E7EE;    // $E7A4
 L_E7A7:
-    *(word*)(fp - 40) = (((fief_to_mapid(mem_6F5B) << 1) << 1) + 0xBBD0);    // $E7B4
+    *(word*)(fp - 40) = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + 0xBBD0);    // $E7B4
     *(word*)(fp - 40) = (fp - 44);    // $E7C5
     goto L_E7FA;    // $E7EB
 L_E7EE:
@@ -2213,7 +2213,7 @@ L_E7FA:
 // (body @ $E811)
 
 word ui_helper_e80c(word arg1, word arg2, word arg3, word arg4) {
-    if ((mem_6DA1 & 4)) {    // $E816
+    if ((ai_turn_flags & 4)) {    // $E816
     }
 L_E822:
     return call_bank_wrap(14);    // $E822

@@ -40,10 +40,13 @@ sys.path.insert(0, str(PROJ / "tools"))
 from importlib import import_module
 _nv = import_module("nobunaga_vm")
 
-# opcode byte -> access kind for the absolute-memory family ($A4-$AB)
+# opcode byte -> access kind for the absolute-memory family ($A4-$AB), per the v2
+# OPCODE_INFO spec (nobunaga_vm). $A8/$A9 are STORES (proven: $A48E LOADL_abs $6D9F /
+# INC / $A492 STORE_abs $6D9F = the year++ in-place increment — the store-back is $A8).
+# The matching decompiler bug ($A8 -> loadA_mem_word) is logged in ROADMAP.
 ABS_KIND = {
-    0xA4: "read", 0xA5: "read", 0xA6: "read", 0xA8: "read",
-    0xAA: "read", 0xAB: "read", 0xA7: "addr", 0xA9: "write",
+    0xA4: "read", 0xA5: "read", 0xA6: "read", 0xAA: "read",
+    0xAB: "read", 0xA7: "addr", 0xA8: "write", 0xA9: "write",
 }
 
 # A vm.asm instruction line: optional '>' marker, $ADDR, byte(s), mnemonic, operand.
