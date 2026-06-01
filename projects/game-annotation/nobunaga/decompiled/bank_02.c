@@ -666,7 +666,7 @@ L_8936:
 word render_combat_map_screen(word arg1, word arg2, word arg3, word arg4) {
     local11 = 0;    // $8982
 L_8983:
-    local11 = 0xB55A;    // $898A
+    local11 = combat_map_palette;    // $898A
     local11 = (local11 + 1);    // $8991
     if (((unsigned)local11 >= (unsigned)16)) goto L_8983;    // $8996
     if (is_no_province_selected()) {    // $89AA
@@ -1606,11 +1606,11 @@ word select_quadrant_damage_by_direction(word arg1, word arg2, word arg3, word a
     combat_damage_word_3 = 4;    // $9687
     if (is_no_province_selected()) goto L_9708;    // $968D
     if (cur_combat_side) goto L_9708;    // $9693
-    local11 = *(byte*)((fief_to_mapid(selected_province_idx) + 0xB0BA));    // $96A2
-    local10 = *(byte*)((fief_to_mapid(battle_defending_province) + 0xB0BA));    // $96AF
-    local9 = *(byte*)((fief_to_mapid(selected_province_idx) + 0xB0EC));    // $96BC
-    local8 = *(byte*)((fief_to_mapid(battle_defending_province) + 0xB0EC));    // $96C9
-    if (!((byte_helper_cb4c((local11 - local10)) < byte_helper_cb4c((local9 - local8))))) goto L_96F5;    // $96DD
+    local11 = strategic_map_fief_x[fief_to_mapid(selected_province_idx)];    // $96A2
+    local10 = strategic_map_fief_x[fief_to_mapid(battle_defending_province)];    // $96AF
+    local9 = strategic_map_fief_y[fief_to_mapid(selected_province_idx)];    // $96BC
+    local8 = strategic_map_fief_y[fief_to_mapid(battle_defending_province)];    // $96C9
+    if (!((abs16((local11 - local10)) < abs16((local9 - local8))))) goto L_96F5;    // $96DD
     if (((unsigned)local9 >= (unsigned)local8)) {    // $96E3
     combat_damage_word_3 = 2;    // $96E7
     } else {

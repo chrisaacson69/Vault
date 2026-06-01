@@ -163,10 +163,10 @@ L_CB4B:
     }
 }
 
-// $CB4C byte_helper_cb4c
+// $CB4C abs16
 // (body @ $CB51)
 
-word byte_helper_cb4c(word arg1, word arg2, word arg3, word arg4) {
+word abs16(word arg1, word arg2, word arg3, word arg4) {
     if ((arg1 < 0)) {    // $CB54
     } else {
     }

@@ -594,7 +594,7 @@ prg_bank_count = 16        # 256 KB total
 "0xCAF0" = { name = "memchr",                   comment = "[HIGH] Scans arg1 for a target byte over arg3 bytes; returns pointer on match else 0. Session C 2026-05-31." }
 "0xCB11" = { name = "is_lower",                 comment = "[MED] Char range test from 'a' (97); lowercase classifier (gates to_upper). Session C 2026-05-31." }
 "0xCB30" = { name = "to_upper",                 comment = "[HIGH] If is_lower($CB11), subtract 32 -> uppercase ASCII. Session C 2026-05-31." }
-"0xCB4C" = { name = "byte_helper_cb4c",         comment = "[LOW] One-arg clamp/transform vs a const (op_CB body undecoded); returns arg1. Session C 2026-05-31." }
+"0xCB4C" = { name = "abs16",                     comment = "[HIGH CONFIRMED] Signed 16-bit absolute value: if (arg1 < 0) negate; return arg1. Decompiles to that shape; used by select_quadrant_damage_by_direction for |dx| vs |dy|. (was byte_helper_cb4c.) Confirmed 2026-06-01." }
 "0xCB6F" = { name = "max_word",                 comment = "[HIGH] Returns max(arg1,arg2). Mirror of min_word ($CB5E). Session C 2026-05-31." }
 "0xCB80" = { name = "swap_byte",                comment = "[HIGH] Swaps the two bytes pointed to by arg1 and arg2. Session C 2026-05-31." }
 "0xCB94" = { name = "swap_word",                comment = "[HIGH] Swaps the two 16-bit words pointed to by arg1 and arg2 (via local temp). Session C 2026-05-31." }
@@ -1391,6 +1391,8 @@ prg_bank_count = 16        # 256 KB total
 "0xA9C4" = { name = "unpack_base5_digits_uplo_data_a9c4", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_base5_digits_upload_blocks via imm-word ptr; bytes: d2 a9 3a 3b e9 9a 82 04 d3 16 c0 d7" }
 "0xAD84" = { name = "unpack_base5_digits_uplo_data_ad84", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_base5_digits_upload_blocks via imm-word ptr; bytes: ad cf 20 23 e8 fc ff a4 63 6f 8b 1a" }
 "0xAEAC" = { name = "unpack_base5_digits_uplo_data_aeac", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_base5_digits_upload_blocks via imm-word ptr; bytes: 02 8a 89 6f 28 40 29 d6 f4 ae 07 d8" }
+"0xB0BA" = { name = "strategic_map_fief_x", comment = "[HIGH CONFIRMED] 50-byte table: strategic-map X coordinate per fief (indexed by fief_to_mapid). Read by select_quadrant_damage_by_direction to compute attack bearing dx = X[att]-X[def]. X spans 3..77 (W->E). VERIFIED 2026-06-01: adjacency neighbors (bank4 $8004) are spatially nearest, mean dist-rank 2.8 / median 2." }
+"0xB0EC" = { name = "strategic_map_fief_y", comment = "[HIGH CONFIRMED] 50-byte table: strategic-map Y coordinate per fief (indexed by fief_to_mapid). Read by select_quadrant_damage_by_direction; dy = Y[att]-Y[def]; |dx|<|dy| picks vertical axis else horizontal, sign picks the entry edge. Y spans 3..31 (N->S). Ends at $B11E. VERIFIED 2026-06-01 vs adjacency." }
 "0xB11E" = { name = "lookup_terrain_attr_reco_data_b11e", comment = "[ROM-DATA] binary table (unanalyzed); read by lookup_terrain_attr_record via imm-word ptr; bytes: 63 64 67 68 65 66 69 6a 6b 6c 6f 70" }
 "0xB144" = { name = "build_blit_fief_tile_blo_data_b144", comment = "[ROM-DATA] binary table (unanalyzed); read by build_blit_fief_tile_block via imm-word ptr; bytes: 79 7a 7b 7c 7c 7f 7d 7e 80 81 92 93" }
 "0xB196" = { name = "jumptab_b196", comment = "[ROM-DATA] pointer/dispatch table; read by announce_combat_side_daimyo_and_status, draw_combat_ui_string_b196, redraw_combat_side_window via imm-word ptr; bytes: d8 b1 d9 b1 f9 b1 17 b2 2d b2 4d b2" }
@@ -1401,6 +1403,7 @@ prg_bank_count = 16        # 256 KB total
 "0xB544" = { name = "map_render_driver_data_b544", comment = "[ROM-DATA] binary table (unanalyzed); read by map_render_driver via imm-word ptr; bytes: 20 20 00 20 20 00 01 01 01 01 01 01" }
 "0xB547" = { name = "map_render_driver_data_b547", comment = "[ROM-DATA] binary table (unanalyzed); read by map_render_driver via imm-word ptr; bytes: 20 20 00 01 01 01 01 01 01 01 01 01" }
 "0xB54A" = { name = "map_populate_data_b54a", comment = "[ROM-DATA] binary table (unanalyzed); read by map_populate via imm-word ptr; bytes: 01 01 01 01 01 01 01 01 01 01 01 01" }
+"0xB55A" = { name = "combat_map_palette", comment = "[HIGH CONFIRMED] 16-byte NES palette (4 sub-palettes) for the tactical battle screen; loaded by render_combat_map_screen via the 16-iter palette_write_wrap loop. Followed at $B56A by msg_day_2d. bytes: 3e 16 38 30 3e 1a 2a 3c 3e 1c 38 30 3e 01 3c 30" }
 "0xB5B1" = { name = "ai_sum_battle_strength_data_b5b1", comment = "[ROM-DATA] binary table (unanalyzed); read by ai_sum_battle_strength via imm-word ptr; bytes: 05 0a 0a 05 14 0a 19 0f fe fd fb f7" }
 "0xB5B9" = { name = "clear_unit_status_flag_s_data_b5b9", comment = "[ROM-DATA] binary table (unanalyzed); read by clear_unit_status_flag_set_field_200 via imm-word ptr; bytes: fe fd fb f7 ef 0a 20 55 70 0a 20 55" }
 "0xB626" = { name = "draw_combat_ui_string_data_b626", comment = "[ROM-DATA] binary table (unanalyzed); read by draw_combat_ui_string_b196 via imm-word ptr; bytes: 00 75 6e 69 74 20 25 64 0a 25 73 00" }
