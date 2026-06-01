@@ -22,6 +22,15 @@ created: 2026-05-29
 
 ## Now — current frontier
 
+> ### ▶ PINNED FOR NEXT SESSION — render an ORIGINAL daimyo portrait (see Tokugawa) + label the preset-portrait table
+> The preset (canonical-50) portrait path in `draw_daimyo_portrait` ($E76F, the `record[+6]==0` branch, bytecode $E7A7-$E7EB):
+> - **Descriptor table base = `loadB_imm_word $BBD0`** ($E7B0), indexed by `fief_to_mapid(idx) * 4` (`aslA aslA`). The decompiler resolves $BBD0 to the string `msg_ng_to_pieces` — WRONG bank (cross-bank-pointer trap, same as the bank-8 composite tables). The real table is $BBD0 in a GRAPHICS bank.
+> - Descriptor read: `host_call $CBBD` (syscall16_sram_wrap) args `(4, dst=fp-44, src=$BBD0+mapid*4, len=8)` → 8-byte descriptor. The first arg `4` is likely the source BANK (try bank 4 first; title screen used bank 6 next door — try 6 too).
+> - Then `ppu_upload_block_wrap(count=descriptor[1], $15B0, src_ptr=descriptor[2..3], bank=descriptor[0])` → uploads that daimyo's DEDICATED portrait CHR; an 8x8 blit follows ($E801).
+> - **TO DO:** (1) dump $BBD0 in the candidate bank(s), decode the per-mapid descriptors `{bank, count, src_ptr}`, follow to the portrait CHR, RENDER it (2bpp, like render-portrait.py) → confirm a recognizable Tokugawa/Oda. (2) Add a `[prg.bankN]` label for the $BBD0 descriptor table + the dedicated-portrait CHR region. (3) Add a `preset` mode to `tools/render-portrait.py`.
+> - **GENERALIZED TOOL IDEA (Chris, 2026-06-01): "render graphics bits from code."** A tool that, given an upload/blit call site (or its `(bank, src, count)` args), extracts + renders the CHR it moves — code-driven graphics extraction. Would crack BOTH portrait paths, the logo, the title, map tiles, etc. in one place; the cross-bank bank-arg resolution is the same primitive the parked "run the data banks for labels" sweep needs. High value, reusable.
+
+
 > ### ▶▶ NEXT SESSION STARTS HERE — ALL CODE BANKS NAMED + DATA-WALK COMPLETE + `/data-walk` SKILL CRYSTALLIZED. The naming epic (code + data) is DONE end-to-end. NEXT FRONTIER = the **parked analysis questions**, now answerable against fully-named code+data (combat resolution / synthesis-chapter dominance frontier / the `sub_D14E` AI-input "decision" gap). No labeling frontier remains.
 >
 > ### ✅ THE 3 DEFERRED COMBAT TABLES — DECODED 2026-06-01 (commit `3416218`; B1 `tbl` frontier = 0)
