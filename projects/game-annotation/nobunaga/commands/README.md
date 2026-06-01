@@ -61,8 +61,10 @@ Each province record is 26 bytes at `$7001 + idx*26`, all 16-bit little-endian:
 | 4 | town | 18 | morale |
 | 6 | rice | 20 | skill |
 | 8 | output | 22 | arms |
-| 10 | dams | 24 | header (base koku — development ceiling) |
+| 10 | dams | 24 | header (base koku / dev ceiling) |
 | 12 | loyalty | | |
+
+> **Note (2026-05-31): two distinct layouts exist — do NOT conflate them.** THIS table is the **live `$7001` runtime record** (`gold`@+0 … `header`@+24) — the one every bank_01 handler addresses and the one `tools/vm_decompile.py PROV_FIELDS` encodes. It's anchored by the *empirically verified* handlers: `effect_grow`→`output`@+8 (capped at `header`@+24), `effect_build`→`town`@+4, `develop_loyalty/wealth/morale`→+12/+14/+18. SEPARATELY, `tools/dump-defaults.py` reads the ROM bank-3 scenario-**defaults** table, which is ordered `header`-**first** (+0); the new-game boot init reorders ROM→live during its byte-swap copy. (A momentary mix-up of these two during the bank_01 walk prompted this note — the verification pass caught it.) `header` = per-fief base koku / development ceiling; Ezo's header=0 is *why* it's the brutal start; how the runtime-displayed koku derives from it is still open.
 
 ## Cross-fief data mining (16× more data points)
 

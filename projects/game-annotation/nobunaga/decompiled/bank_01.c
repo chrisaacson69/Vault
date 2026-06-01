@@ -1297,10 +1297,10 @@ L_95C7:
     return 0;    // $95C8
 }
 
-// $95C9 helper_95C9
+// $95C9 ai_develop_grow_if_men_exceeds_gold
 // (body @ $95CE)
 
-word helper_95C9(word arg1, word arg2, word arg3, word arg4) {
+word ai_develop_grow_if_men_exceeds_gold(word arg1, word arg2, word arg3, word arg4) {
     if (rng_mod(2)) goto L_95DE;    // $95D3
     *(byte*)((ui_helper_d7ea() + 4)) = (*(byte*)((ui_helper_d7ea() + 4)) + 1);    // $95DD
 L_95DE:
@@ -2884,10 +2884,10 @@ L_B2E2:
     }
 }
 
-// $B2EF helper_B2EF
+// $B2EF ai_calc_men_surplus_over_gold_and_rice
 // (body @ $B2F4)
 
-word helper_B2EF(word arg1, word arg2, word arg3, word arg4) {
+word ai_calc_men_surplus_over_gold_and_rice(word arg1, word arg2, word arg3, word arg4) {
     local11 = ((selected_province_idx * 26) + 0x7001);    // $B2FE
     arg1 = 0x7001;    // $B2FF
     *(word*)(*(word*)((local11 + 16))) = (*(word*)(local11) - *(word*)((local11 + 16)));    // $B309
@@ -2931,7 +2931,7 @@ word ai_province_gold_to_rice_convert(word arg1, word arg2, word arg3, word arg4
 L_B3A3:
     arg2 = math32_muladddiv(/*stack underflow*/ regA, mem_6E0D);    // $B3A3
     arg1 = math32_muladddiv(/*stack underflow*/ regA, mem_6E0D);    // $B3A4
-    return helper_B2EF(/*via arg2*/ math32_muladddiv(/*stack underflow*/ regA, mem_6E0D), /*via arg2*/ math32_muladddiv(/*stack underflow*/ regA, mem_6E0D));    // $B3A9
+    return ai_calc_men_surplus_over_gold_and_rice(/*via arg2*/ math32_muladddiv(/*stack underflow*/ regA, mem_6E0D), /*via arg2*/ math32_muladddiv(/*stack underflow*/ regA, mem_6E0D));    // $B3A9
     }
 }
 
