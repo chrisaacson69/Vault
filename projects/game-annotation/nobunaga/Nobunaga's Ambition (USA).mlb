@@ -67,8 +67,89 @@ NesSaveRam:17A8:daimyo_name_table:17-fief daimyo names — 17 names x 9 bytes (8
 NesSaveRam:1C00:map_tile_data:Strategic-map background tile indices. ~558 bytes covering the 18x31 map grid.
 NesSaveRam:1F00:ui_transient_state:Transient UI cache: frame counter at $7FE9, animation timers, menu position, status flags. Boot bytecode zeroes $7FE7/$7FC7/$7FD3/$7FD1 on game start (chapter 6). NOT preserved across power cycles — only canonical tables survive a save.
 NesSaveRam:1FE9:frame_counter:Per-frame counter (60Hz tick). Drives animation timing, cursor blink, music transitions. Continuously incremented when game is unpaused, frozen when paused.
+NesSaveRam:FF6:combat_damage_word_0:[DATA-WALK CONFIRMED] First of 4 precomputed directional/quadrant combat-damage words ($6FF6/$6FF8/$6FFA/$6FFC). select_quadrant_damage_by_direction ($9675, bank 2) READS $6FF6 (default) vs $6FFA (vertical-dominant) and returns one based on the attacker/defender cell-coord geometry ($B0BA/$B0EC diffs). Written frame-relative ($85) by the damage compute, so 0 abs-writers by design. Magnitudes {1,2,4,7} per [[project_nobunaga_combat_damage_formula_decoded]].
+NesSaveRam:FF8:combat_damage_word_1:[DATA-WALK] 2nd of the 4-word directional combat-damage block at $6FF6. Same 4R/3-sub combat-only ref signature as its siblings; written frame-relative. Exact direction->word mapping TBD.
+NesSaveRam:FFA:combat_damage_word_2:[DATA-WALK CONFIRMED] 3rd directional combat-damage word; the vertical-dominant branch return in select_quadrant_damage_by_direction ($9675 @ $9707). Written frame-relative.
+NesSaveRam:FFC:combat_damage_word_3:[DATA-WALK] 4th of the 4-word directional combat-damage block at $6FF6. Written frame-relative; TBD exact direction.
+NesSaveRam:1FEB:sram_save_checksum:[DATA-WALK CONFIRMED] Stored 16-bit running-sum checksum of the SRAM save body ($6001-$7FFF). write_sram_save_checksum_and_signature ($A3AA) accumulates the syscall-22 checksum and STORES it here; verify_sram_save_integrity ($821E) recomputes + compares against it on load (match -> ret 1). Sits just below the signature string at $7FED.
+NesSaveRam:F4F:deduped_owner_list:[DATA-WALK CONFIRMED] FF-terminated list of UNIQUE owning-daimyo ids. dedup_owners_to_6f4f ($8DE1) reads an FF-terminated fief list, maps each fief->owner (fief_to_daimyo_map via ui_helper_d772), dedups, and writes the unique set here, returning the count. The 'distinct daimyo involved' working set (e.g. who's party to a multi-fief event).
+NesSaveRam:D9F:current_game_year:[DATA-WALK CONFIRM HIGH] 16-bit current game YEAR (base 1560=$0618). calc_year_scaled_random_value ($9214) scales RNG by (year-1560)/2; aging skips the first year (year!=$0618); AI spend caps = (year-1559)*N. Incremented in place by ai_strategic_turn_planner ($A48E LOADL_abs / INC / $A492 STORE_abs) on the season-counter wrap. Neighbors config_block($6D5F)/const_two($6D63).
+NesSaveRam:E0D:gold_rice_exchange_rate:[DATA-WALK CONFIRM HIGH] Current gold<->rice exchange RATE (element 1, stride 2, of the period-rate table at $6E0B). Random-walk updated (prev + rng_mod(11) - 5, clamped >=10) by roll_period_rate_table_6e0b ($924A); read by gold->rice convert ($B338, math32 muladddiv), buy/sell-rice handlers ($A068/$A003), and the 5-stat view ($8094).
+NesSaveRam:F81:war_attacker_men:[DATA-WALK AMEND HIGH] Attacker MEN count in war/siege (province record field +16 = men). driver_war ($997C): defender_men -= war_attacker_men; apply_conquest_outcome ($E0EA): men = attacker($6F81) + defender($6F87); strength compare $6F81 vs $6F87 ($8F0F). The 'How many men' prompt writes it ($9913). Part of the attacker triple $6F7D/$6F7F/$6F81 = +0 gold / +6 rice / +16 men.
+NesSaveRam:F4D:audio_wait_gate:[DATA-WALK AMEND HIGH] Boolean gate for audio_control (syscall $0A) busy-wait loops — gated spins at $80B8/$8166 (bank0), $8BB1 (bank1 helper_8B8F), $B08D (bank1 subhandler_B066), $947A (bank2 announce_battle_outcome) all wait on the audio syscall while set. Written =1 at init_new_game_state ($89A9) and verify_sram_save_integrity ($8358); save/restore slot in reassign_daimyo24_fiefs.
+NesSaveRam:1BE8:cur_combat_side:[DATA-WALK CONFIRM HIGH] Combat SIDE index (0=attacker / 1=defender). get_battle_side_province ($838F) maps it to one of the two battle provinces; resolve_attack_apply_casualties ($9E73) uses it AND (side^1) for both combatants (the ^1 flip appears 17x, applied to THIS, never to $7BE4); per-unit flags index *(side + $6F65). Read across ~40 bank-2 combat subs as the side discriminator.
+NesSaveRam:1BE4:cur_combat_unit_slot:[DATA-WALK CONFIRM HIGH] Current combat unit-SLOT index (0..4). The *5-stride outer index in the unit-field address arg*5+arg+$6FD0 ($8290); loop bound `slot>=5` recurs at $98FA/$9A14/$9B01/$AC77/$AD33; 1-based display (slot+1) at $93A9. Companion of cur_combat_side ($7BE8) — the ^1 side-flip is applied to $7BE8 only, cleanly separating slot vs side.
+NesSaveRam:DA1:ai_turn_flags:[DATA-WALK CONFIRM MED] AI-turn/war/conquest BITFIELD (per-bit RMW, never a count/index). bit0: trade ($B8AD &~1 / $B8C8 |rng, read $8A48 &1). bit5: |32 ($A6CC), tested by msg-selectors ($8BA8/$DE83) + apply_conquest_outcome ($E0AC). bit7: |128 abort-gate ($D96E/$B901), tested in vm_bootstrap ($A7A5) + ai_strategic_turn_planner ($A4BE). bits4&6 cleared (&~112) at $9988/$E1CE. 40 refs/15 subs.
+NesSaveRam:FFE:tactical_battle_phase:[DATA-WALK CONFIRM MED] Tactical-battle PHASE enum {0,1,2}. switch(phase) in draw_tactical_cursor_region ($95CB); is_cell_valid_for_phase ($960E) gates cell validity on ==1/==2; map_render_driver branches if !=2; tactical cell-coord offset = phase*3 ($83A2). Read-only in bank 2 (set by the native battle-setup path).
+NesSaveRam:1FCD:ui_window_col:[DATA-WALK CONFIRM MED] UI column / X coordinate. redraw_window ($CEC4) uses it as the line-wrap/column boundary (>31, ==32 for the 32-col nametable) and blits at column (col-1). Paired {col=$7FCD, row=$7FCF} loaded together in select_province_by_cursor ($D59D), province_select_prompt ($804C), poll_input ($D14E), find_record_9e3c ($E554).
+NesSaveRam:1FCF:ui_cursor_row:[DATA-WALK AMEND MED] UI cursor/draw ROW coordinate, the row-axis partner of ui_window_col ($7FCD). find_record_9e3c ($E554) computes addr = base + (row-4)*28 + col; 0x00FF sentinel. ('menu count' refuted: ui_get_menu_count_7fcf's bounds-check at $CDC2 is dead code.)
+NesSaveRam:1FD3:ui_input_mode:[DATA-WALK CONFIRM MED] Input-mode selector. poll_input ($D158) does switch(mode){case 0..4} dispatching distinct input/selection branches. Written 0 before the input-poll loops ($809A/$81BC), in the boot-zero block ($89C2, with $7FC7/$7FD1), and =1 on the AI UI path ($A45B). $7FCx-$7FDx UI-transient block. Exact per-case semantics only partly mapped.
+NesSaveRam:F79:ai_turn_loop_redispatch_flag:[DATA-WALK CONFIRM MED] Boolean turn-loop control flag (war/AI). vm_bootstrap ($A778) re-dispatches while set (JUMPT $A7FD) / proceeds when clear; ai_per_fief_command_driver ($B89B) skips the normal per-fief advance when set ($B98D) and early-breaks the scan ($B9A7). (2 of 4 reader subs act on it; the others are dead prologue-artifact reads. The set-to-1 path isn't in this material — all observed stores write 0.)
+NesSaveRam:F57:battle_winner_province_sel:[DATA-WALK AMEND MED] Battle/conquest province-index word — the WINNER/survivor-side selector. reassign_fiefs_to_conqueror ($DEC6): `if($6F57 == defender $6F63) winner=$6F5F else winner=$6F63`, driving the owner lookup (fief_to_daimyo_map) + fief reassignment ($E061/$AE43). NOT the attacker (that's $6F5F, per get_battle_side_province). Exact winner-vs-working-slot role unpinned -> kept generic. Province-index cluster $6F57/$6F5B/$6F5F/$6F63 (stride 2).
+NesSaveRam:F5B:active_province_idx_copy:[DATA-WALK CONFIRM MED] Held-stable province/fief index — a scratch copy of selected_province_idx ($6F5F) kept across the unpack/marry/view chain. daimyo_creation_stat_roll_screen ($87F0) stores $6F5F->$6F5B; used as a table index in the base-5 record unpack ($8086: (idx<<1)+$6EB1); marry path bounds-checks <53. Cluster $6F57/$6F5B/$6F5F/$6F63 (stride 2).
+NesSaveRam:F5D:selected_record_idx_9e3c:[DATA-WALK CONFIRM MED] Index into the 34-byte-stride record table at $9E3C (0xFF = none). fief_select_input_loop ($ADF6) computes idx*34+$9E3C and a parallel idx*448+$8D5A; find_record_9e3c ($E554) gates idx<=8 (9 rows); get_6f5d_or_ff ($CCF9) handles the FF sentinel. Exact entity unpinned -> kept generic.
+NesSaveRam:F65:war_side_state_flag:[DATA-WALK AMEND MED] Per-side bit-7 war/siege state flag (byte, 0 or $80; accessor test_6f65_bit7 $D9E5). In resolve_siege_assault ($8E7D) it is the attacker strength coefficient ((bit7!=0)+2), mirroring the defender's province+$6DA2 byte on the next line. driver_war ($9956) sets $80 when the province's $6DA2 state byte is set; apply_conquest_outcome ($E1B1) writes bit7 into the conquered province's $6DA2 array. (Some toml prose at $8F79/$8F97 calls $6F65 a unit-type bitfield — stale; their bytecode indexes $6DA2/$6F5F.)
+NesSaveRam:F7D:war_attacker_gold:[DATA-WALK CONFIRM HIGH] Attacker GOLD in war/siege — head of the attacker triple $6F7D/$6F7F/$6F81 (+0 gold/+6 rice/+16 men). driver_war ($9967) deducts it from the target province's field +0; apply_conquest_outcome ($E0D3) sets conquered gold = attacker($6F7D)+defender($6F83). Sibling of war_attacker_rice/war_attacker_men.
+NesSaveRam:F7F:war_attacker_rice:[DATA-WALK CONFIRM HIGH] Attacker RICE (+6) — middle of the attacker triple. driver_war ($9931) sets it via number_input capped at the province rice field, then deducts ($9971); apply_conquest rice = $6F7F+$6F85 ($E0DE).
+NesSaveRam:F83:war_defender_gold:[DATA-WALK CONFIRM HIGH] Defender GOLD snapshot (+0) — head of the defender triple $6F83/$6F85/$6F87, mirror of the attacker triple. Snapshotted from the defending province in battle_init_clear_defending_province_fields ($92EF) + ai_commit_attack_deduct_resources ($9165); conquest gold = $6F7D+$6F83 ($E0D3).
+NesSaveRam:F85:war_defender_rice:[DATA-WALK CONFIRM HIGH] Defender RICE (+6) — middle of the defender triple. Snapshots the defending province's rice field ($92CA/$9046); conquest rice = $6F7F+$6F85 ($E0DE). (+6=rice cross-checked via harvest_income_sweep $A2C0.)
+NesSaveRam:F87:war_defender_men:[DATA-WALK CONFIRM HIGH] Defender MEN (+16) — defender mirror of war_attacker_men ($6F81). ai_attacker_outstrengths_defender ($8F10) compares $6F81 vs $6F87; conquest men = $6F81+$6F87 ($E0EA); battle_init zeroes the slot ($9337); also feeds transfer_force_triplet ($DF96).
+NesSaveRam:F7B:ai_planner_event_handler_select:[DATA-WALK AMEND MED] Enumerated 0-3 selector in ai_strategic_turn_planner ($A455, planner-local) picking WHICH random-event/disaster handler runs this turn: 1->decay_fief_wealth_output_disaster1 ($9CB3), 2->ravage_output_mark_weakness ($9D00), 3->ai_event_build_two_batches_dispatch ($9ED9); CALL-ptr dispatched ($A549). (Not a 'strategy mode' — the handler tables are decoded.)
+NesSaveRam:E09:ai_player_count:[DATA-WALK AMEND MED] AI-player count = 8 - newgame_player_count ($6D61, the 1..8 'How many players' input), write-once in init_new_game_state ($8B4B-$8B50; renders correctly as `8 - newgame_player_count` since 2026-06-01 — was the $40-$4F qimm-clear decompiler bug, not a SUB fold). Used as a loop bound (ravage sweep $9C22 runs 8-$6E09 = human-player count times) and an <8 gate (get_6e09 $D982). Sharpened from 'setup_count_complement' once $6D61 was pinned (batch 4).
+NesSaveRam:E0B:loan_rate:[DATA-WALK AMEND HIGH] First entry of the period-rolled MARKET rate table $6E0B/$6E0D/$6E0F/$6E11/$6E13 (roll_period_rate_table_6e0b $924A; $6E0B = rng_mod(10)+1 = 1-10). The LOAN rate: subhandler_9F04 ($9F45) sizes the borrowable principal as min(cw, cw*($6E0B+10)/(town-debt)) before the 'borrow' prompt; shown as 'Rate' in the Market view ($80B0). Sizes the loan, not interest (repay $9FAF never reads it).
+NesSaveRam:E0F:arms_buy_price_rate:[DATA-WALK CONFIRM HIGH] +4 entry of the Market rate table (= year_scaled_random/2, $9281). The ARMS price: the Market view formats it as 'Arms %2d.%1d' ($80E4); buy path subhandler_A113 ($A13A) + AI ai_state2_recruit_arm_train ($B5A5/$B5CA) deduct gold and grow the arms field (+22). Sibling of gold_rice_exchange_rate.
+NesSaveRam:E11:gold_men_hire_rate:[DATA-WALK CONFIRM HIGH] Market rate table entry (= pct_op(year_base,70), $928E). Gold cost per MAN: effect_hire_variant_pay ($A553) gold -= math32_muladddiv(men, $6E11); AI recruit ($B534) affordability via helper_8357. Men-side sibling of arms_buy_price_rate ($6E0F).
+NesSaveRam:E13:hire_gold_rate:[DATA-WALK CONFIRM MED] Year-scaled Market rate (rolls UP over the campaign: (rng_mod(101)+(current_game_year-1560)*10+4)/4, $92A5) pricing the Hire command's gold cost: effect_hire_pay_gold ($A2B5) subtracts math32_muladddiv(units,$6E13) from province gold; effect_hire ($A2E6) gates affordability. 5th of the $6E0B table.
+NesSaveRam:1BE0:ui_input_prompt_active_flag:[DATA-WALK CONFIRM HIGH] Boolean 'interactive input prompt active' gate — set 1 before / cleared 0 after every interactive-input call: prompt_select_player_daimyo ($86AD/$8745), driver_send around number_input ($9AB9/$9B0D), driver_view around select_province_by_cursor ($A72C/$A738). Consumed by the native input layer (~$D43C 'if==1 return -1'; reader is in raw-hex region so data-xref missed it).
+NesSaveRam:1BE6:latched_selected_record_idx:[DATA-WALK AMEND MED] Latched copy of selected_record_idx_9e3c ($6F5D): get_6f5d_or_ff ($CD16) + ui_helper_cd20 ($CD90) do `if(sel!=0xFF){ $7BE6=sel; sel=255; }` — latch the menu selection on close, then clear the source. Read by battle_setup_select_province_phase ($AF98). Exact entity tracks $6F5D (unpinned).
+NesSaveRam:1FC7:ui_pending_flag_7fc7:[DATA-WALK CONFIRM LOW] Consume-and-clear UI flag (1R/5W): the sole read ($CD4F in ui_helper_cd20) gates a branch then clears it ($CD7B); set =1 in a develop path ($8B57); zeroed at boot/init ($835C/$89BE) in the ui_transient_state block. Specific pending-action unproven -> generic ui_ name.
+NesSaveRam:1FD1:ui_msg_col_shift_flag:[DATA-WALK CONFIRM MED] UI flag selecting the message-box column: ui_helper_cc89 ($CC93/$CCA6) + message_display ($D338) branch on it to pick blit column 20 (=0) vs 22 (!=0) via ui_helper_cc7b -> ui_window_col. Written 0 at save-verify + init. Sibling of $7FCD/$7FCF/$7FD3.
+NesSaveRam:1FDF:ui_input_sel_latch_7fdf:[DATA-WALK AMEND MED] Input/selection latch (holds buttons&1, a 1-bit toggle). 6 writers store 0xFF sentinel paired with ui_input_mode=0 on menu/screen init; poll_input ($D179) does change-detect `if((buttons&1)!=$7FDF){...; $7FDF=...}` then redraws. Reader lives in the un-disassembled $D159-$D286 switch body, so data-xref's 0R is a disasm artifact, not write-only.
+NesSaveRam:D61:newgame_player_count:[DATA-WALK AMEND HIGH] Number of HUMAN players (1..8). init_new_game_state: 'How many players' string ($B9CD) -> number_input ($8A2C); drives the 1..count player-setup menu loop. ai_player_count ($6E09) = 8 - this. 3 refs, all in init_new_game_state.
+NesSaveRam:E7D:ui_confirm_flag_6e7d:[DATA-WALK CONFIRM MED] Standalone boolean confirm flag set from A/B-button confirm prompts (prompt_select_scenario_size $867B = ui_helper_d3a7(); subhandler_B12B $B146). Read by ai_commit_attack_deduct_resources ($913D) to skip a defender-state check. NOT the 17/50 scenario value (that goes to scenario_fief_count).
+NesSaveRam:1BF5:tactical_cursor_cell_7bf5:[DATA-WALK CONFIRM MED] Tactical cursor cell coordinate — first of the pair set by set_combat_state_pair_7bf5_7bf7 ($8270: arg1->$7BF5, arg2->$7BF7). draw_tactical_cursor_region ($840B) reads both, validates via is_cell_valid_for_phase, and seeds calc_tactical_cell_coords. Paired with $7BF7.
+NesSaveRam:E4A:daimyo_pool_sp_6e4a:[DATA-WALK AMEND MED] Top-of-stack index for an adjacent LIFO at $6E4B; sole accessor list_op_6e4a ($DC0E) does inc/dec-then-access. Pops feed install_new_daimyo (fief_to_daimyo_map base $6E15) = a daimyo-ID pool. SP/count role solid; pool semantics MED.
+NesSaveRam:E48:ai_turn_planner_resume_flag:[DATA-WALK CONFIRM MED] Boolean latch (writes 0/1, reads tested ==1). ai_strategic_turn_planner ($A461) consumes-on-read + skips time-advance; vm_bootstrap ($A78C) gates battle-resume; bank-2 ($AA1A/$AF6A) bypass the interactive province pick. A 'resume mid-turn' gate.
+NesSaveRam:F61:sram_save_pending_flag:[DATA-WALK CONFIRM MED] Save-pending boolean in the SRAM-save cluster: cleared 0 after checksum verify ($82EB), after committing the checksum ($A440), and after the Y/N save-confirm ($B11C, before 'Game will save at end of season'). Read as a gate by ai_strategic_turn_planner ($A476) + the checksum syscall path ($A3AF).
+NesSaveRam:F66:battle_defender_status_flag_6f66:[DATA-WALK CONFIRM HIGH] Bit7-packed copy of the defending province's $6DA2 status byte: resolve_siege_assault ($8E57) + battle_init_clear ($92E1) set it = byte[$6DA2+def]<<7; cleared on resolution ($8F8E). Matches the bit7 test on war_side_state_flag ($6F65 @ $8E7D). Write-side snapshot (no readers found).
+NesSaveRam:F67:battle_defender_province_staging:[DATA-WALK AMEND MED] Sentinel-reset byte: set =0xFF at per_period_fief_daimyo_update_driver ($A369) + vm_bootstrap ($A796); read at $A7BA, copied to battle_defending_province ($6F63) and used as a !=0xFF gate ($A7C4). Seeds the defender province in bootstrap. (No enqueue site -> not a real 'pending' queue.)
+NesSaveRam:1:ai_per_fief_loop_index:[DATA-WALK CONFIRM MED] Per-fief command-pass index in ai_per_fief_command_driver ($B89B): read@$B8A4, incremented ($B996 = +1), reset 0 on exit ($B9AE); loop bound = scenario_fief_count ($6D9D), gated by ai_turn_loop_redispatch_flag ($6F79). Standalone word.
+NesSaveRam:D65:delay_loop_count:[DATA-WALK CONFIRM HIGH] Busy-wait delay length. delay_loop ($D73E) spins (outer = arg, inner 240); ui_helper_d759 ($D75E) PUSH_abs $6D65 -> CALL delay_loop. Written =50 at boot/init ($8352/$89B8); subhandler_B0D2 sets it = (number_input^2 << 1) = user-adjustable (a 'speed/message-delay' setting). $6D5F config_block neighborhood.
+NesSaveRam:1BFB:combat_unit_window_mode_flag:[DATA-WALK CONFIRM MED] Combat unit-window mode flag (word, no index). Tested ==2 (draw_unit_stat_field $8B92, combat_unit_window_refresh early-return) and ==1 (dispatch loop $AC9C); reset 0 at init ($8DB5) + teardowns. Co-cleared with $7BF9 in ui_helper_cd20.
+NesSaveRam:1BF9:ui_state_flag_7bf9:[DATA-WALK CONFIRM MED] UI state boolean (getter ui_get_7bf9 $CCBA). All writes =0 (view_render_five_stats, ui_helper_cd20 — co-cleared with $7FC7/$7FC9/$7FDF/$7BFB); read as a boolean branch in ai_per_fief_command_driver ($B930). SET meaning unproven -> generic ui_state name.
+NesSaveRam:1BF3:combat_casualty_skip_flag_7bf3:[DATA-WALK AMEND HIGH] Gate that SUPPRESSES the casualty-apply branch: resolve_attack_apply_casualties ($9EDD) `if($7BF3) goto` skips the casualty decrement; cleared 0 in the apply path ($9FC8) and at the combat-turn loop top ($ADDC). Boolean (only ever assigned 0, branch-tested).
+NesSaveRam:1BE2:fief_menu_info_mode_flag:[DATA-WALK CONFIRM MED] fief_info_display ($8724) writes it = arg, then branches: 0 = 12-row loop / nonzero = 21-row loop (which stat panel to draw); command_menu_select_loop reads it as a bool ($B6CB/$B711/$B737) and ==1 gates a cursor row. Standalone scalar.
+NesSaveRam:1FC5:ui_msg_oneshot_flag_7fc5:[DATA-WALK AMEND HIGH] One-shot UI message flag: SET=1 in ai_run_all_units_combat_actions ($AC49); test-and-clear consumer in message_display ($D32B read -> $D335 clear); also cleared at title init ($88B2). (Decompiler renders the =1 set as =0 — the $40/$41 qimm-load gap; ROM byte $41 is authority.)
+NesSaveRam:1FC9:ui_pending_flag_7fc9:[DATA-WALK AMEND MED] UI palette-pending/dirty flag. PRODUCER effect_view_a ($845B) sets =1 after ppu_render_rect; CONSUMER ui_helper_cd20 ($CD30) tests, runs 3 palette_write calls, then clears 0 ($CD4C). Sibling of ui_pending_flag_7fc7 (identical producer/consumer shape). (bank_01.c:321 mislabels the set as =0; ROM byte $41 is authority.)
+NesSaveRam:1FDD:selected_province_idx_latch_7fdd:[DATA-WALK AMEND MED] Latched copy of selected_province_idx ($6F5F): written by prompt_select_player_daimyo ($8755) + issue_province_command ($B7A3); read in dispatch_map_helper_e694 ($E6A2/$E6AB) as a province index into a per-fief table (+$FED8 17-fief / +$FEA6 50-fief). Analogous to the $6F5B/$7BE6 latches.
+NesSaveRam:1FE7:ui_timer_gate_flag_7fe7:[DATA-WALK AMEND MED] Boot-zeroed ui_transient flag gating poll_input's timeout path: poll_input ($D1B2) `if($7FE7==2) goto` bypasses the frame_counter countdown + timeout switch and reads the controller directly. Written 0 at init + read_frame_timer ($D2AC). Only 0/2 observed -> 'gate' not 'mode'.
 NesInternalRam:90:palette_alt:32-byte alt palette buffer ($0090-$00AF). Used by palette_swap ($C36C, task $12) to atomically swap with palette_shadow for fade/transition effects. Reset-fill $3E (paired with palette_shadow).
 NesInternalRam:700:palette_shadow:32-byte palette shadow ($0700-$071F); foreground writes here + sets palette_dirty; $C6D4 uploads to PPU $3F00 next NMI. Reset-fill $3E (medium grey).
+NesPrgRom:3FBD0:msg_ng_to_pieces:[ROM-STR] "ng to pieces!"
+NesPrgRom:3F695:msg_y_n_f695:[ROM-STR] " (Y/N)? "
+NesPrgRom:3F69E:msg_fmt__d_f69e:[ROM-STR] "%d"
+NesPrgRom:3F6AC:msg_d_d_f6ac:[ROM-STR] " (%d-%d)? "
+NesPrgRom:3F6B7:msg_hit_any_key_f6b7:[ROM-STR] "Hit any key"
+NesPrgRom:3F6E1:msg_lord_f6e1:[ROM-STR] "Lord "
+NesPrgRom:3F6E7:msg_lord_f6e7:[ROM-STR] "Lord "
+NesPrgRom:3F6ED:msg_pirates_f6ed:[ROM-STR] "Pirates"
+NesPrgRom:3F6F5:msg_christns_f6f5:[ROM-STR] "Christns"
+NesPrgRom:3F6FE:msg_rioters_f6fe:[ROM-STR] "Rioters"
+NesPrgRom:3F706:msg_no_lord:[ROM-STR] "no lord"
+NesPrgRom:3F72E:msg_rebels_f72e:[ROM-STR] "Rebels"
+NesPrgRom:3F735:msg_is_now_fief_2d_s_daimyo:[ROM-STR] " is now fief %2d`s daimyo"
+NesPrgRom:3F74F:msg_was_killed:[ROM-STR] " was killed"
+NesPrgRom:3F75B:msg_in_fief_2d_in_the_year_d:[ROM-STR] " in fief %2d in the year %d"
+NesPrgRom:3F777:msg_lord_f777:[ROM-STR] "Lord "
+NesPrgRom:3F77F:msg_wants_a_s:[ROM-STR] " wants a %s "
+NesPrgRom:3F78C:msg_demand_gold:[ROM-STR] "Demand gold"
+NesPrgRom:3F798:msg_marriage_pact:[ROM-STR] "marriage pact"
+NesPrgRom:3F7A6:msg_accept:[ROM-STR] "accept"
+NesPrgRom:3F7AD:msg_pact:[ROM-STR] "pact"
+NesPrgRom:3F7B2:msg_fief_f7b2:[ROM-STR] "Fief "
+NesPrgRom:3F7B8:msg_d_lost_its_leader:[ROM-STR] "%d lost its leader"
+NesPrgRom:3F930:msg_aiaoieueoikakikusasisusotatuto:[ROM-STR] "AiAoIeUeOiKaKiKuSaSiSuSoTaTuToNaNoHaHiHuYuYo"
+NesPrgRom:3F95D:msg_setenohomamimemoyarawagagizaze:[ROM-STR] "setenohomamimemoyarawagagizazedadubabibvbejo"
 NesPrgRom:3C000:reset_handler:Reset entry: MMC1 init via 5-write serial commit; RAM/OAM clear; APU enable; ends with JMP $8000
 NesPrgRom:3C0DA:nmi_handler:NMI/VBlank handler: OAM DMA from $0600, P1+P2 polls, palette upload, music tick, wall-clock tick; bracketed by nmi_off/nmi_on
 NesPrgRom:3C139:irq_handler:IRQ/BRK dispatcher: reads brk_dispatch_id, indirect-JMPs through 23-entry table at $C173
@@ -433,6 +514,97 @@ NesPrgRom:3E4A2:build_owned_fief_list_6f89:[MED] Scans fiefs (filtered by get_6d
 NesPrgRom:3E554:find_record_9e3c:[MED] If $6F5D<=8, SRAM-wrap reads the 34-byte record at $9E3C + $6F5D*34 and matches against arg1. 9 callers (hot). Session C 2026-05-31.
 NesPrgRom:3E694:dispatch_map_helper_e694:[MED] Branches on scenario_fief_count==50, tail-calls map_helper_e5f2 with a $7FDD-indexed table byte. Session C 2026-05-31.
 NesPrgRom:3E6B9:unpack_record_to_sram_e6b9:[MED] Unpacks $6EB1[$6F5B*2] via repeated div/mod into a 9-wide record, writes to SRAM $AEAC + idx*12 (uses ppu_upload_block_wrap/sram_wrap). Session C 2026-05-31.
+NesPrgRom:2C4A:msg_fmt_blank:[ROM-STR] "017?100"
+NesPrgRom:37CA:msg_congratulations_my_lord:[ROM-STR] ">[16]*(>[16](0>[16](0>[16]80Congratulations my Lord! "
+NesPrgRom:37D2:msg_congratulations_my_lord_b7d2:[ROM-STR] ">[16](0>[16]80Congratulations my Lord! "
+NesPrgRom:37D6:msg_congratulations_my_lord_b7d6:[ROM-STR] ">[16]80Congratulations my Lord! "
+NesPrgRom:37DA:msg_congratulations_my_lord_b7da:[ROM-STR] "Congratulations my Lord! "
+NesPrgRom:37F4:msg_in_the_year_4d:[ROM-STR] "In the year %4d "
+NesPrgRom:3805:msg_you_united_japan:[ROM-STR] "you united Japan!"
+NesPrgRom:3817:msg_game_over:[ROM-STR] "Game over"
+NesPrgRom:3821:msg_would_you_like_to_play_again:[ROM-STR] "Would you like to play again"
+NesPrgRom:383E:msg_thanks_for_playing:[ROM-STR] "Thanks for playing"
+NesPrgRom:385A:msg_new_game:[ROM-STR] ">[16]'0>800>[16](0>[06](0>[18])0>[18][01]0> !0>#$%>&'(>)*+New game"
+NesPrgRom:3862:msg_new_game_b862:[ROM-STR] ">[16](0>[06](0>[18])0>[18][01]0> !0>#$%>&'(>)*+New game"
+NesPrgRom:3882:msg_new_game_b882:[ROM-STR] "New game"
+NesPrgRom:388B:msg_koei:[ROM-STR] "KOEI"
+NesPrgRom:3890:msg_no_saved_data:[ROM-STR] "No saved data"
+NesPrgRom:389F:msg_data_loaded:[ROM-STR] "Data loaded"
+NesPrgRom:38B0:msg_data_can_t_be_used:[ROM-STR] "Data can`t be used"
+NesPrgRom:38C3:msg_fmt__3d:[ROM-STR] "%3d"
+NesPrgRom:38C8:msg_fiefs_50fiefs:[ROM-STR] "(17fiefs/50fiefs) ? "
+NesPrgRom:38DD:msg_watch_other_daimyos_battle:[ROM-STR] "Watch other daimyos battle"
+NesPrgRom:38F8:msg_player:[ROM-STR] "Player "
+NesPrgRom:3900:msg_d_which_fief_would_you_like_to:[ROM-STR] "%d, which fief would you like to rule"
+NesPrgRom:3926:msg_is:[ROM-STR] "Is "
+NesPrgRom:392A:msg_of_fief_2d_ok:[ROM-STR] " of fief %2d OK"
+NesPrgRom:393A:msg_that_daimyo_is_already_taken:[ROM-STR] "That daimyo is already taken"
+NesPrgRom:3957:msg_fief_2d:[ROM-STR] "Fief %2d"
+NesPrgRom:3960:msg_age_2d:[ROM-STR] "Age-%2d-"
+NesPrgRom:3969:msg_please_set:[ROM-STR] "Please set"
+NesPrgRom:3974:msg_daimyo_abilities:[ROM-STR] "daimyo abilities"
+NesPrgRom:3985:msg_press_any_button:[ROM-STR] "Press any button"
+NesPrgRom:3996:msg_to_set_abilities:[ROM-STR] "to set abilities"
+NesPrgRom:39A7:msg_fmt_blank_b9a7:[ROM-STR] "-   -"
+NesPrgRom:39AD:msg_total_4d:[ROM-STR] "Total  %4d"
+NesPrgRom:39B8:msg_is_this_ok:[ROM-STR] "Is this OK"
+NesPrgRom:39C3:msg_control_1:[ROM-STR] "Control 1"
+NesPrgRom:39CD:msg_how_many_players:[ROM-STR] "How many players"
+NesPrgRom:39DE:msg_please_select_skill_level:[ROM-STR] "Please select skill level"
+NesPrgRom:39F8:msg_is_everything_ok_so_far:[ROM-STR] "Is everything OK so far"
+NesPrgRom:3A10:msg_then_on_with_the_game:[ROM-STR] "Then on with the game!"
+NesPrgRom:3A28:msg_pirates:[ROM-STR] "Pirates "
+NesPrgRom:3A31:msg_christns:[ROM-STR] "Christns"
+NesPrgRom:3A3A:msg_rioters:[ROM-STR] "Rioters "
+NesPrgRom:3A43:msg_zealots:[ROM-STR] "Zealots "
+NesPrgRom:3A4C:msg_monks:[ROM-STR] "Monks   "
+NesPrgRom:3A55:msg_rebels:[ROM-STR] "Rebels  "
+NesPrgRom:3A5F:msg_would_you_like_to_bid_for_fief:[ROM-STR] " Would you like to bid for fief %2d"
+NesPrgRom:3A83:msg_how_much:[ROM-STR] "How much"
+NesPrgRom:3A8D:msg_fief_2d_is_yours:[ROM-STR] " Fief %2d is yours!"
+NesPrgRom:3AA1:msg_fief:[ROM-STR] "Fief "
+NesPrgRom:3AA7:msg_d_is_now:[ROM-STR] "%2d is now "
+NesPrgRom:3AB3:msg_s_territory:[ROM-STR] "`s territory"
+NesPrgRom:3AC0:msg_in_fief:[ROM-STR] "In fief "
+NesPrgRom:3AC9:msg_fmt__d:[ROM-STR] "%d,  "
+NesPrgRom:3ACF:msg_loyals_4d_men_s_4d_men:[ROM-STR] "Loyals           %4d men %s           %4d men"
+NesPrgRom:3AFE:msg_s_have_won:[ROM-STR] "%s have won!"
+NesPrgRom:3B0B:msg_the_loyal_forces_have_won:[ROM-STR] "The loyal forces have won!"
+NesPrgRom:3B27:msg_the_people_are_rebelling_will:[ROM-STR] " the people are rebelling! Will you appease them with gold"
+NesPrgRom:3B62:msg_giving_all_of_it:[ROM-STR] "Giving all of it "
+NesPrgRom:3B74:msg_it_didn_t_work:[ROM-STR] "It didn`t work!"
+NesPrgRom:3B84:msg_they_appear_to_have_settled_do:[ROM-STR] "They appear to have settled down"
+NesPrgRom:3BBA:msg_died_of_s:[ROM-STR] " died of %s"
+NesPrgRom:3BC7:msg_someone_has_sent_ninja_aginst:[ROM-STR] " someone has sent ninja aginst fief "
+NesPrgRom:3BEC:msg_fmt__2d:[ROM-STR] "%2d!"
+NesPrgRom:3BF1:msg_summer_this_year_brings_typhoo:[ROM-STR] "Summer this year brings typhoons!"
+NesPrgRom:3C13:msg_lord_plague_has_come:[ROM-STR] "Lord, plague has come!"
+NesPrgRom:3C2B:msg_a_typhoon_has_struck_fief_2d:[ROM-STR] " a typhoon has struck fief %2d!"
+NesPrgRom:3C4C:msg_plague_has_come_to_fief_2d:[ROM-STR] " plague has come to fief %2d!"
+NesPrgRom:3C6A:msg_in_fief_bc6a:[ROM-STR] "In fief "
+NesPrgRom:3C73:msg_fmt__2d_bc73:[ROM-STR] "%2d,"
+NesPrgRom:3C78:msg_loyals_4d_men_rebels_4d_men:[ROM-STR] "  Loyals           %4d men Rebels           %4d men"
+NesPrgRom:3CAC:msg_beware_a_treacherous_subordina:[ROM-STR] "Beware! A treacherous subordinate has raised an army to destroy "
+NesPrgRom:3CF1:msg_the_rebels_have_won:[ROM-STR] "The rebels have won!"
+NesPrgRom:3D06:msg_the_loyal_men_have_won:[ROM-STR] "The loyal men have won!"
+NesPrgRom:3D1E:msg_akechi_mitsuhide_failed_to_tak:[ROM-STR] "Akechi Mitsuhide failed to take your life and will pay!"
+NesPrgRom:3D56:msg_nobunaga:[ROM-STR] "Nobunaga "
+NesPrgRom:3D60:msg_has_been_destroyed_but_in_the:[ROM-STR] "has been destroyed, but in the role of "
+NesPrgRom:3D88:msg_hashiba_hideyoshi:[ROM-STR] "Hashiba Hideyoshi, "
+NesPrgRom:3D9C:msg_nobunaga_s_loyal_subordinate_y:[ROM-STR] "Nobunaga`s loyal subordinate, you may continue to work for "
+NesPrgRom:3DD8:msg_nobunaga_s_ambition_of_a_unite:[ROM-STR] "Nobunaga`s ambition of a united Japan"
+NesPrgRom:3DFE:msg_will_you_ally_with_fief_2d_for:[ROM-STR] " will you ally with fief %2d for %4d units of gold"
+NesPrgRom:3E31:msg_this_pact_doesn_t_mean_you_can:[ROM-STR] "This pact doesn`t mean you can relax!"
+NesPrgRom:3E57:msg_who_needs_wimps_like_him_anywa:[ROM-STR] "Who needs wimps like him anyway?"
+NesPrgRom:3E78:msg_will_you_accept_4d_units_of_go:[ROM-STR] " Will you accept %4d units of gold from fief %2d for the princes"
+NesPrgRom:3EBA:msg_you_ve_lost_a_daughter_but_gai:[ROM-STR] "you`ve lost a daughter but gained a son-in-law"
+NesPrgRom:3EE9:msg_the_princess_was_too_good_for:[ROM-STR] "The princess was too good for him"
+NesPrgRom:3F0B:msg_riot:[ROM-STR] "Riot"
+NesPrgRom:3F10:msg_revolt:[ROM-STR] "Revolt"
+NesPrgRom:3F17:msg_koei_bf17:[ROM-STR] "KOEI"
+NesPrgRom:3F1D:msg_data_has_been_saved:[ROM-STR] "Data has been saved"
+NesPrgRom:3F31:msg_has_taken_ill:[ROM-STR] " has taken ill"
+NesPrgRom:3F40:msg_disloyal_troops_have_revolted:[ROM-STR] "Disloyal troops have revolted"
 NesPrgRom:0:bank0_entry:Bank 0 entry point. 3 bytes: JMP $A778. The 'rest of bank 0' is data — VM bytecode, sprite/tile data, and a few small native helpers callable from bytecode.
 NesPrgRom:2778:vm_bootstrap:First instruction reached after RESET. JSR vm_entry ($E823) followed by inline VM bytecode that orchestrates the entire boot sequence (audio init, palette load, screen setup) and ultimately becomes the main game loop.
 NesPrgRom:3:display_fullscreen_graphic_sequence:[MED AMENDED] ~530-byte multi-phase full-screen graphic/cinematic presenter: PPU blob uploads (ppu_upload_block_wrap) + 4 palette-fade loops + input-gated phase transitions + audio; ends two conditional message_display + infinite-hang JUMP. Proposer's cited calls were fabricated/mis-tiled; corrected from bytecode.
@@ -604,6 +776,154 @@ NesPrgRom:3D759:ui_helper_d759:Helper called by 3 drivers.
 NesPrgRom:3D772:ui_helper_d772:Helper called by 2 drivers.
 NesPrgRom:3E5F2:map_helper_e5f2:Map-rendering helper called by Map (chapter 11).
 NesPrgRom:3C4DC:ui_unused:Reserved.
+NesPrgRom:79F6:msg_s_s_s:[ROM-STR] "%s%s%s"
+NesPrgRom:79FD:msg_attack:[ROM-STR] "Attack"
+NesPrgRom:7A14:msg_market:[ROM-STR] "__Market__"
+NesPrgRom:7A1F:msg_rate_2d_1d:[ROM-STR] "Rate  %2d.%1d"
+NesPrgRom:7A2D:msg_rice_2d_1d:[ROM-STR] "Rice  %2d.%1d"
+NesPrgRom:7A3B:msg_arms_2d_1d:[ROM-STR] "Arms  %2d.%1d"
+NesPrgRom:7A49:msg_men_2d_1d:[ROM-STR] "Men   %2d.%1d"
+NesPrgRom:7A57:msg_ninja_2d_1d:[ROM-STR] "Ninja %2d.%1d"
+NesPrgRom:7A65:msg_fmt__2d_ba65:[ROM-STR] "%2d"
+NesPrgRom:7A6B:msg_fmt__4d:[ROM-STR] "%4d"
+NesPrgRom:7A74:msg_fmt__3d_ba74:[ROM-STR] "%3d"
+NesPrgRom:7A7C:msg_home_fief:[ROM-STR] "Home fief"
+NesPrgRom:7A86:msg_direct:[ROM-STR] "Direct"
+NesPrgRom:7A8D:msg_empty:[ROM-STR] "Empty"
+NesPrgRom:7A93:msg_fief_2d_ba93:[ROM-STR] "Fief %2d"
+NesPrgRom:7AA5:msg_sick:[ROM-STR] "Sick"
+NesPrgRom:7AAA:msg_home:[ROM-STR] "Home "
+NesPrgRom:7AB0:msg_fief_bab0:[ROM-STR] "Fief"
+NesPrgRom:7AB5:msg_fief_gold_town_rice_output_dam:[ROM-STR] "Fief  Gold Town Rice Output Dams Lylty Wealth Men Morale Skill A"
+NesPrgRom:7B02:msg_fmt__2d_bb02:[ROM-STR] "%2d"
+NesPrgRom:7B06:msg_fmt__4d_bb06:[ROM-STR] "%4d "
+NesPrgRom:7B0B:msg_fmt__4d_bb0b:[ROM-STR] "%4d "
+NesPrgRom:7B10:msg_fmt__4d_bb10:[ROM-STR] "%4d "
+NesPrgRom:7B15:msg_menu:[ROM-STR] "__Menu__"
+NesPrgRom:7B1E:msg_fmt__2d_bb1e:[ROM-STR] "%2d"
+NesPrgRom:7B22:msg_fmt__2d_bb22:[ROM-STR] "%2d"
+NesPrgRom:7B28:msg_not_home_fief:[ROM-STR] "Not home fief"
+NesPrgRom:7B3F:msg_has_lost:[ROM-STR] " has lost"
+NesPrgRom:7B62:msg_from_fief_2d_has:[ROM-STR] " from fief %2d has "
+NesPrgRom:7B76:msg_invaded_s_in_fief_2d:[ROM-STR] "invaded %s in fief %2d"
+NesPrgRom:7B8D:msg_counterattacked:[ROM-STR] "Counterattacked!"
+NesPrgRom:7B9E:msg_you_have_repelled:[ROM-STR] " You have repelled!"
+NesPrgRom:7BB2:msg_your_ninja_failed:[ROM-STR] "Your ninja failed"
+NesPrgRom:7BC4:msg_that_fief_can_t_hold_more_men:[ROM-STR] "That fief can`t hold more men"
+NesPrgRom:7BE3:msg_is_this_ok_bbe3:[ROM-STR] "Is this OK"
+NesPrgRom:7BEF:msg_dams_value:[ROM-STR] "Dams value"
+NesPrgRom:7BFD:msg_output:[ROM-STR] "Output"
+NesPrgRom:7C07:msg_the_treasure_room_is_already_f:[ROM-STR] " The treasure room is already full!"
+NesPrgRom:7C2B:msg_s_would_you_like_to_borrow:[ROM-STR] "%s would you like to borrow"
+NesPrgRom:7C47:msg_you_can_t_borrow:[ROM-STR] "You can`t borrow!"
+NesPrgRom:7C5A:msg_no_gold:[ROM-STR] " No gold"
+NesPrgRom:7C63:msg_debt_what_debt:[ROM-STR] " Debt? What debt?"
+NesPrgRom:7C76:msg_s_rice_will_you_sell:[ROM-STR] "%s rice will you sell"
+NesPrgRom:7C8C:msg_treasury_full:[ROM-STR] "Treasury full"
+NesPrgRom:7C9A:msg_no_rice:[ROM-STR] "No rice"
+NesPrgRom:7CA3:msg_rice_will_you_buy:[ROM-STR] " rice will you buy"
+NesPrgRom:7CB6:msg_storehouse_full:[ROM-STR] "Storehouse full"
+NesPrgRom:7CC6:msg_sorry_no_credit:[ROM-STR] "Sorry, no credit"
+NesPrgRom:7CD7:msg_weapons_for_who:[ROM-STR] "Weapons? For who?"
+NesPrgRom:7CEA:msg_armory_full:[ROM-STR] "Armory full"
+NesPrgRom:7CF6:msg_we_merchants_deal_only_in_cash:[ROM-STR] "We merchants deal only in cash"
+NesPrgRom:7D15:msg_fmt__2d_bd15:[ROM-STR] "%2d"
+NesPrgRom:7D19:msg_lord_how_may_i_serve_you:[ROM-STR] "Lord,how may I serve you?"
+NesPrgRom:7D33:msg_let_s_do_business_again:[ROM-STR] "Let`s do business again"
+NesPrgRom:7D4B:msg_bye:[ROM-STR] "Bye!"
+NesPrgRom:7D50:msg_fief_d_s_s_has_declined_by_d:[ROM-STR] "fief %d`s %s has declined by %d "
+NesPrgRom:7D71:msg_town_value:[ROM-STR] "Town value"
+NesPrgRom:7D7C:msg_your_ninja_failed_bd7c:[ROM-STR] "Your ninja failed!"
+NesPrgRom:7D8F:msg_uprisng_2_revolt_3_dams_4_assa:[ROM-STR] " 1-Uprisng 2-Revolt 3-Dams 4-Assassin 5-Arson"
+NesPrgRom:7DBD:msg_the_daimyo_is_out:[ROM-STR] "the daimyo is out"
+NesPrgRom:7DD1:msg_men_ninja:[ROM-STR] " (Men/Ninja)? "
+NesPrgRom:7DE0:msg_the_men_can_t_train_any_furthe:[ROM-STR] "The men can`t train any further"
+NesPrgRom:7E00:msg_view_vassals:[ROM-STR] "(99-view vassals) "
+NesPrgRom:7E14:msg_town_value_be14:[ROM-STR] "Town value"
+NesPrgRom:7E20:msg_gold_rice:[ROM-STR] "(Gold/Rice)? "
+NesPrgRom:7E31:msg_peasnts_men:[ROM-STR] "(Peasnts/Men)? "
+NesPrgRom:7E43:msg_fmt__3d_be43:[ROM-STR] "%3d"
+NesPrgRom:7E47:msg_d_s:[ROM-STR] "%d%s"
+NesPrgRom:7E4C:msg_available_0:[ROM-STR] "available  0"
+NesPrgRom:7E69:msg_arrows_other_sections:[ROM-STR] "(arrows  )...other sections "
+NesPrgRom:7E86:msg_a_button_menu:[ROM-STR] "(A Button)...menu"
+NesPrgRom:7E98:msg_fmt__d_be98:[ROM-STR] "%d"
+NesPrgRom:7E9B:msg_it_s_already_a_s_state:[ROM-STR] "It`s already a %s state"
+NesPrgRom:7EB3:msg_sound:[ROM-STR] "Sound "
+NesPrgRom:7EBA:msg_on_off:[ROM-STR] "(on/off)? "
+NesPrgRom:7EC5:msg_animation:[ROM-STR] "Animation "
+NesPrgRom:7ED0:msg_on_off_bed0:[ROM-STR] "(on/off)? "
+NesPrgRom:7EDB:msg_wait_is_now:[ROM-STR] "Wait is now "
+NesPrgRom:7EE8:msg_d_enter_new_wait:[ROM-STR] "%d Enter new wait"
+NesPrgRom:7EFA:msg_are_you_sure:[ROM-STR] "Are you sure"
+NesPrgRom:7F07:msg_game_will_save_at_end_of_seaso:[ROM-STR] "Game will save at end of season"
+NesPrgRom:7F27:msg_watch_others_battle:[ROM-STR] "Watch others battle "
+NesPrgRom:7F3C:msg_y_n:[ROM-STR] "(Y/N)? "
+NesPrgRom:7F44:msg_do_you_really_want_to_end_the:[ROM-STR] "Do you really want to end the game"
+NesPrgRom:7F67:msg_game_over_bf67:[ROM-STR] "Game over"
+NesPrgRom:7F71:msg_fmt__2d_bf71:[ROM-STR] "%2d"
+NesPrgRom:7F75:msg_change_which:[ROM-STR] "Change which?"
+NesPrgRom:7F83:msg_what_a_waste:[ROM-STR] "What a waste!"
+NesPrgRom:7F91:msg_your_orders:[ROM-STR] " your orders?"
+NesPrgRom:7F9F:msg_turn_2d_fief_2d:[ROM-STR] "Turn %2d  Fief %2d"
+NesPrgRom:3F98A:msg_no_fiefs:[ROM-STR] " no fiefs"
+NesPrgRom:3F994:msg_fiefs:[ROM-STR] "  Fiefs "
+NesPrgRom:3F99D:msg_how_much_f99d:[ROM-STR] "How much"
+NesPrgRom:3F9A6:msg_how_many:[ROM-STR] "How many"
+NesPrgRom:3F9CD:msg_move_where:[ROM-STR] " Move where? "
+NesPrgRom:3F9DB:msg_how_many_men:[ROM-STR] "How many men"
+NesPrgRom:3F9E8:msg_will_you_lead_them_personally:[ROM-STR] "Will you lead them personally"
+NesPrgRom:3FA06:msg_they_have_arrived_safely:[ROM-STR] "They have arrived safely"
+NesPrgRom:3FA1F:msg_attack_where:[ROM-STR] " Attack where? "
+NesPrgRom:3FA2F:msg_how_many_men_fa2f:[ROM-STR] "How many men"
+NesPrgRom:3FA3C:msg_how_much_rice_will_they_take:[ROM-STR] "How much rice will they take"
+NesPrgRom:3FA59:msg_will_you_lead_them_personally_fa59:[ROM-STR] "Will you lead them personally"
+NesPrgRom:3FA77:msg_tax_is_d_enter_new_tax:[ROM-STR] "Tax is %d Enter new tax"
+NesPrgRom:3FA8F:msg_the_peasants_are_delighted:[ROM-STR] "The peasants are delighted!"
+NesPrgRom:3FAAB:msg_the_peasants_are_protesting:[ROM-STR] "The peasants are protesting!"
+NesPrgRom:3FAC8:msg_send_where:[ROM-STR] " Send where? "
+NesPrgRom:3FAD6:msg_lord_you_are_too_weak_for_batt:[ROM-STR] "Lord, you are too weak for battle!"
+NesPrgRom:3FAFA:msg_gold:[ROM-STR] "Gold"
+NesPrgRom:3FAFF:msg_rice:[ROM-STR] "Rice"
+NesPrgRom:3FB04:msg_the_supplies_have_arrived_safe:[ROM-STR] "The supplies have arrived safely"
+NesPrgRom:3FB25:msg_s_is_d_spend_how_much_on_it:[ROM-STR] "%s is %d Spend how much on it"
+NesPrgRom:3FB43:msg_dams_value_is_now_d:[ROM-STR] "Dams value is now %d"
+NesPrgRom:3FB58:msg_output_is_now_d:[ROM-STR] "Output is now %d"
+NesPrgRom:3FB69:msg_no_merchant_in_the_area:[ROM-STR] "No merchant in the area"
+NesPrgRom:3FB81:msg_recruit_which:[ROM-STR] "Recruit which"
+NesPrgRom:3FB90:msg_lord_s_we_now_have_d_men:[ROM-STR] "Lord %s, we now have %d men"
+NesPrgRom:3FBAE:msg_what_mission:[ROM-STR] "What mission"
+NesPrgRom:3FBBB:msg_enemy_morale_is_falling_to_pie:[ROM-STR] "Enemy morale is falling to pieces!"
+NesPrgRom:3FBDE:msg_skill_is_now_d:[ROM-STR] "Skill is now %d"
+NesPrgRom:3FBEF:msg_view_which_fief:[ROM-STR] "View which fief? "
+NesPrgRom:3FC01:msg_our_spy_was_caught:[ROM-STR] "Our spy was caught"
+NesPrgRom:3FC14:msg_town_value_is_now_d:[ROM-STR] "Town value is now %d"
+NesPrgRom:3FC29:msg_gold_for_spy:[ROM-STR] "Gold for spy"
+NesPrgRom:3FC36:msg_d_peasants_have_defected:[ROM-STR] "%d peasants have defected"
+NesPrgRom:3FC50:msg_no_peasants_defected:[ROM-STR] "No peasants defected!"
+NesPrgRom:3FC66:msg_seasons:[ROM-STR] "Seasons"
+NesPrgRom:3FC6E:msg_it_will_do_you_good:[ROM-STR] "It will do you good"
+NesPrgRom:3FC82:msg_lord_you_are_truly_wise:[ROM-STR] "Lord, you are truly wise!"
+NesPrgRom:3FC9C:msg_which_fief:[ROM-STR] " Which fief? "
+NesPrgRom:3FCAA:msg_lord_s_they_ve_refused:[ROM-STR] "Lord %s they`ve refused!"
+NesPrgRom:3FCC3:msg_your_bride_to_be_has_arrived:[ROM-STR] "Your bride-to-be has arrived"
+NesPrgRom:3FCE0:msg_don_t_you_long_to_hear_the_pit:[ROM-STR] "Don`t you long to hear the pitter-patter of a little lord`s foot"
+NesPrgRom:3FD27:msg_lord_s_s_wants_d_gold_pay:[ROM-STR] "Lord %s, %s wants %d gold Pay"
+NesPrgRom:3FD45:msg_lord_s_s_wants_d_gold_pay_fd45:[ROM-STR] "Lord %s, %s wants %d gold Pay"
+NesPrgRom:3FD63:msg_war_is_inevitable_so_don_t_let:[ROM-STR] "War is inevitable so don`t let your guard down!"
+NesPrgRom:3FD93:msg_who_needs_him_anyway:[ROM-STR] "Who needs him anyway"
+NesPrgRom:3FDA8:msg_give_how_much:[ROM-STR] "Give how much"
+NesPrgRom:3FDB6:msg_thank_you_lord:[ROM-STR] "Thank you Lord!"
+NesPrgRom:3FDC6:msg_we_re_at_our_limit:[ROM-STR] "We`re at our limit"
+NesPrgRom:3FDD9:msg_you_have_no_gold:[ROM-STR] "You have no gold!"
+NesPrgRom:3FDEB:msg_you_have_no_rice:[ROM-STR] "You have no rice!"
+NesPrgRom:3FDFD:msg_you_have_no_soldiers:[ROM-STR] "You have no soldiers!"
+NesPrgRom:3FE13:msg_you_have_no_peasants:[ROM-STR] "You have no peasants!"
+NesPrgRom:3FE29:msg_they_are_your_allies:[ROM-STR] "They are your allies!"
+NesPrgRom:3FE40:msg_which_fief_fe40:[ROM-STR] " Which fief "
+NesPrgRom:3FE4D:msg_what_are_your_orders:[ROM-STR] " What are your orders?"
+NesPrgRom:3FE64:msg_it_s_currently_a_s_state_ok_to:[ROM-STR] "It`s currently a %s state OK to make it a %s state"
+NesPrgRom:3FE97:msg_bribe_which:[ROM-STR] " Bribe which? "
 NesPrgRom:79B2:command_driver_table:34-entry pointer table — entry N points to the bytecode subroutine that drives menu command N+1. Entries 0-20 are the 21 lord commands, 21-33 are sub-handlers reachable from within those drivers. See command-table.txt for the full listing. Chapter 9's foundational find.
 NesPrgRom:56D1:driver_move:Command 1 (Move) driver. Relocate troops between own provinces. Calls effect_move ($8CA5) after capacity-check, dest-pick, count-input, lead-personally prompt. Chapter 11.
 NesPrgRom:5850:driver_war:Command 2 (War) driver. Launch an attack. Heaviest single driver (154 insns, 19 unique host_call targets). Calls six combat-prep effect handlers ($81FC, $9323, $933A, $9351, $9368, $9814) plus the standard select/prompt cluster. Chapter 11.
@@ -738,6 +1058,39 @@ NesPrgRom:76B4:command_menu_select_loop:[AMENDED/HIGH] Ground-truth disasm (vm-d
 NesPrgRom:779B:issue_province_command:[CONFIRMED/HIGH] Ground-truth disasm (vm-disasm bank 1, body @ $B7A0) and native-call-index fully support the name. $B7A0 saves selected_province_idx ($6F5F). $B7A6 ui_helper_d772(arg,12)+rest_turns_remaining ($6D67) -> local8; $B7B2 tests *local8 (rest flag): rest branch ($B7…
 NesPrgRom:7875:ai_econ_action_state0:[AMENDED/MED] $B875 body (@ $B87A): calls $B64B and $8C68 (both exclusively called by $B875 — 1 inbound each), loads selected_province_idx ($6F5F), computes record base $7001+idx*26 into local 11 ($B880-B88A), then PUSH 4 / rng_mod(4) / JUMPT $B89A ($B88B-B890): with 1/4 pr…
 NesPrgRom:789B:ai_per_fief_command_driver:[CONFIRMED/HIGH] Bytecode (body @ $B8A0) confirms a per-fief AI driver. Outer loop: local11 increments at $B99E/$B99D and loops back to $B8AA while ($B9A0) local11 UCMPLT $6D9D scenario_fief_count. Per iteration ($B90E): $B913 LOADR_imm2 $6F1B + local11 + BYTE_DEREF -> selecte…
+NesPrgRom:B526:msg_y_n_b526:[ROM-STR] " (Y/N)? "
+NesPrgRom:B52F:msg_d_d:[ROM-STR] "8932170 (%d-%d) "
+NesPrgRom:B536:msg_d_d_b536:[ROM-STR] " (%d-%d) "
+NesPrgRom:B56A:msg_day_2d:[ROM-STR] " Day  %2d"
+NesPrgRom:B574:msg_fmt__4d_b574:[ROM-STR] "%4d"
+NesPrgRom:B578:msg_gold_4d_rice_4d_men_4d:[ROM-STR] " Gold%4d Rice%4d Men %4d"
+NesPrgRom:B5A7:msg_fief_2d_b5a7:[ROM-STR] " Fief %2d"
+NesPrgRom:B5BE:msg_up_up_rt_down_rt_down_down_lt:[ROM-STR] "  Up  Up Rt  Down Rt  Down  Down Lt  Up Lt"
+NesPrgRom:B5E9:msg_hit_any_key:[ROM-STR] " Hit any key"
+NesPrgRom:B5F6:msg_fief_b5f6:[ROM-STR] "Fief: "
+NesPrgRom:B5FD:msg_fmt__2d_b5fd:[ROM-STR] "%2d"
+NesPrgRom:B601:msg_fief_b601:[ROM-STR] "Fief: "
+NesPrgRom:B608:msg_there_is_no_fief_to_flee_to:[ROM-STR] " There is no fief to flee to!"
+NesPrgRom:B627:msg_unit_d_s:[ROM-STR] "unit %d %s"
+NesPrgRom:B658:msg_the_enemy_has_turned_tail_and:[ROM-STR] ">[12])0>[02][12]!>[18])0>[18][01]0the enemy has turned tail and fled! Ha Ha Ha Ha "
+NesPrgRom:B96E:msg_s_has_retreated:[ROM-STR] "%s has retreated"
+NesPrgRom:B97F:msg_s_hung_on_to_the_end_and_won:[ROM-STR] "%s hung on to the end and won"
+NesPrgRom:B9A0:msg_lord:[ROM-STR] "Lord "
+NesPrgRom:B9A6:msg_please_position_unit_d:[ROM-STR] " Please position unit %d"
+NesPrgRom:B9BF:msg_fmt__d_b9bf:[ROM-STR] "%d"
+NesPrgRom:B9CA:msg_the_town_is_in_complete_chaos:[ROM-STR] "The town is in complete chaos!"
+NesPrgRom:B9E9:msg_fmt__d_b9e9:[ROM-STR] "%d"
+NesPrgRom:B9EC:msg_hit_any_key_b9ec:[ROM-STR] "Hit any key"
+NesPrgRom:BA04:msg_giving_orders_for:[ROM-STR] " Giving orders for "
+NesPrgRom:BA19:msg_your_orders_for:[ROM-STR] " Your orders for "
+NesPrgRom:BA2C:msg_our:[ROM-STR] " our"
+NesPrgRom:BA32:msg_enemy:[ROM-STR] " enemy"
+NesPrgRom:BA39:msg_morale_is_falling:[ROM-STR] " morale is falling"
+NesPrgRom:BA4C:msg_fief_ba4c:[ROM-STR] "Fief "
+NesPrgRom:BA52:msg_fmt__2d_ba52:[ROM-STR] " %2d"
+NesPrgRom:BA59:msg_has_passed_from:[ROM-STR] " has passed from "
+NesPrgRom:BA6B:msg_lord_s_to:[ROM-STR] "Lord %s to "
+NesPrgRom:BA77:msg_lord_s:[ROM-STR] "Lord %s"
 NesPrgRom:AFE1:battle_init_driver:Battle-init driver (bank 2 entry, via $8000 = JMP here). Calls map_populate ($8903) at $AFFC to fill the SRAM staging buffer from ROM, then map_render_driver (via $8977 -> $885E) at $AFFF to blit staging -> PPU. Run headless via probe-map-emit.py / render-rom-to-map.py.
 NesPrgRom:8903:map_populate:Tactical-map POPULATOR: expands the per-fief cell data from ROM into the SRAM staging buffer at $7BFD (11 cols x 88 stride, 5 rows of metatiles). Inputs: battle_defending_province ($6F63) + scenario_fief_count ($6D9D); source = tactical_map_cell_pool ($A57E, bank 4) via province_to_mapid_table ($F70E). Reads cells one byte at a time through syscall_memcpy_banked ($10). Verified cell-exact on Mino/Tanba/Ezo + the whole 50-fief atlas. Returns clean with only memcpy syscalls.
 NesPrgRom:885E:map_render_driver:Tactical-map RENDER driver: walks the populated $7BFD staging buffer (col*88 stride) and blits each column to the PPU via syscall_ppu_blit_from_bank ($14). This is staging->PPU, NOT the populator (that's map_populate $8903). Uses host_call $CC54 for the metatile-pattern copy (exact behavior still open — ROADMAP).

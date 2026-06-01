@@ -218,6 +218,32 @@ prg_bank_count = 16        # 256 KB total
 # ============================================================================
 
 [prg.bank15]
+# --- ROM string labels (rom-xref auto-decode, B1 data-walk) ---
+"0xBBD0" = { name = "msg_ng_to_pieces", comment = "[ROM-STR] \"ng to pieces!\"" }
+"0xF695" = { name = "msg_y_n_f695", comment = "[ROM-STR] \"\n(Y/N)? \"" }
+"0xF69E" = { name = "msg_fmt__d_f69e", comment = "[ROM-STR] \"%d\"" }
+"0xF6AC" = { name = "msg_d_d_f6ac", comment = "[ROM-STR] \"\n(%d-%d)? \"" }
+"0xF6B7" = { name = "msg_hit_any_key_f6b7", comment = "[ROM-STR] \"Hit any key\"" }
+"0xF6E1" = { name = "msg_lord_f6e1", comment = "[ROM-STR] \"Lord \"" }
+"0xF6E7" = { name = "msg_lord_f6e7", comment = "[ROM-STR] \"Lord\n\"" }
+"0xF6ED" = { name = "msg_pirates_f6ed", comment = "[ROM-STR] \"Pirates\"" }
+"0xF6F5" = { name = "msg_christns_f6f5", comment = "[ROM-STR] \"Christns\"" }
+"0xF6FE" = { name = "msg_rioters_f6fe", comment = "[ROM-STR] \"Rioters\"" }
+"0xF706" = { name = "msg_no_lord", comment = "[ROM-STR] \"no lord\"" }
+"0xF72E" = { name = "msg_rebels_f72e", comment = "[ROM-STR] \"Rebels\"" }
+"0xF735" = { name = "msg_is_now_fief_2d_s_daimyo", comment = "[ROM-STR] \" is now\nfief %2d`s daimyo\"" }
+"0xF74F" = { name = "msg_was_killed", comment = "[ROM-STR] \" was\nkilled\"" }
+"0xF75B" = { name = "msg_in_fief_2d_in_the_year_d", comment = "[ROM-STR] \" in fief %2d\nin the year %d\"" }
+"0xF777" = { name = "msg_lord_f777", comment = "[ROM-STR] \"Lord \"" }
+"0xF77F" = { name = "msg_wants_a_s", comment = "[ROM-STR] \" wants a\n%s\n\"" }
+"0xF78C" = { name = "msg_demand_gold", comment = "[ROM-STR] \"Demand gold\"" }
+"0xF798" = { name = "msg_marriage_pact", comment = "[ROM-STR] \"marriage pact\"" }
+"0xF7A6" = { name = "msg_accept", comment = "[ROM-STR] \"accept\"" }
+"0xF7AD" = { name = "msg_pact", comment = "[ROM-STR] \"pact\"" }
+"0xF7B2" = { name = "msg_fief_f7b2", comment = "[ROM-STR] \"Fief \"" }
+"0xF7B8" = { name = "msg_d_lost_its_leader", comment = "[ROM-STR] \"%d lost its\nleader\"" }
+"0xF930" = { name = "msg_aiaoieueoikakikusasisusotatuto", comment = "[ROM-STR] \"AiAoIeUeOiKaKiKuSaSiSuSoTaTuToNaNoHaHiHuYuYo\"" }
+"0xF95D" = { name = "msg_setenohomamimemoyarawagagizaze", comment = "[ROM-STR] \"setenohomamimemoyarawagagizazedadubabibvbejo\"" }
 
 # --- Vectors and boot ---
 "0xC000" = { name = "reset_handler",       comment = "Reset entry: MMC1 init via 5-write serial commit; RAM/OAM clear; APU enable; ends with JMP $8000" }
@@ -643,6 +669,98 @@ prg_bank_count = 16        # 256 KB total
 # followed by JSR $E823 at $A778 which enters the VM. Everything after that is bytecode.
 
 [prg.bank0]
+# --- ROM string labels (rom-xref auto-decode, B1 data-walk) ---
+"0xAC4A" = { name = "msg_fmt_blank", comment = "[ROM-STR] \"017?100\"" }
+"0xB7CA" = { name = "msg_congratulations_my_lord", comment = "[ROM-STR] \">[16]*(>[16](0>[16](0>[16]80Congratulations my Lord!\n\"" }
+"0xB7D2" = { name = "msg_congratulations_my_lord_b7d2", comment = "[ROM-STR] \">[16](0>[16]80Congratulations my Lord!\n\"" }
+"0xB7D6" = { name = "msg_congratulations_my_lord_b7d6", comment = "[ROM-STR] \">[16]80Congratulations my Lord!\n\"" }
+"0xB7DA" = { name = "msg_congratulations_my_lord_b7da", comment = "[ROM-STR] \"Congratulations my Lord!\n\"" }
+"0xB7F4" = { name = "msg_in_the_year_4d", comment = "[ROM-STR] \"In the year %4d\n\"" }
+"0xB805" = { name = "msg_you_united_japan", comment = "[ROM-STR] \"you united Japan!\"" }
+"0xB817" = { name = "msg_game_over", comment = "[ROM-STR] \"Game over\"" }
+"0xB821" = { name = "msg_would_you_like_to_play_again", comment = "[ROM-STR] \"Would you like to\nplay again\"" }
+"0xB83E" = { name = "msg_thanks_for_playing", comment = "[ROM-STR] \"Thanks for\nplaying\"" }
+"0xB85A" = { name = "msg_new_game", comment = "[ROM-STR] \">[16]'0>800>[16](0>[06](0>[18])0>[18][01]0> !0>#$%>&'(>)*+New game\"" }
+"0xB862" = { name = "msg_new_game_b862", comment = "[ROM-STR] \">[16](0>[06](0>[18])0>[18][01]0> !0>#$%>&'(>)*+New game\"" }
+"0xB882" = { name = "msg_new_game_b882", comment = "[ROM-STR] \"New game\"" }
+"0xB88B" = { name = "msg_koei", comment = "[ROM-STR] \"KOEI\"" }
+"0xB890" = { name = "msg_no_saved_data", comment = "[ROM-STR] \"No saved data\"" }
+"0xB89F" = { name = "msg_data_loaded", comment = "[ROM-STR] \"Data loaded\"" }
+"0xB8B0" = { name = "msg_data_can_t_be_used", comment = "[ROM-STR] \"Data can`t be\nused\"" }
+"0xB8C3" = { name = "msg_fmt__3d", comment = "[ROM-STR] \"%3d\"" }
+"0xB8C8" = { name = "msg_fiefs_50fiefs", comment = "[ROM-STR] \"(17fiefs/50fiefs)\n? \"" }
+"0xB8DD" = { name = "msg_watch_other_daimyos_battle", comment = "[ROM-STR] \"Watch other\ndaimyos battle\"" }
+"0xB8F8" = { name = "msg_player", comment = "[ROM-STR] \"Player \"" }
+"0xB900" = { name = "msg_d_which_fief_would_you_like_to", comment = "[ROM-STR] \"%d, which\nfief would you\nlike to rule\"" }
+"0xB926" = { name = "msg_is", comment = "[ROM-STR] \"Is \"" }
+"0xB92A" = { name = "msg_of_fief_2d_ok", comment = "[ROM-STR] \" of\nfief %2d OK\"" }
+"0xB93A" = { name = "msg_that_daimyo_is_already_taken", comment = "[ROM-STR] \"That daimyo is\nalready taken\"" }
+"0xB957" = { name = "msg_fief_2d", comment = "[ROM-STR] \"Fief %2d\"" }
+"0xB960" = { name = "msg_age_2d", comment = "[ROM-STR] \"Age-%2d-\"" }
+"0xB969" = { name = "msg_please_set", comment = "[ROM-STR] \"Please set\"" }
+"0xB974" = { name = "msg_daimyo_abilities", comment = "[ROM-STR] \"daimyo abilities\"" }
+"0xB985" = { name = "msg_press_any_button", comment = "[ROM-STR] \"Press any button\"" }
+"0xB996" = { name = "msg_to_set_abilities", comment = "[ROM-STR] \"to set abilities\"" }
+"0xB9A7" = { name = "msg_fmt_blank_b9a7", comment = "[ROM-STR] \"-   -\"" }
+"0xB9AD" = { name = "msg_total_4d", comment = "[ROM-STR] \"Total  %4d\"" }
+"0xB9B8" = { name = "msg_is_this_ok", comment = "[ROM-STR] \"Is this OK\"" }
+"0xB9C3" = { name = "msg_control_1", comment = "[ROM-STR] \"Control 1\"" }
+"0xB9CD" = { name = "msg_how_many_players", comment = "[ROM-STR] \"How many players\"" }
+"0xB9DE" = { name = "msg_please_select_skill_level", comment = "[ROM-STR] \"Please select\nskill level\"" }
+"0xB9F8" = { name = "msg_is_everything_ok_so_far", comment = "[ROM-STR] \"Is everything OK\nso far\"" }
+"0xBA10" = { name = "msg_then_on_with_the_game", comment = "[ROM-STR] \"Then on with the\ngame!\"" }
+"0xBA28" = { name = "msg_pirates", comment = "[ROM-STR] \"Pirates \"" }
+"0xBA31" = { name = "msg_christns", comment = "[ROM-STR] \"Christns\"" }
+"0xBA3A" = { name = "msg_rioters", comment = "[ROM-STR] \"Rioters \"" }
+"0xBA43" = { name = "msg_zealots", comment = "[ROM-STR] \"Zealots \"" }
+"0xBA4C" = { name = "msg_monks", comment = "[ROM-STR] \"Monks   \"" }
+"0xBA55" = { name = "msg_rebels", comment = "[ROM-STR] \"Rebels  \"" }
+"0xBA5F" = { name = "msg_would_you_like_to_bid_for_fief", comment = "[ROM-STR] \"\nWould you like to\nbid for fief %2d\"" }
+"0xBA83" = { name = "msg_how_much", comment = "[ROM-STR] \"How much\"" }
+"0xBA8D" = { name = "msg_fief_2d_is_yours", comment = "[ROM-STR] \"\nFief %2d is yours!\"" }
+"0xBAA1" = { name = "msg_fief", comment = "[ROM-STR] \"Fief \"" }
+"0xBAA7" = { name = "msg_d_is_now", comment = "[ROM-STR] \"%2d is now\n\"" }
+"0xBAB3" = { name = "msg_s_territory", comment = "[ROM-STR] \"`s\nterritory\"" }
+"0xBAC0" = { name = "msg_in_fief", comment = "[ROM-STR] \"In fief \"" }
+"0xBAC9" = { name = "msg_fmt__d", comment = "[ROM-STR] \"%d,\n\n\"" }
+"0xBACF" = { name = "msg_loyals_4d_men_s_4d_men", comment = "[ROM-STR] \"Loyals\n          %4d men\n%s\n          %4d men\"" }
+"0xBAFE" = { name = "msg_s_have_won", comment = "[ROM-STR] \"%s have won!\"" }
+"0xBB0B" = { name = "msg_the_loyal_forces_have_won", comment = "[ROM-STR] \"The loyal forces\nhave won!\"" }
+"0xBB27" = { name = "msg_the_people_are_rebelling_will", comment = "[ROM-STR] \"\nthe people are\nrebelling! Will\nyou appease them\nwith gold\"" }
+"0xBB62" = { name = "msg_giving_all_of_it", comment = "[ROM-STR] \"Giving all of it\n\"" }
+"0xBB74" = { name = "msg_it_didn_t_work", comment = "[ROM-STR] \"It didn`t work!\"" }
+"0xBB84" = { name = "msg_they_appear_to_have_settled_do", comment = "[ROM-STR] \"They appear to\nhave settled down\"" }
+"0xBBBA" = { name = "msg_died_of_s", comment = "[ROM-STR] \" died of\n%s\"" }
+"0xBBC7" = { name = "msg_someone_has_sent_ninja_aginst", comment = "[ROM-STR] \"\nsomeone has sent\nninja aginst\nfief \"" }
+"0xBBEC" = { name = "msg_fmt__2d", comment = "[ROM-STR] \"%2d!\"" }
+"0xBBF1" = { name = "msg_summer_this_year_brings_typhoo", comment = "[ROM-STR] \"Summer this year\nbrings typhoons!\"" }
+"0xBC13" = { name = "msg_lord_plague_has_come", comment = "[ROM-STR] \"Lord,\nplague has come!\"" }
+"0xBC2B" = { name = "msg_a_typhoon_has_struck_fief_2d", comment = "[ROM-STR] \"\na typhoon has\nstruck fief %2d!\"" }
+"0xBC4C" = { name = "msg_plague_has_come_to_fief_2d", comment = "[ROM-STR] \"\nplague has come\nto fief %2d!\"" }
+"0xBC6A" = { name = "msg_in_fief_bc6a", comment = "[ROM-STR] \"In fief \"" }
+"0xBC73" = { name = "msg_fmt__2d_bc73", comment = "[ROM-STR] \"%2d,\"" }
+"0xBC78" = { name = "msg_loyals_4d_men_rebels_4d_men", comment = "[ROM-STR] \"\n\nLoyals\n          %4d men\nRebels\n          %4d men\"" }
+"0xBCAC" = { name = "msg_beware_a_treacherous_subordina", comment = "[ROM-STR] \"Beware!\nA treacherous\nsubordinate has\nraised an army to\ndestroy \"" }
+"0xBCF1" = { name = "msg_the_rebels_have_won", comment = "[ROM-STR] \"The rebels have\nwon!\"" }
+"0xBD06" = { name = "msg_the_loyal_men_have_won", comment = "[ROM-STR] \"The loyal men\nhave won!\"" }
+"0xBD1E" = { name = "msg_akechi_mitsuhide_failed_to_tak", comment = "[ROM-STR] \"Akechi Mitsuhide failed to\ntake your life and will pay!\"" }
+"0xBD56" = { name = "msg_nobunaga", comment = "[ROM-STR] \"Nobunaga \"" }
+"0xBD60" = { name = "msg_has_been_destroyed_but_in_the", comment = "[ROM-STR] \"has been destroyed,\nbut in the role of\n\"" }
+"0xBD88" = { name = "msg_hashiba_hideyoshi", comment = "[ROM-STR] \"Hashiba Hideyoshi,\n\"" }
+"0xBD9C" = { name = "msg_nobunaga_s_loyal_subordinate_y", comment = "[ROM-STR] \"Nobunaga`s loyal\nsubordinate, you may\ncontinue to work for\n\"" }
+"0xBDD8" = { name = "msg_nobunaga_s_ambition_of_a_unite", comment = "[ROM-STR] \"Nobunaga`s ambition of a\nunited Japan\"" }
+"0xBDFE" = { name = "msg_will_you_ally_with_fief_2d_for", comment = "[ROM-STR] \"\nwill you ally with\nfief %2d for %4d\nunits of gold\"" }
+"0xBE31" = { name = "msg_this_pact_doesn_t_mean_you_can", comment = "[ROM-STR] \"This pact doesn`t\nmean you can\nrelax!\"" }
+"0xBE57" = { name = "msg_who_needs_wimps_like_him_anywa", comment = "[ROM-STR] \"Who needs wimps\nlike him anyway?\"" }
+"0xBE78" = { name = "msg_will_you_accept_4d_units_of_go", comment = "[ROM-STR] \"\nWill you accept\n%4d units of gold\nfrom fief %2d for\nthe princes\"" }
+"0xBEBA" = { name = "msg_you_ve_lost_a_daughter_but_gai", comment = "[ROM-STR] \"you`ve lost a\ndaughter but\ngained a\nson-in-law\"" }
+"0xBEE9" = { name = "msg_the_princess_was_too_good_for", comment = "[ROM-STR] \"The princess was\ntoo good for him\"" }
+"0xBF0B" = { name = "msg_riot", comment = "[ROM-STR] \"Riot\"" }
+"0xBF10" = { name = "msg_revolt", comment = "[ROM-STR] \"Revolt\"" }
+"0xBF17" = { name = "msg_koei_bf17", comment = "[ROM-STR] \"KOEI\"" }
+"0xBF1D" = { name = "msg_data_has_been_saved", comment = "[ROM-STR] \"Data has been\nsaved\"" }
+"0xBF31" = { name = "msg_has_taken_ill", comment = "[ROM-STR] \" has\ntaken ill\"" }
+"0xBF40" = { name = "msg_disloyal_troops_have_revolted", comment = "[ROM-STR] \"Disloyal troops\nhave revolted\"" }
 "0x8000" = { name = "bank0_entry",          comment = "Bank 0 entry point. 3 bytes: JMP $A778. The 'rest of bank 0' is data — VM bytecode, sprite/tile data, and a few small native helpers callable from bytecode." }
 "0xA778" = { name = "vm_bootstrap",         comment = "First instruction reached after RESET. JSR vm_entry ($E823) followed by inline VM bytecode that orchestrates the entire boot sequence (audio init, palette load, screen setup) and ultimately becomes the main game loop." }
 
@@ -861,6 +979,155 @@ prg_bank_count = 16        # 256 KB total
 # but the drivers themselves live entirely in bank 1).
 
 [prg.bank1]
+# --- ROM string labels (rom-xref auto-decode, B1 data-walk) ---
+"0xB9F6" = { name = "msg_s_s_s", comment = "[ROM-STR] \"%s%s%s\"" }
+"0xB9FD" = { name = "msg_attack", comment = "[ROM-STR] \"Attack\"" }
+"0xBA14" = { name = "msg_market", comment = "[ROM-STR] \"__Market__\"" }
+"0xBA1F" = { name = "msg_rate_2d_1d", comment = "[ROM-STR] \"Rate  %2d.%1d\"" }
+"0xBA2D" = { name = "msg_rice_2d_1d", comment = "[ROM-STR] \"Rice  %2d.%1d\"" }
+"0xBA3B" = { name = "msg_arms_2d_1d", comment = "[ROM-STR] \"Arms  %2d.%1d\"" }
+"0xBA49" = { name = "msg_men_2d_1d", comment = "[ROM-STR] \"Men   %2d.%1d\"" }
+"0xBA57" = { name = "msg_ninja_2d_1d", comment = "[ROM-STR] \"Ninja %2d.%1d\"" }
+"0xBA65" = { name = "msg_fmt__2d_ba65", comment = "[ROM-STR] \"%2d\"" }
+"0xBA6B" = { name = "msg_fmt__4d", comment = "[ROM-STR] \"%4d\"" }
+"0xBA74" = { name = "msg_fmt__3d_ba74", comment = "[ROM-STR] \"%3d\"" }
+"0xBA7C" = { name = "msg_home_fief", comment = "[ROM-STR] \"Home fief\"" }
+"0xBA86" = { name = "msg_direct", comment = "[ROM-STR] \"Direct\"" }
+"0xBA8D" = { name = "msg_empty", comment = "[ROM-STR] \"Empty\"" }
+"0xBA93" = { name = "msg_fief_2d_ba93", comment = "[ROM-STR] \"Fief %2d\"" }
+"0xBAA5" = { name = "msg_sick", comment = "[ROM-STR] \"Sick\"" }
+"0xBAAA" = { name = "msg_home", comment = "[ROM-STR] \"Home\n\"" }
+"0xBAB0" = { name = "msg_fief_bab0", comment = "[ROM-STR] \"Fief\"" }
+"0xBAB5" = { name = "msg_fief_gold_town_rice_output_dam", comment = "[ROM-STR] \"Fief\n\nGold\nTown\nRice\nOutput\nDams\nLylty\nWealth\nMen\nMorale\nSkill\nA\"" }
+"0xBB02" = { name = "msg_fmt__2d_bb02", comment = "[ROM-STR] \"%2d\"" }
+"0xBB06" = { name = "msg_fmt__4d_bb06", comment = "[ROM-STR] \"%4d\n\"" }
+"0xBB0B" = { name = "msg_fmt__4d_bb0b", comment = "[ROM-STR] \"%4d\n\"" }
+"0xBB10" = { name = "msg_fmt__4d_bb10", comment = "[ROM-STR] \"%4d\n\"" }
+"0xBB15" = { name = "msg_menu", comment = "[ROM-STR] \"__Menu__\"" }
+"0xBB1E" = { name = "msg_fmt__2d_bb1e", comment = "[ROM-STR] \"%2d\"" }
+"0xBB22" = { name = "msg_fmt__2d_bb22", comment = "[ROM-STR] \"%2d\"" }
+"0xBB28" = { name = "msg_not_home_fief", comment = "[ROM-STR] \"Not home fief\"" }
+"0xBB3F" = { name = "msg_has_lost", comment = "[ROM-STR] \" has lost\"" }
+"0xBB62" = { name = "msg_from_fief_2d_has", comment = "[ROM-STR] \" from\nfief %2d has\n\"" }
+"0xBB76" = { name = "msg_invaded_s_in_fief_2d", comment = "[ROM-STR] \"invaded %s\nin fief %2d\"" }
+"0xBB8D" = { name = "msg_counterattacked", comment = "[ROM-STR] \"Counterattacked!\"" }
+"0xBB9E" = { name = "msg_you_have_repelled", comment = "[ROM-STR] \"\nYou have repelled!\"" }
+"0xBBB2" = { name = "msg_your_ninja_failed", comment = "[ROM-STR] \"Your ninja failed\"" }
+"0xBBC4" = { name = "msg_that_fief_can_t_hold_more_men", comment = "[ROM-STR] \"That fief can`t\nhold more men\"" }
+"0xBBE3" = { name = "msg_is_this_ok_bbe3", comment = "[ROM-STR] \"Is this OK\"" }
+"0xBBEF" = { name = "msg_dams_value", comment = "[ROM-STR] \"Dams value\"" }
+"0xBBFD" = { name = "msg_output", comment = "[ROM-STR] \"Output\"" }
+"0xBC07" = { name = "msg_the_treasure_room_is_already_f", comment = "[ROM-STR] \"\nThe treasure room\nis already full!\"" }
+"0xBC2B" = { name = "msg_s_would_you_like_to_borrow", comment = "[ROM-STR] \"%s would\nyou like to\nborrow\"" }
+"0xBC47" = { name = "msg_you_can_t_borrow", comment = "[ROM-STR] \"You can`t borrow!\"" }
+"0xBC5A" = { name = "msg_no_gold", comment = "[ROM-STR] \"\nNo gold\"" }
+"0xBC63" = { name = "msg_debt_what_debt", comment = "[ROM-STR] \"\nDebt? What debt?\"" }
+"0xBC76" = { name = "msg_s_rice_will_you_sell", comment = "[ROM-STR] \"%s rice\nwill you sell\"" }
+"0xBC8C" = { name = "msg_treasury_full", comment = "[ROM-STR] \"Treasury full\"" }
+"0xBC9A" = { name = "msg_no_rice", comment = "[ROM-STR] \"No rice\"" }
+"0xBCA3" = { name = "msg_rice_will_you_buy", comment = "[ROM-STR] \" rice\nwill you buy\"" }
+"0xBCB6" = { name = "msg_storehouse_full", comment = "[ROM-STR] \"Storehouse full\"" }
+"0xBCC6" = { name = "msg_sorry_no_credit", comment = "[ROM-STR] \"Sorry, no credit\"" }
+"0xBCD7" = { name = "msg_weapons_for_who", comment = "[ROM-STR] \"Weapons? For who?\"" }
+"0xBCEA" = { name = "msg_armory_full", comment = "[ROM-STR] \"Armory full\"" }
+"0xBCF6" = { name = "msg_we_merchants_deal_only_in_cash", comment = "[ROM-STR] \"We merchants deal\nonly in cash\"" }
+"0xBD15" = { name = "msg_fmt__2d_bd15", comment = "[ROM-STR] \"%2d\"" }
+"0xBD19" = { name = "msg_lord_how_may_i_serve_you", comment = "[ROM-STR] \"Lord,how may I\nserve you?\"" }
+"0xBD33" = { name = "msg_let_s_do_business_again", comment = "[ROM-STR] \"Let`s do business\nagain\"" }
+"0xBD4B" = { name = "msg_bye", comment = "[ROM-STR] \"Bye!\"" }
+"0xBD50" = { name = "msg_fief_d_s_s_has_declined_by_d", comment = "[ROM-STR] \"fief %d`s\n%s has\ndeclined by %d\n\"" }
+"0xBD71" = { name = "msg_town_value", comment = "[ROM-STR] \"Town value\"" }
+"0xBD7C" = { name = "msg_your_ninja_failed_bd7c", comment = "[ROM-STR] \"Your ninja\nfailed!\"" }
+"0xBD8F" = { name = "msg_uprisng_2_revolt_3_dams_4_assa", comment = "[ROM-STR] \"\n1-Uprisng 2-Revolt\n3-Dams 4-Assassin\n5-Arson\"" }
+"0xBDBD" = { name = "msg_the_daimyo_is_out", comment = "[ROM-STR] \"the daimyo is out\"" }
+"0xBDD1" = { name = "msg_men_ninja", comment = "[ROM-STR] \"\n(Men/Ninja)? \"" }
+"0xBDE0" = { name = "msg_the_men_can_t_train_any_furthe", comment = "[ROM-STR] \"The men can`t\ntrain any further\"" }
+"0xBE00" = { name = "msg_view_vassals", comment = "[ROM-STR] \"(99-view vassals)\n\"" }
+"0xBE14" = { name = "msg_town_value_be14", comment = "[ROM-STR] \"Town value\"" }
+"0xBE20" = { name = "msg_gold_rice", comment = "[ROM-STR] \"(Gold/Rice)? \"" }
+"0xBE31" = { name = "msg_peasnts_men", comment = "[ROM-STR] \"(Peasnts/Men)? \"" }
+"0xBE43" = { name = "msg_fmt__3d_be43", comment = "[ROM-STR] \"%3d\"" }
+"0xBE47" = { name = "msg_d_s", comment = "[ROM-STR] \"%d%s\"" }
+"0xBE4C" = { name = "msg_available_0", comment = "[ROM-STR] \"available  0\"" }
+"0xBE69" = { name = "msg_arrows_other_sections", comment = "[ROM-STR] \"(arrows  )...other sections\n\"" }
+"0xBE86" = { name = "msg_a_button_menu", comment = "[ROM-STR] \"(A Button)...menu\"" }
+"0xBE98" = { name = "msg_fmt__d_be98", comment = "[ROM-STR] \"%d\"" }
+"0xBE9B" = { name = "msg_it_s_already_a_s_state", comment = "[ROM-STR] \"It`s already a\n%s\nstate\"" }
+"0xBEB3" = { name = "msg_sound", comment = "[ROM-STR] \"Sound \"" }
+"0xBEBA" = { name = "msg_on_off", comment = "[ROM-STR] \"(on/off)? \"" }
+"0xBEC5" = { name = "msg_animation", comment = "[ROM-STR] \"Animation\n\"" }
+"0xBED0" = { name = "msg_on_off_bed0", comment = "[ROM-STR] \"(on/off)? \"" }
+"0xBEDB" = { name = "msg_wait_is_now", comment = "[ROM-STR] \"Wait is now \"" }
+"0xBEE8" = { name = "msg_d_enter_new_wait", comment = "[ROM-STR] \"%d\nEnter new wait\"" }
+"0xBEFA" = { name = "msg_are_you_sure", comment = "[ROM-STR] \"Are you sure\"" }
+"0xBF07" = { name = "msg_game_will_save_at_end_of_seaso", comment = "[ROM-STR] \"Game will save at\nend of season\"" }
+"0xBF27" = { name = "msg_watch_others_battle", comment = "[ROM-STR] \"Watch others\nbattle \"" }
+"0xBF3C" = { name = "msg_y_n", comment = "[ROM-STR] \"(Y/N)? \"" }
+"0xBF44" = { name = "msg_do_you_really_want_to_end_the", comment = "[ROM-STR] \"Do you really\nwant to end the\ngame\"" }
+"0xBF67" = { name = "msg_game_over_bf67", comment = "[ROM-STR] \"Game over\"" }
+"0xBF71" = { name = "msg_fmt__2d_bf71", comment = "[ROM-STR] \"%2d\"" }
+"0xBF75" = { name = "msg_change_which", comment = "[ROM-STR] \"Change which?\"" }
+"0xBF83" = { name = "msg_what_a_waste", comment = "[ROM-STR] \"What a waste!\"" }
+"0xBF91" = { name = "msg_your_orders", comment = "[ROM-STR] \"\nyour orders?\"" }
+"0xBF9F" = { name = "msg_turn_2d_fief_2d", comment = "[ROM-STR] \"Turn %2d  Fief %2d\"" }
+"0xF98A" = { name = "msg_no_fiefs", comment = "[ROM-STR] \"\nno fiefs\"" }
+"0xF994" = { name = "msg_fiefs", comment = "[ROM-STR] \"  Fiefs \"" }
+"0xF99D" = { name = "msg_how_much_f99d", comment = "[ROM-STR] \"How much\"" }
+"0xF9A6" = { name = "msg_how_many", comment = "[ROM-STR] \"How many\"" }
+"0xF9CD" = { name = "msg_move_where", comment = "[ROM-STR] \"\nMove where?\n\"" }
+"0xF9DB" = { name = "msg_how_many_men", comment = "[ROM-STR] \"How many men\"" }
+"0xF9E8" = { name = "msg_will_you_lead_them_personally", comment = "[ROM-STR] \"Will you lead\nthem personally\"" }
+"0xFA06" = { name = "msg_they_have_arrived_safely", comment = "[ROM-STR] \"They have\narrived safely\"" }
+"0xFA1F" = { name = "msg_attack_where", comment = "[ROM-STR] \"\nAttack where?\n\"" }
+"0xFA2F" = { name = "msg_how_many_men_fa2f", comment = "[ROM-STR] \"How many men\"" }
+"0xFA3C" = { name = "msg_how_much_rice_will_they_take", comment = "[ROM-STR] \"How much rice\nwill they take\"" }
+"0xFA59" = { name = "msg_will_you_lead_them_personally_fa59", comment = "[ROM-STR] \"Will you lead\nthem personally\"" }
+"0xFA77" = { name = "msg_tax_is_d_enter_new_tax", comment = "[ROM-STR] \"Tax is %d\nEnter new tax\"" }
+"0xFA8F" = { name = "msg_the_peasants_are_delighted", comment = "[ROM-STR] \"The peasants are\ndelighted!\"" }
+"0xFAAB" = { name = "msg_the_peasants_are_protesting", comment = "[ROM-STR] \"The peasants are\nprotesting!\"" }
+"0xFAC8" = { name = "msg_send_where", comment = "[ROM-STR] \"\nSend where? \"" }
+"0xFAD6" = { name = "msg_lord_you_are_too_weak_for_batt", comment = "[ROM-STR] \"Lord, you are too\nweak for battle!\"" }
+"0xFAFA" = { name = "msg_gold", comment = "[ROM-STR] \"Gold\"" }
+"0xFAFF" = { name = "msg_rice", comment = "[ROM-STR] \"Rice\"" }
+"0xFB04" = { name = "msg_the_supplies_have_arrived_safe", comment = "[ROM-STR] \"The supplies have\narrived safely\"" }
+"0xFB25" = { name = "msg_s_is_d_spend_how_much_on_it", comment = "[ROM-STR] \"%s is %d\nSpend how much\non it\"" }
+"0xFB43" = { name = "msg_dams_value_is_now_d", comment = "[ROM-STR] \"Dams value is\nnow %d\"" }
+"0xFB58" = { name = "msg_output_is_now_d", comment = "[ROM-STR] \"Output is now\n%d\"" }
+"0xFB69" = { name = "msg_no_merchant_in_the_area", comment = "[ROM-STR] \"No merchant in\nthe area\"" }
+"0xFB81" = { name = "msg_recruit_which", comment = "[ROM-STR] \"Recruit which\"" }
+"0xFB90" = { name = "msg_lord_s_we_now_have_d_men", comment = "[ROM-STR] \"Lord %s, we\nnow have %d men\"" }
+"0xFBAE" = { name = "msg_what_mission", comment = "[ROM-STR] \"What mission\"" }
+"0xFBBB" = { name = "msg_enemy_morale_is_falling_to_pie", comment = "[ROM-STR] \"Enemy morale is\nfalling to pieces!\"" }
+"0xFBDE" = { name = "msg_skill_is_now_d", comment = "[ROM-STR] \"Skill is now %d\"" }
+"0xFBEF" = { name = "msg_view_which_fief", comment = "[ROM-STR] \"View which fief?\n\"" }
+"0xFC01" = { name = "msg_our_spy_was_caught", comment = "[ROM-STR] \"Our spy was\ncaught\"" }
+"0xFC14" = { name = "msg_town_value_is_now_d", comment = "[ROM-STR] \"Town value is now\n%d\"" }
+"0xFC29" = { name = "msg_gold_for_spy", comment = "[ROM-STR] \"Gold for spy\"" }
+"0xFC36" = { name = "msg_d_peasants_have_defected", comment = "[ROM-STR] \"%d peasants\nhave defected\"" }
+"0xFC50" = { name = "msg_no_peasants_defected", comment = "[ROM-STR] \"No peasants\ndefected!\"" }
+"0xFC66" = { name = "msg_seasons", comment = "[ROM-STR] \"Seasons\"" }
+"0xFC6E" = { name = "msg_it_will_do_you_good", comment = "[ROM-STR] \"It will do you\ngood\"" }
+"0xFC82" = { name = "msg_lord_you_are_truly_wise", comment = "[ROM-STR] \"Lord, you are\ntruly wise!\"" }
+"0xFC9C" = { name = "msg_which_fief", comment = "[ROM-STR] \"\nWhich fief? \"" }
+"0xFCAA" = { name = "msg_lord_s_they_ve_refused", comment = "[ROM-STR] \"Lord %s\nthey`ve refused!\"" }
+"0xFCC3" = { name = "msg_your_bride_to_be_has_arrived", comment = "[ROM-STR] \"Your bride-to-be\nhas arrived\"" }
+"0xFCE0" = { name = "msg_don_t_you_long_to_hear_the_pit", comment = "[ROM-STR] \"Don`t you long to\nhear the\npitter-patter of\na little lord`s\nfoot\"" }
+"0xFD27" = { name = "msg_lord_s_s_wants_d_gold_pay", comment = "[ROM-STR] \"Lord %s,\n%s wants\n%d gold\nPay\"" }
+"0xFD45" = { name = "msg_lord_s_s_wants_d_gold_pay_fd45", comment = "[ROM-STR] \"Lord %s,\n%s wants\n%d gold\nPay\"" }
+"0xFD63" = { name = "msg_war_is_inevitable_so_don_t_let", comment = "[ROM-STR] \"War is inevitable\nso don`t let your\nguard down!\"" }
+"0xFD93" = { name = "msg_who_needs_him_anyway", comment = "[ROM-STR] \"Who needs him\nanyway\"" }
+"0xFDA8" = { name = "msg_give_how_much", comment = "[ROM-STR] \"Give how much\"" }
+"0xFDB6" = { name = "msg_thank_you_lord", comment = "[ROM-STR] \"Thank you Lord!\"" }
+"0xFDC6" = { name = "msg_we_re_at_our_limit", comment = "[ROM-STR] \"We`re at our\nlimit\"" }
+"0xFDD9" = { name = "msg_you_have_no_gold", comment = "[ROM-STR] \"You have no gold!\"" }
+"0xFDEB" = { name = "msg_you_have_no_rice", comment = "[ROM-STR] \"You have no rice!\"" }
+"0xFDFD" = { name = "msg_you_have_no_soldiers", comment = "[ROM-STR] \"You have no\nsoldiers!\"" }
+"0xFE13" = { name = "msg_you_have_no_peasants", comment = "[ROM-STR] \"You have no\npeasants!\"" }
+"0xFE29" = { name = "msg_they_are_your_allies", comment = "[ROM-STR] \"They are your\nallies!\"" }
+"0xFE40" = { name = "msg_which_fief_fe40", comment = "[ROM-STR] \"\nWhich fief \"" }
+"0xFE4D" = { name = "msg_what_are_your_orders", comment = "[ROM-STR] \"\nWhat are your\norders?\"" }
+"0xFE64" = { name = "msg_it_s_currently_a_s_state_ok_to", comment = "[ROM-STR] \"It`s currently a\n%s state\nOK to make it a\n%s state\"" }
+"0xFE97" = { name = "msg_bribe_which", comment = "[ROM-STR] \"\nBribe which? \"" }
 
 # --- The command driver table ---
 "0xB9B2" = { name = "command_driver_table", comment = "34-entry pointer table — entry N points to the bytecode subroutine that drives menu command N+1. Entries 0-20 are the 21 lord commands, 21-33 are sub-handlers reachable from within those drivers. See command-table.txt for the full listing. Chapter 9's foundational find." }
@@ -1026,6 +1293,40 @@ prg_bank_count = 16        # 256 KB total
 # ============================================================================
 
 [prg.bank2]
+# --- ROM string labels (rom-xref auto-decode, B1 data-walk) ---
+"0xB526" = { name = "msg_y_n_b526", comment = "[ROM-STR] \"\n(Y/N)? \"" }
+"0xB52F" = { name = "msg_d_d", comment = "[ROM-STR] \"8932170\n(%d-%d)\n\"" }
+"0xB536" = { name = "msg_d_d_b536", comment = "[ROM-STR] \"\n(%d-%d)\n\"" }
+"0xB56A" = { name = "msg_day_2d", comment = "[ROM-STR] \"\nDay  %2d\"" }
+"0xB574" = { name = "msg_fmt__4d_b574", comment = "[ROM-STR] \"%4d\"" }
+"0xB578" = { name = "msg_gold_4d_rice_4d_men_4d", comment = "[ROM-STR] \"\nGold%4d\nRice%4d\nMen %4d\"" }
+"0xB5A7" = { name = "msg_fief_2d_b5a7", comment = "[ROM-STR] \"\nFief %2d\"" }
+"0xB5BE" = { name = "msg_up_up_rt_down_rt_down_down_lt", comment = "[ROM-STR] \"\n Up\n Up Rt\n Down Rt\n Down\n Down Lt\n Up Lt\"" }
+"0xB5E9" = { name = "msg_hit_any_key", comment = "[ROM-STR] \"\nHit any\nkey\"" }
+"0xB5F6" = { name = "msg_fief_b5f6", comment = "[ROM-STR] \"Fief:\n\"" }
+"0xB5FD" = { name = "msg_fmt__2d_b5fd", comment = "[ROM-STR] \"%2d\"" }
+"0xB601" = { name = "msg_fief_b601", comment = "[ROM-STR] \"Fief:\n\"" }
+"0xB608" = { name = "msg_there_is_no_fief_to_flee_to", comment = "[ROM-STR] \"\nThere is\nno fief\nto flee\nto!\"" }
+"0xB627" = { name = "msg_unit_d_s", comment = "[ROM-STR] \"unit %d\n%s\"" }
+"0xB658" = { name = "msg_the_enemy_has_turned_tail_and", comment = "[ROM-STR] \">[12])0>[02][12]!>[18])0>[18][01]0the enemy has turned\ntail and fled!\nHa Ha Ha Ha \"" }
+"0xB96E" = { name = "msg_s_has_retreated", comment = "[ROM-STR] \"%s has retreated\"" }
+"0xB97F" = { name = "msg_s_hung_on_to_the_end_and_won", comment = "[ROM-STR] \"%s hung on to the end\nand won\"" }
+"0xB9A0" = { name = "msg_lord", comment = "[ROM-STR] \"Lord\n\"" }
+"0xB9A6" = { name = "msg_please_position_unit_d", comment = "[ROM-STR] \"\nPlease\nposition\nunit %d\"" }
+"0xB9BF" = { name = "msg_fmt__d_b9bf", comment = "[ROM-STR] \"%d\"" }
+"0xB9CA" = { name = "msg_the_town_is_in_complete_chaos", comment = "[ROM-STR] \"The\ntown\nis in\ncomplete\nchaos!\"" }
+"0xB9E9" = { name = "msg_fmt__d_b9e9", comment = "[ROM-STR] \"%d\"" }
+"0xB9EC" = { name = "msg_hit_any_key_b9ec", comment = "[ROM-STR] \"Hit any key\"" }
+"0xBA04" = { name = "msg_giving_orders_for", comment = "[ROM-STR] \"\nGiving\norders\nfor\n\"" }
+"0xBA19" = { name = "msg_your_orders_for", comment = "[ROM-STR] \"\nYour\norders\nfor\n\"" }
+"0xBA2C" = { name = "msg_our", comment = "[ROM-STR] \"\nour\"" }
+"0xBA32" = { name = "msg_enemy", comment = "[ROM-STR] \"\nenemy\"" }
+"0xBA39" = { name = "msg_morale_is_falling", comment = "[ROM-STR] \"\nmorale\nis\nfalling\"" }
+"0xBA4C" = { name = "msg_fief_ba4c", comment = "[ROM-STR] \"Fief\n\"" }
+"0xBA52" = { name = "msg_fmt__2d_ba52", comment = "[ROM-STR] \" %2d\"" }
+"0xBA59" = { name = "msg_has_passed_from", comment = "[ROM-STR] \"\nhas passed from\n\"" }
+"0xBA6B" = { name = "msg_lord_s_to", comment = "[ROM-STR] \"Lord %s to\n\"" }
+"0xBA77" = { name = "msg_lord_s", comment = "[ROM-STR] \"Lord %s\"" }
 
 "0xAFE1" = { name = "battle_init_driver",    comment = "Battle-init driver (bank 2 entry, via $8000 = JMP here). Calls map_populate ($8903) at $AFFC to fill the SRAM staging buffer from ROM, then map_render_driver (via $8977 -> $885E) at $AFFF to blit staging -> PPU. Run headless via probe-map-emit.py / render-rom-to-map.py." }
 "0x8903" = { name = "map_populate",          comment = "Tactical-map POPULATOR: expands the per-fief cell data from ROM into the SRAM staging buffer at $7BFD (11 cols x 88 stride, 5 rows of metatiles). Inputs: battle_defending_province ($6F63) + scenario_fief_count ($6D9D); source = tactical_map_cell_pool ($A57E, bank 4) via province_to_mapid_table ($F70E). Reads cells one byte at a time through syscall_memcpy_banked ($10). Verified cell-exact on Mino/Tanba/Ezo + the whole 50-fief atlas. Returns clean with only memcpy syscalls." }

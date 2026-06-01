@@ -151,16 +151,40 @@ def annotate_field_access(expr, record_var="arg1", field_map=PROV_FIELDS):
 # (ui_helper_d772(arg1)). NOT a parenthesized arithmetic group like (arg1 * 26),
 # so word-stride record bases are excluded (they're also *(word*), not *(byte*)).
 _ARRAY_ACCESS_RE = re.compile(r'\*\(byte\*\)\(\((\w+(?:\([^()]*\))?) \+ 0x([0-9A-Fa-f]{4})\)\)')
+# Named-base form: once a ROM/RAM table base is resolved to its label at the load
+# (e.g. loadB_imm_word $F70E -> province_to_mapid_table), the deref reads
+# `*(byte*)((idx + province_to_mapid_table))`. Match that too so it still collapses
+# to `table[idx]` — otherwise resolving the base degrades arr[i] to pointer math.
+_ARRAY_ACCESS_NAMED_RE = re.compile(r'\*\(byte\*\)\(\((\w+(?:\([^()]*\))?) \+ ([a-z_][A-Za-z0-9_]*)\)\)')
+
+_NAME_SET_CACHE = {}
+def _label_name_set(labels):
+    key = id(labels)
+    s = _NAME_SET_CACHE.get(key)
+    if s is None:
+        s = {_label_name(labels, a) for a in labels}
+        s.discard(None)
+        _NAME_SET_CACHE[key] = s
+    return s
 
 
 def annotate_array_access(text, labels):
     if not labels:
         return text
-    def rep(m):
+    def rep_hex(m):
         idx, addr_hex = m.group(1), m.group(2)
         name = _label_name(labels, int(addr_hex, 16))
         return f"{name}[{idx}]" if name else m.group(0)
-    return _ARRAY_ACCESS_RE.sub(rep, text)
+    text = _ARRAY_ACCESS_RE.sub(rep_hex, text)
+    names = _label_name_set(labels)
+    def rep_named(m):
+        idx, base = m.group(1), m.group(2)
+        # base is the table (a known label); guard idx isn't itself a label so we
+        # never rewrite an ambiguous (label_a + label_b).
+        if base in names and idx not in names:
+            return f"{base}[{idx}]"
+        return m.group(0)
+    return _ARRAY_ACCESS_NAMED_RE.sub(rep_named, text)
 
 
 # --- Spec-independent dispatch: normalize the mnemonic from the OPCODE BYTE ---
@@ -436,6 +460,20 @@ def _label_name(labels, addr):
     return name or None
 
 
+def _imm_word_repr(val, labels):
+    """Render a 16-bit immediate. ROM pointers ($8000+) resolve to their label
+    (string/table/code-pointer name) — this is the B1 ROM-data surface. RAM bases
+    ($6xxx/$7xxx) are deliberately LEFT as hex so the downstream annotate_array_access
+    pass can still turn `(idx + 0x6CF7)` into `province_ai_state[idx]`; resolving them
+    here would pre-empt that and degrade `arr[i]` to raw pointer math. `labels` is the
+    per-bank dict, so a $BXXX string resolves to the right bank's name."""
+    if val >= 0x8000:
+        nm = _label_name(labels, val)
+        if nm:
+            return nm
+    return str(val) if val < 256 else f"0x{val:04X}"
+
+
 def decompile(filepath, sub_addr, labels=None):
     body_addr, instructions = parse_listing(filepath, sub_addr)
     if not instructions:
@@ -506,13 +544,11 @@ def decompile(filepath, sub_addr, labels=None):
         elif mnem == 'loadA_imm_word':
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             val = int(m.group(1), 16) if m else 0
-            state.regA = f"0x{val:04X}"
-            if val < 256:
-                state.regA = str(val)
+            state.regA = _imm_word_repr(val, labels)
         elif mnem == 'loadB_imm_word':
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             val = int(m.group(1), 16) if m else 0
-            state.regB = f"0x{val:04X}"
+            state.regB = _imm_word_repr(val, labels)
         elif mnem == 'loadA_imm_byte':
             m = re.search(r'\+?(\d+)', operand)
             val = int(m.group(1)) if m else 0
@@ -599,7 +635,7 @@ def decompile(filepath, sub_addr, labels=None):
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             val = int(m.group(1), 16) if m else 0
             label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
-            state.stack.append(label_m.group(1) if label_m else f"0x{val:04X}")
+            state.stack.append(label_m.group(1) if label_m else _imm_word_repr(val, labels))
         elif mnem == 'PUSH_abs':
             # $AA PUSH_abs — push the VALUE stored at an absolute address.
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
