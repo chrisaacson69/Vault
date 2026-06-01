@@ -25,7 +25,9 @@ from pathlib import Path
 
 class State:
     def __init__(self):
-        self.regA = "?"
+        self._regA = "?"
+        self.pending_call = None  # a host_call/CALL expr parked in regA, not yet consumed
+        self.pending_call_addr = 0  # its bytecode address (so a flushed stmt cites the call site)
         self.regB = "?"
         self.stack = []  # list of expressions
         self.locals = {}  # frame slot -> last expression assigned
@@ -35,6 +37,41 @@ class State:
         self.cur_addr = 0
         # Track recent frame writes (for implicit-arg-via-shadow calling convention)
         self.recent_pos_writes = {}  # slot index -> last expression written
+
+    # regA is a stack-machine accumulator. A CALL writes a call-expr into it (via
+    # set_call) but emits no statement — it only surfaces in C if something READS regA
+    # (store/return/branch/op) before the next WRITE. Without help, a side-effecting call
+    # whose result is discarded (the next op overwrites regA) vanishes silently — which is
+    # why vm_bootstrap's init_new_game_state()/audio/planner calls were invisible.
+    # The property makes the dataflow explicit:
+    #   - READ  (getter): the value is being used -> a pending call is CONSUMED (no extra stmt).
+    #   - WRITE (setter): if a pending call is being overwritten unconsumed, it was a
+    #                     statement-for-side-effects -> flush it as `expr;` before overwriting.
+    @property
+    def regA(self):
+        self.pending_call = None
+        return self._regA
+
+    @regA.setter
+    def regA(self, val):
+        self.flush_pending()  # overwriting an unconsumed call -> emit it for its side effects
+        self._regA = val
+
+    def flush_pending(self):
+        """Emit a parked-but-unconsumed call as a side-effect statement. Called on regA
+        overwrite (setter) and at control points that don't read regA (unconditional goto,
+        function end), so a discarded call is never silently lost. The statement is tagged
+        with the CALL's own address, not the flush site."""
+        if self.pending_call is not None:
+            self.lines.append((self.pending_call_addr, self.indent, f"{self.pending_call};"))
+            self.pending_call = None
+
+    def set_call(self, expr):
+        """Record a call: overwrite regA (flushing any prior dead call) and mark this one
+        pending until it is consumed or itself overwritten."""
+        self.regA = expr               # setter flushes a prior unconsumed call first
+        self.pending_call = expr       # ...this one becomes the new pending call
+        self.pending_call_addr = self.cur_addr
 
     def emit(self, line):
         self.lines.append((self.cur_addr, self.indent, line))
@@ -696,6 +733,7 @@ def decompile(filepath, sub_addr, labels=None):
         elif mnem == 'jump_abs':
             m = re.search(r'\$([0-9A-Fa-f]{4})', operand)
             tgt = int(m.group(1), 16) if m else 0
+            state.flush_pending()  # goto doesn't read regA — emit a pending call before it
             state.emit(f"goto L_{tgt:04X};")
         elif mnem == 'vm_return':
             state.emit(f"return {state.regA};")
@@ -758,9 +796,9 @@ def decompile(filepath, sub_addr, labels=None):
             args.reverse()
             state.recent_pos_writes.clear()  # consumed
             if not args:
-                state.regA = f"{fname}()"
+                state.set_call(f"{fname}()")
             else:
-                state.regA = f"{fname}({', '.join(args)})"
+                state.set_call(f"{fname}({', '.join(args)})")
 
         # === Indirect host calls — VM opcodes $EA / $DD (call through regA) ===
         # The callee address is computed (in regA), not an inline label. $EA carries a
@@ -774,7 +812,7 @@ def decompile(filepath, sub_addr, labels=None):
             for _ in range(arity):
                 args.append(state.stack.pop() if state.stack else "/*stack underflow*/ regA")
             args.reverse()
-            state.regA = f"(*({callee}))({', '.join(args)})"
+            state.set_call(f"(*({callee}))({', '.join(args)})")
 
         # === Extended (32-bit / bitfield) ops — VM opcode $B7 ('ext_op') ===
         # The operand is the ext-op INDEX byte ("$NN"). Resolve it through EXT_OP_TABLE
@@ -884,6 +922,8 @@ def decompile(filepath, sub_addr, labels=None):
         # === Misc ===
         else:
             state.emit(f"// TODO: {mnem} {operand}".strip())
+
+    state.flush_pending()  # function end: don't lose a trailing discarded call
 
     # Post-pass: detect simple if/else patterns and structure them.
     # Pattern A (if-then):
