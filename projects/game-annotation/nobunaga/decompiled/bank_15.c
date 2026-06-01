@@ -359,7 +359,7 @@ L_CD4F:
     if (ui_pending_flag_7fc7) {    // $CD52
     local11 = 0;    // $CD56
 L_CD57:
-    local11 = 0xF67A;    // $CD5F
+    local11 = ui_helper_data_f67a;    // $CD5F
     local11 = (local11 + 1);    // $CD66
     if (((unsigned)local11 >= (unsigned)4)) goto L_CD57;    // $CD6A
     ui_pending_flag_7fc7 = 0;    // $CD7B
@@ -2180,7 +2180,7 @@ L_E595:
     ui_cursor_row = *(byte*)(((*(word*)(fp - 40) + 1) - 1));    // $E5A6
     *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $E5AC
     if (!((*(byte*)(((*(word*)(fp - 40) + 1) - 1)) == arg1))) goto L_E584;    // $E5B2
-    arg1 = 0x8D5A;    // $E5EA
+    arg1 = find_record_data_8d5a;    // $E5EA
     goto L_E58E;    // $E5EF
 }
 
@@ -2217,7 +2217,7 @@ word dispatch_map_helper_e694(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_E6B1:
-    return map_helper_e5f2(*(byte*)((selected_province_idx_latch_7fdd + 0xFED8)));    // $E6B8
+    return map_helper_e5f2(*(byte*)((selected_province_idx_latch_7fdd + battle_init_driver_data_fed8)));    // $E6B8
     }
 }
 
@@ -2232,8 +2232,8 @@ word unpack_record_to_sram_e6b9(word arg1, word arg2, word arg3, word arg4) {
     local9 = ((unsigned)local9 % (unsigned)5);    // $E6D7
     local7 = ((unsigned)local8 / (unsigned)5);    // $E6DB
     local8 = ((unsigned)local8 % (unsigned)5);    // $E6DF
-    arg1 = 0xAD84;    // $E72B
-    return syscall16_sram_wrap(12, (arg1 + 24), ((local7 * 12) + 0xAEAC), 9);    // $E76E
+    arg1 = unpack_record_to_sram_data_ad84;    // $E72B
+    return syscall16_sram_wrap(12, (arg1 + 24), ((local7 * 12) + unpack_record_to_sram_data_aeac), 9);    // $E76E
 }
 
 // $E76F marry_helper_e76f
@@ -2252,8 +2252,8 @@ L_E7A7:
     goto L_E7FA;    // $E7EB
 L_E7EE:
 L_E7FA:
-    arg2 = 0xB144;    // $E801
-    arg1 = 0xB144;    // $E802
+    arg2 = jumptab_b144;    // $E801
+    arg1 = jumptab_b144;    // $E802
     ui_pending_flag_7fc7 = 1;    // $E808
     return 1;    // $E80B
 }

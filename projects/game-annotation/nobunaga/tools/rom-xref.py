@@ -81,13 +81,18 @@ def decode_str(addr, bank, maxn=64):
             "\\r" if b == 0x0d else "[%02x]" % b) for b in raw)
     return text, len(raw), printable / len(raw)
 
-def _name(labels, addr, bank=None):
-    """toml label for addr, preferring the per-(bank,addr) section if available."""
-    v = labels.get(addr)
-    return (v[0] if isinstance(v, tuple) else v) if v else None
+def _name(prg_labels, addr, bank):
+    """Bank-unambiguous toml label for a ROM (addr, bank), via the PRG-offset
+    identity (load_labels_by_prg). The flat loader collides switchable-window
+    banks at the same CPU addr; this does not. Returns None for non-ROM or unlabeled."""
+    if bank is None or addr < 0x8000:
+        return None
+    prg = (15 if addr >= 0xC000 else bank) * 0x4000 + (addr & 0x3FFF)
+    v = prg_labels.get(prg)
+    return v[0] if v else None
 
 def classify(addr, bank, labels, code_addrs=None):
-    if _name(labels, addr):
+    if _name(labels, addr, bank):
         return "labeled"
     # code-pointer: the immediate lands ON a decoded instruction boundary in this
     # bank => it's a callback / continuation address pushed as an arg, not data.
@@ -136,10 +141,10 @@ def build_index():
             })
     return idx, code_addrs
 
-def _sub_name(labels, sub):
+def _sub_name(prg_labels, sub, bank):
     if sub is None:
         return "(top-level)"
-    n = _name(labels, sub)
+    n = _name(prg_labels, sub, bank)
     return f"{n} (${sub:04X})" if n else f"sub_${sub:04X}"
 
 def _slug(text, maxlen=30):
@@ -170,7 +175,7 @@ def cmd_frontier(idx, labels, code_addrs, unlabeled, klass, bank_filter, min_n):
     for addr, bank, refs in iter_pointers(idx, labels, bank_filter):
         if len(refs) < min_n:
             continue
-        name = _name(labels, addr)
+        name = _name(labels, addr, bank)
         if unlabeled and name:
             continue
         c = classify(addr, bank, labels, code_addrs)
@@ -185,7 +190,7 @@ def cmd_frontier(idx, labels, code_addrs, unlabeled, klass, bank_filter, min_n):
           f"{', bank %d'%bank_filter if bank_filter is not None else ''})")
     print(f"// {'addr':>6} bk {'n':>2} {'class':>7}  subs / preview")
     for n_refs, addr, bank, c, name, subs, prev in rows:
-        sub0 = _sub_name(labels, subs[0]) + ("  +%d" % (len(subs)-1) if len(subs) > 1 else "")
+        sub0 = _sub_name(labels, subs[0], bank) + ("  +%d" % (len(subs)-1) if len(subs) > 1 else "")
         tag = name or (f'"{prev}"' if c == "str" else prev)
         print(f"   ${addr:04X} {bank:>2} {n_refs:>2} {c:>7}  {sub0}  | {tag}")
 
@@ -200,7 +205,7 @@ def cmd_refs(addr, idx, labels, code_addrs, bank_filter):
         c = classify(addr, bank, labels, code_addrs)
         text, n, ratio = decode_str(addr, bank)
         print(f"// ${addr:04X}  bank{bank}  {len(refs)} refs  class={c}  "
-              f"printable={ratio:.0%}  name={_name(labels,addr) or '-'}")
+              f"printable={ratio:.0%}  name={_name(labels,addr,bank) or '-'}")
         if c == "str":
             print(f"//   text: \"{text}\"")
         else:
@@ -211,12 +216,12 @@ def cmd_refs(addr, idx, labels, code_addrs, bank_filter):
             by_sub[r["sub"]].append(r)
         for sub in sorted(by_sub, key=lambda s: (s is None, s)):
             sites = ", ".join(f"{r['mnem']}@${r['ins']:04X}" for r in by_sub[sub])
-            print(f"     {_sub_name(labels, sub)}: {sites}")
+            print(f"     {_sub_name(labels, sub, bank)}: {sites}")
 
 def cmd_strings(idx, labels, code_addrs, as_toml, bank_filter):
     by_bank = defaultdict(list)
     for addr, bank, refs in iter_pointers(idx, labels, bank_filter):
-        if _name(labels, addr):
+        if _name(labels, addr, bank):
             continue
         if classify(addr, bank, labels, code_addrs) != "str":
             continue
@@ -244,6 +249,71 @@ def cmd_strings(idx, labels, code_addrs, as_toml, bank_filter):
             ctext = text.replace('"', "'")
             print(f'"0x{addr:04X}" = {{ name = "{nm}", comment = "[ROM-STR] \\"{ctext}\\"" }}')
 
+def is_ptr_table(addr, bank, n=8):
+    """True only if the first n words read as a CLEAN table of code pointers — the
+    first word is in the switchable/fixed code window AND >=0.85 of words are
+    $8000-$EFFF (excludes $Fxxx vectors/$FFFA and obvious non-pointers). Conservative
+    on purpose: a borderline table keeps the neutral `_data_` name rather than falsely
+    asserting `jumptab`."""
+    o = rom_off(addr, bank)
+    ws = [rom()[o + 2 * i] | (rom()[o + 2 * i + 1] << 8)
+          for i in range(n) if o + 2 * i + 1 < len(rom())]
+    if not ws or not (0x8000 <= ws[0] <= 0xEFFF):
+        return False
+    return sum(0x8000 <= w <= 0xEFFF for w in ws) >= len(ws) * 0.85
+
+# Analytical combat tables — deferred to a focused session (need geometry interpretation).
+_DEFER_SUBS = ("quadrant", "render_combat_map")
+
+def _table_name(addr, primary_subname, ptr):
+    if ptr:
+        return f"jumptab_{addr:04x}"          # content-verified dispatch table
+    base = re.sub(r'_[0-9a-f]{4}$', '', primary_subname or "")[:24].strip('_')
+    return f"{base}_data_{addr:04x}" if base else f"rodata_{addr:04x}"
+
+def cmd_tables(idx, labels, code_addrs, as_toml, bank_filter):
+    """Name the non-string ROM tables from PROVENANCE (the named sub that reads them)
+    + content-verified type (jump table vs binary blob). Honest by construction: the
+    name asserts only what's grounded (who reads it / it's a pointer table); the bucket
+    heuristic + byte preview live in the comment. Combat-geometry tables are deferred."""
+    by_bank = defaultdict(list)
+    deferred = 0
+    for addr, bank, refs in iter_pointers(idx, labels, bank_filter):
+        if _name(labels, addr, bank):
+            continue
+        if classify(addr, bank, labels, code_addrs) != "tbl":
+            continue
+        subnames = [(_name(labels, r["sub"], bank) or "") for r in refs if r["sub"] is not None]
+        ptr = is_ptr_table(addr, bank)
+        if not ptr and subnames and all(any(d in sn for d in _DEFER_SUBS) for sn in subnames):
+            deferred += 1
+            continue
+        by_bank[bank].append((addr, refs, subnames, ptr))
+    total = sum(len(v) for v in by_bank.values())
+    if not as_toml:
+        for bank in sorted(by_bank):
+            print(f"# --- bank {bank} ({len(by_bank[bank])} tables) ---")
+            for addr, refs, subnames, ptr in sorted(by_bank[bank]):
+                kind = "jumptab" if ptr else "data"
+                print(f"  ${addr:04X}  {kind:8} ({len(refs)}x)  <- {subnames[0] if subnames else '(top)'}")
+        print(f"# total {total} tables to name; {deferred} combat-geometry tables deferred")
+        return
+    seen = set()
+    for bank in sorted(by_bank):
+        sec = "prg.bank15" if bank == 15 else f"prg.bank{bank}"
+        print(f"\n[{sec}]   # ROM tables (rom-xref provenance-named, B1 data-walk)")
+        for addr, refs, subnames, ptr in sorted(by_bank[bank]):
+            nm = _table_name(addr, subnames[0] if subnames else "", ptr)
+            if nm in seen:
+                nm = f"{nm}_{addr:04x}"
+            seen.add(nm)
+            o = rom_off(addr, bank)
+            preview = " ".join("%02x" % b for b in rom()[o:o + 12])
+            who = ", ".join(sorted({s for s in subnames if s})) or "(top-level)"
+            kind = "pointer/dispatch table" if ptr else "binary table (unanalyzed)"
+            print(f'"0x{addr:04X}" = {{ name = "{nm}", '
+                  f'comment = "[ROM-DATA] {kind}; read by {who} via imm-word ptr; bytes: {preview}" }}')
+
 def cmd_stats(idx, labels, code_addrs):
     cls = defaultdict(int); reg = defaultdict(lambda: defaultdict(int))
     for addr, bank, refs in iter_pointers(idx, labels):
@@ -268,17 +338,20 @@ def main():
     p.add_argument("--min", type=int, default=1)
     p = s.add_parser("refs"); p.add_argument("addr"); p.add_argument("--bank", type=int)
     p = s.add_parser("strings"); p.add_argument("--toml", action="store_true"); p.add_argument("--bank", type=int)
+    p = s.add_parser("tables"); p.add_argument("--toml", action="store_true"); p.add_argument("--bank", type=int)
     s.add_parser("stats")
     args = ap.parse_args()
 
     idx, code_addrs = build_index()
-    labels = _nv.load_labels()
+    labels = _nv.load_labels_by_prg()   # PRG-offset keyed: bank-unambiguous (see _name)
     if args.cmd == "frontier":
         cmd_frontier(idx, labels, code_addrs, args.unlabeled, args.klass, args.bank, args.min)
     elif args.cmd == "refs":
         cmd_refs(_norm(args.addr), idx, labels, code_addrs, args.bank)
     elif args.cmd == "strings":
         cmd_strings(idx, labels, code_addrs, args.toml, args.bank)
+    elif args.cmd == "tables":
+        cmd_tables(idx, labels, code_addrs, args.toml, args.bank)
     elif args.cmd == "stats":
         cmd_stats(idx, labels, code_addrs)
 

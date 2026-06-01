@@ -16,8 +16,8 @@ word unpack_base5_digits_upload_blocks(word arg1, word arg2, word arg3, word arg
     local9 = ((unsigned)local9 % (unsigned)5);    // $80A4
     local7 = ((unsigned)local8 / (unsigned)5);    // $80A8
     local8 = ((unsigned)local8 % (unsigned)5);    // $80AC
-    arg1 = 0xAD84;    // $80F8
-    return syscall16_sram_wrap(12, (arg1 + 24), ((local7 * 12) + 0xAEAC), 9);    // $813B
+    arg1 = unpack_base5_digits_uplo_data_ad84;    // $80F8
+    return syscall16_sram_wrap(12, (arg1 + 24), ((local7 * 12) + unpack_base5_digits_uplo_data_aeac), 9);    // $813B
 }
 
 // $813C build_blit_fief_tile_block
@@ -29,10 +29,10 @@ L_8144:
     *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // $8156
     if (((unsigned)*(word*)(fp - 41) >= (unsigned)4)) goto L_8144;    // $815C
     if (*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6))) goto L_81E8;    // $8168
-    *(word*)(fp - 43) = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + 0xBBD0);    // $8178
+    *(word*)(fp - 43) = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + build_blit_fief_tile_blo_data_bbd0);    // $8178
     *(word*)(fp - 43) = (fp - 47);    // $8189
     *(word*)(fp - 41) = 0;    // $81A1
-    *(word*)(fp - 38) = ((fief_to_mapid(active_province_idx_copy) * 36) + 0xB144);    // $81B1
+    *(word*)(fp - 38) = ((fief_to_mapid(active_province_idx_copy) * 36) + build_blit_fief_tile_blo_data_b144);    // $81B1
     goto L_81DD;    // $81B3
 L_81B6:
     *(byte*)((*(word*)(fp - 41) + (fp - 36))) = (*(byte*)(fp - 39) + 36);    // $81D0
@@ -245,7 +245,7 @@ L_83FD:
 L_8400:
     local11 = (local11 - 1);    // $8402
 L_8403:
-    return ((local11 << 4) + 0xB11E);    // $840A
+    return ((local11 << 4) + lookup_terrain_attr_reco_data_b11e);    // $840A
 }
 
 // $840B draw_tactical_cursor_region
@@ -593,7 +593,7 @@ L_8826:
 // (body @ $882F)
 
 word upload_map_cell_tiles(word arg1, word arg2, word arg3, word arg4) {
-    return ppu_upload_block_wrap(3, ((arg2 * 48) + 5392), ((arg1 * 49) + 0x9C25), 5);    // $885D
+    return ppu_upload_block_wrap(3, ((arg2 * 48) + 5392), ((arg1 * 49) + upload_map_cell_tiles_data_9c25), 5);    // $885D
 }
 
 // $885E map_render_driver
@@ -635,7 +635,7 @@ L_890C:
     } else {
     }
 L_8922:
-    local6 = 0xB54A;    // $8922
+    local6 = map_populate_data_b54a;    // $8922
     local7 = ((local10 << 1) << 1);    // $8926
     if ((local11 & 1)) {    // $892A
     local7 = (local7 + 2);    // $8931
@@ -978,7 +978,7 @@ word ai_sum_battle_strength(word arg1, word arg2, word arg3, word arg4) {
     mem_7BEA = 0;    // $8E65
     local11 = (ui_helper_d7ea() + 1);    // $8E6C
     local10 = (fief_to_daimyo_record_addr(battle_defending_province) + 1);    // $8E75
-    local9 = 0xB5B1;    // $8E79
+    local9 = ai_sum_battle_strength_data_b5b1;    // $8E79
     goto L_8EA5;    // $8E7B
 L_8E7E:
     local9 = (local9 + 1);    // $8E80
@@ -1079,13 +1079,13 @@ L_8F96:
 // (body @ $8F9C)
 
 word clear_unit_status_flag_set_field_200(word arg1, word arg2, word arg3, word arg4) {
-    war_side_state_flag[arg1] = (war_side_state_flag[arg1] & *(byte*)((arg2 + 0xB5B9)));    // $8FAC
-    arg2 = *(byte*)((arg2 + 0xB5B9));    // $8FAD
-    arg1 = *(byte*)((arg2 + 0xB5B9));    // $8FAE
-    arg2 = *(byte*)((arg2 + 0xB5B9));    // $8FB4
-    arg1 = *(byte*)((arg2 + 0xB5B9));    // $8FB5
-    *(byte*)(unit_field_ptr_6fda(/*via arg2*/ *(byte*)((arg2 + 0xB5B9)), unit_field_ptr_6fd0(/*via arg2*/ *(byte*)((arg2 + 0xB5B9)), /*via arg2*/ *(byte*)((arg2 + 0xB5B9))))) = -56;    // $8FBD
-    *(byte*)(*(byte*)((arg2 + 0xB5B9))) = -56;    // $8FBE
+    war_side_state_flag[arg1] = (war_side_state_flag[arg1] & clear_unit_status_flag_s_data_b5b9[arg2]);    // $8FAC
+    arg2 = clear_unit_status_flag_s_data_b5b9[arg2];    // $8FAD
+    arg1 = clear_unit_status_flag_s_data_b5b9[arg2];    // $8FAE
+    arg2 = clear_unit_status_flag_s_data_b5b9[arg2];    // $8FB4
+    arg1 = clear_unit_status_flag_s_data_b5b9[arg2];    // $8FB5
+    *(byte*)(unit_field_ptr_6fda(/*via arg2*/ clear_unit_status_flag_s_data_b5b9[arg2], unit_field_ptr_6fd0(/*via arg2*/ clear_unit_status_flag_s_data_b5b9[arg2], /*via arg2*/ clear_unit_status_flag_s_data_b5b9[arg2]))) = -56;    // $8FBD
+    *(byte*)(clear_unit_status_flag_s_data_b5b9[arg2]) = -56;    // $8FBE
     return -56;    // $8FBF
 }
 
@@ -1395,14 +1395,14 @@ L_9368:
 
 word draw_combat_ui_string_b196(word arg1, word arg2, word arg3, word arg4) {
     arg2 = (arg2 + 1);    // $9378
-    return ui_helper_d134((arg2 + 1), *(word*)(((arg1 << 1) + 0xB196)));    // $9386
+    return ui_helper_d134((arg2 + 1), *(word*)(((arg1 << 1) + jumptab_b196)));    // $9386
 }
 
 // $9387 draw_unit_label_b627
 // (body @ $938C)
 
 word draw_unit_label_b627(word arg1, word arg2, word arg3, word arg4) {
-    return ui_helper_d134(*(word*)(((((unsigned)(wrap_index_0_2_to_zero(cur_combat_unit_slot) + 1) % (unsigned)3) << 1) + 0xF9AF)), (cur_combat_unit_slot + 1), msg_unit_d_s);    // $93A9
+    return ui_helper_d134(*(word*)(((((unsigned)(wrap_index_0_2_to_zero(cur_combat_unit_slot) + 1) % (unsigned)3) << 1) + draw_unit_label_data_f9af)), (cur_combat_unit_slot + 1), msg_unit_d_s);    // $93A9
 }
 
 // $93AA announce_battle_outcome_retreat_or_won
@@ -1443,9 +1443,9 @@ L_9439:
 L_944A:
     arg2 = (arg2 - 1);    // $944C
 L_9451:
-    local6 = *(word*)((((arg2 - 1) << 1) + 0xB640));    // $9453
-    arg1 = 0xB640;    // $9454
-    local6 = 0xB640;    // $9460
+    local6 = *(word*)((((arg2 - 1) << 1) + jumptab_b640));    // $9453
+    arg1 = jumptab_b640;    // $9454
+    local6 = jumptab_b640;    // $9460
     if (local8) {    // $9466
     } else {
     }
@@ -2022,9 +2022,9 @@ L_9BE7:
 L_9BEA:
     local11 = (local11 - 1);    // $9BEC
 L_9BED:
-    arg2 = 0xB9C2;    // $9BF5
-    arg1 = 0xB9C2;    // $9BF6
-    return (pct_op(/*stack underflow*/ regA, *(word*)(unit_word_field_ptr_6fbc(/*via arg2*/ 0xB9C2, *(word*)(((local11 << 1) + 0xB9C2))))) * 3);    // $9C03
+    arg2 = ai_terrain_strength_term_data_b9c2;    // $9BF5
+    arg1 = ai_terrain_strength_term_data_b9c2;    // $9BF6
+    return (pct_op(/*stack underflow*/ regA, *(word*)(unit_word_field_ptr_6fbc(/*via arg2*/ ai_terrain_strength_term_data_b9c2, *(word*)(((local11 << 1) + ai_terrain_strength_term_data_b9c2))))) * 3);    // $9C03
 }
 
 // $9C04 ai_province_stat_diff_term
@@ -3204,7 +3204,7 @@ L_ACCA:
     local9 = 6;    // $ACD7
 L_ACDC:
     local11 = combat_command_menu_input_loop(*(byte*)(cur_unit_field_ptr_6fda()), *(byte*)(cur_unit_field_ptr_6fd0()));    // $AD07
-    local8 = *(word*)(((local11 << 1) + 0xB9F8));    // $AD0F
+    local8 = *(word*)(((local11 << 1) + combat_command_dispatch_data_b9f8));    // $AD0F
     if ((*(local8))()) goto L_AC99;    // $AD12
     if ((local11 == 3)) {    // $AD18
     local10 = 1;    // $AD1C
@@ -3364,7 +3364,7 @@ L_AF80:
 L_AFA2:
     local11 = 0;    // $AFAB
 L_AFAC:
-    local11 = 0xBA7F;    // $AFB3
+    local11 = battle_setup_select_prov_data_ba7f;    // $AFB3
     local11 = (local11 + 1);    // $AFBA
     if (((unsigned)local11 >= (unsigned)16)) goto L_AFAC;    // $AFBF
     mem_6E33 = 50;    // $AFD7
@@ -3385,9 +3385,9 @@ word battle_init_driver(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_B021:
-    latched_selected_record_idx = *(byte*)((battle_defending_province + 0xFED8));    // $B023
+    latched_selected_record_idx = *(byte*)((battle_defending_province + battle_init_driver_data_fed8));    // $B023
     if (local6) {    // $B027
-    local6 = 0xFED8;    // $B02A
+    local6 = battle_init_driver_data_fed8;    // $B02A
     return battle_setup_select_province_phase(/*stack underflow*/ regA);    // $B02F
     }
 L_B030:

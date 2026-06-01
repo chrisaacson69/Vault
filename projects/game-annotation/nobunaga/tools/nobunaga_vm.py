@@ -48,6 +48,46 @@ def load_labels():
     return labels
 
 
+def load_labels_by_prg():
+    """Section-aware label load keyed by PRG ROM offset (0-0x3FFFF) — the bank-
+    unambiguous identity. The flat load_labels() collides banks at the same CPU
+    address ($8000-$BFFF is a switchable window: bank0 $BA10 and bank1 $BA10 are
+    different bytes but one key), so analysis tools that must disambiguate banks
+    use THIS. Returns prg_off -> (name, comment, bank, cpu_addr). ROM only
+    ($8000-$FFFF); [ram]/SRAM labels have no PRG offset and are skipped.
+
+    PRG offset = bank*0x4000 + (cpu & 0x3FFF), matching mesen-labels.py's .mlb
+    keying. $C000-$FFFF is the MMC1 FIXED bank 15 (address-authoritative, so the
+    ~60 kernel labels mis-filed under [prg.bank0] still resolve correctly)."""
+    text = LABELS_PATH.read_text(encoding="utf-8")
+    sec_re = re.compile(r'^\s*\[prg\.bank(\d+)\]')
+    lbl_re = re.compile(
+        r'"0x([0-9A-Fa-f]+)"\s*=\s*\{\s*name\s*=\s*"([^"]+)"(?:,\s*comment\s*=\s*"([^"]*)")?')
+    out, cur_bank = {}, None
+    for line in text.splitlines():
+        sm = sec_re.match(line)
+        if sm:
+            cur_bank = int(sm.group(1))
+            continue
+        if line.lstrip().startswith('['):       # left the prg.bankN sections
+            cur_bank = None
+            continue
+        m = lbl_re.search(line)
+        if not m:
+            continue
+        cpu = int(m.group(1), 16)
+        if cpu >= 0xC000:
+            bank = 15                            # fixed bank, address wins over section
+        elif 0x8000 <= cpu < 0xC000:
+            bank = cur_bank                      # switchable: the section IS the bank
+            if bank is None:
+                continue                         # un-sectioned window label: ambiguous
+        else:
+            continue                             # RAM/SRAM: no PRG identity
+        out[bank * 0x4000 + (cpu & 0x3FFF)] = (m.group(2), m.group(3) or "", bank, cpu)
+    return out
+
+
 # ============================================================================
 # Opcode table — minimal version for trace formatting
 # ============================================================================

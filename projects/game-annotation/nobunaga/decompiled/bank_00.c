@@ -99,13 +99,13 @@ L_82A3:
     local8 = (local8 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x0100, 0, 1));    // $82B2
     local11 = (local11 + 0x0100);    // $82B9
     if (((unsigned)local11 >= (unsigned)0x7F00)) goto L_82A3;    // $82BF
-    local8 = (local8 + syscall_sram_block_with_checksum(0x81EB, ui_transient_state, 0, 1));    // $82D3
+    local8 = (local8 + syscall_sram_block_with_checksum(verify_sram_save_integri_data_81eb, ui_transient_state, 0, 1));    // $82D3
     if ((sram_save_checksum == local8)) {    // $82DE
     ui_msg_col_shift_flag = 0;    // $82E7
     sram_save_pending_flag = 0;    // $82EB
     local9 = 0;    // $8322
 L_8323:
-    local9 = 0xB852;    // $832A
+    local9 = verify_sram_save_integri_data_b852;    // $832A
     local9 = (local9 + 1);    // $8331
     if (((unsigned)local9 >= (unsigned)8)) goto L_8323;    // $8335
     ui_msg_col_shift_flag = 1;    // $833E
@@ -270,7 +270,7 @@ L_8630:
     scenario_fief_count = 50;    // $8658
     }
 L_865E:
-    local11 = 0x8004;    // $865E
+    local11 = prompt_select_scenario_s_data_8004;    // $865E
     local11 = 0x6001;    // $866B
     ui_confirm_flag_6e7d = ui_helper_d3a7();    // $867B
     return ui_helper_d3a7();    // $867E
@@ -432,7 +432,7 @@ L_8A34:
     ui_msg_col_shift_flag = 1;    // $8A4F
     local11 = 0;    // $8A72
 L_8A73:
-    local11 = 0xB852;    // $8A7A
+    local11 = verify_sram_save_integri_data_b852;    // $8A7A
     local11 = (local11 + 1);    // $8A81
     if (((unsigned)local11 >= (unsigned)8)) goto L_8A73;    // $8A85
     goto L_8ABC;    // $8A8E
@@ -912,10 +912,10 @@ word check_and_process_daimyo_natural_death(word arg1, word arg2, word arg3, wor
     if (get_province_ai_state(/*via arg1*/ 1)) {    // $91CD
     }
 L_91D3:
-    arg1 = 0xBBA5;    // $91EF
-    arg1 = 0xBBA5;    // $91F7
+    arg1 = check_and_process_daimyo_data_bba5;    // $91EF
+    arg1 = check_and_process_daimyo_data_bba5;    // $91F7
 L_91FC:
-    return find_fiefs_of_owner(/*via arg1*/ 0xBBA5);    // $91FC
+    return find_fiefs_of_owner(/*via arg1*/ check_and_process_daimyo_data_bba5);    // $91FC
 }
 
 // $91FD clamp_value_to_range
@@ -2053,7 +2053,7 @@ L_A3FB:
     local11 = (local11 + 0x0100);    // $A411
     if (((unsigned)local11 >= (unsigned)0x7F00)) goto L_A3FB;    // $A417
     local9 = 0x7F00;    // $A420
-    local10 = (local10 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x81EB, ui_transient_state, 0));    // $A42B
+    local10 = (local10 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, verify_sram_save_integri_data_81eb, ui_transient_state, 0));    // $A42B
     sram_save_checksum = local10;    // $A42D
     sram_save_pending_flag = 0;    // $A440
     return confirm_prompt();    // $A454

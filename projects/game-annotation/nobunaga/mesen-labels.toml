@@ -218,6 +218,28 @@ prg_bank_count = 16        # 256 KB total
 # ============================================================================
 
 [prg.bank15]
+# --- ROM table labels (rom-xref provenance-named, B1 data-walk) ---
+"0x8004" = { name = "relation_base_data_8004", comment = "[ROM-DATA] binary table (unanalyzed); read by relation_base_6f4f via imm-word ptr; bytes: 9a a9 ff 8d ff 9f a9 0e 8d ff 9f 4a" }
+"0x8300" = { name = "relation_base_data_8300", comment = "[ROM-DATA] binary table (unanalyzed); read by relation_base_6f4f via imm-word ptr; bytes: 8d 06 20 ad 54 00 a2 40 8d 07 20 ca" }
+"0x845C" = { name = "ui_helper_data_845c", comment = "[ROM-DATA] binary table (unanalyzed); read by ui_helper_cd20 via imm-word ptr; bytes: 68 00 8c 69 00 ee 5a 00 ad 5a 00 38" }
+"0x8D5A" = { name = "find_record_data_8d5a", comment = "[ROM-DATA] binary table (unanalyzed); read by find_record_9e3c via imm-word ptr; bytes: 7a f6 bb b0 b3 3b e9 8b cf 04 0b d0" }
+"0x8D5C" = { name = "map_helper_data_8d5c", comment = "[ROM-DATA] binary table (unanalyzed); read by map_helper_e5f2 via imm-word ptr; bytes: bb b0 b3 3b e9 8b cf 04 0b d0 2b 0b" }
+"0x9D1C" = { name = "map_helper_data_9d1c", comment = "[ROM-DATA] binary table (unanalyzed); read by map_helper_e5f2 via imm-word ptr; bytes: 2b 0b a6 9d 6d c6 d7 02 dd 08 d7 b7" }
+"0x9E3C" = { name = "find_record_data_9e3c", comment = "[ROM-DATA] binary table (unanalyzed); read by find_record_9e3c, map_helper_e5f2 via imm-word ptr; bytes: b3 09 b4 b3 b0 bb b1 09 72 29 08 8f" }
+"0xA57E" = { name = "read_map_cell_data_a57e", comment = "[ROM-DATA] binary table (unanalyzed); read by read_map_cell via imm-word ptr; bytes: 08 de da ff 85 d8 81 d8 d3 8c ff 00" }
+"0xA604" = { name = "unpack_record_to_sram_data_a604", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_record_to_sram_e6b9 via imm-word ptr; bytes: 61 8d 13 8d 1f 64 8d 1e e9 42 cc 0a" }
+"0xABA4" = { name = "unpack_record_to_sram_data_aba4", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_record_to_sram_e6b9 via imm-word ptr; bytes: 02 90 02 e6 03 4c 67 e8 20 bf ef 65" }
+"0xAD84" = { name = "unpack_record_to_sram_data_ad84", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_record_to_sram_e6b9 via imm-word ptr; bytes: 10 0b 38 98 e5 08 85 08 98 e5 09 85" }
+"0xAE34" = { name = "unpack_record_to_sram_data_ae34", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_record_to_sram_e6b9 via imm-word ptr; bytes: 09 d0 07 a5 08 c5 0c d0 01 c8 84 08" }
+"0xAE70" = { name = "unpack_record_to_sram_data_ae70", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_record_to_sram_e6b9 via imm-word ptr; bytes: c5 08 a5 0d e5 09 84 09 10 01 c8 98" }
+"0xAE8E" = { name = "unpack_record_to_sram_data_ae8e", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_record_to_sram_e6b9 via imm-word ptr; bytes: 09 30 01 c8 98 50 02 49 01 85 08 4c" }
+"0xAEAC" = { name = "unpack_record_to_sram_data_aeac", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_record_to_sram_e6b9 via imm-word ptr; bytes: 49 01 85 08 4c 67 e8 a5 08 c5 0c a5" }
+"0xB144" = { name = "jumptab_b144", comment = "[ROM-DATA] pointer/dispatch table; read by marry_helper_e76f via imm-word ptr; bytes: e9 e9 e9 e9 e9 e9 e9 e9 e9 e9 e9 e9" }
+"0xF67A" = { name = "ui_helper_data_f67a", comment = "[ROM-DATA] binary table (unanalyzed); read by ui_helper_cd20 via imm-word ptr; bytes: 3e 00 12 00 29 00 30 00 3e 00 16 00" }
+"0xF77D" = { name = "draw_daimyo_name_menu_data_f77d", comment = "[ROM-DATA] binary table (unanalyzed); read by draw_daimyo_name_menu via imm-word ptr; bytes: 0a 00 20 77 61 6e 74 73 20 61 0a 25" }
+"0xF7CC" = { name = "marry_helper_data_f7cc", comment = "[ROM-DATA] binary table (unanalyzed); read by marry_helper_e76f via imm-word ptr; bytes: 3e 00 38 00 28 00 30 00 e0 f7 ea f7" }
+"0xFEA6" = { name = "dispatch_map_helper_data_fea6", comment = "[ROM-DATA] binary table (unanalyzed); read by dispatch_map_helper_e694 via imm-word ptr; bytes: 02 02 02 02 02 02 02 04 04 04 04 04" }
+"0xFED8" = { name = "dispatch_map_helper_data_fed8", comment = "[ROM-DATA] binary table (unanalyzed); read by dispatch_map_helper_e694 via imm-word ptr; bytes: 00 00 00 00 01 00 00 00 00 01 01 01" }
 # --- ROM string labels (rom-xref auto-decode, B1 data-walk) ---
 "0xBBD0" = { name = "msg_ng_to_pieces", comment = "[ROM-STR] \"ng to pieces!\"" }
 "0xF695" = { name = "msg_y_n_f695", comment = "[ROM-STR] \"\n(Y/N)? \"" }
@@ -669,6 +691,33 @@ prg_bank_count = 16        # 256 KB total
 # followed by JSR $E823 at $A778 which enters the VM. Everything after that is bytecode.
 
 [prg.bank0]
+# --- ROM table labels (rom-xref provenance-named, B1 data-walk) ---
+"0x8004" = { name = "prompt_select_scenario_s_data_8004", comment = "[ROM-DATA] binary table (unanalyzed); read by init_new_game_state, prompt_select_scenario_size, render_boot_title_screens via imm-word ptr; bytes: 23 e8 fa ff 60 60 6a e9 26 f2 06 ac" }
+"0x81EB" = { name = "verify_sram_save_integri_data_81eb", comment = "[ROM-DATA] binary table (unanalyzed); read by verify_sram_save_integrity, write_sram_save_checksum_and_signature via imm-word ptr; bytes: 35 cc 02 8d 51 8e 00 10 8e ba b2 60" }
+"0x8264" = { name = "render_boot_title_screen_data_8264", comment = "[ROM-DATA] binary table (unanalyzed); read by init_new_game_state, render_boot_title_screens via imm-word ptr; bytes: 16 e9 26 f2 0a 28 8a 00 61 2b 8e 00" }
+"0x9B24" = { name = "jumptab_9b24", comment = "[ROM-DATA] pointer/dispatch table; read by display_fullscreen_graphic_sequence via imm-word ptr; bytes: 6d 9b aa 5f 6f e9 8d d9 02 d7 6d 9b" }
+"0x9D04" = { name = "display_fullscreen_graph_data_9d04", comment = "[ROM-DATA] binary table (unanalyzed); read by display_fullscreen_graphic_sequence via imm-word ptr; bytes: ff 8d 1f e9 0c e8 02 8a ad 7b d6 7b" }
+"0xA004" = { name = "prompt_select_scenario_s_data_a004", comment = "[ROM-DATA] binary table (unanalyzed); read by prompt_select_scenario_size via imm-word ptr; bytes: 6d e9 52 ca 02 28 38 0a 72 2a 8f fe" }
+"0xA84A" = { name = "render_boot_title_screen_data_a84a", comment = "[ROM-DATA] binary table (unanalyzed); read by render_boot_title_screens via imm-word ptr; bytes: 55 55 55 55 55 55 55 55 55 55 55 55" }
+"0xA88A" = { name = "render_boot_title_screen_data_a88a", comment = "[ROM-DATA] binary table (unanalyzed); read by render_boot_title_screens via imm-word ptr; bytes: 02 02 02 02 02 02 02 02 02 02 02 02" }
+"0xACE4" = { name = "display_fullscreen_graph_data_ace4", comment = "[ROM-DATA] binary table (unanalyzed); read by display_fullscreen_graphic_sequence via imm-word ptr; bytes: 98 1f 18 18 9f 00 e3 06 06 c3 00 06" }
+"0xAF64" = { name = "display_fullscreen_graph_data_af64", comment = "[ROM-DATA] binary table (unanalyzed); read by display_fullscreen_graphic_sequence via imm-word ptr; bytes: 00 00 0f 19 19 30 00 00 00 00 07 86" }
+"0xB2BA" = { name = "display_fullscreen_graph_data_b2ba", comment = "[ROM-DATA] binary table (unanalyzed); read by display_fullscreen_graphic_sequence, render_boot_title_screens via imm-word ptr; bytes: ff ff ff ff ff ff ff ff 00 00 00 00" }
+"0xB78A" = { name = "verify_sram_save_integri_data_b78a", comment = "[ROM-DATA] binary table (unanalyzed); read by init_new_game_state, verify_sram_save_integrity via imm-word ptr; bytes: 00 72 54 78 1e 2a 4e 00 00 72 54 78" }
+"0xB852" = { name = "verify_sram_save_integri_data_b852", comment = "[ROM-DATA] binary table (unanalyzed); read by init_new_game_state, verify_sram_save_integrity via imm-word ptr; bytes: 3e 12 29 30 3e 02 12 21 3e 16 27 30" }
+"0xB89E" = { name = "verify_sram_save_integri_data_b89e", comment = "[ROM-DATA] binary table (unanalyzed); read by verify_sram_save_integrity via imm-word ptr; bytes: 00 44 61 74 61 20 6c 6f 61 64 65 64" }
+"0xB8AB" = { name = "verify_sram_save_integri_data_b8ab", comment = "[ROM-DATA] binary table (unanalyzed); read by verify_sram_save_integrity via imm-word ptr; bytes: 20 20 20 20 00 44 61 74 61 20 63 61" }
+"0xB8C7" = { name = "prompt_select_scenario_s_data_b8c7", comment = "[ROM-DATA] binary table (unanalyzed); read by prompt_select_scenario_size via imm-word ptr; bytes: 00 28 31 37 66 69 65 66 73 2f 35 30" }
+"0xBA5E" = { name = "resolve_ownerless_provin_data_ba5e", comment = "[ROM-DATA] binary table (unanalyzed); read by resolve_ownerless_province_succession via imm-word ptr; bytes: 00 0a 57 6f 75 6c 64 20 79 6f 75 20" }
+"0xBA8C" = { name = "resolve_ownerless_provin_data_ba8c", comment = "[ROM-DATA] binary table (unanalyzed); read by resolve_ownerless_province_succession via imm-word ptr; bytes: 00 0a 46 69 65 66 20 25 32 64 20 69" }
+"0xBAFD" = { name = "ai_resolve_province_take_data_bafd", comment = "[ROM-DATA] binary table (unanalyzed); read by ai_resolve_province_takeover_attempt via imm-word ptr; bytes: 00 25 73 20 68 61 76 65 20 77 6f 6e" }
+"0xBB26" = { name = "collect_high_loyalty_pro_data_bb26", comment = "[ROM-DATA] binary table (unanalyzed); read by collect_high_loyalty_provinces_to_candidate_list via imm-word ptr; bytes: 00 0a 74 68 65 20 70 65 6f 70 6c 65" }
+"0xBBA5" = { name = "check_and_process_daimyo_data_bba5", comment = "[ROM-DATA] binary table (unanalyzed); read by check_and_process_daimyo_natural_death via imm-word ptr; bytes: a9 bb b1 bb 6f 6c 64 20 61 67 65 00" }
+"0xBBC6" = { name = "ravage_defending_provinc_data_bbc6", comment = "[ROM-DATA] binary table (unanalyzed); read by ravage_defending_province_sweep via imm-word ptr; bytes: 00 0a 73 6f 6d 65 6f 6e 65 20 68 61" }
+"0xBC2A" = { name = "announce_provinces_by_ai_data_bc2a", comment = "[ROM-DATA] binary table (unanalyzed); read by announce_provinces_by_ai_state_mode via imm-word ptr; bytes: 00 0a 61 20 74 79 70 68 6f 6f 6e 20" }
+"0xBC4B" = { name = "announce_provinces_by_ai_data_bc4b", comment = "[ROM-DATA] binary table (unanalyzed); read by announce_provinces_by_ai_state_mode via imm-word ptr; bytes: 00 0a 70 6c 61 67 75 65 20 68 61 73" }
+"0xBF1C" = { name = "write_sram_save_checksum_data_bf1c", comment = "[ROM-DATA] binary table (unanalyzed); read by write_sram_save_checksum_and_signature via imm-word ptr; bytes: 00 44 61 74 61 20 68 61 73 20 62 65" }
+"0xF8AE" = { name = "daimyo_creation_stat_rol_data_f8ae", comment = "[ROM-DATA] binary table (unanalyzed); read by daimyo_creation_stat_roll_screen via imm-word ptr; bytes: d2 f8 d6 f8 db f8 e0 f8 e5 f8 ea f8" }
 # --- ROM string labels (rom-xref auto-decode, B1 data-walk) ---
 "0xAC4A" = { name = "msg_fmt_blank", comment = "[ROM-STR] \"017?100\"" }
 "0xB7CA" = { name = "msg_congratulations_my_lord", comment = "[ROM-STR] \">[16]*(>[16](0>[16](0>[16]80Congratulations my Lord!\n\"" }
@@ -979,6 +1028,48 @@ prg_bank_count = 16        # 256 KB total
 # but the drivers themselves live entirely in bank 1).
 
 [prg.bank1]
+# --- ROM table labels (rom-xref provenance-named, B1 data-walk) ---
+"0x8D5A" = { name = "fief_select_input_loop_data_8d5a", comment = "[ROM-DATA] binary table (unanalyzed); read by fief_select_input_loop via imm-word ptr; bytes: 70 bb 29 09 74 2b 0b 72 2a a4 5f 6f" }
+"0x9E3C" = { name = "fief_select_input_loop_data_9e3c", comment = "[ROM-DATA] binary table (unanalyzed); read by fief_select_input_loop via imm-word ptr; bytes: 02 59 b5 8c a8 77 bb b3 ac 7e d7 59" }
+"0xB9DC" = { name = "jumptab_b9dc", comment = "[ROM-DATA] pointer/dispatch table; read by driver_trade via imm-word ptr; bytes: 04 9f af 9f 03 a0 68 a0 13 a1 af a1" }
+"0xB9E8" = { name = "jumptab_b9e8", comment = "[ROM-DATA] pointer/dispatch table; read by driver_other via imm-word ptr; bytes: 66 b0 9d b0 d2 b0 09 b1 2b b1 4b b1" }
+"0xBA10" = { name = "prompt_message_and_redra_data_ba10", comment = "[ROM-DATA] binary table (unanalyzed); read by prompt_message_and_redraw via imm-word ptr; bytes: 00 00 0a 00 5f 5f 4d 61 72 6b 65 74" }
+"0xBA11" = { name = "prompt_message_and_redra_data_ba11", comment = "[ROM-DATA] binary table (unanalyzed); read by prompt_message_and_redraw via imm-word ptr; bytes: 00 0a 00 5f 5f 4d 61 72 6b 65 74 5f" }
+"0xBA12" = { name = "prompt_message_and_redra_data_ba12", comment = "[ROM-DATA] binary table (unanalyzed); read by prompt_message_and_redraw via imm-word ptr; bytes: 0a 00 5f 5f 4d 61 72 6b 65 74 5f 5f" }
+"0xBA69" = { name = "count_eligible_targets_data_ba69", comment = "[ROM-DATA] binary table (unanalyzed); read by count_eligible_targets via imm-word ptr; bytes: 2d 00 25 34 64 00 2d 2d 2d 2d 00 25" }
+"0xBA6F" = { name = "province_window_redraw_data_ba6f", comment = "[ROM-DATA] binary table (unanalyzed); read by province_window_redraw_ba6f via imm-word ptr; bytes: 2d 2d 2d 2d 00 25 33 64 00 2d 2d 2d" }
+"0xBA78" = { name = "province_window_redraw_data_ba78", comment = "[ROM-DATA] binary table (unanalyzed); read by province_window_redraw_ba78 via imm-word ptr; bytes: 2d 2d 2d 00 48 6f 6d 65 20 66 69 65" }
+"0xBA9C" = { name = "effect_view_a_data_ba9c", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_view_a via imm-word ptr; bytes: 2d 2d 2d 2d 2d 2d 2d 2d 00 53 69 63" }
+"0xBB26" = { name = "province_select_helper_data_bb26", comment = "[ROM-DATA] binary table (unanalyzed); read by province_select_helper via imm-word ptr; bytes: 2d 00 4e 6f 74 20 68 6f 6d 65 20 66" }
+"0xBB3E" = { name = "effect_bribe_data_bb3e", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_bribe via imm-word ptr; bytes: 00 20 68 61 73 20 6c 6f 73 74 00 20" }
+"0xBBE2" = { name = "driver_tax_data_bbe2", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_tax via imm-word ptr; bytes: 00 49 73 20 74 68 69 73 20 4f 4b 00" }
+"0xBBEE" = { name = "driver_dam_data_bbee", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_dam via imm-word ptr; bytes: 00 44 61 6d 73 20 76 61 6c 75 65 00" }
+"0xBBFA" = { name = "driver_dam_data_bbfa", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_dam via imm-word ptr; bytes: 00 00 00 4f 75 74 70 75 74 00 00 00" }
+"0xBBFB" = { name = "driver_pact_data_bbfb", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_pact via imm-word ptr; bytes: 00 00 4f 75 74 70 75 74 00 00 00 00" }
+"0xBBFC" = { name = "driver_grow_data_bbfc", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_grow via imm-word ptr; bytes: 00 4f 75 74 70 75 74 00 00 00 00 0a" }
+"0xBC04" = { name = "driver_grow_data_bc04", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_grow via imm-word ptr; bytes: 00 00 00 0a 54 68 65 20 74 72 65 61" }
+"0xBC05" = { name = "driver_marry_data_bc05", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_marry via imm-word ptr; bytes: 00 00 0a 54 68 65 20 74 72 65 61 73" }
+"0xBC06" = { name = "subhandler_9F04_data_bc06", comment = "[ROM-DATA] binary table (unanalyzed); read by subhandler_9F04 via imm-word ptr; bytes: 00 0a 54 68 65 20 74 72 65 61 73 75" }
+"0xBC59" = { name = "subhandler_9FAF_data_bc59", comment = "[ROM-DATA] binary table (unanalyzed); read by subhandler_9FAF via imm-word ptr; bytes: 00 0a 4e 6f 20 67 6f 6c 64 00 0a 44" }
+"0xBC75" = { name = "subhandler_A003_data_bc75", comment = "[ROM-DATA] binary table (unanalyzed); read by subhandler_A003 via imm-word ptr; bytes: 00 25 73 20 72 69 63 65 0a 77 69 6c" }
+"0xBCA2" = { name = "subhandler_A068_data_bca2", comment = "[ROM-DATA] binary table (unanalyzed); read by subhandler_A068 via imm-word ptr; bytes: 00 20 72 69 63 65 0a 77 69 6c 6c 20" }
+"0xBCE9" = { name = "subhandler_A113_data_bce9", comment = "[ROM-DATA] binary table (unanalyzed); read by subhandler_A113 via imm-word ptr; bytes: 00 41 72 6d 6f 72 79 20 66 75 6c 6c" }
+"0xBDCF" = { name = "effect_hire_data_bdcf", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_hire via imm-word ptr; bytes: 00 00 0a 28 4d 65 6e 2f 4e 69 6e 6a" }
+"0xBDD0" = { name = "effect_hire_variant_pay_data_bdd0", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_hire_variant_pay via imm-word ptr; bytes: 00 0a 28 4d 65 6e 2f 4e 69 6e 6a 61" }
+"0xBE13" = { name = "driver_build_data_be13", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_build via imm-word ptr; bytes: 00 54 6f 77 6e 20 76 61 6c 75 65 00" }
+"0xBE1F" = { name = "effect_give_b_data_be1f", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_give_b via imm-word ptr; bytes: 00 28 47 6f 6c 64 2f 52 69 63 65 29" }
+"0xBE2E" = { name = "effect_give_b_data_be2e", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_give_b via imm-word ptr; bytes: 0a 00 00 28 50 65 61 73 6e 74 73 2f" }
+"0xBE30" = { name = "effect_give_c_data_be30", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_give_c via imm-word ptr; bytes: 00 28 50 65 61 73 6e 74 73 2f 4d 65" }
+"0xBE41" = { name = "effect_give_c_data_be41", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_give_c via imm-word ptr; bytes: 0a 00 25 33 64 00 25 64 25 73 00 61" }
+"0xF7D4" = { name = "effect_view_a_data_f7d4", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_grant, effect_view_a via imm-word ptr; bytes: e0 f7 ea f7 f5 f7 fe f7 07 f8 0f f8" }
+"0xF816" = { name = "prompt_message_and_redra_data_f816", comment = "[ROM-DATA] binary table (unanalyzed); read by fief_info_display, prompt_message_and_redraw via imm-word ptr; bytes: 40 f8 45 f8 49 f8 4d f8 52 f8 56 f8" }
+"0xF8AE" = { name = "effect_view_a_data_f8ae", comment = "[ROM-DATA] binary table (unanalyzed); read by effect_view_a, report_fief_stat_decline via imm-word ptr; bytes: d2 f8 d6 f8 db f8 e0 f8 e5 f8 ea f8" }
+"0xF9AF" = { name = "render_arms_edit_screen_data_f9af", comment = "[ROM-DATA] binary table (unanalyzed); read by render_arms_edit_screen via imm-word ptr; bytes: b5 f9 bd f9 c5 f9 52 69 66 6c 65 73" }
+"0xFEA6" = { name = "driver_view_data_fea6", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_map, driver_view via imm-word ptr; bytes: 02 02 02 02 02 02 02 04 04 04 04 04" }
+"0xFED8" = { name = "driver_view_data_fed8", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_map, driver_view via imm-word ptr; bytes: 00 00 00 00 01 00 00 00 00 01 01 01" }
+"0xFEE9" = { name = "view_window_redraw_by_6d_data_fee9", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_grant, view_window_redraw_by_6da2_flag via imm-word ptr; bytes: f7 fe 00 ff 04 ff 08 ff 0c ff 11 ff" }
+"0xFF1A" = { name = "driver_other_data_ff1a", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_other via imm-word ptr; bytes: 28 ff 2e ff 35 ff 3a ff 3f ff 46 ff" }
+"0xFF4F" = { name = "driver_trade_data_ff4f", comment = "[ROM-DATA] binary table (unanalyzed); read by driver_trade via imm-word ptr; bytes: 5b ff 60 ff 66 ff 6b ff 6f ff 74 ff" }
 # --- ROM string labels (rom-xref auto-decode, B1 data-walk) ---
 "0xB9F6" = { name = "msg_s_s_s", comment = "[ROM-STR] \"%s%s%s\"" }
 "0xB9FD" = { name = "msg_attack", comment = "[ROM-STR] \"Attack\"" }
@@ -1293,6 +1384,44 @@ prg_bank_count = 16        # 256 KB total
 # ============================================================================
 
 [prg.bank2]
+# --- ROM table labels (rom-xref provenance-named, B1 data-walk) ---
+"0x8004" = { name = "map_render_driver_data_8004", comment = "[ROM-DATA] binary table (unanalyzed); read by map_render_driver via imm-word ptr; bytes: 00 a0 07 b1 02 99 08 00 88 d0 f8 a5" }
+"0x9C25" = { name = "upload_map_cell_tiles_data_9c25", comment = "[ROM-DATA] binary table (unanalyzed); read by upload_map_cell_tiles via imm-word ptr; bytes: 1a b5 8c 13 70 bb 28 40 2b 27 d6 5f" }
+"0xA604" = { name = "unpack_base5_digits_uplo_data_a604", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_base5_digits_upload_blocks via imm-word ptr; bytes: d5 a5 60 aa e8 7b e9 9a 82 04 d3 b3" }
+"0xA9C4" = { name = "unpack_base5_digits_uplo_data_a9c4", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_base5_digits_upload_blocks via imm-word ptr; bytes: d2 a9 3a 3b e9 9a 82 04 d3 16 c0 d7" }
+"0xAD84" = { name = "unpack_base5_digits_uplo_data_ad84", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_base5_digits_upload_blocks via imm-word ptr; bytes: ad cf 20 23 e8 fc ff a4 63 6f 8b 1a" }
+"0xAEAC" = { name = "unpack_base5_digits_uplo_data_aeac", comment = "[ROM-DATA] binary table (unanalyzed); read by unpack_base5_digits_upload_blocks via imm-word ptr; bytes: 02 8a 89 6f 28 40 29 d6 f4 ae 07 d8" }
+"0xB11E" = { name = "lookup_terrain_attr_reco_data_b11e", comment = "[ROM-DATA] binary table (unanalyzed); read by lookup_terrain_attr_record via imm-word ptr; bytes: 63 64 67 68 65 66 69 6a 6b 6c 6f 70" }
+"0xB144" = { name = "build_blit_fief_tile_blo_data_b144", comment = "[ROM-DATA] binary table (unanalyzed); read by build_blit_fief_tile_block via imm-word ptr; bytes: 79 7a 7b 7c 7c 7f 7d 7e 80 81 92 93" }
+"0xB196" = { name = "jumptab_b196", comment = "[ROM-DATA] pointer/dispatch table; read by announce_combat_side_daimyo_and_status, draw_combat_ui_string_b196, redraw_combat_side_window via imm-word ptr; bytes: d8 b1 d9 b1 f9 b1 17 b2 2d b2 4d b2" }
+"0xB4F0" = { name = "combat_command_dispatch_data_b4f0", comment = "[ROM-DATA] binary table (unanalyzed); read by combat_command_dispatch_loop_per_unit via imm-word ptr; bytes: fc b4 01 b5 08 b5 0e b5 13 b5 18 b5" }
+"0xB51E" = { name = "build_blit_fief_tile_blo_data_b51e", comment = "[ROM-DATA] binary table (unanalyzed); read by build_blit_fief_tile_block via imm-word ptr; bytes: 3e 00 38 00 28 00 30 00 0a 28 59 2f" }
+"0xB540" = { name = "map_render_driver_data_b540", comment = "[ROM-DATA] binary table (unanalyzed); read by map_render_driver via imm-word ptr; bytes: b4 b5 b6 b7 20 20 00 20 20 00 01 01" }
+"0xB542" = { name = "map_render_driver_data_b542", comment = "[ROM-DATA] binary table (unanalyzed); read by map_render_driver via imm-word ptr; bytes: b6 b7 20 20 00 20 20 00 01 01 01 01" }
+"0xB544" = { name = "map_render_driver_data_b544", comment = "[ROM-DATA] binary table (unanalyzed); read by map_render_driver via imm-word ptr; bytes: 20 20 00 20 20 00 01 01 01 01 01 01" }
+"0xB547" = { name = "map_render_driver_data_b547", comment = "[ROM-DATA] binary table (unanalyzed); read by map_render_driver via imm-word ptr; bytes: 20 20 00 01 01 01 01 01 01 01 01 01" }
+"0xB54A" = { name = "map_populate_data_b54a", comment = "[ROM-DATA] binary table (unanalyzed); read by map_populate via imm-word ptr; bytes: 01 01 01 01 01 01 01 01 01 01 01 01" }
+"0xB5B1" = { name = "ai_sum_battle_strength_data_b5b1", comment = "[ROM-DATA] binary table (unanalyzed); read by ai_sum_battle_strength via imm-word ptr; bytes: 05 0a 0a 05 14 0a 19 0f fe fd fb f7" }
+"0xB5B9" = { name = "clear_unit_status_flag_s_data_b5b9", comment = "[ROM-DATA] binary table (unanalyzed); read by clear_unit_status_flag_set_field_200 via imm-word ptr; bytes: fe fd fb f7 ef 0a 20 55 70 0a 20 55" }
+"0xB626" = { name = "draw_combat_ui_string_data_b626", comment = "[ROM-DATA] binary table (unanalyzed); read by draw_combat_ui_string_b196 via imm-word ptr; bytes: 00 75 6e 69 74 20 25 64 0a 25 73 00" }
+"0xB632" = { name = "jumptab_b632", comment = "[ROM-DATA] pointer/dispatch table; read by announce_battle_outcome_retreat_or_won via imm-word ptr; bytes: 68 b6 9b b6 ba b6 fc b6 2e b7 5c b7" }
+"0xB640" = { name = "jumptab_b640", comment = "[ROM-DATA] pointer/dispatch table; read by announce_battle_outcome_retreat_or_won via imm-word ptr; bytes: b1 b7 ce b7 f3 b7 0b b8 48 b8 7b b8" }
+"0xB650" = { name = "announce_battle_outcome_data_b650", comment = "[ROM-DATA] binary table (unanalyzed); read by announce_battle_outcome_retreat_or_won via imm-word ptr; bytes: d1 b8 f4 b8 29 b9 4f b9 3e 12 29 30" }
+"0xB96C" = { name = "announce_battle_outcome_data_b96c", comment = "[ROM-DATA] binary table (unanalyzed); read by announce_battle_outcome_retreat_or_won via imm-word ptr; bytes: 0a 00 25 73 20 68 61 73 20 72 65 74" }
+"0xB99D" = { name = "announce_combat_side_dai_data_b99d", comment = "[ROM-DATA] binary table (unanalyzed); read by announce_combat_side_daimyo_and_status via imm-word ptr; bytes: 00 00 00 4c 6f 72 64 0a 00 0a 50 6c" }
+"0xB99E" = { name = "announce_combat_side_dai_data_b99e", comment = "[ROM-DATA] binary table (unanalyzed); read by announce_combat_side_daimyo_and_status via imm-word ptr; bytes: 00 00 4c 6f 72 64 0a 00 0a 50 6c 65" }
+"0xB9C2" = { name = "ai_terrain_strength_term_data_b9c2", comment = "[ROM-DATA] binary table (unanalyzed); read by ai_terrain_strength_term via imm-word ptr; bytes: 5a 00 14 00 0a 00 00 00 54 68 65 0a" }
+"0xB9F8" = { name = "combat_command_dispatch_data_b9f8", comment = "[ROM-DATA] binary table (unanalyzed); read by combat_command_dispatch_loop_per_unit via imm-word ptr; bytes: 0e a9 6c a9 fb a9 a7 aa 37 ab 6a ab" }
+"0xBA18" = { name = "combat_command_dispatch_data_ba18", comment = "[ROM-DATA] binary table (unanalyzed); read by combat_command_dispatch_loop_per_unit via imm-word ptr; bytes: 00 0a 59 6f 75 72 0a 6f 72 64 65 72" }
+"0xBA2B" = { name = "display_morale_falling_m_data_ba2b", comment = "[ROM-DATA] binary table (unanalyzed); read by display_morale_falling_message via imm-word ptr; bytes: 00 0a 6f 75 72 00 00 0a 65 6e 65 6d" }
+"0xBA31" = { name = "display_morale_falling_m_data_ba31", comment = "[ROM-DATA] binary table (unanalyzed); read by display_morale_falling_message via imm-word ptr; bytes: 00 0a 65 6e 65 6d 79 00 0a 6d 6f 72" }
+"0xBA57" = { name = "transfer_owned_fiefs_and_data_ba57", comment = "[ROM-DATA] binary table (unanalyzed); read by transfer_owned_fiefs_and_announce_succession via imm-word ptr; bytes: 0a 00 0a 68 61 73 20 70 61 73 73 65" }
+"0xBA7F" = { name = "battle_setup_select_prov_data_ba7f", comment = "[ROM-DATA] binary table (unanalyzed); read by battle_setup_select_province_phase via imm-word ptr; bytes: 3e 12 29 30 3e 02 12 21 3e 18 29 30" }
+"0xBBD0" = { name = "build_blit_fief_tile_blo_data_bbd0", comment = "[ROM-DATA] binary table (unanalyzed); read by build_blit_fief_tile_block via imm-word ptr; bytes: ff ff ff ff ff ff ff ff ff ff ff ff" }
+"0xF9AF" = { name = "draw_unit_label_data_f9af", comment = "[ROM-DATA] binary table (unanalyzed); read by draw_unit_label_b627 via imm-word ptr; bytes: b5 f9 bd f9 c5 f9 52 69 66 6c 65 73" }
+"0xFDD8" = { name = "ai_advance_units_when_at_data_fdd8", comment = "[ROM-DATA] binary table (unanalyzed); read by ai_advance_units_when_attacker_stronger via imm-word ptr; bytes: 00 59 6f 75 20 68 61 76 65 20 6e 6f" }
+"0xFEA6" = { name = "battle_init_driver_data_fea6", comment = "[ROM-DATA] binary table (unanalyzed); read by battle_init_driver via imm-word ptr; bytes: 02 02 02 02 02 02 02 04 04 04 04 04" }
+"0xFED8" = { name = "battle_init_driver_data_fed8", comment = "[ROM-DATA] binary table (unanalyzed); read by battle_init_driver via imm-word ptr; bytes: 00 00 00 00 01 00 00 00 00 01 01 01" }
 # --- ROM string labels (rom-xref auto-decode, B1 data-walk) ---
 "0xB526" = { name = "msg_y_n_b526", comment = "[ROM-STR] \"\n(Y/N)? \"" }
 "0xB52F" = { name = "msg_d_d", comment = "[ROM-STR] \"8932170\n(%d-%d)\n\"" }

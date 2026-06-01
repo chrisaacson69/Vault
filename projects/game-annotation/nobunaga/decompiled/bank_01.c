@@ -18,7 +18,7 @@ L_8030:
 L_8033:
     }
 L_8044:
-    return redraw_window(0xBA12);    // $804B
+    return redraw_window(prompt_message_and_redra_data_ba12);    // $804B
     }
 }
 
@@ -289,7 +289,7 @@ word province_window_redraw_ba6f(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_83C6:
-    return redraw_window(0xBA6F);    // $83C6
+    return redraw_window(province_window_redraw_data_ba6f);    // $83C6
     }
 }
 
@@ -310,7 +310,7 @@ word province_window_redraw_ba78(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_83F9:
-    return redraw_window(0xBA78);    // $83F9
+    return redraw_window(province_window_redraw_data_ba78);    // $83F9
     }
 }
 
@@ -343,14 +343,14 @@ L_84B5:
 L_84C3:
     }
 L_84C6:
-    arg1 = 0xF7D4;    // $84E1
+    arg1 = effect_view_a_data_f7d4;    // $84E1
     if (local8) {    // $84ED
-    arg1 = 0xF7D4;    // $84F0
+    arg1 = effect_view_a_data_f7d4;    // $84F0
     } else {
     }
 L_84FF:
-    arg1 = 0xF7D4;    // $84FF
-    local10 = fief_to_daimyo_record_addr(/*via arg1*/ 0xF7D4);    // $8504
+    arg1 = effect_view_a_data_f7d4;    // $84FF
+    local10 = fief_to_daimyo_record_addr(/*via arg1*/ effect_view_a_data_f7d4);    // $8504
     local7 = ((arg1 * 26) + 0x7001);    // $850D
     local9 = ((arg1 * 26) + 0x7001);    // $850E
     local11 = 0;    // $8510
@@ -412,7 +412,7 @@ word view_window_redraw_by_6da2_flag(word arg1, word arg2, word arg3, word arg4)
     }
 L_85D9:
     arg1 = 0x6DA2;    // $85D9
-    return redraw_window(*(word*)(((get_province_ai_state(/*via arg1*/ 0x6DA2) << 1) + 0xFEE9)));    // $85E9
+    return redraw_window(*(word*)(((get_province_ai_state(/*via arg1*/ 0x6DA2) << 1) + view_window_redraw_by_6d_data_fee9)));    // $85E9
 }
 
 // $85EA effect_view_b
@@ -1943,7 +1943,7 @@ L_A1E9:
     if ((local11 < 6)) goto L_A1C8;    // $A1ED
 L_A1F0:
     local11 = submenu_prompt(6);    // $A1FC
-    local10 = *(word*)(((submenu_prompt(6) << 1) + 0xB9DC));    // $A203
+    local10 = *(word*)(((submenu_prompt(6) << 1) + jumptab_b9dc));    // $A203
     if (!((*(local10))(((selected_province_idx * 26) + 0x7001)))) goto L_A231;    // $A212
     if (!(local11)) return 0;    // $A225
     return 1;    // $A230
@@ -1974,7 +1974,7 @@ word report_fief_stat_decline(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_A28D:
-    return ui_helper_d134(/*via arg2*/ ?, *(word*)(((arg1 << 1) + 0xF8AE)), (battle_defending_province + 1), msg_fief_d_s_s_has_declined_by_d);    // $A29A
+    return ui_helper_d134(/*via arg2*/ ?, *(word*)(((arg1 << 1) + effect_view_a_data_f8ae)), (battle_defending_province + 1), msg_fief_d_s_s_has_declined_by_d);    // $A29A
     }
 }
 
@@ -2255,9 +2255,9 @@ L_A72C:
     if ((local10 != 1)) goto L_A768;    // $A740
     if ((scenario_fief_count != 50)) goto L_A6FD;    // $A74C
 L_A753:
-    local11 = *(byte*)((local8 + 0xFEA6));    // $A755
-    local11 = 0xFEA6;    // $A75B
-    local8 = 0xFEA6;    // $A760
+    local11 = battle_init_driver_data_fea6[local8];    // $A755
+    local11 = battle_init_driver_data_fea6;    // $A75B
+    local8 = battle_init_driver_data_fea6;    // $A760
     goto L_A6D0;    // $A765
 L_A768:
     if (local9) goto L_A704;    // $A769
@@ -2664,9 +2664,9 @@ L_AE1D:
     if ((*(byte*)(*(word*)(fp - 40)) != 255)) goto L_AE56;    // $AE24
     goto L_AE77;    // $AE27
 L_AE2A:
-    local10 = 0x8D5A;    // $AE42
-    local10 = 0x8D5A;    // $AE4D
-    local11 = 0x8D5A;    // $AE4E
+    local10 = fief_select_input_loop_data_8d5a;    // $AE42
+    local10 = fief_select_input_loop_data_8d5a;    // $AE4D
+    local11 = fief_select_input_loop_data_8d5a;    // $AE4E
     goto L_AEA2;    // $AE53
 L_AE56:
     *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $AE59
@@ -2746,8 +2746,8 @@ word driver_map(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_AF58:
-    local11 = *(byte*)((selected_province_idx + 0xFED8));    // $AF5A
-    local11 = 0xFED8;    // $AF60
+    local11 = *(byte*)((selected_province_idx + battle_init_driver_data_fed8));    // $AF5A
+    local11 = battle_init_driver_data_fed8;    // $AF60
     return map_helper_af10(/*stack underflow*/ regA);    // $AF65
     }
 }
@@ -2933,7 +2933,7 @@ L_B248:
     if ((local9 < 7)) goto L_B248;    // $B26D
 L_B270:
     local10 = submenu_prompt(7);    // $B27C
-    local11 = *(word*)(((local10 << 1) + 0xB9E8));    // $B284
+    local11 = *(word*)(((local10 << 1) + jumptab_b9e8));    // $B284
     *(byte*)(fp - 7) = (*(local11))();    // $B287
     if ((local10 == 6)) goto L_B298;    // $B28D
     if ((*(byte*)(fp - 7) != 1)) goto L_B270;    // $B295
