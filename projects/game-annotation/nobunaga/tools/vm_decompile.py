@@ -192,8 +192,17 @@ def _build_opcode_to_mnemonic():
     m[0x90] = 'op_90_bb'
     rng(0x91, 0x9F, 'trigger_syscall_9X')
     rng(0xA0, 0xA3, 'op_A0_A3_byte')
+    # $A4-$AB absolute-memory family — AUDITED 2026-06-01 (data-walk B2 fallout).
+    # Direction can't be read from the handler bytes (the $EFD5/$EFA6/$EFEC prelude sets
+    # up whether $00 points at the operand-address or the register file, so $EA75 etc.
+    # look like loads either way) — the OPCODE USAGE PATTERN is the only reliable arbiter.
+    #   $A8: PROVEN store by the year++ (`$A48E LOADL_abs $6D9F / INC / $A492 STORE_abs`);
+    #        was wrongly aliased to loadA_mem_word -> 267 dropped stores. Fixed below.
+    #   $A7: 0 sites in the whole ROM (verified) — the loadA_addr_word mapping is DEAD
+    #        code, harmless. NOT changed to the spec's BYTE_LOADR_abs: unused == unvalidatable.
+    #   $AA (266 sites, renders via PUSH_abs) / $AB (5) / op_AA_wb: 0 // TODO residue, render OK.
     m[0xA4] = 'loadA_mem_word';  m[0xA5] = 'loadA_mem_byte'
-    m[0xA6] = 'loadB_mem_word';  m[0xA7] = 'loadA_addr_word'
+    m[0xA6] = 'loadB_mem_word';  m[0xA7] = 'loadA_addr_word'   # $A7: 0 sites (dead)
     m[0xA8] = 'storeA_mem_word'; m[0xA9] = 'storeA_mem_byte'
     m[0xAB] = 'op_AB_word'; m[0xAD] = 'op_AD_byte'
     m[0xAC] = 'host_call_simple'; m[0xAE] = 'adjust_stack_sbyte'
