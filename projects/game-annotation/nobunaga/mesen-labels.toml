@@ -441,6 +441,115 @@ prg_bank_count = 16        # 256 KB total
 "0xF020" = { name = "vm_op_B2_pushA_B2", comment = "VM opcode $B2 handler (pushA_B2)." }
 # <<< AUTO: VM-opcode handler labels
 
+# --- Session C: bank-15 bytecode kernel-primitive library (2026-05-31) ---
+# The ~93 anonymous BYTECODE subs in $CA03-$E6B9 that banks 0/1/2 call constantly.
+# Named by reading decompiled/bank_15.c bodies + native-call-index call-graph (coordinator
+# + 5-agent read fan-out, coordinator-verified against the C and known data labels).
+# Confidence flagged inline [HIGH]/[MED]/[LOW]; LOW = structural name (shape known, purpose not).
+
+# string / memory / character primitives + syscall wrappers ($CA03-$CC54)
+"0xCA03" = { name = "call_bank10_entry",        comment = "[MED] Tail-calls call_bank_wrap(10) = syscall_dispatch call_bank (id 7) on bank 10 (audio). Session C 2026-05-31." }
+"0xCA12" = { name = "byte_helper_ca12",         comment = "[LOW] Reads a byte via arg1, compares vs a const, indexed access at offset $0D; exact role obscured by undecoded op_A0_A3. Session C 2026-05-31." }
+"0xCA31" = { name = "word_sub_saturating",      comment = "[MED] Saturating 16-bit subtract: r = *(word*)arg1 - arg2, floored to 0 on underflow, stored back. Session C 2026-05-31." }
+"0xCA65" = { name = "is_digit",                 comment = "[HIGH] Returns true if arg1 in '0'..'9' (48..57). libc isdigit. Session C 2026-05-31." }
+"0xCA7E" = { name = "strlen",                   comment = "[HIGH] Counts bytes from arg1 until NUL; returns length. Session C 2026-05-31." }
+"0xCA97" = { name = "fill_bytes_ca97",          comment = "[MED] Writes a derived byte into arg1 for arg2 iterations (memset/fill-like; stored value not fully resolved). Session C 2026-05-31." }
+"0xCAB0" = { name = "strcmp",                   comment = "[HIGH] Compares bytes at arg1/arg2 until mismatch or NUL; returns byte difference. Session C 2026-05-31." }
+"0xCAD9" = { name = "strcpy",                   comment = "[HIGH] Copies bytes arg2->arg1 until NUL inclusive; returns original dest. Session C 2026-05-31." }
+"0xCAF0" = { name = "memchr",                   comment = "[HIGH] Scans arg1 for a target byte over arg3 bytes; returns pointer on match else 0. Session C 2026-05-31." }
+"0xCB11" = { name = "is_lower",                 comment = "[MED] Char range test from 'a' (97); lowercase classifier (gates to_upper). Session C 2026-05-31." }
+"0xCB30" = { name = "to_upper",                 comment = "[HIGH] If is_lower($CB11), subtract 32 -> uppercase ASCII. Session C 2026-05-31." }
+"0xCB4C" = { name = "byte_helper_cb4c",         comment = "[LOW] One-arg clamp/transform vs a const (op_CB body undecoded); returns arg1. Session C 2026-05-31." }
+"0xCB6F" = { name = "max_word",                 comment = "[HIGH] Returns max(arg1,arg2). Mirror of min_word ($CB5E). Session C 2026-05-31." }
+"0xCB80" = { name = "swap_byte",                comment = "[HIGH] Swaps the two bytes pointed to by arg1 and arg2. Session C 2026-05-31." }
+"0xCB94" = { name = "swap_word",                comment = "[HIGH] Swaps the two 16-bit words pointed to by arg1 and arg2 (via local temp). Session C 2026-05-31." }
+"0xCBA4" = { name = "chr_bank0_set_wrap",       comment = "[HIGH] Thin wrapper: syscall_dispatch(...,21) = set_chr_bank0_reg (SOROM WRAM gate). Session C 2026-05-31." }
+"0xCBB1" = { name = "call_bank_wrap",           comment = "[HIGH] Thin wrapper: syscall_dispatch(arg1,7) = call_bank (JSR bank arg1's $8000). Session C 2026-05-31." }
+"0xCC42" = { name = "ppu_blit_nobank_wrap",     comment = "[HIGH] Builds the param struct, calls syscall_dispatch(...,12) = ppu_blit_nobank. The common menu/window blit wrapper. Session C 2026-05-31." }
+"0xCC54" = { name = "ppu_blit_from_bank_wrap",  comment = "[HIGH] Builds struct, calls syscall_dispatch(...,20) = ppu_blit_from_bank. Session C 2026-05-31." }
+
+# UI state accessors / number formatting / input polling ($CCBA-$D31A)
+"0xCCBA" = { name = "ui_get_7bf9",              comment = "[LOW] Leaf accessor returning mem_7BF9 (a UI state word). Session C 2026-05-31." }
+"0xCCD1" = { name = "ui_draw_window_ccd1",      comment = "[MED] Wrapper: ppu_blit_nobank_wrap(1,3,29,3,2) -- a specific fixed-geometry window draw. Session C 2026-05-31." }
+"0xCCE1" = { name = "ui_get_cursor_sel_7fdf",   comment = "[MED] Leaf accessor returning mem_7FDF (current cursor selection, per poll_input). Session C 2026-05-31." }
+"0xCCF9" = { name = "get_6f5d_or_ff",           comment = "[LOW] Returns mem_6F5D unless it is the 0xFF sentinel. Session C 2026-05-31." }
+"0xCDAF" = { name = "ui_get_menu_count_7fcf",   comment = "[MED] Returns mem_7FCF (menu item count); used by char_advance_width + redraw_window. Session C 2026-05-31." }
+"0xCDCA" = { name = "char_classify",            comment = "[MED] Char classification: range-tests vs 47/65/95 + switch -> class code (alnum/punct/control). Backs text layout. Session C 2026-05-31." }
+"0xCE81" = { name = "char_advance_width",       comment = "[MED] Per-character width/advance: special-cases newline (==10), uses char_classify + menu count. Session C 2026-05-31." }
+"0xCF50" = { name = "fill_nametable_wrap",      comment = "[MED] Wrapper: syscall_dispatch(1,0,5) = fill_nametable (nt 1, fill 0) -> clear screen. Session C 2026-05-31." }
+"0xCF5D" = { name = "fill_attr_wrap",           comment = "[MED] Wrapper: syscall_dispatch(0,0,8) = fill_attr_quadrant (quadrant 0, fill 0). Session C 2026-05-31." }
+"0xCF6A" = { name = "ppu_render_rect_wrap",     comment = "[HIGH] Wrapper: builds struct, syscall_dispatch(...,13) = ppu_render_rect. 21 callers. Session C 2026-05-31." }
+"0xCF7C" = { name = "ppu_upload_block_wrap",    comment = "[HIGH] Wrapper: syscall_dispatch(...,1) = ppu_upload_block (PRG->PPU bulk). 30 callers. Session C 2026-05-31." }
+"0xCF8B" = { name = "palette_write_wrap",       comment = "[HIGH] Wrapper: syscall_dispatch(...,4) = palette_write. 33 callers (hottest in cluster). Session C 2026-05-31." }
+"0xCF98" = { name = "num_to_ascii",             comment = "[HIGH] Recursive integer->ASCII-digit conversion (divide by 10, emit digit via arg1 ptr). itoa. Session C 2026-05-31." }
+"0xCFD4" = { name = "atoi_decimal",             comment = "[HIGH] ASCII decimal -> integer: local = local*10 + (byte-48) while digit; advances arg1. Session C 2026-05-31." }
+"0xCFFC" = { name = "format_string",            comment = "[HIGH] printf-style: scans for '%', switches on C/D/S, space-pads to width, calls num_to_ascii/atoi/strlen/to_upper. Session C 2026-05-31." }
+"0xD14E" = { name = "poll_input",               comment = "[HIGH] Controller-poll state machine (switch on mem_7FD3), indexes the input/selection table at $7FD5, returns a button code via syscall_dispatch(...,6)=read_controller. THE cursor/input handler (confirms prior analysis); 11 callers. Session C 2026-05-31." }
+"0xD287" = { name = "wait_button_edge",         comment = "[HIGH] Edge-detect on poll_input: spin while a button is held, then return the next press code. Debounce primitive; 10 callers. Session C 2026-05-31." }
+"0xD29D" = { name = "read_frame_timer",         comment = "[MED] Branches on arg1 (0/1/2) then returns frame_counter; a timing/poll accessor. 19 callers. Session C 2026-05-31." }
+"0xD2F9" = { name = "ui_draw_window_d2f9",      comment = "[MED] Wrapper: ppu_blit_nobank_wrap(1,19,9,8,2) -- specific window draw. Session C 2026-05-31." }
+"0xD309" = { name = "ui_draw_window_d309",      comment = "[MED] Wrapper: ppu_blit_nobank_wrap(1,26,9,20,2) -- specific window draw; 15 callers. Session C 2026-05-31." }
+"0xD31A" = { name = "ui_draw_window_d31a",      comment = "[MED] Tail-calls ui_draw_window_d309 (alias/same draw). Session C 2026-05-31." }
+
+# selection / record-address helpers ($D586-$D815)
+"0xD586" = { name = "count_div_iterations_d586", comment = "[MED] Counts iterations dividing arg1 down to 0 (digit-count/magnitude). Only caller: select_province_by_cursor. Session C 2026-05-31." }
+"0xD609" = { name = "ui_prompt_redraw",         comment = "[MED] UI prompt helper: reads ui state (cc7b/cc89/cce1), redraw_window, wait_button_edge. 5 callers. Session C 2026-05-31." }
+"0xD628" = { name = "count_6da2_set",           comment = "[MED] Scans the $6DA2 per-fief byte array over scenario_fief_count, counting flagged entries. Session C 2026-05-31." }
+"0xD677" = { name = "draw_window_f6c4",         comment = "[LOW] Tail-calls ui_helper_d134(mem_6D9F, $F6C4) -- draws a fixed window. Session C 2026-05-31." }
+"0xD687" = { name = "redraw_window_f6c7",       comment = "[MED] Switch on a config byte then redraw_window($F6C7). Session C 2026-05-31." }
+"0xD73E" = { name = "delay_loop",               comment = "[HIGH] Nested busy-wait: inner counts 240, outer decrements arg1 to 0. A frame/cycle delay. Session C 2026-05-31." }
+"0xD78B" = { name = "daimyo_name_width",        comment = "[MED] Computes daimyo_name_table[owner] addr (*9+$77A8) then char_advance_width(44) -- measures/positions a daimyo name. Session C 2026-05-31." }
+"0xD7AF" = { name = "draw_daimyo_name",         comment = "[MED] redraw_window on daimyo_name_table ($77A8 + owner*9) -- renders a daimyo's name. Session C 2026-05-31." }
+"0xD7CD" = { name = "daimyo_record_addr",       comment = "[HIGH] Returns daimyo record base = arg1*7 + $752F (7-byte daimyo records). The daimyo-record accessor. Session C 2026-05-31." }
+"0xD7DA" = { name = "fief_to_daimyo_record_addr", comment = "[HIGH] daimyo_record_addr(fief_to_daimyo_map[arg1]) -- the owning daimyo's record for a fief. 21 callers (hot). Session C 2026-05-31." }
+"0xD7F7" = { name = "province_clear_fields_d7f7", comment = "[MED] base = arg1*26+$7001; if field +8 is zero, zero fields +12 and +14. Conditional province-field reset. Session C 2026-05-31." }
+"0xD815" = { name = "province_clear_fields_d815", comment = "[MED] base = arg1*26+$7011; if field +0 is zero, zero fields +2,+4,+6. Conditional province-field reset. Session C 2026-05-31." }
+
+# stat-growth / table accessors / list ops ($D8BA-$DCB2)
+"0xD8BA" = { name = "develop_gain",             comment = "[MED] Shared develop-family gain calc: math32_3arg over sqrt_int of two record fields (the floor(amount*5/sqrt(...)) idiom behind Grow/Give-Men). Session C 2026-05-31." }
+"0xD8F2" = { name = "record_grow_capped_d8f2",  comment = "[MED] develop_gain on fields +8/+12, capped to (header - stat) headroom. Stat-grow toward a cap. Session C 2026-05-31." }
+"0xD919" = { name = "record_grow_capped_d919",  comment = "[MED] develop_gain on fields +4/+14, capped to headroom. Session C 2026-05-31." }
+"0xD940" = { name = "record_apply_two_grows",   comment = "[MED] Applies record_grow_capped_d8f2 and _d919 to two fields of a record (loyalty/wealth-like pair). Callers $8379,$8FF8. Session C 2026-05-31." }
+"0xD962" = { name = "set_6da1_bit7",            comment = "[MED] Reads byte $6DA1, ORs in 0x80 (sets high/sign bit), stores back. Session C 2026-05-31." }
+"0xD982" = { name = "get_6e09",                 comment = "[LOW] Compares then returns global byte mem_6E09. Callers $B89B, count_6da2_set, ui_helper_db35. Session C 2026-05-31." }
+"0xD98D" = { name = "get_province_ai_state",    comment = "[HIGH] Returns province_ai_state[arg1] ($6CF7+arg1). 37 callers; canonical AI-state getter (pairs with province_state_is_FF). Session C 2026-05-31." }
+"0xD9A9" = { name = "get_6da2_cur",             comment = "[MED] Returns byte $6DA2 + selected_province_idx. Session C 2026-05-31." }
+"0xD9C8" = { name = "province_ai_state_addr",   comment = "[HIGH] Returns &province_ai_state[arg1] ($6CF7+arg1); the pointer form used to WRITE state (e.g. apply_conquest_outcome). Session C 2026-05-31." }
+"0xD9D3" = { name = "draw_window_row_7985",     comment = "[MED] redraw_window at $7985 + arg1*10 (10-byte stride row table). Session C 2026-05-31." }
+"0xD9E5" = { name = "test_6f65_bit7",           comment = "[MED] Returns true if bit7 of byte $6F65+arg1 is NOT set. Session C 2026-05-31." }
+"0xD9F7" = { name = "classify_7b79",            comment = "[LOW] Branches on byte $7B79+arg1 (==6 / ==7), returns $F6FE. 0 callers (dispatch-reached?). Session C 2026-05-31." }
+"0xDA24" = { name = "scaled_transfer_da24",     comment = "[MED] Proportional helper: nested pct_op/math32_2arg then min_word clamp. Used by effect_move + transfer_force_triplet. Session C 2026-05-31." }
+"0xDAAB" = { name = "relation_base_6f4f",       comment = "[LOW] Scenario-17 branch; returns base address $6F4F (a relations/AI-state list base). Caller $A84D. Session C 2026-05-31." }
+"0xDB4B" = { name = "draw_owner_name",          comment = "[MED] Maps fief->owner (ui_helper_d772) then redraw_window on daimyo_name_table ($77A8 + owner*9). Session C 2026-05-31." }
+"0xDB6E" = { name = "draw_window_f706",         comment = "[MED] Guarded on province_ai_state, redraw_window($F706). Callers neutralize_fief, map_helper_e5f2. Session C 2026-05-31." }
+"0xDB97" = { name = "assign_unique_id_6eb1",    comment = "[MED] Rolls a base-5 RNG id, rejecting duplicates vs the $6EB1 word table, stores at the owner slot. Session C 2026-05-31." }
+"0xDC0E" = { name = "list_op_6e4a",             comment = "[MED] Count-prefixed list at $6E4A (count) / $6E4B (elements): push or indexed read keyed on arg1. 6 callers. Session C 2026-05-31." }
+"0xDC3C" = { name = "list_remove_6e7f",         comment = "[MED] Scans the $6E7F list over scenario_fief_count, marking a matching entry 0xFF (remove). 6 callers. Session C 2026-05-31." }
+"0xDC66" = { name = "fief_to_mapid",            comment = "[HIGH] Returns province_to_mapid_table[arg1] (arg1==0 passthrough; scenario_fief_count==50 selects extended path). Session C 2026-05-31." }
+"0xDC88" = { name = "read_map_cell",            comment = "[HIGH] sram_wrap read of a tactical map cell: $A57E + fief_to_mapid(battle_defending_province)*55 + row(arg2)*11 + col(arg1). The per-cell map source (matches the ROM->Map $A57E finding). Session C 2026-05-31." }
+"0xDCB2" = { name = "generate_daimyo_name",     comment = "[HIGH] Daimyo NAME GENERATOR: RNG-picks a row from each syllable table ($F930, $F95D), concatenates into a buffer, rejects duplicates vs daimyo_name_table ($77A8) via strcmp. The regenerator hypothesized in the $77A8 comment. Session C 2026-05-31." }
+
+# conquest / territory-transfer machinery + misc ($DD81-$E6B9)
+"0xDD81" = { name = "init_new_daimyo_province_stats", comment = "[HIGH] Seeds a freshly-conquered province + new daimyo: daimyo byte = rng_mod(20)+20; per-field pct_op(rng+base) scaling; town($700D)+=50, rice($7013)+=50; $6D2D=20. Session C 2026-05-31." }
+"0xDE78" = { name = "select_message_string_de78", comment = "[MED] Selects a text/message pointer ($F720/$F72E/$796A) gated on $6DA1 bits 32/16 and a switch on arg1 in {7,13,23,30}. Session C 2026-05-31." }
+"0xDEC1" = { name = "reassign_fiefs_to_conqueror", comment = "[HIGH] Loops all fiefs; those owned by the defending daimyo get fief_to_daimyo_map[fief] = conqueror and $6DA2 cleared. Post-conquest ownership transfer. Session C 2026-05-31." }
+"0xDF3D" = { name = "daimyo_stat_transfer",     comment = "[MED] +1 to daimyo-record fields +2/+4/+5 of arg1's daimyo, -1 to arg2's (stat handoff via fief_to_daimyo_record_addr). Session C 2026-05-31." }
+"0xDF73" = { name = "transfer_force_triplet",   comment = "[MED] 3-iteration copy of a word triplet (via scaled_transfer_da24) into the $7013 army/force region; selected->defending force transfer. Session C 2026-05-31." }
+"0xDFBC" = { name = "clamp_field_6d2d_to_30",   comment = "[MED] For each tax-flagged fief (tax_helper_db12), caps the per-fief byte $6D2D at 30. ($6D2D unlabeled; init to 20 by init_new_daimyo_province_stats.) Session C 2026-05-31." }
+"0xDFFE" = { name = "update_arms_table_dffe",   comment = "[MED] local = arg2->arms/50 + 20; if $76AB[arg1] (stride 5) set, accumulate (old-new) into $76A9[arg1] and store local at $76AB[arg1]. Per-fief arms-delta bookkeeping. Session C 2026-05-31." }
+"0xE03C" = { name = "apply_conquest_outcome",   comment = "[HIGH] Post-battle conquest orchestrator: rewrites the defending province stats from battle scratch ($6F7D-$6F87), updates fief_to_daimyo_map, calls daimyo_stat_transfer + reassign/neutralize helpers, caps via cap_fief_stats. Session C 2026-05-31." }
+"0xE1E7" = { name = "clear_fief_pair_6193",     comment = "[HIGH] Zeroes the symmetric entries [a][b] and [b][a] in the 54-stride per-fief matrix at $6193 (adjacency/relations grid). Session C 2026-05-31." }
+"0xE21B" = { name = "install_new_daimyo",       comment = "[HIGH] Installs a new daimyo on a fief: fief_to_daimyo_map[fief] = list_op_6e4a(0xFF), province_ai_state=0, $6DA2=0, then confirm_prompt. Session C 2026-05-31." }
+"0xE275" = { name = "prompt_helper_e275",       comment = "[LOW] Conditionally tests get_province_ai_state on $77A8 then confirm_prompt; exact purpose obscured. Session C 2026-05-31." }
+"0xE2AF" = { name = "copy_arms_record_5",       comment = "[MED] Copies a 5-byte record from arg2 into $76A9 + arg1*5 (the per-fief arms/force record, stride 5). Session C 2026-05-31." }
+"0xE2D6" = { name = "draw_daimyo_name_menu",    comment = "[MED] Thin wrapper: ui_helper_d134(daimyo_name_table $77A8, $F77F) -- renders the daimyo-name list/menu. Session C 2026-05-31." }
+"0xE425" = { name = "find_fiefs_of_owner",      comment = "[HIGH] Resolves arg1->daimyo (ui_helper_d772) then scans all fiefs collecting those with the same owner. Session C 2026-05-31." }
+"0xE454" = { name = "neutralize_fief",          comment = "[MED] If province_ai_state != 0xFF: set state = -1, clear $6DA2, $6D2D = 20, copy_arms_record_5, recompute (find_record_9e3c). Depose/neutralize a fief. Session C 2026-05-31." }
+"0xE4A2" = { name = "build_owned_fief_list_6f89", comment = "[MED] Scans fiefs (filtered by get_6da2_cur), appends owned ones to the $6F89 list buffer, FF-terminated. Session C 2026-05-31." }
+"0xE554" = { name = "find_record_9e3c",         comment = "[MED] If $6F5D<=8, SRAM-wrap reads the 34-byte record at $9E3C + $6F5D*34 and matches against arg1. 9 callers (hot). Session C 2026-05-31." }
+"0xE694" = { name = "dispatch_map_helper_e694", comment = "[MED] Branches on scenario_fief_count==50, tail-calls map_helper_e5f2 with a $7FDD-indexed table byte. Session C 2026-05-31." }
+"0xE6B9" = { name = "unpack_record_to_sram_e6b9", comment = "[MED] Unpacks $6EB1[$6F5B*2] via repeated div/mod into a 9-wide record, writes to SRAM $AEAC + idx*12 (uses ppu_upload_block_wrap/sram_wrap). Session C 2026-05-31." }
+
 # --- Bank 0 ---
 # Bank 0 is almost entirely VM bytecode + data, not native 6502 code.
 # The 3-byte entry at $8000 ('4C 78 A7' = JMP $A778) is essentially the only native code in this bank,
