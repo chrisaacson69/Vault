@@ -1010,7 +1010,7 @@ L_8D12:
     if (!(arg1)) goto L_8CCB;    // $8D23
     active_province_idx_copy = ui_helper_d772(battle_defending_province);    // $8D2D
 L_8D38:
-    return marry_helper_e76f(20, 24);    // $8D38
+    return draw_daimyo_portrait(20, 24);    // $8D38
 }
 
 // $8D39 draw_combat_fief_day_header

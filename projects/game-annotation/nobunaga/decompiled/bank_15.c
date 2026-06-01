@@ -2354,10 +2354,10 @@ L_E6B1:
     }
 }
 
-// $E6B9 unpack_record_to_sram_e6b9
+// $E6B9 unpack_composite_face_record
 // (body @ $E6BE)
 
-word unpack_record_to_sram_e6b9(word arg1, word arg2, word arg3, word arg4) {
+word unpack_composite_face_record(word arg1, word arg2, word arg3, word arg4) {
     local11 = *(word*)(((active_province_idx_copy << 1) + 0x6EB1));    // $E6C7
     local9 = ((unsigned)local11 / (unsigned)5);    // $E6CB
     local10 = ((unsigned)local11 % (unsigned)5);    // $E6CF
@@ -2376,10 +2376,10 @@ word unpack_record_to_sram_e6b9(word arg1, word arg2, word arg3, word arg4) {
     return syscall16_sram_wrap(12, (arg1 + 24), ((local7 * 12) + unpack_record_to_sram_data_aeac), 9);    // $E76E
 }
 
-// $E76F marry_helper_e76f
+// $E76F draw_daimyo_portrait
 // (body @ $E774)
 
-word marry_helper_e76f(word arg1, word arg2, word arg3, word arg4) {
+word draw_daimyo_portrait(word arg1, word arg2, word arg3, word arg4) {
     *(word*)(fp - 38) = 0;    // $E775
 L_E777:
     palette_write_wrap(*(word*)(((*(word*)(fp - 38) << 1) + marry_helper_data_f7cc)), *(word*)(fp - 38));    // $E782
@@ -2394,7 +2394,7 @@ L_E7A7:
     ppu_upload_block_wrap(*(byte*)((*(word*)(fp - 40) + 1)), 0x15B0, *(word*)((*(word*)(fp - 40) + 2)), *(byte*)(*(word*)(fp - 40)));    // $E7D8
     goto L_E7FA;    // $E7EB
 L_E7EE:
-    unpack_record_to_sram_e6b9((fp - 36));    // $E7F2
+    unpack_composite_face_record((fp - 36));    // $E7F2
 L_E7FA:
     arg2 = jumptab_b144;    // $E801
     arg1 = jumptab_b144;    // $E802

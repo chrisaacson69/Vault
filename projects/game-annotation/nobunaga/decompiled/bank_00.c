@@ -440,7 +440,7 @@ word daimyo_creation_stat_roll_screen(word arg1, word arg2, word arg3, word arg4
     local11 = (local11 + 1);    // $87E5
     ui_helper_d134(*(byte*)(((local11 + 1) - 1)), msg_age_2d);    // $87EC
     active_province_idx_copy = selected_province_idx;    // $87F3
-    marry_helper_e76f(12, 4);    // $87F8
+    draw_daimyo_portrait(12, 4);    // $87F8
     ui_helper_cc7b(6, 13);    // $87FE
     redraw_window(msg_please_set);    // $8805
     ui_helper_cc7b(7, 13);    // $880B
