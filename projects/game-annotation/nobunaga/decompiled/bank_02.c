@@ -9,18 +9,12 @@
 
 word sub_8086(word arg1, word arg2, word arg3, word arg4) {
     local11 = *(word*)(((mem_6F5B << 1) + 0x6EB1));    // $8094
-    // TODO: div_unsigned
-    local9 = local11;    // $8098
-    // TODO: mod_unsigned
-    local10 = local11;    // $809C
-    // TODO: div_unsigned
-    local8 = local9;    // $80A0
-    // TODO: mod_unsigned
-    local9 = local9;    // $80A4
-    // TODO: div_unsigned
-    local7 = local8;    // $80A8
-    // TODO: mod_unsigned
-    local8 = local8;    // $80AC
+    local9 = ((unsigned)local11 / (unsigned)5);    // $8098
+    local10 = ((unsigned)local11 % (unsigned)5);    // $809C
+    local8 = ((unsigned)local9 / (unsigned)5);    // $80A0
+    local9 = ((unsigned)local9 % (unsigned)5);    // $80A4
+    local7 = ((unsigned)local8 / (unsigned)5);    // $80A8
+    local8 = ((unsigned)local8 % (unsigned)5);    // $80AC
     arg1 = 0xAD84;    // $80F8
     return syscall16_sram_wrap(12, (arg1 + 24), ((local7 * 12) + 0xAEAC), 9);    // $813B
 }
@@ -28,62 +22,37 @@ word sub_8086(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $8141)
 
 word sub_813C(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: op_85_byte $D7
+    *(word*)(fp - 41) = 0;    // $8142
 L_8144:
-    // TODO: op_81_byte $D7
-    // TODO: op_87_byte $D7
-    // TODO: op_81_byte $D7
-    // TODO: op_85_byte $D7
-    // TODO: op_81_byte $D7
-    if (((unsigned)(palette_write_wrap(/*stack underflow*/ regA, *(word*)(((0 << 1) + 0xB51E))) + 1) >= (unsigned)4)) goto L_8144;    // $815C
+    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // $8156
+    if (((unsigned)*(word*)(fp - 41) >= (unsigned)4)) goto L_8144;    // $815C
     if (*(byte*)((daimyo_record_addr(mem_6F5B) + 6))) goto L_81E8;    // $8168
-    // TODO: op_85_byte $D5
-    // TODO: loadA_frameaddr $FFD1
-    // TODO: op_87_byte $D5
-    // TODO: loadA_frameaddr $FFD1
-    // TODO: op_85_byte $D5
-    // TODO: op_81_byte $D5
-    // TODO: op_81_byte $D5
-    // TODO: op_81_byte $D5
-    // TODO: op_85_byte $D7
-    // TODO: op_85_byte $DA
+    *(word*)(fp - 43) = (((fief_to_mapid(mem_6F5B) << 1) << 1) + 0xBBD0);    // $8178
+    *(word*)(fp - 43) = (fp - 47);    // $8189
+    *(word*)(fp - 41) = 0;    // $81A1
+    *(word*)(fp - 38) = ((fief_to_mapid(mem_6F5B) * 36) + 0xB144);    // $81B1
     goto L_81DD;    // $81B3
 L_81B6:
-    // TODO: loadA_frameaddr $FFD9
-    // TODO: op_87_byte $DA
-    // TODO: loadA_frameaddr $FFDC
-    // TODO: op_81_byte $D7
-    // TODO: op_A0_A3_byte $FFD9
-    *(byte*)((syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((fief_to_mapid(mem_6F5B) * 36) + 0xB144), 8) + syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((fief_to_mapid(mem_6F5B) * 36) + 0xB144), 8))) = ((syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((fief_to_mapid(mem_6F5B) * 36) + 0xB144), 8) + syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((fief_to_mapid(mem_6F5B) * 36) + 0xB144), 8)) + 36);    // $81D0
-    // TODO: op_81_byte $D7
-    // TODO: op_85_byte $D7
-    // TODO: op_81_byte $DA
-    // TODO: op_85_byte $DA
+    *(byte*)((*(word*)(fp - 41) + (fp - 36))) = (*(byte*)(fp - 39) + 36);    // $81D0
+    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // $81D4
+    *(word*)(fp - 38) = (*(word*)(fp - 38) + 1);    // $81DA
 L_81DD:
-    // TODO: op_81_byte $D7
-    if (((unsigned)((((((syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((fief_to_mapid(mem_6F5B) * 36) + 0xB144), 8) + syscall16_sram_wrap(/*stack underflow*/ regA, 1, ((fief_to_mapid(mem_6F5B) * 36) + 0xB144), 8)) + 36) + 1) - 1) + 1) - 1) >= (unsigned)36)) goto L_81B6;    // $81E2
+    if (((unsigned)*(word*)(fp - 41) >= (unsigned)36)) goto L_81B6;    // $81E2
     goto L_8218;    // $81E5
 L_81E8:
-    // TODO: loadA_frameaddr $FFDC
-    // TODO: op_85_byte $D7
-    // TODO: loadA_frameaddr $FFDC
-    // TODO: op_85_byte $DA
+    *(word*)(fp - 41) = 0;    // $81F1
+    *(word*)(fp - 38) = (fp - 36);    // $81F6
     goto L_8210;    // $81F8
 L_81FB:
-    // TODO: op_81_byte $DA
-    *(byte*)(0) = (*(byte*)(0) + 36);    // $8203
-    // TODO: op_81_byte $D7
-    // TODO: op_85_byte $D7
-    // TODO: op_81_byte $DA
-    // TODO: op_85_byte $DA
+    *(byte*)(*(word*)(fp - 38)) = (*(byte*)(*(word*)(fp - 38)) + 36);    // $8203
+    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // $8207
+    *(word*)(fp - 38) = (*(word*)(fp - 38) + 1);    // $820D
 L_8210:
-    // TODO: op_81_byte $D7
-    if (((unsigned)(((((*(byte*)(0) + 36) + 1) - 1) + 1) - 1) >= (unsigned)36)) goto L_81FB;    // $8215
+    if (((unsigned)*(word*)(fp - 41) >= (unsigned)36)) goto L_81FB;    // $8215
 L_8218:
-    // TODO: loadA_frameaddr $FFDC
     arg2 = 36;    // $8223
     arg1 = 36;    // $8224
-    return ppu_blit_from_bank_wrap(/*via arg2*/ 36, /*via arg2*/ 36, 8, ((unsigned)(((((*(byte*)(0) + 36) + 1) - 1) + 1) - 1) >= (unsigned)36), (arg2 + 5), (arg1 + 5));    // $8229
+    return ppu_blit_from_bank_wrap(/*via arg2*/ 36, /*via arg2*/ 36, 8, (fp - 36), (arg2 + 5), (arg1 + 5));    // $8229
 }
 
 // (body @ $822F)
@@ -148,10 +117,8 @@ word sub_82C9(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $82E0)
 
 word sub_82DB(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: cmp_ugt
-    if (arg1) goto L_82EC;    // $82E3
-    // TODO: cmp_ugt
-    if (arg2) {    // $82E9
+    if (((unsigned)arg1 > (unsigned)10)) goto L_82EC;    // $82E3
+    if (((unsigned)arg2 > (unsigned)4)) {    // $82E9
 L_82EC:
     return 0;    // $82ED
     }
@@ -182,17 +149,14 @@ L_8312:
     local9 = (local11 % 30);    // $8323
     local9 = 30;    // $8324
     *(word*)(((local8 << 1) + arg2)) = (*(word*)(((local8 << 1) + arg2)) + arg2);    // $832D
-    // TODO: cmp_ult
-    if ((*(word*)(((local8 << 1) + arg2)) + arg2)) {    // $8331
+    if (((unsigned)(*(word*)(((local8 << 1) + arg2)) + arg2) < (unsigned)30)) {    // $8331
     *(word*)(((local8 << 1) + arg2)) = (*(word*)(((local8 << 1) + arg2)) - 30);    // $833E
     local10 = (local10 + 1);    // $8341
     }
 L_8342:
     local10 = 30;    // $8342
     *(word*)(*(word*)(((local8 << 1) + arg1))) = (*(word*)(*(word*)(((local8 << 1) + arg1))) - arg1);    // $834C
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if ((*(word*)(*(word*)(((local8 << 1) + arg1))) - arg1)) {    // $834F
+    if (((*(word*)(*(word*)(((local8 << 1) + arg1))) - arg1) >= 0)) {    // $834F
     *(word*)(*(word*)(((local8 << 1) + arg1))) = 0;    // $8359
     }
 L_835A:
@@ -207,10 +171,8 @@ L_835A:
 word sub_836A(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $836F
     local11 = *(word*)((sub_827E(/*via arg1*/ ?) + 4));    // $8376
-    // TODO: div_unsigned
-    local10 = *(word*)((sub_827E(/*via arg1*/ ?) + 4));    // $8379
-    // TODO: mod_unsigned
-    if (local11) {    // $837D
+    local10 = ((unsigned)*(word*)((sub_827E(/*via arg1*/ ?) + 4)) / (unsigned)15);    // $8379
+    if (((unsigned)local11 % (unsigned)15)) {    // $837D
     local10 = (local10 + 1);    // $8382
     }
 L_8383:
@@ -274,8 +236,6 @@ word sub_840B(word arg1, word arg2, word arg3, word arg4) {
     if ((arg1 == 1)) {    // $841E
     local10 = mem_7BF5;    // $8424
     local9 = mem_7BF7;    // $8428
-    // TODO: loadA_frameaddr $FFFA
-    // TODO: loadA_frameaddr $FFFC
     local11 = 0;    // $8436
 L_8437:
     local11 = 3;    // $8442
@@ -285,15 +245,13 @@ L_8437:
     local9 = (local9 + 1);    // $8459
 L_845A:
     local11 = (local11 + 1);    // $845C
-    // TODO: cmp_sge
-    if (local11) goto L_8437;    // $8461
+    if ((local11 >= 16)) goto L_8437;    // $8461
     } else {
     local11 = 0;    // $8468
 L_8469:
     local11 = 16;    // $8471
     local11 = (local11 + 1);    // $8479
-    // TODO: cmp_sge
-    if (local11) goto L_8469;    // $847E
+    if ((local11 >= 16)) goto L_8469;    // $847E
     }
 L_8481:
     return syscall_dispatch(19);    // $8487
@@ -383,8 +341,7 @@ L_853B:
 
 word sub_8544(word arg1, word arg2, word arg3, word arg4) {
     if ((arg3 != 48)) {    // $854D
-    // TODO: lshr_by_regB
-    arg3 = ((arg3 + -48) - 1);    // $8556
+    arg3 = (((unsigned)(arg3 + -48) >> 1) - 1);    // $8556
     arg3 = 1;    // $8557
     arg2 = 1;    // $8558
     arg1 = 1;    // $8559
@@ -573,8 +530,6 @@ word sub_87B7(word arg1, word arg2, word arg3, word arg4) {
     if (!(sub_82DB(/*via arg2*/ ?, /*via arg2*/ ?, 2))) goto L_8821;    // $87C3
     local11 = arg1;    // $87C7
     local10 = arg2;    // $87C9
-    // TODO: loadA_frameaddr $FFFC
-    // TODO: loadA_frameaddr $FFFE
     arg2 = ?;    // $87D6
     arg1 = ?;    // $87D7
     local7 = sub_83C6(/*via arg2*/ ?, /*via arg2*/ ?);    // $87DC
@@ -604,8 +559,7 @@ L_8826:
 // (body @ $882F)
 
 word sub_882A(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: op_90_bb $1510
-    return ppu_upload_block_wrap(3, (arg2 * 48), ((arg1 * 49) + 0x9C25), 5);    // $885D
+    return ppu_upload_block_wrap(3, ((arg2 * 48) + 5392), ((arg1 * 49) + 0x9C25), 5);    // $885D
 }
 
 // $885E map_render_driver
@@ -697,12 +651,10 @@ word sub_89DF(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $89EC
     arg1 = ?;    // $89ED
     local8 = *(byte*)(sub_829A(/*via arg2*/ ?, /*via arg2*/ ?));    // $89F3
-    // TODO: cmp_ugt
-    if (local9) goto L_8A00;    // $89F7
-    // TODO: cmp_ugt
-    if (local8) {    // $89FD
+    if (((unsigned)local9 > (unsigned)10)) goto L_8A00;    // $89F7
+    if (((unsigned)local8 > (unsigned)4)) {    // $89FD
 L_8A00:
-    return local8;    // $8A00
+    return ((unsigned)local8 > (unsigned)4);    // $8A00
     }
 L_8A01:
     local9 = 4;    // $8A01
@@ -710,8 +662,6 @@ L_8A01:
     local9 = 4;    // $8A09
     goto L_8B24;    // $8A0E
 L_8A11:
-    // TODO: loadA_frameaddr $FFF8
-    // TODO: loadA_frameaddr $FFFA
     if (arg2) {    // $8A1E
     } else {
     arg1 = 0x6FE5;    // $8A36
@@ -725,19 +675,16 @@ L_8A47:
     arg1 = 0x6FE5;    // $8A4C
     local11 = min_word(/*stack underflow*/ regA, *(word*)(sub_82C9(/*via arg2*/ 0x6FE5, 0x270F)));    // $8A57
     local7 = 0;    // $8A59
-    // TODO: div_unsigned
-    local10 = local11;    // $8A5F
-    if (local11) goto L_8A6F;    // $8A60
+    local10 = ((unsigned)local11 / (unsigned)0x03E8);    // $8A5F
+    if (((unsigned)local11 / (unsigned)0x03E8)) goto L_8A6F;    // $8A60
     goto L_8A7B;    // $8A6C
 L_8A6F:
     local7 = 0;    // $8A70
 L_8A7B:
     *(byte*)(((arg1 * 9) + 0x6FE9)) = (local10 + 8);    // $8A7B
-    // TODO: mod_unsigned
-    local11 = local11;    // $8A81
-    // TODO: div_unsigned
-    local10 = local11;    // $8A86
-    if (local11) goto L_8A9E;    // $8A87
+    local11 = ((unsigned)local11 % (unsigned)0x03E8);    // $8A81
+    local10 = ((unsigned)local11 / (unsigned)100);    // $8A86
+    if (((unsigned)local11 / (unsigned)100)) goto L_8A9E;    // $8A87
     if (local7) goto L_8A9A;    // $8A93
     goto L_8AAA;    // $8A97
 L_8A9A:
@@ -746,11 +693,9 @@ L_8A9E:
     local7 = 0;    // $8A9F
 L_8AAA:
     *(byte*)(((arg1 * 9) + 0x6FEA)) = (local10 + 8);    // $8AAA
-    // TODO: mod_unsigned
-    local11 = local11;    // $8AAF
-    // TODO: div_unsigned
-    local10 = local11;    // $8AB3
-    if (local11) goto L_8ACB;    // $8AB4
+    local11 = ((unsigned)local11 % (unsigned)100);    // $8AAF
+    local10 = ((unsigned)local11 / (unsigned)10);    // $8AB3
+    if (((unsigned)local11 / (unsigned)10)) goto L_8ACB;    // $8AB4
     if (local7) goto L_8AC7;    // $8AC0
     goto L_8AD5;    // $8AC4
 L_8AC7:
@@ -758,9 +703,8 @@ L_8AC7:
 L_8ACB:
 L_8AD5:
     *(byte*)(((arg1 * 9) + 0x6FEB)) = (local10 + 8);    // $8AD5
-    // TODO: mod_unsigned
-    local10 = local11;    // $8AD9
-    if (local11) goto L_8AE9;    // $8ADA
+    local10 = ((unsigned)local11 % (unsigned)10);    // $8AD9
+    if (((unsigned)local11 % (unsigned)10)) goto L_8AE9;    // $8ADA
     goto L_8AF3;    // $8AE6
 L_8AE9:
 L_8AF3:
@@ -866,8 +810,7 @@ L_8C30:
     local11 = 0x77A8;    // $8C3D
     local11 = 0x77A8;    // $8C45
     local11 = (local11 - 1);    // $8C55
-    // TODO: setB_imm4_50
-    if ((local11 <= 0x77A8)) goto L_8BFD;    // $8C59
+    if ((local11 <= 0)) goto L_8BFD;    // $8C59
     return mem_7BFB;    // $8C60
     }
 }
@@ -983,8 +926,7 @@ L_8E7E:
     local9 = (local9 + 1);    // $8E80
     local10 = (local10 + 1);    // $8E86
     local11 = (local11 + 1);    // $8E8C
-    // TODO: cmp_sge
-    if (*(byte*)(((local11 + 1) - 1))) {    // $8E91
+    if ((*(byte*)(((local11 + 1) - 1)) >= *(byte*)(((local10 + 1) - 1)))) {    // $8E91
     } else {
     }
 L_8E99:
@@ -999,16 +941,14 @@ L_8EC4:
     local9 = (local9 + 1);    // $8EC6
     local7 = (local7 + 2);    // $8ECC
     local8 = (local8 + 2);    // $8ED3
-    // TODO: cmp_sge
-    if (*(word*)(((local8 + 2) + -2))) {    // $8ED9
+    if ((*(word*)(((local8 + 2) + -2)) >= *(word*)(((local7 + 2) + -2)))) {    // $8ED9
     } else {
     }
 L_8EE1:
     *(word*)(((0 << 1) + 0x7BEA)) = (*(word*)(((0 << 1) + 0x7BEA)) + *(byte*)(((local9 + 1) - 1)));    // $8EEA
     local6 = (local6 + 1);    // $8EED
-    // TODO: cmp_sge
-    if (local6) goto L_8EC4;    // $8EF1
-    return local6;    // $8EF4
+    if ((local6 >= 7)) goto L_8EC4;    // $8EF1
+    return (local6 >= 7);    // $8EF4
     }
     }
 }
@@ -1035,12 +975,10 @@ L_8F27:
 
 word sub_8F28(word arg1, word arg2, word arg3, word arg4) {
     if (((unsigned)arg3 <= (unsigned)51)) goto L_8F3B;    // $8F31
-    // TODO: cmp_ult
-    if (arg3) {    // $8F38
+    if (((unsigned)arg3 < (unsigned)55)) {    // $8F38
 L_8F3B:
     arg3 = (arg3 - 49);    // $8F40
-    // TODO: cmp_ult
-    if ((arg3 - 49)) {    // $8F43
+    if (((unsigned)(arg3 - 49) < (unsigned)6)) {    // $8F43
     arg3 = (arg3 - 0);    // $8F4A
     }
 L_8F4B:
@@ -1066,8 +1004,7 @@ word sub_8F55(word arg1, word arg2, word arg3, word arg4) {
 
 word sub_8F79(word arg1, word arg2, word arg3, word arg4) {
     if (!(((unsigned)arg2 >= (unsigned)5))) goto L_8F91;    // $8F81
-    // TODO: lshr_by_regB
-    if ((*(byte*)((arg1 + 0x6F65)) & 1)) goto L_8F95;    // $8F8E
+    if ((((unsigned)*(byte*)((arg1 + 0x6F65)) >> arg2) & 1)) goto L_8F95;    // $8F8E
 L_8F91:
     goto L_8F96;    // $8F92
 L_8F95:
@@ -1121,8 +1058,7 @@ L_8FF3:
 // (body @ $900F)
 
 word sub_900A(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: cmp_ugt
-    if (arg1) {    // $9012
+    if (((unsigned)arg1 > (unsigned)2)) {    // $9012
     arg1 = 0;    // $9016
     }
 L_9017:
@@ -1188,8 +1124,7 @@ word sub_90A0(word arg1, word arg2, word arg3, word arg4) {
 word sub_90BB(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $90C0
     local5 = ui_helper_d772(/*via arg1*/ ?);    // $90C5
-    // TODO: loadA_frameaddr $FFF8
-    local7 = ui_helper_d772(/*via arg1*/ ?);    // $90C9
+    local7 = &local8;    // $90C9
     goto L_90F0;    // $90CD
 L_90D0:
     if (province_state_is_FF(*(byte*)(local6))) goto L_90EE;    // $90D7
@@ -1203,8 +1138,7 @@ L_90F0:
     if ((*(byte*)(local6) != 0x00FF)) goto L_90D0;    // $90F7
     local7 = 0x00FF;    // $90FA
     *(byte*)(0x00FF) = -1;    // $90FD
-    // TODO: loadA_frameaddr $FFF8
-    return syscall16_sram_wrap(8, 0x6F4F, -1, 2);    // $910B
+    return syscall16_sram_wrap(8, 0x6F4F, &local8, 2);    // $910B
 }
 
 // (body @ $9111)
@@ -1225,8 +1159,7 @@ L_9142:
     local10 = 0;    // $9143
     local9 = (local9 + 1);    // $9146
     local11 = (local11 + 1);    // $9154
-    // TODO: mod_unsigned
-    if (local11) goto L_915F;    // $9158
+    if (((unsigned)local11 % (unsigned)3)) goto L_915F;    // $9158
     goto L_9161;    // $915C
 L_915F:
 L_9161:
@@ -1276,18 +1209,15 @@ L_91DC:
     local11 = 31;    // $9208
     *(word*)(31) = pct_op(/*stack underflow*/ regA, *(byte*)(local6));    // $920D
     local10 = pct_op(/*stack underflow*/ regA, *(byte*)(local6));    // $920E
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if (pct_op(/*stack underflow*/ regA, *(byte*)(local6))) {    // $9211
-    local9 = 31;    // $9214
-    *(word*)(31) = 0;    // $9216
+    if ((pct_op(/*stack underflow*/ regA, *(byte*)(local6)) >= 0)) {    // $9211
+    local9 = 0;    // $9214
+    *(word*)(0) = 0;    // $9216
     local10 = 0;    // $9217
     }
 L_9218:
     local7 = 0;    // $9219
 L_921A:
-    // TODO: setB_imm4_50
-    if (((local11 - local10) > local10)) {    // $921F
+    if (((local11 - local10) > 0)) {    // $921F
     local11 = local7;    // $922C
     *(word*)(local7) = pct_op(((local7 << 1) + local9), *(byte*)((local6 + local7)));    // $9231
     local10 = (local10 + pct_op(((local7 << 1) + local9), *(byte*)((local6 + local7))));    // $9235
@@ -1298,22 +1228,19 @@ L_9240:
     local7 = (local7 + 1);    // $9242
     if (((unsigned)local7 >= (unsigned)5)) goto L_921A;    // $9246
     local11 = (local11 - local10);    // $924D
-    // TODO: setB_imm4_50
-    if (((local11 - local10) > local10)) {    // $9250
+    if (((local11 - local10) > 0)) {    // $9250
     local7 = 0;    // $9254
     goto L_9273;    // $9255
 L_9258:
-    // TODO: mod_unsigned
-    local7 = local7;    // $925C
-    if (*(byte*)((local7 + local6))) {    // $9260
+    local7 = ((unsigned)local7 % (unsigned)0);    // $925C
+    if (*(byte*)((((unsigned)local7 % (unsigned)0) + local6))) {    // $9260
     *(word*)(((local7 << 1) + local9)) = (*(word*)(((local7 << 1) + local9)) + 1);    // $926A
     }
 L_926B:
     local11 = (local11 - 1);    // $926D
     local7 = (local7 + 1);    // $9271
 L_9273:
-    // TODO: setB_imm4_50
-    if ((local11 > local9)) goto L_9258;    // $9276
+    if ((local11 > 0)) goto L_9258;    // $9276
     }
 L_9279:
     local7 = 0;    // $927A
@@ -1354,23 +1281,17 @@ L_92A5:
 
 word sub_92CA(word arg1, word arg2, word arg3, word arg4) {
     local11 = 0;    // $92D6
-    // TODO: storeA_mem_byte $6F66
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if (mem_6F83) {    // $92F4
+    mem_6F66 = (*(byte*)((battle_defending_province + 0x6DA2)) << 7);    // $92E1
+    if ((mem_6F83 >= 0)) {    // $92F4
     *(word*)(((battle_defending_province * 26) + 0x7001)) = 0;    // $9303
     }
 L_9307:
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if (mem_6F85) {    // $9317
+    if ((mem_6F85 >= 0)) {    // $9317
     *(word*)(((battle_defending_province * 26) + 0x7007)) = 0;    // $9326
     local11 = 0;    // $932B
     }
 L_932C:
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if (mem_6F87) {    // $933C
+    if ((mem_6F87 >= 0)) {    // $933C
     *(word*)(((battle_defending_province * 26) + 0x7011)) = 0;    // $934B
     local11 = 0;    // $9350
     }
@@ -1392,16 +1313,14 @@ word sub_936A(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $938C)
 
 word sub_9387(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: mod_unsigned
-    return ui_helper_d134(*(word*)((((sub_900A(mem_7BE4) + 1) << 1) + 0xF9AF)), (mem_7BE4 + 1), 0xB627);    // $93A9
+    return ui_helper_d134(*(word*)(((((unsigned)(sub_900A(mem_7BE4) + 1) % (unsigned)3) << 1) + 0xF9AF)), (mem_7BE4 + 1), 0xB627);    // $93A9
 }
 
 // (body @ $93AF)
 
 word sub_93AA(word arg1, word arg2, word arg3, word arg4) {
     local7 = (arg1 == battle_defending_province);    // $93B4
-    // TODO: bitxor
-    local9 = sub_838F(local7);    // $93BD
+    local9 = sub_838F((local7 ^ 1));    // $93BD
     arg1 = 1;    // $93BE
     local10 = ui_helper_d772(/*via arg1*/ 1);    // $93C3
     local8 = (arg1 == mem_6F57);    // $93C9
@@ -1413,8 +1332,7 @@ L_93D4:
     arg1 = 16;    // $9403
     if (!(get_province_ai_state(/*via arg1*/ 16))) goto L_9486;    // $9408
     if (local8) goto L_9439;    // $940C
-    // TODO: cmp_ugt
-    if (arg2) {    // $9412
+    if (((unsigned)arg2 > (unsigned)7)) {    // $9412
     } else {
     if (!(local7)) goto L_942F;    // $941A
     if ((arg2 != 1)) goto L_942F;    // $9420
@@ -1478,8 +1396,7 @@ L_94F5:
 // (body @ $94FB)
 
 word sub_94F6(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: bitxor
-    local10 = mem_7BE8;    // $9500
+    local10 = (mem_7BE8 ^ 1);    // $9500
     local11 = sub_838F(mem_7BE8);    // $9508
     if (!(get_province_ai_state(sub_838F(mem_7BE8)))) goto L_9569;    // $950E
     if (arg1) goto L_951F;    // $9512
@@ -1487,8 +1404,7 @@ word sub_94F6(word arg1, word arg2, word arg3, word arg4) {
 L_951F:
     local11 = 1;    // $9526
 L_953F:
-    // TODO: bitxor
-    local10 = local10;    // $9543
+    local10 = (local10 ^ 0);    // $9543
 L_9544:
     if (sub_8F79(mem_7BE4, mem_7BE8)) goto L_95A3;    // $9551
     if ((local10 != mem_7BE8)) goto L_95BA;    // $955C
@@ -1507,8 +1423,7 @@ L_95A2:
     return message_display(mem_B1D6);    // $95A2
 L_95A3:
     arg2 = 2;    // $95A3
-    // TODO: bitxor
-    if (sub_8F79(/*via arg2*/ 2, mem_7BE8)) goto L_9568;    // $95AE
+    if (sub_8F79(/*via arg2*/ 2, (mem_7BE8 ^ 1))) goto L_9568;    // $95AE
     arg2 = 1;    // $95B1
     if ((local10 != mem_7BE8)) goto L_955F;    // $95B7
 L_95BA:
@@ -1525,8 +1440,7 @@ word sub_95BE(word arg1, word arg2, word arg3, word arg4) {
         default: goto L_95E6;    // $95CB
     }    // $95CB
 L_95DC:
-    // TODO: cmp_ult
-    if (arg1) {    // $95DF
+    if (((unsigned)arg1 < (unsigned)8)) {    // $95DF
 L_95E2:
 L_95E3:
 L_95E6:
@@ -1535,8 +1449,7 @@ L_95E6:
 L_95F7:
     goto L_95E3;    // $95F8
 L_95FB:
-    // TODO: cmp_ugt
-    if (arg1) goto L_95E2;    // $95FE
+    if (((unsigned)arg1 > (unsigned)5)) goto L_95E2;    // $95FE
 L_9601:
     goto L_95E3;    // $9602
 L_9605:
@@ -1550,13 +1463,11 @@ word sub_960E(word arg1, word arg2, word arg3, word arg4) {
     if (!(((unsigned)arg1 >= (unsigned)5))) goto L_961F;    // $9616
     if (mem_6FFE) {    // $961C
 L_961F:
-    // TODO: cmp_ugt
-    if (!(arg1)) goto L_9633;    // $9622
+    if (!(((unsigned)arg1 > (unsigned)2))) goto L_9633;    // $9622
     if (!(((unsigned)arg1 >= (unsigned)8))) goto L_9633;    // $9628
     if ((mem_6FFE == 1)) goto L_9645;    // $9630
 L_9633:
-    // TODO: cmp_ugt
-    if (!(arg1)) goto L_9641;    // $9636
+    if (!(((unsigned)arg1 > (unsigned)5))) goto L_9641;    // $9636
     if ((mem_6FFE == 2)) goto L_9645;    // $963E
 L_9641:
     } else {
@@ -1604,8 +1515,7 @@ word sub_9675(word arg1, word arg2, word arg3, word arg4) {
     } else {
     goto L_9707;    // $96F2
 L_96F5:
-    // TODO: cmp_ugt
-    if (!(local11)) goto L_9703;    // $96F8
+    if (!(((unsigned)local11 > (unsigned)local10))) goto L_9703;    // $96F8
     goto L_9707;    // $9700
 L_9703:
     }
@@ -1620,11 +1530,9 @@ L_9708:
 
 word sub_970A(word arg1, word arg2, word arg3, word arg4) {
     if (((unsigned)arg1 >= (unsigned)mem_6FF6)) goto L_972F;    // $9714
-    // TODO: cmp_ugt
-    if (arg1) goto L_972F;    // $971C
+    if (((unsigned)arg1 > (unsigned)mem_6FFA)) goto L_972F;    // $971C
     if (((unsigned)arg2 >= (unsigned)mem_6FF8)) goto L_972F;    // $9724
-    // TODO: cmp_ugt
-    if (arg2) {    // $972C
+    if (((unsigned)arg2 > (unsigned)mem_6FFC)) {    // $972C
 L_972F:
     } else {
     }
@@ -1646,16 +1554,12 @@ word sub_9735(word arg1, word arg2, word arg3, word arg4) {
 L_9755:
     return 0;    // $9756
 L_9757:
-    // TODO: loadA_frameaddr $FFFC
-    // TODO: loadA_frameaddr $FFFE
     local7 = 0;    // $9764
 L_9765:
     local9 = local11;    // $9766
     local8 = local10;    // $9768
     local7 = ?;    // $9769
-    // TODO: loadA_frameaddr $FFF8
-    // TODO: loadA_frameaddr $FFFA
-    if (!(sub_8003(/*stack underflow*/ regA, local10, local10))) goto L_9787;    // $9776
+    if (!(sub_8003(/*stack underflow*/ regA, &local8, &local9))) goto L_9787;    // $9776
     if ((local9 != arg1)) goto L_9787;    // $977C
     if (((local8 == arg2))) return 0;    // $9782
     local7 = (local7 + 1);    // $9789
@@ -1719,9 +1623,7 @@ L_9819:
     local11 = *(byte*)(sub_828B(0, mem_7BE8));    // $9832
     local10 = *(byte*)(sub_829A(0, mem_7BE8));    // $983C
     local9 = ?;    // $983D
-    // TODO: loadA_frameaddr $FFFC
-    // TODO: loadA_frameaddr $FFFE
-    if (!(sub_8003(/*stack underflow*/ regA, *(byte*)(sub_829A(0, mem_7BE8)), *(byte*)(sub_829A(0, mem_7BE8))))) goto L_9853;    // $984A
+    if (!(sub_8003(/*stack underflow*/ regA, &local10, &local11))) goto L_9853;    // $984A
     local10 = ?;    // $984D
     local11 = ?;    // $984E
     }
@@ -1738,8 +1640,6 @@ L_9864:
 // (body @ $986A)
 
 word sub_9865(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: loadA_frameaddr $FFFC
-    // TODO: loadA_frameaddr $FFFE
     local10 = ?;    // $9876
     local11 = ?;    // $9877
     if (sub_8EF5()) {    // $987F
@@ -1756,9 +1656,7 @@ L_98B1:
     local9 = local11;    // $98B2
     local8 = local10;    // $98B4
     local6 = ?;    // $98B5
-    // TODO: loadA_frameaddr $FFF8
-    // TODO: loadA_frameaddr $FFFA
-    if (!(sub_8003(/*stack underflow*/ regA, local10, local10))) goto L_98E1;    // $98C2
+    if (!(sub_8003(/*stack underflow*/ regA, &local8, &local9))) goto L_98E1;    // $98C2
     local8 = ?;    // $98C5
     local9 = ?;    // $98C6
     if (!(sub_9792(/*stack underflow*/ regA, /*stack underflow*/ regA))) goto L_98E1;    // $98CB
@@ -1786,19 +1684,15 @@ L_9905:
     local10 = arg1;    // $9906
     local9 = arg2;    // $9908
     local11 = ?;    // $9909
-    // TODO: loadA_frameaddr $FFFA
-    // TODO: loadA_frameaddr $FFFC
-    if (!(sub_8003(/*stack underflow*/ regA, arg2, arg2))) goto L_9928;    // $9916
+    if (!(sub_8003(/*stack underflow*/ regA, &local9, &local10))) goto L_9928;    // $9916
     local9 = ?;    // $9919
     local10 = ?;    // $991A
-    // TODO: bitxor
-    if (sub_8FC0(/*stack underflow*/ regA, /*stack underflow*/ regA, mem_7BE8)) goto L_9931;    // $9925
+    if (sub_8FC0(/*stack underflow*/ regA, /*stack underflow*/ regA, (mem_7BE8 ^ 1))) goto L_9931;    // $9925
 L_9928:
     local11 = (local11 + 1);    // $992A
     if (((unsigned)local11 >= (unsigned)6)) goto L_9905;    // $992E
 L_9931:
-    // TODO: cmp_ult
-    if (!(local11)) goto L_9952;    // $9934
+    if (!(((unsigned)local11 < (unsigned)6))) goto L_9952;    // $9934
     arg2 = 6;    // $9937
     arg1 = 6;    // $9938
     if (!(!(sub_9792(/*via arg2*/ 6, /*via arg2*/ 6)))) return 0;    // $993D
@@ -1903,9 +1797,7 @@ L_9A95:
     goto L_9AC8;    // $9A99
 L_9A9C:
     local11 = mem_6FFC;    // $9A9C
-    // TODO: loadA_frameaddr $FFFA
-    // TODO: loadA_frameaddr $FFFC
-    if (!(sub_8544(/*stack underflow*/ regA, local9, local9))) goto L_9AC4;    // $9AA9
+    if (!(sub_8544(/*stack underflow*/ regA, &local9, &local10))) goto L_9AC4;    // $9AA9
     local9 = mem_6FFC;    // $9AAC
     local10 = mem_6FFC;    // $9AAD
     if (!(sub_970A(/*stack underflow*/ regA, /*stack underflow*/ regA))) goto L_9AC4;    // $9AB2
@@ -1948,7 +1840,6 @@ L_9B2C:
     } else {
     }
 L_9B37:
-    // TODO: bitxor
     local11 = (local11 + 1);    // $9B42
     if (((unsigned)local11 >= (unsigned)2)) goto L_9B12;    // $9B46
     return ((unsigned)local11 >= (unsigned)2);    // $9B49
@@ -1958,8 +1849,7 @@ L_9B37:
 // (body @ $9B4F)
 
 word sub_9B4A(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: bitxor
-    local8 = mem_7BE8;    // $9B62
+    local8 = (mem_7BE8 ^ 1);    // $9B62
     arg1 = 1;    // $9B63
     local8 = 1;    // $9B64
     local10 = *(byte*)(sub_828B(/*via arg1*/ 1, /*via arg1*/ 1));    // $9B6A
@@ -2022,8 +1912,7 @@ L_9C32:
     local8 = (local8 + 2);    // $9C34
     local9 = (local9 + 2);    // $9C3B
     local10 = (*(word*)(((local9 + 2) + -2)) - *(word*)(((local8 + 2) + -2)));    // $9C41
-    // TODO: setB_imm4_50
-    if (((*(word*)(((local9 + 2) + -2)) - *(word*)(((local8 + 2) + -2))) > *(word*)(((local8 + 2) + -2)))) {    // $9C44
+    if (((*(word*)(((local9 + 2) + -2)) - *(word*)(((local8 + 2) + -2))) > 0)) {    // $9C44
     arg2 = 100;    // $9C4C
     arg1 = 100;    // $9C4D
     local7 = (local7 + pct_op(/*stack underflow*/ regA, *(word*)(sub_82C9(/*via arg2*/ 100, (local10 / 100)))));    // $9C5B
@@ -2041,8 +1930,7 @@ L_9C5F:
 word sub_9C69(word arg1, word arg2, word arg3, word arg4) {
     arg3 = ?;    // $9C6E
     arg2 = ?;    // $9C74
-    // TODO: cmp_ugt
-    if (sub_900A(sub_900A(/*via arg3*/ ?))) {    // $9C7B
+    if (((unsigned)sub_900A(sub_900A(/*via arg3*/ ?)) > (unsigned)?)) {    // $9C7B
     arg2 = ?;    // $9C7E
     arg1 = ?;    // $9C7F
     return *(word*)(sub_82C9(/*via arg2*/ ?, /*via arg2*/ ?));    // $9C85
@@ -2089,15 +1977,13 @@ word sub_9D03(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $9D08
     arg1 = ?;    // $9D09
     local11 = sub_82C9(/*via arg2*/ ?, /*via arg2*/ ?);    // $9D0E
-    // TODO: cmp_ult
-    if (arg3) {    // $9D16
+    if (((unsigned)arg3 < (unsigned)50)) {    // $9D16
     } else {
     }
 L_9D1E:
     arg3 = 50;    // $9D1F
     local10 = (pct_op(0, *(word*)(local11)) + *(word*)(local11));    // $9D29
-    // TODO: cmp_ugt
-    if ((pct_op(0, *(word*)(local11)) + *(word*)(local11))) {    // $9D2C
+    if (((unsigned)(pct_op(0, *(word*)(local11)) + *(word*)(local11)) > (unsigned)*(word*)(local11))) {    // $9D2C
     local10 = *(word*)(local11);    // $9D31
     }
 L_9D32:
@@ -2107,18 +1993,16 @@ L_9D32:
     arg1 = *(word*)(local11);    // $9D3F
     local10 = *(word*)(local11);    // $9D44
     *(word*)(local11) = (*(word*)(local11) - *(word*)(local11));    // $9D4A
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if ((*(word*)(local11) - *(word*)(local11))) {    // $9D4D
-    arg2 = *(word*)(local11);    // $9D50
-    arg1 = *(word*)(local11);    // $9D51
-    arg2 = *(word*)(local11);    // $9D58
-    arg1 = *(word*)(local11);    // $9D59
-    arg2 = *(word*)(local11);    // $9D64
-    arg1 = *(word*)(local11);    // $9D65
+    if (((*(word*)(local11) - *(word*)(local11)) >= 0)) {    // $9D4D
+    arg2 = 0;    // $9D50
+    arg1 = 0;    // $9D51
+    arg2 = 0;    // $9D58
+    arg1 = 0;    // $9D59
+    arg2 = 0;    // $9D64
+    arg1 = 0;    // $9D65
     } else {
-    arg2 = *(word*)(local11);    // $9D6D
-    arg1 = *(word*)(local11);    // $9D6E
+    arg2 = 0;    // $9D6D
+    arg1 = 0;    // $9D6E
     }
 L_9D73:
     return local10;    // $9D74
@@ -2130,9 +2014,8 @@ L_9D73:
 
 word sub_9D75(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $9D7D
-    // TODO: bitxor
     arg1 = 1;    // $9D89
-    return math32_2arg(/*stack underflow*/ regA, sub_9C88(sub_9C88(/*via arg1*/ ?, mem_7BE4, mem_7BE8), mem_7BE4, mem_7BE8));    // $9D99
+    return math32_2arg(/*stack underflow*/ regA, sub_9C88(sub_9C88(/*via arg1*/ ?, mem_7BE4, (mem_7BE8 ^ 1)), mem_7BE4, mem_7BE8));    // $9D99
 }
 
 // (body @ $9D9F)
@@ -2145,16 +2028,14 @@ word sub_9D9A(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $9DAD)
 
 word sub_9DA8(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: bitxor
-    local11 = mem_7BE8;    // $9DB2
+    local11 = (mem_7BE8 ^ 1);    // $9DB2
     if (!(sub_82DB(8, *(byte*)(sub_82B9()), *(byte*)(sub_82A9())))) goto L_9DDE;    // $9DC2
     arg2 = 1;    // $9DC6
     local11 = 1;    // $9DC7
     arg2 = 1;    // $9DCE
     local11 = 1;    // $9DCF
     if (!(!(sub_82DB(/*stack underflow*/ regA, /*stack underflow*/ regA, *(byte*)(sub_828B(/*via arg2*/ 1, *(byte*)(sub_829A(/*via arg2*/ 1, 8)))))))) return sub_82DB(/*stack underflow*/ regA, /*stack underflow*/ regA, *(byte*)(sub_828B(/*via arg2*/ 1, *(byte*)(sub_829A(/*via arg2*/ 1, 8)))));    // $9DDA
-    // TODO: div_unsigned
-    arg1 = arg1;    // $9DE9
+    arg1 = ((unsigned)arg1 / (unsigned)0);    // $9DE9
     local10 = ((battle_defending_province * 26) + 0x7005);    // $9DF4
     if (((unsigned)*(word*)(local10) <= (unsigned)arg1)) {    // $9DF9
     local10 = arg1;    // $9DFC
@@ -2178,10 +2059,8 @@ word sub_9E20(word arg1, word arg2, word arg3, word arg4) {
     arg1 = 0x7BEE;    // $9E39
     local11 = 0x7BEE;    // $9E3A
     arg1 = 0x7BEE;    // $9E3B
-    // TODO: bitxor
     if (((local11 == 50))) return 0;    // $9E61
-    // TODO: cmp_ugt
-    if (local11) {    // $9E6A
+    if (((unsigned)local11 > (unsigned)50)) {    // $9E6A
     } else {
     }
 L_9E72:
@@ -2195,9 +2074,8 @@ word sub_9E73(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $9E78
     *(word*)(sub_827E(mem_7BE8)) = (*(word*)(sub_827E(mem_7BE8)) - ?);    // $9E84
     local9 = sub_838F(mem_7BE8);    // $9E94
-    // TODO: bitxor
-    local7 = mem_7BE8;    // $9E9A
-    local8 = sub_838F(mem_7BE8);    // $9EA0
+    local7 = (mem_7BE8 ^ 1);    // $9E9A
+    local8 = sub_838F((mem_7BE8 ^ 1));    // $9EA0
     local9 = 1;    // $9EA1
     local11 = ((rng_mod((-const_two)) + *(word*)(((local9 * 26) + 0x7013))) + *(byte*)((fief_to_daimyo_record_addr(/*stack underflow*/ regA) + 4)));    // $9EC1
     local8 = *(byte*)((fief_to_daimyo_record_addr(/*stack underflow*/ regA) + 4));    // $9EC7
@@ -2207,9 +2085,8 @@ word sub_9E73(word arg1, word arg2, word arg3, word arg4) {
     arg1 = local10;    // $9EE9
     local7 = local10;    // $9EEA
     arg2 = (arg2 / *(word*)(sub_82C9(/*via arg1*/ local10, /*via arg1*/ local10)));    // $9EF3
-    // TODO: setB_imm4_50
-    if ((arg2 > *(word*)(sub_82C9(/*via arg1*/ local10, /*via arg1*/ local10)))) {    // $9EF7
-    local11 = *(word*)(sub_82C9(/*via arg1*/ local10, /*via arg1*/ local10));    // $9EFA
+    if ((arg2 > 0)) {    // $9EF7
+    local11 = 0;    // $9EFA
     arg1 = local10;    // $9F04
     local7 = local10;    // $9F05
     local11 = pct_op(/*stack underflow*/ regA, *(word*)(sub_82C9(/*via arg1*/ local10, math32_2arg(/*stack underflow*/ regA, (local11 - local10)))));    // $9F10
@@ -2257,9 +2134,7 @@ L_9FCE:
     }
 L_9FE1:
     *(word*)(((local8 * 26) + 0x7013)) = (*(word*)(((local8 * 26) + 0x7013)) - const_two);    // $9FEE
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if (*(word*)(((local8 * 26) + 0x7013))) {    // $9FFA
+    if ((*(word*)(((local8 * 26) + 0x7013)) >= 0)) {    // $9FFA
     *(word*)(((local8 * 26) + 0x7013)) = 0;    // $A007
     }
 L_A008:
@@ -2283,8 +2158,7 @@ L_A032:
 L_A034:
     local10 = (local10 + 1);    // $A034
     if (((unsigned)local10 >= (unsigned)5)) goto L_A024;    // $A038
-    // TODO: cmp_ugt
-    if (!(local11)) goto L_A048;    // $A03E
+    if (!(((unsigned)local11 > (unsigned)3))) goto L_A048;    // $A03E
     if (((local11 - 1) == arg1)) goto L_A04C;    // $A045
 L_A048:
     goto L_A04D;    // $A049
@@ -2320,9 +2194,7 @@ L_A081:
     local10 = arg1;    // $A082
     local9 = arg2;    // $A084
     local11 = ?;    // $A085
-    // TODO: loadA_frameaddr $FFFA
-    // TODO: loadA_frameaddr $FFFC
-    if (!(sub_8003(/*stack underflow*/ regA, arg2, arg2))) goto L_A0A2;    // $A092
+    if (!(sub_8003(/*stack underflow*/ regA, &local9, &local10))) goto L_A0A2;    // $A092
     arg4 = ?;    // $A095
     arg3 = ?;    // $A096
     local9 = ?;    // $A097
@@ -2336,8 +2208,7 @@ L_A081:
 // (body @ $A0B2)
 
 word sub_A0AD(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: bitxor
-    local11 = mem_7BE8;    // $A0B7
+    local11 = (mem_7BE8 ^ 1);    // $A0B7
     arg1 = 1;    // $A0B8
     local11 = 1;    // $A0B9
     if (!(sub_8F79(/*via arg1*/ 1, /*via arg1*/ 1))) goto L_A0D4;    // $A0BE
@@ -2375,16 +2246,13 @@ L_A0FF:
     local9 = arg1;    // $A104
     local8 = arg2;    // $A106
     local11 = ?;    // $A107
-    // TODO: loadA_frameaddr $FFF8
-    // TODO: loadA_frameaddr $FFFA
-    if (sub_8003(/*stack underflow*/ regA, arg2, arg2)) {    // $A114
+    if (sub_8003(/*stack underflow*/ regA, &local8, &local9)) {    // $A114
     local10 = 0;    // $A118
 L_A119:
     local10 = ?;    // $A119
-    // TODO: bitxor
     local8 = 1;    // $A120
     local9 = 1;    // $A121
-    if (sub_A04E(/*stack underflow*/ regA, /*stack underflow*/ regA, /*stack underflow*/ regA, mem_7BE8)) {    // $A126
+    if (sub_A04E(/*stack underflow*/ regA, /*stack underflow*/ regA, /*stack underflow*/ regA, (mem_7BE8 ^ 1))) {    // $A126
     local7 = 1;    // $A129
     *(byte*)(1) = local10;    // $A12B
     } else {
@@ -2411,10 +2279,9 @@ L_A156:
     if ((*(byte*)(arg1) < 5)) {    // $A15A
     if (((unsigned)local10 >= (unsigned)5)) {    // $A160
     } else {
-    // TODO: setB_imm4_50
     }
 L_A17D:
-    if ((*(byte*)((*(byte*)(arg1) + 0x7BEE)) > 0x7BEE)) {    // $A17E
+    if ((*(byte*)((*(byte*)(arg1) + 0x7BEE)) > 0)) {    // $A17E
     local10 = *(byte*)(arg1);    // $A183
     }
 L_A184:
@@ -2435,13 +2302,10 @@ L_A19B:
     local7 = *(byte*)(sub_82A9());    // $A19F
     local6 = *(byte*)(sub_82B9());    // $A1A4
     local5 = ?;    // $A1A5
-    // TODO: loadA_frameaddr $FFF4
-    // TODO: loadA_frameaddr $FFF6
-    if (!(sub_8003(/*stack underflow*/ regA, *(byte*)(sub_82B9()), *(byte*)(sub_82B9())))) goto L_A1E5;    // $A1B2
-    // TODO: loadA_frameaddr $FFFA
+    if (!(sub_8003(/*stack underflow*/ regA, &local6, &local7))) goto L_A1E5;    // $A1B2
     local6 = ?;    // $A1B9
     local7 = ?;    // $A1BA
-    local8 = sub_A0F3(/*stack underflow*/ regA, /*stack underflow*/ regA, sub_8003(/*stack underflow*/ regA, *(byte*)(sub_82B9()), *(byte*)(sub_82B9())));    // $A1BF
+    local8 = sub_A0F3(/*stack underflow*/ regA, /*stack underflow*/ regA, &local9);    // $A1BF
     local4 = 0;    // $A1C1
 L_A1C2:
     local8 = (local8 + 1);    // $A1C4
@@ -2449,8 +2313,7 @@ L_A1C2:
     local4 = (local4 + 1);    // $A1CE
     if (((unsigned)local4 >= (unsigned)6)) goto L_A1C2;    // $A1D2
 L_A1D5:
-    // TODO: cmp_ult
-    if (!(local4)) goto L_A1E5;    // $A1D8
+    if (!(((unsigned)local4 < (unsigned)6))) goto L_A1E5;    // $A1D8
     local6 = 6;    // $A1DB
     local7 = 6;    // $A1DC
     if (!(!(sub_9058(/*stack underflow*/ regA, /*stack underflow*/ regA)))) return sub_9058(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A1E1
@@ -2487,8 +2350,7 @@ word sub_A221(word arg1, word arg2, word arg3, word arg4) {
     if (((local4 == arg2))) return 0;    // $A239
     local10 = 255;    // $A241
 L_A242:
-    // TODO: loadA_frameaddr $FF2F
-    local3 = 255;    // $A245
+    local3 = (fp - 209);    // $A245
     local8 = 0;    // $A247
 L_A248:
     local9 = 0;    // $A249
@@ -2510,21 +2372,18 @@ L_A263:
 L_A280:
     local11 = 0x00FF;    // $A280
     if (sub_8F79(/*stack underflow*/ regA, mem_7BE8)) {    // $A288
-    // TODO: loadA_frameaddr $FF2F
     local11 = 0x00FF;    // $A28F
     local11 = 0x00FF;    // $A299
-    *(byte*)((((*(byte*)(sub_829A(*(byte*)(sub_828B(sub_8F79(/*stack underflow*/ regA, mem_7BE8), mem_7BE8)), mem_7BE8)) * 11) + 11) + 11)) = -128;    // $A2AB
+    *(byte*)((((*(byte*)(sub_829A(*(byte*)(sub_828B((fp - 209), mem_7BE8)), mem_7BE8)) * 11) + 11) + 11)) = -128;    // $A2AB
     }
 L_A2AC:
     local11 = (local11 + 1);    // $A2AE
     if (((unsigned)local11 >= (unsigned)5)) goto L_A280;    // $A2B2
     }
 L_A2B5:
-    // TODO: loadA_frameaddr $FF2F
-    *(byte*)((((arg2 * 11) + arg1) + ((unsigned)local11 >= (unsigned)5))) = -1;    // $A2C3
-    // TODO: loadA_frameaddr $FF66
-    local2 = -1;    // $A2C7
-    local3 = -1;    // $A2C8
+    *(byte*)((((arg2 * 11) + arg1) + (fp - 209))) = -1;    // $A2C3
+    local2 = (fp - 154);    // $A2C7
+    local3 = (fp - 154);    // $A2C8
     local2 = (local2 + 1);    // $A2CB
     *(byte*)(((local2 + 1) - 1)) = arg1;    // $A2CF
     local2 = (local2 + 1);    // $A2D2
@@ -2535,36 +2394,28 @@ L_A2DF:
     local3 = (local3 + 1);    // $A2E1
     local7 = *(byte*)(((local3 + 1) - 1));    // $A2E4
     if (!((*(byte*)(((local3 + 1) - 1)) == 0x00FF))) goto L_A318;    // $A2E9
-    // TODO: loadA_frameaddr $FFEB
-    if (((*(byte*)(((local3 + 1) - 1)) == 0x00FF) == local3)) {    // $A2F1
-    // TODO: loadA_frameaddr $FF66
-    local3 = ((*(byte*)(((local3 + 1) - 1)) == 0x00FF) == local3);    // $A2F7
+    if (((fp - 21) == local3)) {    // $A2F1
+    local3 = (fp - 154);    // $A2F7
     }
 L_A2F8:
     if ((local3 == local2)) goto L_A3AF;    // $A2FB
     local2 = (local2 + 1);    // $A300
     *(byte*)(((local2 + 1) - 1)) = -1;    // $A305
-    // TODO: loadA_frameaddr $FFEB
-    if ((-1 == local2)) {    // $A30B
-    // TODO: loadA_frameaddr $FF66
-    local2 = (-1 == local2);    // $A311
+    if (((fp - 21) == local2)) {    // $A30B
+    local2 = (fp - 154);    // $A311
     }
 L_A312:
     local3 = (local3 + 1);    // $A314
     local7 = *(byte*)(((local3 + 1) - 1));    // $A317
 L_A318:
-    // TODO: loadA_frameaddr $FFEB
-    if ((*(byte*)(((local3 + 1) - 1)) == local3)) {    // $A31D
-    // TODO: loadA_frameaddr $FF66
-    local3 = (*(byte*)(((local3 + 1) - 1)) == local3);    // $A323
+    if (((fp - 21) == local3)) {    // $A31D
+    local3 = (fp - 154);    // $A323
     }
 L_A324:
     local3 = (local3 + 1);    // $A326
     local6 = *(byte*)(((local3 + 1) - 1));    // $A329
-    // TODO: loadA_frameaddr $FFEB
-    if ((*(byte*)(((local3 + 1) - 1)) == local3)) {    // $A32F
-    // TODO: loadA_frameaddr $FF66
-    local3 = (*(byte*)(((local3 + 1) - 1)) == local3);    // $A335
+    if (((fp - 21) == local3)) {    // $A32F
+    local3 = (fp - 154);    // $A335
     }
 L_A336:
     local11 = 0;    // $A337
@@ -2572,29 +2423,21 @@ L_A338:
     local9 = local7;    // $A339
     local8 = local6;    // $A33B
     local11 = local3;    // $A33C
-    // TODO: loadA_frameaddr $FFF8
-    // TODO: loadA_frameaddr $FFFA
-    if (!(sub_8003(/*stack underflow*/ regA, local6, local6))) goto L_A3A3;    // $A349
+    if (!(sub_8003(/*stack underflow*/ regA, &local8, &local9))) goto L_A3A3;    // $A349
     if ((local9 != local5)) goto L_A35C;    // $A34F
     if (((local8 == local4))) return (-local11);    // $A355
-    // TODO: loadA_frameaddr $FF2F
-    if ((*(byte*)((((local8 * 11) + local9) + (-local11))) < 16)) {    // $A36B
-    // TODO: loadA_frameaddr $FF2F
-    *(byte*)((((local8 * 11) + local9) + (*(byte*)((((local8 * 11) + local9) + (-local11))) < 16))) = -1;    // $A37C
+    if ((*(byte*)((((local8 * 11) + local9) + (fp - 209))) < 16)) {    // $A36B
+    *(byte*)((((local8 * 11) + local9) + (fp - 209))) = -1;    // $A37C
     local2 = (local2 + 1);    // $A37F
     *(byte*)(((local2 + 1) - 1)) = local9;    // $A383
-    // TODO: loadA_frameaddr $FFEB
-    if ((local9 == local2)) {    // $A389
-    // TODO: loadA_frameaddr $FF66
-    local2 = (local9 == local2);    // $A38F
+    if (((fp - 21) == local2)) {    // $A389
+    local2 = (fp - 154);    // $A38F
     }
 L_A390:
     local2 = (local2 + 1);    // $A392
     *(byte*)(((local2 + 1) - 1)) = local8;    // $A396
-    // TODO: loadA_frameaddr $FFEB
-    if ((local8 == local2)) {    // $A39C
-    // TODO: loadA_frameaddr $FF66
-    local2 = (local8 == local2);    // $A3A2
+    if (((fp - 21) == local2)) {    // $A39C
+    local2 = (fp - 154);    // $A3A2
     }
     }
 L_A3A3:
@@ -2602,10 +2445,8 @@ L_A3A3:
     if (((unsigned)local11 >= (unsigned)6)) goto L_A338;    // $A3A9
     goto L_A2DF;    // $A3AC
 L_A3AF:
-    // TODO: lshr_by_regB
-    local10 = local10;    // $A3B3
-    // TODO: cmp_ult
-    if (local10) goto L_A242;    // $A3B8
+    local10 = ((unsigned)local10 >> 0);    // $A3B3
+    if (((unsigned)local10 < (unsigned)127)) goto L_A242;    // $A3B8
     return 0;    // $A3BC
     }
 }
@@ -2616,18 +2457,14 @@ word sub_A3BD(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $A3C2
     arg1 = ?;    // $A3C3
     local11 = sub_A221(/*via arg2*/ ?, /*via arg2*/ ?);    // $A3C8
-    // TODO: setB_imm4_50
-    // TODO: cmp_ugt
-    if (!(sub_A221(/*via arg2*/ ?, /*via arg2*/ ?))) goto L_A3F6;    // $A3CB
+    if (!(((unsigned)sub_A221(/*via arg2*/ ?, /*via arg2*/ ?) > (unsigned)0))) goto L_A3F6;    // $A3CB
     arg1 = *(byte*)(sub_82A9());    // $A3D2
     arg2 = *(byte*)(sub_82B9());    // $A3D7
     local11 = (local11 - 1);    // $A3DA
-    // TODO: loadA_frameaddr $000D
-    // TODO: loadA_frameaddr $000B
-    if (!(sub_8003((local11 - 1), (local11 - 1), (local11 - 1)))) goto L_A3F6;    // $A3E8
-    arg2 = ?;    // $A3EB
-    arg1 = ?;    // $A3EC
-    if (!(!(sub_9058(/*via arg2*/ ?, /*via arg2*/ ?)))) return 0;    // $A3F1
+    if (!(sub_8003((local11 - 1), (fp + 13), (fp + 11)))) goto L_A3F6;    // $A3E8
+    arg2 = 0;    // $A3EB
+    arg1 = 0;    // $A3EC
+    if (!(!(sub_9058(/*via arg2*/ 0, /*via arg2*/ 0)))) return 0;    // $A3F1
     return 0;    // $A3F7
 }
 
@@ -2635,8 +2472,7 @@ word sub_A3BD(word arg1, word arg2, word arg3, word arg4) {
 
 word sub_A3F8(word arg1, word arg2, word arg3, word arg4) {
     if (!(mem_7BE4)) return 0;    // $A400
-    // TODO: loadA_frameaddr $FFF6
-    local6 = sub_A0F3(0, *(byte*)(sub_829A(0, mem_7BE8)), *(byte*)(sub_828B(0, mem_7BE8)));    // $A421
+    local6 = sub_A0F3(&local7, *(byte*)(sub_829A(0, mem_7BE8)), *(byte*)(sub_828B(0, mem_7BE8)));    // $A421
     local11 = 0;    // $A423
 L_A424:
     if ((*(byte*)(local6) < 5)) {    // $A428
@@ -2648,12 +2484,9 @@ L_A439:
     local6 = (local6 + 1);    // $A43B
     local11 = (local11 + 1);    // $A43F
     if (((unsigned)local11 >= (unsigned)6)) goto L_A424;    // $A444
-    // TODO: loadA_frameaddr $FFF6
-    local10 = sub_A148(((unsigned)local11 >= (unsigned)6));    // $A44F
-    // TODO: cmp_ult
-    if (sub_A148(((unsigned)local11 >= (unsigned)6))) {    // $A452
-    // TODO: loadA_frameaddr $FFF6
-    local6 = sub_A148(((unsigned)local11 >= (unsigned)6));    // $A458
+    local10 = sub_A148(&local7);    // $A44F
+    if (((unsigned)sub_A148(&local7) < (unsigned)5)) {    // $A452
+    local6 = &local7;    // $A458
     local11 = 0;    // $A45A
     goto L_A47D;    // $A45B
 L_A45E:
@@ -2667,10 +2500,8 @@ L_A47D:
     if (((unsigned)local11 >= (unsigned)6)) goto L_A45E;    // $A480
     }
 L_A483:
-    // TODO: cmp_ult
-    if (local10) {    // $A486
-    // TODO: loadA_frameaddr $FFF6
-    local6 = local10;    // $A48C
+    if (((unsigned)local10 < (unsigned)5)) {    // $A486
+    local6 = &local7;    // $A48C
     local11 = 0;    // $A48E
     goto L_A4A7;    // $A48F
 L_A492:
@@ -2753,13 +2584,10 @@ L_A544:
 L_A548:
 L_A54A:
     local7 = 50;    // $A54A
-    // TODO: loadA_frameaddr $FFF8
-    local11 = sub_A148(sub_A0F3(50, *(byte*)(sub_82B9()), *(byte*)(sub_82A9())));    // $A562
-    // TODO: cmp_ult
-    if (sub_A148(sub_A0F3(50, *(byte*)(sub_82B9()), *(byte*)(sub_82A9())))) {    // $A565
+    local11 = sub_A148(sub_A0F3(&local8, *(byte*)(sub_82B9()), *(byte*)(sub_82A9())));    // $A562
+    if (((unsigned)sub_A148(sub_A0F3(&local8, *(byte*)(sub_82B9()), *(byte*)(sub_82A9()))) < (unsigned)5)) {    // $A565
     local7 = 5;    // $A568
-    // TODO: loadA_frameaddr $FFF8
-    local11 = sub_A4BC(/*stack underflow*/ regA, sub_A148(sub_A0F3(50, *(byte*)(sub_82B9()), *(byte*)(sub_82A9()))));    // $A571
+    local11 = sub_A4BC(/*stack underflow*/ regA, &local8);    // $A571
     }
 L_A572:
     if (((unsigned)local11 >= (unsigned)5)) {    // $A575
@@ -2768,9 +2596,7 @@ L_A572:
     }
 L_A57E:
     if (sub_A07A(0, mem_7BE8, *(byte*)(sub_82B9()), *(byte*)(sub_82A9()))) goto L_A5A3;    // $A590
-    // TODO: loadA_frameaddr $FFF8
-    // TODO: cmp_ugt
-    if (sub_A4FC(sub_A07A(0, mem_7BE8, *(byte*)(sub_82B9()), *(byte*)(sub_82A9())))) {    // $A59D
+    if (((unsigned)sub_A4FC(&local8) > (unsigned)local7)) {    // $A59D
     }
 L_A5A3:
     return sub_A194();    // $A5A3
@@ -2780,10 +2606,8 @@ L_A5A3:
 
 word sub_A5A4(word arg1, word arg2, word arg3, word arg4) {
     if (!(!(sub_A3F8()))) return sub_A3F8();    // $A5AC
-    // TODO: bitxor
-    local10 = mem_7BE8;    // $A5B5
-    // TODO: loadA_frameaddr $FFF6
-    local6 = sub_A0F3(mem_7BE8, *(byte*)(sub_829A(0, mem_7BE8)), *(byte*)(sub_828B(0, mem_7BE8)));    // $A5D2
+    local10 = (mem_7BE8 ^ 1);    // $A5B5
+    local6 = sub_A0F3(&local7, *(byte*)(sub_829A(0, mem_7BE8)), *(byte*)(sub_828B(0, mem_7BE8)));    // $A5D2
     local11 = 0;    // $A5D4
 L_A5D5:
     if (!((*(byte*)(local6) < 5))) goto L_A5F8;    // $A5D9
@@ -2810,9 +2634,7 @@ L_A641:
     local10 = local8;    // $A642
     local9 = local7;    // $A644
     local11 = ?;    // $A645
-    // TODO: loadA_frameaddr $FFFA
-    // TODO: loadA_frameaddr $FFFC
-    if (sub_8003(/*stack underflow*/ regA, local7, local7)) {    // $A652
+    if (sub_8003(/*stack underflow*/ regA, &local9, &local10)) {    // $A652
     local9 = ?;    // $A655
     local10 = ?;    // $A656
     if (!(sub_8F11(/*stack underflow*/ regA, /*stack underflow*/ regA))) goto L_A675;    // $A65B
@@ -2829,8 +2651,7 @@ L_A677:
     if (((unsigned)local11 >= (unsigned)6)) goto L_A641;    // $A67B
     }
 L_A67E:
-    // TODO: bitxor
-    local6 = mem_7BE8;    // $A683
+    local6 = (mem_7BE8 ^ 1);    // $A683
     local11 = 0;    // $A685
 L_A686:
     local11 = 1;    // $A686
@@ -2852,25 +2673,21 @@ L_A686:
 // (body @ $A6CA)
 
 word sub_A6C5(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: loadA_frameaddr $FFEE
-    local2 = sub_A4FC(sub_A0F3(?, *(byte*)(sub_82B9()), *(byte*)(sub_82A9())));    // $A6E1
+    local2 = sub_A4FC(sub_A0F3(&local3, *(byte*)(sub_82B9()), *(byte*)(sub_82A9())));    // $A6E1
     if (((unsigned)local2 >= (unsigned)20)) goto L_A6F7;    // $A6E6
-    // TODO: cmp_sge
-    if (*(word*)(sub_82C9(0, mem_7BE8))) {    // $A6F4
+    if ((*(word*)(sub_82C9(0, mem_7BE8)) >= 1)) {    // $A6F4
 L_A6F7:
     return sub_A194();    // $A6FA
     }
 L_A6FB:
-    // TODO: loadA_frameaddr $FFEE
-    local6 = sub_A4BC(70, sub_A194());    // $A705
-    if (((unsigned)sub_A4BC(70, sub_A194()) >= (unsigned)5)) {    // $A708
+    local6 = sub_A4BC(70, &local3);    // $A705
+    if (((unsigned)sub_A4BC(70, &local3) >= (unsigned)5)) {    // $A708
     local6 = 5;    // $A70B
     return sub_A0DA(/*stack underflow*/ regA);    // $A710
     }
 L_A711:
     if (mem_7BE8) goto L_A720;    // $A714
-    // TODO: cmp_ugt
-    if (arg1) {    // $A71A
+    if (((unsigned)arg1 > (unsigned)5)) {    // $A71A
     }
 L_A720:
     return sub_A625();    // $A720
@@ -2879,11 +2696,9 @@ L_A720:
 // (body @ $A726)
 
 word sub_A721(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: bitxor
-    local8 = mem_7BE8;    // $A72B
+    local8 = (mem_7BE8 ^ 1);    // $A72B
     if (!(rng_mod((const_two + 1)))) goto L_A799;    // $A735
-    // TODO: cmp_sge
-    if (*(word*)(sub_827E(mem_7BE8))) goto L_A799;    // $A74C
+    if ((*(word*)(sub_827E(mem_7BE8)) >= *(word*)((sub_827E(mem_7BE8) + 4)))) goto L_A799;    // $A74C
     if (sub_82FF()) goto L_A799;    // $A752
     local8 = *(word*)((sub_827E(mem_7BE8) + 4));    // $A755
     if (!(get_province_ai_state(sub_838F(/*stack underflow*/ regA)))) goto L_A799;    // $A75F
@@ -2891,10 +2706,9 @@ word sub_A721(word arg1, word arg2, word arg3, word arg4) {
     local8 = *(word*)((sub_827E(mem_7BE8) + 4));    // $A768
     if ((*(word*)((sub_827E(mem_7BE8) + 4)) > (*(word*)((sub_827E(/*stack underflow*/ regA) + 4)) / 2))) goto L_A799;    // $A77D
     local8 = 100;    // $A787
-    // TODO: cmp_ugt
-    if (*(word*)(((sub_838F((const_two * 100)) * 26) + 0x7013))) {    // $A796
+    if (((unsigned)*(word*)(((sub_838F((const_two * 100)) * 26) + 0x7013)) > (unsigned)0x7013)) {    // $A796
 L_A799:
-    return *(word*)(((sub_838F((const_two * 100)) * 26) + 0x7013));    // $A799
+    return ((unsigned)*(word*)(((sub_838F((const_two * 100)) * 26) + 0x7013)) > (unsigned)0x7013);    // $A799
     }
 L_A79A:
     local10 = 0;    // $A79B
@@ -2923,10 +2737,8 @@ L_A7C4:
 // (body @ $A7EA)
 
 word sub_A7E5(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: loadA_frameaddr $FFF8
-    local11 = sub_A0F3(?, *(byte*)(sub_829A(0, mem_7BE8)), *(byte*)(sub_828B(0, mem_7BE8)));    // $A806
-    // TODO: bitxor
-    local6 = mem_7BE8;    // $A80C
+    local11 = sub_A0F3(&local8, *(byte*)(sub_829A(0, mem_7BE8)), *(byte*)(sub_828B(0, mem_7BE8)));    // $A806
+    local6 = (mem_7BE8 ^ 1);    // $A80C
     local7 = 0;    // $A80E
     local5 = 0;    // $A80F
     goto L_A83A;    // $A810
@@ -2959,13 +2771,11 @@ L_A86A:
     if (sub_A7E5()) goto L_A887;    // $A86D
     if (!(sub_836A(mem_7BE8))) goto L_A887;    // $A877
     if (mem_7BE8) goto L_A8CD;    // $A87D
-    // TODO: cmp_ugt
-    if (arg1) {    // $A884
+    if (((unsigned)arg1 > (unsigned)29)) {    // $A884
 L_A887:
     local11 = sub_838F(mem_7BE8);    // $A895
-    // TODO: loadA_mem_byte $6F4F
-    local10 = sub_90BB(sub_838F(mem_7BE8));    // $A89E
-    if ((sub_90BB(sub_838F(mem_7BE8)) != 0x00FF)) {    // $A8A3
+    local10 = mem_6F4F;    // $A89E
+    if ((mem_6F4F != 0x00FF)) {    // $A8A3
     if (test_6f65_bit7(mem_7BE8)) {    // $A8B1
     local10 = 0x00FF;    // $A8B4
     local11 = 0x00FF;    // $A8B5
@@ -3011,9 +2821,7 @@ L_A91B:
     local10 = sub_90A0();    // $A92F
     if ((!((sub_90A0() != 48)))) return 0;    // $A933
     local10 = 48;    // $A93B
-    // TODO: loadA_frameaddr $FFF8
-    // TODO: loadA_frameaddr $FFFA
-    if (!(sub_8F28(/*stack underflow*/ regA, 0, 0))) goto L_A95F;    // $A948
+    if (!(sub_8F28(/*stack underflow*/ regA, &local8, &local9))) goto L_A95F;    // $A948
     local8 = 48;    // $A94B
     local9 = 48;    // $A94C
     if (!(sub_8F11(/*stack underflow*/ regA, /*stack underflow*/ regA))) goto L_A95F;    // $A951
@@ -3027,17 +2835,14 @@ L_A91B:
 
 word sub_A96C(word arg1, word arg2, word arg3, word arg4) {
     local9 = sub_838F(mem_7BE8);    // $A978
-    // TODO: bitxor
-    local11 = mem_7BE8;    // $A97E
+    local11 = (mem_7BE8 ^ 1);    // $A97E
 L_A97F:
     local7 = *(byte*)(sub_82A9());    // $A98A
     local6 = *(byte*)(sub_82B9());    // $A98F
     local8 = sub_90A0();    // $A993
     if ((!((sub_90A0() != 48)))) return 0;    // $A997
     local8 = 48;    // $A99F
-    // TODO: loadA_frameaddr $FFF4
-    // TODO: loadA_frameaddr $FFF6
-    if (sub_8F28(/*stack underflow*/ regA, 0, 0)) {    // $A9AC
+    if (sub_8F28(/*stack underflow*/ regA, &local6, &local7)) {    // $A9AC
     local6 = 48;    // $A9AF
     local7 = 48;    // $A9B0
     if (sub_8F11(/*stack underflow*/ regA, /*stack underflow*/ regA)) {    // $A9B5
@@ -3080,24 +2885,21 @@ L_AA32:
     local10 = sub_8792(5, 1);    // $AA45
     if (sub_8792(5, 1)) {    // $AA46
     local10 = (local10 - 1);    // $AA4B
-    // TODO: bitxor
-    local8 = mem_7BE8;    // $AA52
-    if (sub_8F79((local10 - 1), mem_7BE8)) goto L_AA67;    // $AA58
+    local8 = (mem_7BE8 ^ 1);    // $AA52
+    if (sub_8F79((local10 - 1), (mem_7BE8 ^ 1))) goto L_AA67;    // $AA58
 L_AA5E:
 L_AA62:
     return 0;    // $AA66
 L_AA67:
     local11 = (*(word*)(sub_827E(mem_7BE8)) - *(word*)((sub_827E(mem_7BE8) + 4)));    // $AA7B
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if (!(local11)) goto L_AA88;    // $AA7F
+    if (!((local11 >= 0))) goto L_AA88;    // $AA7F
     goto L_AA5E;    // $AA85
 L_AA88:
-    local11 = *(word*)((sub_827E(mem_7BE8) + 4));    // $AA8F
+    local11 = 0;    // $AA8F
     local11 = sub_8792(mem_B1CC, 1);    // $AA95
     if (!(sub_8792(mem_B1CC, 1))) goto L_AA62;    // $AA96
-    local11 = *(word*)((sub_827E(mem_7BE8) + 4));    // $AA99
-    local10 = *(word*)((sub_827E(mem_7BE8) + 4));    // $AA9A
+    local11 = 0;    // $AA99
+    local10 = 0;    // $AA9A
     goto L_AA62;    // $AA9F
     }
 L_AAA2:
@@ -3288,7 +3090,6 @@ L_AE08:
 L_AE13:
     local9 = sub_AC7F();    // $AE13
     if (local9) goto L_AE2A;    // $AE15
-    // TODO: bitxor
     local10 = (local10 + 1);    // $AE23
     if (((unsigned)local10 >= (unsigned)2)) goto L_ADDB;    // $AE27
 L_AE2A:
@@ -3344,7 +3145,6 @@ L_AEF1:
     }
 L_AEF4:
     if ((*(byte*)(local8) != 0x00FF)) goto L_AEC7;    // $AEFA
-    // TODO: bitxor
     return ui_helper_cd20();    // $AF3A
     }
 }
@@ -3365,8 +3165,7 @@ L_AF6A:
     arg1 = 1;    // $AF78
 L_AF80:
     arg1 = 1;    // $AF80
-    // TODO: loadA_mem_byte $6DA1
-    if ((apply_conquest_outcome() & 0x0080)) goto L_AFE0;    // $AF95
+    if ((mem_6DA1 & 0x0080)) goto L_AFE0;    // $AF95
     goto L_AFE0;    // $AF9F
 L_AFA2:
     local11 = 0;    // $AFAB
@@ -3374,7 +3173,7 @@ L_AFAC:
     local11 = 0xBA7F;    // $AFB3
     local11 = (local11 + 1);    // $AFBA
     if (((unsigned)local11 >= (unsigned)16)) goto L_AFAC;    // $AFBF
-    // TODO: storeA_mem_byte $6E33
+    mem_6E33 = 50;    // $AFD7
 L_AFE0:
     return find_record_9e3c(30);    // $AFE0
     }
@@ -3397,11 +3196,9 @@ L_B021:
 L_B030:
     local5 = 0;    // $B034
 L_B035:
-    // TODO: loadA_frameaddr $FFFC
-    local5 = 0;    // $B03E
-    *(word*)(0) = (sub_827E(((local5 << 1) + 0)) + 2);    // $B044
-    // TODO: loadA_frameaddr $FFF8
-    *(word*)(((local5 << 1) + (sub_827E(((local5 << 1) + 0)) + 2))) = 0;    // $B04F
+    local5 = &local10;    // $B03E
+    *(word*)(&local10) = (sub_827E(((local5 << 1) + &local10)) + 2);    // $B044
+    *(word*)(((local5 << 1) + &local8)) = 0;    // $B04F
     local5 = (local5 + 1);    // $B052
     if (((unsigned)local5 >= (unsigned)2)) goto L_B035;    // $B056
     local7 = 0;    // $B05A
@@ -3409,10 +3206,7 @@ L_B05B:
     local7 = 2;    // $B05B
     local5 = 0;    // $B061
 L_B062:
-    // TODO: loadA_frameaddr $FFFC
-    // TODO: setB_imm4_50
-    // TODO: cmp_sge
-    if (*(word*)(*(word*)(((local5 << 1) + 0)))) {    // $B06E
+    if ((*(word*)(*(word*)(((local5 << 1) + &local10))) >= 0)) {    // $B06E
     local5 = 0;    // $B071
     return sub_AF3B(4);    // $B07E
     }
@@ -3426,8 +3220,6 @@ L_B07F:
     return sub_AF3B(/*stack underflow*/ regA);    // $B096
     }
 L_B097:
-    // TODO: loadA_frameaddr $FFF8
-    // TODO: loadA_frameaddr $FFFC
     local7 = (local7 + 1);    // $B0A5
     if (((unsigned)local7 >= (unsigned)31)) goto L_B05B;    // $B0AA
     return sub_AF3B(3);    // $B0B8

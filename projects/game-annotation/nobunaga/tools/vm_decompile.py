@@ -53,6 +53,56 @@ def local_name(opcode_low, kind):
         return f"local{opcode_low}"
 
 
+# --- General frame-local access (signed-offset opcodes) ---
+# Opcodes $81-$88 / $A0-$A3 / $90 / $DE-$DF address frame memory relative to the
+# VM frame pointer vm_fp (decoded from the handlers at $EA34-$EB25: each does
+# `jsr vm_addr_ptr2_plus_{sbyte,word}` -> effective addr = vm_fp + offset, then a
+# load/store/push). The 12 standard WORD locals sit at vm_fp-24..vm_fp-2
+# (local0..local11), so an offset landing on one renders as that name — identical
+# to the quick load/store opcodes $00-$3F. Any other offset (odd byte locals, args
+# above fp, big frames) renders as an explicit (fp +/- N) expression.
+_WORD_SLOT = {(-24 + 2 * n): f"local{n}" for n in range(12)}
+
+
+def _signed_operand(operand):
+    """Parse the `$XX`/`$XXXX` operand of a frame op as a signed byte/word.
+    Width is taken from the hex-digit count vm-disasm.py emits (2 = signed byte,
+    4 = signed word) — matches how the byte-offset ($81/83/85/87) vs word-offset
+    ($82/84/86/88, $A0-A3, $90, $DE/DF) handlers fetch their operand."""
+    m = re.search(r'\$([0-9A-Fa-f]+)', operand)
+    if not m:
+        return 0
+    h = m.group(1)
+    val = int(h, 16)
+    bits = 4 * len(h)
+    if bits and val >= (1 << (bits - 1)):
+        val -= (1 << bits)
+    return val
+
+
+def _fp_disp(off):
+    """Render a signed frame displacement as 'fp', 'fp + N', or 'fp - N'."""
+    if off == 0:
+        return "fp"
+    return f"fp + {off}" if off > 0 else f"fp - {-off}"
+
+
+def frame_word(off):
+    """Word frame local at vm_fp+off (lvalue or rvalue)."""
+    return _WORD_SLOT.get(off) or f"*(word*)({_fp_disp(off)})"
+
+
+def frame_byte(off):
+    """Byte frame local at vm_fp+off (lvalue or rvalue)."""
+    return f"*(byte*)({_fp_disp(off)})"
+
+
+def frame_addr(off):
+    """Address of a frame local at vm_fp+off."""
+    name = _WORD_SLOT.get(off)
+    return f"&{name}" if name else f"({_fp_disp(off)})"
+
+
 # Province record field annotations (offsets in bytes, fields are words).
 # Used to rewrite `*(word*)(record + N)` as `record->field`.
 PROV_FIELDS = {
@@ -583,6 +633,78 @@ def decompile(filepath, sub_addr, labels=None):
                 state.emit(f"// ext_op {name}")
             else:
                 state.emit(f"// ext_op ${idx:02X} (unmapped)")
+
+        # === General frame-local access (vm_fp + signed offset) ===
+        # Decoded from the handlers $EA34-$EB25 (see _WORD_SLOT/frame_* helpers).
+        # $81/$82 word load -> A; $83/$84 word load -> B; $85/$86 store A -> word;
+        # $87/$88 push word; $A0-$A3 byte load/store/push; $90 add-imm16; $DE/$DF
+        # frame-address; $50 setB=0.
+        elif mnem in ('op_81_byte', 'op_82_bb'):
+            state.regA = frame_word(_signed_operand(operand))
+        elif mnem in ('op_83_byte', 'op_84_bwb'):
+            state.regB = frame_word(_signed_operand(operand))
+        elif mnem in ('op_85_byte', 'op_86_bwb'):
+            state.emit(f"{frame_word(_signed_operand(operand))} = {state.regA};")
+        elif mnem in ('op_87_byte', 'op_88_bwb'):
+            state.stack.append(frame_word(_signed_operand(operand)))
+        elif mnem == 'op_A0_A3_byte':
+            off = _signed_operand(operand)
+            sel = opcode & 0x03
+            if sel == 0:      # $A0 byte load -> A
+                state.regA = frame_byte(off)
+            elif sel == 1:    # $A1 byte load -> B
+                state.regB = frame_byte(off)
+            elif sel == 2:    # $A2 store A -> byte
+                state.emit(f"{frame_byte(off)} = {state.regA};")
+            else:             # $A3 push byte
+                state.stack.append(frame_byte(off))
+        elif mnem == 'loadA_frameaddr':
+            state.regA = frame_addr(_signed_operand(operand))
+        elif mnem == 'loadB_frameaddr':
+            state.regB = frame_addr(_signed_operand(operand))
+        elif mnem == 'op_90_bb':
+            # $90: regA += imm16 (handler falls into the addA tail at $EADC).
+            val = _signed_operand(operand)
+            sign = '+' if val >= 0 else '-'
+            state.regA = f"({state.regA} {sign} {abs(val)})"
+        elif mnem == 'setB_imm4_50':
+            # $50: dedicated handler stores Y(=0) into regB.
+            state.regB = "0"
+
+        # === Comparisons / arithmetic / logic (mirror the handled family) ===
+        elif mnem == 'cmp_sge':
+            state.regA = f"({state.regA} >= {state.regB})"
+        elif mnem == 'cmp_ugt':
+            state.regA = f"((unsigned){state.regA} > (unsigned){state.regB})"
+        elif mnem == 'cmp_ult':
+            state.regA = f"((unsigned){state.regA} < (unsigned){state.regB})"
+        elif mnem == 'is_zero':
+            state.regA = f"({state.regA} == 0)"
+        elif mnem == 'div_unsigned':
+            state.regA = f"((unsigned){state.regA} / (unsigned){state.regB})"
+        elif mnem == 'mod_unsigned':
+            state.regA = f"((unsigned){state.regA} % (unsigned){state.regB})"
+        elif mnem == 'bitxor':
+            state.regA = f"({state.regA} ^ {state.regB})"
+        elif mnem == 'lshr_by_regB':
+            state.regA = f"((unsigned){state.regA} >> {state.regB})"
+        elif mnem == 'ashr_by_regB':
+            state.regA = f"({state.regA} >> {state.regB})"
+        elif mnem == 'pushA_B2':
+            state.stack.append(state.regA)
+
+        # === Absolute byte memory (byte mirrors of loadA_mem_word/store) ===
+        elif mnem == 'loadA_mem_byte':
+            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
+            addr = int(m.group(1), 16) if m else 0
+            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
+            state.regA = label_m.group(1) if label_m else f"mem_{addr:04X}"
+        elif mnem == 'storeA_mem_byte':
+            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
+            addr = int(m.group(1), 16) if m else 0
+            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
+            name = label_m.group(1) if label_m else f"mem_{addr:04X}"
+            state.emit(f"{name} = {state.regA};")
 
         # === Misc ===
         else:
