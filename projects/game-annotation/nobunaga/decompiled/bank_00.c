@@ -1639,9 +1639,10 @@ L_9ECA:
     return local9;    // $9ED8
 }
 
+// $9ED9 ai_event_build_two_batches_dispatch_or_announce
 // (body @ $9EDE)
 
-word sub_9ED9(word arg1, word arg2, word arg3, word arg4) {
+word ai_event_build_two_batches_dispatch_or_announce(word arg1, word arg2, word arg3, word arg4) {
     local11 = 0;    // $9EDF
     local10 = rng_mod(2);    // $9EE5
     goto L_9F00;    // $9EE7
@@ -1672,9 +1673,10 @@ L_9F3B:
     }
 }
 
+// $9F57 event_boost_province_wealth_loyalty
 // (body @ $9F5C)
 
-word sub_9F57(word arg1, word arg2, word arg3, word arg4) {
+word event_boost_province_wealth_loyalty(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $9F5C
     local11 = (get_daimyo_stat4_by_fief(/*via arg1*/ ?) / 10);    // $9F63
     if (rng_mod(2)) {    // $9F69
@@ -1685,9 +1687,10 @@ L_9F8B:
     return (arg2->loyalty + (rng_mod(40) + local11));    // $9F8B
 }
 
+// $9F8C per_turn_age_daimyo_decay_health_and_province_stats
 // (body @ $9F91)
 
-word sub_9F8C(word arg1, word arg2, word arg3, word arg4) {
+word per_turn_age_daimyo_decay_health_and_province_stats(word arg1, word arg2, word arg3, word arg4) {
     if ((mem_6D9F != 0x0618)) {    // $9F98
     local11 = 0;    // $9FA6
     local9 = daimyo_record_addr(0);    // $9FAC
@@ -1735,9 +1738,10 @@ L_A065:
     }
 }
 
+// $A066 init_province_highwater_from_records
 // (body @ $A06B)
 
-word sub_A066(word arg1, word arg2, word arg3, word arg4) {
+word init_province_highwater_from_records(word arg1, word arg2, word arg3, word arg4) {
     goto L_A09F;    // $A071
 L_A074:
     local9 = ((local11 << 3) + 0x6003);    // $A07B
@@ -1755,9 +1759,10 @@ L_A09F:
     return ((unsigned)local11 >= (unsigned)scenario_fief_count);    // $A0A8
 }
 
+// $A0A9 update_province_highwater_marks
 // (body @ $A0AE)
 
-word sub_A0A9(word arg1, word arg2, word arg3, word arg4) {
+word update_province_highwater_marks(word arg1, word arg2, word arg3, word arg4) {
     local11 = ((arg1 * 26) + 0x7001);    // $A0B6
     local10 = *(word*)((local11 + 8));    // $A0BA
     if ((*(word*)(((arg1 << 3) + 0x6003)) <= *(word*)((local11 + 8)))) {    // $A0C6
@@ -1782,9 +1787,10 @@ L_A127:
     return local10;    // $A127
 }
 
+// $A128 event_boost_province_gold_output
 // (body @ $A12D)
 
-word sub_A128(word arg1, word arg2, word arg3, word arg4) {
+word event_boost_province_gold_output(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $A12D
     local11 = (get_daimyo_stat4_by_fief(/*via arg1*/ ?) / 10);    // $A134
     *(word*)(arg2) = (*(word*)(arg2) + (rng_mod(10) + local11));    // $A142
@@ -1795,9 +1801,10 @@ L_A15A:
     return (arg2->output + (rng_mod(10) + local11));    // $A15A
 }
 
+// $A15B consume_province_army_upkeep
 // (body @ $A160)
 
-word sub_A15B(word arg1, word arg2, word arg3, word arg4) {
+word consume_province_army_upkeep(word arg1, word arg2, word arg3, word arg4) {
     local11 = (arg1->men / 2);    // $A166
     local10 = min_word(arg1->rice, *(word*)(arg1));    // $A172
     if ((min_word(arg1->rice, *(word*)(arg1)) < local11)) {    // $A175
@@ -1812,25 +1819,28 @@ L_A181:
     return (arg1->rice - local11);    // $A190
 }
 
+// $A191 calc_charisma_scaled_income_variance
 // (body @ $A196)
 
-word sub_A191(word arg1, word arg2, word arg3, word arg4) {
+word calc_charisma_scaled_income_variance(word arg1, word arg2, word arg3, word arg4) {
     arg1 = 0x6D2D;    // $A19D
     return pct_op(/*stack underflow*/ regA, (get_daimyo_stat4_by_fief(*(byte*)((arg1 + 0x6D2D))) / 2));    // $A1A9
 }
 
+// $A1AA calc_fief_harvest_base_term
 // (body @ $A1AF)
 
-word sub_A1AA(word arg1, word arg2, word arg3, word arg4) {
+word calc_fief_harvest_base_term(word arg1, word arg2, word arg3, word arg4) {
     return (pct_op(*(byte*)((arg1 + 0x6D2D)), *(word*)(((arg1 << 3) + 0x6009))) + pct_op(*(byte*)((arg1 + 0x6D2D)), pct_op(40, *(word*)(((arg1 << 3) + 0x6007)))));    // $A1E1
 }
 
+// $A1E2 calc_fief_gold_income
 // (body @ $A1E7)
 
-word sub_A1E2(word arg1, word arg2, word arg3, word arg4) {
+word calc_fief_gold_income(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $A1E7
     arg1 = 0x6D2D;    // $A203
-    local11 = ((sub_A1AA(pct_op(*(byte*)((arg1 + 0x6D2D)), arg2->town)) + rng_mod((sub_A191(/*via arg1*/ ?) + 1))) + rng_mod((sub_A191(/*via arg1*/ ?) + 1)));    // $A20C
+    local11 = ((calc_fief_harvest_base_term(pct_op(*(byte*)((arg1 + 0x6D2D)), arg2->town)) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1)));    // $A20C
     if ((local11 > arg2->header)) {    // $A215
     local11 = arg2->header;    // $A21C
     }
@@ -1838,12 +1848,13 @@ L_A21D:
     return local11;    // $A21E
 }
 
+// $A21F calc_fief_rice_income
 // (body @ $A224)
 
-word sub_A21F(word arg1, word arg2, word arg3, word arg4) {
+word calc_fief_rice_income(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $A224
     arg1 = 0x6003;    // $A253
-    local11 = ((sub_A1AA(pct_op(*(byte*)((arg1 + 0x6D2D)), pct_op(*(word*)(((arg1 << 3) + 0x6005)), *(word*)(((arg1 << 3) + 0x6003))))) + rng_mod((sub_A191(/*via arg1*/ ?) + 1))) + rng_mod((sub_A191(/*via arg1*/ ?) + 1)));    // $A25C
+    local11 = ((calc_fief_harvest_base_term(pct_op(*(byte*)((arg1 + 0x6D2D)), pct_op(*(word*)(((arg1 << 3) + 0x6005)), *(word*)(((arg1 << 3) + 0x6003))))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1)));    // $A25C
     if ((local11 > arg2->header)) {    // $A265
     local11 = arg2->header;    // $A26C
     }
@@ -1851,9 +1862,10 @@ L_A26D:
     return local11;    // $A26E
 }
 
+// $A26F harvest_income_sweep_all_fiefs
 // (body @ $A274)
 
-word sub_A26F(word arg1, word arg2, word arg3, word arg4) {
+word harvest_income_sweep_all_fiefs(word arg1, word arg2, word arg3, word arg4) {
     goto L_A2D5;    // $A27A
 L_A27D:
     local10 = ?;    // $A27D
@@ -1867,30 +1879,32 @@ L_A299:
     local9 = *(byte*)((local10 + 0x6D2D));    // $A2A5
     local11 = 0x6D2D;    // $A2A6
     local10 = 0x6D2D;    // $A2A7
-    *(word*)(local11) = (*(word*)(local11) + sub_A1E2(/*stack underflow*/ regA, /*stack underflow*/ regA));    // $A2B2
-    local11 = sub_A1E2(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2B3
-    local10 = sub_A1E2(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2B4
-    *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) + sub_A21F(/*stack underflow*/ regA, /*stack underflow*/ regA));    // $A2C0
+    *(word*)(local11) = (*(word*)(local11) + calc_fief_gold_income(/*stack underflow*/ regA, /*stack underflow*/ regA));    // $A2B2
+    local11 = calc_fief_gold_income(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2B3
+    local10 = calc_fief_gold_income(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2B4
+    *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) + calc_fief_rice_income(/*stack underflow*/ regA, /*stack underflow*/ regA));    // $A2C0
     }
 L_A2C1:
-    local11 = sub_A21F(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2C4
-    local11 = sub_A21F(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2C9
-    local10 = sub_A21F(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2CE
+    local11 = calc_fief_rice_income(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2C4
+    local11 = calc_fief_rice_income(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2C9
+    local10 = calc_fief_rice_income(/*stack underflow*/ regA, /*stack underflow*/ regA);    // $A2CE
 L_A2D5:
     local10 = (local10 + 1);    // $A2D5
     if (((unsigned)local10 >= (unsigned)scenario_fief_count)) goto L_A27D;    // $A2DB
     return ((unsigned)local10 >= (unsigned)scenario_fief_count);    // $A2DE
 }
 
+// $A2DF roll_3pct_event_chance
 // (body @ $A2E4)
 
-word sub_A2DF(word arg1, word arg2, word arg3, word arg4) {
+word roll_3pct_event_chance(word arg1, word arg2, word arg3, word arg4) {
     return (rng_mod(100) < 3);    // $A2EC
 }
 
+// $A2ED drift_daimyo_stat3_random
 // (body @ $A2F2)
 
-word sub_A2ED(word arg1, word arg2, word arg3, word arg4) {
+word drift_daimyo_stat3_random(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $A2F2
     local11 = (daimyo_record_addr(/*via arg1*/ ?) + 3);    // $A2F8
     *(byte*)(local11) = (*(byte*)(local11) + rng_mod(11));    // $A304
@@ -1898,9 +1912,10 @@ word sub_A2ED(word arg1, word arg2, word arg3, word arg4) {
     return (*(byte*)(local11) - 5);    // $A30C
 }
 
+// $A30D per_period_fief_daimyo_update_driver
 // (body @ $A312)
 
-word sub_A30D(word arg1, word arg2, word arg3, word arg4) {
+word per_period_fief_daimyo_update_driver(word arg1, word arg2, word arg3, word arg4) {
     goto L_A349;    // $A313
 L_A316:
     local11 = ?;    // $A316
@@ -1936,9 +1951,10 @@ L_A3A0:
     return ((unsigned)local11 >= (unsigned)scenario_fief_count);    // $A3A9
 }
 
+// $A3AA write_sram_save_checksum_and_signature
 // (body @ $A3AF)
 
-word sub_A3AA(word arg1, word arg2, word arg3, word arg4) {
+word write_sram_save_checksum_and_signature(word arg1, word arg2, word arg3, word arg4) {
     local9 = mem_6F61;    // $A3B2
     local9 = ?;    // $A3B9
     local10 = syscall_dispatch(/*stack underflow*/ regA, 0x00FF, 0x6001, 0, 22);    // $A3C1
@@ -1963,9 +1979,10 @@ L_A3FB:
     return confirm_prompt();    // $A454
 }
 
+// $A455 ai_strategic_turn_planner
 // (body @ $A45A)
 
-word sub_A455(word arg1, word arg2, word arg3, word arg4) {
+word ai_strategic_turn_planner(word arg1, word arg2, word arg3, word arg4) {
     if ((mem_6E48 == 1)) {    // $A466
     } else {
     if (!(mem_6F61)) goto L_A47F;    // $A479
@@ -2001,7 +2018,7 @@ L_A505:
     goto L_A523;    // $A51D
 L_A520:
 L_A523:
-    if (!(sub_A2DF())) goto L_A531;    // $A523
+    if (!(roll_3pct_event_chance())) goto L_A531;    // $A523
     local8 = (local8 + 1);    // $A528
     *(byte*)((((local8 + 1) - 1) + 0x7BAD)) = local9;    // $A530
 L_A531:
@@ -2033,15 +2050,17 @@ L_A5D4:
     }
 }
 
+// $A5D5 rng_mod_30
 // (body @ $A5DA)
 
-word sub_A5D5(word arg1, word arg2, word arg3, word arg4) {
+word rng_mod_30(word arg1, word arg2, word arg3, word arg4) {
     return rng_mod(((const_two + 1) * 10));    // $A5E5
 }
 
+// $A5E6 spawn_zealot_uprising_force_from_province
 // (body @ $A5EB)
 
-word sub_A5E6(word arg1, word arg2, word arg3, word arg4) {
+word spawn_zealot_uprising_force_from_province(word arg1, word arg2, word arg3, word arg4) {
     local5 = ((battle_defending_province * 26) + 0x7001);    // $A5F5
     local10 = (((battle_defending_province * 26) + 0x7001) + 8);    // $A5F7
     local9 = (local5 + 16);    // $A5FB
@@ -2095,17 +2114,18 @@ L_A6FE:
     local8 = (local8 + 2);    // $A710
     *(word*)(((local8 + 2) + -2)) = (*(word*)((local5 + 24)) - *(word*)((local5 + 18)));    // $A71F
     local8 = (local8 + 2);    // $A722
-    *(word*)(((local8 + 2) + -2)) = sub_A5D5();    // $A729
+    *(word*)(((local8 + 2) + -2)) = rng_mod_30();    // $A729
     local8 = *(word*)((local5 + 18));    // $A72A
-    *(word*)(*(word*)((local5 + 18))) = sub_A5D5();    // $A72E
+    *(word*)(*(word*)((local5 + 18))) = rng_mod_30();    // $A72E
     return selected_province_idx;    // $A741
     }
     }
 }
 
+// $A742 shuffle_fief_turn_order_array
 // (body @ $A747)
 
-word sub_A742(word arg1, word arg2, word arg3, word arg4) {
+word shuffle_fief_turn_order_array(word arg1, word arg2, word arg3, word arg4) {
     goto L_A76E;    // $A748
 L_A74B:
     local11 = ?;    // $A74B
