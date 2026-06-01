@@ -1197,7 +1197,7 @@ word append_candidate_priority1(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $9626)
 
 word reassign_daimyo24_fiefs_to_owner50(word arg1, word arg2, word arg3, word arg4) {
-    selected_province_idx = mem_7BAB;    // $9629
+    selected_province_idx = scenario50_event_current_fief_idx;    // $9629
     battle_defending_province = 30;    // $962E
     goto L_9659;    // $9632
 L_9635:
@@ -1241,7 +1241,7 @@ word scenario50_fief30_event_eligible(word arg1, word arg2, word arg3, word arg4
     war_attacker_men = 0;    // $9702
     goto L_9734;    // $9708
 L_970B:
-    mem_7BAB = *(byte*)(local11);    // $970D
+    scenario50_event_current_fief_idx = *(byte*)(local11);    // $970D
     war_attacker_men = (war_attacker_men + *(word*)(((*(byte*)(local11) * 26) + 0x7011)));    // $971F
     if ((war_attacker_men > 0x270F)) {    // $9729
     war_attacker_men = 0x270F;    // $972F
@@ -1428,7 +1428,7 @@ L_99F8:
     local10 = (ui_helper_e510(1) + 1);    // $9A19
     local11 = ((unsigned)local10 / (unsigned)3);    // $9A1D
     local11 = 3;    // $9A2D
-    mem_6E33 = 51;    // $9A44
+    post_elim_owner_sentinel_id = 51;    // $9A44
     mem_6DC0 = 1;    // $9A48
     mem_6D15 = 5;    // $9A4C
     local8 = 0;    // $9A56
@@ -2249,10 +2249,10 @@ L_A7B0:
     if ((ai_turn_flags & 128)) goto L_A843;    // $A7B7
     battle_defending_province = battle_defender_province_staging;    // $A7BD
     if ((battle_defender_province_staging != 255)) {    // $A7C4
-    if ((mem_6F68 == 1)) {    // $A7CC
+    if ((battle_staging_entry_flag_array == 1)) {    // $A7CC
     }
 L_A7D9:
-    if (mem_6F68) {    // $A7DC
+    if (battle_staging_entry_flag_array) {    // $A7DC
     } else {
     }
 L_A7E4:

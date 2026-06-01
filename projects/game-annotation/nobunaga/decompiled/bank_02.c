@@ -80,7 +80,7 @@ L_826A:
 
 word set_combat_state_pair_7bf5_7bf7(word arg1, word arg2, word arg3, word arg4) {
     tactical_cursor_cell_7bf5 = arg1;    // $8276
-    mem_7BF7 = arg2;    // $827A
+    tactical_cursor_row_7bf7 = arg2;    // $827A
     return arg2;    // $827D
 }
 
@@ -255,7 +255,7 @@ word draw_tactical_cursor_region(word arg1, word arg2, word arg3, word arg4) {
     if (!(is_cell_valid_for_phase(tactical_cursor_cell_7bf5))) return is_cell_valid_for_phase(tactical_cursor_cell_7bf5);    // $8417
     if ((arg1 == 1)) {    // $841E
     local10 = tactical_cursor_cell_7bf5;    // $8424
-    local9 = mem_7BF7;    // $8428
+    local9 = tactical_cursor_row_7bf7;    // $8428
     local11 = 1;    // $8436
 L_8437:
     local11 = 3;    // $8442
@@ -3367,7 +3367,7 @@ L_AFAC:
     local11 = battle_setup_select_prov_data_ba7f;    // $AFB3
     local11 = (local11 + 1);    // $AFBA
     if (((unsigned)local11 >= (unsigned)16)) goto L_AFAC;    // $AFBF
-    mem_6E33 = 50;    // $AFD7
+    post_elim_owner_sentinel_id = 50;    // $AFD7
 L_AFE0:
     return find_record_9e3c(30);    // $AFE0
     }
