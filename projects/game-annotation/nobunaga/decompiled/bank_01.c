@@ -920,10 +920,10 @@ L_8F3A:
     goto L_8F3A;    // $8F3F
 L_8F42:
     if (!(*(byte*)((battle_defending_province + 0x6DA2)))) goto L_8FA1;    // $8F4A
-    if ((mem_6F4F == 0x00FF)) goto L_8F95;    // $8F69
+    if ((deduped_owner_list == 0x00FF)) goto L_8F95;    // $8F69
     if (!(rng_mod((*(byte*)((local5 + 3)) / 10)))) goto L_8F95;    // $8F76
     *(byte*)((selected_province_idx + 0x6DA2)) = 0;    // $8F82
-    *(byte*)((mem_6F4F + 0x6DA2)) = 0;    // $8F8C
+    *(byte*)((deduped_owner_list + 0x6DA2)) = 0;    // $8F8C
     mem_6F66 = 0;    // $8F8E
     goto L_8F96;    // $8F92
 L_8F95:
@@ -1244,10 +1244,10 @@ word ai_try_war_attack(word arg1, word arg2, word arg3, word arg4) {
 L_94C3:
     return 0;    // $94C4
 L_94C5:
-    local10 = pick_fief_with_most_men(0x6F4F);    // $94D7
+    local10 = pick_fief_with_most_men(deduped_owner_list);    // $94D7
     if (((local10 == 0x00FF))) return 0;    // $94DD
-    local9 = pick_ai_attack_target_fief(0x6F4F);    // $94E9
-    local8 = find_fief_by_owner_men_minority(*(byte*)((selected_province_idx + 0x6E7F)), 0x6F4F);    // $94FA
+    local9 = pick_ai_attack_target_fief(deduped_owner_list);    // $94E9
+    local8 = find_fief_by_owner_men_minority(*(byte*)((selected_province_idx + 0x6E7F)), deduped_owner_list);    // $94FA
     if ((local8 != 0x00FF)) {    // $9500
     local10 = local8;    // $9504
     }
@@ -1346,7 +1346,7 @@ L_9693:
 
 word driver_move(word arg1, word arg2, word arg3, word arg4) {
     if (!(effect_war_combat_prep_b(selected_province_idx))) return 0;    // $96DD
-    if (province_select_helper(0x6F4F, 1)) {    // $96F5
+    if (province_select_helper(deduped_owner_list, 1)) {    // $96F5
     if (battle_defending_province) {    // $9709
     local9 = ((battle_defending_province * 26) + 0x7001);    // $9720
     local8 = ((selected_province_idx * 26) + 0x7001);    // $972B
@@ -1440,7 +1440,7 @@ word driver_war(word arg1, word arg2, word arg3, word arg4) {
     if (effect_war_combat_prep_a(/*stack underflow*/ regA)) {    // $9879
     local9 = 0x6DA2;    // $987C
     if (effect_war_combat_prep_b(/*stack underflow*/ regA)) {    // $9881
-    if (province_select_helper(0x6F4F, 2)) {    // $989F
+    if (province_select_helper(deduped_owner_list, 2)) {    // $989F
     if (battle_defending_province) {    // $98B3
     if (!(!(candidate_list_6f4f_lookup(&local1, battle_defending_province)))) return 0;    // $98CB
     local11 = ((selected_province_idx * 26) + 0x7001);    // $98E4

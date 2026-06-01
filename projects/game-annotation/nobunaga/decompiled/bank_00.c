@@ -96,7 +96,7 @@ L_82A3:
     local11 = (local11 + 0x0100);    // $82B9
     if (((unsigned)local11 >= (unsigned)0x7F00)) goto L_82A3;    // $82BF
     local8 = (local8 + syscall_sram_block_with_checksum(0x81EB, ui_transient_state, 0, 1));    // $82D3
-    if ((mem_7FEB == local8)) {    // $82DE
+    if ((sram_save_checksum == local8)) {    // $82DE
     local9 = 0;    // $8322
 L_8323:
     local9 = 0xB852;    // $832A
@@ -618,11 +618,11 @@ L_8E33:
     if ((*(byte*)(arg1) != 0x00FF)) goto L_8DF3;    // $8E39
     goto L_8E51;    // $8E3D
 L_8E40:
-    *(byte*)((local11 + 0x6F4F)) = *(byte*)((local11 + &local5));    // $8E4E
+    deduped_owner_list[local11] = *(byte*)((local11 + &local5));    // $8E4E
 L_8E51:
     local11 = (local11 + 1);    // $8E51
     if (((unsigned)local11 >= (unsigned)local10)) goto L_8E40;    // $8E55
-    *(byte*)((local11 + 0x6F4F)) = -1;    // $8E60
+    deduped_owner_list[local11] = -1;    // $8E60
     return local10;    // $8E62
 }
 

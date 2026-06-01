@@ -399,6 +399,18 @@ def parse_listing(filepath, sub_addr):
     return body_addr, instructions
 
 
+def _mem_name(operand, addr, labels):
+    """Name an absolute-memory operand. Precedence: the disasm's own inline
+    `(label)` -> the toml labels dict (covers [ram]/SRAM and data addresses, since
+    load_labels() reads every "0xNNNN" line regardless of section) -> mem_XXXX.
+    This is the variable-side twin of function naming: a name added to the toml's
+    [ram] block surfaces here on the next decompile-all, no asm regen required."""
+    label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
+    if label_m:
+        return label_m.group(1)
+    return _label_name(labels, addr) or f"mem_{addr:04X}"
+
+
 def _label_name(labels, addr):
     """Look up a label name for `addr`. Accepts either addr->name (str) or
     addr->(name, comment) (the nobunaga_vm.labels shape). Returns None if absent.
@@ -521,16 +533,11 @@ def decompile(filepath, sub_addr, labels=None):
         elif mnem == 'loadA_mem_word':
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             addr = int(m.group(1), 16) if m else 0
-            # Try to extract label
-            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
-            name = label_m.group(1) if label_m else f"mem_{addr:04X}"
-            state.regA = name
+            state.regA = _mem_name(operand, addr, labels)
         elif mnem == 'loadB_mem_word':
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             addr = int(m.group(1), 16) if m else 0
-            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
-            name = label_m.group(1) if label_m else f"mem_{addr:04X}"
-            state.regB = name
+            state.regB = _mem_name(operand, addr, labels)
         elif mnem == 'aslA':
             state.regA = f"({state.regA} << 1)"
         elif mnem == 'lsrA':
@@ -588,9 +595,7 @@ def decompile(filepath, sub_addr, labels=None):
             # $AA PUSH_abs — push the VALUE stored at an absolute address.
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             addr = int(m.group(1), 16) if m else 0
-            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
-            name = label_m.group(1) if label_m else f"mem_{addr:04X}"
-            state.stack.append(name)
+            state.stack.append(_mem_name(operand, addr, labels))
 
         # === Arithmetic ===
         elif mnem == 'add':
@@ -815,14 +820,11 @@ def decompile(filepath, sub_addr, labels=None):
         elif mnem == 'loadA_mem_byte':
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             addr = int(m.group(1), 16) if m else 0
-            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
-            state.regA = label_m.group(1) if label_m else f"mem_{addr:04X}"
+            state.regA = _mem_name(operand, addr, labels)
         elif mnem == 'storeA_mem_byte':
             m = re.search(r'\$([0-9A-Fa-f]+)', operand)
             addr = int(m.group(1), 16) if m else 0
-            label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
-            name = label_m.group(1) if label_m else f"mem_{addr:04X}"
-            state.emit(f"{name} = {state.regA};")
+            state.emit(f"{_mem_name(operand, addr, labels)} = {state.regA};")
 
         # === Misc ===
         else:

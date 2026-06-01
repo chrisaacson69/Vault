@@ -121,6 +121,19 @@ prg_bank_count = 16        # 256 KB total
 "0x7FE9" = { name = "frame_counter",        comment = "Per-frame counter (60Hz tick). Drives animation timing, cursor blink, music transitions. Continuously incremented when game is unpaused, frozen when paused." }
 
 
+# --- Data-walk batch 1 (2026-06-01) — RAM/SRAM vars named by code back-reference ---
+# Variable-side of the label-walk: named via data-xref.py (who-reads/writes $addr) +
+# the now-named referencing subs. CAVEAT on the combat block: written FRAME-RELATIVE
+# (opcode $85), so data-xref shows 0 abs-writers — that's expected, not "never written"
+# (see [[project_nobunaga_combat_damage_writer_cracked]]).
+"0x6FF6" = { name = "combat_damage_word_0",  comment = "[DATA-WALK CONFIRMED] First of 4 precomputed directional/quadrant combat-damage words ($6FF6/$6FF8/$6FFA/$6FFC). select_quadrant_damage_by_direction ($9675, bank 2) READS $6FF6 (default) vs $6FFA (vertical-dominant) and returns one based on the attacker/defender cell-coord geometry ($B0BA/$B0EC diffs). Written frame-relative ($85) by the damage compute, so 0 abs-writers by design. Magnitudes {1,2,4,7} per [[project_nobunaga_combat_damage_formula_decoded]]." }
+"0x6FF8" = { name = "combat_damage_word_1",  comment = "[DATA-WALK] 2nd of the 4-word directional combat-damage block at $6FF6. Same 4R/3-sub combat-only ref signature as its siblings; written frame-relative. Exact direction->word mapping TBD." }
+"0x6FFA" = { name = "combat_damage_word_2",  comment = "[DATA-WALK CONFIRMED] 3rd directional combat-damage word; the vertical-dominant branch return in select_quadrant_damage_by_direction ($9675 @ $9707). Written frame-relative." }
+"0x6FFC" = { name = "combat_damage_word_3",  comment = "[DATA-WALK] 4th of the 4-word directional combat-damage block at $6FF6. Written frame-relative; TBD exact direction." }
+"0x7FEB" = { name = "sram_save_checksum",    comment = "[DATA-WALK CONFIRMED] Stored 16-bit running-sum checksum of the SRAM save body ($6001-$7FFF). write_sram_save_checksum_and_signature ($A3AA) accumulates the syscall-22 checksum and STORES it here; verify_sram_save_integrity ($821E) recomputes + compares against it on load (match -> ret 1). Sits just below the signature string at $7FED." }
+"0x6F4F" = { name = "deduped_owner_list",    comment = "[DATA-WALK CONFIRMED] FF-terminated list of UNIQUE owning-daimyo ids. dedup_owners_to_6f4f ($8DE1) reads an FF-terminated fief list, maps each fief->owner (fief_to_daimyo_map via ui_helper_d772), dedups, and writes the unique set here, returning the count. The 'distinct daimyo involved' working set (e.g. who's party to a multi-fief event)." }
+
+
 # --- Palette buffers (chapters 3 + 4) ---
 "0x0090" = { name = "palette_alt",         comment = "32-byte alt palette buffer ($0090-$00AF). Used by palette_swap ($C36C, task $12) to atomically swap with palette_shadow for fade/transition effects. Reset-fill $3E (paired with palette_shadow)." }
 "0x0700" = { name = "palette_shadow",      comment = "32-byte palette shadow ($0700-$071F); foreground writes here + sets palette_dirty; $C6D4 uploads to PPU $3F00 next NMI. Reset-fill $3E (medium grey)." }
