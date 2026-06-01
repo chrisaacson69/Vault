@@ -18,15 +18,15 @@ L_8052:
     if (mem_6F4D) goto L_80B8;    // $8093
 L_8099:
 L_80A3:
-    if (syscall_dispatch(0, 6)) goto L_80A3;    // $80A9
-    if (!(syscall_dispatch(1, 6))) goto L_80C5;    // $80B2
+    if (syscall_read_controller(0)) goto L_80A3;    // $80A9
+    if (!(syscall_read_controller(1))) goto L_80C5;    // $80B2
     goto L_80A3;    // $80B5
 L_80B8:
-    if (!(syscall_dispatch(2, 1, 10))) goto L_8099;    // $80BF
+    if (!(syscall_audio_control(2, 1))) goto L_8099;    // $80BF
     goto L_80B8;    // $80C2
 L_80C5:
-    if (syscall_dispatch(0, 6)) goto L_80D7;    // $80CB
-    if (!(syscall_dispatch(1, 6))) goto L_80C5;    // $80D4
+    if (syscall_read_controller(0)) goto L_80D7;    // $80CB
+    if (!(syscall_read_controller(1))) goto L_80C5;    // $80D4
 L_80D7:
     local11 = 0;    // $8103
 L_8104:
@@ -48,7 +48,7 @@ L_814C:
     if (((unsigned)local9 >= (unsigned)6)) goto L_8131;    // $815C
     if (!(mem_6F4D)) goto L_816F;    // $8162
 L_8165:
-    if (syscall_dispatch(2, 1, 10)) goto L_8165;    // $816C
+    if (syscall_audio_control(2, 1)) goto L_8165;    // $816C
 L_816F:
     local11 = 0;    // $819B
 L_819C:
@@ -58,11 +58,11 @@ L_819C:
     }
 L_81B1:
 L_81C5:
-    if (syscall_dispatch(0, 6)) goto L_81C5;    // $81CB
-    if (syscall_dispatch(1, 6)) goto L_81C5;    // $81D4
+    if (syscall_read_controller(0)) goto L_81C5;    // $81CB
+    if (syscall_read_controller(1)) goto L_81C5;    // $81D4
 L_81D7:
-    if (syscall_dispatch(0, 6)) goto L_81E9;    // $81DD
-    if (!(syscall_dispatch(1, 6))) goto L_81D7;    // $81E6
+    if (syscall_read_controller(0)) goto L_81E9;    // $81DD
+    if (!(syscall_read_controller(1))) goto L_81D7;    // $81E6
 L_81E9:
     if (ui_helper_d3a7()) goto L_821D;    // $8210
 L_821A:
@@ -81,21 +81,21 @@ L_8226:
 L_8235:
     if (!(!(ui_helper_d3a7()))) return 0;    // $823F
     if (strcmp(0xB88B, 0x7FED)) goto L_8226;    // $8253
-    local8 = syscall_dispatch(0x00FF, 0x6001, 0, 1, 22);    // $8269
+    local8 = syscall_sram_block_with_checksum(0x00FF, 0x6001, 0, 1);    // $8269
     local11 = 0x6100;    // $826D
 L_826E:
     local11 = ?;    // $8271
-    local8 = (local8 + syscall_dispatch(/*stack underflow*/ regA, 0x0100, 0, 1, 22));    // $827D
+    local8 = (local8 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x0100, 0, 1));    // $827D
     local11 = (local11 + 0x0100);    // $8284
     if (((unsigned)local11 >= (unsigned)0x7000)) goto L_826E;    // $828A
-    local8 = (local8 + syscall_dispatch(0x00FF, province_table_live, 0, 1, 22));    // $829E
+    local8 = (local8 + syscall_sram_block_with_checksum(0x00FF, province_table_live, 0, 1));    // $829E
     local11 = 0x7100;    // $82A2
 L_82A3:
-    local11 = syscall_dispatch(0x00FF, province_table_live, 0, 1, 22);    // $82A6
-    local8 = (local8 + syscall_dispatch(/*stack underflow*/ regA, 0x0100, 0, 1, 22));    // $82B2
+    local11 = syscall_sram_block_with_checksum(0x00FF, province_table_live, 0, 1);    // $82A6
+    local8 = (local8 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x0100, 0, 1));    // $82B2
     local11 = (local11 + 0x0100);    // $82B9
     if (((unsigned)local11 >= (unsigned)0x7F00)) goto L_82A3;    // $82BF
-    local8 = (local8 + syscall_dispatch(0x81EB, ui_transient_state, 0, 1, 22));    // $82D3
+    local8 = (local8 + syscall_sram_block_with_checksum(0x81EB, ui_transient_state, 0, 1));    // $82D3
     if ((mem_7FEB == local8)) {    // $82DE
     local9 = 0;    // $8322
 L_8323:
@@ -349,11 +349,11 @@ L_88E3:
     local11 = (local11 + 1);    // $88F1
     if (((unsigned)local11 >= (unsigned)32)) goto L_88E3;    // $88F6
 L_8908:
-    if (syscall_dispatch(0, 6)) goto L_8908;    // $890E
-    if (syscall_dispatch(1, 6)) goto L_8908;    // $8917
+    if (syscall_read_controller(0)) goto L_8908;    // $890E
+    if (syscall_read_controller(1)) goto L_8908;    // $8917
 L_891A:
-    if (syscall_dispatch(0, 6)) goto L_892C;    // $8920
-    if (!(syscall_dispatch(1, 6))) goto L_891A;    // $8929
+    if (syscall_read_controller(0)) goto L_892C;    // $8920
+    if (!(syscall_read_controller(1))) goto L_891A;    // $8929
 L_892C:
     local11 = 0;    // $8987
 L_8988:
@@ -368,7 +368,7 @@ L_8988:
 
 word init_new_game_state(word arg1, word arg2, word arg3, word arg4) {
 L_89C1:
-    if (!(!(verify_sram_save_integrity()))) return syscall_dispatch(0, 0, 10);    // $89CC
+    if (!(!(verify_sram_save_integrity()))) return syscall_audio_control(0, 0);    // $89CC
     local11 = 0;    // $89D8
 L_89D9:
     *(byte*)((local11 + 0x7FD5)) = -1;    // $89E1
@@ -1957,25 +1957,25 @@ L_A3A0:
 word write_sram_save_checksum_and_signature(word arg1, word arg2, word arg3, word arg4) {
     local9 = mem_6F61;    // $A3B2
     local9 = ?;    // $A3B9
-    local10 = syscall_dispatch(/*stack underflow*/ regA, 0x00FF, 0x6001, 0, 22);    // $A3C1
+    local10 = syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x00FF, 0x6001, 0);    // $A3C1
     local11 = 0x6100;    // $A3C5
 L_A3C6:
     local11 = ?;    // $A3C9
     local9 = ?;    // $A3CA
-    local10 = (local10 + syscall_dispatch(/*stack underflow*/ regA, /*stack underflow*/ regA, 0x0100, 0, 22));    // $A3D5
+    local10 = (local10 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, /*stack underflow*/ regA, 0x0100, 0));    // $A3D5
     local11 = (local11 + 0x0100);    // $A3DC
     if (((unsigned)local11 >= (unsigned)0x7000)) goto L_A3C6;    // $A3E2
     local9 = 0x7000;    // $A3EB
-    local10 = (local10 + syscall_dispatch(/*stack underflow*/ regA, 0x00FF, province_table_live, 0, 22));    // $A3F6
+    local10 = (local10 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x00FF, province_table_live, 0));    // $A3F6
     local11 = 0x7100;    // $A3FA
 L_A3FB:
-    local11 = syscall_dispatch(/*stack underflow*/ regA, 0x00FF, province_table_live, 0, 22);    // $A3FE
-    local9 = syscall_dispatch(/*stack underflow*/ regA, 0x00FF, province_table_live, 0, 22);    // $A3FF
-    local10 = (local10 + syscall_dispatch(/*stack underflow*/ regA, /*stack underflow*/ regA, 0x0100, 0, 22));    // $A40A
+    local11 = syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x00FF, province_table_live, 0);    // $A3FE
+    local9 = syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x00FF, province_table_live, 0);    // $A3FF
+    local10 = (local10 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, /*stack underflow*/ regA, 0x0100, 0));    // $A40A
     local11 = (local11 + 0x0100);    // $A411
     if (((unsigned)local11 >= (unsigned)0x7F00)) goto L_A3FB;    // $A417
     local9 = 0x7F00;    // $A420
-    local10 = (local10 + syscall_dispatch(/*stack underflow*/ regA, 0x81EB, ui_transient_state, 0, 22));    // $A42B
+    local10 = (local10 + syscall_sram_block_with_checksum(/*stack underflow*/ regA, 0x81EB, ui_transient_state, 0));    // $A42B
     return confirm_prompt();    // $A454
 }
 

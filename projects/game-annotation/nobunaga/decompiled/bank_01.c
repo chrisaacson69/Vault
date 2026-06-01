@@ -752,7 +752,7 @@ L_8BA3:
 L_8BA4:
     if ((mem_6F4D == 1)) {    // $8BAE
 L_8BB1:
-    if (syscall_dispatch(2, 1, 10)) goto L_8BB1;    // $8BB8
+    if (syscall_audio_control(2, 1)) goto L_8BB1;    // $8BB8
     }
 L_8BBB:
     return call_bank10_entry(1);    // $8BC0

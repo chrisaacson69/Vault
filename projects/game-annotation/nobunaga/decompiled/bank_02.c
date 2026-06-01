@@ -272,7 +272,7 @@ L_8469:
     if ((local11 >= 16)) goto L_8469;    // $847E
     }
 L_8481:
-    return syscall_dispatch(19);    // $8487
+    return syscall_wait_for_nmi();    // $8487
     }
 }
 
@@ -1425,7 +1425,7 @@ L_9451:
 L_946E:
     if (!(mem_6F4D)) goto L_94F2;    // $9476
 L_9479:
-    if (!(syscall_dispatch(2, 1, 10))) goto L_94F5;    // $9480
+    if (!(syscall_audio_control(2, 1))) goto L_94F5;    // $9480
     goto L_9479;    // $9483
 L_9486:
     if (local8) goto L_94F2;    // $9487

@@ -44,7 +44,7 @@ L_CA42:
 // (body @ $CA4B)
 
 word rng_next_wrapper(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_dispatch(17);    // $CA51
+    return syscall_rng_next();    // $CA51
 }
 
 // $CA52 rng_mod
@@ -227,7 +227,7 @@ word swap_word(word arg1, word arg2, word arg3, word arg4) {
 
 word chr_bank0_set_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $CBA9
-    return syscall_dispatch(/*via arg1*/ ?, 21);    // $CBB0
+    return syscall_set_chr_bank0_reg(/*via arg1*/ ?);    // $CBB0
 }
 
 // $CBB1 call_bank_wrap
@@ -235,7 +235,7 @@ word chr_bank0_set_wrap(word arg1, word arg2, word arg3, word arg4) {
 
 word call_bank_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $CBB6
-    return syscall_dispatch(/*via arg1*/ ?, 7);    // $CBBC
+    return syscall_call_bank(/*via arg1*/ ?);    // $CBBC
 }
 
 // $CBBD syscall16_sram_wrap
@@ -246,7 +246,7 @@ word syscall16_sram_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg3 = ?;    // $CBC3
     arg2 = ?;    // $CBC4
     arg1 = ?;    // $CBC5
-    return syscall_dispatch(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, 16);    // $CBCC
+    return syscall_memcpy_banked(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?);    // $CBCC
 }
 
 // $CC35 marry_helper_cc35
@@ -254,7 +254,7 @@ word syscall16_sram_wrap(word arg1, word arg2, word arg3, word arg4) {
 
 word marry_helper_cc35(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $CC3A
-    return syscall_dispatch(/*via arg1*/ ?, 18);    // $CC41
+    return syscall_palette_swap(/*via arg1*/ ?);    // $CC41
 }
 
 // $CC42 ppu_blit_nobank_wrap
@@ -265,7 +265,7 @@ word ppu_blit_nobank_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg3 = ?;    // $CC4A
     arg2 = ?;    // $CC4B
     arg1 = ?;    // $CC4C
-    return syscall_dispatch(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, *(word*)(fp + 19), 0, 12);    // $CC53
+    return syscall_ppu_blit_nobank(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, *(word*)(fp + 19), 0);    // $CC53
 }
 
 // $CC54 ppu_blit_from_bank_wrap
@@ -276,7 +276,7 @@ word ppu_blit_from_bank_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg3 = ?;    // $CC5E
     arg2 = ?;    // $CC5F
     arg1 = ?;    // $CC60
-    return syscall_dispatch(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, *(word*)(fp + 21), *(word*)(fp + 19), 0, 20);    // $CC68
+    return syscall_ppu_blit_from_bank(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, *(word*)(fp + 21), *(word*)(fp + 19), 0);    // $CC68
 }
 
 // $CC69 trade_helper_cc69
@@ -474,14 +474,14 @@ L_CF4F:
 // (body @ $CF55)
 
 word fill_nametable_wrap(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_dispatch(1, 0, 5);    // $CF5C
+    return syscall_fill_nametable(1, 0);    // $CF5C
 }
 
 // $CF5D fill_attr_wrap
 // (body @ $CF62)
 
 word fill_attr_wrap(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_dispatch(0, 0, 8);    // $CF69
+    return syscall_fill_attr_quadrant(0, 0);    // $CF69
 }
 
 // $CF6A ppu_render_rect_wrap
@@ -492,7 +492,7 @@ word ppu_render_rect_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg3 = ?;    // $CF72
     arg2 = ?;    // $CF73
     arg1 = ?;    // $CF74
-    return syscall_dispatch(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, *(word*)(fp + 19), 0, 13);    // $CF7B
+    return syscall_ppu_render_rect(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, *(word*)(fp + 19), 0);    // $CF7B
 }
 
 // $CF7C ppu_upload_block_wrap
@@ -503,7 +503,7 @@ word ppu_upload_block_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg3 = ?;    // $CF82
     arg2 = ?;    // $CF83
     arg1 = ?;    // $CF84
-    return syscall_dispatch(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, 1);    // $CF8A
+    return syscall_ppu_upload_block(/*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?, /*via arg4*/ ?);    // $CF8A
 }
 
 // $CF8B palette_write_wrap
@@ -512,7 +512,7 @@ word ppu_upload_block_wrap(word arg1, word arg2, word arg3, word arg4) {
 word palette_write_wrap(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $CF90
     arg1 = ?;    // $CF91
-    return syscall_dispatch(/*via arg2*/ ?, /*via arg2*/ ?, 4);    // $CF97
+    return syscall_palette_write(/*via arg2*/ ?, /*via arg2*/ ?);    // $CF97
 }
 
 // $CF98 num_to_ascii
@@ -720,7 +720,7 @@ L_D24E:
 L_D252:
 L_D269:
     local11 = 3;    // $D269
-    return syscall_dispatch(/*stack underflow*/ regA, 6);    // $D26F
+    return syscall_read_controller(/*stack underflow*/ regA);    // $D26F
 L_D270:
     goto L_D269;    // $D284
 }

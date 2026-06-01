@@ -248,6 +248,97 @@ EXT_OP_TABLE = {
 }
 
 
+# Kernel syscall table — VM calls $F226 (syscall_dispatch) via CALL_abs_imm1; the
+# 1-byte immediate IS the syscall ID, and it renders as the LAST argument of the
+# emitted `syscall_dispatch(...)` expression. Resolve it to the handler name (the
+# 23-entry surface catalogued in 04-syscall-api.md). IDs 2/11/14/15 are RTS
+# placeholder slots — deliberately ABSENT so they stay `syscall_dispatch(…, N)`
+# (honest "unused slot" signal) rather than getting a fake name.
+SYSCALL_TABLE = {
+    0:  "syscall_reset",
+    1:  "syscall_ppu_upload_block",
+    3:  "syscall_set_sprite",
+    4:  "syscall_palette_write",
+    5:  "syscall_fill_nametable",
+    6:  "syscall_read_controller",
+    7:  "syscall_call_bank",
+    8:  "syscall_fill_attr_quadrant",
+    9:  "syscall_audio_load_voice",
+    10: "syscall_audio_control",
+    12: "syscall_ppu_blit_nobank",
+    13: "syscall_ppu_render_rect",
+    16: "syscall_memcpy_banked",
+    17: "syscall_rng_next",
+    18: "syscall_palette_swap",
+    19: "syscall_wait_for_nmi",
+    20: "syscall_ppu_blit_from_bank",
+    21: "syscall_set_chr_bank0_reg",
+    22: "syscall_sram_block_with_checksum",
+}
+
+
+def _as_int(tok):
+    """Parse a C integer literal token ('6', '0x16', '22') -> int, else None."""
+    tok = tok.strip()
+    try:
+        return int(tok, 16) if tok.lower().startswith('0x') else int(tok, 10)
+    except ValueError:
+        return None
+
+
+def _split_top_level(s):
+    """Split a comma-separated arg list on TOP-LEVEL commas only (respects nested
+    parens, so `syscall_dispatch(a, foo(x, y), 6)` splits into 3, not 4)."""
+    args, depth, start = [], 0, 0
+    for i, c in enumerate(s):
+        if c == '(':
+            depth += 1
+        elif c == ')':
+            depth -= 1
+        elif c == ',' and depth == 0:
+            args.append(s[start:i])
+            start = i + 1
+    args.append(s[start:])
+    return args
+
+
+def annotate_syscall(text):
+    """Rewrite `syscall_dispatch(arg…, ID)` -> `syscall_<name>(arg…)`.
+
+    The trailing argument is the kernel syscall ID (the CALL_abs_imm1 immediate to
+    $F226). Resolve it through SYSCALL_TABLE and drop it from the visible arg list,
+    leaving the handler's actual parameters. Handles nested syscalls and balanced
+    parens; leaves unknown/placeholder IDs (and non-literal trailing args) untouched.
+    """
+    needle = "syscall_dispatch("
+    out, i = [], 0
+    while True:
+        j = text.find(needle, i)
+        if j < 0:
+            out.append(text[i:])
+            break
+        out.append(text[i:j])
+        # Walk to the matching close paren.
+        k, depth = j + len(needle), 1
+        start = k
+        while k < len(text) and depth:
+            depth += (text[k] == '(') - (text[k] == ')')
+            k += 1
+        if depth != 0:                      # unbalanced — bail, emit verbatim
+            out.append(text[j:])
+            break
+        args = _split_top_level(text[start:k - 1])
+        id_val = _as_int(args[-1]) if args else None
+        name = SYSCALL_TABLE.get(id_val)
+        if name:
+            rest = ", ".join(a.strip() for a in args[:-1])
+            out.append(f"{name}({rest})")
+        else:
+            out.append(text[j:k])           # keep raw dispatch for unmapped IDs
+        i = k
+    return "".join(out)
+
+
 # Parse a line of the disasm output. Returns (addr, opcode_byte, mnemonic, inline_op, comment)
 LINE_RE = re.compile(
     r'^\s*[>]?\$([0-9A-Fa-f]{4})\s+([0-9A-Fa-f]{2}(?:\s+[0-9A-Fa-f]{2})*)\s+(\S+)(.*)$'
@@ -761,6 +852,7 @@ def decompile(filepath, sub_addr, labels=None):
         for n in range(2, 5):
             text = annotate_field_access(text, f"arg{n}", PROV_FIELDS)
         text = annotate_array_access(text, labels)
+        text = annotate_syscall(text)
         text = simplify_expression(text)
         if text.endswith(':') and not text.startswith('//'):
             print(f"{text}")
