@@ -212,16 +212,16 @@ L_8300:
 // (body @ $8308)
 
 word sub_8303(word arg1, word arg2, word arg3, word arg4) {
-    // TODO: ext_op $25
-    // TODO: ext_op $14
-    // TODO: ext_op $25
-    // TODO: ext_op $15
-    // TODO: ext_op $01
-    // TODO: ext_op $19
-    // TODO: ext_op $03
-    // TODO: ext_op $19
-    // TODO: ext_op $02
-    // TODO: ext_op $27
+    // ext_op sign_extend16_to_32
+    // ext_op push_a32_to_vm_stack
+    // ext_op sign_extend16_to_32
+    // ext_op pop_b32_from_vm_stack
+    // ext_op umul32
+    // ext_op load_b32_from_ptr3
+    // ext_op add32
+    // ext_op load_b32_from_ptr3
+    // ext_op sdiv32
+    // ext_op ext_op_nop
     return local0;    // $8326
 }
 
@@ -231,22 +231,22 @@ word sub_8327(word arg1, word arg2, word arg3, word arg4) {
     arg2 = ?;    // $832C
     arg1 = ?;    // $832D
     if ((sub_8303(/*via arg2*/ ?, /*via arg2*/ ?) > arg3)) {    // $8334
-    // TODO: ext_op $18
+    // ext_op load_a32_from_ptr3
     // TODO: op_FF
     // TODO: op_FF
     // TODO: op_FF
     // TODO: op_FF
     } else {
-    // TODO: ext_op $25
-    // TODO: ext_op $14
-    // TODO: ext_op $25
-    // TODO: ext_op $15
-    // TODO: ext_op $01
-    // TODO: ext_op $19
-    // TODO: ext_op $02
+    // ext_op sign_extend16_to_32
+    // ext_op push_a32_to_vm_stack
+    // ext_op sign_extend16_to_32
+    // ext_op pop_b32_from_vm_stack
+    // ext_op umul32
+    // ext_op load_b32_from_ptr3
+    // ext_op sdiv32
     }
 L_8354:
-    // TODO: ext_op $27
+    // ext_op ext_op_nop
     return local0;    // $8356
     }
 }
@@ -256,14 +256,14 @@ L_8354:
 
 word helper_8357(word arg1, word arg2, word arg3, word arg4) {
     arg3 = ?;    // $835C
-    // TODO: ext_op $25
-    // TODO: ext_op $14
-    // TODO: ext_op $25
-    // TODO: ext_op $19
-    // TODO: ext_op $01
-    // TODO: ext_op $15
-    // TODO: ext_op $02
-    // TODO: ext_op $27
+    // ext_op sign_extend16_to_32
+    // ext_op push_a32_to_vm_stack
+    // ext_op sign_extend16_to_32
+    // ext_op load_b32_from_ptr3
+    // ext_op umul32
+    // ext_op pop_b32_from_vm_stack
+    // ext_op sdiv32
+    // ext_op ext_op_nop
     return min_word(/*via arg3*/ ?, local0);    // $8378
 }
 

@@ -117,7 +117,7 @@ NesPrgRom:3F126:vm_opcode_hi_table:256-byte table of high bytes of VM opcode han
 NesPrgRom:3F226:syscall_dispatch:The 22-byte parameter-copy wrapper that fakes a BRK via PHP + JMP($FFFE). Called by VM bytecode via opcode $E9 with this as the address operand. Reads syscall parameters from ($02),Y=$17..$02 — i.e. directly from the current VM frame at ptr1.
 NesPrgRom:3F246:ext_op_dispatch:Extended-opcode dispatcher (VM opcode $AB). Reads the next bytecode byte as an ext-op index, *2, indexes ext_op_table ($F263), and JMPs to the handler (pushing a return into vm_dispatch). This is the 'B7 ext-op' mechanism the math32 helpers ride on.
 NesPrgRom:3F263:ext_op_table:Extended-opcode address table (the 'B7 ext-op table' from the ROADMAP Inbox). ~44 little-endian handler addresses for the 16/32-bit math/logic/bitfield ops, indexed by ext_op_dispatch ($F246). Entry 0 = $F2C1 (umul32), then div/add/sub/cmp/bitfield/etc. DECODED from this ROM's own disasm 2026-05-31 — the external nesdev t=15931 spec was never needed.
-NesPrgRom:3F2C1:umul32:Unsigned 32-bit multiply: A($08-$0B) * B($0C-$0F) -> product accumulated in $14-block. 32-iteration shift-add (lsr A, add B to running sum on carry, ror down). ext_op_table entry 0.
+NesPrgRom:3F2C1:umul32:Unsigned 32-bit multiply: A($08-$0B) * B($0C-$0F) -> product accumulated in $14-block. 32-iteration shift-add (lsr A, add B to running sum on carry, ror down). ext_op_table entry $01.
 NesPrgRom:3F2FE:sdiv32_setup:Signed 32-bit divide front-end: record result sign in $40 (sign A ^ sign B) and dividend sign in $41, take |A| and |B| (via negate32_operand), then run udiv32. The signed-division ext-op.
 NesPrgRom:3F31C:udiv32:Unsigned 32-bit restoring divide: A($08-$0B) / B($0C-$0F); quotient -> $08-$0B, remainder -> $10-$13. Clears the remainder hi then runs the 32-iteration shift-subtract loop at $F328.
 NesPrgRom:3F427:negate32_operand:4-byte two's-complement negate of operand B ($0C-$0F): 0 - B. Used by the signed mul/div setups to take absolute value.
@@ -135,6 +135,50 @@ NesPrgRom:3EF97:vm_fetch_sbyte:Fetch a signed immediate byte from the bytecode s
 NesPrgRom:3EFA6:vm_addr_ptr2_plus_sbyte:Compute ptr0 = ptr2 + signed_byte(bytecode); ptr3++. 8-bit-signed-offset indexed addressing off base pointer ptr2.
 NesPrgRom:3EFBF:vm_fetch_word:Fetch a 16-bit immediate from the bytecode (ptr3): low byte in A, high byte in X; ptr3 += 2.
 NesPrgRom:3EFEC:vm_addr_ptr2_plus_word:Compute ptr0 = ptr2 + word(bytecode); ptr3 += 2. 16-bit indexed addressing off base pointer ptr2 (the array-access addressing mode).
+NesPrgRom:3F2F0:sdiv32:ext_op entry $02: signed 32-bit divide A/B. jsr sdiv32_setup (|A|,|B|, divide via fall-through to udiv32, result sign in $40), then if $40<0 jmp negate32_operand. Quotient in A.
+NesPrgRom:3F2FB:udiv32_entry:ext_op entry $2E: jmp udiv32 ($F31C) -- the unsigned-divide dispatch entry (3 bytes overlapping the rts tail of sdiv32 at $F2FA).
+NesPrgRom:3F362:umod32:ext_op entry $2F: unsigned 32-bit remainder. jsr udiv32 (remainder->$10-$13), copy $10-$13 into A. A = A mod B, unsigned.
+NesPrgRom:3F36B:smod32:ext_op entry $1E: signed 32-bit remainder. jsr sdiv32_setup, copy remainder->A, if dividend sign ($41)<0 negate. A = A mod B, sign of dividend.
+NesPrgRom:3F37F:add32:ext_op entry $03: 32-bit add B += scratch. B($0C-$0F) = B + scratch($10-$13). (Targets B, the operand slot -- unlike the bitwise ops which target A.)
+NesPrgRom:3F38C:sub32:ext_op entry $04: 32-bit subtract B -= scratch. B($0C-$0F) = B - scratch($10-$13).
+NesPrgRom:3F399:shl32_var:ext_op entry $1F: variable left shift. A($08-$0B) <<= count($10-$13) (decrement-count loop of asl/rol).
+NesPrgRom:3F3B5:shr32_var_arith:ext_op entry $20: variable arithmetic (sign-preserving) right shift. A >>= count($10-$13), sign-extended.
+NesPrgRom:3F3DB:shr32_var_logical:ext_op entry $2D: variable logical (zero-fill) right shift. A = A >>> count($10-$13).
+NesPrgRom:3F3F7:not32:ext_op entry $21: bitwise complement. A = ~A (one's complement, 32-bit; eor #$ff x4).
+NesPrgRom:3F403:and32:ext_op entry $22: bitwise AND. A = A & B (32-bit).
+NesPrgRom:3F40F:or32:ext_op entry $23: bitwise OR. A = A | B (32-bit).
+NesPrgRom:3F41B:xor32:ext_op entry $24: bitwise XOR. A = A ^ B (32-bit).
+NesPrgRom:3F433:logical_not32:ext_op entry $28: jsr test_nonzero32 then eor #$01 on $08 -> boolean !A (1 if A==0 else 0).
+NesPrgRom:3F446:cmp32_eq:ext_op entry $06: A == B ? 1 : 0 (inline byte compare $08-$0B vs $0C-$0F; sign-agnostic).
+NesPrgRom:3F457:cmp32_ne:ext_op entry $07: A != B ? 1 : 0 (inline byte compare).
+NesPrgRom:3F467:cmp32_a_lt_b_signed:ext_op entry $08: A < B signed. cmp32_a_minus_b, result = N eor V.
+NesPrgRom:3F475:cmp32_a_lt_b_unsigned:ext_op entry $29: A < B unsigned. cmp32_a_minus_b, result = C==0 (borrow).
+NesPrgRom:3F47E:cmp32_a_gt_b_signed:ext_op entry $0A: A > B signed. cmp32_b_minus_a, result = N eor V of B-A.
+NesPrgRom:3F48C:cmp32_a_gt_b_unsigned:ext_op entry $2B: A > B unsigned. cmp32_b_minus_a, C==0 of B-A.
+NesPrgRom:3F495:cmp32_a_le_b_signed:ext_op entry $09: A <= B signed. cmp32_b_minus_a, inclusive (bmi) -> B>=A.
+NesPrgRom:3F4A3:cmp32_a_le_b_unsigned:ext_op entry $2A: A <= B unsigned. cmp32_b_minus_a, C==1 -> B>=A.
+NesPrgRom:3F4AC:cmp32_a_ge_b_signed:ext_op entry $0B: A >= B signed. cmp32_a_minus_b, inclusive (bmi) -> A>=B.
+NesPrgRom:3F4BA:cmp32_a_ge_b_unsigned:ext_op entry $2C: A >= B unsigned. cmp32_a_minus_b, C==1 -> A>=B.
+NesPrgRom:3F4E9:sign_extend16_to_32:ext_op entry $25: sign-extend the 16-bit value in $08:$09 to 32-bit A (fill $0A:$0B with $00/$FF from bit15).
+NesPrgRom:3F4EF:clear_a_high16:ext_op entry $26: sty $0a/$0b -- zero (or Y-fill) the high half of A. Also the fall-through tail of sign_extend16_to_32.
+NesPrgRom:3F4F3:ext_op_nop:ext_op entry $27: bare rts -- no-op handler.
+NesPrgRom:3F4F4:load_a32_from_ptr3:ext_op entry $18: copy 4 bytes (ptr3),Y=0..3 -> A($08-$0B); reads a 32-bit inline operand and advances ptr3 by 4.
+NesPrgRom:3F500:load_b32_from_ptr3:ext_op entry $19: copy 4 bytes (ptr3),Y=0..3 -> B($0C-$0F); twin of load_a32_from_ptr3 targeting B.
+NesPrgRom:3F515:halve_a32_rounded:ext_op entry $1C: arithmetic divide-by-2 of A (ror/rol carry chain across $08-$0B with a sign/round seed). MED-confidence: exact rounding/sign semantic not fully traced.
+NesPrgRom:3F51A:halve_a32:ext_op entry $1B: divide-by-2 of A (shares the $F515 shift body at a different carry seed). MED-confidence.
+NesPrgRom:3F531:store_a32_via_popped_ptr:ext_op entry $17: jsr vm_pop_operand16 (dest ptr into $0C:$0D), then store A($08-$0B) through it.
+NesPrgRom:3F53F:swap_a_b32:ext_op entry $1A: exchange A($08-$0B) with B($0C-$0F), 4 bytes.
+NesPrgRom:3F54D:load_a32_from_addr:ext_op entry $0C: jsr vm_addr_ptr2_plus_word (eff. addr -> ptr0), then load (ptr0) -> A($08-$0B). Body at $F550 reused by $F57C/$F5C2.
+NesPrgRom:3F55B:load_b32_from_addr:ext_op entry $0D: jsr vm_addr_ptr2_plus_word, then load (ptr0) -> B($0C-$0F). Body at $F55E reused by $F581.
+NesPrgRom:3F569:store_a32_to_addr:ext_op entry $0E: jsr vm_addr_ptr2_plus_word, then store A -> (ptr0). Body at $F56C reused by $F586.
+NesPrgRom:3F577:store_a32_to_addr_or_push:ext_op entry $0F: jsr vm_addr_ptr2_plus_word; carry selects push-A-onto-VM-stack ($F58E) vs store. MED-confidence: carry-variant semantic not fully traced.
+NesPrgRom:3F57C:load_a32_indirect:ext_op entry $10: jsr vm_read_word_into_ptr0 (deref a word into ptr0); carry-clear -> load_a32_from_addr body ($F550). MED-confidence.
+NesPrgRom:3F581:load_b32_indirect:ext_op entry $11: jsr vm_read_word_into_ptr0; carry-clear -> load_b32_from_addr body ($F55E). MED-confidence.
+NesPrgRom:3F586:store_a32_indirect:ext_op entry $12: jsr vm_read_word_into_ptr0; carry-clear -> store_a32_to_addr body ($F56C). MED-confidence.
+NesPrgRom:3F58B:push_value32_to_vm_stack:ext_op entry $13: jsr vm_read_word_into_ptr0, fall into $F58E: ptr1 -= 4, copy (ptr0) -> (ptr1). Pushes a 32-bit value onto the VM operand stack.
+NesPrgRom:3F5A3:push_a32_to_vm_stack:ext_op entry $14: ptr0 = $0008 (address of A), jmp $F58E push primitive. Pushes accumulator A onto the VM operand stack.
+NesPrgRom:3F5AC:pop_b32_from_vm_stack:ext_op entry $15: copy (ptr1),Y=3..0 -> B($0C-$0F), then ptr1 += 4. Pops a 32-bit value off the VM operand stack into B.
+NesPrgRom:3F5C2:load_a32_via_a_ptr:ext_op entry $16: ptr0 = low 16 bits of A, jmp load_a32_from_addr body ($F550). Dereferences A-as-pointer into A.
 NesPrgRom:0:bank0_entry:Bank 0 entry point. 3 bytes: JMP $A778. The 'rest of bank 0' is data — VM bytecode, sprite/tile data, and a few small native helpers callable from bytecode.
 NesPrgRom:2778:vm_bootstrap:First instruction reached after RESET. JSR vm_entry ($E823) followed by inline VM bytecode that orchestrates the entire boot sequence (audio init, palette load, screen setup) and ultimately becomes the main game loop.
 NesPrgRom:3C54F:nmi_off:Clear bit 7 of ppuctrl_shadow (disable NMI generation); used as the NMI re-entry guard

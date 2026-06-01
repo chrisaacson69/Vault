@@ -1098,16 +1098,16 @@ L_D6B2:
 
 word math32_3arg(word arg1, word arg2, word arg3, word arg4) {
     if (arg3) {    // $D6BE
-    // TODO: ext_op $25
-    // TODO: ext_op $14
-    // TODO: ext_op $25
-    // TODO: ext_op $14
-    // TODO: ext_op $25
-    // TODO: ext_op $15
-    // TODO: ext_op $01
-    // TODO: ext_op $15
-    // TODO: ext_op $02
-    // TODO: ext_op $27
+    // ext_op sign_extend16_to_32
+    // ext_op push_a32_to_vm_stack
+    // ext_op sign_extend16_to_32
+    // ext_op push_a32_to_vm_stack
+    // ext_op sign_extend16_to_32
+    // ext_op pop_b32_from_vm_stack
+    // ext_op umul32
+    // ext_op pop_b32_from_vm_stack
+    // ext_op sdiv32
+    // ext_op ext_op_nop
     } else {
     }
 L_D6DD:
@@ -1121,18 +1121,18 @@ L_D6DD:
 word math32_2arg(word arg1, word arg2, word arg3, word arg4) {
     if (arg1) goto L_D6ED;    // $D6E4
     if (!(arg2)) return 0;    // $D6E8
-    // TODO: ext_op $26
-    // TODO: ext_op $14
-    // TODO: ext_op $26
-    // TODO: ext_op $15
-    // TODO: ext_op $03
-    // TODO: ext_op $14
-    // TODO: ext_op $26
-    // TODO: ext_op $19
-    // TODO: ext_op $01
-    // TODO: ext_op $15
-    // TODO: ext_op $02
-    // TODO: ext_op $27
+    // ext_op clear_a_high16
+    // ext_op push_a32_to_vm_stack
+    // ext_op clear_a_high16
+    // ext_op pop_b32_from_vm_stack
+    // ext_op add32
+    // ext_op push_a32_to_vm_stack
+    // ext_op clear_a_high16
+    // ext_op load_b32_from_ptr3
+    // ext_op umul32
+    // ext_op pop_b32_from_vm_stack
+    // ext_op sdiv32
+    // ext_op ext_op_nop
     return local0;    // $D70C
 }
 

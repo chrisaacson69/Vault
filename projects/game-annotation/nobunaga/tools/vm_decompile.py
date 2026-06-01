@@ -178,6 +178,26 @@ def _build_opcode_to_mnemonic():
 OPCODE_TO_MNEMONIC = _build_opcode_to_mnemonic()
 
 
+# ext_op_table ($F263) — VM opcode $B7 ('ext_op'). index -> handler CPU addr.
+# Decoded from this ROM via ext_op_dispatch ($F246): the dispatcher does asl/tax then
+# LDA $F261,X, so handler(N) = little-endian word at $F261 + 2*N. Hence N=$01 = umul32,
+# N=$00 = $0000 (the unused jmp-operand slot). Cross-verified against the table bytes +
+# dispatcher addressing 2026-05-31 (corrects the ROADMAP's off-by-one map). Names resolve
+# through mesen-labels.toml [prg.bank15] (Session A walk).
+EXT_OP_TABLE = {
+    0x00: 0x0000, 0x01: 0xF2C1, 0x02: 0xF2F0, 0x03: 0xF37F, 0x04: 0xF38C,
+    0x05: 0xF427, 0x06: 0xF446, 0x07: 0xF457, 0x08: 0xF467, 0x09: 0xF495,
+    0x0A: 0xF47E, 0x0B: 0xF4AC, 0x0C: 0xF54D, 0x0D: 0xF55B, 0x0E: 0xF569,
+    0x0F: 0xF577, 0x10: 0xF57C, 0x11: 0xF581, 0x12: 0xF586, 0x13: 0xF58B,
+    0x14: 0xF5A3, 0x15: 0xF5AC, 0x16: 0xF5C2, 0x17: 0xF531, 0x18: 0xF4F4,
+    0x19: 0xF500, 0x1A: 0xF53F, 0x1B: 0xF51A, 0x1C: 0xF515, 0x1D: 0xF43B,
+    0x1E: 0xF36B, 0x1F: 0xF399, 0x20: 0xF3B5, 0x21: 0xF3F7, 0x22: 0xF403,
+    0x23: 0xF40F, 0x24: 0xF41B, 0x25: 0xF4E9, 0x26: 0xF4EF, 0x27: 0xF4F3,
+    0x28: 0xF433, 0x29: 0xF475, 0x2A: 0xF4A3, 0x2B: 0xF48C, 0x2C: 0xF4BA,
+    0x2D: 0xF3DB, 0x2E: 0xF2FB, 0x2F: 0xF362,
+}
+
+
 # Parse a line of the disasm output. Returns (addr, opcode_byte, mnemonic, inline_op, comment)
 LINE_RE = re.compile(
     r'^\s*[>]?\$([0-9A-Fa-f]{4})\s+([0-9A-Fa-f]{2}(?:\s+[0-9A-Fa-f]{2})*)\s+(\S+)(.*)$'
@@ -548,6 +568,21 @@ def decompile(filepath, sub_addr, labels=None):
                 state.regA = f"{fname}()"
             else:
                 state.regA = f"{fname}({', '.join(args)})"
+
+        # === Extended (32-bit / bitfield) ops — VM opcode $B7 ('ext_op') ===
+        # The operand is the ext-op INDEX byte ("$NN"). Resolve it through EXT_OP_TABLE
+        # to a handler address, then name it via the mesen labels (Session A walk).
+        # ext_ops form a postfix stack-machine sequence on the A/B register file
+        # ($08-$0F), so we name the operation rather than fake an f(regA,regB) call.
+        elif mnem == 'ext_op':
+            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
+            idx = int(m.group(1), 16) if m else -1
+            haddr = EXT_OP_TABLE.get(idx)
+            if haddr:
+                name = _label_name(labels, haddr) or f"ext_op_{haddr:04X}"
+                state.emit(f"// ext_op {name}")
+            else:
+                state.emit(f"// ext_op ${idx:02X} (unmapped)")
 
         # === Misc ===
         else:

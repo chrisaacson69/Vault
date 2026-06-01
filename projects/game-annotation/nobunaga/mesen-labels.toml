@@ -192,7 +192,7 @@ prg_bank_count = 16        # 256 KB total
 # ext_op_dispatch ($F246) from VM opcode $AB. It was in our own disasm all along — no nesdev lookup needed.
 "0xF246" = { name = "ext_op_dispatch",       comment = "Extended-opcode dispatcher (VM opcode $AB). Reads the next bytecode byte as an ext-op index, *2, indexes ext_op_table ($F263), and JMPs to the handler (pushing a return into vm_dispatch). This is the 'B7 ext-op' mechanism the math32 helpers ride on." }
 "0xF263" = { name = "ext_op_table",          comment = "Extended-opcode address table (the 'B7 ext-op table' from the ROADMAP Inbox). ~44 little-endian handler addresses for the 16/32-bit math/logic/bitfield ops, indexed by ext_op_dispatch ($F246). Entry 0 = $F2C1 (umul32), then div/add/sub/cmp/bitfield/etc. DECODED from this ROM's own disasm 2026-05-31 — the external nesdev t=15931 spec was never needed." }
-"0xF2C1" = { name = "umul32",                comment = "Unsigned 32-bit multiply: A($08-$0B) * B($0C-$0F) -> product accumulated in $14-block. 32-iteration shift-add (lsr A, add B to running sum on carry, ror down). ext_op_table entry 0." }
+"0xF2C1" = { name = "umul32",                comment = "Unsigned 32-bit multiply: A($08-$0B) * B($0C-$0F) -> product accumulated in $14-block. 32-iteration shift-add (lsr A, add B to running sum on carry, ror down). ext_op_table entry $01." }
 "0xF2FE" = { name = "sdiv32_setup",          comment = "Signed 32-bit divide front-end: record result sign in $40 (sign A ^ sign B) and dividend sign in $41, take |A| and |B| (via negate32_operand), then run udiv32. The signed-division ext-op." }
 "0xF31C" = { name = "udiv32",                comment = "Unsigned 32-bit restoring divide: A($08-$0B) / B($0C-$0F); quotient -> $08-$0B, remainder -> $10-$13. Clears the remainder hi then runs the 32-iteration shift-subtract loop at $F328." }
 "0xF427" = { name = "negate32_operand",      comment = "4-byte two's-complement negate of operand B ($0C-$0F): 0 - B. Used by the signed mul/div setups to take absolute value." }
@@ -212,6 +212,62 @@ prg_bank_count = 16        # 256 KB total
 "0xEFA6" = { name = "vm_addr_ptr2_plus_sbyte", comment = "Compute ptr0 = ptr2 + signed_byte(bytecode); ptr3++. 8-bit-signed-offset indexed addressing off base pointer ptr2." }
 "0xEFBF" = { name = "vm_fetch_word",         comment = "Fetch a 16-bit immediate from the bytecode (ptr3): low byte in A, high byte in X; ptr3 += 2." }
 "0xEFEC" = { name = "vm_addr_ptr2_plus_word", comment = "Compute ptr0 = ptr2 + word(bytecode); ptr3 += 2. 16-bit indexed addressing off base pointer ptr2 (the array-access addressing mode)." }
+
+# --- ext_op_table HANDLERS (Session A walk, 2026-05-31) ---
+# The 47 active entries of ext_op_table ($F263), each a 32-bit primitive on the register file
+# (A=$08-$0B, B=$0C-$0F, scratch=$10-$13). Dispatched by ext_op_dispatch ($F246) as the word at
+# $F261 + 2*N -> so N=$01 = umul32, N=$00 = $0000 (unused). Decoded from this ROM's disasm;
+# the index map was cross-verified against the dispatcher addressing ($F261,X) + table bytes
+# (corrects the ROADMAP's off-by-one table). Read-fan-out 2026-05-31, coordinator-verified.
+# Divide / modulo family:
+"0xF2F0" = { name = "sdiv32",                comment = "ext_op entry $02: signed 32-bit divide A/B. jsr sdiv32_setup (|A|,|B|, divide via fall-through to udiv32, result sign in $40), then if $40<0 jmp negate32_operand. Quotient in A." }
+"0xF2FB" = { name = "udiv32_entry",          comment = "ext_op entry $2E: jmp udiv32 ($F31C) -- the unsigned-divide dispatch entry (3 bytes overlapping the rts tail of sdiv32 at $F2FA)." }
+"0xF362" = { name = "umod32",                comment = "ext_op entry $2F: unsigned 32-bit remainder. jsr udiv32 (remainder->$10-$13), copy $10-$13 into A. A = A mod B, unsigned." }
+"0xF36B" = { name = "smod32",                comment = "ext_op entry $1E: signed 32-bit remainder. jsr sdiv32_setup, copy remainder->A, if dividend sign ($41)<0 negate. A = A mod B, sign of dividend." }
+# Arithmetic (NB: add32/sub32 write operand B, not accumulator A):
+"0xF37F" = { name = "add32",                 comment = "ext_op entry $03: 32-bit add B += scratch. B($0C-$0F) = B + scratch($10-$13). (Targets B, the operand slot -- unlike the bitwise ops which target A.)" }
+"0xF38C" = { name = "sub32",                 comment = "ext_op entry $04: 32-bit subtract B -= scratch. B($0C-$0F) = B - scratch($10-$13)." }
+"0xF399" = { name = "shl32_var",             comment = "ext_op entry $1F: variable left shift. A($08-$0B) <<= count($10-$13) (decrement-count loop of asl/rol)." }
+"0xF3B5" = { name = "shr32_var_arith",       comment = "ext_op entry $20: variable arithmetic (sign-preserving) right shift. A >>= count($10-$13), sign-extended." }
+"0xF3DB" = { name = "shr32_var_logical",     comment = "ext_op entry $2D: variable logical (zero-fill) right shift. A = A >>> count($10-$13)." }
+# Bitwise:
+"0xF3F7" = { name = "not32",                 comment = "ext_op entry $21: bitwise complement. A = ~A (one's complement, 32-bit; eor #$ff x4)." }
+"0xF403" = { name = "and32",                 comment = "ext_op entry $22: bitwise AND. A = A & B (32-bit)." }
+"0xF40F" = { name = "or32",                  comment = "ext_op entry $23: bitwise OR. A = A | B (32-bit)." }
+"0xF41B" = { name = "xor32",                 comment = "ext_op entry $24: bitwise XOR. A = A ^ B (32-bit)." }
+"0xF433" = { name = "logical_not32",         comment = "ext_op entry $28: jsr test_nonzero32 then eor #$01 on $08 -> boolean !A (1 if A==0 else 0)." }
+# Comparisons (boolean 0/1 into $08:$09; call the cmp32_a_minus_b / cmp32_b_minus_a cores):
+"0xF446" = { name = "cmp32_eq",              comment = "ext_op entry $06: A == B ? 1 : 0 (inline byte compare $08-$0B vs $0C-$0F; sign-agnostic)." }
+"0xF457" = { name = "cmp32_ne",              comment = "ext_op entry $07: A != B ? 1 : 0 (inline byte compare)." }
+"0xF467" = { name = "cmp32_a_lt_b_signed",   comment = "ext_op entry $08: A < B signed. cmp32_a_minus_b, result = N eor V." }
+"0xF475" = { name = "cmp32_a_lt_b_unsigned", comment = "ext_op entry $29: A < B unsigned. cmp32_a_minus_b, result = C==0 (borrow)." }
+"0xF47E" = { name = "cmp32_a_gt_b_signed",   comment = "ext_op entry $0A: A > B signed. cmp32_b_minus_a, result = N eor V of B-A." }
+"0xF48C" = { name = "cmp32_a_gt_b_unsigned", comment = "ext_op entry $2B: A > B unsigned. cmp32_b_minus_a, C==0 of B-A." }
+"0xF495" = { name = "cmp32_a_le_b_signed",   comment = "ext_op entry $09: A <= B signed. cmp32_b_minus_a, inclusive (bmi) -> B>=A." }
+"0xF4A3" = { name = "cmp32_a_le_b_unsigned", comment = "ext_op entry $2A: A <= B unsigned. cmp32_b_minus_a, C==1 -> B>=A." }
+"0xF4AC" = { name = "cmp32_a_ge_b_signed",   comment = "ext_op entry $0B: A >= B signed. cmp32_a_minus_b, inclusive (bmi) -> A>=B." }
+"0xF4BA" = { name = "cmp32_a_ge_b_unsigned", comment = "ext_op entry $2C: A >= B unsigned. cmp32_a_minus_b, C==1 -> A>=B." }
+# Sign-extend + register/stack moves:
+"0xF4E9" = { name = "sign_extend16_to_32",   comment = "ext_op entry $25: sign-extend the 16-bit value in $08:$09 to 32-bit A (fill $0A:$0B with $00/$FF from bit15)." }
+"0xF4EF" = { name = "clear_a_high16",        comment = "ext_op entry $26: sty $0a/$0b -- zero (or Y-fill) the high half of A. Also the fall-through tail of sign_extend16_to_32." }
+"0xF4F3" = { name = "ext_op_nop",            comment = "ext_op entry $27: bare rts -- no-op handler." }
+"0xF4F4" = { name = "load_a32_from_ptr3",    comment = "ext_op entry $18: copy 4 bytes (ptr3),Y=0..3 -> A($08-$0B); reads a 32-bit inline operand and advances ptr3 by 4." }
+"0xF500" = { name = "load_b32_from_ptr3",    comment = "ext_op entry $19: copy 4 bytes (ptr3),Y=0..3 -> B($0C-$0F); twin of load_a32_from_ptr3 targeting B." }
+"0xF515" = { name = "halve_a32_rounded",     comment = "ext_op entry $1C: arithmetic divide-by-2 of A (ror/rol carry chain across $08-$0B with a sign/round seed). MED-confidence: exact rounding/sign semantic not fully traced." }
+"0xF51A" = { name = "halve_a32",             comment = "ext_op entry $1B: divide-by-2 of A (shares the $F515 shift body at a different carry seed). MED-confidence." }
+"0xF531" = { name = "store_a32_via_popped_ptr", comment = "ext_op entry $17: jsr vm_pop_operand16 (dest ptr into $0C:$0D), then store A($08-$0B) through it." }
+"0xF53F" = { name = "swap_a_b32",            comment = "ext_op entry $1A: exchange A($08-$0B) with B($0C-$0F), 4 bytes." }
+"0xF54D" = { name = "load_a32_from_addr",    comment = "ext_op entry $0C: jsr vm_addr_ptr2_plus_word (eff. addr -> ptr0), then load (ptr0) -> A($08-$0B). Body at $F550 reused by $F57C/$F5C2." }
+"0xF55B" = { name = "load_b32_from_addr",    comment = "ext_op entry $0D: jsr vm_addr_ptr2_plus_word, then load (ptr0) -> B($0C-$0F). Body at $F55E reused by $F581." }
+"0xF569" = { name = "store_a32_to_addr",     comment = "ext_op entry $0E: jsr vm_addr_ptr2_plus_word, then store A -> (ptr0). Body at $F56C reused by $F586." }
+"0xF577" = { name = "store_a32_to_addr_or_push", comment = "ext_op entry $0F: jsr vm_addr_ptr2_plus_word; carry selects push-A-onto-VM-stack ($F58E) vs store. MED-confidence: carry-variant semantic not fully traced." }
+"0xF57C" = { name = "load_a32_indirect",     comment = "ext_op entry $10: jsr vm_read_word_into_ptr0 (deref a word into ptr0); carry-clear -> load_a32_from_addr body ($F550). MED-confidence." }
+"0xF581" = { name = "load_b32_indirect",     comment = "ext_op entry $11: jsr vm_read_word_into_ptr0; carry-clear -> load_b32_from_addr body ($F55E). MED-confidence." }
+"0xF586" = { name = "store_a32_indirect",    comment = "ext_op entry $12: jsr vm_read_word_into_ptr0; carry-clear -> store_a32_to_addr body ($F56C). MED-confidence." }
+"0xF58B" = { name = "push_value32_to_vm_stack", comment = "ext_op entry $13: jsr vm_read_word_into_ptr0, fall into $F58E: ptr1 -= 4, copy (ptr0) -> (ptr1). Pushes a 32-bit value onto the VM operand stack." }
+"0xF5A3" = { name = "push_a32_to_vm_stack",  comment = "ext_op entry $14: ptr0 = $0008 (address of A), jmp $F58E push primitive. Pushes accumulator A onto the VM operand stack." }
+"0xF5AC" = { name = "pop_b32_from_vm_stack", comment = "ext_op entry $15: copy (ptr1),Y=3..0 -> B($0C-$0F), then ptr1 += 4. Pops a 32-bit value off the VM operand stack into B." }
+"0xF5C2" = { name = "load_a32_via_a_ptr",    comment = "ext_op entry $16: ptr0 = low 16 bits of A, jmp load_a32_from_addr body ($F550). Dereferences A-as-pointer into A." }
 
 # --- Bank 0 ---
 # Bank 0 is almost entirely VM bytecode + data, not native 6502 code.
