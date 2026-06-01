@@ -1541,9 +1541,10 @@ L_9662:
     return ((unsigned)local11 >= (unsigned)11);    // $9674
 }
 
+// $9675 select_quadrant_damage_by_direction
 // (body @ $967A)
 
-word sub_9675(word arg1, word arg2, word arg3, word arg4) {
+word select_quadrant_damage_by_direction(word arg1, word arg2, word arg3, word arg4) {
     local7 = mem_6FF6;    // $9681
     if (is_no_province_selected()) goto L_9708;    // $968D
     if (mem_7BE8) goto L_9708;    // $9693
@@ -1871,7 +1872,7 @@ L_9AF5:
 word sub_9B08(word arg1, word arg2, word arg3, word arg4) {
     local11 = 0;    // $9B11
 L_9B12:
-    local10 = sub_9675();    // $9B15
+    local10 = select_quadrant_damage_by_direction();    // $9B15
     if (!(is_no_province_selected())) goto L_9B22;    // $9B19
     if (!(mem_7BE8)) goto L_9B2C;    // $9B1F
 L_9B22:
@@ -1966,9 +1967,10 @@ L_9C5F:
     }
 }
 
+// $9C69 ai_strength_term_gated_table_word
 // (body @ $9C6E)
 
-word sub_9C69(word arg1, word arg2, word arg3, word arg4) {
+word ai_strength_term_gated_table_word(word arg1, word arg2, word arg3, word arg4) {
     arg3 = ?;    // $9C6E
     arg2 = ?;    // $9C74
     if (((unsigned)wrap_index_0_2_to_zero(wrap_index_0_2_to_zero(/*via arg3*/ ?)) > (unsigned)?)) {    // $9C7B
@@ -1997,7 +1999,7 @@ word sub_9C88(word arg1, word arg2, word arg3, word arg4) {
     arg2 = 20;    // $9CBE
     arg1 = 20;    // $9CBF
     arg1 = 20;    // $9CC5
-    if (test_6f65_bit7(sub_9BB4(/*via arg2*/ 20, sub_9C04(/*via arg2*/ 20, sub_9C69(/*via arg3*/ 20, /*via arg3*/ 20, ai_score_strength_term_40pct(/*via arg1*/ 20, pct_op(/*stack underflow*/ regA, (*(byte*)((arg3 + 0x7BEE)) * 20)))))))) {    // $9CCA
+    if (test_6f65_bit7(sub_9BB4(/*via arg2*/ 20, sub_9C04(/*via arg2*/ 20, ai_strength_term_gated_table_word(/*via arg3*/ 20, /*via arg3*/ 20, ai_score_strength_term_40pct(/*via arg1*/ 20, pct_op(/*stack underflow*/ regA, (*(byte*)((arg3 + 0x7BEE)) * 20)))))))) {    // $9CCA
     } else {
     }
 L_9CD2:
