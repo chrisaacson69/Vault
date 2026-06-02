@@ -58,7 +58,8 @@ The IRQ handler is the most interesting find from session 1: a 23-entry dispatch
 | 18 | [The Window Update Model: How a Turn-Based Game Renders](./18-window-updates.md) | session 18 draft |
 | 19 | Combat: resolution (commander death, retreats, supplies) | planned |
 | — | Synthesis: from bytecode to the strategy counter-graph | planned |
-| A | Appendix: per-command effect formulas + AI thresholds; province adjacency | ongoing |
+| A | [Appendix: per-command effect formulas + AI thresholds; province adjacency](./appendix-formulas.md) | ongoing |
+| B | [Appendix: true-color ROM asset extraction](./appendix-asset-extraction.md) — the recipe (CHR + tile-map + palette), proven on daimyo portraits, with the candidate-asset inventory | active |
 
 Plan note: per-command effect formulas (Grow's `$87F0`, Tax's rate→loyalty, etc.) go in an **appendix** rather than their own chapters — they turned out simpler than expected. The daimyo AI is tackled **before** combat (combat needs map generation + the battle engine and will span several chapters). men/morale/skill/arms feed the combat formula.
 

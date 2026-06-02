@@ -27,6 +27,7 @@ created: 2026-05-29
 | `tools/vm-opcodes-v2.toml` | the VM opcode spec (256 ops, `verified=true` flags) | sole version; there is no v1. Sourced from nesdev t=15931 + ROM dispatch. |
 | `tools/nobunaga_vm.py` + `tools/cpu6502.py` | runnable VM/6502 emulator (the "ask the ROM" tool) | loads `mesen-labels.toml` for symbolic trace. Standard pattern: load SRAM → switch bank → set vm_pc/vm_sp (pre-allocate locals!) → run. |
 | `tools/vm_decompile.py` | bytecode → readable C | new investigations are "decompile and read," not "walk bytecode by hand." |
+| `decompiled/all_banks.c` | the flat PRG-keyed merged view (all 4 code banks, one file) | DERIVED from the per-bank `.c` via `tools/decompile-merged.py`; for grepping a label / following a call across banks. Per-bank `bank_NN.c` stay the canonical regen-guarded source. |
 | `tools/econ_sim.py` | the verified economy formulas (Grow/Build/Give/Dam/harvest) | end-to-end validated against emulator, May 2026. |
 | `disasm/bank_NN_vm.asm` | per-bank VM bytecode disasm | `*_labeled.asm` = native+labels; `*_vm.asm` = VM expansion. |
 | `commands/*.md` | per-command effect handler + formula + test log | one file per lord command. |
@@ -54,10 +55,13 @@ created: 2026-05-29
 - **Test a command's effect:** follow [commands/README.md](./commands/README.md) snap protocol → `capture-test.py <tag> pre|post|diff`.
 - **Run an effect handler in the emulator:** `tools/run-effect.py`.
 - **Decode a bytecode routine to C:** `tools/vm_decompile.py`.
+- **Search/follow code across ALL 4 banks at once (flat PRG view):** read `decompiled/all_banks.c` (regen automatically with the per-bank files via `tools/decompile-all.py`, or standalone via `tools/decompile-merged.py`) — every sub keyed by PRG offset (`L_pPPPPP`, `// PRG $P`), each call annotated `// -> bankT $CPU`, the `call_bank_wrap(N)`/`call_bank10_entry` trampolines resolved to the real entry. Derived/searchable view; `decompiled/bank_NN.c` remain canonical.
 - **Find a named address:** grep `mesen-labels.toml` — do **not** re-trace it.
 - **Capture data / find what a dump is:** `tools/data-index.py add <file> --note "..."` registers provenance; `scan` lists un-contextualized files; `show` prints the index. Never leave a capture un-noted — see [traces/README.md](./traces/README.md).
 - **Simulate the economy / check a formula:** `tools/econ_sim.py`.
 - **Province adjacency / strategic map:** `tools/adjacency.py` / `tools/render-strategic-atlas.py` (`--variant 17|50`).
+- **Render the daimyo portrait anthology (per scenario, NES-exact):** `tools/render-portrait.py anthology [17|50]` → `atlas/daimyo-anthology-{17,50}.png`. Preset portrait path (historical daimyo): descriptor table bank 8 `$BBD0` → CHR banks 7-8 → per-portrait 6×6 tile-index map bank 8 `$B144`+mapid×36 (tile base `0x5B`) → palette `$F7CC`. [[project_nobunaga_daimyo_portraits]]
+- **Extract & render ANY ROM graphic in true NES color:** follow the recipe in [appendix-asset-extraction.md](./appendix-asset-extraction.md) (CHR via `ppu_upload_block_wrap` descriptor + tile-index map via `ppu_blit_from_bank_wrap` + palette via `palette_write_wrap`; ⚠️ read the BYTECODE for the real args + resolve cross-bank pointers by the upload's BANK arg). Reusable primitives (NES master palette, 2bpp decoder) in `render-portrait.py`. Candidate-asset inventory (title/map-tiles/units/UI) is in the appendix.
 
 ## The discipline (why this file exists)
 
