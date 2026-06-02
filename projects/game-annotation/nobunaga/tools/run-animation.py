@@ -58,7 +58,7 @@ def descriptor(vm, aid):
 
 def list_descriptors(vm):
     print("id  bank  data_src  stream")
-    for aid in range(22):
+    for aid in range(34):
         bank, src, stream = descriptor(vm, aid)
         mark = "  <- Grow" if aid == 9 else ""
         print(f"{aid:2d}   {bank:2d}    ${src:04X}     ${stream:04X}{mark}")
