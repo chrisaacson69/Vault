@@ -12,13 +12,15 @@ created: 2026-05-24
 
 | # | Command | Effect handler(s) | Status |
 |---|---|---|---|
-| 5 | [Dam](./dam.md) | `effect_dam` ($87D8) + `helper_dam_rounding` ($887D) | stub |
-| 7 | [Grow](./grow.md) | `effect_grow` ($87F0) | **1 test (gain confirmed; pct=20 provisional)** |
-| 11 | [Train](./train.md) | `effect_train` ($9586) | stub |
-| 13 | [Build](./build.md) | `effect_build` ($88A6) + `helper_dam_rounding` ($887D) | prepped (next-turn test) |
-| 14 | [Give](./give.md) | `effect_give_a/b/c` ($A93A / $A95E / $A9D5) — 2 sub-modes (Gold/Rice × Peasants/Men) | **Test 1 logged (Rice→Peasants is 3-field, not 2-field)** |
+| 3 | [Tax](./tax.md) | driver $999A + signed-pct primitive $82D6 | **VERIFIED — symmetric loy+wlt ±pct(|Δtax|), charisma ∓1; [tax.html](./tax.html)** |
+| 4 | [Send](./send.md) | driver $9A5D + capacity $8BE5 | **VERIFIED — min(header−cur, avail), NO attrition, rice+gold; [send.html](./send.html)** |
+| 5 | [Dam](./dam.md) | driver $9B7E (inline) + √output $87D8 + apply $887D | **VERIFIED — formula DERIVED 2026-06-02; gain=⌊2·amt/√output⌋, dams capped 0–100; [dam.html](./dam.html)** |
+| 7 | [Grow](./grow.md) | `effect_grow` ($87F0) | **VERIFIED — bytecode + 5/5 ROM tests; [grow.html](./grow.html)** |
+| 11 | [Train](./train.md) | `effect_train` ($9586) | **VERIFIED — bytecode + 9/9 tests; gain 40–116 (was mislabeled 40–80); [train.html](./train.html)** |
+| 13 | [Build](./build.md) | `effect_build` ($88A6) + `helper_dam_rounding` ($887D) | **VERIFIED — bytecode + 5/5 ROM tests; pct live (not 20), single 2g add; [build.html](./build.html)** |
+| 14 | [Give](./give.md) | `effect_give_a/b/c` ($A93A / $A95E / $A9D5) → `give_transfer_apply` ($A8D3) → `$891D`/`$896F`/`$89C1` | **VERIFIED — bytecode + in-game test; pure benefit (no drain), +1 charisma; [give.html](./give.html)** |
 | 17 | [Rest](./rest.md) | (no effect handler — pure turn-skip) | stub |
-| 10 | [Hire](./hire.md) | `effect_hire` ($A2D2) — added because Oda forced the issue | **PRE captured, test pending** |
+| 10 | [Hire](./hire.md) | Men: `effect_hire_men` ($A553) + dilution ($8BF4); Ninja: sabotage ($A2D2) | **VERIFIED — bytecode + in-game; $A2D2 is the NINJA/sabotage path (was mislabeled), recruit-men is $A553; [hire.html](./hire.html)** |
 | 2 | (War — Oda's failed invasion captured cross-fief) | — | **combat data point #1** captured 2026-05-25 |
 
 ## The snap protocol

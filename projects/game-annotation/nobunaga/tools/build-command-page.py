@@ -42,7 +42,9 @@ ASSETS = CMD_DIR / "assets"
 ATOMIC_EFFECTS = {
     0x87F0: "effect_grow", 0x88A6: "effect_build", 0x87D8: "effect_dam",
     0x9586: "effect_train", 0x82D6: "effect_tax", 0x8BE5: "send_capacity",
-    0xA2D2: "effect_hire", 0x891D: "give_loyalty", 0x896F: "give_wealth",
+    0xA553: "effect_hire_men",   # $A2D2 is the Ninja/sabotage path (animid 12), NOT recruit-men
+    0x87D8: "dam_sqrt_output",   # Dam math is inline in driver $9B7E; $87D8 is just sqrt(output)
+    0x891D: "give_loyalty", 0x896F: "give_wealth",
     0x89C1: "give_men", 0xA93A: "give_a", 0xA95E: "give_b", 0xA9D5: "give_c",
 }
 # ---- effect addrs that mean "this command dives into a subsystem" ----
@@ -125,6 +127,451 @@ COMMANDS = {
     },
     "fields": "<code>output</code>&nbsp;(+gain) · <code>loyalty</code>&nbsp;(−drain) · "
               "<code>dams</code>&nbsp;(−drain) · <code>gold</code>&nbsp;(−amount)",
+  },
+
+  "build": {
+    "type": "atomic", "no": 13, "name": "Build",
+    "driver": 0xA853, "effect": 0x88A6, "anim_id": 24,
+    "tagline": "Spend gold to raise a province's <b>town</b> infrastructure — the gold-income "
+               "engine — on the same diminishing-returns curve as Grow, at the cost of wealth.",
+    "anim_cap": "A carpenter raises scaffolding and lumber as the <b>town</b> grows around him.",
+    "flow": [
+      (0xA858, 'Select <b>Build</b> from the command menu, then the province.'),
+      (0xA863, '<b>Limit check.</b> If <code>town ≥ header</code> (development ceiling) → '
+               '<span class="scr">"We’re at our limit."</span> and the command aborts.'),
+      (0xA87C, '<b>Gold check.</b> If the province has no gold → '
+               '<span class="scr">"You have no gold."</span>'),
+      (0xA881, 'Prompt: <span class="scr">"Town is <i>N</i>. Spend how much on it?"</span>'),
+      (0xA896, '<b>Number entry</b>, capped at the province’s current gold.'),
+      (0xA8A2, '<code>gold −= amount</code> — the driver debits gold <i>before</i> the effect runs.'),
+      (0xA8A9, '<code>effect_build</code> applies the formula (below).'),
+      (0xA8B0, '<b>The animation plays</b> — <code>ui_helper_e80c(24)</code> hands id 24 to the '
+               'bank-14 animation VM.'),
+      (0xA8B6, '<span class="scr">"Town value is now <i>N</i>."</span> → confirm.'),
+    ],
+    "formula": (
+'<span class="c">// gain — inverse-sqrt diminishing returns (Grow’s kernel, on TOWN)</span>\n'
+'sqrt = <span class="k">int_sqrt</span>(town + amount)\n'
+'g    = &lfloor;amount &times; (6 &minus; const_two) &divide; sqrt&rfloor;       '
+'<span class="c">// const_two=$6D63 ≈ 1, so ×5</span>\n'
+'g    = <span class="k">max</span>(g, 1)\n'
+'g    = <span class="k">min</span>(g, header &minus; town)             '
+'<span class="c">// headroom clamp (rarely fires)</span>\n\n'
+'<span class="c">// secondary drain — ONE field (wealth); pct computed LIVE, capped 50%</span>\n'
+'pct  = (g &gt; town) ? <b>50</b> : &lfloor;100 &times; g &divide; (g + town)&rfloor; &divide; 2\n'
+'wealth &minus;= <span class="k">pct_op</span>(wealth, pct)              '
+'<span class="c">// ⌊wealth × pct ÷ 100⌋</span>\n\n'
+'<span class="c">// town write — routed through helper_dam_rounding(town_ptr, 2g)</span>\n'
+'town &plus;= 2 &times; g                             '
+'<span class="c">// full add in peacetime; halved if the province is at war</span>\n'
+'gold &minus;= amount                           <span class="c">// debited by the driver</span>\n'
+'return g                                <span class="c">// (un-doubled) for the confirm screen</span>'),
+    "roi": "ROI ≈ <code>10 / √(town + amount)</code> — the identical curve to Grow, but Build feeds "
+           "<b>gold</b> income (town is in the gold-harvest formula) where Grow feeds rice. "
+           "Front-load Build while town is low.",
+    "callout": (
+"<b>Two corrections to the earlier notes (2026-06-02, full bytecode walk + ROM re-execution).</b> "
+"<b>(1)</b> The wealth-drain percentage is <b>not the constant 20</b> — exactly like Grow, the bytecode "
+"at <code>$88E4–$88FF</code> computes it live from the gain-to-town ratio, capped at 50%. "
+"<b>(2)</b> There is <b>no separate “main + secondary” town add</b>. The whole gain (<code>2g</code>) is "
+"added <i>once</i>, through <code>helper_dam_rounding</code> (<code>$887D</code>), which only halves the "
+"amount when the province is at war (<code>war_helper_d972</code>), then calls <code>helper_82AC</code> to "
+"cap town at its <code>header</code> ceiling. The “secondary bump” in the old draft was a misread of that "
+"single routed write."),
+    "validation": {
+      "caption": "Five Builds run through the real ROM effect handler (one province, town=176, "
+                 "wealth=235) — predicted vs. observed, exact every time.",
+      "headers": ["amount", "√(town+amt)", "g", "town += 2g", "wealth −", "✓"],
+      "rows": [
+        ["30","14","10","+20","−4","ok"],
+        ["50","15","16","+32","−9","ok"],
+        ["80","16","25","+50","−13","ok"],
+        ["120","17","35","+70","−18","ok"],
+        ["200","19","52","+104","−25","ok"],
+      ],
+      "note": "Args captured mid-call from the VM (amount&nbsp;200): "
+              "<code>math32_3arg(200,5,19)=52</code> → <code>town += 104</code>; "
+              "<code>math32_2arg(52,176)=22</code> → <code>pct=11</code> → "
+              "<code>pct_op(235,11)=25</code> drained from wealth. The earlier in-game Test&nbsp;1 "
+              "(town 320→396, amount 170) also fits: <code>√490=22</code>, "
+              "<code>g=⌊850/22⌋=38</code>, <code>town += 76</code> ✓.",
+    },
+    "fields": "<code>town</code>&nbsp;(+2g) · <code>wealth</code>&nbsp;(−drain) · "
+              "<code>gold</code>&nbsp;(−amount)",
+  },
+
+  "give": {
+    "type": "atomic", "no": 14, "name": "Give",
+    "driver": 0xAA1F, "effect": 0xA8D3, "anim_id": 6,
+    "tagline": "Spend a resource (gold or rice) on the people or the army to buy <b>loyalty</b>, "
+               "<b>wealth</b> or <b>morale</b> — the widest command, touching the most fields.",
+    "anim_cap": "A lord distributes largesse to kneeling peasants — loyalty rising with each bow.",
+    "flow": [
+      (0xAA2F, 'Select <b>Give</b> and the province; prompt <span class="scr">"(Peasnts/Men)?"</span> '
+               '(<code>effect_give_a</code>) picks the recipient group.'),
+      (0xAA35, '<b>Eligibility check</b> (<code>effect_give_c</code>).'),
+      (0xAA44, 'If you have no peasants / no soldiers → '
+               '<span class="scr">"You have no peasants!"</span> / '
+               '<span class="scr">"You have no soldiers!"</span> and abort.'),
+      (0xAA5C, '<b>Limit check.</b> If the target stat is already at the <code>header</code> ceiling → '
+               '<span class="scr">"We’re at our limit."</span>'),
+      (0xAA8A, 'Prompt <span class="scr">"(Gold/Rice)?"</span> then "how much" '
+               '(<code>effect_give_b</code> → <code>give_transfer_apply</code>).'),
+      (0xA8D3, '<b>Transfer applies</b> — the source resource drains 1:1, then the target helper(s) run.'),
+      (0xAA93, '<b>The animation plays</b> — <code>ui_helper_e80c(6)</code> hands id 6 to the '
+               'bank-14 animation VM.'),
+      (0xAA98, 'The giving daimyo gains <b>+1 charisma</b> (<code>$AA98</code>).'),
+      (0xAAA0, '<span class="scr">"Thank you, my lord."</span> → confirm.'),
+    ],
+    "formula": (
+'<span class="c">// SOURCE drain — 1:1, no attrition   (give_transfer_apply $A8D3)</span>\n'
+'src    = (asset == Gold) ? gold : rice\n'
+'amount = <span class="k">number_input</span>(cap = src)\n'
+'src   &minus;= amount\n\n'
+'<span class="c">// TARGET gain — Grow’s kernel, but “current” = the average of a thematic PAIR</span>\n'
+'<span class="c">// Peasants mode runs BOTH of:</span>\n'
+'loyalty &plus;= give( pair = (output &plus; loyalty)&divide;2 )    '
+'<span class="c">// give_loyalty $891D</span>\n'
+'wealth  &plus;= give( pair = (town   &plus; wealth )&divide;2 )    '
+'<span class="c">// give_wealth  $896F</span>\n'
+'<span class="c">// Men mode runs only:</span>\n'
+'morale  &plus;= give( pair = (men    &plus; morale )&divide;2 )    '
+'<span class="c">// give_morale  $89C1</span>\n\n'
+'<span class="k">where</span> give(pair):\n'
+'   g     = &lfloor;amount &times; (6 &minus; const_two) &divide; &radic;(pair + amount)&rfloor;   '
+'<span class="c">// ×5</span>\n'
+'   g     = <span class="k">max</span>(g, 1);  g = <span class="k">min</span>(g, header &minus; field)\n'
+'   field &plus;= 2 &times; g                            '
+'<span class="c">// NO drain — pure benefit</span>'),
+    "roi": "Best loyalty/morale ROI when the partner stat is high and the target is low (the "
+           "<code>pair + amount</code> denominator stays small). Rice→Peasants is the staple loyalty "
+           "pump — pair it with <b>Send</b> to convert a maxed fief’s rice surplus into frontier loyalty.",
+    "callout": (
+"<b>The widest command.</b> Peasants mode raises <b>two</b> fields (loyalty <i>and</i> wealth); Men mode "
+"raises morale. Each target is averaged with its <b>thematic complement</b> before the curve — "
+"loyalty↔output, wealth↔town, morale↔men — which pulls a pumped stat back toward its neglected twin and "
+"blocks runaway single-stat stacking. Unlike Grow and Build there is <b>no secondary drain</b>: the only "
+"cost is the source resource (1:1), and the giving daimyo even gains <b>+1 charisma</b>. The earlier "
+"“3-field” observation was exactly right — Rice→Peasants really does bump loyalty + wealth together."),
+    "validation": {
+      "caption": "Give Rice→Peasants in-game (Tokugawa, amount=59) — one command, both target helpers, "
+                 "predicted vs. observed.",
+      "headers": ["helper", "pair-avg → √", "g", "field += 2g", "observed", "✓"],
+      "rows": [
+        ["give_loyalty","(out 136 + loy 37)/2 = 86 → √145 = 12","⌊295/12⌋ = 24","loyalty +48","+48","ok"],
+        ["give_wealth","(town 66 + wlth 47)/2 = 56 → √115 = 10","⌊295/10⌋ = 29","wealth +58","+58","ok"],
+      ],
+      "note": "Source: <code>rice 130 → 71</code> (−59, exactly 1:1). A second new-game Give-Rice test "
+              "(2026-05-26) matched as well. Men-mode instead runs <code>give_morale</code> on "
+              "<code>(men + morale)/2</code>.",
+    },
+    "fields": "<code>loyalty</code>&nbsp;+2g · <code>wealth</code>&nbsp;+2g (Peasants) / "
+              "<code>morale</code>&nbsp;+2g (Men) · source <code>rice</code>/<code>gold</code>&nbsp;−amount · "
+              "daimyo <code>charisma</code>&nbsp;+1",
+  },
+
+  "train": {
+    "type": "atomic", "no": 11, "name": "Train",
+    "driver": 0xA637, "effect": 0x9586, "anim_id": 10,
+    "tagline": "Drill a province’s garrison to raise its <b>skill</b> — the combat-damage multiplier. "
+               "The only free stat-up in the game: no gold, no rice, no drains.",
+    "anim_cap": "Two samurai spar with spears as the garrison’s <b>skill</b> climbs.",
+    "flow": [
+      (0xA63C, 'Select <b>Train</b>, then the province.'),
+      (0xA647, '<b>Skill-ceiling guard</b> — proceeds while <code>skill &lt; header</code> (effectively always).'),
+      (0xA655, '<b>Soldier check.</b> If the province has no men → '
+               '<span class="scr">"You have no soldiers!"</span> — you can’t drill an empty garrison.'),
+      (0xA671, '<b>The animation plays first</b> — <code>ui_helper_e80c(10)</code> hands id 10 to the '
+               'bank-14 animation VM (note: Train animates <i>before</i> applying, unlike Grow/Build).'),
+      (0xA676, '<code>effect_train</code> rolls the skill gain (formula below).'),
+      (0xA679, '<code>skill</code> is clamped to its ceiling, then the new value is shown.'),
+    ],
+    "formula": (
+'<span class="c">// skill drill — pure RNG stat-up, NO cost, NO drain   (effect_train $9586)</span>\n'
+'skill_gain = (<span class="k">rng</span>%20 + 10) &times; 4              '
+'<span class="c">// 40 .. 116   ((roll+10) << 2)</span>\n\n'
+'<span class="c">// aptitude bonus — a gifted daimyo drills his men harder</span>\n'
+'<span class="k">if</span> daimyo[+3] + daimyo[+5] &gt; <span class="k">rng</span>%10 + 90:    '
+'<span class="c">// (Luck + IQ) vs 90..99</span>\n'
+'    skill_gain &plus;= 10                       '
+'<span class="c">// → 50 .. 126</span>\n\n'
+'skill &plus;= skill_gain                          '
+'<span class="c">// capped at the fief ceiling</span>'),
+    "roi": "Free skill, but RNG-variable (a session swings 40–116 on the d20 roll). Drill idle "
+           "garrisons between wars — high skill feeds straight into the combat damage multiplier. "
+           "There is never a reason <i>not</i> to Train an army that has soldiers and time.",
+    "callout": (
+"<b>The cleanest command in the game.</b> No gold, no rice, no drains — Train is the only free stat-up, "
+"which is exactly why elite armies are <b>trained, not hired</b> (Hire dilutes the average; see hire.html). "
+"The price is variance: the d20 roll swings a session 40–116. The aptitude bonus rewards a smart, lucky "
+"daimyo — for Tokugawa (aptitude pair = 167, always above the 90–99 threshold) the +10 always fires, so "
+"his floor is 50. The <code>40–80</code> range in the earlier notes was a misread — the bytecode "
+"<code>$959A–$95A2</code> shifts <code>(roll+10)</code> left twice (×4)."),
+    "validation": {
+      "caption": "Train is RNG-driven — validated by range, not by point. The d20 roll sets the band; "
+                 "9/9 in-game Tokugawa sessions landed inside it.",
+      "headers": ["rng%20 roll", "base = (roll+10)×4", "+ aptitude bonus"],
+      "rows": [
+        ["0 (min)", "40", "50"],
+        ["9 (mid)", "76", "86"],
+        ["19 (max)", "116", "126"],
+      ],
+      "note": "Tokugawa’s daimyo aptitude (record +3 + +5 = 167) always clears the "
+              "<code>rng%10 + 90</code> threshold (max 99), so his +10 bonus always fires → effective "
+              "band 50–126. Confirmed across 9 controlled sessions (2026-05-24/25).",
+    },
+    "fields": "<code>skill</code>&nbsp;(+40–126) — that’s all. No cost, no drain, no other field touched.",
+  },
+
+  "tax": {
+    "type": "atomic", "no": 3, "name": "Tax",
+    "driver": 0x999A, "effect": 0x82D6, "anim_id": 19,
+    "tagline": "Set a province’s tax rate. Raising it drains loyalty <i>and</i> wealth (and costs "
+               "charisma); lowering it restores them. Symmetric, one-shot — and scales with the CHANGE.",
+    "anim_cap": "Peasants sit amid the koku they owe — then the coins are taken and discontent sets in "
+                "(the tax-<i>raised</i> animation, id 19).",
+    "flow": [
+      (0x999F, 'Select <b>Tax</b> and the province; the window shows the current rate.'),
+      (0x99BC, 'Prompt: <span class="scr">"Tax is <i>N</i>. Enter new tax."</span> (capped at 100, '
+               'or 30 under <code>tax_helper_db12</code>).'),
+      (0x99DB, '<b>Number entry</b> → the new rate. Cancel or no-change → bail.'),
+      (0x99EF, '<b>Direction branch.</b> If raised → animation <b>19</b> + '
+               '<span class="scr">"The peasants are protesting."</span> '
+               'If lowered → animation <b>18</b> + <span class="scr">"The peasants are delighted."</span>'),
+      (0x9A1C, '<b>Daimyo charisma:</b> <code>−1</code> if you raised tax, <code>+1</code> if you lowered it.'),
+      (0x9A3B, 'The province’s tax byte is set to the new rate.'),
+      (0x9A42, '<code>loyalty ±= pct_op(loyalty, |Δtax|)</code> via <code>effect_tax</code> '
+               '($82D6) — drops on a raise, recovers on a cut.'),
+      (0x9A4C, '<code>wealth ±= pct_op(wealth, |Δtax|)</code> — same magnitude. → confirm.'),
+    ],
+    "formula": (
+'<span class="c">// Tax is symmetric: the hit scales with the CHANGE, not the level</span>\n'
+'&Delta;      = new_tax &minus; old_tax            <span class="c">// signed</span>\n\n'
+'<span class="c">// effect_tax ($82D6) applied to BOTH loyalty and wealth:</span>\n'
+'<span class="k">stat_adjust</span>(stat):\n'
+'    move = <span class="k">pct_op</span>(stat, |&Delta;|)        '
+'<span class="c">// ⌊stat × |Δ| ÷ 100⌋</span>\n'
+'    stat = (&Delta; &gt; 0) ? stat &minus; move    '
+'<span class="c">// raise tax → people sour</span>\n'
+'                  : stat &plus; move    '
+'<span class="c">// lower tax → people warm</span>\n\n'
+'loyalty  = stat_adjust(loyalty)        <span class="c">// record +12</span>\n'
+'wealth   = stat_adjust(wealth)         <span class="c">// record +14</span>\n'
+'charisma &plus;= (&Delta; &gt; 0) ? &minus;1 : &plus;1        '
+'<span class="c">// daimyo record +4</span>\n'
+'tax[fief] = new_tax'),
+    "roi": "Set tax high — <b>~55% is the sweet spot</b> — on turn one and <b>leave it</b>. Every "
+           "re-fiddle re-charges the loyalty/wealth penalty, so a province whose rate you keep flipping "
+           "bleeds far more than its harvest gains. Pushing past ~55–60% also opens Riot vulnerability "
+           "(see the event system).",
+    "callout": (
+"<b>Symmetric and one-shot — the key strategic property.</b> Raising the rate by |Δ| points immediately "
+"drains <b>both</b> loyalty and wealth by |Δ|% (and costs the daimyo 1 charisma); lowering it <b>restores</b> "
+"the same percentage (and earns 1 charisma). Because the penalty scales with the <b>change</b> and not the "
+"level, the optimal play is to set tax high <i>once</i>, early, and never touch it again — every adjustment "
+"is a fresh tax on your own people. Note the underlying <code>effect_tax</code> ($82D6) is a generic "
+"signed-percent primitive; the driver $999A calls it twice (loyalty, then wealth) with the tax delta."),
+    "validation": {
+      "caption": "A tax change of |Δ| points moves BOTH loyalty and wealth by pct_op(stat, |Δ|), "
+                 "opposite the tax direction. Worked from the unit-verified pct_op primitive.",
+      "headers": ["stat (pre)", "|Δtax|", "pct_op(stat,|Δ|)", "raise tax →", "lower tax →"],
+      "rows": [
+        ["loyalty 80","10","8","72","88"],
+        ["loyalty 80","20","16","64","96"],
+        ["wealth 120","20","24","96","144"],
+        ["wealth 50","40","20","30","70"],
+      ],
+      "note": "<code>pct_op</code> is verified to the unit across 8+ observed drain calls "
+              "(appendix §6). Charisma moves the <i>other</i> way: <code>+1</code> when you lower "
+              "tax, <code>−1</code> when you raise it. In-game verified — see "
+              "<a href='../appendix-formulas.md'>the tax-penalty formula</a>.",
+    },
+    "fields": "<code>loyalty</code>&nbsp;±pct · <code>wealth</code>&nbsp;±pct (same %, opposite the tax "
+              "move) · province <code>tax</code>&nbsp;:= new rate · daimyo <code>charisma</code>&nbsp;∓1",
+  },
+
+  "send": {
+    "type": "atomic", "no": 4, "name": "Send",
+    "driver": 0x9A5D, "effect": 0x8BE5, "anim_id": 17,
+    "tagline": "Ship rice <i>and</i> gold to one of your other provinces. Zero attrition — the only "
+               "limit is the receiver’s headroom. The snowball engine.",
+    "anim_cap": "A porter hauls a cart of koku and goods overland to the receiving province.",
+    "flow": [
+      (0x9A67, 'Select <b>Send</b>, then the destination — <span class="scr">"Send where?"</span>'),
+      (0x9A9C, '<b>Rice capacity</b> = min(target.header − target.rice, source rice available).'),
+      (0x9AB2, 'Prompt <span class="scr">"Rice"</span> → number entry (capped at capacity). '
+               'Zero capacity → <span class="scr">"We’re at our limit."</span>'),
+      (0x9AE6, '<b>Gold capacity</b> = min(target.header − target.gold, source gold available).'),
+      (0x9AFB, 'Prompt <span class="scr">"Gold"</span> → number entry (capped at capacity).'),
+      (0x9B34, '<span class="scr">"Is this OK?"</span> confirmation.'),
+      (0x9B41, '<b>Apply:</b> target gold/rice += amounts; source gold/rice −= amounts — exactly 1:1.'),
+      (0x9B6A, '<b>The animation plays</b> — <code>ui_helper_e80c(17)</code> hands id 17 to the '
+               'bank-14 animation VM.'),
+      (0x9B70, '<span class="scr">"The supplies have arrived safely."</span> → confirm.'),
+    ],
+    "formula": (
+'<span class="c">// per resource (rice, then gold) — capacity helper effect_send ($8BE5)</span>\n'
+'capacity = <span class="k">min</span>( target.header &minus; target.field,   '
+'<span class="c">// receiver headroom</span>\n'
+'                source.available )      '
+'<span class="c">// can’t send what you lack</span>\n'
+'amount   = <span class="k">number_input</span>(cap = capacity)\n\n'
+'<span class="c">// applied at confirm — NO attrition, exactly 1:1</span>\n'
+'target.rice &plus;= rice_amt;   source.rice &minus;= rice_amt\n'
+'target.gold &plus;= gold_amt;   source.gold &minus;= gold_amt'),
+    "roi": "Send from a maxed donor whose output you can no longer use — those fiefs are worth more as "
+           "<b>pumps</b> than as producers. Doctrine: when a donor’s surplus exceeds ~3–4× a recipient’s, "
+           "ship it; when the donor is capped, <i>always</i> ship.",
+    "callout": (
+"<b>The snowball engine.</b> Two properties make Send the backbone of a runaway economy: "
+"<b>(1) zero attrition</b> — every koku and gold piece arrives — and <b>(2)</b> the only limit is the "
+"<b>receiver’s</b> headroom (<code>header − current</code>). A maxed-out fief can therefore act as a pure "
+"pump, shovelling its whole surplus to the frontier each turn at no loss. Pair it with <b>Give</b> "
+"(which converts shipped rice into loyalty/morale) and Grow/Build on the receiving end. Send moves rice "
+"<i>and</i> gold in one command — two capacity checks, two number entries, one cart."),
+    "validation": {
+      "caption": "effect_send caps each transfer at the receiver’s headroom and the sender’s stock — "
+                 "min(header − current, available). No attrition.",
+      "headers": ["target.header", "target.current", "headroom", "requested", "→ sent"],
+      "rows": [
+        ["1640","1400","240","100","100"],
+        ["1640","1400","240","500","240"],
+        ["1640","1640","0","100","0 (“at our limit”)"],
+      ],
+      "note": "Verified in-game (2026-05-26): all sent resources arrive — no travel loss. The binding "
+              "cap is whichever is smaller — the receiver’s remaining capacity or the requested amount "
+              "(itself further capped at what the sender actually holds).",
+    },
+    "fields": "target <code>rice</code>/<code>gold</code>&nbsp;+amount · "
+              "source <code>rice</code>/<code>gold</code>&nbsp;−amount (1:1, no attrition)",
+  },
+
+  "hire": {
+    "type": "atomic", "no": 10, "name": "Hire",
+    "driver": 0xA5F4, "effect": 0xA553, "anim_id": 33,
+    "tagline": "Spend gold to recruit <b>men</b> into a garrison. Recruits arrive at mediocre stats and "
+               "are blended into the army by a men-weighted average — so Hire <i>dilutes</i> quality.",
+    "anim_cap": "Fresh spearmen fall into formation as the garrison’s headcount climbs.",
+    "flow": [
+      (0xA5FC, 'Select <b>Hire</b>; validate the province.'),
+      (0xA615, 'Prompt <span class="scr">"(Men/Ninja)?"</span> — <b>Men</b> recruits soldiers (this page); '
+               '<b>Ninja</b> opens the sabotage-mission menu (→ <code>$A2D2</code>, see Bribe).'),
+      (0xA558, '(Men path, <code>effect_hire_men</code> $A553) army headroom = <code>header − men</code>.'),
+      (0xA564, '<b>Affordability:</b> max men = f(gold, hire rate). No gold → '
+               '<span class="scr">"You have no gold."</span>'),
+      (0xA573, 'Prompt <span class="scr">"How many?"</span> → number entry (capped).'),
+      (0xA584, '<code>gold −= amount × hire_rate</code> (the per-man rate re-rolls each turn).'),
+      (0xA593, '<code>apply_hire_unit_stats</code>: roll recruit morale/skill/arms, dilute into the army, '
+               '<code>men += amount</code>.'),
+      (0xA5AE, '<b>The animation plays</b> — <code>ui_helper_e80c(33)</code> hands id 33 to the '
+               'bank-14 animation VM.'),
+      (0xA5C7, '<span class="scr">"Lord, we now have <i>N</i> men."</span> → confirm.'),
+    ],
+    "formula": (
+'<span class="c">// COST   (effect_hire_men $A553)</span>\n'
+'headroom = header &minus; men                          <span class="c">// army cap</span>\n'
+'max_buy  = <span class="k">affordable</span>(gold, gold_men_hire_rate, headroom)\n'
+'amount   = <span class="k">number_input</span>(cap = max_buy)\n'
+'gold    &minus;= amount &times; gold_men_hire_rate          '
+'<span class="c">// rate $6E11 — RE-ROLLS each turn</span>\n\n'
+'<span class="c">// RECRUIT STATS — random per batch   (apply_hire_unit_stats $8BF4)</span>\n'
+'morale_base = <span class="k">rng</span>%20 + 40                    <span class="c">// 40 .. 59</span>\n'
+'skill_base  = <span class="k">rng</span>%20 + 60                    <span class="c">// 60 .. 79</span>\n'
+'arms_base   = <span class="k">rng</span>%10 + 50                    <span class="c">// 50 .. 59</span>\n\n'
+'<span class="c">// DILUTION — men-weighted average, capped at header (morale, skill, arms)</span>\n'
+'new_stat = <span class="k">min</span>( header, (stat &times; men + base &times; amount) &divide; (men + amount) )\n'
+'men &plus;= amount'),
+    "roi": "Hire when current stats are low (recruits don’t drag much) or to refill after combat losses. "
+           "<b>Never</b> hire into a small high-skill army — you’ll wreck its average. Watch the per-turn "
+           "hire rate; it fluctuates, so some seasons recruiting is markedly cheaper.",
+    "callout": (
+"<b>Two commands behind one prompt.</b> “(Men/Ninja)?” — <b>Men</b> recruits soldiers (this page); "
+"<b>Ninja</b> opens the sabotage-mission menu (Uprising / Revolt / Dams / Assassin / Arson at "
+"<code>$A2D2</code>, animation 12) — the same subsystem <b>Bribe</b> uses, which gets its own page. "
+"<i>(The earlier docs labeled <code>$A2D2</code> “effect_hire”; the bytecode shows it is the ninja path, "
+"and recruit-men actually lives in <code>$A553</code>.)</i> For recruiting, the catch is <b>dilution</b>: "
+"fresh recruits (morale 40–59, skill 60–79, arms 50–59) are blended in by a men-weighted average, so "
+"hiring into a small elite garrison drags its skill <b>down</b>. That is exactly why elite armies are "
+"<b>trained</b> (no dilution — see train.html) and Hire is for restoring body-count or staffing a new fief."),
+    "validation": {
+      "caption": "In-game (Fall 1566, fief 6 hired 30 men into 55) — the post-state matches the "
+                 "men-weighted dilution of the recruit bases.",
+      "headers": ["stat", "pre (55 men)", "recruit base", "post (85 men)", "implied base"],
+      "rows": [
+        ["morale","111","40–59","88","46 ✓"],
+        ["skill","590","60–79","401","55 ✓*"],
+        ["arms","70","50–59","66","59 ✓"],
+      ],
+      "note": "Dilution: <code>new = (stat×55 + base×30) / 85</code>. E.g. arms "
+              "<code>(70×55 + 59×30)/85 = 66</code> ✓. *Skill’s implied 55 sits just below the 60–79 band — "
+              "consistent with the session being multiple batched hires. men: 55 → 85 (+30).",
+    },
+    "fields": "<code>men</code>&nbsp;+amount · <code>morale</code>/<code>skill</code>/<code>arms</code> "
+              "diluted toward recruit bases · <code>gold</code>&nbsp;−(amount × hire rate)",
+  },
+
+  "dam": {
+    "type": "atomic", "no": 5, "name": "Dam",
+    "driver": 0x9B7E, "effect": 0x9B7E, "anim_id": 21,
+    "tagline": "Spend gold on flood-control to raise <b>dams</b> (0–100) — a rice-harvest multiplier. "
+               "The only capped stat, and the gain shrinks as the fief’s output grows.",
+    "anim_cap": "A laborer drives stakes along the riverbank, holding back the blue water below.",
+    "flow": [
+      (0x9B83, 'Select <b>Dam</b>, the province. If <code>output == 0</code> → '
+               '<span class="scr">"You have no peasants!"</span> (you can’t dam undeveloped land).'),
+      (0x9BAA, '<b>Limit check.</b> If <code>dams ≥ 100</code> → '
+               '<span class="scr">"We’re at our limit."</span> (dams is the only 0–100-capped stat).'),
+      (0x9BBE, '<b>Gold check.</b> No gold → <span class="scr">"You have no gold."</span>'),
+      (0x9BCF, '<b>Spend cap</b> = min(gold, (100 − dams) × √output ÷ 2).'),
+      (0x9BEA, 'Prompt: <span class="scr">"Dams is <i>N</i>. Spend how much on it?"</span> → number entry.'),
+      (0x9C08, '<code>gold −= amount</code>.'),
+      (0x9C0F, '<code>gain = ⌊2 × amount ÷ √output⌋</code> (min 1); '
+               '<code>dams += gain</code> via <code>helper_dam_rounding</code> (war-halves).'),
+      (0x9C26, '<b>The animation plays</b> — <code>ui_helper_e80c(21)</code> hands id 21 to the '
+               'bank-14 animation VM.'),
+      (0x9C2C, '<code>dams</code> clamped to 100; <span class="scr">"Dams value is now <i>N</i>."</span> → confirm.'),
+    ],
+    "formula": (
+'<span class="c">// preconditions (driver $9B7E)</span>\n'
+'<span class="k">if</span> output == 0:  <span class="c">// "you have no peasants" — can’t dam undeveloped land</span>\n'
+'<span class="k">if</span> dams  &gt;= 100: <span class="c">// "we’re at our limit" — dams is the ONLY 0–100-capped stat</span>\n'
+'<span class="k">if</span> gold  == 0:   <span class="c">// "you have no gold"</span>\n\n'
+'sqrt = <span class="k">int_sqrt</span>(output)                       '
+'<span class="c">// via $87D8 (the real "effect_dam" is just this)</span>\n\n'
+'<span class="c">// spend cap — couples to output AND remaining dam headroom</span>\n'
+'max_spend = <span class="k">min</span>( gold, (100 &minus; dams) &times; sqrt &divide; 2 )\n'
+'amount    = <span class="k">number_input</span>(cap = max_spend)\n'
+'gold     &minus;= amount\n\n'
+'<span class="c">// gain — INVERSELY proportional to √output</span>\n'
+'gain  = <span class="k">max</span>(1, &lfloor; 2 &times; amount &divide; sqrt &rfloor;)\n'
+'dams &plus;= gain                            '
+'<span class="c">// helper_dam_rounding $887D: war-halves, caps at 100</span>'),
+    "roi": "Dam multiplies with output in the rice harvest (<code>rice += pct_op(output × dams, tax)</code>), "
+           "so its ROI <i>rises</i> with output even as the gold cost does. Rule of thumb: Dam beats Grow "
+           "for rice once <code>output² &gt; ~38 × dams</code> — i.e. dam your already-high-output rice fiefs.",
+    "callout": (
+"<b>The last open formula — and it never lived where the labels said.</b> <code>$87D8</code> (tagged "
+"“effect_dam”) is merely a <code>sqrt(output)</code> helper; the real dam math is computed <b>inline in the "
+"driver $9B7E</b> and applied through <code>helper_dam_rounding</code> (<code>$887D</code>, shared with "
+"Build). Two defining properties: dams is the <b>only</b> province stat capped at 0–100, and the gain is "
+"<b>inversely proportional to √output</b> — a developed fief pays far more gold per dam point. The spend cap "
+"<code>(100−dams)×√output÷2</code> is exactly the amount that lifts dams to 100, so “spend the max” always "
+"tops out the dam. Dams matter because the rice harvest multiplies <b>output × dams</b> (appendix §4)."),
+    "validation": {
+      "caption": "Dam at Tokugawa’s state (output 254 → √=15, dams 39). The +56 row is the in-game "
+                 "capture; the others apply the validated formula at the same state.",
+      "headers": ["amount", "gain = ⌊2·amount/15⌋", "dams →", "note"],
+      "rows": [
+        ["100","⌊200/15⌋ = 13","52",""],
+        ["250","⌊500/15⌋ = 33","72",""],
+        ["424 (all gold)","⌊848/15⌋ = 56","95","in-game ✓"],
+        ["457 (cap)","⌊914/15⌋ = 60","99","max spend"],
+      ],
+      "note": "Spend cap = min(gold, (100−dams)×√output÷2) = min(424, 61×15/2 = 457) = 424 → all gold "
+              "spent. Validated against the <code>dam-mikawa</code> capture: dams 39 → 95 (+56), exact. "
+              "Gain is inversely proportional to √output — a high-output fief pays MORE gold per dam point.",
+    },
+    "fields": "<code>dams</code>&nbsp;+gain (capped 0–100) · <code>gold</code>&nbsp;−amount",
   },
 
   # ---- functional example (thin until War's deep page exists) ----

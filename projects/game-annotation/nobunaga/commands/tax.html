@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tax — Nobunaga’s Ambition Command Reference</title>
+<style>
+  :root{
+    --bg:#15151c; --panel:#1f1f2b; --ink:#e8e6df; --dim:#9a97a8;
+    --gold:#f0b429; --red:#e8431f; --blue:#3a6ee8; --green:#5ad05a;
+    --line:#33303f; --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--gold);padding-bottom:14px;margin-bottom:8px}
+  .cmdno{color:var(--gold);font:600 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  h1{margin:.18em 0 .1em;font-size:38px;letter-spacing:.01em}
+  .tag{color:var(--dim);font-style:italic}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 28px}
+  .skills span{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:6px 11px;text-transform:uppercase}
+  h2{margin:38px 0 4px;font-size:22px;border-left:4px solid var(--gold);padding-left:12px}
+  .sub{color:var(--dim);margin:0 0 16px;padding-left:16px;font-size:14px}
+  .anim{display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px}
+  .anim img{image-rendering:pixelated;width:256px;height:240px;background:#6b6b6b;border-radius:6px}
+  .anim .cap{flex:1;min-width:240px}
+  .anim .cap b{color:var(--gold)}
+  .pill{display:inline-block;font:600 11px/1 var(--mono);color:var(--bg);background:var(--green);
+    border-radius:4px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+  ol.flow{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+  ol.flow li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line)}
+  ol.flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  ol.flow .scr{color:var(--green);font-family:var(--mono);font-size:14px}
+  ol.flow .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right}
+  pre{background:#101019;border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:8px;padding:16px;overflow:auto;font:13.5px/1.5 var(--mono);color:#d6e4ff}
+  pre .c{color:#6f7b96}
+  pre .k{color:var(--gold)}
+  .callout{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--red);
+    border-radius:8px;padding:14px 18px;margin:18px 0}
+  .callout b{color:var(--red)}
+  .rabbit{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .rabbit b{color:#b89af0}
+  .rabbit a{color:var(--blue);text-decoration:none}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--panel);color:var(--gold);font-weight:600}
+  td .ok{color:var(--green)}
+  code{font-family:var(--mono);color:var(--gold);font-size:.92em}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer a{color:var(--blue);text-decoration:none}
+  .roi{color:var(--dim);font-style:italic;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="cmdno">Lord Command · No. 3</div>
+  <h1>Tax</h1>
+  <div class="tag">Set a province’s tax rate. Raising it drains loyalty <i>and</i> wealth (and costs charisma); lowering it restores them. Symmetric, one-shot — and scales with the CHANGE.</div>
+</header>
+
+<div class="skills">
+  <span>① decompiler → C</span>
+  <span>② data-walk labels</span>
+  <span>③ bytecode-validated formula</span>
+  <span>④ animation VM → ROM render</span>
+</div>
+
+<h2>What you see</h2>
+<p class="sub">The in-game Tax animation, rendered <b>purely from ROM bytes</b> — no emulator capture.</p>
+<div class="anim">
+  <img src="data:image/gif;base64,R0lGODlhAAPQAoEAAPjYePygRGiI/Hx8fCH/C05FVFNDQVBFMi4wAwEAAAAh+QQIDAAAACwAAAAAAAPQAgAI/wAHCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMb/KuustNZq66245qrrrrz26uuvwAYr7LDEFmvsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+678MYr77z01mvvvfjmq+++/Pbr778AByzwwAQXbPDBCCes8MIMN+zwwxBHLPHEFFds8cUYZ6zxxhx37PHHIIcs8sgkl2zyySinrPLKLLfs8sswxyzzzDTXbPPNOOes88489+zzz0AHLfTQRBdt9NFIJ6300kw37fTTUEct9dRUV2311VhnrfXWXHft9ddghy322GSXbfbZaKet9tpst+3223DHLffcdNdt991456333nz3/+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSUV2755ZhnrvnmnHfu+eeghy766KSXbvrpqKeu+uqst+7667DHLvvstNdu++2456777rz37vvvwAcv/PDEF2/88cgnr/zyzDfv/PPQRy/99NRXb/312Gev/fbcd+/99+CHL/745Jdv/vnop6/++uy37/778Mcv//z012///fjnr//+/Pfv//8ADKAAB0jAAhrwgAhMoAIXyMAGOvCBEIygBCdIwQpa8IIYzKAGN8jBDnrwgyAMoQhHSMISmvCEKEyhClfIwha68IUwjKEMZ0jDGtrwhjjMoQ53yMMe+vCHQAyiEP+HSMQiGvGISEyiEpfIxCY68YlQjKIUp0jFKlrxiljMoha3yMUuevGLYAyjGMdIxjKa8YxoTKMa18jGNrrxjXCMoxznSMc62vGOeMyjHvfIR5IF4I+ABORDAknIQRJSkMY7JCIbosg/GlKRx2tkAB55SEoWcniSrCRCMnnJg3AykMH75CINIkpHbrKUoUTlKUWZkFJOsneaHMAiY0lLU8qyk7V85S1BqbtcDiSXs7QlMIVJTF7mzpcCGaYug2lMZO5ylLeT5C8bOU1IJpOa17TmMzuJO2lmU5nMBGcxY9lNbG6zmeb05jnDyc1o4nKc8FxmPKvJTHraspzolGc+6/n/zXlm0566xCc/zwnQaha0n/o8KO9c2cp7RoShwIOoJx0KEYn6zqIFgWZFVWk7dXrUnAMBgEhHOlJSxpOdxmTdR7WpzpCSlKQm1ac4A7q6lc7UIC+FaUZPylOang6jBPmkS3NKVIXGVKioAypAY0nUphp1p6xMKkePas6mFhWhDY0q6ZypTIMWpKQCAesAxKpQrrbTc2bdZzFxKtKhuhWqKPUqQUWX1rj+86ttDWtex7rXsr5TphTtnE3/6kyxGnavg1VrSj+XWJQO9LAAeOs6e7rUwHKusZS9K18jq1fObraygFWsRgX7V7/mk61W1WlQCbtWrNK1tK6d6y5Rm9q+/8a2rpbdHG5DK9eh1tazph0oOV+rVar61Le1lYhSiYvUiS6WIL8lq0OWGzrqDhe60QXudKd62XR6V5sGEYB4x4tc1Y6XvKsErXoth9nQjlYg5xVvecUaXwFkdb2TPS7k2ovf8MZ3vnut730R6tjcLs66IIVvff/rkAUzeLX6ze91D8xdCF/Xwed9CIbRC+GsNtdxCAavgjes4Q3bF6oe5iSIYStbZ5o4w53N6UBezOGuanbChNutaWdM4xNvVsYjfnFwWytbxOn4trbssY+tymMaDzmhsTXyd29aEAEHWb4xfmmTOWzlDhM4s4nj75d92uUuM/nKPu6yXMUc5imz9v+5ZX7wmQcQZxh7Ob/9PdyRi4xmLjtYshje8oPtOtso65nFNiZIoPuM5c8yOs1/vjGiz1q4PV840nTGNH0xvehCt9ifjAvxIjvd6U0vWNB2TnEmIyfqJHNa0wF+9akXQl0pFxeurp51pnVt6jqreZUfzrGbRUtk/0KaxI/2s4+NW2D3GrhubF5pQpRNahM3WdXNzrPeov3daTdayMn+dqOZDeaW4q3Vq8arao1NbUzTFrEqBna874Zuc//Ytop+MLgPAmQJ57bWb6t3gu+t3Xzbed/v9mywLTzvuVl60sacs7eRzW+nohjJpzW02x6ecdlKHCEIV3e/1/xmkj+3bRz/F24nP36QkGP3qndONKHhxm2WVlXLVX4wQ35NcJNTGc9yq/nPR47mEqc6ywov97Dfuzahv3mRRN81h3euc6T7/OlgpjnECU3ofvtayXLGecxLLumTsy3lRGaq2L8Odg5Hnetbfzba0A5lj69d3203s9ivztuyMx3lFQbtdb2O97zbud8LFzylgx74MQ/+7gc3/OHFnnjHLz5uAhdxz4sebidb3fIRBjjmB45tuUed3e4WOb7tXfoI24318jb7y6Xbcmsj5O2kj/3foZ175+J49vhGva4TTm7X41r2o+s3y4n/+egp3+IKef66nyf906ves9Z3fnYBDHPuZRf72/feuPe5n33ofZ/25Ie++c9f8PR3n/rsTwj72w//1D7kt9nDv0P0fz3+M8T/fRSAAjiABFiABniACJiACriADNiADviAEBiBEjiBFFiBFniBGJiBGriBHNiBHviBIBiCIjiCJFiCJniCKJiCKriCLNiCLviCMBiDMjiDNFiDNniDOJiDOriDPNiDPviDQBiEQjiERFiERniESJiESriETNiETviEUBiFUjiFVFiFVniFWJiFWriFXAg8AQEAIfkECAwAAAAsAAAAAAAD0AKB+Nh4/KBEaIj8fHx8CP8ABwgcSLCgwYMIEypcyLChw4cQI0qcSLGixYsYM2rcyLGjx48gQ4ocSbKkyZMoU6pcybKly5cwY8qcSbOmzZs4c+rcybOnz59AgwodSrSo0aNIkypdyrSp06dQo0qdSrWq1atYs2rdyrWr169gw4odS7as2bNo06pdy7at27dw48qdS7eu3bt48+rdy7ev37+AAwseTLiw4cOIEytezLix48eQI0ueTLmy5cuYM2vezLmz58+gQ4seTbq06dOoU6tezbq169ewY8ueTbu27du4c+vezbu379/AgwsfTry48ePIkytfzry58+fQo0ufTr269evYs2vfzr279+/gw4v/H0++vPnz6NOrX8++vfv38OPLn0+/vv37+PPr38+/v///AAYo4IAEFmjggQgmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLMMYo44w01mjjjTjmqOOOPPbo449ABinkkEQWaeSRSCap5JJMNunkk1BGKeWUVFZp5ZVYZqnlllx26eWXYIYp5phklmnmmWimqeaabLbp5ptwxinnnHTWaeedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYq6aSUVmrppZhmqummnHbq6aeghirqqKSWauqpqKaq6qqsturqq7DG/yrrrLTWauutuOaq66689urrr8AGK+ywxBZr7LHIJqvsssw26+yz0EYr7bTUVmvttdhmq+223Hbr7bfghivuuOSWa+656Kar7rrstuvuu/DGK++89NZr77345qvvvvz26++/AAcs8MAEF2zwwQgnrPDCDDfs8MMQRyzxxBRXbPHFGGes8cYcd+zxxyCHLPLIJJds8skop6zyyiy37PLLMMcs88w012zzzTjnrPPOPPfs889ABy300EQXbfTRSCet9NJMN+3001BHLfXUVFdt9dVYZ6311lx37fXXYIct9thkl2322WinrfbabLft9ttwxy333HTXbffdeOet99589//t99+ABy744IQXbvjhiCeu+OKMN+7445BHLvnklFdu+eWYZ6755px37vnnoIcu+uikl2766ainrvrqrLfu+uuwxy777LTXbvvtuOeu++689+7778AHL/zwxBdv/PHIJ6/88sw37/zz0Ecv/fTUV2/99dhnr/323Hfv/ffghy/++OSXb/756Kev/vrst+/++/DHL//89Ndv//3456///vz37///AAygAAdIwAIa8IAITKACF8jABjrwgRCMoAQnSMEKWvCCGMygBjfIwQ568IMgDKEIR0jCEprwhChMoQpXyMIWuvCFMIyhDGdIwxra8IY4zKEOd8jDHvrwh0AMohD/h0jEIhrxiEhMohKXyMQmOvGJUIyiFKdIxSpa8YpYzKIWt8jFLnrxi2AMoxjHSMYymvGMaEyjGtfIxja68Y1wjKMc50jHOtrxjnjMox73yMc++vGPgAykIAdJyEIa8pCITKQiF0nHADjykY80CAAmSUlKGiSS3oOkJiVZyUpe0pHf0yQkOdnJSX4yANwTpSgHUspWmlIgq8SeKjcpEFe2ciCxvN4sR1lLW3YSl7SkXi4xSRBL9hIArHwlQXIJvWGCsiDGHEA0owlMXkbPmaiEpjKnqcxqErOZs6xmMpF5zHF6M5jgVKU4y8lOaSpzl9ODJyyf6U5y1tOc81Sn9LBJ/0pfdjOf33weP7Xpz38OgJkCDWZA61nQUy40nQ89ZkPDh9BiFtSgqUQnQSeqy3AiRAAgDek4SzmQkIoUIRH9nTwPYlKQjvSXAmmpABKSUt+t1CAyfaknY9pSmtIzeDflqUxN+pCh9rQgNb1dUAdgVKI6pKknXeZPe7dUqLr0qVY9pU0VSk+rOpWhMGWqV696UI3abqBiHatOozlWsla0dmht60wlGla5njObuavqUdMaVVuWdK85RepUz+pRggSWr2T1q1Cjeth15rWwf/3qYRWL2LlWVqu6q2hTIztZZW52sXtNKuw0a1TO7pWtpQXtV0X7OtIO1bRfRe1rVRtV1v/GLpefrWxfPZta3ZIVqMHMbW5le9jcAteawu0tcQHbW9ytNKWMzSptmWtZh5o1dc8dbGRhW1zpptWn+mxddvGKU7J6lbvUBe9bS7fLipL0o9Q17kbf2V7ysre+C30vS+Pb3PnaE7/Yxe9g9VteyXq3n/Rtr+nQmkvKJuS8CHFwPu86OgYHU8L7hWpCMEzM9W7OwtbEcIHla9FbChavHtbceBscVtgWda86dexSO7fiC7dYtS/+aownDNDrcq7GIb7xZbGqY7r+l54z/jFXUWzjnQ7Zt3K1LIF5XFZrgg7ExNRvd6PcWSfL2McfXjKFjezi6UZ5x1JlspVFJ+AB15X/v1xObFgBjLo22xes9txynHfrZDqfzs4IzjOc44xmPwc4vBsW8oj7W2Jq9njNqktyozFaEAgfZMpVTvF9ER1hRVf6wP61LqR9p18Rh5rM0iu1Kxmiai8/r9WYDjSarXfRbdb6e7W2Z65xfWsjmzp6uXb0pC86vWBTGs8chZ6x7RnoZKfanw9xNvWknWhfZo/anbY2I7fN7W57+9vgDre4x03ucpv73OhOt7rXze52u/vd8I63vOdN73rb+974zre+983vfvv73wAPuMAHTvCCG/zgCE+4whfO8IY7/OEQj7jEJ07xilv84hjPuMY3zvGOe/zjIA+5yEdO8pKb/OQoFU+5ylfO8pa7/OUwj7nMZ07zmuMoIAAh+QQIDAAAACwAAAAAAAPQAoH8/Pz42HhoiPx8fHwI/wAHCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMb/KuustNZq66245qrrrrz26uuvwAYr7LDEFmvsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+678MYr77z01mvvvfjmq+++/Pbr778AByzwwAQXbPDBCCes8MIMN+zwwxBHLPHEFFds8cUYZ6zxxhx37PHHIIcs8sgkl2zyySinrPLKLLfs8sswxyzzzDTXbPPNOOes88489+zzz0AHLfTQRBdt9NFIJ6300kw37fTTUEct9dRUV2311VhnrfXWXHft9ddghy322GSXbfbZaKet9tpst+3223DHLffcdNdt991456333nz3/+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSUV2755ZhnrvnmnHfu+eeghy766KSXbvrpqKeu+uqst+7667DHLvvstNdu++2456777rz37vvvwAcv/PDEF2/88cgnr/zyzDfv/PPQRy/99NRXb/312Gev/fbcd+/99+CHL/745Jdv/vnop6/++uy37/778Mcv//z012///fjnr//+/Pfv//8ADKAAB0jAAhrwgAhMoAIXyMAGOvCBEIygBCdIwQpa8IIYzKAGN8jBDnrwgyAMoQhHSMISmvCEKEyhClfIwha68IUwjKEMZ0jDGtrwhjjMoQ53yMMe+vCHQAyiEP+HSMQiGvGISEyiEpfIxCY68YlQjKIUp0jFKlrxiljMoha3yMUuevGLYAyjGMdIxjKa8YxoTKMa18jGNrrxjXCMoxznSMc62vGOeMyjHlUCgD76UX9+/GP+AtlHQBLSkIFEpCD9t0hE9q+RgyxkRwgJgOxBMiOUtKQkOZJJ+1HykvH75CbpJ8pKzg+UnhxlJE25x1a68pWwjGIn8TfL+9UylZ+0pSh1mcv/ofImpazdL20STNoNsybFdF4AlslMZm5kkbdcXjOn+cxNRlN502xmNVl5TeNl85vLjB84vynOcVJTfQJI50DMec4BpFMA5XvnOtnpTIHIk3z3HAA96+n/TnV6750A9ac+9xmAgQQUoNk7aD4JWlB7KhSe2HsoRAe6T4M+1HoHtehEGapRiU4vow7dKEE7elHpgbSfIq1oSD1q0oCSNKXZNIhE8wm9k550nDKd6URr6tKVChSnBdHpTnt3TIKwNCNHZUhRR7dUnyJUI0ldSFNDN9WoWsSqCZlq57Tq1IUytJ1YlaoqScdVlN70q9rsqkAfUtbLlfWoaE2rWXsKkbZOrpsKgSs4DRJTp1YEr5oDLEL0Ss6C9HWuQ63rIUUn2IMQ9rDzlOtJJdJYty4WIoTN6VMbAlmxJpKxl31IZoNKV4Z0ViGVtVxqjVpSimqWpgs5bVZDq7vJ/6pVoQkBavRsi9iwUlS2zOOtUGFLEN1+VKDETQhvgeu8fCZ3sKUVCHOb59y1LmS57eTpRKs73MeGs6XbRW53vdvQ3Yo3vOPFrXSzG1ydvjS9P2Xv8oT6XvhGlp/Ude9tx3vf74KPvgiZ7vYAfBABa4/AfJVv8+Jq2nYa+HgMjq2DFcy8CCvksA/2Zlz9y1HsbZjDI/Xwh/trzuxZOMFfnd6JDYtWFbc4wC+mHj0fMmMRl9ghNb5ejht841j6+MdADrKQh0zkIhv5yEhOspKXzOQmO/nJUI6ylKdM5Spb+cpYzrKWt8zlLnv5y2AOs5jHTOYym/nMaE6zmtfM5ja7+T7NcI6znOdM5zrb+c54zrOe98znPvv5z4AOtKAHTehCG/rQiE60ohfN6EY7+tGQjrSkJ03pSlv60pjO9KoCAgAh+QQIDAAAACwAAAAAAAPQAoF8fHwAAAAAAAAAAAAI/wABCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMb/KuustNZq66245qrrrrz26uuvwAYr7LDEFmvsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+678MYr77z01mvvvfjmq+++/Pbr778AByzwwAQXbPDBCCes8MIMN+zwwxBHLPHEFFds8cUYZ6zxxhx37PHHIIcs8sgkl2zyySinrPLKLLfs8sswxyzzzDTXbPPNOOes88489+zzz0AHLfTQRBdt9NFIJ6300kw37fTTUEct9dRUV2311VhnrfXWXHft9ddghy322GSXbfbZaKet9tpst+3223DHLffcdNdt991456333nz3/+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSUV2755ZhnrvnmnHfu+eeghy766KSXbvrpqKeu+uqst+7667DHLvvstNdu++2456777rz37vvvwAcv/PDEF2/88cgnr/zyzDfv/PPQRy/99NRXb/312Gev/fbcd+/99+CHL/745Jdv/vnop6/++uy37/778Mcv//z012///fjnr//+/Pfv//8ADKAAB0jAAhrwgAhMoAIXyMAGOvCBEIygBCdIwQpa8IIYzKAGN8jBDnrwgyAMoQhHSMISmvCEKEyhClfIwha68IUwjKEMZ0jDGtrwhjjMoQ53yMMe+vCHQAyiEP+HSMQiGvGISEyiEpfIxCY68YlQjKIUp0jFKlrxiljMoha3yMUuevGLYAyjGMdIxjKa8YxoTKMa18jGNrrxjXCMoxznSMc62vGOeMyjHvfIxz768Y+ADKQgB0nIQhrykIhMpCIXychGOvKRkIykJCdJyUpa8pKYzKQmN8nJTnryk6AMpShHScpSmvKUqEylKlfJyla68pWwjKUsZ0nLWtrylrjMpS53ycte+vKXwAymMIdJzGIa85jITKYyl8nMZjrzmdCMpjSnSc1qWvOa2MymNrfJzW5685vgDKc4x0nOcprznOhMpzrXyc52uvOd8IynPOdJz3ra8574zKc+98kvz376858ADahAB0rQghr0oAhNqEIXytCGOvShEI2oRCdK0Ypa9KIYzahGN2qYgAAAOw==" alt="Tax animation">
+  <div class="cap">
+    Peasants sit amid the koku they owe — then the coins are taken and discontent sets in (the tax-<i>raised</i> animation, id 19).
+    <span class="pill">FROM ROM</span><br><br>
+    Produced headless by <code>tools/run-animation.py 19</code>, which runs the game’s
+    own <b>animation scripting VM</b> (bank&nbsp;14 <code>$80AD</code>, id <code>19</code> from
+    the descriptor table at <code>$AF80</code>) and intercepts every CHR upload, palette write
+    and sprite placement to reconstruct each frame — real NES palette.
+  </div>
+</div>
+
+<h2>How it works</h2>
+<p class="sub">The driver <code>$999A</code> reads as a step-by-step script:</p>
+<ol class="flow">
+  <li><span class="addr">$999F</span>Select <b>Tax</b> and the province; the window shows the current rate.</li>
+  <li><span class="addr">$99BC</span>Prompt: <span class="scr">"Tax is <i>N</i>. Enter new tax."</span> (capped at 100, or 30 under <code>tax_helper_db12</code>).</li>
+  <li><span class="addr">$99DB</span><b>Number entry</b> → the new rate. Cancel or no-change → bail.</li>
+  <li><span class="addr">$99EF</span><b>Direction branch.</b> If raised → animation <b>19</b> + <span class="scr">"The peasants are protesting."</span> If lowered → animation <b>18</b> + <span class="scr">"The peasants are delighted."</span></li>
+  <li><span class="addr">$9A1C</span><b>Daimyo charisma:</b> <code>−1</code> if you raised tax, <code>+1</code> if you lowered it.</li>
+  <li><span class="addr">$9A3B</span>The province’s tax byte is set to the new rate.</li>
+  <li><span class="addr">$9A42</span><code>loyalty ±= pct_op(loyalty, |Δtax|)</code> via <code>effect_tax</code> ($82D6) — drops on a raise, recovers on a cut.</li>
+  <li><span class="addr">$9A4C</span><code>wealth ±= pct_op(wealth, |Δtax|)</code> — same magnitude. → confirm.</li>
+</ol>
+
+<h2>The formula</h2>
+<p class="sub">Read directly from <code>$82D6</code> bytecode and execution-verified.</p>
+<pre><span class="c">// Tax is symmetric: the hit scales with the CHANGE, not the level</span>
+&Delta;      = new_tax &minus; old_tax            <span class="c">// signed</span>
+
+<span class="c">// effect_tax ($82D6) applied to BOTH loyalty and wealth:</span>
+<span class="k">stat_adjust</span>(stat):
+    move = <span class="k">pct_op</span>(stat, |&Delta;|)        <span class="c">// ⌊stat × |Δ| ÷ 100⌋</span>
+    stat = (&Delta; &gt; 0) ? stat &minus; move    <span class="c">// raise tax → people sour</span>
+                  : stat &plus; move    <span class="c">// lower tax → people warm</span>
+
+loyalty  = stat_adjust(loyalty)        <span class="c">// record +12</span>
+wealth   = stat_adjust(wealth)         <span class="c">// record +14</span>
+charisma &plus;= (&Delta; &gt; 0) ? &minus;1 : &plus;1        <span class="c">// daimyo record +4</span>
+tax[fief] = new_tax</pre>
+<p class="roi">Set tax high — <b>~55% is the sweet spot</b> — on turn one and <b>leave it</b>. Every re-fiddle re-charges the loyalty/wealth penalty, so a province whose rate you keep flipping bleeds far more than its harvest gains. Pushing past ~55–60% also opens Riot vulnerability (see the event system).</p>
+<div class="callout"><b>Symmetric and one-shot — the key strategic property.</b> Raising the rate by |Δ| points immediately drains <b>both</b> loyalty and wealth by |Δ|% (and costs the daimyo 1 charisma); lowering it <b>restores</b> the same percentage (and earns 1 charisma). Because the penalty scales with the <b>change</b> and not the level, the optimal play is to set tax high <i>once</i>, early, and never touch it again — every adjustment is a fresh tax on your own people. Note the underlying <code>effect_tax</code> ($82D6) is a generic signed-percent primitive; the driver $999A calls it twice (loyalty, then wealth) with the tax delta.</div>
+
+<h2>Validated against the ROM</h2>
+<p class="sub">A tax change of |Δ| points moves BOTH loyalty and wealth by pct_op(stat, |Δ|), opposite the tax direction. Worked from the unit-verified pct_op primitive.</p>
+<table>
+  <tr><th>stat (pre)</th><th>|Δtax|</th><th>pct_op(stat,|Δ|)</th><th>raise tax →</th><th>lower tax →</th></tr>
+  <tr><td>loyalty 80</td><td>10</td><td>8</td><td>72</td><td>88</td></tr>
+  <tr><td>loyalty 80</td><td>20</td><td>16</td><td>64</td><td>96</td></tr>
+  <tr><td>wealth 120</td><td>20</td><td>24</td><td>96</td><td>144</td></tr>
+  <tr><td>wealth 50</td><td>40</td><td>20</td><td>30</td><td>70</td></tr>
+</table>
+<p class="sub"><code>pct_op</code> is verified to the unit across 8+ observed drain calls (appendix §6). Charisma moves the <i>other</i> way: <code>+1</code> when you lower tax, <code>−1</code> when you raise it. In-game verified — see <a href='../appendix-formulas.md'>the tax-penalty formula</a>.</p>
+
+<footer>
+  <b>Fields touched:</b> <code>loyalty</code>&nbsp;±pct · <code>wealth</code>&nbsp;±pct (same %, opposite the tax move) · province <code>tax</code>&nbsp;:= new rate · daimyo <code>charisma</code>&nbsp;∓1. &nbsp;·&nbsp;
+  Sources: <code>decompiled/bank_01.c</code> · <code>tools/run-animation.py</code> ·
+  <a href="../appendix-formulas.md">appendix-formulas.md</a> · <a href="./tax.md">tax.md</a>.
+</footer>
+</div>
+</body>
+</html>

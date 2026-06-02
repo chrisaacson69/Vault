@@ -43,21 +43,24 @@ gold    -= amount                 ; debited by driver before effect runs
 ## 2. Build ($88A6) — develop town — **VERIFIED 2026-05-26**
 
 ```
-gain = 2 × ⌊amount × 5 ÷ √(town + amount)⌋
-                                  ; headroom clamp: gain = min(gain, header − town)
-pct = (same mystery as Grow; empirically 20)
+g    = ⌊amount × (6 − const_two) ÷ √(town + amount)⌋   ; const_two=$6D63, normally 1 → ×5
+g    = max(g, 1); g = min(g, header − town)            ; headroom clamp (rarely fires)
+pct  = (g > town) ? 50 : ⌊100 × g ÷ (g + town)⌋ ÷ 2    ; computed LIVE — not a constant
 wealth -= pct_op(wealth, pct)
-town   += gain
-gold   -= amount
+town   += 2 × g                                        ; via helper_dam_rounding (halved if at war)
+gold   -= amount                                       ; debited by the driver
 ```
 
-**Only ONE drain** (wealth), vs Grow's TWO drains (loyalty + dams). Same `pct_op` primitive, same pct source.
+**Only ONE drain** (wealth), vs Grow's TWO drains (loyalty + dams). Same `pct_op` primitive.
 
-**Same template as Grow**, just different target field (town instead of output) and different drain field (wealth instead of loyalty/dams).
+**CORRECTED 2026-06-02 (full bytecode walk of `$88AB-$891C` + 5 ROM re-executions):**
+- **`pct` is NOT the constant 20.** Like Grow, the bytecode computes it live from the gain-to-town ratio (`math32_2arg(g, town)` halved), capped at 50%. The earlier "empirically 20" was the same single-test coincidence that bit Grow.
+- **There is no "main + secondary" town add.** Build does ONE write of `2g`, routed through `helper_dam_rounding` ($887D) — which adds the full `2g` in peacetime, halves it only when `war_helper_d972(province)` is true, then calls `helper_82AC` to cap `town` at `header`. The old "secondary TOWN bump" was a misread of that single routed write.
+- **`g` is the UN-doubled gain** (math32_3arg result, stored without `<<1`); the `×2` is applied at the town write (`gain << 1` passed to the helper), and `effect_build` returns `g` for the confirm screen. (Grow doubles early; Build doubles late — same magnitude, slightly different `pct` ratio input.)
 
-- **K = 5** — same constant as Grow. Strong evidence K=5 is the develop-family universal constant
-- **Verified**: 1/1 with trace evidence (Test 1: amount=170, town 320→396 = +76 gain, predicted 76 exact). arg values captured: arg1=$AA=170, arg2=$05=5, arg3=$16=22=sqrt(490).
-- **Source bytecode**: $88A6; math at $D6B8
+- **K = 5** — same `6 − const_two` multiplier as Grow/Give. Develop-family universal constant.
+- **Verified**: bytecode + 5/5 ROM-executed tests (town=176, wealth=235; amounts 30/50/80/120/200 all exact) + in-game Test 1 (amount=170, town 320→396 = +76, √490=22, g=⌊850/22⌋=38, 2g=76). See [build.html](./commands/build.html).
+- **Source bytecode**: $88A6 (+ $887D helper); math at $D6B8
 
 ## 3. Give-Peasants ($A8D3 → $891D + $896F) — convert resource → loyalty + wealth — **VERIFIED 2026-05-26**
 
@@ -82,16 +85,17 @@ This prevents runaway-pumping by pulling the gain toward whichever of the pair i
 ## 4. Train ($9586) — skill growth
 
 ```
-skill_gain = (rng%20 + 10) × 4 + bonus
-bonus = 10 if (daimyo.Luck + daimyo.IQ) > (rng%10 + 90) else 0
-skill += skill_gain
+skill_gain = (rng%20 + 10) × 4 + bonus       ; (rng%20 + 10) << 2, confirmed $959A-$95A2
+bonus = 10 if (daimyo[+3] + daimyo[+5]) > (rng%10 + 90) else 0   ; aptitude pair (Luck+IQ)
+skill += skill_gain                          ; capped at the fief ceiling by the driver
 ```
 
-- Range: **40–80 per training session** (without bonus), **50–90** (with bonus)
-- For Tokugawa (Luck 78 + IQ 89 = 167): bonus **always fires** (167 > max 100)
-- No drains, no cost — pure skill stat-up
-- **Verified**: 9/9 controlled tests (2026-05-24/25). See [train.md](./commands/train.md).
-- **Source bytecode**: $9586; uses `ca52` (rng wrapper at $CA52) and `ui_helper_d7ea` (daimyo getter)
+- Range: **40–116 per training session** (without bonus), **50–126** (with bonus). *(Corrected 2026-06-02 from the bytecode — the earlier "40–80" was wrong; `(rng%20+10)×4` with `rng%20 ∈ [0,19]` spans 40–116.)*
+- For Tokugawa (aptitude pair = 167 > max threshold 99): bonus **always fires**, so his band is 50–126
+- No drains, no cost — pure skill stat-up; the animation plays *before* the effect (driver $A671 → $A676)
+- Requires soldiers (`men > 0`) — you can't drill an empty garrison
+- **Verified**: bytecode ($9586) + 9/9 controlled tests (2026-05-24/25). See [train.html](./commands/train.html) · [train.md](./commands/train.md).
+- **Source bytecode**: $9586; uses `rng_mod` ($CA52) and `ui_helper_d7ea` (daimyo getter)
 
 ## 6. pct_op ($D70D) — percentage drain primitive
 
@@ -204,7 +208,9 @@ source_field -= effective_amount   (no attrition)
 - Send to high-HEADER fiefs for biggest transfers
 - Pairs with Give-Peasants: Send moves rice, Give converts rice to stats
 
-## 7. Hire ($A2D2 dispatcher + $A553 hire-men + $8BF4 dilution) — **VERIFIED 2026-05-26**
+## 7. Hire ($A5F4 driver → Men:$A553 / Ninja:$A2D2; dilution $8BF4) — **VERIFIED 2026-05-26; effect addr CORRECTED 2026-06-02**
+
+> **CORRECTION (2026-06-02, bytecode walk).** The driver `$A5F4` prompts **"(Men/Ninja)?"** and branches: **Men → `effect_hire_men` ($A553)** (the recruit-soldiers formula below, animation **id 33**); **Ninja → `$A2D2`** (the *sabotage*-mission menu — Uprising/Revolt/Dams/Assassin/Arson, animation id 12 — the same subsystem **Bribe** uses, NOT recruitment). The earlier "$A2D2 = effect_hire dispatcher" label was wrong: `$A2D2` is the ninja path. The per-man gold cost uses `gold_men_hire_rate` ($6E11), which **re-rolls every turn** (market-rate table) — so hiring is cheaper some seasons.
 
 ### Recruit base stats (random per hire)
 ```
@@ -227,6 +233,29 @@ new_stat = min(cap, (current_stat × current_men + recruit_stat × new_men) / (c
 - **Train > Hire for elite armies** (no dilution)
 - **Hire early when current stats are low** (recruits don't drag down much)
 - **Hire restores body count** after combat losses
+
+## Dam ($9B7E driver; √output helper $87D8; apply $887D) — **DERIVED + VERIFIED 2026-06-02**
+
+> The last open economic formula. It is **not** in `$87D8` (that sub, mislabeled "effect_dam", is just `sqrt(output)` — returns 10000 if output==0). The dam math is computed **inline in the driver $9B7E** and applied through `helper_dam_rounding` ($887D, shared with Build).
+
+```
+; preconditions
+if output == 0:  "you have no peasants"          ; can't dam undeveloped land
+if dams  >= 100: "we're at our limit"            ; dams is the ONLY 0-100-capped province stat
+if gold  == 0:   "you have no gold"
+
+sqrt      = int_sqrt(output)                      ; $87D8
+max_spend = min( gold, (100 − dams) × sqrt ÷ 2 )  ; the spend cap = exactly enough to reach dams 100
+amount    = number_input(cap = max_spend)
+gold     −= amount
+gain      = max(1, ⌊ 2 × amount ÷ sqrt ⌋)         ; INVERSELY proportional to √output
+dams     += gain                                  ; helper_dam_rounding: war-halves, then caps at 100
+```
+
+- **Gain is inversely proportional to √output** — a developed fief pays far more gold per dam point. The spend cap is exactly the amount that lifts dams to 100.
+- **Why dams matter**: the rice harvest multiplies `output × dams` (§4 rice formula), so Dam is a rice-yield multiplier; ROI rises with output. Dam beats Grow for rice once `output² > ~38 × dams`. [[project_nobunaga_dam_doctrine]]
+- **Verified**: bytecode + `dam-mikawa` capture (Tokugawa output=254 → √=15, spent all 424 gold → dams 39 → 95 = +56; `⌊848/15⌋ = 56` exact). See [dam.html](./commands/dam.html).
+- **Source bytecode**: driver $9B7E; helpers $87D8 (√output), $887D (apply+cap), animation id 21.
 
 ## 8. Daimyo passive aging — **VERIFIED 2026-05-26 (Fall 1566)**
 
@@ -266,15 +295,15 @@ So Train command ACCELERATES what would happen anyway. The drift might be condit
 - Damage magnitudes beyond MEN /= 2 for revolt
 - Seasonal flag formula (which seasons can have events)
 
-## Pending — formulas not yet verified
+## Pending — all atomic economic formulas now verified
 
-| command | bytecode addr | template | what's known | what's needed |
-|---|---|---|---|---|
-| **Give-Men** | $89C1 | math32_3arg → morale (paired with men) | template confirmed; predicted `morale_gain = 2 × ⌊amount × 5 ÷ √((men+morale)/2 + amount)⌋` | one test to verify |
-| **Dam** | $87D8 + $9B7E | SINGLE-field (dams only); not math32_3arg | gold→dams with state-dep efficiency | full bytecode walk |
-| **Hire** | $A2D2 | recruit stats + cost | per-man cost varies ~3-8 gold; recruit stats ~65/54/42 | unwalked; biggest blocker |
-| **Send** | $8BE5 | weighted-average + attrition | ~3% travel attrition observed | unwalked |
-| **Fall harvest** | bank 0 ($A0A9 + helpers) | uses high-water marks | gold ≈ output × (1+tax_rate); rice ≈ output | walk in progress |
+**As of 2026-06-02 every atomic/economic command is bytecode-verified** — the prior "pending" rows (Give-Men, Hire, Send, Fall harvest) are all resolved above or in their command pages, and **Dam** (the last holdout) is derived. Notes superseding old guesses:
+- **Give-Men** = `give_morale` ($89C1): `morale += 2 × ⌊amount × (6−const_two) ÷ √((men+morale)/2 + amount)⌋` — the predicted template, confirmed by bytecode. See [give.html](./commands/give.html).
+- **Hire**: `$A2D2` was the **Ninja/sabotage** path, not recruitment — recruit-men is `$A553` (+ dilution `$8BF4`). See §7 + [hire.html](./commands/hire.html).
+- **Send**: **no attrition** — `$8BE5 = min(header−current, requested)`; the earlier "~3% travel attrition" was a misread. See [send.html](./commands/send.html).
+- **Fall harvest**: verified in §4.
+
+The per-command HTML walkthroughs (driver flow + bytecode-validated formula + embedded from-ROM animation) live in [commands/](./commands/) — `grow` `build` `give` `train` `tax` `send` `hire` `dam`.
 
 ## Methodology notes
 
