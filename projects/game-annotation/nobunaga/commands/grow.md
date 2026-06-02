@@ -35,11 +35,15 @@ effect: $87F0
 if amount < 1:  return 0
 sqrt_val   = sqrt(output + amount)                  ; CBCD = integer sqrt (truncated)
 math_arg1  = amount                                  ; gold spent
-math_arg2  = 5                                       ; hardcoded constant
+math_arg2  = 6 − const_two                           ; $8808: LOADL 6 / SUB const_two($6D63); = 5 when const_two=1
 math_arg3  = sqrt_val
-math_ret   = (amount × 5) ÷ sqrt_val                 ; math32_3arg, signed int divide
+math_ret   = (amount × (6−const_two)) ÷ sqrt_val     ; math32_3arg, signed int divide
 gain       = math_ret << 1                           ; aslA — doubled
+if gain == 0: gain = 1                               ; min gain 1
 if gain > (header - output): gain = header - output  ; headroom clamp (rarely fires)
+; --- secondary-drain percentage, computed LIVE ($8833-$884E) — NOT a constant ---
+if (gain / 2) > output:  pct = 100 / 2 = 50          ; flat 50% ceiling when gain > 2·output
+else:                    pct = math32_2arg(gain, output) / 2 = ⌊100·gain ÷ (gain+output)⌋ / 2
 loyalty   -= pct_op(loyalty, pct)                    ; secondary drain
 dams      -= pct_op(dams, pct)                       ; secondary drain
 output    += gain
@@ -53,7 +57,7 @@ return gain / 2                                      ; driver displays this
 Where:
 - `math32_3arg(a, b, c) = (a × b) ÷ c` (32-bit signed; verified by walking the 47 extended opcodes 2026-05-25)
 - `pct_op(b, p)` = `b × p ÷ 100` (split-by-10 to avoid 16-bit overflow)
-- The "5" constant lives in Grow's bytecode at $87F0 — pushed before the `host_call $D6B8`. Same template `(amount × K) ÷ sqrt` likely applies to Build/Give/Dam with different `K`.
+- The multiplier is `6 − const_two` (`$6D63`), computed at $8808 — **not** a literal 5. It equals 5 only because `const_two` is normally 1; `apply_two_grows_const1_override` proves it's mutable. Same template `(amount × (6−const_two)) ÷ sqrt` applies to Build/Give (verified) with the same `const_two`.
 
 ## Test runs
 
@@ -76,9 +80,8 @@ Where:
 - `gain = +56` ✓ matches bytecode model with `math32_3arg(−1, 12, ???) = 28`, then `28 << 1 = 56`
 - `headroom = header − output = 1640 − 80 = 1560` — not clamped (vast)
 - `gain/2 = 28 ≤ output = 80` → **flat-100 ceiling NOT hit**; took the `math32_2arg` branch
-- Assuming dams Δ is purely Grow: `pct_op(80, P) = 16` → **P = 20**
-- Predicts Grow loyalty drain = `pct_op(76, 20) = 15` → tax loyalty hit = `39 − 15 = 24`
-- **2026-05-25 CONFIRMATION (from Train Test 1)**: Train drained `output 136 → 109 (-27)` which is exactly `pct_op(136, 20) = 27`. **`pct = 20` is a real game constant** used by multiple develop-family commands as their secondary drain percentage. This collapses one major unknown in the math32_2arg chain.
+- Assuming dams Δ is purely Grow: `pct_op(80, P) = 16` → **P = 20** *(in THIS test)*
+- ⚠️ **CORRECTED 2026-06-02 (bytecode validation):** `pct` is **NOT** a constant 20. The bytecode at `$8833-$884E` computes it live: `pct = (gain/2 > output) ? 50 : ⌊100·gain/(gain+output)⌋/2`. For Test 1 (gain=56, output=80): `⌊5600/136⌋/2 = 41/2 = 20` — so the "20" was a **coincidence of this single test** (the only one where drains were captured). The drain scales with how aggressive the grow is relative to output, capped at 50%. The old "`pct=20` is a real game constant" claim (and its Train cross-check, which happened to land on 20 too) is withdrawn — see [[project_nobunaga_grow_formula_corrected]]. Validated against `$87F0` bytecode + reproduced by `run-effect.py`.
 
 Files: `traces/grow-test1-tokugawa-PRE.dmp` (Spring start), `traces/grow-test1-tokugawa-POST-fall-start.dmp` (Fall start).
 
@@ -103,6 +106,6 @@ Then math32_3arg = (115 × 5) ÷ 19 = 30. Doubled → gain = 60. **Exact match.*
 
 ## Open questions (much narrower now)
 
-- **Loyalty/dams drain pct** — still empirical (`pct = 20` confirmed for one data point via Train's output drain; need 2nd Grow snap WITHOUT tax-confound to verify pct is constant 20 or varies)
+- ~~**Loyalty/dams drain pct**~~ — **RESOLVED 2026-06-02**: `pct = (gain/2 > output) ? 50 : ⌊100·gain/(gain+output)⌋/2` (bytecode-validated, not a constant). The earlier "pct=20" was a coincidence of Test 1. A drain-only snap with `gain ≠ 0.49·output` would confirm empirically (predict drain from the live formula).
 - **Does Grow's "5" change across game scenarios?** All 5 tests were the same starting save. A test from a fresh New Game on a different scenario would confirm the constant is truly hardcoded
 - **Headroom clamp formula** — bytecode has the clamp but no test has ever triggered it (would need output very close to header=1640)

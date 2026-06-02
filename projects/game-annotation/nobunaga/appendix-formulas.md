@@ -22,9 +22,9 @@ created: 2026-05-26
 ## 1. Grow ($87F0) — develop output
 
 ```
-gain = 2 × ⌊amount × 5 ÷ √(output + amount)⌋
-                                  ; headroom clamp: gain = min(gain, header − output)
-pct  = (mystery; empirically 20 across all develop-family tests)
+gain = 2 × ⌊amount × (6 − const_two) ÷ √(output + amount)⌋   ; const_two=$6D63, normally 1 → ×5
+                                  ; headroom clamp: gain = min(gain, header − output); min gain 1
+pct  = (gain/2 > output) ? 50 : ⌊100 × gain ÷ (gain + output)⌋ ÷ 2   ; computed LIVE — not a constant
 loyalty -= pct_op(loyalty, pct)   ; ⌊loyalty × pct ÷ 100⌋
 dams    -= pct_op(dams,    pct)   ; same pct
 output  += gain
@@ -33,7 +33,7 @@ gold    -= amount                 ; debited by driver before effect runs
 
 **Drain sequence verified from bytecode** ($8859-$8870): two `host_call $D70D (pct_op)` invocations, one for loyalty (record+12), one for dams (record+10). Both use the SAME pct computed once at $884D.
 
-**pct=20 derivation is still partially unknown**: the bytecode at $884A-$884D does `clearA → swap_AB → loadA → div_signed`. After `clearA → swap_AB`, regB=0 — a divide-by-zero. Native handler at $ED7A must return a specific value here (likely tied to const_two or output/headroom ratio). Strong hypothesis: **pct = 100 ÷ const_two**, so if const_two = 5 (matching the K=5 universal), pct = 20 exactly. One Mesen breakpoint at $884D would confirm.
+**pct CORRECTED 2026-06-02 (full bytecode walk of `$8833-$884E`):** the drain percentage is **computed live**, not a constant. `math32_2arg(gain, output) = ⌊100·gain/(gain+output)⌋` is halved to give `pct`; if `gain/2 > output` (gain > 2·output) a flat `pct = 50` ceiling applies. The old "empirically 20" was a **coincidence of the single drain-measured test** (gain=56, output=80 → ⌊5600/136⌋/2 = 20), and the `pct = 100÷const_two` hypothesis is withdrawn. See [[project_nobunaga_grow_formula_corrected]]; the same `6−const_two` multiplier (not a literal 5) and live-pct drain apply to Build/Give.
 
 - **ROI**: `gain / amount ≈ 10 / √(output + amount)` — pure inverse-sqrt diminishing returns
 - **Strategic implication**: front-load Grow when output is low; ROI drops sharply past output ~300
