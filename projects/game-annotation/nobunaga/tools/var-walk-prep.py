@@ -42,14 +42,59 @@ BODY_RE = re.compile(r'^// \(body @ \$[0-9A-Fa-f]{4}\)', re.M)
 NAMED_HDR_RE = re.compile(r'^// \$([0-9A-Fa-f]{4}) (\S.*)$')
 SLOT_RE = re.compile(r'\b(arg[1-4]|local\d+)\b')
 ANON_RE = re.compile(r'^(?:sub|helper)_[0-9A-Fa-f]+$')
+# Far-frame spill locals the disassembler renders raw: *(word|byte*)(fp ± N) / (fp ± N).
+FAR_RE = re.compile(r'\*\((?:word|byte)\*\)\(fp ([+-]) (\d+)\)|\(fp ([+-]) (\d+)\)')
 
 
 def _slot_key(s):
     return (0 if s.startswith("arg") else 1, int(re.search(r'\d+', s).group()))
 
 
-def parse_named_subs(bank):
-    """[{addr, name, slots}] for every NAMED sub in bank_NN.c that still has positional slots."""
+def far_slots(chunk):
+    """Sorted far-frame spill-local keys (`fp-38`) in a sub body — NEGATIVE offsets only.
+    In this VM locals grow DOWNWARD from fp (the 12 standard slots are fp-24..fp-2), so every
+    POSITIVE offset is an arg (arg1=fp+11, arg2=+13, …, arg5=+19, …, via the general opcode) or
+    frame-header, NOT a spill local — those are handled by the arg system / the arg-render fix
+    ticket, never named as far keys here."""
+    keys = set()
+    for m in FAR_RE.finditer(chunk):
+        sign, num = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
+        if sign == "-":
+            keys.add(f"fp-{num}")
+    return sorted(keys, key=lambda k: int(k[2:]))
+
+
+def recorded_slots(bank):
+    """{addr: {slot keys already recorded}} from the toml [vars.bankN.*] sections — named
+    (`slot = {`/`"fp-N" = {`) OR left-positional (`# slot left positional`). For --far's
+    per-SLOT done-tracking: a sub WITH a section is still a target if it has new far slots."""
+    text = TOML.read_text(encoding="utf-8")
+    sec_re = re.compile(rf'\[vars\.bank{bank}\."0x([0-9A-Fa-f]+)"\]')
+    key_re = re.compile(r'^\s*(?:"(fp[+-]\d+)"|(arg[1-4]|local\d+))\s*=')
+    pos_re = re.compile(r'^\s*#\s*((?:fp[+-]\d+)|arg[1-4]|local\d+)\s+left positional')
+    out, cur = {}, None
+    for line in text.splitlines():
+        m = sec_re.search(line)
+        if m:
+            cur = m.group(1).upper(); out.setdefault(cur, set()); continue
+        if line.lstrip().startswith("[") and "vars.bank" not in line:
+            cur = None; continue
+        if cur is None:
+            continue
+        km = key_re.match(line)
+        if km:
+            out[cur].add(km.group(1) or km.group(2)); continue
+        pm = pos_re.match(line)
+        if pm:
+            out[cur].add(pm.group(1))
+    return out
+
+
+def parse_named_subs(bank, far=False, recorded=None):
+    """[{addr, name, slots}] for every NAMED sub in bank_NN.c with un-done slots.
+    far=False -> positional slots (arg/localN). far=True -> far-frame slots (fp±N)
+    minus those already recorded in the sub's [vars.*] section (`recorded`)."""
+    recorded = recorded or {}
     text = (ROOT / "decompiled" / f"bank_{bank:02d}.c").read_text(encoding="utf-8")
     starts = [m.start() for m in BODY_RE.finditer(text)]
     out = []
@@ -63,7 +108,10 @@ def parse_named_subs(bank):
         addr, name = m.group(1).upper(), m.group(2).strip()
         if ANON_RE.match(name):
             continue
-        slots = sorted(set(SLOT_RE.findall(chunk)), key=_slot_key)
+        if far:
+            slots = [k for k in far_slots(chunk) if k not in recorded.get(addr, set())]
+        else:
+            slots = sorted(set(SLOT_RE.findall(chunk)), key=_slot_key)
         if slots:
             out.append({"addr": addr, "name": name, "slots": slots})
     return out
@@ -93,6 +141,17 @@ DEFAULT_SEEDS = (
     "POSITIONAL (verdict REFUTED) — that is the honest 'this is scratch' signal, not a failure."
 )
 
+FAR_SEEDS = (
+    "\n\nFAR-FRAME SPILL LOCALS (this batch): the slots are keys like `fp-38`/`fp+40`, rendered in "
+    "the C as raw `*(word*)(fp - 38)` (a word lvalue/rvalue), `*(byte*)(fp - 38)` (a byte), or "
+    "`(fp - 38)` (its ADDRESS, e.g. `f(&buf)` after naming). They are ordinary frame locals that "
+    "just landed outside the 12 standard slots (big frame / byte width / odd alignment) — name them "
+    "by the SAME role-inference. Common far-local roles: a buffer a syscall/memcpy COPIES INTO "
+    "(`syscall16_sram_wrap(8, src, (fp-44), 4)` -> `(fp-44)` is a 4-byte struct buffer — name by "
+    "its contents); a pointer walked field-wise (`*(word*)((fp-40)+2)`); a loop counter/index in a "
+    "kernel sub. Report the slot in the SAME `fp-38` key form. Conservatism rule still applies."
+)
+
 
 def main():
     ap = argparse.ArgumentParser(description="Assemble the next var-walk batch's Workflow args.")
@@ -104,13 +163,21 @@ def main():
                     help="drop targets whose NAME matches this regex (e.g. display/UI subs)")
     ap.add_argument("--only", default="", metavar="ADDRS",
                     help="restrict targets to these comma-separated stub addrs (e.g. 87F0,88A6)")
+    ap.add_argument("--far", action="store_true",
+                    help="FAR-FRAME mode: surface raw *(word*)(fp±N) spill locals (keys fp-38/fp+40) "
+                         "instead of positional slots; done-tracking is per-SLOT, so already-swept subs "
+                         "re-surface for their un-named far slots (pair with var-walk-apply --merge)")
     ap.add_argument("--landmarks", default="", help="bank-specific context prepended to seeds")
     ap.add_argument("--json", action="store_true", help="emit ONLY the {bank,subs,seeds} args object")
     a = ap.parse_args()
 
-    named = parse_named_subs(a.bank)
-    done = done_addrs(a.bank)
-    targets = [s for s in named if s["addr"] not in done]
+    if a.far:
+        named = parse_named_subs(a.bank, far=True, recorded=recorded_slots(a.bank))
+        targets = list(named)                            # per-slot done-tracking already applied
+    else:
+        named = parse_named_subs(a.bank)
+        done = done_addrs(a.bank)
+        targets = [s for s in named if s["addr"] not in done]
     if a.name_match:
         rx = re.compile(a.name_match)
         targets = [s for s in targets if rx.search(s["name"])]
@@ -133,18 +200,21 @@ def main():
     ordered = [by_addr[f"{a_:04X}"] for a_ in ordered_addrs if f"{a_:04X}" in by_addr]
     batch = ordered[:a.batch]
 
-    seeds = (a.landmarks.strip() + "\n\n" if a.landmarks else "") + DEFAULT_SEEDS
-    args_obj = {"bank": a.bank, "subs": batch, "seeds": seeds}
+    seeds = (a.landmarks.strip() + "\n\n" if a.landmarks else "") + DEFAULT_SEEDS + (FAR_SEEDS if a.far else "")
+    args_obj = {"bank": a.bank, "subs": batch, "seeds": seeds, "far": a.far}
     if a.json:
         print(json.dumps(args_obj))
         return
 
-    print(f"bank_{a.bank:02d}: {remaining} named subs with un-walked slots "
+    kind = "far-frame slots" if a.far else "positional slots"
+    print(f"bank_{a.bank:02d} [{kind}]: {remaining} named subs with un-walked slots "
           f"({len(named) - remaining} already done); this batch = {len(batch)}:")
     for s in batch:
         print(f"  ${s['addr']} {s['name']:<34} slots: {' '.join(s['slots'])}")
-    print(f"\nRun:  py -3 tools/var-walk-prep.py {a.bank} --batch {a.batch}"
-          + (' --landmarks "..."' if a.landmarks else "") + " --json   then pass to the var-walk Workflow.")
+    apply_hint = "var-walk-apply.py <bank> <json> --merge" if a.far else "var-walk-apply.py <bank> <json>"
+    print(f"\nRun:  py -3 tools/var-walk-prep.py {a.bank}{' --far' if a.far else ''} --batch {a.batch}"
+          + (' --landmarks "..."' if a.landmarks else "") + " --json   then the var-walk Workflow"
+          + f"\n      then  py -3 tools/{apply_hint}")
 
 
 if __name__ == "__main__":

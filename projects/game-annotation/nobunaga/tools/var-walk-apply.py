@@ -63,19 +63,20 @@ def toml_escape(s):
     return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ").replace("\r", " ").strip()
 
 
-def render_block(bank, v):
+def render_slot_lines(bank, v):
+    """-> (addr, n_named, slot_keys, lines). `lines` = the per-slot toml/comment lines
+    (NO section header, NO `# name` line); `slot_keys` = the slot tokens this batch
+    touches (named OR left-positional) for per-slot collision checks in --merge."""
     addr = norm_addr(v["addr"])
-    head = f'[vars.bank{bank}."0x{addr}"]'
-    body = []
-    if v.get("name"):
-        body.append(f"# {v['name']}")
+    lines, slot_keys = [], []
     n_named, seen = 0, set()
     for s in v.get("slots", []):
         slot = s.get("slot", "").strip()
         if not SLOT_RE.match(slot):
             die(f"sub ${addr}: bad slot token '{slot}'")
+        slot_keys.append(slot)
         if s.get("verdict") == "REFUTED":
-            body.append(f"# {slot} left positional — {toml_escape(s.get('summary',''))[:120]}")
+            lines.append(f"# {slot} left positional — {toml_escape(s.get('summary',''))[:120]}")
             continue
         name = s.get("final_name", "").strip()
         if not re.match(r'^[A-Za-z_]\w*$', name):
@@ -85,9 +86,46 @@ def render_block(bank, v):
         seen.add(name)
         comment = f"[{s.get('confidence','?')}] {toml_escape(s.get('summary',''))}"
         key = f'"{slot}"' if slot.startswith("fp") else slot   # far-frame keys quote (+ isn't a bare-key char)
-        body.append(f'{key} = {{ name = "{name}", comment = "{comment}" }}')
+        lines.append(f'{key} = {{ name = "{name}", comment = "{comment}" }}')
         n_named += 1
+    return addr, n_named, slot_keys, lines
+
+
+def render_block(bank, v):
+    """Whole NEW section: `[vars...]` header + optional `# name` + slot lines."""
+    addr, n_named, _keys, lines = render_slot_lines(bank, v)
+    head = f'[vars.bank{bank}."0x{addr}"]'
+    body = ([f"# {v['name']}"] if v.get("name") else []) + lines
     return addr, n_named, head + "\n" + "\n".join(body) + "\n"
+
+
+SLOT_KEY_RE = re.compile(r'^\s*(?:"(fp[+-]\d+)"|(arg[1-4]|local\d+))\s*=')
+SLOT_POS_COMMENT_RE = re.compile(r'^\s*#\s*((?:fp[+-]\d+)|arg[1-4]|local\d+)\s+left positional')
+
+
+def section_span(text, bank, addr):
+    """(i, j) byte span of the `[vars.bankN."0xADDR"]` section body (header..next-section/EOF)."""
+    head = f'[vars.bank{bank}."0x{addr}"]'
+    i = text.find(head)
+    if i < 0:
+        die(f"section for ${addr} not found (expected with --merge)")
+    nxt = re.search(r'\n\[', text[i + len(head):])
+    j = (i + len(head) + nxt.start()) if nxt else len(text)
+    return i, j
+
+
+def existing_slot_keys(section_text):
+    """Slot tokens already recorded in a section — named (`slot = {` / `"fp-N" = {`)
+    OR left-positional (`# slot left positional`). Used for per-slot --merge collisions."""
+    keys = set()
+    for ln in section_text.splitlines():
+        m = SLOT_KEY_RE.match(ln)
+        if m:
+            keys.add(m.group(1) or m.group(2))
+        mc = SLOT_POS_COMMENT_RE.match(ln)
+        if mc:
+            keys.add(mc.group(1))
+    return keys
 
 
 def existing_var_addrs(text, bank):
@@ -124,6 +162,9 @@ def main():
     ap.add_argument("bank", type=lambda x: int(x, 0))
     ap.add_argument("json", help="Workflow output JSON (full task output file or {bank,verified})")
     ap.add_argument("--commit", action="store_true", help="git commit on a clean guard")
+    ap.add_argument("--merge", action="store_true",
+                    help="append slots to a sub's EXISTING [vars.*] section (far-frame sweep over "
+                         "already-swept subs); per-SLOT collision instead of per-sub refuse")
     ap.add_argument("--no-regen", action="store_true", help="write toml only (skip regen+guard)")
     ap.add_argument("--dry-run", action="store_true", help="print the sections that WOULD be written")
     a = ap.parse_args()
@@ -134,36 +175,67 @@ def main():
     if not verified:
         die("no verified entries to write", code=1)
 
-    blocks, addrs, total_named, total_subs = [], [], 0, 0
-    for v in verified:
-        addr, n_named, block = render_block(a.bank, v)
-        addrs.append(addr)
-        blocks.append(block)
-        total_named += n_named
-        total_subs += 1
+    addrs = [norm_addr(v["addr"]) for v in verified]
     dup = {x for x in addrs if addrs.count(x) > 1}
     if dup:
         die(f"duplicate sub addresses in the batch: {sorted(dup)}")
-
-    print(f"bank_{a.bank:02d}: {total_subs} subs, {total_named} slots named "
-          f"({sum(1 for v in verified for s in v.get('slots',[]) if s.get('verdict')=='REFUTED')} left positional)")
-    if a.dry_run:
-        print("\n".join(blocks))
-        return
+    total_named = sum(render_slot_lines(a.bank, v)[1] for v in verified)
+    total_subs = len(verified)
+    n_refuted = sum(1 for v in verified for s in v.get('slots', []) if s.get('verdict') == 'REFUTED')
+    print(f"bank_{a.bank:02d}: {total_subs} subs, {total_named} slots named ({n_refuted} left positional)"
+          + (" [--merge]" if a.merge else ""))
 
     text = TOML.read_text(encoding="utf-8")
     have = existing_var_addrs(text, a.bank)
-    clash = sorted(set(addrs) & have)
-    if clash:
-        die(f"these subs already have a [vars.bank{a.bank}.*] section: {clash}\n"
-            "var-walk processes each sub once; resolve before re-writing.")
 
-    header = (f"\n# --- bank-{a.bank:02d} var-walk batch via var-walk-apply.py "
-              f"({total_subs} subs / {total_named} slots) ---\n"
-              f"# propose@C (role + caller-propagation) -> independent verify@bytecode; names are the verifier's.\n")
-    text = text.rstrip("\n") + "\n" + header + "\n".join(blocks) + "\n"
+    if not a.merge:
+        # NEW-section mode (positional sweep): each sub processed once, refuse existing.
+        clash = sorted(set(addrs) & have)
+        if clash:
+            die(f"these subs already have a [vars.bank{a.bank}.*] section: {clash}\n"
+                "var-walk processes each sub once; use --merge to add slots to an existing section.")
+        blocks = [render_block(a.bank, v)[2] for v in verified]
+        if a.dry_run:
+            print("\n".join(blocks)); return
+        header = (f"\n# --- bank-{a.bank:02d} var-walk batch via var-walk-apply.py "
+                  f"({total_subs} subs / {total_named} slots) ---\n"
+                  f"# propose@C (role + caller-propagation) -> independent verify@bytecode; names are the verifier's.\n")
+        text = text.rstrip("\n") + "\n" + header + "\n".join(blocks) + "\n"
+    else:
+        # MERGE mode (far-frame sweep): splice slots into existing sections (or create if absent).
+        # Process subs high-address-first so each splice can't shift an earlier section's span.
+        new_subs, dry_preview = [], []
+        order = sorted(verified, key=lambda v: int(norm_addr(v["addr"]), 16), reverse=True)
+        for v in order:
+            addr, _n, keys, lines = render_slot_lines(a.bank, v)
+            if not lines:
+                continue
+            if addr in have:
+                i, j = section_span(text, a.bank, addr)
+                present = existing_slot_keys(text[i:j])
+                reproc = sorted(set(keys) & present)
+                if reproc:
+                    die(f"sub ${addr}: slots already recorded (named or left-positional): {reproc}\n"
+                        "var-walk processes each slot once; resolve before re-writing.")
+                insert = f"# far-frame slots (var-walk-apply --merge)\n" + "\n".join(lines)
+                dry_preview.append(f'[vars.bank{a.bank}."0x{addr}"] += \n{insert}')
+                if not a.dry_run:
+                    text = text[:j].rstrip("\n") + "\n" + insert + "\n" + text[j:]
+            else:
+                new_subs.append(v)
+        if new_subs:
+            blocks = [render_block(a.bank, v)[2] for v in new_subs]
+            dry_preview.extend(blocks)
+            if not a.dry_run:
+                header = (f"\n# --- bank-{a.bank:02d} var-walk far-frame batch (--merge, new sections) "
+                          f"({len(new_subs)} subs) ---\n")
+                text = text.rstrip("\n") + "\n" + header + "\n".join(blocks) + "\n"
+        if a.dry_run:
+            print("\n".join(dry_preview)); return
+
     TOML.write_text(text, encoding="utf-8")
-    print(f"wrote {total_subs} [vars.bank{a.bank}.*] sections ({total_named} slot names)")
+    print(f"wrote {total_subs} subs ({total_named} slot names) "
+          + ("[--merge: spliced into existing sections]" if a.merge else f"as [vars.bank{a.bank}.*] sections"))
 
     if a.no_regen:
         print("--no-regen: skipped regen+guard (toml written; run the guard before committing).")
