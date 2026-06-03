@@ -30,40 +30,40 @@ word compose_upload_daimyo_portrait(word out_buf) {
 // (body @ $8141)
 
 word build_blit_fief_tile_block(word dst_col, word dst_row) {
-    *(word*)(fp - 41) = 0;    // $8142
+    i = 0;    // $8142
 L_8144:
-    palette_write_wrap(*(word*)(fp - 41), *(word*)(((*(word*)(fp - 41) << 1) + build_blit_fief_tile_blo_data_b51e)));    // $814F
-    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // $8156
-    if (((unsigned)*(word*)(fp - 41) >= (unsigned)4)) goto L_8144;    // $815C
+    palette_write_wrap(i, *(word*)(((i << 1) + build_blit_fief_tile_blo_data_b51e)));    // $814F
+    i = (i + 1);    // $8156
+    if (((unsigned)i >= (unsigned)4)) goto L_8144;    // $815C
     if (*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6))) goto L_81E8;    // $8168
-    *(word*)(fp - 43) = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + build_blit_fief_tile_blo_data_bbd0);    // $8178
-    syscall16_sram_wrap(8, *(word*)(fp - 43), (fp - 47), 4);    // $8182
-    *(word*)(fp - 43) = (fp - 47);    // $8189
-    ppu_upload_block_wrap(*(byte*)(*(word*)(fp - 43)), *(word*)((*(word*)(fp - 43) + 2)), 0x17F0, *(byte*)((*(word*)(fp - 43) + 1)));    // $819C
-    *(word*)(fp - 41) = 0;    // $81A1
-    *(word*)(fp - 38) = ((fief_to_mapid(active_province_idx_copy) * 36) + build_blit_fief_tile_blo_data_b144);    // $81B1
+    descriptor_ptr = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + build_blit_fief_tile_blo_data_bbd0);    // $8178
+    syscall16_sram_wrap(8, descriptor_ptr, &tile_descriptor, 4);    // $8182
+    descriptor_ptr = &tile_descriptor;    // $8189
+    ppu_upload_block_wrap(*(byte*)(descriptor_ptr), *(word*)((descriptor_ptr + 2)), 0x17F0, *(byte*)((descriptor_ptr + 1)));    // $819C
+    i = 0;    // $81A1
+    src_ptr = ((fief_to_mapid(active_province_idx_copy) * 36) + build_blit_fief_tile_blo_data_b144);    // $81B1
     goto L_81DD;    // $81B3
 L_81B6:
-    syscall16_sram_wrap(8, *(word*)(fp - 38), (fp - 39), 1);    // $81BE
-    *(byte*)((*(word*)(fp - 41) + (fp - 36))) = (*(byte*)(fp - 39) + 36);    // $81D0
-    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // $81D4
-    *(word*)(fp - 38) = (*(word*)(fp - 38) + 1);    // $81DA
+    syscall16_sram_wrap(8, src_ptr, &tile_byte, 1);    // $81BE
+    *(byte*)((i + &tile_buf)) = (tile_byte + 36);    // $81D0
+    i = (i + 1);    // $81D4
+    src_ptr = (src_ptr + 1);    // $81DA
 L_81DD:
-    if (((unsigned)*(word*)(fp - 41) >= (unsigned)36)) goto L_81B6;    // $81E2
+    if (((unsigned)i >= (unsigned)36)) goto L_81B6;    // $81E2
     goto L_8218;    // $81E5
 L_81E8:
-    compose_upload_daimyo_portrait((fp - 36));    // $81EC
-    *(word*)(fp - 41) = 0;    // $81F1
-    *(word*)(fp - 38) = (fp - 36);    // $81F6
+    compose_upload_daimyo_portrait(&tile_buf);    // $81EC
+    i = 0;    // $81F1
+    src_ptr = &tile_buf;    // $81F6
     goto L_8210;    // $81F8
 L_81FB:
-    *(byte*)(*(word*)(fp - 38)) = (*(byte*)(*(word*)(fp - 38)) + 36);    // $8203
-    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // $8207
-    *(word*)(fp - 38) = (*(word*)(fp - 38) + 1);    // $820D
+    *(byte*)(src_ptr) = (*(byte*)(src_ptr) + 36);    // $8203
+    i = (i + 1);    // $8207
+    src_ptr = (src_ptr + 1);    // $820D
 L_8210:
-    if (((unsigned)*(word*)(fp - 41) >= (unsigned)36)) goto L_81FB;    // $8215
+    if (((unsigned)i >= (unsigned)36)) goto L_81FB;    // $8215
 L_8218:
-    return ppu_blit_from_bank_wrap(dst_col, dst_row, (dst_col + 5), (dst_row + 5), (fp - 36), 8);    // $8229
+    return ppu_blit_from_bank_wrap(dst_col, dst_row, (dst_col + 5), (dst_row + 5), &tile_buf, 8);    // $8229
 }
 
 // $822A prompt_yes_no
@@ -2403,7 +2403,7 @@ word bfs_path_distance_to_target(word arg1, word arg2) {
     if (((local4 == arg2))) return 0;    // $A239
     local10 = 255;    // $A241
 L_A242:
-    local3 = (fp - 209);    // $A245
+    local3 = &dist_grid;    // $A245
     local8 = 0;    // $A247
 L_A248:
     local9 = 0;    // $A249
@@ -2422,16 +2422,16 @@ L_A263:
     local11 = 0;    // $A27F
 L_A280:
     if (test_unit_type_present_flag(cur_combat_side, local11)) {    // $A288
-    *(byte*)((((*(byte*)(unit_field_ptr_6fda(cur_combat_side, local11)) * 11) + *(byte*)(unit_field_ptr_6fd0(cur_combat_side, local11))) + (fp - 209))) = -128;    // $A2AB
+    *(byte*)((((*(byte*)(unit_field_ptr_6fda(cur_combat_side, local11)) * 11) + *(byte*)(unit_field_ptr_6fd0(cur_combat_side, local11))) + &dist_grid)) = -128;    // $A2AB
     }
 L_A2AC:
     local11 = (local11 + 1);    // $A2AE
     if (((unsigned)local11 >= (unsigned)5)) goto L_A280;    // $A2B2
     }
 L_A2B5:
-    *(byte*)((((arg2 * 11) + arg1) + (fp - 209))) = -1;    // $A2C3
-    local2 = (fp - 154);    // $A2C7
-    local3 = (fp - 154);    // $A2C8
+    *(byte*)((((arg2 * 11) + arg1) + &dist_grid)) = -1;    // $A2C3
+    local2 = &queue;    // $A2C7
+    local3 = &queue;    // $A2C8
     local2 = (local2 + 1);    // $A2CB
     *(byte*)(((local2 + 1) - 1)) = arg1;    // $A2CF
     local2 = (local2 + 1);    // $A2D2
@@ -2442,28 +2442,28 @@ L_A2DF:
     local3 = (local3 + 1);    // $A2E1
     local7 = *(byte*)(((local3 + 1) - 1));    // $A2E4
     if (!((*(byte*)(((local3 + 1) - 1)) == 255))) goto L_A318;    // $A2E9
-    if (((fp - 21) == local3)) {    // $A2F1
-    local3 = (fp - 154);    // $A2F7
+    if ((&queue_end == local3)) {    // $A2F1
+    local3 = &queue;    // $A2F7
     }
 L_A2F8:
     if ((local3 == local2)) goto L_A3AF;    // $A2FB
     local2 = (local2 + 1);    // $A300
     *(byte*)(((local2 + 1) - 1)) = -1;    // $A305
-    if (((fp - 21) == local2)) {    // $A30B
-    local2 = (fp - 154);    // $A311
+    if ((&queue_end == local2)) {    // $A30B
+    local2 = &queue;    // $A311
     }
 L_A312:
     local3 = (local3 + 1);    // $A314
     local7 = *(byte*)(((local3 + 1) - 1));    // $A317
 L_A318:
-    if (((fp - 21) == local3)) {    // $A31D
-    local3 = (fp - 154);    // $A323
+    if ((&queue_end == local3)) {    // $A31D
+    local3 = &queue;    // $A323
     }
 L_A324:
     local3 = (local3 + 1);    // $A326
     local6 = *(byte*)(((local3 + 1) - 1));    // $A329
-    if (((fp - 21) == local3)) {    // $A32F
-    local3 = (fp - 154);    // $A335
+    if ((&queue_end == local3)) {    // $A32F
+    local3 = &queue;    // $A335
     }
 L_A336:
     local11 = 0;    // $A337
@@ -2473,18 +2473,18 @@ L_A338:
     if (!(sub_8003(&local9, &local8, local11))) goto L_A3A3;    // $A349
     if ((local9 != local5)) goto L_A35C;    // $A34F
     if (((local8 == local4))) return (6 - local11);    // $A355
-    if ((*(byte*)((((local8 * 11) + local9) + (fp - 209))) < 16)) {    // $A36B
-    *(byte*)((((local8 * 11) + local9) + (fp - 209))) = -1;    // $A37C
+    if ((*(byte*)((((local8 * 11) + local9) + &dist_grid)) < 16)) {    // $A36B
+    *(byte*)((((local8 * 11) + local9) + &dist_grid)) = -1;    // $A37C
     local2 = (local2 + 1);    // $A37F
     *(byte*)(((local2 + 1) - 1)) = local9;    // $A383
-    if (((fp - 21) == local2)) {    // $A389
-    local2 = (fp - 154);    // $A38F
+    if ((&queue_end == local2)) {    // $A389
+    local2 = &queue;    // $A38F
     }
 L_A390:
     local2 = (local2 + 1);    // $A392
     *(byte*)(((local2 + 1) - 1)) = local8;    // $A396
-    if (((fp - 21) == local2)) {    // $A39C
-    local2 = (fp - 154);    // $A3A2
+    if ((&queue_end == local2)) {    // $A39C
+    local2 = &queue;    // $A3A2
     }
     }
 L_A3A3:

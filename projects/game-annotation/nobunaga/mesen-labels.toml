@@ -2144,6 +2144,13 @@ local11 = { name = "i", comment = "[HIGH] palette loop index 0..15 over battle_s
 # build_blit_fief_tile_block
 arg1 = { name = "dst_col", comment = "[HIGH] Tile X (column) of blit dest; return passes (arg1,arg2,arg1+5,arg2+5) to ppu_blit_from_bank_wrap = 6x6 rect top-left X. Caller (12,20)." }
 arg2 = { name = "dst_row", comment = "[HIGH] Tile Y (row) of blit dest; arg2 & arg2+5 are y_min/y_max of the 6x6 portrait rect in ppu_blit_from_bank_wrap. Caller (12,20)." }
+# far-frame slots (var-walk-apply --merge)
+"fp-47" = { name = "tile_descriptor", comment = "[HIGH] 4-byte descriptor buffer: syscall16_sram_wrap(8,bbd0-entry,&fp47,4) copies it; then fp-43 points at it, fields read for ppu upload" }
+"fp-43" = { name = "descriptor_ptr", comment = "[HIGH] pointer: first bbd0 descriptor-table src, then =&tile_descriptor; walked field-wise [0]=bank,[1],+2 for ppu_upload_block_wrap" }
+"fp-41" = { name = "i", comment = "[HIGH] loop counter: 0..4 palette write, then 0..36 indexing the tile buffer; incA each iter, cmp_uge bound" }
+"fp-39" = { name = "tile_byte", comment = "[HIGH] 1-byte scratch: syscall16_sram_wrap(8,src,&fp39,1) fetches one template byte, then *fp39+36 stored into tile buffer" }
+"fp-38" = { name = "src_ptr", comment = "[HIGH] walk pointer over 36-byte template: (mapid*36)+b144, or &tile_buf in daimyo branch; incremented each iter" }
+"fp-36" = { name = "tile_buf", comment = "[HIGH] 36-byte tile buffer assembled (buf[i]=tile+36), addr passed to compose_upload_daimyo_portrait & ppu_blit_from_bank_wrap" }
 
 [vars.bank2."0x9865"]
 # ai_advance_units_when_attacker_stronger
@@ -2429,4 +2436,11 @@ arg2 = { name = "row", comment = "[HIGH] top-left ROW of 6x6 portrait; passed as
 "fp-44" = { name = "descriptor_buf", comment = "[high] 4-byte portrait descriptor {chr_bank,tile_count,src_ptr_LE} copied from ROM via syscall16_sram_wrap(8,src,&buf,4) at $E7BE, then read field-wise" }
 "fp-40" = { name = "descriptor_ptr", comment = "[high] descriptor pointer: first the ROM table entry (fief_to_mapid<<2 + msg_ng_to_pieces), re-pointed at &descriptor_buf to read chr_bank/tile_count/src_ptr" }
 "fp-36" = { name = "face_buf", comment = "[high] assembled portrait CHR buffer: filled by unpack_composite_face_record($E7F2, generated path), blitted via ppu_blit_from_bank_wrap(...,&face_buf,8) at $E803" }
+
+# --- bank-02 var-walk far-frame batch (--merge, new sections) (1 subs) ---
+[vars.bank2."0xA221"]
+# bfs_path_distance_to_target
+"fp-209" = { name = "dist_grid", comment = "[HIGH] Base of the 11x5=55-byte BFS distance/visited grid; cells addressed (y*11+x)+(fp-209), seeded/walled with -1/-128, read <16" }
+"fp-154" = { name = "queue", comment = "[HIGH] Base of the BFS frontier ring-buffer queue; head/tail (local2/local3) init here, store x,y coord pairs + -1 markers, wrap back here" }
+"fp-21" = { name = "queue_end", comment = "[HIGH] One-past-end sentinel of the queue ring buffer; every (fp-21)==ptr check wraps the head/tail pointer back to fp-154" }
 

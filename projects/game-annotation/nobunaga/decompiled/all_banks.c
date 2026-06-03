@@ -6880,40 +6880,40 @@ word compose_upload_daimyo_portrait(word out_buf) {
 // (body @ PRG $08141)
 
 word build_blit_fief_tile_block(word dst_col, word dst_row) {
-    *(word*)(fp - 41) = 0;    // PRG $08142
+    i = 0;    // PRG $08142
 L_p08144:
-    palette_write_wrap(*(word*)(fp - 41), *(word*)(((*(word*)(fp - 41) << 1) + build_blit_fief_tile_blo_data_b51e)));    // PRG $0814F -> bank15 $CF8B
-    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // PRG $08156
-    if (((unsigned)*(word*)(fp - 41) >= (unsigned)4)) goto L_p08144;    // PRG $0815C
+    palette_write_wrap(i, *(word*)(((i << 1) + build_blit_fief_tile_blo_data_b51e)));    // PRG $0814F -> bank15 $CF8B
+    i = (i + 1);    // PRG $08156
+    if (((unsigned)i >= (unsigned)4)) goto L_p08144;    // PRG $0815C
     if (*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6))) goto L_p081E8;    // PRG $08168 -> bank15 $D7CD
-    *(word*)(fp - 43) = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + build_blit_fief_tile_blo_data_bbd0);    // PRG $08178 -> bank15 $DC66
-    syscall16_sram_wrap(8, *(word*)(fp - 43), (fp - 47), 4);    // PRG $08182 -> bank15 $CBBD
-    *(word*)(fp - 43) = (fp - 47);    // PRG $08189
-    ppu_upload_block_wrap(*(byte*)(*(word*)(fp - 43)), *(word*)((*(word*)(fp - 43) + 2)), 0x17F0, *(byte*)((*(word*)(fp - 43) + 1)));    // PRG $0819C -> bank15 $CF7C
-    *(word*)(fp - 41) = 0;    // PRG $081A1
-    *(word*)(fp - 38) = ((fief_to_mapid(active_province_idx_copy) * 36) + build_blit_fief_tile_blo_data_b144);    // PRG $081B1 -> bank15 $DC66
+    descriptor_ptr = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + build_blit_fief_tile_blo_data_bbd0);    // PRG $08178 -> bank15 $DC66
+    syscall16_sram_wrap(8, descriptor_ptr, &tile_descriptor, 4);    // PRG $08182 -> bank15 $CBBD
+    descriptor_ptr = &tile_descriptor;    // PRG $08189
+    ppu_upload_block_wrap(*(byte*)(descriptor_ptr), *(word*)((descriptor_ptr + 2)), 0x17F0, *(byte*)((descriptor_ptr + 1)));    // PRG $0819C -> bank15 $CF7C
+    i = 0;    // PRG $081A1
+    src_ptr = ((fief_to_mapid(active_province_idx_copy) * 36) + build_blit_fief_tile_blo_data_b144);    // PRG $081B1 -> bank15 $DC66
     goto L_p081DD;    // PRG $081B3
 L_p081B6:
-    syscall16_sram_wrap(8, *(word*)(fp - 38), (fp - 39), 1);    // PRG $081BE -> bank15 $CBBD
-    *(byte*)((*(word*)(fp - 41) + (fp - 36))) = (*(byte*)(fp - 39) + 36);    // PRG $081D0
-    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // PRG $081D4
-    *(word*)(fp - 38) = (*(word*)(fp - 38) + 1);    // PRG $081DA
+    syscall16_sram_wrap(8, src_ptr, &tile_byte, 1);    // PRG $081BE -> bank15 $CBBD
+    *(byte*)((i + &tile_buf)) = (tile_byte + 36);    // PRG $081D0
+    i = (i + 1);    // PRG $081D4
+    src_ptr = (src_ptr + 1);    // PRG $081DA
 L_p081DD:
-    if (((unsigned)*(word*)(fp - 41) >= (unsigned)36)) goto L_p081B6;    // PRG $081E2
+    if (((unsigned)i >= (unsigned)36)) goto L_p081B6;    // PRG $081E2
     goto L_p08218;    // PRG $081E5
 L_p081E8:
-    compose_upload_daimyo_portrait((fp - 36));    // PRG $081EC -> bank2 $8086
-    *(word*)(fp - 41) = 0;    // PRG $081F1
-    *(word*)(fp - 38) = (fp - 36);    // PRG $081F6
+    compose_upload_daimyo_portrait(&tile_buf);    // PRG $081EC -> bank2 $8086
+    i = 0;    // PRG $081F1
+    src_ptr = &tile_buf;    // PRG $081F6
     goto L_p08210;    // PRG $081F8
 L_p081FB:
-    *(byte*)(*(word*)(fp - 38)) = (*(byte*)(*(word*)(fp - 38)) + 36);    // PRG $08203
-    *(word*)(fp - 41) = (*(word*)(fp - 41) + 1);    // PRG $08207
-    *(word*)(fp - 38) = (*(word*)(fp - 38) + 1);    // PRG $0820D
+    *(byte*)(src_ptr) = (*(byte*)(src_ptr) + 36);    // PRG $08203
+    i = (i + 1);    // PRG $08207
+    src_ptr = (src_ptr + 1);    // PRG $0820D
 L_p08210:
-    if (((unsigned)*(word*)(fp - 41) >= (unsigned)36)) goto L_p081FB;    // PRG $08215
+    if (((unsigned)i >= (unsigned)36)) goto L_p081FB;    // PRG $08215
 L_p08218:
-    return ppu_blit_from_bank_wrap(dst_col, dst_row, (dst_col + 5), (dst_row + 5), (fp - 36), 8);    // PRG $08229 -> bank15 $CC54
+    return ppu_blit_from_bank_wrap(dst_col, dst_row, (dst_col + 5), (dst_row + 5), &tile_buf, 8);    // PRG $08229 -> bank15 $CC54
 }
 
 // ===== bank2 $822A  (PRG $0822A) =====
@@ -9355,7 +9355,7 @@ word bfs_path_distance_to_target(word arg1, word arg2) {
     if (((local4 == arg2))) return 0;    // PRG $0A239
     local10 = 255;    // PRG $0A241
 L_p0A242:
-    local3 = (fp - 209);    // PRG $0A245
+    local3 = &dist_grid;    // PRG $0A245
     local8 = 0;    // PRG $0A247
 L_p0A248:
     local9 = 0;    // PRG $0A249
@@ -9374,16 +9374,16 @@ L_p0A263:
     local11 = 0;    // PRG $0A27F
 L_p0A280:
     if (test_unit_type_present_flag(cur_combat_side, local11)) {    // PRG $0A288 -> bank2 $8F79
-    *(byte*)((((*(byte*)(unit_field_ptr_6fda(cur_combat_side, local11)) * 11) + *(byte*)(unit_field_ptr_6fd0(cur_combat_side, local11))) + (fp - 209))) = -128;    // PRG $0A2AB -> bank2 $829A
+    *(byte*)((((*(byte*)(unit_field_ptr_6fda(cur_combat_side, local11)) * 11) + *(byte*)(unit_field_ptr_6fd0(cur_combat_side, local11))) + &dist_grid)) = -128;    // PRG $0A2AB -> bank2 $829A
     }
 L_p0A2AC:
     local11 = (local11 + 1);    // PRG $0A2AE
     if (((unsigned)local11 >= (unsigned)5)) goto L_p0A280;    // PRG $0A2B2
     }
 L_p0A2B5:
-    *(byte*)((((arg2 * 11) + arg1) + (fp - 209))) = -1;    // PRG $0A2C3
-    local2 = (fp - 154);    // PRG $0A2C7
-    local3 = (fp - 154);    // PRG $0A2C8
+    *(byte*)((((arg2 * 11) + arg1) + &dist_grid)) = -1;    // PRG $0A2C3
+    local2 = &queue;    // PRG $0A2C7
+    local3 = &queue;    // PRG $0A2C8
     local2 = (local2 + 1);    // PRG $0A2CB
     *(byte*)(((local2 + 1) - 1)) = arg1;    // PRG $0A2CF
     local2 = (local2 + 1);    // PRG $0A2D2
@@ -9394,28 +9394,28 @@ L_p0A2DF:
     local3 = (local3 + 1);    // PRG $0A2E1
     local7 = *(byte*)(((local3 + 1) - 1));    // PRG $0A2E4
     if (!((*(byte*)(((local3 + 1) - 1)) == 255))) goto L_p0A318;    // PRG $0A2E9
-    if (((fp - 21) == local3)) {    // PRG $0A2F1
-    local3 = (fp - 154);    // PRG $0A2F7
+    if ((&queue_end == local3)) {    // PRG $0A2F1
+    local3 = &queue;    // PRG $0A2F7
     }
 L_p0A2F8:
     if ((local3 == local2)) goto L_p0A3AF;    // PRG $0A2FB
     local2 = (local2 + 1);    // PRG $0A300
     *(byte*)(((local2 + 1) - 1)) = -1;    // PRG $0A305
-    if (((fp - 21) == local2)) {    // PRG $0A30B
-    local2 = (fp - 154);    // PRG $0A311
+    if ((&queue_end == local2)) {    // PRG $0A30B
+    local2 = &queue;    // PRG $0A311
     }
 L_p0A312:
     local3 = (local3 + 1);    // PRG $0A314
     local7 = *(byte*)(((local3 + 1) - 1));    // PRG $0A317
 L_p0A318:
-    if (((fp - 21) == local3)) {    // PRG $0A31D
-    local3 = (fp - 154);    // PRG $0A323
+    if ((&queue_end == local3)) {    // PRG $0A31D
+    local3 = &queue;    // PRG $0A323
     }
 L_p0A324:
     local3 = (local3 + 1);    // PRG $0A326
     local6 = *(byte*)(((local3 + 1) - 1));    // PRG $0A329
-    if (((fp - 21) == local3)) {    // PRG $0A32F
-    local3 = (fp - 154);    // PRG $0A335
+    if ((&queue_end == local3)) {    // PRG $0A32F
+    local3 = &queue;    // PRG $0A335
     }
 L_p0A336:
     local11 = 0;    // PRG $0A337
@@ -9425,18 +9425,18 @@ L_p0A338:
     if (!(sub_8003(&local9, &local8, local11))) goto L_p0A3A3;    // PRG $0A349
     if ((local9 != local5)) goto L_p0A35C;    // PRG $0A34F
     if (((local8 == local4))) return (6 - local11);    // PRG $0A355
-    if ((*(byte*)((((local8 * 11) + local9) + (fp - 209))) < 16)) {    // PRG $0A36B
-    *(byte*)((((local8 * 11) + local9) + (fp - 209))) = -1;    // PRG $0A37C
+    if ((*(byte*)((((local8 * 11) + local9) + &dist_grid)) < 16)) {    // PRG $0A36B
+    *(byte*)((((local8 * 11) + local9) + &dist_grid)) = -1;    // PRG $0A37C
     local2 = (local2 + 1);    // PRG $0A37F
     *(byte*)(((local2 + 1) - 1)) = local9;    // PRG $0A383
-    if (((fp - 21) == local2)) {    // PRG $0A389
-    local2 = (fp - 154);    // PRG $0A38F
+    if ((&queue_end == local2)) {    // PRG $0A389
+    local2 = &queue;    // PRG $0A38F
     }
 L_p0A390:
     local2 = (local2 + 1);    // PRG $0A392
     *(byte*)(((local2 + 1) - 1)) = local8;    // PRG $0A396
-    if (((fp - 21) == local2)) {    // PRG $0A39C
-    local2 = (fp - 154);    // PRG $0A3A2
+    if ((&queue_end == local2)) {    // PRG $0A39C
+    local2 = &queue;    // PRG $0A3A2
     }
     }
 L_p0A3A3:
