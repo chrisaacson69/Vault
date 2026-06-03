@@ -98,6 +98,12 @@ def main():
     ap = argparse.ArgumentParser(description="Assemble the next var-walk batch's Workflow args.")
     ap.add_argument("bank", type=lambda x: int(x, 0))
     ap.add_argument("--batch", type=int, default=8, help="named subs per batch (default 8)")
+    ap.add_argument("--name-match", default="", metavar="REGEX",
+                    help="restrict targets to subs whose NAME matches this regex (the 'keystones only' lever)")
+    ap.add_argument("--name-exclude", default="", metavar="REGEX",
+                    help="drop targets whose NAME matches this regex (e.g. display/UI subs)")
+    ap.add_argument("--only", default="", metavar="ADDRS",
+                    help="restrict targets to these comma-separated stub addrs (e.g. 87F0,88A6)")
     ap.add_argument("--landmarks", default="", help="bank-specific context prepended to seeds")
     ap.add_argument("--json", action="store_true", help="emit ONLY the {bank,subs,seeds} args object")
     a = ap.parse_args()
@@ -105,6 +111,15 @@ def main():
     named = parse_named_subs(a.bank)
     done = done_addrs(a.bank)
     targets = [s for s in named if s["addr"] not in done]
+    if a.name_match:
+        rx = re.compile(a.name_match)
+        targets = [s for s in targets if rx.search(s["name"])]
+    if a.name_exclude:
+        rxx = re.compile(a.name_exclude)
+        targets = [s for s in targets if not rxx.search(s["name"])]
+    if a.only:
+        want = {norm.strip().lstrip("$").replace("0x", "").upper().zfill(4) for norm in a.only.split(",") if norm.strip()}
+        targets = [s for s in targets if s["addr"] in want]
     remaining = len(targets)
     if remaining == 0:
         if a.json:

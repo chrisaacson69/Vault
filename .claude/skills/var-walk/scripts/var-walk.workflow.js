@@ -21,6 +21,10 @@ const bank = A.bank
 const bb = String(bank).padStart(2, '0')
 const subs = A.subs || []
 const seeds = A.seeds ? `\n\n${A.seeds}` : ''
+// single=true -> ONE fused agent per sub (propose+verify in one) instead of the
+// 2-agent propose->verify pipeline. Halves agent count + token pressure (use when
+// rate-limited); trades the independent-verifier altitude for economy, per Chris.
+const single = !!A.single
 
 const CAVEATS = `
 PROJECT CAVEATS (do not re-trip):
@@ -101,6 +105,42 @@ ${seeds}
 ${CAVEATS}
 
 Return ONLY the structured verdict.`
+
+// Fused single-agent prompt: propose AND self-verify against bytecode in one pass.
+const fusedPrompt = (s) => `You name the positional frame slots of sub $${s.addr} "${s.name}" in bank_${bb} of Nobunaga's Ambition (NES) — you are BOTH proposer and verifier in one pass (token-economy mode). Give each slot a role name backed by BYTECODE + caller evidence, not a guess.
+
+Project root is the cwd. Slots to name in $${s.addr}: ${s.slots.join(', ')}
+
+Steps (be efficient — one tool pass each):
+1. Read the body in decompiled/bank_${bb}.c — find '${s.name}(' and read it.
+2. Confirm against bytecode where a slot's role is non-obvious: disasm/bank_${bb}_vm.asm, find '; sub $${s.addr}' (which frame offset each slot is, how loaded/stored/pushed).
+3. Caller-propagation: py -3 tools/native-call-index.py callers ${s.addr} — the expression each caller pushes into an arg slot is strong evidence.
+
+Name each slot by its ROLE (fief, amount, gain, idx, rate, total, ...). Verdict per slot:
+- CONFIRMED: bytecode/callers clearly support a role name (give it as final_name).
+- AMENDED: real role, refined name (final_name = the better name).
+- REFUTED: REUSED scratch (two disjoint roles) OR not enough evidence -> stays positional (final_name ignored; say why in summary).
+Each slot's 'summary' (<=140 chars) becomes the toml comment verbatim.
+${seeds}
+${CAVEATS}
+
+Return ONLY the structured verdict.`
+
+// ── run ──────────────────────────────────────────────────────────────────────
+if (single) {
+  phase('Name')
+  const out = await pipeline(
+    subs,
+    (s) => agent(fusedPrompt(s), { label: `name:${s.addr}`, phase: 'Name', schema: VERDICT_SCHEMA }),
+  )
+  const verified = out.filter(Boolean)
+  const slotTally = verified.reduce((m, v) => {
+    for (const sl of (v.slots || [])) m[sl.verdict] = (m[sl.verdict] || 0) + 1
+    return m
+  }, {})
+  log(`bank_${bb} (single-agent): ${verified.length} subs, slot verdicts ${JSON.stringify(slotTally)}`)
+  return { bank, verified }
+}
 
 // ── run: pipeline so each sub verifies as soon as its propose returns ─────────
 phase('Propose')

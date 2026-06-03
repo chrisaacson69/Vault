@@ -76,6 +76,12 @@ Each batch the toml grows and the next `prep` returns the next un-done subs (one
    once without `--commit` to preview the guard. A non-zero exit means STOP and inspect (a name
    leaked to another bank's subs, or a slot name collided).
 
+**Token-economy mode (`single: true`):** add `"single": true` to the Workflow args to collapse
+propose→verify into ONE fused agent per sub (it proposes AND self-checks against bytecode+callers in
+one pass). Halves agent count — use when rate-limited or for a large batch. It trades the independent
+second-altitude verifier for economy (Chris-sanctioned); the deterministic regen guard still gates the
+write. Default (omit the flag) keeps the stronger 2-agent propose→verify.
+
 **Why auto-writing is correct, not a shortcut:** the verifier IS the check (lateral, lower-altitude
 bytecode + independent caller read); a coordinator self-review rubber-stamps
 ([[feedback_verification_independence_is_altitude]]). The deterministic regen guard is the only thing
