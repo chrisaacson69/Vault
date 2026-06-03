@@ -1309,14 +1309,14 @@ L_p00DE0:
 
 word dedup_owners_to_6f4f(word arg1) {
     arg1 = (arg1 + 1);    // PRG $00DE8
-    dedup_buf = *(byte*)(((arg1 + 1) - 1));    // PRG $00DEB
+    *(byte*)&dedup_buf = *(byte*)(((arg1 + 1) - 1));    // PRG $00DEB
     local10 = 1;    // PRG $00DEF
     goto L_p00E33;    // PRG $00DF0
 L_p00DF3:
     local9 = 0;    // PRG $00DF4
     goto L_p00E17;    // PRG $00DF6
 L_p00DF9:
-    if ((ui_helper_d772(*(byte*)((local11 + &local5))) == ui_helper_d772(*(byte*)(arg1)))) {    // PRG $00E10 -> bank15 $D772
+    if ((ui_helper_d772(*(byte*)((local11 + &dedup_buf))) == ui_helper_d772(*(byte*)(arg1)))) {    // PRG $00E10 -> bank15 $D772
     local9 = 1;    // PRG $00E14
     }
 L_p00E15:
@@ -1325,14 +1325,14 @@ L_p00E17:
     if (((unsigned)local11 >= (unsigned)local10)) goto L_p00DF9;    // PRG $00E1B
     if (local9) goto L_p00E30;    // PRG $00E1F
     local10 = (local10 + 1);    // PRG $00E28
-    *(byte*)((((local10 + 1) - 1) + &local5)) = *(byte*)(arg1);    // PRG $00E2F
+    *(byte*)((((local10 + 1) - 1) + &dedup_buf)) = *(byte*)(arg1);    // PRG $00E2F
 L_p00E30:
     arg1 = (arg1 + 1);    // PRG $00E32
 L_p00E33:
     if ((*(byte*)(arg1) != 255)) goto L_p00DF3;    // PRG $00E39
     goto L_p00E51;    // PRG $00E3D
 L_p00E40:
-    deduped_owner_list[local11] = *(byte*)((local11 + &local5));    // PRG $00E4E
+    deduped_owner_list[local11] = *(byte*)((local11 + &dedup_buf));    // PRG $00E4E
 L_p00E51:
     local11 = (local11 + 1);    // PRG $00E51
     if (((unsigned)local11 >= (unsigned)local10)) goto L_p00E40;    // PRG $00E55
@@ -2035,10 +2035,10 @@ L_p01878:
 // PRG $01879 mark_6f89_list_entry_by_value
 // (body @ PRG $0187E)
 
-word mark_6f89_list_entry_by_value(void) {
+word mark_6f89_list_entry_by_value(word arg1) {
     goto L_p01898;    // PRG $01881
 L_p01884:
-    if ((*(byte*)(local11) == *(byte*)(fp + 11))) {    // PRG $0188C
+    if ((*(byte*)(local11) == *(byte*)&arg1)) {    // PRG $0188C
     *(byte*)(local11) = -56;    // PRG $01892
     } else {
 L_p01898:
@@ -6437,14 +6437,14 @@ word driver_pass(void) {
 // PRG $072B2 ai_seed_fief_collection_rate_6d2d
 // (body @ PRG $072B7)
 
-word ai_seed_fief_collection_rate_6d2d(void) {
-    swap_word((fp + 11), battle_defending_province);    // PRG $072BE -> bank15 $CB94
+word ai_seed_fief_collection_rate_6d2d(word arg1) {
+    swap_word(&arg1, battle_defending_province);    // PRG $072BE -> bank15 $CB94
     if (tax_helper_db12()) {    // PRG $072CD -> bank15 $DB12
     } else {
     }
 L_p072E2:
     fief_tax_rate[battle_defending_province] = (rng_mod(30) + 35);    // PRG $072E2 -> bank15 $CA52
-    return swap_word((fp + 11), battle_defending_province);    // PRG $072EE -> bank15 $CB94
+    return swap_word(&arg1, battle_defending_province);    // PRG $072EE -> bank15 $CB94
     }
 }
 
@@ -9460,7 +9460,7 @@ word ai_step_unit_toward_target(word unit_x, word unit_y) {
     unit_x = *(byte*)(cur_unit_field_ptr_6fd0());    // PRG $0A3D2 -> bank2 $82A9
     unit_y = *(byte*)(cur_unit_field_ptr_6fda());    // PRG $0A3D7 -> bank2 $82B9
     steps_to_target = (steps_to_target - 1);    // PRG $0A3DA
-    if (!(sub_8003((fp + 11), (fp + 13), (steps_to_target - 1)))) goto L_p0A3F6;    // PRG $0A3E8
+    if (!(sub_8003(&unit_x, &unit_y, (steps_to_target - 1)))) goto L_p0A3F6;    // PRG $0A3E8
     if (!(!(place_unit_at_tile_if_free(unit_x, unit_y)))) return 1;    // PRG $0A3F1 -> bank2 $9058
     return 0;    // PRG $0A3F7
 }
@@ -10332,13 +10332,13 @@ word call_bank10_entry(word arg1) {
 // PRG $3CA12 byte_helper_ca12
 // (body @ PRG $3CA17)
 
-word byte_helper_ca12(word arg1) {
-    if ((*(byte*)(arg1) < *(byte*)(fp + 13))) {    // PRG $3CA20
+word byte_helper_ca12(word arg1, word arg2) {
+    if ((*(byte*)(arg1) < *(byte*)&arg2)) {    // PRG $3CA20
     } else {
     }
 L_p3CA2F:
-    *(byte*)(arg1) = (*(byte*)(arg1) - *(byte*)(fp + 13));    // PRG $3CA2F
-    return (*(byte*)(arg1) - *(byte*)(fp + 13));    // PRG $3CA30
+    *(byte*)(arg1) = (*(byte*)(arg1) - *(byte*)&arg2);    // PRG $3CA2F
+    return (*(byte*)(arg1) - *(byte*)&arg2);    // PRG $3CA30
     }
 }
 
@@ -10406,11 +10406,11 @@ L_p3CA90:
 // PRG $3CA97 fill_bytes_ca97
 // (body @ PRG $3CA9C)
 
-word fill_bytes_ca97(word arg1, word arg2) {
+word fill_bytes_ca97(word arg1, word arg2, word arg3) {
     goto L_p3CAAB;    // PRG $3CA9C
 L_p3CA9F:
     arg1 = (arg1 + 1);    // PRG $3CAA1
-    *(byte*)(((arg1 + 1) - 1)) = *(byte*)(fp + 15);    // PRG $3CAA7
+    *(byte*)(((arg1 + 1) - 1)) = *(byte*)&arg3;    // PRG $3CAA7
     arg2 = (arg2 - 1);    // PRG $3CAAA
 L_p3CAAB:
     if (arg2) goto L_p3CA9F;    // PRG $3CAAC
@@ -10453,7 +10453,7 @@ L_p3CAE0:
 word memchr(word arg1, word arg2, word arg3) {
     goto L_p3CB0B;    // PRG $3CAF5
 L_p3CAF8:
-    if ((!((*(byte*)(arg1) != *(byte*)(fp + 13))))) return arg1;    // PRG $3CB00
+    if ((!((*(byte*)(arg1) != *(byte*)&arg2)))) return arg1;    // PRG $3CB00
     arg1 = (arg1 + 1);    // PRG $3CB07
     arg3 = (arg3 - 1);    // PRG $3CB0A
 L_p3CB0B:
@@ -10465,9 +10465,9 @@ L_p3CB0B:
 // PRG $3CB11 is_lower
 // (body @ PRG $3CB16)
 
-word is_lower(void) {
-    if (!((97 >= *(byte*)(fp + 11)))) goto L_p3CB2A;    // PRG $3CB1E
-    if ((*(byte*)(fp + 11) >= 122)) goto L_p3CB2E;    // PRG $3CB27
+word is_lower(word arg1) {
+    if (!((97 >= *(byte*)&arg1))) goto L_p3CB2A;    // PRG $3CB1E
+    if ((*(byte*)&arg1 >= 122)) goto L_p3CB2E;    // PRG $3CB27
 L_p3CB2A:
     goto L_p3CB2F;    // PRG $3CB2B
 L_p3CB2E:
@@ -10479,12 +10479,12 @@ L_p3CB2F:
 // PRG $3CB30 to_upper
 // (body @ PRG $3CB35)
 
-word to_upper(void) {
-    if (is_lower(*(byte*)(fp + 11))) {    // PRG $3CB3D -> bank15 $CB11
+word to_upper(word arg1) {
+    if (is_lower(*(byte*)&arg1)) {    // PRG $3CB3D -> bank15 $CB11
     } else {
     }
 L_p3CB4B:
-    return *(byte*)(fp + 11);    // PRG $3CB4B
+    return *(byte*)&arg1;    // PRG $3CB4B
     }
 }
 
@@ -10585,16 +10585,16 @@ word marry_helper_cc35(word arg1) {
 // PRG $3CC42 ppu_blit_nobank_wrap
 // (body @ PRG $3CC47)
 
-word ppu_blit_nobank_wrap(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_ppu_blit_nobank(0, arg1, arg2, arg3, arg4, *(word*)(fp + 19));    // PRG $3CC53 -> bank15 $C437
+word ppu_blit_nobank_wrap(word arg1, word arg2, word arg3, word arg4, word arg5) {
+    return syscall_ppu_blit_nobank(0, arg1, arg2, arg3, arg4, arg5);    // PRG $3CC53 -> bank15 $C437
 }
 
 // ===== bank15 $CC54  (PRG $3CC54) =====
 // PRG $3CC54 ppu_blit_from_bank_wrap
 // (body @ PRG $3CC59)
 
-word ppu_blit_from_bank_wrap(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_ppu_blit_from_bank(0, arg1, arg2, arg3, arg4, *(word*)(fp + 19), *(word*)(fp + 21));    // PRG $3CC68 -> bank15 $C428
+word ppu_blit_from_bank_wrap(word arg1, word arg2, word arg3, word arg4, word arg5, word arg6) {
+    return syscall_ppu_blit_from_bank(0, arg1, arg2, arg3, arg4, arg5, arg6);    // PRG $3CC68 -> bank15 $C428
 }
 
 // ===== bank15 $CC69  (PRG $3CC69) =====
@@ -10732,26 +10732,26 @@ L_p3CDC9:
 // PRG $3CDCA char_classify
 // (body @ PRG $3CDCF)
 
-word char_classify(void) {
-    if (!((*(byte*)(fp + 11) <= 95))) goto L_p3CDF4;    // PRG $3CDD5
-    if (!((*(byte*)(fp + 11) >= 122))) goto L_p3CDF4;    // PRG $3CDDE
+word char_classify(word arg1) {
+    if (!((*(byte*)&arg1 <= 95))) goto L_p3CDF4;    // PRG $3CDD5
+    if (!((*(byte*)&arg1 >= 122))) goto L_p3CDF4;    // PRG $3CDDE
     goto L_p3CE11;    // PRG $3CDE3
 L_p3CDE6:
-    if (!((*(byte*)(fp + 11) >= 90))) goto L_p3CDFD;    // PRG $3CDEC
+    if (!((*(byte*)&arg1 >= 90))) goto L_p3CDFD;    // PRG $3CDEC
     goto L_p3CE11;    // PRG $3CDF1
 L_p3CDF4:
-    if ((*(byte*)(fp + 11) <= 65)) goto L_p3CDE6;    // PRG $3CDFA
+    if ((*(byte*)&arg1 <= 65)) goto L_p3CDE6;    // PRG $3CDFA
 L_p3CDFD:
-    if ((*(byte*)(fp + 11) <= 45)) {    // PRG $3CE03
-    if ((*(byte*)(fp + 11) >= 58)) {    // PRG $3CE0C
+    if ((*(byte*)&arg1 <= 45)) {    // PRG $3CE03
+    if ((*(byte*)&arg1 >= 58)) {    // PRG $3CE0C
 L_p3CE11:
 L_p3CE16:
-    *(byte*)(fp + 11) = (*(byte*)(fp + 11) - 40);    // PRG $3CE16
-    return *(byte*)(fp + 11);    // PRG $3CE1C
+    *(byte*)&arg1 = (*(byte*)&arg1 - 40);    // PRG $3CE16
+    return *(byte*)&arg1;    // PRG $3CE1C
     }
     }
 L_p3CE1D:
-    switch (*(byte*)(fp + 11)) {    // PRG $3CE20
+    switch (*(byte*)&arg1) {    // PRG $3CE20
         case 32: goto L_p3CE55;    // PRG $3CE20
         case 33: goto L_p3CE55;    // PRG $3CE20
         case 35: goto L_p3CE5A;    // PRG $3CE20
@@ -10788,10 +10788,10 @@ L_p3CE7D:
 // PRG $3CE81 char_advance_width
 // (body @ PRG $3CE86)
 
-word char_advance_width(void) {
-    if ((!((*(byte*)(fp + 11) != 10)))) return ui_get_menu_count_7fcf();    // PRG $3CE8B -> bank15 $CDAF
-    *(byte*)(fp + 11) = char_classify(*(byte*)(fp + 11));    // PRG $3CE9A -> bank15 $CDCA
-    syscall_ppu_blit_nobank(0, ui_window_col, ui_cursor_row, ui_window_col, ui_cursor_row, *(byte*)(fp + 11));    // PRG $3CEAF -> bank15 $C437
+word char_advance_width(word arg1) {
+    if ((!((*(byte*)&arg1 != 10)))) return ui_get_menu_count_7fcf();    // PRG $3CE8B -> bank15 $CDAF
+    *(byte*)&arg1 = char_classify(*(byte*)&arg1);    // PRG $3CE9A -> bank15 $CDCA
+    syscall_ppu_blit_nobank(0, ui_window_col, ui_cursor_row, ui_window_col, ui_cursor_row, *(byte*)&arg1);    // PRG $3CEAF -> bank15 $C437
     ui_window_col = (ui_window_col + 1);    // PRG $3CEB7
     if (((unsigned)(ui_window_col + 1) > (unsigned)31)) {    // PRG $3CEBD
     }
@@ -10852,8 +10852,8 @@ word fill_attr_wrap(void) {
 // PRG $3CF6A ppu_render_rect_wrap
 // (body @ PRG $3CF6F)
 
-word ppu_render_rect_wrap(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_ppu_render_rect(0, arg1, arg2, arg3, arg4, *(word*)(fp + 19));    // PRG $3CF7B -> bank15 $C4E0
+word ppu_render_rect_wrap(word arg1, word arg2, word arg3, word arg4, word arg5) {
+    return syscall_ppu_render_rect(0, arg1, arg2, arg3, arg4, arg5);    // PRG $3CF7B -> bank15 $C4E0
 }
 
 // ===== bank15 $CF7C  (PRG $3CF7C) =====
@@ -11001,8 +11001,8 @@ L_p3D130:
 // PRG $3D134 ui_helper_d134
 // (body @ PRG $3D139)
 
-word ui_helper_d134(void) {
-    format_string((fp + 11), &msg_buf);    // PRG $3D141 -> bank15 $CFFC
+word ui_helper_d134(word arg1) {
+    format_string(&arg1, &msg_buf);    // PRG $3D141 -> bank15 $CFFC
     return redraw_window(&msg_buf);    // PRG $3D14D -> bank15 $CEC4
 }
 
@@ -11812,8 +11812,8 @@ L_p3DA21:
 // PRG $3DA24 scaled_transfer_da24
 // (body @ PRG $3DA29)
 
-word scaled_transfer_da24(word arg1, word arg2, word arg3, word arg4) {
-    return min_word((pct_op(arg1, math32_2arg(arg4, arg3)) + pct_op((arg2 | 1), math32_2arg(arg3, arg4))), *(word*)(fp + 19));    // PRG $3DA4E -> bank15 $CB5E
+word scaled_transfer_da24(word arg1, word arg2, word arg3, word arg4, word arg5) {
+    return min_word((pct_op(arg1, math32_2arg(arg4, arg3)) + pct_op((arg2 | 1), math32_2arg(arg3, arg4))), arg5);    // PRG $3DA4E -> bank15 $CB5E
 }
 
 // ===== bank15 $DA4F  (PRG $3DA4F) =====

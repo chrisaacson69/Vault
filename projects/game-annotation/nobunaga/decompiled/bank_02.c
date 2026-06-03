@@ -2507,7 +2507,7 @@ word ai_step_unit_toward_target(word unit_x, word unit_y) {
     unit_x = *(byte*)(cur_unit_field_ptr_6fd0());    // $A3D2
     unit_y = *(byte*)(cur_unit_field_ptr_6fda());    // $A3D7
     steps_to_target = (steps_to_target - 1);    // $A3DA
-    if (!(sub_8003((fp + 11), (fp + 13), (steps_to_target - 1)))) goto L_A3F6;    // $A3E8
+    if (!(sub_8003(&unit_x, &unit_y, (steps_to_target - 1)))) goto L_A3F6;    // $A3E8
     if (!(!(place_unit_at_tile_if_free(unit_x, unit_y)))) return 1;    // $A3F1
     return 0;    // $A3F7
 }

@@ -3248,14 +3248,14 @@ word driver_pass(void) {
 // $B2B2 ai_seed_fief_collection_rate_6d2d
 // (body @ $B2B7)
 
-word ai_seed_fief_collection_rate_6d2d(void) {
-    swap_word((fp + 11), battle_defending_province);    // $B2BE
+word ai_seed_fief_collection_rate_6d2d(word arg1) {
+    swap_word(&arg1, battle_defending_province);    // $B2BE
     if (tax_helper_db12()) {    // $B2CD
     } else {
     }
 L_B2E2:
     fief_tax_rate[battle_defending_province] = (rng_mod(30) + 35);    // $B2E2
-    return swap_word((fp + 11), battle_defending_province);    // $B2EE
+    return swap_word(&arg1, battle_defending_province);    // $B2EE
     }
 }
 

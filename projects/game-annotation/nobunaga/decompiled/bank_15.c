@@ -16,13 +16,13 @@ word call_bank10_entry(word arg1) {
 // $CA12 byte_helper_ca12
 // (body @ $CA17)
 
-word byte_helper_ca12(word arg1) {
-    if ((*(byte*)(arg1) < *(byte*)(fp + 13))) {    // $CA20
+word byte_helper_ca12(word arg1, word arg2) {
+    if ((*(byte*)(arg1) < *(byte*)&arg2)) {    // $CA20
     } else {
     }
 L_CA2F:
-    *(byte*)(arg1) = (*(byte*)(arg1) - *(byte*)(fp + 13));    // $CA2F
-    return (*(byte*)(arg1) - *(byte*)(fp + 13));    // $CA30
+    *(byte*)(arg1) = (*(byte*)(arg1) - *(byte*)&arg2);    // $CA2F
+    return (*(byte*)(arg1) - *(byte*)&arg2);    // $CA30
     }
 }
 
@@ -84,11 +84,11 @@ L_CA90:
 // $CA97 fill_bytes_ca97
 // (body @ $CA9C)
 
-word fill_bytes_ca97(word arg1, word arg2) {
+word fill_bytes_ca97(word arg1, word arg2, word arg3) {
     goto L_CAAB;    // $CA9C
 L_CA9F:
     arg1 = (arg1 + 1);    // $CAA1
-    *(byte*)(((arg1 + 1) - 1)) = *(byte*)(fp + 15);    // $CAA7
+    *(byte*)(((arg1 + 1) - 1)) = *(byte*)&arg3;    // $CAA7
     arg2 = (arg2 - 1);    // $CAAA
 L_CAAB:
     if (arg2) goto L_CA9F;    // $CAAC
@@ -128,7 +128,7 @@ L_CAE0:
 word memchr(word arg1, word arg2, word arg3) {
     goto L_CB0B;    // $CAF5
 L_CAF8:
-    if ((!((*(byte*)(arg1) != *(byte*)(fp + 13))))) return arg1;    // $CB00
+    if ((!((*(byte*)(arg1) != *(byte*)&arg2)))) return arg1;    // $CB00
     arg1 = (arg1 + 1);    // $CB07
     arg3 = (arg3 - 1);    // $CB0A
 L_CB0B:
@@ -139,9 +139,9 @@ L_CB0B:
 // $CB11 is_lower
 // (body @ $CB16)
 
-word is_lower(void) {
-    if (!((97 >= *(byte*)(fp + 11)))) goto L_CB2A;    // $CB1E
-    if ((*(byte*)(fp + 11) >= 122)) goto L_CB2E;    // $CB27
+word is_lower(word arg1) {
+    if (!((97 >= *(byte*)&arg1))) goto L_CB2A;    // $CB1E
+    if ((*(byte*)&arg1 >= 122)) goto L_CB2E;    // $CB27
 L_CB2A:
     goto L_CB2F;    // $CB2B
 L_CB2E:
@@ -152,12 +152,12 @@ L_CB2F:
 // $CB30 to_upper
 // (body @ $CB35)
 
-word to_upper(void) {
-    if (is_lower(*(byte*)(fp + 11))) {    // $CB3D
+word to_upper(word arg1) {
+    if (is_lower(*(byte*)&arg1)) {    // $CB3D
     } else {
     }
 L_CB4B:
-    return *(byte*)(fp + 11);    // $CB4B
+    return *(byte*)&arg1;    // $CB4B
     }
 }
 
@@ -248,15 +248,15 @@ word marry_helper_cc35(word arg1) {
 // $CC42 ppu_blit_nobank_wrap
 // (body @ $CC47)
 
-word ppu_blit_nobank_wrap(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_ppu_blit_nobank(0, arg1, arg2, arg3, arg4, *(word*)(fp + 19));    // $CC53
+word ppu_blit_nobank_wrap(word arg1, word arg2, word arg3, word arg4, word arg5) {
+    return syscall_ppu_blit_nobank(0, arg1, arg2, arg3, arg4, arg5);    // $CC53
 }
 
 // $CC54 ppu_blit_from_bank_wrap
 // (body @ $CC59)
 
-word ppu_blit_from_bank_wrap(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_ppu_blit_from_bank(0, arg1, arg2, arg3, arg4, *(word*)(fp + 19), *(word*)(fp + 21));    // $CC68
+word ppu_blit_from_bank_wrap(word arg1, word arg2, word arg3, word arg4, word arg5, word arg6) {
+    return syscall_ppu_blit_from_bank(0, arg1, arg2, arg3, arg4, arg5, arg6);    // $CC68
 }
 
 // $CC69 trade_helper_cc69
@@ -384,26 +384,26 @@ L_CDC9:
 // $CDCA char_classify
 // (body @ $CDCF)
 
-word char_classify(void) {
-    if (!((*(byte*)(fp + 11) <= 95))) goto L_CDF4;    // $CDD5
-    if (!((*(byte*)(fp + 11) >= 122))) goto L_CDF4;    // $CDDE
+word char_classify(word arg1) {
+    if (!((*(byte*)&arg1 <= 95))) goto L_CDF4;    // $CDD5
+    if (!((*(byte*)&arg1 >= 122))) goto L_CDF4;    // $CDDE
     goto L_CE11;    // $CDE3
 L_CDE6:
-    if (!((*(byte*)(fp + 11) >= 90))) goto L_CDFD;    // $CDEC
+    if (!((*(byte*)&arg1 >= 90))) goto L_CDFD;    // $CDEC
     goto L_CE11;    // $CDF1
 L_CDF4:
-    if ((*(byte*)(fp + 11) <= 65)) goto L_CDE6;    // $CDFA
+    if ((*(byte*)&arg1 <= 65)) goto L_CDE6;    // $CDFA
 L_CDFD:
-    if ((*(byte*)(fp + 11) <= 45)) {    // $CE03
-    if ((*(byte*)(fp + 11) >= 58)) {    // $CE0C
+    if ((*(byte*)&arg1 <= 45)) {    // $CE03
+    if ((*(byte*)&arg1 >= 58)) {    // $CE0C
 L_CE11:
 L_CE16:
-    *(byte*)(fp + 11) = (*(byte*)(fp + 11) - 40);    // $CE16
-    return *(byte*)(fp + 11);    // $CE1C
+    *(byte*)&arg1 = (*(byte*)&arg1 - 40);    // $CE16
+    return *(byte*)&arg1;    // $CE1C
     }
     }
 L_CE1D:
-    switch (*(byte*)(fp + 11)) {    // $CE20
+    switch (*(byte*)&arg1) {    // $CE20
         case 32: goto L_CE55;    // $CE20
         case 33: goto L_CE55;    // $CE20
         case 35: goto L_CE5A;    // $CE20
@@ -439,10 +439,10 @@ L_CE7D:
 // $CE81 char_advance_width
 // (body @ $CE86)
 
-word char_advance_width(void) {
-    if ((!((*(byte*)(fp + 11) != 10)))) return ui_get_menu_count_7fcf();    // $CE8B
-    *(byte*)(fp + 11) = char_classify(*(byte*)(fp + 11));    // $CE9A
-    syscall_ppu_blit_nobank(0, ui_window_col, ui_cursor_row, ui_window_col, ui_cursor_row, *(byte*)(fp + 11));    // $CEAF
+word char_advance_width(word arg1) {
+    if ((!((*(byte*)&arg1 != 10)))) return ui_get_menu_count_7fcf();    // $CE8B
+    *(byte*)&arg1 = char_classify(*(byte*)&arg1);    // $CE9A
+    syscall_ppu_blit_nobank(0, ui_window_col, ui_cursor_row, ui_window_col, ui_cursor_row, *(byte*)&arg1);    // $CEAF
     ui_window_col = (ui_window_col + 1);    // $CEB7
     if (((unsigned)(ui_window_col + 1) > (unsigned)31)) {    // $CEBD
     }
@@ -499,8 +499,8 @@ word fill_attr_wrap(void) {
 // $CF6A ppu_render_rect_wrap
 // (body @ $CF6F)
 
-word ppu_render_rect_wrap(word arg1, word arg2, word arg3, word arg4) {
-    return syscall_ppu_render_rect(0, arg1, arg2, arg3, arg4, *(word*)(fp + 19));    // $CF7B
+word ppu_render_rect_wrap(word arg1, word arg2, word arg3, word arg4, word arg5) {
+    return syscall_ppu_render_rect(0, arg1, arg2, arg3, arg4, arg5);    // $CF7B
 }
 
 // $CF7C ppu_upload_block_wrap
@@ -642,8 +642,8 @@ L_D130:
 // $D134 ui_helper_d134
 // (body @ $D139)
 
-word ui_helper_d134(void) {
-    format_string((fp + 11), &msg_buf);    // $D141
+word ui_helper_d134(word arg1) {
+    format_string(&arg1, &msg_buf);    // $D141
     return redraw_window(&msg_buf);    // $D14D
 }
 
@@ -1404,8 +1404,8 @@ L_DA21:
 // $DA24 scaled_transfer_da24
 // (body @ $DA29)
 
-word scaled_transfer_da24(word arg1, word arg2, word arg3, word arg4) {
-    return min_word((pct_op(arg1, math32_2arg(arg4, arg3)) + pct_op((arg2 | 1), math32_2arg(arg3, arg4))), *(word*)(fp + 19));    // $DA4E
+word scaled_transfer_da24(word arg1, word arg2, word arg3, word arg4, word arg5) {
+    return min_word((pct_op(arg1, math32_2arg(arg4, arg3)) + pct_op((arg2 | 1), math32_2arg(arg3, arg4))), arg5);    // $DA4E
 }
 
 // $DA4F diplomacy_helper2

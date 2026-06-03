@@ -116,6 +116,23 @@ def local_name(opcode_low, kind):
 _WORD_SLOT = {(-24 + 2 * n): f"local{n}" for n in range(12)}
 
 
+def _slot_name(off):
+    """Resolve a word-aligned frame offset to its positional slot name, or None.
+    Negative even offsets vm_fp-24..vm_fp-2 are local0..local11. Positive ODD
+    offsets from +0x0B are the stack-passed args: arg1 = vm_fp+0x0B (=+11), then
+    +2 bytes per word arg (arg2=+13, arg3=+15, arg4=+17, arg5=+19, argN=+0x0B+2*(N-1)).
+    The quick opcodes $00-$3F only reach local0-11 + arg1-4; this ALSO names arg5+ and
+    any arg/local reached by the GENERAL signed-offset frame opcodes ($81-$88, $DE/$DF),
+    which previously rendered raw as `*(word*)(fp + N)`. (Positive offsets <0x0B are the
+    frame header; even positives and odd <0x0B are not args -> None -> render raw.)"""
+    name = _WORD_SLOT.get(off)
+    if name:
+        return name
+    if off >= 0x0B and off % 2 == 1:
+        return f"arg{(off - 0x0B) // 2 + 1}"
+    return None
+
+
 def _signed_operand(operand):
     """Parse the `$XX`/`$XXXX` operand of a frame op as a signed byte/word.
     Width is taken from the hex-digit count vm-disasm.py emits (2 = signed byte,
@@ -141,17 +158,22 @@ def _fp_disp(off):
 
 def frame_word(off):
     """Word frame local at vm_fp+off (lvalue or rvalue)."""
-    return _WORD_SLOT.get(off) or f"*(word*)({_fp_disp(off)})"
+    return _slot_name(off) or f"*(word*)({_fp_disp(off)})"
 
 
 def frame_byte(off):
-    """Byte frame local at vm_fp+off (lvalue or rvalue)."""
-    return f"*(byte*)({_fp_disp(off)})"
+    """Byte frame local at vm_fp+off (lvalue or rvalue). If the offset lands on a named
+    word slot (arg/local), render `*(byte*)&name` -- the slot's low byte (little-endian),
+    valid as BOTH lvalue and rvalue (unlike a `(byte)name` cast) -- so byte views of a
+    word arg (e.g. a char passed in arg1, read by the text engine) name the slot instead
+    of a raw frame displacement. Offsets that miss a slot (high bytes, odd <0x0B) stay raw."""
+    name = _slot_name(off)
+    return f"*(byte*)&{name}" if name else f"*(byte*)({_fp_disp(off)})"
 
 
 def frame_addr(off):
     """Address of a frame local at vm_fp+off."""
-    name = _WORD_SLOT.get(off)
+    name = _slot_name(off)
     return f"&{name}" if name else f"({_fp_disp(off)})"
 
 
@@ -543,17 +565,35 @@ _POS_ARG_MNEMONICS = frozenset({
 })
 
 
+# General signed-offset frame opcodes that render a slot BY NAME (frame_word/_byte/_addr
+# resolve via _slot_name) — so an arg reached only through one of these is still named
+# argN and must be counted. Includes the byte ops ($A0-$A3): they now name the slot too
+# (`*(byte*)&argN`), so a byte-only arg would otherwise leave the signature under-declared.
+_GEN_FRAME_MNEMONICS = frozenset({
+    'op_81_byte', 'op_82_bb', 'op_83_byte', 'op_84_bwb',
+    'op_85_byte', 'op_86_bwb', 'op_87_byte', 'op_88_bwb',
+    'loadA_frameaddr', 'loadB_frameaddr', 'op_A0_A3_byte',
+})
+
+
 def _body_arg_count(instructions):
-    """Highest arg slot (1..4) the body references via the quick arg-opcodes, i.e.
-    the real parameter count. 0 if the sub touches no arg slot (-> `void`). Args
-    above 4 (addressed only by the far-frame ops as raw vm_fp+N) aren't named argN
-    and so aren't counted here — by design the count matches the named args."""
+    """Highest arg slot the body references, i.e. the real parameter count (0 -> `void`).
+    Counts every access path that NAMES an arg (so the count == what renders as argN):
+    the quick arg-opcodes (low nibble 0x0C-0x0F -> arg1..arg4) AND the general
+    signed-offset frame opcodes (word $81-$88/$DE/$DF + byte $A0-$A3) landing on a
+    positive odd offset >= +0x0B (arg5+ live ONLY here -- the quick opcodes top out at
+    arg4; subs reach ~6 args)."""
     n = 0
     for ins in instructions:
-        if ins['mnemonic'] in _POS_ARG_MNEMONICS:
+        mn = ins['mnemonic']
+        if mn in _POS_ARG_MNEMONICS:
             low = ins['bytes'][0] & 0x0F
             if low >= 0x0C:                       # 0x0C..0x0F -> arg1..arg4
                 n = max(n, low - 0x0B)
+        elif mn in _GEN_FRAME_MNEMONICS:
+            off = _signed_operand(ins['operand'])
+            if off >= 0x0B and off % 2 == 1:      # +0x0B,+0x0D,... -> arg1,arg2,...
+                n = max(n, (off - 0x0B) // 2 + 1)
     return n
 
 

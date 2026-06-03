@@ -2467,7 +2467,7 @@ arg2 = { name = "row", comment = "[HIGH] top-left ROW of 6x6 portrait; passed as
 
 [vars.bank0."0x8DE1"]
 # dedup_owners_to_6f4f
-"fp-14" = { name = "dedup_buf", comment = "[HIGH] base byte of local dedup scratch buffer: seeded w/ arg1[0], appended unique owners (&fp-14+i), then bulk-copied to deduped_owner_list $6F4F" }
+local5 = { name = "dedup_buf", comment = "[HIGH] base byte of local dedup scratch buffer: seeded w/ arg1[0], appended unique owners (&dedup_buf+i), then bulk-copied to deduped_owner_list $6F4F. (Was far-key fp-14; that slot resolves to local5 now that frame_byte names standard slots, so the positional key keeps ALL its refs coherently named.)" }
 
 [vars.bank0."0x83E2"]
 # apply_scenario_starting_stat_boosts

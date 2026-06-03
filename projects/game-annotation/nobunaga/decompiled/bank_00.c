@@ -782,14 +782,14 @@ L_8DE0:
 
 word dedup_owners_to_6f4f(word arg1) {
     arg1 = (arg1 + 1);    // $8DE8
-    dedup_buf = *(byte*)(((arg1 + 1) - 1));    // $8DEB
+    *(byte*)&dedup_buf = *(byte*)(((arg1 + 1) - 1));    // $8DEB
     local10 = 1;    // $8DEF
     goto L_8E33;    // $8DF0
 L_8DF3:
     local9 = 0;    // $8DF4
     goto L_8E17;    // $8DF6
 L_8DF9:
-    if ((ui_helper_d772(*(byte*)((local11 + &local5))) == ui_helper_d772(*(byte*)(arg1)))) {    // $8E10
+    if ((ui_helper_d772(*(byte*)((local11 + &dedup_buf))) == ui_helper_d772(*(byte*)(arg1)))) {    // $8E10
     local9 = 1;    // $8E14
     }
 L_8E15:
@@ -798,14 +798,14 @@ L_8E17:
     if (((unsigned)local11 >= (unsigned)local10)) goto L_8DF9;    // $8E1B
     if (local9) goto L_8E30;    // $8E1F
     local10 = (local10 + 1);    // $8E28
-    *(byte*)((((local10 + 1) - 1) + &local5)) = *(byte*)(arg1);    // $8E2F
+    *(byte*)((((local10 + 1) - 1) + &dedup_buf)) = *(byte*)(arg1);    // $8E2F
 L_8E30:
     arg1 = (arg1 + 1);    // $8E32
 L_8E33:
     if ((*(byte*)(arg1) != 255)) goto L_8DF3;    // $8E39
     goto L_8E51;    // $8E3D
 L_8E40:
-    deduped_owner_list[local11] = *(byte*)((local11 + &local5));    // $8E4E
+    deduped_owner_list[local11] = *(byte*)((local11 + &dedup_buf));    // $8E4E
 L_8E51:
     local11 = (local11 + 1);    // $8E51
     if (((unsigned)local11 >= (unsigned)local10)) goto L_8E40;    // $8E55
@@ -1469,10 +1469,10 @@ L_9878:
 // $9879 mark_6f89_list_entry_by_value
 // (body @ $987E)
 
-word mark_6f89_list_entry_by_value(void) {
+word mark_6f89_list_entry_by_value(word arg1) {
     goto L_9898;    // $9881
 L_9884:
-    if ((*(byte*)(local11) == *(byte*)(fp + 11))) {    // $988C
+    if ((*(byte*)(local11) == *(byte*)&arg1)) {    // $988C
     *(byte*)(local11) = -56;    // $9892
     } else {
 L_9898:
