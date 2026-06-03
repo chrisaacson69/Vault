@@ -133,6 +133,21 @@ def _slot_name(off):
     return None
 
 
+def _op_hex(operand):
+    """First `$hex` literal in the operand as an unsigned int, else 0 — absolute
+    addresses and word immediates (the repeated `re.search(r'\\$([0-9A-Fa-f]+)')` idiom)."""
+    m = re.search(r'\$([0-9A-Fa-f]+)', operand)
+    return int(m.group(1), 16) if m else 0
+
+
+def _op_int(operand):
+    """First signed-decimal literal in the operand as an int, else 0 — signed-byte/word
+    immediates (the `re.search(r'(-?\\d+)')` idiom). NOTE: distinct from the positive-only
+    `\\+?(\\d+)` the $89/$8B byte-imm arms use — those keep their own parse."""
+    m = re.search(r'(-?\d+)', operand)
+    return int(m.group(1)) if m else 0
+
+
 def _signed_operand(operand):
     """Parse the `$XX`/`$XXXX` operand of a frame op as a signed byte/word.
     Width is taken from the hex-digit count vm-disasm.py emits (2 = signed byte,
@@ -670,6 +685,42 @@ def apply_var_names(text, vmap):
     return text
 
 
+# --- Emission families: data-driven dispatch for the mechanical opcodes (A, teardown) ---
+# The ~370-line dispatch in decompile() was a flat if/elif on mnemonics where ~50 arms
+# were near-identical "regA = <formula of regA/regB>" lines. Those collapse to these
+# tables + one generic block each, so the whole arithmetic/compare/logic family reads at
+# a glance and a new op is a one-line table entry (portable to another Sea-16 title by
+# swapping the table, not editing control flow). The genuinely-distinct opcodes
+# (host_call/switch/ext_op/frame access/branches/calls) stay as explicit handlers below.
+#
+# _BINOP: `regA = (regA <op> regB)`. cast = how operands are signedness-cast:
+#   'none' signed, 'both' both `(unsigned)`, 'lhs' only the left (logical right-shift).
+_BINOP = {
+    # signed / no cast
+    'add': ('+', 'none'), 'sub': ('-', 'none'), 'mul': ('*', 'none'),
+    'div_signed': ('/', 'none'), 'mod_signed': ('%', 'none'),
+    'cmp_slt': ('<', 'none'), 'cmp_sgt': ('>', 'none'), 'cmp_sle': ('<=', 'none'),
+    'cmp_sge': ('>=', 'none'), 'cmp_eq': ('==', 'none'), 'cmp_ne': ('!=', 'none'),
+    'bitand': ('&', 'none'), 'bitor': ('|', 'none'), 'bitxor': ('^', 'none'),
+    'shl_by_regB': ('<<', 'none'), 'shr_by_regB': ('>>', 'none'), 'ashr_by_regB': ('>>', 'none'),
+    # unsigned (both operands cast)
+    'div': ('/', 'both'), 'div_unsigned': ('/', 'both'), 'mod_unsigned': ('%', 'both'),
+    'cmp_uge': ('>=', 'both'), 'cmp_ule': ('<=', 'both'),
+    'cmp_ugt': ('>', 'both'), 'cmp_ult': ('<', 'both'),
+    # logical right shift: only the left operand is cast unsigned
+    'lshr_by_regB': ('>>', 'lhs'),
+}
+
+# _UNARY_A: `regA = <template>` where {A} is the current regA expression. One generic
+# block replaces the inc/dec/shift-by-1/zero-test/negate/deref arms.
+_UNARY_A = {
+    'incA': '({A} + 1)', 'decA': '({A} - 1)',
+    'aslA': '({A} << 1)', 'lsrA': '({A} >> 1)',
+    'is_zero': '({A} == 0)', 'op_CB': '(-{A})',
+    'loadA_ind_byte': '*(byte*)({A})', 'loadA_ind_word': '*(word*)({A})',
+}
+
+
 def decompile(filepath, sub_addr, labels=None, var_names=None):
     body_addr, instructions = parse_listing(filepath, sub_addr)
     if not instructions:
@@ -757,67 +808,40 @@ def decompile(filepath, sub_addr, labels=None, var_names=None):
 
         # === Immediates ===
         elif mnem == 'loadA_imm_word':
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            val = int(m.group(1), 16) if m else 0
-            state.regA = _imm_word_repr(val, labels)
+            state.regA = _imm_word_repr(_op_hex(operand), labels)
         elif mnem == 'loadB_imm_word':
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            val = int(m.group(1), 16) if m else 0
-            state.regB = _imm_word_repr(val, labels)
+            state.regB = _imm_word_repr(_op_hex(operand), labels)
         elif mnem == 'loadA_imm_byte':
             m = re.search(r'\+?(\d+)', operand)
-            val = int(m.group(1)) if m else 0
-            state.regA = str(val)
+            state.regA = str(int(m.group(1)) if m else 0)
         elif mnem == 'loadB_imm_byte':
             m = re.search(r'\+?(\d+)', operand)
-            val = int(m.group(1)) if m else 0
-            state.regB = str(val)
+            state.regB = str(int(m.group(1)) if m else 0)
         elif mnem == 'setB_imm4':
-            val = opcode & 0x0F
-            state.regB = str(val)
+            state.regB = str(opcode & 0x0F)
         elif mnem == 'addA_imm4':
-            val = opcode & 0x0F
-            state.regA = f"({state.regA} + {val})"
+            state.regA = f"({state.regA} + {opcode & 0x0F})"
         elif mnem == 'addA_imm_sbyte':
-            m = re.search(r'(-?\d+)', operand)
-            val = int(m.group(1)) if m else 0
-            state.regA = f"({state.regA} + {val})"
+            state.regA = f"({state.regA} + {_op_int(operand)})"
         elif mnem == 'loadA_imm_sbyte':
-            m = re.search(r'(-?\d+)', operand)
-            val = int(m.group(1)) if m else 0
-            state.regA = str(val)
+            state.regA = str(_op_int(operand))
         elif mnem == 'loadB_imm_sbyte':
-            m = re.search(r'(-?\d+)', operand)
-            val = int(m.group(1)) if m else 0
-            state.regB = str(val)
+            state.regB = str(_op_int(operand))
         elif mnem == 'loadA_mem_word':
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            addr = int(m.group(1), 16) if m else 0
-            state.regA = _mem_name(operand, addr, labels)
+            state.regA = _mem_name(operand, _op_hex(operand), labels)
         elif mnem == 'loadB_mem_word':
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            addr = int(m.group(1), 16) if m else 0
-            state.regB = _mem_name(operand, addr, labels)
-        elif mnem == 'aslA':
-            state.regA = f"({state.regA} << 1)"
-        elif mnem == 'lsrA':
-            state.regA = f"({state.regA} >> 1)"
-        elif mnem == 'shl_by_regB':
-            state.regA = f"({state.regA} << {state.regB})"
-        elif mnem == 'shr_by_regB':
-            state.regA = f"({state.regA} >> {state.regB})"
-        elif mnem == 'div_signed':
-            state.regA = f"({state.regA} / {state.regB})"
-        elif mnem == 'div':
-            state.regA = f"((unsigned){state.regA} / (unsigned){state.regB})"
-        elif mnem == 'mod_signed':
-            state.regA = f"({state.regA} % {state.regB})"
+            state.regB = _mem_name(operand, _op_hex(operand), labels)
+        elif mnem in _UNARY_A:
+            # Unary register ops -> regA = f(regA). Table-driven; see _UNARY_A.
+            state.regA = _UNARY_A[mnem].format(A=state.regA)
+        elif mnem in _BINOP:
+            # All binary register ops -> regA = (regA <op> regB). Table-driven; see _BINOP.
+            op, cast = _BINOP[mnem]
+            a = f"(unsigned){state.regA}" if cast != 'none' else state.regA
+            b = f"(unsigned){state.regB}" if cast == 'both' else state.regB
+            state.regA = f"({a} {op} {b})"
 
-        # === Pointer dereferences ===
-        elif mnem == 'loadA_ind_byte':
-            state.regA = f"*(byte*)({state.regA})"
-        elif mnem == 'loadA_ind_word':
-            state.regA = f"*(word*)({state.regA})"
+        # === Pointer dereferences (loads are table-driven via _UNARY_A above) ===
         elif mnem == 'storeA_ind_byte':
             # regB has the pointer (from stack); regA is the value
             ptr = state.stack.pop() if state.stack else state.regB
@@ -833,65 +857,22 @@ def decompile(filepath, sub_addr, labels=None, var_names=None):
             if state.stack:
                 state.regB = state.stack.pop()
         elif mnem == 'push_imm4':
-            val = opcode & 0x0F
-            state.stack.append(str(val))
+            state.stack.append(str(opcode & 0x0F))
         elif mnem == 'push_imm_sbyte':
-            m = re.search(r'(-?\d+)', operand)
-            val = int(m.group(1)) if m else 0
-            state.stack.append(str(val))
+            state.stack.append(str(_op_int(operand)))
         elif mnem == 'op_8D_sbyte':
             # $8D BYTE_PUSH_imm1 — push a 1-byte immediate (operand rendered "+NN").
-            m = re.search(r'(-?\d+)', operand)
-            val = int(m.group(1)) if m else 0
-            state.stack.append(str(val))
+            state.stack.append(str(_op_int(operand)))
         elif mnem == 'push_imm_word':
             # $8E PUSH_imm2 — push a 2-byte immediate (usually a table/struct
             # pointer; the label names that address, so push it by name).
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            val = int(m.group(1), 16) if m else 0
             label_m = re.search(r'\(([a-z_][a-z0-9_]*)\)', operand)
-            state.stack.append(label_m.group(1) if label_m else _imm_word_repr(val, labels))
+            state.stack.append(label_m.group(1) if label_m else _imm_word_repr(_op_hex(operand), labels))
         elif mnem == 'PUSH_abs':
             # $AA PUSH_abs — push the VALUE stored at an absolute address.
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            addr = int(m.group(1), 16) if m else 0
-            state.stack.append(_mem_name(operand, addr, labels))
+            state.stack.append(_mem_name(operand, _op_hex(operand), labels))
 
-        # === Arithmetic ===
-        elif mnem == 'add':
-            state.regA = f"({state.regA} + {state.regB})"
-        elif mnem == 'sub':
-            state.regA = f"({state.regA} - {state.regB})"
-        elif mnem == 'mul':
-            state.regA = f"({state.regA} * {state.regB})"
-        elif mnem == 'div':
-            state.regA = f"({state.regA} / {state.regB})"
-        elif mnem == 'incA':
-            state.regA = f"({state.regA} + 1)"
-        elif mnem == 'decA':
-            state.regA = f"({state.regA} - 1)"
-
-        # === Comparisons ===
-        elif mnem == 'cmp_slt':
-            state.regA = f"({state.regA} < {state.regB})"
-        elif mnem == 'cmp_sgt':
-            state.regA = f"({state.regA} > {state.regB})"
-        elif mnem == 'cmp_sle':
-            state.regA = f"({state.regA} <= {state.regB})"
-        elif mnem == 'cmp_uge':
-            state.regA = f"((unsigned){state.regA} >= (unsigned){state.regB})"
-        elif mnem == 'cmp_ule':
-            state.regA = f"((unsigned){state.regA} <= (unsigned){state.regB})"
-        elif mnem == 'cmp_eq':
-            state.regA = f"({state.regA} == {state.regB})"
-        elif mnem == 'cmp_ne':
-            state.regA = f"({state.regA} != {state.regB})"
-
-        # === Logic ===
-        elif mnem == 'bitand':
-            state.regA = f"({state.regA} & {state.regB})"
-        elif mnem == 'bitor':
-            state.regA = f"({state.regA} | {state.regB})"
+        # === Logic / misc (binary & unary register ops table-driven above) ===
         elif mnem == 'swap_AB':
             state.regA, state.regB = state.regB, state.regA
         elif mnem == 'loadA_imm4':
@@ -1046,25 +1027,7 @@ def decompile(filepath, sub_addr, labels=None, var_names=None):
             # $50: dedicated handler stores Y(=0) into regB.
             state.regB = "0"
 
-        # === Comparisons / arithmetic / logic (mirror the handled family) ===
-        elif mnem == 'cmp_sge':
-            state.regA = f"({state.regA} >= {state.regB})"
-        elif mnem == 'cmp_ugt':
-            state.regA = f"((unsigned){state.regA} > (unsigned){state.regB})"
-        elif mnem == 'cmp_ult':
-            state.regA = f"((unsigned){state.regA} < (unsigned){state.regB})"
-        elif mnem == 'is_zero':
-            state.regA = f"({state.regA} == 0)"
-        elif mnem == 'div_unsigned':
-            state.regA = f"((unsigned){state.regA} / (unsigned){state.regB})"
-        elif mnem == 'mod_unsigned':
-            state.regA = f"((unsigned){state.regA} % (unsigned){state.regB})"
-        elif mnem == 'bitxor':
-            state.regA = f"({state.regA} ^ {state.regB})"
-        elif mnem == 'lshr_by_regB':
-            state.regA = f"((unsigned){state.regA} >> {state.regB})"
-        elif mnem == 'ashr_by_regB':
-            state.regA = f"({state.regA} >> {state.regB})"
+        # === Misc register ops (binary & unary register ops table-driven above) ===
         elif mnem == 'nop_B2':
             # $B2 is a NOP (no stack/reg effect, length 1) — ORACLE-CONFIRMED 2026-06-03
             # via a synthetic micro-test through the real ROM handler (dSP=0, regL/regR
@@ -1074,26 +1037,18 @@ def decompile(filepath, sub_addr, labels=None, var_names=None):
             # ("NOP") were right. Left as an explicit no-op so the model is correct if a
             # $B2 ever turns up. See vm-stack-audit.py `validate_nop_b2`.
             pass
-        elif mnem == 'op_CB':            # $CB: 16-bit two's-complement negate of regA
-            state.regA = f"(-{state.regA})"
 
         # === Absolute byte memory (byte mirrors of loadA_mem_word/store) ===
         elif mnem == 'loadA_mem_byte':
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            addr = int(m.group(1), 16) if m else 0
-            state.regA = _mem_name(operand, addr, labels)
+            state.regA = _mem_name(operand, _op_hex(operand), labels)
         elif mnem == 'storeA_mem_word':
             # $A8 STORE_abs — store regA's WORD to an absolute address. (Was wrongly
             # mapped to loadA_mem_word: every $A8 store rendered as a phantom read.
             # PROVEN $A8=store by the year++ at $A48E LOADL_abs / INC / $A492 STORE_abs.)
             # regA is the SOURCE and is left unchanged by the store.
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            addr = int(m.group(1), 16) if m else 0
-            state.emit(f"{_mem_name(operand, addr, labels)} = {state.regA};")
+            state.emit(f"{_mem_name(operand, _op_hex(operand), labels)} = {state.regA};")
         elif mnem == 'storeA_mem_byte':
-            m = re.search(r'\$([0-9A-Fa-f]+)', operand)
-            addr = int(m.group(1), 16) if m else 0
-            state.emit(f"{_mem_name(operand, addr, labels)} = {state.regA};")
+            state.emit(f"{_mem_name(operand, _op_hex(operand), labels)} = {state.regA};")
 
         # === Misc ===
         else:
