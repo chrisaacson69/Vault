@@ -1799,6 +1799,12 @@ local7 = { name = "outcome_code", comment = "[HIGH] init 0 ($8E03); set 3 (capit
 local9 = { name = "attacker_name_idx", comment = "[MED] =ui_helper_d77e() at $8E07 (attacker daimyo name idx per ai_attack_announce); WRITE-ONLY/dead here, role from d77e semantics" }
 local10 = { name = "defender_strength", comment = "[HIGH] defender combat total: (capital+2)*men+((skill/2+arms/2)<<1)+morale via fp-26..-34 ptrs; +10% if def wins tiebreak; cmp >=local11" }
 local11 = { name = "attacker_strength", comment = "[HIGH] attacker combat total: (war_flag+2)*men+((arms/2+skill/2)<<1)+morale; +10% if attacker wins tiebreak; local10>=local11 picks winner" }
+# far-frame slots (var-walk-apply --merge)
+"fp-26" = { name = "defender_war_base_ptr", comment = "[HIGH] =$6F85 war-defender region base; mirror of attacker war_attacker_rice_ptr=$6F7F; fp-34 derived as +2 ($8E2B)" }
+"fp-34" = { name = "defender_men_ptr", comment = "[HIGH] =fp-26+2 ($6F87); defender men ptr (mirror attacker_men_ptr); $8F06 *(fp-34)+=war_attacker_men/2 on win" }
+"fp-28" = { name = "defender_morale_ptr", comment = "[HIGH] =def_prov*26+$7013 (morale field); mirror attacker_morale_ptr; used in defender_strength & pct_op(.,10) loy bonus" }
+"fp-30" = { name = "defender_skill_ptr", comment = "[HIGH] =fp-28+2 (skill field); mirror attacker_skill_ptr; halved into defender_strength at $8EA4" }
+"fp-32" = { name = "defender_arms_ptr", comment = "[HIGH] =fp-30+2 (arms field); mirror attacker_arms_ptr; halved into defender_strength at $8EA4" }
 
 [vars.bank1."0x9323"]
 # effect_war_combat_prep_a
@@ -1839,6 +1845,10 @@ local11 = { name = "fief", comment = "[HIGH] province record ptr = selected_prov
 [vars.bank1."0x960C"]
 # ai_reinforce_province_arms_and_econ_10pct
 local10 = { name = "arms_record_scratch", comment = "[MED] fp-4 ($FC): upper byte of address-taken 5-unit arms scratch record; *(rng_mod(2)+&it)+=5. NOT the base (base=fp-5)." }
+# far-frame slots (var-walk-apply --merge)
+"fp-9" = { name = "fief", comment = "[HIGH] province record ptr = idx*26+0x7001; deref'd field-wise (+0 gold,+6 rice,+16 men) each scaled +10% via pct_op" }
+"fp-5" = { name = "arms_buf", comment = "[HIGH] 5-byte arms-record scratch buffer; [0]=50, loops fill [1..4]=5 + rng bumps, then copy_arms_record_5(idx,&buf)" }
+"fp-7" = { name = "i", comment = "[HIGH] loop counter: =1 then ++ bound<5 to fill arms_buf, reused =0 then ++ bound<5 for rng bumps; single index role" }
 
 [vars.bank1."0x9814"]
 # effect_war_e
@@ -2467,4 +2477,17 @@ arg2 = { name = "row", comment = "[HIGH] top-left ROW of 6x6 portrait; passed as
 [vars.bank0."0x8377"]
 # transfer_arms_field_pct
 "fp-1" = { name = "amount", comment = "[HIGH] byte temp = pct_op(*arg2,arg3); added to *arg1 and subtracted from *arg2 — the transfer amount moved between fields" }
+
+# --- bank-01 var-walk far-frame batch (--merge, new sections) (2 subs) ---
+[vars.bank1."0xB23E"]
+# driver_other
+"fp-7" = { name = "cmd_result", comment = "[HIGH] byte return code of dispatched submenu handler (call via jumptab_b9e8); tested !=1 at $B295 to re-loop the menu" }
+
+[vars.bank1."0xADF6"]
+# fief_select_input_loop
+"fp-45" = { name = "found_flag", comment = "[HIGH] word bool: 0 at entry, set 1 when a cell idx==selected_province_idx ($AE75); gates redraw at $AE7E" }
+"fp-43" = { name = "blink_phase", comment = "[MED] word redraw/blink phase counter: reset 0 at $AE78, ==100/==200 gate blit+window redraw of selected fief" }
+"fp-41" = { name = "fief_anchor", comment = "[HIGH] byte: saved arg1 (start fief idx) at $ADFC; wrap terminator vs decremented cursor at $AECF (!=arg1)" }
+"fp-40" = { name = "cell_ptr", comment = "[HIGH] word cursor into fief_cell_buf; init &(fp-38), walked +1 reading (x,y,idx) triples until 255 terminator" }
+"fp-38" = { name = "fief_cell_buf", comment = "[HIGH] 34-byte buf: SRAM copy (syscall 4) of record selected_record_idx*34+data_9e3c; fief adjacency/cell triples, 255-term" }
 

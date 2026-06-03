@@ -932,19 +932,19 @@ word resolve_siege_assault_outcome(void) {
     attacker_skill_ptr = (attacker_morale_ptr + 2);    // $8E21
     attacker_arms_ptr = (attacker_skill_ptr + 2);    // $8E24
     attacker_men_ptr = (war_attacker_rice_ptr + 2);    // $8E27
-    *(word*)(fp - 26) = 0x6F85;    // $8E2B
-    *(word*)(fp - 28) = ((battle_defending_province * 26) + 0x7013);    // $8E37
-    *(word*)(fp - 30) = (*(word*)(fp - 28) + 2);    // $8E3C
-    *(word*)(fp - 32) = (*(word*)(fp - 30) + 2);    // $8E41
-    *(word*)(fp - 34) = (*(word*)(fp - 26) + 2);    // $8E46
+    defender_war_base_ptr = 0x6F85;    // $8E2B
+    defender_morale_ptr = ((battle_defending_province * 26) + 0x7013);    // $8E37
+    defender_skill_ptr = (defender_morale_ptr + 2);    // $8E3C
+    defender_arms_ptr = (defender_skill_ptr + 2);    // $8E41
+    defender_men_ptr = (defender_war_base_ptr + 2);    // $8E46
     ui_helper_e80c(2);    // $8E49
     battle_defender_status_flag_6f66 = (fief_is_daimyo_capital[battle_defending_province] << 7);    // $8E57
     attacker_strength = ((((((war_side_state_flag & 128) != 0) + 2) * *(word*)(attacker_men_ptr)) + (((*(word*)(attacker_arms_ptr) / 2) + (*(word*)(attacker_skill_ptr) / 2)) << 1)) + *(word*)(attacker_morale_ptr));    // $8E7D
-    defender_strength = ((((fief_is_daimyo_capital[battle_defending_province] + 2) * *(word*)(*(word*)(fp - 34))) + (((*(word*)(*(word*)(fp - 32)) / 2) + (*(word*)(*(word*)(fp - 30)) / 2)) << 1)) + *(word*)(*(word*)(fp - 28)));    // $8EA4
+    defender_strength = ((((fief_is_daimyo_capital[battle_defending_province] + 2) * *(word*)(defender_men_ptr)) + (((*(word*)(defender_arms_ptr) / 2) + (*(word*)(defender_skill_ptr) / 2)) << 1)) + *(word*)(defender_morale_ptr));    // $8EA4
     local5 = fief_to_daimyo_record_addr(battle_defending_province);    // $8EAC
     attacker_daimyo = selected_province_daimyo_record();    // $8EB3
     if ((*(byte*)((selected_province_daimyo_record() + 2)) < *(byte*)((fief_to_daimyo_record_addr(battle_defending_province) + 2)))) {    // $8EB8
-    defender_strength = (defender_strength + pct_op(*(word*)(*(word*)(fp - 28)), 10));    // $8EC7
+    defender_strength = (defender_strength + pct_op(*(word*)(defender_morale_ptr), 10));    // $8EC7
     } else {
     attacker_strength = (attacker_strength + pct_op(*(word*)(attacker_morale_ptr), 10));    // $8ED6
     }
@@ -954,7 +954,7 @@ L_8ED7:
     *(word*)(attacker_men_ptr) = (*(word*)(attacker_men_ptr) + (war_defender_men / 2));    // $8EEE
     } else {
     battle_winner_province_sel = selected_province_idx;    // $8EF7
-    *(word*)(*(word*)(fp - 34)) = (*(word*)(*(word*)(fp - 34)) + (war_attacker_men / 2));    // $8F06
+    *(word*)(defender_men_ptr) = (*(word*)(defender_men_ptr) + (war_attacker_men / 2));    // $8F06
     }
 L_8F08:
     *(word*)(attacker_men_ptr) = 0;    // $8F09
@@ -1387,26 +1387,26 @@ L_960A:
 
 word ai_reinforce_province_arms_and_econ_10pct(void) {
     *(byte*)((selected_province_daimyo_record() + 2)) = (*(byte*)((selected_province_daimyo_record() + 2)) + rng_mod((const_two + 1)));    // $9623
-    *(word*)(fp - 9) = ((selected_province_idx * 26) + 0x7001);    // $962E
+    fief = ((selected_province_idx * 26) + 0x7001);    // $962E
     if ((*(word*)((((selected_province_idx * 26) + 0x7001) + 16)) > 8)) {    // $9635
-    *(byte*)(fp - 5) = 50;    // $963A
-    *(word*)(fp - 7) = 1;    // $963E
+    arms_buf = 50;    // $963A
+    i = 1;    // $963E
 L_9640:
-    *(byte*)((*(word*)(fp - 7) + (fp - 5))) = 5;    // $964A
-    *(word*)(fp - 7) = (*(word*)(fp - 7) + 1);    // $964E
-    if (((unsigned)*(word*)(fp - 7) >= (unsigned)5)) goto L_9640;    // $9654
-    *(word*)(fp - 7) = 0;    // $9658
+    *(byte*)((i + &arms_buf)) = 5;    // $964A
+    i = (i + 1);    // $964E
+    if (((unsigned)i >= (unsigned)5)) goto L_9640;    // $9654
+    i = 0;    // $9658
 L_965A:
-    *(byte*)((rng_mod(5) + (fp - 5))) = (*(byte*)((rng_mod(5) + (fp - 5))) + 5);    // $966A
-    *(word*)(fp - 7) = (*(word*)(fp - 7) + 1);    // $966E
-    if (((unsigned)*(word*)(fp - 7) >= (unsigned)5)) goto L_965A;    // $9674
+    *(byte*)((rng_mod(5) + &arms_buf)) = (*(byte*)((rng_mod(5) + &arms_buf)) + 5);    // $966A
+    i = (i + 1);    // $966E
+    if (((unsigned)i >= (unsigned)5)) goto L_965A;    // $9674
     *(byte*)((rng_mod(2) + &arms_record_scratch)) = (*(byte*)((rng_mod(2) + &arms_record_scratch)) + 5);    // $9687
     }
 L_9693:
-    copy_arms_record_5(selected_province_idx, (fp - 5));    // $968F
-    *(word*)(*(word*)(fp - 9)) = (*(word*)(*(word*)(fp - 9)) + pct_op((*(word*)(*(word*)(fp - 9)) + 1), 10));    // $96A4
-    *(word*)((*(word*)(fp - 9) + 6)) = (*(word*)((*(word*)(fp - 9) + 6)) + pct_op((*(word*)((*(word*)(fp - 9) + 6)) + 1), 10));    // $96B8
-    *(word*)((*(word*)(fp - 9) + 16)) = (*(word*)((*(word*)(fp - 9) + 16)) + pct_op((*(word*)((*(word*)(fp - 9) + 16)) + 1), 10));    // $96CE
+    copy_arms_record_5(selected_province_idx, &arms_buf);    // $968F
+    *(word*)(fief) = (*(word*)(fief) + pct_op((*(word*)(fief) + 1), 10));    // $96A4
+    *(word*)((fief + 6)) = (*(word*)((fief + 6)) + pct_op((*(word*)((fief + 6)) + 1), 10));    // $96B8
+    *(word*)((fief + 16)) = (*(word*)((fief + 16)) + pct_op((*(word*)((fief + 16)) + 1), 10));    // $96CE
     return 0;    // $96D0
 }
 
@@ -2900,33 +2900,33 @@ L_ADF4:
 // (body @ $ADFB)
 
 word fief_select_input_loop(word arg1) {
-    *(byte*)(fp - 41) = arg1;    // $ADFC
-    syscall16_sram_wrap(4, ((selected_record_idx_9e3c * 34) + fief_select_input_loop_data_9e3c), (fp - 38), 34);    // $AE11
-    *(word*)(fp - 40) = (fp - 38);    // $AE18
-    *(word*)(fp - 45) = 0;    // $AE1B
+    fief_anchor = arg1;    // $ADFC
+    syscall16_sram_wrap(4, ((selected_record_idx_9e3c * 34) + fief_select_input_loop_data_9e3c), &fief_cell_buf, 34);    // $AE11
+    cell_ptr = &fief_cell_buf;    // $AE18
+    found_flag = 0;    // $AE1B
 L_AE1D:
-    if ((*(byte*)(*(word*)(fp - 40)) != 255)) goto L_AE56;    // $AE24
+    if ((*(byte*)(cell_ptr) != 255)) goto L_AE56;    // $AE24
     goto L_AE77;    // $AE27
 L_AE2A:
     ppu_blit_from_bank_wrap(local11, local10, min_word((local11 + 8), 29), local10, ((((selected_record_idx_9e3c * 0x01C0) + ((local10 + -4) * 28)) + local11) + fief_select_input_loop_data_8d5a), 4);    // $AE4F
     goto L_AEA2;    // $AE53
 L_AE56:
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $AE59
-    local11 = *(byte*)(((*(word*)(fp - 40) + 1) - 1));    // $AE5D
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $AE61
-    local10 = *(byte*)(((*(word*)(fp - 40) + 1) - 1));    // $AE65
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $AE69
-    if (!((*(byte*)(((*(word*)(fp - 40) + 1) - 1)) == selected_province_idx))) goto L_AE1D;    // $AE71
-    *(word*)(fp - 45) = 1;    // $AE75
+    cell_ptr = (cell_ptr + 1);    // $AE59
+    local11 = *(byte*)(((cell_ptr + 1) - 1));    // $AE5D
+    cell_ptr = (cell_ptr + 1);    // $AE61
+    local10 = *(byte*)(((cell_ptr + 1) - 1));    // $AE65
+    cell_ptr = (cell_ptr + 1);    // $AE69
+    if (!((*(byte*)(((cell_ptr + 1) - 1)) == selected_province_idx))) goto L_AE1D;    // $AE71
+    found_flag = 1;    // $AE75
 L_AE77:
 L_AE78:
-    *(word*)(fp - 43) = 0;    // $AE78
-    if (!((*(word*)(fp - 45) == 1))) goto L_AEA2;    // $AE7E
-    if ((*(word*)(fp - 43) == 100)) goto L_AE2A;    // $AE86
-    if ((*(word*)(fp - 43) == 200)) {    // $AE8F
+    blink_phase = 0;    // $AE78
+    if (!((found_flag == 1))) goto L_AEA2;    // $AE7E
+    if ((blink_phase == 100)) goto L_AE2A;    // $AE86
+    if ((blink_phase == 200)) {    // $AE8F
     ui_helper_cc7b(local11, local10);    // $AE94
     draw_window_f706(selected_province_idx);    // $AE9B
-    *(word*)(fp - 43) = 0;    // $AEA0
+    blink_phase = 0;    // $AEA0
     }
 L_AEA2:
     switch (poll_input()) {    // $AEA5
@@ -2948,7 +2948,7 @@ L_AEC2:
 L_AECE:
     arg1 = (arg1 - 1);    // $AECE
 L_AECF:
-    if ((*(byte*)(fp - 41) != arg1)) goto L_AEC0;    // $AED4
+    if ((fief_anchor != arg1)) goto L_AEC0;    // $AED4
     goto L_AE78;    // $AEDA
 L_AEDD:
     if ((scenario_fief_count == 50)) goto L_AEC2;    // $AEE3
@@ -3228,9 +3228,9 @@ L_B270:
     message_display(msg_change_which);    // $B273
     local10 = submenu_prompt(7);    // $B27C
     local11 = *(word*)(((local10 << 1) + jumptab_b9e8));    // $B284
-    *(byte*)(fp - 7) = (*(local11))();    // $B287
+    cmd_result = (*(local11))();    // $B287
     if ((local10 == 6)) goto L_B298;    // $B28D
-    if ((*(byte*)(fp - 7) != 1)) goto L_B270;    // $B295
+    if ((cmd_result != 1)) goto L_B270;    // $B295
 L_B298:
     fief_info_display(0);    // $B299
     return (local10 == 5);    // $B2A0
