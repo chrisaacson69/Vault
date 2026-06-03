@@ -3654,9 +3654,9 @@ word helper_87CB(void) {
 // PRG $047D8 effect_dam
 // (body @ PRG $047DD)
 
-word effect_dam(word arg1) {
-    if (!(arg1->output)) return 0x2710;    // PRG $047E0
-    return sqrt_int(arg1->output);    // PRG $047EF -> bank15 $CBCD
+word effect_dam(word fief) {
+    if (!(fief->output)) return 0x2710;    // PRG $047E0
+    return sqrt_int(fief->output);    // PRG $047EF -> bank15 $CBCD
 }
 
 // ===== bank1 $87F0  (PRG $047F0) =====
@@ -3707,25 +3707,25 @@ L_p04899:
 // PRG $048A6 effect_build
 // (body @ PRG $048AB)
 
-word effect_build(word arg1, word arg2) {
-    if ((!((arg2 >= 1)))) return 0;    // PRG $048AE
-    local11 = math32_3arg(arg2, (6 - const_two), sqrt_int((arg1->town + arg2)));    // PRG $048C9 -> bank15 $D6B8
-    if (local11) goto L_p048D0;    // PRG $048CB
-    local11 = 1;    // PRG $048CF
+word effect_build(word fief, word amount) {
+    if ((!((amount >= 1)))) return 0;    // PRG $048AE
+    gain = math32_3arg(amount, (6 - const_two), sqrt_int((fief->town + amount)));    // PRG $048C9 -> bank15 $D6B8
+    if (gain) goto L_p048D0;    // PRG $048CB
+    gain = 1;    // PRG $048CF
 L_p048D0:
-    local10 = (arg1->header - arg1->town);    // PRG $048DA
-    if ((local11 > (arg1->header - arg1->town))) {    // PRG $048DF
-    local11 = local10;    // PRG $048E3
+    local10 = (fief->header - fief->town);    // PRG $048DA
+    if ((gain > (fief->header - fief->town))) {    // PRG $048DF
+    gain = local10;    // PRG $048E3
     }
 L_p048E4:
-    if ((local11 > arg1->town)) {    // PRG $048EB
+    if ((gain > fief->town)) {    // PRG $048EB
     } else {
     }
 L_p048FC:
-    local10 = math32_2arg(local11, arg1->town);    // PRG $048FC -> bank15 $D6DE
-    arg1->wealth = (arg1->wealth - pct_op(arg1->wealth, (local10 / 2)));    // PRG $04910 -> bank15 $D70D
-    helper_dam_rounding((local11 << 1), (arg1 + 4));    // PRG $04917 -> bank1 $887D
-    return local11;    // PRG $0491C
+    local10 = math32_2arg(gain, fief->town);    // PRG $048FC -> bank15 $D6DE
+    fief->wealth = (fief->wealth - pct_op(fief->wealth, (local10 / 2)));    // PRG $04910 -> bank15 $D70D
+    helper_dam_rounding((gain << 1), (fief + 4));    // PRG $04917 -> bank1 $887D
+    return gain;    // PRG $0491C
     }
 }
 
@@ -3733,57 +3733,57 @@ L_p048FC:
 // PRG $0491D develop_loyalty
 // (body @ PRG $04922)
 
-word develop_loyalty(word arg1, word arg2) {
-    if ((!((arg2 >= 1)))) return 0;    // PRG $04925
-    local11 = math32_3arg(arg2, (6 - const_two), sqrt_int((((arg1->loyalty + arg1->output) / 2) + arg2)));    // PRG $04948 -> bank15 $D6B8
-    if (local11) goto L_p0494F;    // PRG $0494A
-    local11 = 1;    // PRG $0494E
+word develop_loyalty(word fief, word amount) {
+    if ((!((amount >= 1)))) return 0;    // PRG $04925
+    gain = math32_3arg(amount, (6 - const_two), sqrt_int((((fief->loyalty + fief->output) / 2) + amount)));    // PRG $04948 -> bank15 $D6B8
+    if (gain) goto L_p0494F;    // PRG $0494A
+    gain = 1;    // PRG $0494E
 L_p0494F:
-    local10 = (arg1->header - arg1->loyalty);    // PRG $04959
-    if ((local11 > (arg1->header - arg1->loyalty))) {    // PRG $0495E
-    local11 = local10;    // PRG $04962
+    headroom = (fief->header - fief->loyalty);    // PRG $04959
+    if ((gain > (fief->header - fief->loyalty))) {    // PRG $0495E
+    gain = headroom;    // PRG $04962
     }
 L_p04963:
-    arg1->loyalty = (arg1->loyalty + (local11 << 1));    // PRG $0496C
-    return local11;    // PRG $0496E
+    fief->loyalty = (fief->loyalty + (gain << 1));    // PRG $0496C
+    return gain;    // PRG $0496E
 }
 
 // ===== bank1 $896F  (PRG $0496F) =====
 // PRG $0496F develop_wealth
 // (body @ PRG $04974)
 
-word develop_wealth(word arg1, word arg2) {
-    if ((!((arg2 >= 1)))) return 0;    // PRG $04977
-    local11 = math32_3arg(arg2, (6 - const_two), sqrt_int((((arg1->wealth + arg1->town) / 2) + arg2)));    // PRG $0499A -> bank15 $D6B8
-    if (local11) goto L_p049A1;    // PRG $0499C
-    local11 = 1;    // PRG $049A0
+word develop_wealth(word fief, word amount) {
+    if ((!((amount >= 1)))) return 0;    // PRG $04977
+    gain = math32_3arg(amount, (6 - const_two), sqrt_int((((fief->wealth + fief->town) / 2) + amount)));    // PRG $0499A -> bank15 $D6B8
+    if (gain) goto L_p049A1;    // PRG $0499C
+    gain = 1;    // PRG $049A0
 L_p049A1:
-    local10 = (arg1->header - arg1->wealth);    // PRG $049AB
-    if ((local11 > (arg1->header - arg1->wealth))) {    // PRG $049B0
-    local11 = local10;    // PRG $049B4
+    headroom = (fief->header - fief->wealth);    // PRG $049AB
+    if ((gain > (fief->header - fief->wealth))) {    // PRG $049B0
+    gain = headroom;    // PRG $049B4
     }
 L_p049B5:
-    arg1->wealth = (arg1->wealth + (local11 << 1));    // PRG $049BE
-    return local11;    // PRG $049C0
+    fief->wealth = (fief->wealth + (gain << 1));    // PRG $049BE
+    return gain;    // PRG $049C0
 }
 
 // ===== bank1 $89C1  (PRG $049C1) =====
 // PRG $049C1 develop_morale
 // (body @ PRG $049C6)
 
-word develop_morale(word arg1, word arg2) {
-    if ((!((arg2 >= 1)))) return 0;    // PRG $049C9
-    local11 = math32_3arg(arg2, (6 - const_two), sqrt_int((((arg1->morale + arg1->men) / 2) + arg2)));    // PRG $049EE -> bank15 $D6B8
-    if (local11) goto L_p049F5;    // PRG $049F0
-    local11 = 1;    // PRG $049F4
+word develop_morale(word fief, word amount) {
+    if ((!((amount >= 1)))) return 0;    // PRG $049C9
+    gain = math32_3arg(amount, (6 - const_two), sqrt_int((((fief->morale + fief->men) / 2) + amount)));    // PRG $049EE -> bank15 $D6B8
+    if (gain) goto L_p049F5;    // PRG $049F0
+    gain = 1;    // PRG $049F4
 L_p049F5:
-    local10 = (arg1->header - arg1->morale);    // PRG $04A00
-    if ((local11 > (arg1->header - arg1->morale))) {    // PRG $04A05
-    local11 = local10;    // PRG $04A09
+    headroom = (fief->header - fief->morale);    // PRG $04A00
+    if ((gain > (fief->header - fief->morale))) {    // PRG $04A05
+    gain = headroom;    // PRG $04A09
     }
 L_p04A0A:
-    arg1->morale = (arg1->morale + local11);    // PRG $04A12
-    return local11;    // PRG $04A14
+    fief->morale = (fief->morale + gain);    // PRG $04A12
+    return gain;    // PRG $04A14
 }
 
 // ===== bank1 $8A15  (PRG $04A15) =====
@@ -3869,13 +3869,13 @@ L_p04AF8:
 // PRG $04B0A effect_subhandler_A003
 // (body @ PRG $04B0F)
 
-word effect_subhandler_A003(word arg1) {
-    local10 = ((selected_province_idx * 26) + 0x7001);    // PRG $04B19
-    local11 = (local10 + 6);    // PRG $04B1C
-    local7 = *(word*)((local11 + 18));    // PRG $04B21
-    local9 = gold_rice_exchange_rate;    // PRG $04B25
-    *(word*)(local10) = (*(word*)(local10) + math32_muladddiv(local9, arg1));    // PRG $04B32 -> bank1 $8303
-    *(word*)(local11) = (*(word*)(local11) - arg1);    // PRG $04B39
+word effect_subhandler_A003(word rice_amount) {
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $04B19
+    rice_ptr = (fief + 6);    // PRG $04B1C
+    header = *(word*)((rice_ptr + 18));    // PRG $04B21
+    rate = gold_rice_exchange_rate;    // PRG $04B25
+    *(word*)(fief) = (*(word*)(fief) + math32_muladddiv(rate, rice_amount));    // PRG $04B32 -> bank1 $8303
+    *(word*)(rice_ptr) = (*(word*)(rice_ptr) - rice_amount);    // PRG $04B39
     return helper_8A4E(1);    // PRG $04B3F -> bank1 $8A4E
 }
 
@@ -3883,19 +3883,19 @@ word effect_subhandler_A003(word arg1) {
 // PRG $04B40 effect_subhandler_9F04
 // (body @ PRG $04B45)
 
-word effect_subhandler_9F04(word arg1) {
-    local7 = ((selected_province_idx * 26) + 0x7001);    // PRG $04B4F
-    local8 = (local7 + 2);    // PRG $04B52
-    local9 = *(word*)((local8 + 2));    // PRG $04B56
-    local10 = (loan_rate + 10);    // PRG $04B5B
-    if ((arg1 >= 0)) {    // PRG $04B5F
-    arg1 = helper_8357(local9, local10, (local9 - *(word*)(local8)));    // PRG $04B6F -> bank1 $8357
+word effect_subhandler_9F04(word amount) {
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $04B4F
+    debt_ptr = (fief + 2);    // PRG $04B52
+    town = *(word*)((debt_ptr + 2));    // PRG $04B56
+    rate = (loan_rate + 10);    // PRG $04B5B
+    if ((amount >= 0)) {    // PRG $04B5F
+    amount = helper_8357(town, rate, (town - *(word*)(debt_ptr)));    // PRG $04B6F -> bank1 $8357
     } else {
     }
 L_p04B7A:
-    local11 = math32_muladddiv(local10, arg1);    // PRG $04B7A -> bank1 $8303
-    *(word*)(local8) = (*(word*)(local8) + local11);    // PRG $04B81
-    *(word*)(local7) = (*(word*)(local7) + arg1);    // PRG $04B88
+    interest = math32_muladddiv(rate, amount);    // PRG $04B7A -> bank1 $8303
+    *(word*)(debt_ptr) = (*(word*)(debt_ptr) + interest);    // PRG $04B81
+    *(word*)(fief) = (*(word*)(fief) + amount);    // PRG $04B88
     return helper_8A4E(0);    // PRG $04B8E -> bank1 $8A4E
     }
 }
@@ -3931,8 +3931,8 @@ word compute_bribe_effect_value(word arg1, word arg2) {
 // PRG $04BE5 effect_send
 // (body @ PRG $04BEA)
 
-word effect_send(word arg1, word arg2, word arg3) {
-    return min_word((arg1 - arg2), arg3);    // PRG $04BF3 -> bank15 $CB5E
+word effect_send(word ceiling, word current, word budget) {
+    return min_word((ceiling - current), budget);    // PRG $04BF3 -> bank15 $CB5E
 }
 
 // ===== bank1 $8BF4  (PRG $04BF4) =====
@@ -3967,20 +3967,20 @@ L_p04CA1:
 // PRG $04CA5 effect_move
 // (body @ PRG $04CAA)
 
-word effect_move(word arg1) {
-    local10 = ((selected_province_idx * 26) + 0x7011);    // PRG $04CB4
-    local8 = (local10 + 2);    // PRG $04CB7
-    local9 = ((battle_defending_province * 26) + 0x7011);    // PRG $04CC2
-    local7 = (local9 + 2);    // PRG $04CC5
-    local11 = 0;    // PRG $04CC7
+word effect_move(word amount) {
+    donor = ((selected_province_idx * 26) + 0x7011);    // PRG $04CB4
+    donor_stat_ptr = (donor + 2);    // PRG $04CB7
+    target = ((battle_defending_province * 26) + 0x7011);    // PRG $04CC2
+    target_stat_ptr = (target + 2);    // PRG $04CC5
+    i = 0;    // PRG $04CC7
 L_p04CC8:
-    local8 = (local8 + 2);    // PRG $04CD3
-    *(word*)(local7) = scaled_transfer_da24(*(word*)(local7), *(word*)(((local8 + 2) + -2)), arg1, *(word*)(local9), *(word*)((local9 + 8)));    // PRG $04CDF -> bank15 $DA24
-    local7 = (local7 + 2);    // PRG $04CE2
-    local11 = (local11 + 1);    // PRG $04CE5
-    if (((unsigned)local11 >= (unsigned)3)) goto L_p04CC8;    // PRG $04CE9
-    *(word*)(local9) = (*(word*)(local9) + arg1);    // PRG $04CF2
-    *(word*)(local10) = (*(word*)(local10) - arg1);    // PRG $04CF9
+    donor_stat_ptr = (donor_stat_ptr + 2);    // PRG $04CD3
+    *(word*)(target_stat_ptr) = scaled_transfer_da24(*(word*)(target_stat_ptr), *(word*)(((donor_stat_ptr + 2) + -2)), amount, *(word*)(target), *(word*)((target + 8)));    // PRG $04CDF -> bank15 $DA24
+    target_stat_ptr = (target_stat_ptr + 2);    // PRG $04CE2
+    i = (i + 1);    // PRG $04CE5
+    if (((unsigned)i >= (unsigned)3)) goto L_p04CC8;    // PRG $04CE9
+    *(word*)(target) = (*(word*)(target) + amount);    // PRG $04CF2
+    *(word*)(donor) = (*(word*)(donor) - amount);    // PRG $04CF9
     return province_clear_fields_d815(selected_province_idx);    // PRG $04D01 -> bank15 $D815
 }
 
@@ -4000,36 +4000,36 @@ word bribe_success_check(word arg1, word arg2) {
 // PRG $04D4D effect_bribe
 // (body @ PRG $04D52)
 
-word effect_bribe(word arg1) {
-    local9 = ((battle_defending_province * 26) + 0x7009);    // PRG $04D5C
-    local11 = (local9 + 4);    // PRG $04D5F
-    local10 = (local11 + 2);    // PRG $04D62
-    local8 = ((selected_province_idx * 26) + 0x7001);    // PRG $04D6D
+word effect_bribe(word gold_amount) {
+    target_output_ptr = ((battle_defending_province * 26) + 0x7009);    // PRG $04D5C
+    target_loyalty_ptr = (target_output_ptr + 4);    // PRG $04D5F
+    local10 = (target_loyalty_ptr + 2);    // PRG $04D62
+    own_fief = ((selected_province_idx * 26) + 0x7001);    // PRG $04D6D
     if (bribe_success_check(selected_province_idx, battle_defending_province)) {    // PRG $04D78 -> bank1 $8D02
-    local7 = sqrt_int(arg1);    // PRG $04D80 -> bank15 $CBCD
-    compute_bribe_effect_value(local11, local7);    // PRG $04D83 -> bank1 $8BC1
-    *(word*)(local9) = (*(word*)(local9) - local7);    // PRG $04D8D
-    *(word*)((local8 + 8)) = (*(word*)((local8 + 8)) + local7);    // PRG $04D95
+    defect_amount = sqrt_int(gold_amount);    // PRG $04D80 -> bank15 $CBCD
+    compute_bribe_effect_value(target_loyalty_ptr, defect_amount);    // PRG $04D83 -> bank1 $8BC1
+    *(word*)(target_output_ptr) = (*(word*)(target_output_ptr) - defect_amount);    // PRG $04D8D
+    *(word*)((own_fief + 8)) = (*(word*)((own_fief + 8)) + defect_amount);    // PRG $04D95
     helper_8B8F(0);    // PRG $04D97 -> bank1 $8B8F
     ui_helper_e80c(26);    // PRG $04D9D -> bank15 $E80C
     message_display(effect_bribe_data_bb3e);    // PRG $04DA4 -> bank15 $D326
-    ui_helper_d134(msg_d_peasants_have_defected, local7);    // PRG $04DAC -> bank15 $D134
+    ui_helper_d134(msg_d_peasants_have_defected, defect_amount);    // PRG $04DAC -> bank15 $D134
     confirm_prompt();    // PRG $04DB0 -> bank15 $D766
     province_clear_fields_d7f7(battle_defending_province);    // PRG $04DB6 -> bank15 $D7F7
-    local6 = 1;    // PRG $04DBB
+    result = 1;    // PRG $04DBB
     } else {
     helper_8B8F(1);    // PRG $04DC0 -> bank1 $8B8F
     *(byte*)((selected_province_daimyo_record() + 4)) = (*(byte*)((selected_province_daimyo_record() + 4)) - 1);    // PRG $04DCD -> bank15 $D7EA
     redraw_window(msg_no_peasants_defected);    // PRG $04DD1 -> bank15 $CEC4
     confirm_prompt();    // PRG $04DD5 -> bank15 $D766
-    local6 = 0;    // PRG $04DD9
-    *(word*)((local9 + -8)) = (*(word*)((local9 + -8)) + (arg1 / 2));    // PRG $04DE5
+    result = 0;    // PRG $04DD9
+    *(word*)((target_output_ptr + -8)) = (*(word*)((target_output_ptr + -8)) + (gold_amount / 2));    // PRG $04DE5
     }
 L_p04DE6:
-    *(word*)(local8) = (*(word*)(local8) - arg1);    // PRG $04DEC
+    *(word*)(own_fief) = (*(word*)(own_fief) - gold_amount);    // PRG $04DEC
     cap_fief_stats(selected_province_idx);    // PRG $04DF0 -> bank15 $D836
     cap_fief_stats(battle_defending_province);    // PRG $04DF7 -> bank15 $D836
-    return local6;    // PRG $04DFC
+    return result;    // PRG $04DFC
     }
 }
 
@@ -4038,14 +4038,14 @@ L_p04DE6:
 // (body @ PRG $04E02)
 
 word resolve_siege_assault_outcome(void) {
-    local7 = 0;    // PRG $04E03
-    local9 = ui_helper_d77e();    // PRG $04E07 -> bank15 $D77E
+    outcome_code = 0;    // PRG $04E03
+    attacker_name_idx = ui_helper_d77e();    // PRG $04E07 -> bank15 $D77E
     local8 = ui_helper_d772(battle_defending_province);    // PRG $04E0F -> bank15 $D772
-    local4 = 0x6F7F;    // PRG $04E13
-    local3 = ((selected_province_idx * 26) + 0x7013);    // PRG $04E1E
-    local2 = (local3 + 2);    // PRG $04E21
-    local1 = (local2 + 2);    // PRG $04E24
-    local0 = (local4 + 2);    // PRG $04E27
+    war_attacker_rice_ptr = 0x6F7F;    // PRG $04E13
+    attacker_morale_ptr = ((selected_province_idx * 26) + 0x7013);    // PRG $04E1E
+    attacker_skill_ptr = (attacker_morale_ptr + 2);    // PRG $04E21
+    attacker_arms_ptr = (attacker_skill_ptr + 2);    // PRG $04E24
+    attacker_men_ptr = (war_attacker_rice_ptr + 2);    // PRG $04E27
     *(word*)(fp - 26) = 0x6F85;    // PRG $04E2B
     *(word*)(fp - 28) = ((battle_defending_province * 26) + 0x7013);    // PRG $04E37
     *(word*)(fp - 30) = (*(word*)(fp - 28) + 2);    // PRG $04E3C
@@ -4053,32 +4053,32 @@ word resolve_siege_assault_outcome(void) {
     *(word*)(fp - 34) = (*(word*)(fp - 26) + 2);    // PRG $04E46
     ui_helper_e80c(2);    // PRG $04E49 -> bank15 $E80C
     battle_defender_status_flag_6f66 = (fief_is_daimyo_capital[battle_defending_province] << 7);    // PRG $04E57
-    local11 = ((((((war_side_state_flag & 128) != 0) + 2) * *(word*)(local0)) + (((*(word*)(local1) / 2) + (*(word*)(local2) / 2)) << 1)) + *(word*)(local3));    // PRG $04E7D
-    local10 = ((((fief_is_daimyo_capital[battle_defending_province] + 2) * *(word*)(*(word*)(fp - 34))) + (((*(word*)(*(word*)(fp - 32)) / 2) + (*(word*)(*(word*)(fp - 30)) / 2)) << 1)) + *(word*)(*(word*)(fp - 28)));    // PRG $04EA4
+    attacker_strength = ((((((war_side_state_flag & 128) != 0) + 2) * *(word*)(attacker_men_ptr)) + (((*(word*)(attacker_arms_ptr) / 2) + (*(word*)(attacker_skill_ptr) / 2)) << 1)) + *(word*)(attacker_morale_ptr));    // PRG $04E7D
+    defender_strength = ((((fief_is_daimyo_capital[battle_defending_province] + 2) * *(word*)(*(word*)(fp - 34))) + (((*(word*)(*(word*)(fp - 32)) / 2) + (*(word*)(*(word*)(fp - 30)) / 2)) << 1)) + *(word*)(*(word*)(fp - 28)));    // PRG $04EA4
     local5 = fief_to_daimyo_record_addr(battle_defending_province);    // PRG $04EAC -> bank15 $D7DA
-    local6 = selected_province_daimyo_record();    // PRG $04EB3 -> bank15 $D7EA
+    attacker_daimyo = selected_province_daimyo_record();    // PRG $04EB3 -> bank15 $D7EA
     if ((*(byte*)((selected_province_daimyo_record() + 2)) < *(byte*)((fief_to_daimyo_record_addr(battle_defending_province) + 2)))) {    // PRG $04EB8 -> bank15 $D7EA
-    local10 = (local10 + pct_op(*(word*)(*(word*)(fp - 28)), 10));    // PRG $04EC7 -> bank15 $D70D
+    defender_strength = (defender_strength + pct_op(*(word*)(*(word*)(fp - 28)), 10));    // PRG $04EC7 -> bank15 $D70D
     } else {
-    local11 = (local11 + pct_op(*(word*)(local3), 10));    // PRG $04ED6 -> bank15 $D70D
+    attacker_strength = (attacker_strength + pct_op(*(word*)(attacker_morale_ptr), 10));    // PRG $04ED6 -> bank15 $D70D
     }
 L_p04ED7:
-    if (((unsigned)local10 >= (unsigned)local11)) {    // PRG $04EDA
+    if (((unsigned)defender_strength >= (unsigned)attacker_strength)) {    // PRG $04EDA
     battle_winner_province_sel = battle_defending_province;    // PRG $04EE0
-    *(word*)(local0) = (*(word*)(local0) + (war_defender_men / 2));    // PRG $04EEE
+    *(word*)(attacker_men_ptr) = (*(word*)(attacker_men_ptr) + (war_defender_men / 2));    // PRG $04EEE
     } else {
     battle_winner_province_sel = selected_province_idx;    // PRG $04EF7
     *(word*)(*(word*)(fp - 34)) = (*(word*)(*(word*)(fp - 34)) + (war_attacker_men / 2));    // PRG $04F06
     }
 L_p04F08:
-    *(word*)(local0) = 0;    // PRG $04F09
+    *(word*)(attacker_men_ptr) = 0;    // PRG $04F09
     if ((battle_winner_province_sel != selected_province_idx)) goto L_p04F42;    // PRG $04F11
     if ((war_side_state_flag & 128)) {    // PRG $04F1B
-    if (rng_mod((*(byte*)((local6 + 3)) / 10))) {    // PRG $04F28 -> bank15 $CA52
+    if (rng_mod((*(byte*)((attacker_daimyo + 3)) / 10))) {    // PRG $04F28 -> bank15 $CA52
     war_side_state_flag = 0;    // PRG $04F2C
     fief_is_daimyo_capital[selected_province_idx] = 1;    // PRG $04F38
 L_p04F3A:
-    local7 = 3;    // PRG $04F3A
+    outcome_code = 3;    // PRG $04F3A
     } else {
     goto L_p04F3A;    // PRG $04F3F
 L_p04F42:
@@ -4094,14 +4094,14 @@ L_p04F42:
     goto L_p04F96;    // PRG $04F92
 L_p04F95:
 L_p04F96:
-    local7 = 2;    // PRG $04F96
+    outcome_code = 2;    // PRG $04F96
     }
 L_p04FA1:
     swap_word(battle_defending_province, selected_province_idx);    // PRG $04F9D -> bank15 $CB94
     message_display(((ui_helper_d772(battle_winner_province_sel) * 9) + 0x77A8));    // PRG $04FAF -> bank15 $D326
     redraw_window(msg_has_lost);    // PRG $04FB6 -> bank15 $CEC4
     confirm_prompt();    // PRG $04FBA -> bank15 $D766
-    switch (local7) {    // PRG $04FBE
+    switch (outcome_code) {    // PRG $04FBE
         case 65535: goto L_p04FCD;    // PRG $04FBE
         case 65536: goto L_p04FD8;    // PRG $04FBE
         case 65537: goto L_p04FDE;    // PRG $04FBE
@@ -4117,7 +4117,7 @@ L_p04FD8:
     goto L_p04FD0;    // PRG $04FDB
 L_p04FDE:
 L_p04FED:
-    message_display(((local9 * 9) + 0x77A8));    // PRG $04FE6 -> bank15 $D326
+    message_display(((attacker_name_idx * 9) + 0x77A8));    // PRG $04FE6 -> bank15 $D326
     redraw_window(0xBB49);    // PRG $04FED -> bank15 $CEC4
     confirm_prompt();    // PRG $04FF1 -> bank15 $D766
     goto L_p04FD4;    // PRG $04FF4
@@ -4154,24 +4154,24 @@ word ai_commit_attack_deduct_resources(void) {
 L_p05070:
     war_side_state_flag = 0;    // PRG $05070
     local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $0507D
-    local10 = min_word((*(word*)((local11 + 6)) << 1), min_word(*(word*)((local11 + 16)), *(word*)(local11)));    // PRG $05094 -> bank15 $CB5E
-    if ((!((local10 >= 5)))) return 0;    // PRG $05098
-    if ((!((min_word(*(word*)(((battle_defending_province * 26) + 0x7007)), *(word*)(((battle_defending_province * 26) + 0x7011))) <= local10)))) return 0;    // PRG $050BB -> bank15 $CB5E
+    attack_budget = min_word((*(word*)((local11 + 6)) << 1), min_word(*(word*)((local11 + 16)), *(word*)(local11)));    // PRG $05094 -> bank15 $CB5E
+    if ((!((attack_budget >= 5)))) return 0;    // PRG $05098
+    if ((!((min_word(*(word*)(((battle_defending_province * 26) + 0x7007)), *(word*)(((battle_defending_province * 26) + 0x7011))) <= attack_budget)))) return 0;    // PRG $050BB -> bank15 $CB5E
     if (!(!(relations_rng_predicate(battle_defending_province, selected_province_idx)))) return 0;    // PRG $050CA -> bank1 $8271
     if (war_side_state_flag) goto L_p050E0;    // PRG $050D2
     goto L_p050E8;    // PRG $050DD
 L_p050E0:
 L_p050E8:
-    local9 = pct_op(local10, (rng_mod(30) + 60));    // PRG $050EE -> bank15 $D70D
-    war_attacker_men = local9;    // PRG $050F0
-    war_attacker_gold = local9;    // PRG $050F3
-    *(word*)(local11) = (*(word*)(local11) - local9);    // PRG $050FC
-    *(word*)((local11 + 16)) = (*(word*)((local11 + 16)) - local9);    // PRG $05105
-    if (((unsigned)math32_2arg(*(word*)((local11 + 6)), local9) > (unsigned)55)) {    // PRG $05112 -> bank15 $D6DE
+    spend_amount = pct_op(attack_budget, (rng_mod(30) + 60));    // PRG $050EE -> bank15 $D70D
+    war_attacker_men = spend_amount;    // PRG $050F0
+    war_attacker_gold = spend_amount;    // PRG $050F3
+    *(word*)(local11) = (*(word*)(local11) - spend_amount);    // PRG $050FC
+    *(word*)((local11 + 16)) = (*(word*)((local11 + 16)) - spend_amount);    // PRG $05105
+    if (((unsigned)math32_2arg(*(word*)((local11 + 6)), spend_amount) > (unsigned)55)) {    // PRG $05112 -> bank15 $D6DE
     } else {
     }
 L_p05130:
-    war_attacker_rice = min_word((*(word*)((local11 + 6)) - 1), pct_op(local9, (rng_mod(10) + 50)));    // PRG $05130 -> bank15 $CB5E
+    war_attacker_rice = min_word((*(word*)((local11 + 6)) - 1), pct_op(spend_amount, (rng_mod(10) + 50)));    // PRG $05130 -> bank15 $CB5E
     *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) - war_attacker_rice);    // PRG $0513C
     if (ui_confirm_flag_6e7d) goto L_p0514F;    // PRG $05140
     if ((get_province_ai_state(battle_defending_province) == 5)) {    // PRG $0514C -> bank15 $D98D
@@ -4298,38 +4298,38 @@ L_p05320:
 // PRG $05323 effect_war_combat_prep_a
 // (body @ PRG $05328)
 
-word effect_war_combat_prep_a(word arg1) {
-    return war_prep_clamp_depleted_field_notify(msg_you_have_no_rice, arg1, ((arg1 * 26) + 0x7007));    // PRG $05339 -> bank1 $9301
+word effect_war_combat_prep_a(word fief) {
+    return war_prep_clamp_depleted_field_notify(msg_you_have_no_rice, fief, ((fief * 26) + 0x7007));    // PRG $05339 -> bank1 $9301
 }
 
 // ===== bank1 $933A  (PRG $0533A) =====
 // PRG $0533A effect_war_combat_prep_b
 // (body @ PRG $0533F)
 
-word effect_war_combat_prep_b(word arg1) {
-    return war_prep_clamp_depleted_field_notify(msg_you_have_no_soldiers, arg1, ((arg1 * 26) + 0x7011));    // PRG $05350 -> bank1 $9301
+word effect_war_combat_prep_b(word fief) {
+    return war_prep_clamp_depleted_field_notify(msg_you_have_no_soldiers, fief, ((fief * 26) + 0x7011));    // PRG $05350 -> bank1 $9301
 }
 
 // ===== bank1 $9351  (PRG $05351) =====
 // PRG $05351 effect_war_combat_prep_c
 // (body @ PRG $05356)
 
-word effect_war_combat_prep_c(word arg1) {
-    return war_prep_clamp_depleted_field_notify(msg_you_have_no_gold, arg1, ((arg1 * 26) + 0x7001));    // PRG $05367 -> bank1 $9301
+word effect_war_combat_prep_c(word fief) {
+    return war_prep_clamp_depleted_field_notify(msg_you_have_no_gold, fief, ((fief * 26) + 0x7001));    // PRG $05367 -> bank1 $9301
 }
 
 // ===== bank1 $9368  (PRG $05368) =====
 // PRG $05368 effect_war_combat_prep_d
 // (body @ PRG $0536D)
 
-word effect_war_combat_prep_d(word arg1) {
-    local11 = war_helper_d972(arg1);    // PRG $05372 -> bank15 $D972
-    if (war_helper_d972(arg1)) {    // PRG $05373 -> bank15 $D972
+word effect_war_combat_prep_d(word fief) {
+    is_too_weak = war_helper_d972(fief);    // PRG $05372 -> bank15 $D972
+    if (war_helper_d972(fief)) {    // PRG $05373 -> bank15 $D972
     redraw_window(msg_lord_you_are_too_weak_for_batt);    // PRG $05379 -> bank15 $CEC4
     }
 L_p05380:
     confirm_prompt();    // PRG $0537D -> bank15 $D766
-    return local11;    // PRG $05381
+    return is_too_weak;    // PRG $05381
 }
 
 // ===== bank1 $9382  (PRG $05382) =====
@@ -4354,27 +4354,27 @@ word fief_men_ratio_pct(word arg1, word arg2) {
 // PRG $053B3 pick_weakest_men_fief
 // (body @ PRG $053B8)
 
-word pick_weakest_men_fief(word arg1) {
-    local11 = *(byte*)(arg1);    // PRG $053BA
+word pick_weakest_men_fief(word fief_list_ptr) {
+    weakest_fief = *(byte*)(fief_list_ptr);    // PRG $053BA
     goto L_p053D2;    // PRG $053BB
 L_p053BE:
-    if (((unsigned)fief_men_ratio_pct(local11, *(byte*)(arg1)) > (unsigned)50)) {    // PRG $053C9 -> bank1 $939D
-    local11 = *(byte*)(arg1);    // PRG $053CE
+    if (((unsigned)fief_men_ratio_pct(weakest_fief, *(byte*)(fief_list_ptr)) > (unsigned)50)) {    // PRG $053C9 -> bank1 $939D
+    weakest_fief = *(byte*)(fief_list_ptr);    // PRG $053CE
     }
 L_p053CF:
-    arg1 = (arg1 + 1);    // PRG $053D1
+    fief_list_ptr = (fief_list_ptr + 1);    // PRG $053D1
 L_p053D2:
-    if ((*(byte*)(arg1) != 255)) goto L_p053BE;    // PRG $053D8
-    return local11;    // PRG $053DC
+    if ((*(byte*)(fief_list_ptr) != 255)) goto L_p053BE;    // PRG $053D8
+    return weakest_fief;    // PRG $053DC
 }
 
 // ===== bank1 $93DD  (PRG $053DD) =====
 // PRG $053DD ai_relations_and_low_drive_skip_gate
 // (body @ PRG $053E2)
 
-word ai_relations_and_low_drive_skip_gate(word arg1) {
-    if (((unsigned)relations_matrix_get(arg1, selected_province_idx, 0) > (unsigned)rng_mod(100))) goto L_p05412;    // PRG $053F4 -> bank1 $8250
-    if (!(((unsigned)relations_matrix_get(ui_helper_d772(arg1), ui_helper_d77e(), 1) > (unsigned)rng_mod(100)))) goto L_p0541D;    // PRG $0540F -> bank1 $8250
+word ai_relations_and_low_drive_skip_gate(word candidate_fief) {
+    if (((unsigned)relations_matrix_get(candidate_fief, selected_province_idx, 0) > (unsigned)rng_mod(100))) goto L_p05412;    // PRG $053F4 -> bank1 $8250
+    if (!(((unsigned)relations_matrix_get(ui_helper_d772(candidate_fief), ui_helper_d77e(), 1) > (unsigned)rng_mod(100)))) goto L_p0541D;    // PRG $0540F -> bank1 $8250
 L_p05412:
     if ((*(byte*)((selected_province_daimyo_record() + 2)) < 50)) goto L_p05421;    // PRG $0541A -> bank15 $D7EA
 L_p0541D:
@@ -4388,21 +4388,21 @@ L_p05422:
 // PRG $05423 pick_ai_attack_target_fief
 // (body @ PRG $05428)
 
-word pick_ai_attack_target_fief(word arg1) {
-    local11 = *(byte*)(arg1);    // PRG $0542A
+word pick_ai_attack_target_fief(word fief_list) {
+    target_fief = *(byte*)(fief_list);    // PRG $0542A
     goto L_p05452;    // PRG $0542B
 L_p0542E:
-    if (get_province_ai_state(local11)) {    // PRG $05433 -> bank15 $D98D
-    if (ai_relations_and_low_drive_skip_gate(local11)) goto L_p0544F;    // PRG $0543B -> bank1 $93DD
-    if (((unsigned)fief_men_ratio_pct(local11, *(byte*)(arg1)) > (unsigned)50)) {    // PRG $05449 -> bank1 $939D
-    local11 = *(byte*)(arg1);    // PRG $0544E
+    if (get_province_ai_state(target_fief)) {    // PRG $05433 -> bank15 $D98D
+    if (ai_relations_and_low_drive_skip_gate(target_fief)) goto L_p0544F;    // PRG $0543B -> bank1 $93DD
+    if (((unsigned)fief_men_ratio_pct(target_fief, *(byte*)(fief_list)) > (unsigned)50)) {    // PRG $05449 -> bank1 $939D
+    target_fief = *(byte*)(fief_list);    // PRG $0544E
     }
     }
 L_p0544F:
-    arg1 = (arg1 + 1);    // PRG $05451
+    fief_list = (fief_list + 1);    // PRG $05451
 L_p05452:
-    if ((*(byte*)(arg1) != 255)) goto L_p0542E;    // PRG $05458
-    return local11;    // PRG $0545C
+    if ((*(byte*)(fief_list) != 255)) goto L_p0542E;    // PRG $05458
+    return target_fief;    // PRG $0545C
 }
 
 // ===== bank1 $945D  (PRG $0545D) =====
@@ -4431,45 +4431,45 @@ L_p05496:
 // (body @ PRG $0549F)
 
 word ai_try_war_attack(void) {
-    local11 = selected_province_idx;    // PRG $054A2
-    local7 = ((selected_province_idx * 26) + 0x7001);    // PRG $054AD
-    if (war_helper_d972(local11)) goto L_p054C3;    // PRG $054B3 -> bank15 $D972
-    if (!(*(word*)((local7 + 16)))) goto L_p054C3;    // PRG $054BA
-    if (*(word*)((local7 + 6))) goto L_p054C5;    // PRG $054C0
+    attacker_idx = selected_province_idx;    // PRG $054A2
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $054AD
+    if (war_helper_d972(attacker_idx)) goto L_p054C3;    // PRG $054B3 -> bank15 $D972
+    if (!(*(word*)((fief + 16)))) goto L_p054C3;    // PRG $054BA
+    if (*(word*)((fief + 6))) goto L_p054C5;    // PRG $054C0
 L_p054C3:
     return 0;    // PRG $054C4
 L_p054C5:
     combat_helper_dad7();    // PRG $054C5 -> bank15 $DAD7
     combat_helper_dd3a(0, deduped_owner_list);    // PRG $054CC -> bank15 $DD3A
-    local10 = pick_weakest_men_fief(deduped_owner_list);    // PRG $054D7 -> bank1 $93B3
-    if (((local10 == 255))) return 0;    // PRG $054DD
-    local9 = pick_ai_attack_target_fief(deduped_owner_list);    // PRG $054E9 -> bank1 $9423
-    local8 = find_fief_by_owner_men_minority(deduped_owner_list, *(byte*)((selected_province_idx + 0x6E7F)));    // PRG $054FA -> bank1 $945D
-    if ((local8 != 255)) {    // PRG $05500
-    local10 = local8;    // PRG $05504
+    target_idx = pick_weakest_men_fief(deduped_owner_list);    // PRG $054D7 -> bank1 $93B3
+    if (((target_idx == 255))) return 0;    // PRG $054DD
+    alt_target_idx = pick_ai_attack_target_fief(deduped_owner_list);    // PRG $054E9 -> bank1 $9423
+    minority_target_idx = find_fief_by_owner_men_minority(deduped_owner_list, *(byte*)((selected_province_idx + 0x6E7F)));    // PRG $054FA -> bank1 $945D
+    if ((minority_target_idx != 255)) {    // PRG $05500
+    target_idx = minority_target_idx;    // PRG $05504
     }
 L_p05505:
-    if (((unsigned)((fief_men_ratio_pct(local11, local10) + -10) - rng_mod((const_two * 3))) > (unsigned)60)) goto L_p0552D;    // PRG $0551D -> bank1 $939D
+    if (((unsigned)((fief_men_ratio_pct(attacker_idx, target_idx) + -10) - rng_mod((const_two * 3))) > (unsigned)60)) goto L_p0552D;    // PRG $0551D -> bank1 $939D
     if (rng_mod(100)) {    // PRG $05526 -> bank15 $CA52
     } else {
     }
 L_p0552E:
-    local6 = 1;    // PRG $0552E
-    if (get_province_ai_state(local9)) {    // PRG $05534 -> bank15 $D98D
-    if (((unsigned)fief_men_ratio_pct(local11, local9) > (unsigned)47)) {    // PRG $05540 -> bank1 $939D
-    local6 = 1;    // PRG $05544
-    local10 = local9;    // PRG $05546
+    do_attack = 1;    // PRG $0552E
+    if (get_province_ai_state(alt_target_idx)) {    // PRG $05534 -> bank15 $D98D
+    if (((unsigned)fief_men_ratio_pct(attacker_idx, alt_target_idx) > (unsigned)47)) {    // PRG $05540 -> bank1 $939D
+    do_attack = 1;    // PRG $05544
+    target_idx = alt_target_idx;    // PRG $05546
     }
     }
 L_p05547:
-    if ((local10 != 30)) goto L_p05561;    // PRG $0554B
+    if ((target_idx != 30)) goto L_p05561;    // PRG $0554B
     if ((*(byte*)((selected_province_daimyo_record() + 2)) < (rng_mod(80) + 90))) goto L_p05584;    // PRG $0555E -> bank15 $D7EA
 L_p05561:
-    if (get_province_ai_state(local10)) goto L_p05571;    // PRG $05566 -> bank15 $D98D
+    if (get_province_ai_state(target_idx)) goto L_p05571;    // PRG $05566 -> bank15 $D98D
     if (rng_mod(2)) {    // PRG $0556E -> bank15 $CA52
 L_p05571:
-    if (local6) {    // PRG $05572
-    battle_defending_province = local10;    // PRG $05576
+    if (do_attack) {    // PRG $05572
+    battle_defending_province = target_idx;    // PRG $05576
     if (ai_commit_attack_deduct_resources()) {    // PRG $0557C -> bank1 $9046
     effect_war_a();    // PRG $0557F -> bank1 $81FC
     return 2;    // PRG $05583
@@ -4486,11 +4486,11 @@ L_p05584:
 // (body @ PRG $0558B)
 
 word effect_train(void) {
-    local10 = selected_province_daimyo_record();    // PRG $0558E -> bank15 $D7EA
-    local11 = ((selected_province_idx * 26) + 0x7015);    // PRG $05599
-    *(word*)(local11) = (*(word*)(local11) + (((rng_mod(20) + 10) << 1) << 1));    // PRG $055A9 -> bank15 $CA52
-    if (((*(byte*)((local10 + 5)) + *(byte*)((local10 + 3))) > (rng_mod(10) + 90))) {    // PRG $055BD -> bank15 $CA52
-    *(word*)(local11) = (*(word*)(local11) + 10);    // PRG $055C6
+    daimyo = selected_province_daimyo_record();    // PRG $0558E -> bank15 $D7EA
+    skill_field = ((selected_province_idx * 26) + 0x7015);    // PRG $05599
+    *(word*)(skill_field) = (*(word*)(skill_field) + (((rng_mod(20) + 10) << 1) << 1));    // PRG $055A9 -> bank15 $CA52
+    if (((*(byte*)((daimyo + 5)) + *(byte*)((daimyo + 3))) > (rng_mod(10) + 90))) {    // PRG $055BD -> bank15 $CA52
+    *(word*)(skill_field) = (*(word*)(skill_field) + 10);    // PRG $055C6
     }
 L_p055C7:
     return 11;    // PRG $055C8
@@ -4504,14 +4504,14 @@ word ai_develop_grow_if_men_exceeds_gold(void) {
     if (rng_mod(2)) goto L_p055DE;    // PRG $055D3 -> bank15 $CA52
     *(byte*)((selected_province_daimyo_record() + 4)) = (*(byte*)((selected_province_daimyo_record() + 4)) + 1);    // PRG $055DD -> bank15 $D7EA
 L_p055DE:
-    local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $055E8
-    local10 = 0;    // PRG $055EA
-    if (((*(word*)(local11) - *(word*)((local11 + 16))) <= 1)) {    // PRG $055F6
-    apply_two_grows_const1_override(local11, (*(word*)(local11) - *(word*)((local11 + 16))));    // PRG $05604 -> bank1 $8379
-    local10 = 14;    // PRG $05609
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $055E8
+    result = 0;    // PRG $055EA
+    if (((*(word*)(fief) - *(word*)((fief + 16))) <= 1)) {    // PRG $055F6
+    apply_two_grows_const1_override(fief, (*(word*)(fief) - *(word*)((fief + 16))));    // PRG $05604 -> bank1 $8379
+    result = 14;    // PRG $05609
     }
 L_p0560A:
-    return local10;    // PRG $0560B
+    return result;    // PRG $0560B
 }
 
 // ===== bank1 $960C  (PRG $0560C) =====
@@ -4533,7 +4533,7 @@ L_p0565A:
     *(byte*)((rng_mod(5) + (fp - 5))) = (*(byte*)((rng_mod(5) + (fp - 5))) + 5);    // PRG $0566A -> bank15 $CA52
     *(word*)(fp - 7) = (*(word*)(fp - 7) + 1);    // PRG $0566E
     if (((unsigned)*(word*)(fp - 7) >= (unsigned)5)) goto L_p0565A;    // PRG $05674
-    *(byte*)((rng_mod(2) + &local10)) = (*(byte*)((rng_mod(2) + &local10)) + 5);    // PRG $05687 -> bank15 $CA52
+    *(byte*)((rng_mod(2) + &arms_record_scratch)) = (*(byte*)((rng_mod(2) + &arms_record_scratch)) + 5);    // PRG $05687 -> bank15 $CA52
     }
 L_p05693:
     copy_arms_record_5(selected_province_idx, (fp - 5));    // PRG $0568F -> bank15 $E2AF
@@ -4623,21 +4623,21 @@ L_p0580D:
 // PRG $05814 effect_war_e
 // (body @ PRG $05819)
 
-word effect_war_e(word arg1) {
-    local11 = 0x6F4F;    // PRG $0581C
+word effect_war_e(word relation_flags_out) {
+    owner_cursor = 0x6F4F;    // PRG $0581C
     goto L_p05846;    // PRG $0581D
 L_p05820:
-    if (relations_roll_vs_owner(*(byte*)(local11), 1)) goto L_p0583B;    // PRG $05829 -> bank1 $97EA
-    if (relations_roll_vs_owner(*(byte*)(local11), 0)) goto L_p0583B;    // PRG $05834 -> bank1 $97EA
+    if (relations_roll_vs_owner(*(byte*)(owner_cursor), 1)) goto L_p0583B;    // PRG $05829 -> bank1 $97EA
+    if (relations_roll_vs_owner(*(byte*)(owner_cursor), 0)) goto L_p0583B;    // PRG $05834 -> bank1 $97EA
     goto L_p0583C;    // PRG $05838
 L_p0583B:
 L_p0583C:
-    *(word*)(arg1) = 1;    // PRG $0583C
-    local11 = (local11 + 1);    // PRG $0583F
-    arg1 = (arg1 + 2);    // PRG $05843
+    *(word*)(relation_flags_out) = 1;    // PRG $0583C
+    owner_cursor = (owner_cursor + 1);    // PRG $0583F
+    relation_flags_out = (relation_flags_out + 2);    // PRG $05843
 L_p05846:
-    if ((*(byte*)(local11) != 255)) goto L_p05820;    // PRG $0584C
-    return (*(byte*)(local11) != 255);    // PRG $0584F
+    if ((*(byte*)(owner_cursor) != 255)) goto L_p05820;    // PRG $0584C
+    return (*(byte*)(owner_cursor) != 255);    // PRG $0584F
 }
 
 // ===== bank1 $9850  (PRG $05850) =====
@@ -5165,12 +5165,12 @@ L_p060E8:
 // PRG $060ED effect_subhandler_A113
 // (body @ PRG $060F2)
 
-word effect_subhandler_A113(word arg1, word arg2) {
-    local11 = math32_3arg((arg1->arms + arg1->men), 5, arg1->header);    // PRG $06108 -> bank15 $D6B8
-    if (local11) goto L_p0610F;    // PRG $0610A
-    local11 = 1;    // PRG $0610E
+word effect_subhandler_A113(word fief, word amount) {
+    divisor = math32_3arg((fief->arms + fief->men), 5, fief->header);    // PRG $06108 -> bank15 $D6B8
+    if (divisor) goto L_p0610F;    // PRG $0610A
+    divisor = 1;    // PRG $0610E
 L_p0610F:
-    return (arg2 / local11);    // PRG $06112
+    return (amount / divisor);    // PRG $06112
 }
 
 // ===== bank1 $A113  (PRG $06113) =====
@@ -5297,11 +5297,11 @@ word effect_hire_pay_gold(word arg1, word arg2) {
 // (body @ PRG $062D7)
 
 word effect_ninja_sabotage(word arg1) {
-    local11 = helper_8357(*(word*)(arg1), hire_gold_rate, arg1->header);    // PRG $062E6 -> bank1 $8357
+    max_affordable_count = helper_8357(*(word*)(arg1), hire_gold_rate, arg1->header);    // PRG $062E6 -> bank1 $8357
     if (!(helper_8357(*(word*)(arg1), hire_gold_rate, arg1->header))) goto L_p06360;    // PRG $062E7 -> bank1 $8357
     message_display(msg_how_many);    // PRG $062ED -> bank15 $D326
-    local9 = number_input(1, local11);    // PRG $062F7 -> bank15 $D5E9
-    if (number_input(1, local11)) {    // PRG $062F8 -> bank15 $D5E9
+    unit_count = number_input(1, max_affordable_count);    // PRG $062F7 -> bank15 $D5E9
+    if (number_input(1, max_affordable_count)) {    // PRG $062F8 -> bank15 $D5E9
     ui_helper_e510(0);    // PRG $062FC -> bank15 $E510
     if (province_select_helper(255, 0x6F89)) {    // PRG $0630A -> bank1 $879F
     redraw_window(msg_send_where);    // PRG $06310 -> bank15 $CEC4
@@ -5311,9 +5311,9 @@ word effect_ninja_sabotage(word arg1) {
     ui_helper_cc89();    // PRG $06328 -> bank15 $CC89
     message_display(msg_what_mission);    // PRG $0632E -> bank15 $D326
     redraw_window(msg_uprisng_2_revolt_3_dams_4_assa);    // PRG $06335 -> bank15 $CEC4
-    local10 = number_input(1, 5);    // PRG $0633F -> bank15 $D5E9
+    mission = number_input(1, 5);    // PRG $0633F -> bank15 $D5E9
     if (number_input(1, 5)) {    // PRG $06340 -> bank15 $D5E9
-    if ((local10 == 4)) {    // PRG $06346
+    if ((mission == 4)) {    // PRG $06346
     if (fief_is_daimyo_capital[battle_defending_province]) goto L_p0636C;    // PRG $06351
     message_display(msg_the_daimyo_is_out);    // PRG $06357 -> bank15 $D326
     ui_helper_d759();    // PRG $0635B -> bank15 $D759
@@ -5328,7 +5328,7 @@ L_p0636C:
     arg1 = ((battle_defending_province * 26) + 0x7001);    // PRG $0637B
     message_display(effect_ninja_sabotage_data_bdcf);    // PRG $0637F -> bank15 $D326
     if ((*(byte*)((fief_to_daimyo_record_addr(battle_defending_province) + 3)) < (*(byte*)((selected_province_daimyo_record() + 3)) + 30))) {    // PRG $06396 -> bank15 $D7DA
-    switch (local10) {    // PRG $0639A
+    switch (mission) {    // PRG $0639A
         case 65535: goto L_p063AB;    // PRG $0639A
         case 65536: goto L_p0645A;    // PRG $0639A
         case 65537: goto L_p06497;    // PRG $0639A
@@ -5339,104 +5339,104 @@ L_p0636C:
 L_p063AB:
     if (arg1->loyalty) goto L_p063BF;    // PRG $063AE
     if (arg1->wealth) goto L_p063BF;    // PRG $063B4
-    effect_hire_pay_gold(local8, local9);    // PRG $063B9 -> bank1 $A29B
+    effect_hire_pay_gold(local8, unit_count);    // PRG $063B9 -> bank1 $A29B
     return 1;    // PRG $063BE
 L_p063BF:
     ui_helper_e80c(28);    // PRG $063C1 -> bank15 $E80C
-    local7 = hire_stat_drain_rng(arg1->loyalty, local9);    // PRG $063CE -> bank1 $A255
-    if ((arg1->loyalty <= local7)) {    // PRG $063D4
+    drain_amount = hire_stat_drain_rng(arg1->loyalty, unit_count);    // PRG $063CE -> bank1 $A255
+    if ((arg1->loyalty <= drain_amount)) {    // PRG $063D4
     } else {
     }
 L_p063DE:
-    local7 = arg1->loyalty;    // PRG $063DE
-    if (local7) {    // PRG $063E0
-    arg1->loyalty = (arg1->loyalty - local7);    // PRG $063EA
+    drain_amount = arg1->loyalty;    // PRG $063DE
+    if (drain_amount) {    // PRG $063E0
+    arg1->loyalty = (arg1->loyalty - drain_amount);    // PRG $063EA
     }
 L_p063F1:
-    report_fief_stat_decline(12, local7);    // PRG $063ED -> bank1 $A274
-    local7 = hire_stat_drain_rng(arg1->wealth, local9);    // PRG $063FA -> bank1 $A255
-    if ((arg1->wealth <= local7)) {    // PRG $06400
+    report_fief_stat_decline(12, drain_amount);    // PRG $063ED -> bank1 $A274
+    drain_amount = hire_stat_drain_rng(arg1->wealth, unit_count);    // PRG $063FA -> bank1 $A255
+    if ((arg1->wealth <= drain_amount)) {    // PRG $06400
     } else {
     }
 L_p0640A:
-    local7 = arg1->wealth;    // PRG $0640A
-    if (local7) {    // PRG $0640C
-    arg1->wealth = (arg1->wealth - local7);    // PRG $06416
+    drain_amount = arg1->wealth;    // PRG $0640A
+    if (drain_amount) {    // PRG $0640C
+    arg1->wealth = (arg1->wealth - drain_amount);    // PRG $06416
 L_p06419:
     }
 L_p0641D:
-    report_fief_stat_decline(13, local7);    // PRG $06419 -> bank1 $A274
+    report_fief_stat_decline(13, drain_amount);    // PRG $06419 -> bank1 $A274
     cap_fief_stats(selected_province_idx);    // PRG $06420 -> bank15 $D836
-    if ((local10 == 4)) goto L_p0643B;    // PRG $06427
-    if (local10) {    // PRG $0642B
+    if ((mission == 4)) goto L_p0643B;    // PRG $06427
+    if (mission) {    // PRG $0642B
     confirm_prompt();    // PRG $0642E -> bank15 $D766
     message_display(msg_enemy_morale_is_falling_to_pie);    // PRG $06434 -> bank15 $D326
     }
 L_p0643B:
     confirm_prompt();    // PRG $06438 -> bank15 $D766
-    *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - math32_muladddiv(hire_gold_rate, local9));    // PRG $06452 -> bank1 $8303
+    *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - math32_muladddiv(hire_gold_rate, unit_count));    // PRG $06452 -> bank1 $8303
     helper_8A4E(5);    // PRG $06454 -> bank1 $8A4E
     return 1;    // PRG $06459
 L_p0645A:
-    local7 = hire_stat_drain_rng(arg1->morale, local9);    // PRG $06464 -> bank1 $A255
-    if ((arg1->morale <= local7)) {    // PRG $0646B
+    drain_amount = hire_stat_drain_rng(arg1->morale, unit_count);    // PRG $06464 -> bank1 $A255
+    if ((arg1->morale <= drain_amount)) {    // PRG $0646B
     } else {
     }
 L_p06476:
-    local7 = arg1->morale;    // PRG $06476
-    if (local7) goto L_p06483;    // PRG $06478
-    effect_hire_pay_gold(local8, local9);    // PRG $0647D -> bank1 $A29B
+    drain_amount = arg1->morale;    // PRG $06476
+    if (drain_amount) goto L_p06483;    // PRG $06478
+    effect_hire_pay_gold(local8, unit_count);    // PRG $0647D -> bank1 $A29B
     return 1;    // PRG $06482
 L_p06483:
     ui_helper_e80c(27);    // PRG $06485 -> bank15 $E80C
-    arg1->morale = (arg1->morale - local7);    // PRG $06491
+    arg1->morale = (arg1->morale - drain_amount);    // PRG $06491
     goto L_p06419;    // PRG $06494
 L_p06497:
     if (arg1->dams) goto L_p064AB;    // PRG $0649A
     if (arg1->rice) goto L_p064AB;    // PRG $064A0
-    effect_hire_pay_gold(local8, local9);    // PRG $064A5 -> bank1 $A29B
+    effect_hire_pay_gold(local8, unit_count);    // PRG $064A5 -> bank1 $A29B
     return 1;    // PRG $064AA
 L_p064AB:
     ui_helper_e80c(30);    // PRG $064AD -> bank15 $E80C
-    local7 = hire_stat_drain_rng(arg1->dams, local9);    // PRG $064BA -> bank1 $A255
-    if ((arg1->dams <= local7)) {    // PRG $064C0
+    drain_amount = hire_stat_drain_rng(arg1->dams, unit_count);    // PRG $064BA -> bank1 $A255
+    if ((arg1->dams <= drain_amount)) {    // PRG $064C0
     } else {
     }
 L_p064CA:
-    local7 = arg1->dams;    // PRG $064CA
-    if (local7) {    // PRG $064CC
-    arg1->dams = (arg1->dams - local7);    // PRG $064D6
+    drain_amount = arg1->dams;    // PRG $064CA
+    if (drain_amount) {    // PRG $064CC
+    arg1->dams = (arg1->dams - drain_amount);    // PRG $064D6
     }
 L_p064DD:
-    report_fief_stat_decline(11, local7);    // PRG $064D9 -> bank1 $A274
-    local7 = hire_stat_drain_rng(arg1->rice, local9);    // PRG $064E6 -> bank1 $A255
-    if ((arg1->rice <= local7)) {    // PRG $064EC
+    report_fief_stat_decline(11, drain_amount);    // PRG $064D9 -> bank1 $A274
+    drain_amount = hire_stat_drain_rng(arg1->rice, unit_count);    // PRG $064E6 -> bank1 $A255
+    if ((arg1->rice <= drain_amount)) {    // PRG $064EC
     } else {
     }
 L_p064F6:
-    local7 = arg1->rice;    // PRG $064F6
-    if (!(local7)) goto L_p0641D;    // PRG $064F8
-    arg1->rice = (arg1->rice - local7);    // PRG $06502
+    drain_amount = arg1->rice;    // PRG $064F6
+    if (!(drain_amount)) goto L_p0641D;    // PRG $064F8
+    arg1->rice = (arg1->rice - drain_amount);    // PRG $06502
     goto L_p06419;    // PRG $06505
 L_p06508:
-    ninja_mission_resolve_vs_defender(local9);    // PRG $06509 -> bank1 $918D
+    ninja_mission_resolve_vs_defender(unit_count);    // PRG $06509 -> bank1 $918D
     goto L_p0641D;    // PRG $0650D
 L_p06510:
-    local7 = hire_stat_drain_rng(arg1->town, local9);    // PRG $06519 -> bank1 $A255
-    if ((arg1->town <= local7)) {    // PRG $0651F
+    drain_amount = hire_stat_drain_rng(arg1->town, unit_count);    // PRG $06519 -> bank1 $A255
+    if ((arg1->town <= drain_amount)) {    // PRG $0651F
     } else {
     }
 L_p06529:
-    local7 = arg1->town;    // PRG $06529
-    if (local7) goto L_p06536;    // PRG $0652B
-    effect_hire_pay_gold(local8, local9);    // PRG $06530 -> bank1 $A29B
+    drain_amount = arg1->town;    // PRG $06529
+    if (drain_amount) goto L_p06536;    // PRG $0652B
+    effect_hire_pay_gold(local8, unit_count);    // PRG $06530 -> bank1 $A29B
     return 1;    // PRG $06535
 L_p06536:
     ui_helper_e80c(29);    // PRG $06538 -> bank15 $E80C
-    arg1->town = (arg1->town - local7);    // PRG $06543
+    arg1->town = (arg1->town - drain_amount);    // PRG $06543
     goto L_p06419;    // PRG $06546
 L_p06549:
-    effect_hire_pay_gold(local8, local9);    // PRG $0654B -> bank1 $A29B
+    effect_hire_pay_gold(local8, unit_count);    // PRG $0654B -> bank1 $A29B
     return 1;    // PRG $06550
 L_p06551:
     return 0;    // PRG $06552
@@ -5457,25 +5457,25 @@ L_p06551:
 // PRG $06553 effect_hire_variant_pay
 // (body @ PRG $06558)
 
-word effect_hire_variant_pay(word arg1) {
-    local9 = (arg1->header - arg1->men);    // PRG $06563
-    local11 = helper_8357(*(word*)(arg1), gold_men_hire_rate, (arg1->header - arg1->men));    // PRG $0656F -> bank1 $8357
-    if (!(helper_8357(*(word*)(arg1), gold_men_hire_rate, (arg1->header - arg1->men)))) goto L_p065DD;    // PRG $06570 -> bank1 $8357
+word effect_hire_variant_pay(word fief) {
+    headroom = (fief->header - fief->men);    // PRG $06563
+    max_affordable = helper_8357(*(word*)(fief), gold_men_hire_rate, (fief->header - fief->men));    // PRG $0656F -> bank1 $8357
+    if (!(helper_8357(*(word*)(fief), gold_men_hire_rate, (fief->header - fief->men)))) goto L_p065DD;    // PRG $06570 -> bank1 $8357
     message_display(msg_how_many);    // PRG $06576 -> bank15 $D326
-    local10 = number_input(1, local11);    // PRG $06580 -> bank15 $D5E9
-    if (number_input(1, local11)) {    // PRG $06581 -> bank15 $D5E9
-    *(word*)(arg1) = (*(word*)(arg1) - math32_muladddiv(gold_men_hire_rate, local10));    // PRG $06592 -> bank1 $8303
-    apply_hire_unit_stats(arg1, local10);    // PRG $06595 -> bank1 $8BF4
-    update_arms_table_dffe(selected_province_idx, arg1);    // PRG $0659D -> bank15 $DFFE
+    amount = number_input(1, max_affordable);    // PRG $06580 -> bank15 $D5E9
+    if (number_input(1, max_affordable)) {    // PRG $06581 -> bank15 $D5E9
+    *(word*)(fief) = (*(word*)(fief) - math32_muladddiv(gold_men_hire_rate, amount));    // PRG $06592 -> bank1 $8303
+    apply_hire_unit_stats(fief, amount);    // PRG $06595 -> bank1 $8BF4
+    update_arms_table_dffe(selected_province_idx, fief);    // PRG $0659D -> bank15 $DFFE
     helper_8A4E(4);    // PRG $065A2 -> bank1 $8A4E
-    helper_82AC((arg1 + 16));    // PRG $065AA -> bank1 $82AC
+    helper_82AC((fief + 16));    // PRG $065AA -> bank1 $82AC
     ui_helper_e80c(33);    // PRG $065B0 -> bank15 $E80C
     message_display(effect_hire_variant_pay_data_bdd0);    // PRG $065B7 -> bank15 $D326
     ui_helper_d134(msg_lord_s_we_now_have_d_men, ((ui_helper_d77e() * 9) + 0x77A8), *(word*)(((selected_province_idx * 26) + 0x7011)));    // PRG $065D4 -> bank15 $D134
     confirm_prompt();    // PRG $065D8 -> bank15 $D766
     return 1;    // PRG $065DC
 L_p065DD:
-    if (local9) {    // PRG $065DE
+    if (headroom) {    // PRG $065DE
     } else {
     }
 L_p065EA:
@@ -5724,8 +5724,8 @@ L_p06938:
 // PRG $0693A effect_give_a
 // (body @ PRG $0693F)
 
-word effect_give_a(word arg1) {
-    return give_eligibility_flags(arg1->output, arg1->men);    // PRG $0694C -> bank1 $A91E
+word effect_give_a(word fief) {
+    return give_eligibility_flags(fief->output, fief->men);    // PRG $0694C -> bank1 $A91E
 }
 
 // ===== bank1 $A94D  (PRG $0694D) =====
@@ -5740,10 +5740,10 @@ word give_rice_gold_eligibility(word arg1) {
 // PRG $0695E effect_give_b
 // (body @ PRG $06963)
 
-word effect_give_b(word arg1, word arg2) {
-    local11 = give_rice_gold_eligibility(arg1);    // PRG $06968 -> bank1 $A94D
-    if (!(give_rice_gold_eligibility(arg1))) goto L_p069BB;    // PRG $06969 -> bank1 $A94D
-    local10 = local11;    // PRG $0696D
+word effect_give_b(word fief, word give_type) {
+    local11 = give_rice_gold_eligibility(fief);    // PRG $06968 -> bank1 $A94D
+    if (!(give_rice_gold_eligibility(fief))) goto L_p069BB;    // PRG $06969 -> bank1 $A94D
+    eligibility_flags = local11;    // PRG $0696D
     message_display(effect_give_b_data_be1f);    // PRG $06971 -> bank15 $D326
     local11 = ui_helper_d351(msg_gold_rice);    // PRG $0697C -> bank15 $D351
     if (local11) goto L_p06985;    // PRG $0697E
@@ -5755,9 +5755,9 @@ L_p0698C:
     }
 L_p0698D:
     if (local11) {    // PRG $0698E
-    if ((local10 & local11)) goto L_p069AF;    // PRG $06994
-    local10 = (local10 - 1);    // PRG $06999
-    if ((local10 - 1)) {    // PRG $0699A
+    if ((eligibility_flags & local11)) goto L_p069AF;    // PRG $06994
+    eligibility_flags = (eligibility_flags - 1);    // PRG $06999
+    if ((eligibility_flags - 1)) {    // PRG $0699A
     } else {
     }
 L_p069A6:
@@ -5766,7 +5766,7 @@ L_p069A6:
     return 0;    // PRG $069AE
 L_p069AF:
     if (local11) {    // PRG $069B0
-    return give_transfer_apply(arg1, local11, arg2);    // PRG $069BA -> bank1 $A8D3
+    return give_transfer_apply(fief, local11, give_type);    // PRG $069BA -> bank1 $A8D3
 L_p069BB:
     message_display(msg_you_have_no_gold);    // PRG $069BE -> bank15 $D326
     redraw_window(effect_give_b_data_be2e);    // PRG $069C5 -> bank15 $CEC4
@@ -5783,9 +5783,9 @@ L_p069D3:
 // PRG $069D5 effect_give_c
 // (body @ PRG $069DA)
 
-word effect_give_c(word arg1) {
-    local11 = effect_give_a(arg1);    // PRG $069DF -> bank1 $A93A
-    if (!(effect_give_a(arg1))) goto L_p06A05;    // PRG $069E0 -> bank1 $A93A
+word effect_give_c(word fief) {
+    local11 = effect_give_a(fief);    // PRG $069DF -> bank1 $A93A
+    if (!(effect_give_a(fief))) goto L_p06A05;    // PRG $069E0 -> bank1 $A93A
     message_display(effect_give_c_data_be30);    // PRG $069E6 -> bank15 $D326
     local11 = ui_helper_d351(msg_peasnts_men);    // PRG $069F1 -> bank15 $D351
     if (local11) goto L_p069FB;    // PRG $069F3
@@ -5947,13 +5947,13 @@ L_p06BF6:
 // PRG $06C11 effect_assign
 // (body @ PRG $06C16)
 
-word effect_assign(word arg1) {
-    local3 = ((selected_province_idx * 26) + 0x7017);    // PRG $06C20
-    render_arms_edit_screen(arg1, &local4);    // PRG $06C26 -> bank1 $AB22
+word effect_assign(word gold_cost) {
+    arms_field_ptr = ((selected_province_idx * 26) + 0x7017);    // PRG $06C20
+    render_arms_edit_screen(gold_cost, &edit_buffer);    // PRG $06C26 -> bank1 $AB22
     wait_button_edge();    // PRG $06C2A -> bank15 $D287
-    local9 = 20;    // PRG $06C2F
-    local10 = 0;    // PRG $06C31
-    local11 = 0;    // PRG $06C32
+    cursor_row = 20;    // PRG $06C2F
+    field_idx = 0;    // PRG $06C31
+    units_delta = 0;    // PRG $06C32
 L_p06C33:
     switch (poll_input()) {    // PRG $06C36 -> bank15 $D14E
         case 1: goto L_p06D4B;    // PRG $06C36
@@ -5966,60 +5966,60 @@ L_p06C33:
     }    // PRG $06C36
 L_p06C53:
     read_frame_timer(0);    // PRG $06C54 -> bank15 $D29D
-    local9 = (local9 - 1);    // PRG $06C5A
-    local10 = (local10 - 1);    // PRG $06C5D
-    if (((local10 - 1) < 0)) {    // PRG $06C60
-    local10 = 4;    // PRG $06C64
+    cursor_row = (cursor_row - 1);    // PRG $06C5A
+    field_idx = (field_idx - 1);    // PRG $06C5D
+    if (((field_idx - 1) < 0)) {    // PRG $06C60
+    field_idx = 4;    // PRG $06C64
 L_p06C67:
-    local9 = 24;    // PRG $06C67
+    cursor_row = 24;    // PRG $06C67
     }
 L_p06C68:
-    ui_helper_cc7b(4, local9);    // PRG $06C6A -> bank15 $CC7B
+    ui_helper_cc7b(4, cursor_row);    // PRG $06C6A -> bank15 $CC7B
     read_frame_timer(2);    // PRG $06C6F -> bank15 $D29D
     delay_loop(2);    // PRG $06C74 -> bank15 $D73E
     goto L_p06C33;    // PRG $06C78
 L_p06C7B:
     read_frame_timer(0);    // PRG $06C7C -> bank15 $D29D
-    local9 = (local9 + 1);    // PRG $06C82
-    local10 = (local10 + 1);    // PRG $06C85
-    if (!(((local10 + 1) <= 5))) goto L_p06C68;    // PRG $06C88
-    local10 = 0;    // PRG $06C8C
+    cursor_row = (cursor_row + 1);    // PRG $06C82
+    field_idx = (field_idx + 1);    // PRG $06C85
+    if (!(((field_idx + 1) <= 5))) goto L_p06C68;    // PRG $06C88
+    field_idx = 0;    // PRG $06C8C
     goto L_p06C67;    // PRG $06C8F
 L_p06C92:
-    if (!(local11)) goto L_p06C33;    // PRG $06C93
-    if ((local10 != 2)) goto L_p06CB2;    // PRG $06C99
-    if ((*(word*)(((local10 << 1) + &local4)) < ((*(word*)(local3) / 50) + 20))) {    // PRG $06CAF
+    if (!(units_delta)) goto L_p06C33;    // PRG $06C93
+    if ((field_idx != 2)) goto L_p06CB2;    // PRG $06C99
+    if ((*(word*)(((field_idx << 1) + &edit_buffer)) < ((*(word*)(arms_field_ptr) / 50) + 20))) {    // PRG $06CAF
 L_p06CB2:
-    local11 = (local11 - 1);    // PRG $06CB4
-    *(word*)(((local10 << 1) + &local4)) = (*(word*)(((local10 << 1) + &local4)) + 1);    // PRG $06CC0
+    units_delta = (units_delta - 1);    // PRG $06CB4
+    *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) + 1);    // PRG $06CC0
     }
 L_p06CC1:
     read_frame_timer(0);    // PRG $06CC2 -> bank15 $D29D
-    ui_helper_cc7b(14, local9);    // PRG $06CC8 -> bank15 $CC7B
-    ui_helper_d134(0xBE59, *(word*)(((local10 << 1) + &local4)));    // PRG $06CD9 -> bank15 $D134
+    ui_helper_cc7b(14, cursor_row);    // PRG $06CC8 -> bank15 $CC7B
+    ui_helper_d134(0xBE59, *(word*)(((field_idx << 1) + &edit_buffer)));    // PRG $06CD9 -> bank15 $D134
 L_p06CE8:
     ui_helper_cc7b(14, 25);    // PRG $06CE0 -> bank15 $CC7B
-    ui_helper_d134(0xBE5D, local11);    // PRG $06CE8 -> bank15 $D134
-    ui_helper_cc7b(4, local9);    // PRG $06CEE -> bank15 $CC7B
+    ui_helper_d134(0xBE5D, units_delta);    // PRG $06CE8 -> bank15 $D134
+    ui_helper_cc7b(4, cursor_row);    // PRG $06CEE -> bank15 $CC7B
     read_frame_timer(2);    // PRG $06CF3 -> bank15 $D29D
     goto L_p06C33;    // PRG $06CF7
 L_p06CFA:
-    if (local10) goto L_p06D02;    // PRG $06CFB
+    if (field_idx) goto L_p06D02;    // PRG $06CFB
     goto L_p06D03;    // PRG $06CFF
 L_p06D02:
 L_p06D03:
-    if (!((*(word*)(((local10 << 1) + &local4)) > 0))) goto L_p06C33;    // PRG $06D0F
-    local11 = (local11 + 1);    // PRG $06D14
-    *(word*)(((local10 << 1) + &local4)) = (*(word*)(((local10 << 1) + &local4)) - 1);    // PRG $06D20
+    if (!((*(word*)(((field_idx << 1) + &edit_buffer)) > 0))) goto L_p06C33;    // PRG $06D0F
+    units_delta = (units_delta + 1);    // PRG $06D14
+    *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) - 1);    // PRG $06D20
     read_frame_timer(0);    // PRG $06D22 -> bank15 $D29D
-    ui_helper_cc7b(14, local9);    // PRG $06D28 -> bank15 $CC7B
-    ui_helper_d134(0xBE61, *(word*)(((local10 << 1) + &local4)));    // PRG $06D39 -> bank15 $D134
+    ui_helper_cc7b(14, cursor_row);    // PRG $06D28 -> bank15 $CC7B
+    ui_helper_d134(0xBE61, *(word*)(((field_idx << 1) + &edit_buffer)));    // PRG $06D39 -> bank15 $D134
     ui_helper_cc7b(14, 25);    // PRG $06D40 -> bank15 $CC7B
     goto L_p06CE8;    // PRG $06D48
 L_p06D4B:
     read_frame_timer(0);    // PRG $06D4C -> bank15 $D29D
     ui_helper_cc89();    // PRG $06D50 -> bank15 $CC89
-    return commit_arms_record_from_buffer(&local4, local11);    // PRG $06D5C -> bank1 $ABBD
+    return commit_arms_record_from_buffer(&edit_buffer, units_delta);    // PRG $06D5C -> bank1 $ABBD
 L_p06D5D:
     read_frame_timer(0);    // PRG $06D5E -> bank15 $D29D
     ui_helper_cc89();    // PRG $06D62 -> bank15 $CC89
@@ -6452,16 +6452,16 @@ L_p072E2:
 // PRG $072EF ai_calc_men_surplus_over_gold_and_rice
 // (body @ PRG $072F4)
 
-word ai_calc_men_surplus_over_gold_and_rice(word arg1, word arg2) {
-    local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $072FE
-    *(word*)(arg1) = (*(word*)(local11) - *(word*)((local11 + 16)));    // PRG $07309
-    *(word*)(arg2) = (*(word*)((local11 + 6)) - *(word*)((local11 + 16)));    // PRG $07315
-    if ((*(word*)(arg1) < 0)) {    // PRG $0731A
-    *(word*)(arg1) = 0;    // PRG $0731F
+word ai_calc_men_surplus_over_gold_and_rice(word out_gold_surplus, word out_rice_surplus) {
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $072FE
+    *(word*)(out_gold_surplus) = (*(word*)(fief) - *(word*)((fief + 16)));    // PRG $07309
+    *(word*)(out_rice_surplus) = (*(word*)((fief + 6)) - *(word*)((fief + 16)));    // PRG $07315
+    if ((*(word*)(out_gold_surplus) < 0)) {    // PRG $0731A
+    *(word*)(out_gold_surplus) = 0;    // PRG $0731F
     }
 L_p07320:
-    if ((*(word*)(arg2) < 0)) {    // PRG $07324
-    *(word*)(arg2) = 0;    // PRG $07329
+    if ((*(word*)(out_rice_surplus) < 0)) {    // PRG $07324
+    *(word*)(out_rice_surplus) = 0;    // PRG $07329
     }
 L_p0732A:
     return 0;    // PRG $0732A
@@ -6479,20 +6479,20 @@ word rng_threshold_10_29(void) {
 // PRG $07338 ai_province_gold_to_rice_convert
 // (body @ PRG $0733D)
 
-word ai_province_gold_to_rice_convert(word arg1, word arg2) {
+word ai_province_gold_to_rice_convert(word gold_surplus_ptr, word rice_surplus_ptr) {
     if (!(rng_mod(4))) return rng_mod(4);    // PRG $07342 -> bank15 $CA52
-    local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $07350
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $07350
     if (((unsigned)rng_threshold_10_29() >= (unsigned)gold_rice_exchange_rate)) {    // PRG $07358 -> bank1 $B32B
-    effect_subhandler_A003((*(word*)(arg2) / 2));    // PRG $07360 -> bank1 $8B0A
+    effect_subhandler_A003((*(word*)(rice_surplus_ptr) / 2));    // PRG $07360 -> bank1 $8B0A
     } else {
     if (!(((unsigned)rng_threshold_10_29() > (unsigned)gold_rice_exchange_rate))) goto L_p073A3;    // PRG $0736E -> bank1 $B32B
-    local10 = helper_8357(*(word*)(arg1), gold_rice_exchange_rate, (*(word*)((local11 + 24)) - *(word*)((local11 + 6))));    // PRG $07386 -> bank1 $8357
-    *(word*)(local11) = (*(word*)(local11) - math32_muladddiv(gold_rice_exchange_rate, local10));    // PRG $07395 -> bank1 $8303
-    *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) + local10);    // PRG $0739D
+    rice_gain = helper_8357(*(word*)(gold_surplus_ptr), gold_rice_exchange_rate, (*(word*)((fief + 24)) - *(word*)((fief + 6))));    // PRG $07386 -> bank1 $8357
+    *(word*)(fief) = (*(word*)(fief) - math32_muladddiv(gold_rice_exchange_rate, rice_gain));    // PRG $07395 -> bank1 $8303
+    *(word*)((fief + 6)) = (*(word*)((fief + 6)) + rice_gain);    // PRG $0739D
     }
 L_p073A3:
     helper_8A4E(2);    // PRG $0739F -> bank1 $8A4E
-    return ai_calc_men_surplus_over_gold_and_rice(arg1, arg2);    // PRG $073A9 -> bank1 $B2EF
+    return ai_calc_men_surplus_over_gold_and_rice(gold_surplus_ptr, rice_surplus_ptr);    // PRG $073A9 -> bank1 $B2EF
     }
 }
 
@@ -6501,18 +6501,18 @@ L_p073A3:
 // (body @ PRG $073AF)
 
 word ai_develop_town_handler(void) {
-    local9 = 0;    // PRG $073B0
-    local10 = 0;    // PRG $073B1
-    local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $073BC
-    ai_calc_men_surplus_over_gold_and_rice(&local10, &local9);    // PRG $073C5 -> bank1 $B2EF
+    rice_surplus = 0;    // PRG $073B0
+    gold_surplus = 0;    // PRG $073B1
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $073BC
+    ai_calc_men_surplus_over_gold_and_rice(&gold_surplus, &rice_surplus);    // PRG $073C5 -> bank1 $B2EF
     ai_seed_fief_collection_rate_6d2d(selected_province_idx);    // PRG $073CC -> bank1 $B2B2
-    ai_province_gold_to_rice_convert(&local10, &local9);    // PRG $073D8 -> bank1 $B338
-    local8 = effect_send(min_word((((current_game_year - 1559) * 100) + 100), *(word*)((local11 + 24))), *(word*)((local11 + 4)), local10);    // PRG $073FB -> bank1 $8BE5
-    if ((*(word*)((local11 + 4)) < *(word*)((local11 + 24)))) {    // PRG $07406
+    ai_province_gold_to_rice_convert(&gold_surplus, &rice_surplus);    // PRG $073D8 -> bank1 $B338
+    gain = effect_send(min_word((((current_game_year - 1559) * 100) + 100), *(word*)((fief + 24))), *(word*)((fief + 4)), gold_surplus);    // PRG $073FB -> bank1 $8BE5
+    if ((*(word*)((fief + 4)) < *(word*)((fief + 24)))) {    // PRG $07406
     if (rng_mod(3)) goto L_p07426;    // PRG $0740E -> bank15 $CA52
-    if ((local8 > 0)) {    // PRG $07414
-    *(word*)((local11 + 4)) = (*(word*)((local11 + 4)) + local8);    // PRG $0741E
-    *(word*)(local11) = (*(word*)(local11) - local8);    // PRG $07425
+    if ((gain > 0)) {    // PRG $07414
+    *(word*)((fief + 4)) = (*(word*)((fief + 4)) + gain);    // PRG $0741E
+    *(word*)(fief) = (*(word*)(fief) - gain);    // PRG $07425
     }
     }
 L_p07426:
@@ -6525,22 +6525,22 @@ L_p07426:
 // (body @ PRG $07430)
 
 word ai_develop_dam_and_grow(void) {
-    local9 = 0;    // PRG $07431
-    local10 = 0;    // PRG $07432
-    ai_calc_men_surplus_over_gold_and_rice(&local10, &local9);    // PRG $0743B -> bank1 $B2EF
+    rice_surplus = 0;    // PRG $07431
+    gold_budget = 0;    // PRG $07432
+    ai_calc_men_surplus_over_gold_and_rice(&gold_budget, &rice_surplus);    // PRG $0743B -> bank1 $B2EF
     ai_seed_fief_collection_rate_6d2d(selected_province_idx);    // PRG $07442 -> bank1 $B2B2
-    local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $07454
-    if ((*(word*)((((selected_province_idx * 26) + 0x7001) + 12)) > *(word*)((local11 + 8)))) {    // PRG $07459
-    if (!(*(word*)((local11 + 8)))) goto L_p07497;    // PRG $0745F
-    local7 = min_word(local10, (effect_dam(local11) * (100 - *(word*)((local11 + 10)))));    // PRG $07478 -> bank15 $CB5E
-    *(word*)(local11) = (*(word*)(local11) - local7);    // PRG $0747F
-    local7 = (local7 / effect_dam(local11));    // PRG $07489 -> bank1 $87D8
-    helper_dam_rounding(local7, (local11 + 10));    // PRG $0748E -> bank1 $887D
-    local10 = (local10 - local7);    // PRG $07496
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $07454
+    if ((*(word*)((((selected_province_idx * 26) + 0x7001) + 12)) > *(word*)((fief + 8)))) {    // PRG $07459
+    if (!(*(word*)((fief + 8)))) goto L_p07497;    // PRG $0745F
+    local7 = min_word(gold_budget, (effect_dam(fief) * (100 - *(word*)((fief + 10)))));    // PRG $07478 -> bank15 $CB5E
+    *(word*)(fief) = (*(word*)(fief) - local7);    // PRG $0747F
+    local7 = (local7 / effect_dam(fief));    // PRG $07489 -> bank1 $87D8
+    helper_dam_rounding(local7, (fief + 10));    // PRG $0748E -> bank1 $887D
+    gold_budget = (gold_budget - local7);    // PRG $07496
 L_p07497:
-    local6 = effect_send(min_word((((current_game_year - 1559) * 50) + 250), *(word*)((local11 + 24))), *(word*)((local11 + 8)), local10);    // PRG $074B7 -> bank1 $8BE5
-    *(word*)((local11 + 8)) = (*(word*)((local11 + 8)) + local6);    // PRG $074BF
-    effect_grow(local11, local6);    // PRG $074C2 -> bank1 $87F0
+    grow_amount = effect_send(min_word((((current_game_year - 1559) * 50) + 250), *(word*)((fief + 24))), *(word*)((fief + 8)), gold_budget);    // PRG $074B7 -> bank1 $8BE5
+    *(word*)((fief + 8)) = (*(word*)((fief + 8)) + grow_amount);    // PRG $074BF
+    effect_grow(fief, grow_amount);    // PRG $074C2 -> bank1 $87F0
     } else {
     }
 L_p074CC:
@@ -6556,41 +6556,41 @@ L_p074CC:
 
 word ai_state2_recruit_arm_train(void) {
     if (!(!(ai_try_war_attack()))) return 1;    // PRG $074DD -> bank1 $949A
-    local9 = 0;    // PRG $074E3
-    local10 = 0;    // PRG $074E4
-    ai_calc_men_surplus_over_gold_and_rice(&local10, &local9);    // PRG $074ED -> bank1 $B2EF
-    local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $074FB
-    if ((min_word(((current_game_year - 1559) * 40), *(word*)((local11 + 24))) > *(word*)((local11 + 16)))) {    // PRG $07516 -> bank15 $CB5E
-    local8 = helper_8357((local10 / 2), gold_men_hire_rate, (min_word(((current_game_year - 1559) * 100), *(word*)((local11 + 24))) - *(word*)((local11 + 16))));    // PRG $0753F -> bank1 $8357
+    men_over_rice = 0;    // PRG $074E3
+    men_over_gold = 0;    // PRG $074E4
+    ai_calc_men_surplus_over_gold_and_rice(&men_over_gold, &men_over_rice);    // PRG $074ED -> bank1 $B2EF
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $074FB
+    if ((min_word(((current_game_year - 1559) * 40), *(word*)((fief + 24))) > *(word*)((fief + 16)))) {    // PRG $07516 -> bank15 $CB5E
+    local8 = helper_8357((men_over_gold / 2), gold_men_hire_rate, (min_word(((current_game_year - 1559) * 100), *(word*)((fief + 24))) - *(word*)((fief + 16))));    // PRG $0753F -> bank1 $8357
     if ((local8 > 0)) {    // PRG $07543
     if (((unsigned)rng_mod(10) >= (unsigned)(const_two + 3))) {    // PRG $07552 -> bank15 $CA52
-    *(word*)(local11) = (*(word*)(local11) - (local10 / 2));    // PRG $0755E
-    apply_hire_unit_stats(local11, local8);    // PRG $07561 -> bank1 $8BF4
+    *(word*)(fief) = (*(word*)(fief) - (men_over_gold / 2));    // PRG $0755E
+    apply_hire_unit_stats(fief, local8);    // PRG $07561 -> bank1 $8BF4
     }
     }
     }
 L_p07571:
-    ai_calc_men_surplus_over_gold_and_rice(&local10, &local9);    // PRG $0756D -> bank1 $B2EF
-    local8 = effect_send(*(word*)((local11 + 24)), *(word*)((local11 + 18)), (local9 / *(word*)((local11 + 16))));    // PRG $07588 -> bank1 $8BE5
-    *(word*)((local11 + 18)) = (*(word*)((local11 + 18)) + local8);    // PRG $07591
-    *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) - (*(word*)((local11 + 16)) * local8));    // PRG $0759F
-    local8 = scale_div10_capcheck(*(word*)((local11 + 16)), arms_buy_price_rate, *(word*)((local11 + 24)));    // PRG $075B1 -> bank1 $8327
-    if ((*(word*)(local11) <= local8)) {    // PRG $075B6
+    ai_calc_men_surplus_over_gold_and_rice(&men_over_gold, &men_over_rice);    // PRG $0756D -> bank1 $B2EF
+    local8 = effect_send(*(word*)((fief + 24)), *(word*)((fief + 18)), (men_over_rice / *(word*)((fief + 16))));    // PRG $07588 -> bank1 $8BE5
+    *(word*)((fief + 18)) = (*(word*)((fief + 18)) + local8);    // PRG $07591
+    *(word*)((fief + 6)) = (*(word*)((fief + 6)) - (*(word*)((fief + 16)) * local8));    // PRG $0759F
+    local8 = scale_div10_capcheck(*(word*)((fief + 16)), arms_buy_price_rate, *(word*)((fief + 24)));    // PRG $075B1 -> bank1 $8327
+    if ((*(word*)(fief) <= local8)) {    // PRG $075B6
     if ((local8 != 1)) {    // PRG $075BD
-    local8 = (local10 / local8);    // PRG $075C3
-    if ((local10 / local8)) {    // PRG $075C4
-    *(word*)(local11) = (*(word*)(local11) - scale_div10_capcheck(local8, arms_buy_price_rate, *(word*)(local11)));    // PRG $075D8 -> bank1 $8327
-    *(word*)((local11 + 22)) = (*(word*)((local11 + 22)) + (local8 << 1));    // PRG $075E3
-    helper_82AC((local11 + 22));    // PRG $075E8 -> bank1 $82AC
+    local8 = (men_over_gold / local8);    // PRG $075C3
+    if ((men_over_gold / local8)) {    // PRG $075C4
+    *(word*)(fief) = (*(word*)(fief) - scale_div10_capcheck(local8, arms_buy_price_rate, *(word*)(fief)));    // PRG $075D8 -> bank1 $8327
+    *(word*)((fief + 22)) = (*(word*)((fief + 22)) + (local8 << 1));    // PRG $075E3
+    helper_82AC((fief + 22));    // PRG $075E8 -> bank1 $82AC
     }
     }
     }
 L_p075F1:
     helper_8A4E(3);    // PRG $075ED -> bank1 $8A4E
-    ai_calc_men_surplus_over_gold_and_rice(&local10, &local9);    // PRG $075F9 -> bank1 $B2EF
-    local8 = effect_send(*(word*)((local11 + 24)), *(word*)((local11 + 18)), (local10 / *(word*)((local11 + 16))));    // PRG $07614 -> bank1 $8BE5
-    *(word*)((local11 + 18)) = (*(word*)((local11 + 18)) + (rng_mod(10) + local8));    // PRG $07624 -> bank15 $CA52
-    *(word*)(local11) = (*(word*)(local11) - (*(word*)((local11 + 16)) * local8));    // PRG $07631
+    ai_calc_men_surplus_over_gold_and_rice(&men_over_gold, &men_over_rice);    // PRG $075F9 -> bank1 $B2EF
+    local8 = effect_send(*(word*)((fief + 24)), *(word*)((fief + 18)), (men_over_gold / *(word*)((fief + 16))));    // PRG $07614 -> bank1 $8BE5
+    *(word*)((fief + 18)) = (*(word*)((fief + 18)) + (rng_mod(10) + local8));    // PRG $07624 -> bank15 $CA52
+    *(word*)(fief) = (*(word*)(fief) - (*(word*)((fief + 16)) * local8));    // PRG $07631
     if (rng_mod(2)) {    // PRG $07637 -> bank15 $CA52
     }
 L_p0763D:
@@ -6606,15 +6606,15 @@ L_p07649:
 // (body @ PRG $07650)
 
 word ai_econ_command_dispatch(void) {
-    local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $0765A
-    if (*(word*)((local11 + 6))) goto L_p0766E;    // PRG $0765E
-    *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) + rng_mod(10));    // PRG $0766D -> bank15 $CA52
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $0765A
+    if (*(word*)((fief + 6))) goto L_p0766E;    // PRG $0765E
+    *(word*)((fief + 6)) = (*(word*)((fief + 6)) + rng_mod(10));    // PRG $0766D -> bank15 $CA52
 L_p0766E:
     if (fief_is_daimyo_capital[selected_province_idx]) {    // PRG $07676
     if (get_province_ai_state(selected_province_idx)) goto L_p07696;    // PRG $07680 -> bank15 $D98D
-    if (*(word*)((local11 + 16))) goto L_p07696;    // PRG $07687
-    *(word*)((local11 + 16)) = 2;    // PRG $0768F
-    *(word*)((local11 + 6)) = (*(word*)((local11 + 6)) + 1);    // PRG $07695
+    if (*(word*)((fief + 16))) goto L_p07696;    // PRG $07687
+    *(word*)((fief + 16)) = 2;    // PRG $0768F
+    *(word*)((fief + 6)) = (*(word*)((fief + 6)) + 1);    // PRG $07695
     }
 L_p07696:
     if (!(rng_mod(10))) goto L_p076A5;    // PRG $0769B -> bank15 $CA52
@@ -6702,56 +6702,56 @@ L_p07796:
 // PRG $0779B issue_province_command
 // (body @ PRG $077A0)
 
-word issue_province_command(word arg1) {
+word issue_province_command(word fief) {
     selected_province_idx_latch_7fdd = selected_province_idx;    // PRG $077A3
-    local8 = (ui_helper_d772(arg1) + 0x6D67);    // PRG $077AF -> bank15 $D772
-    if (!(*(byte*)(local8))) goto L_p077DA;    // PRG $077B2
-    if (fief_is_daimyo_capital[arg1]) {    // PRG $077BB
-    effect_view_a(arg1);    // PRG $077BF -> bank1 $83FA
+    rest_turns_ptr = (ui_helper_d772(fief) + 0x6D67);    // PRG $077AF -> bank15 $D772
+    if (!(*(byte*)(rest_turns_ptr))) goto L_p077DA;    // PRG $077B2
+    if (fief_is_daimyo_capital[fief]) {    // PRG $077BB
+    effect_view_a(fief);    // PRG $077BF -> bank1 $83FA
     ui_helper_d759();    // PRG $077C3 -> bank15 $D759
-    *(byte*)(local8) = (*(byte*)(local8) - 1);    // PRG $077CA
-    *(byte*)((fief_to_daimyo_record_addr(arg1) + 1)) = (*(byte*)((fief_to_daimyo_record_addr(arg1) + 1)) + 4);    // PRG $077D6 -> bank15 $D7DA
+    *(byte*)(rest_turns_ptr) = (*(byte*)(rest_turns_ptr) - 1);    // PRG $077CA
+    *(byte*)((fief_to_daimyo_record_addr(fief) + 1)) = (*(byte*)((fief_to_daimyo_record_addr(fief) + 1)) + 4);    // PRG $077D6 -> bank15 $D7DA
     goto L_p07874;    // PRG $077D7
 L_p077DA:
     effect_view_c();    // PRG $077DA -> bank1 $85A7
     call_bank10_entry(27);    // PRG $077DF -> bank10 audio entry $8003 (cmd 27)
-    local7 = 0;    // PRG $077E4
+    command = 0;    // PRG $077E4
     goto L_p07810;    // PRG $077E5
 L_p077E8:
-    if ((local7 == 17)) {    // PRG $077EC
+    if ((command == 17)) {    // PRG $077EC
     }
 L_p077F2:
     effect_view_c();    // PRG $077EF -> bank1 $85A7
     ui_helper_cc89();    // PRG $077F2 -> bank15 $CC89
     daimyo_name_width(selected_province_idx);    // PRG $077F8 -> bank15 $D78B
     redraw_window(msg_your_orders);    // PRG $077FF -> bank15 $CEC4
-    local7 = command_menu_select_loop();    // PRG $07806 -> bank1 $B6B4
-    local5 = *(word*)(((command_menu_select_loop() << 1) + command_driver_table));    // PRG $0780D -> bank1 $B6B4
+    command = command_menu_select_loop();    // PRG $07806 -> bank1 $B6B4
+    cmd_handler = *(word*)(((command_menu_select_loop() << 1) + command_driver_table));    // PRG $0780D -> bank1 $B6B4
 L_p07810:
-    local6 = (*(local5))();    // PRG $07810
-    if (!(local6)) goto L_p077E8;    // PRG $07812
-    if ((local7 == 1)) goto L_p07874;    // PRG $07818
-    if ((local7 == 20)) goto L_p07874;    // PRG $0781F
-    cap_fief_stats(arg1);    // PRG $07823 -> bank15 $D836
-    local10 = fief_to_daimyo_record_addr(arg1);    // PRG $0782C -> bank15 $D7DA
-    local4 = ((arg1 * 26) + 0x7001);    // PRG $07835
-    local9 = ((arg1 * 26) + 0x7001);    // PRG $07836
-    local11 = 0;    // PRG $07838
+    result = (*(cmd_handler))();    // PRG $07810
+    if (!(result)) goto L_p077E8;    // PRG $07812
+    if ((command == 1)) goto L_p07874;    // PRG $07818
+    if ((command == 20)) goto L_p07874;    // PRG $0781F
+    cap_fief_stats(fief);    // PRG $07823 -> bank15 $D836
+    daimyo_byte_ptr = fief_to_daimyo_record_addr(fief);    // PRG $0782C -> bank15 $D7DA
+    fief_record = ((fief * 26) + 0x7001);    // PRG $07835
+    fief_word_ptr = ((fief * 26) + 0x7001);    // PRG $07836
+    i = 0;    // PRG $07838
 L_p07839:
-    if (((unsigned)local11 >= (unsigned)6)) {    // PRG $0783C
-    ui_helper_cc7b(6, (local11 + 13));    // PRG $07843 -> bank15 $CC7B
-    local10 = (local10 + 1);    // PRG $07849
-    province_window_redraw_ba78(arg1, *(byte*)(((local10 + 1) - 1)));    // PRG $0784E -> bank1 $83D5
+    if (((unsigned)i >= (unsigned)6)) {    // PRG $0783C
+    ui_helper_cc7b(6, (i + 13));    // PRG $07843 -> bank15 $CC7B
+    daimyo_byte_ptr = (daimyo_byte_ptr + 1);    // PRG $07849
+    province_window_redraw_ba78(fief, *(byte*)(((daimyo_byte_ptr + 1) - 1)));    // PRG $0784E -> bank1 $83D5
     } else {
-    ui_helper_cc7b(16, (local11 + 1));    // PRG $0785A -> bank15 $CC7B
-    local9 = (local9 + 2);    // PRG $07860
+    ui_helper_cc7b(16, (i + 1));    // PRG $0785A -> bank15 $CC7B
+    fief_word_ptr = (fief_word_ptr + 2);    // PRG $07860
     }
 L_p0786A:
-    province_window_redraw_ba6f(arg1, *(word*)(((local9 + 2) + -2)));    // PRG $07866 -> bank1 $83A2
-    local11 = (local11 + 1);    // PRG $0786C
-    if (((unsigned)local11 >= (unsigned)18)) goto L_p07839;    // PRG $07871
+    province_window_redraw_ba6f(fief, *(word*)(((fief_word_ptr + 2) + -2)));    // PRG $07866 -> bank1 $83A2
+    i = (i + 1);    // PRG $0786C
+    if (((unsigned)i >= (unsigned)18)) goto L_p07839;    // PRG $07871
 L_p07874:
-    return ((unsigned)local11 >= (unsigned)18);    // PRG $07874
+    return ((unsigned)i >= (unsigned)18);    // PRG $07874
     }
     }
 }
@@ -6763,11 +6763,11 @@ L_p07874:
 word ai_econ_action_state0(void) {
     ai_econ_command_dispatch();    // PRG $0787A -> bank1 $B64B
     random_daimyo_stat_increment();    // PRG $0787D -> bank1 $8C68
-    local11 = ((selected_province_idx * 26) + 0x7001);    // PRG $0788A
+    fief = ((selected_province_idx * 26) + 0x7001);    // PRG $0788A
     if (rng_mod(4)) goto L_p0789A;    // PRG $07890 -> bank15 $CA52
-    *(word*)((local11 + 22)) = (*(word*)((local11 + 22)) + 1);    // PRG $07899
+    *(word*)((fief + 22)) = (*(word*)((fief + 22)) + 1);    // PRG $07899
 L_p0789A:
-    return (*(word*)((local11 + 22)) + 1);    // PRG $0789A
+    return (*(word*)((fief + 22)) + 1);    // PRG $0789A
 }
 
 // ===== bank1 $B89B  (PRG $0789B) =====
@@ -6799,15 +6799,15 @@ L_p0790D:
     }
 L_p0790E:
     ai_turn_loop_redispatch_flag = 0;    // PRG $0790F
-    selected_province_idx = daimyo_turn_order[local11];    // PRG $07918
-    local10 = daimyo_turn_order[local11];    // PRG $0791B
+    selected_province_idx = daimyo_turn_order[turn_idx];    // PRG $07918
+    fief_idx = daimyo_turn_order[turn_idx];    // PRG $0791B
     ui_helper_cc7b(2, 26);    // PRG $0791F -> bank15 $CC7B
-    ui_helper_d134(msg_turn_2d_fief_2d, (local11 + 1), (local10 + 1));    // PRG $0792C -> bank15 $D134
+    ui_helper_d134(msg_turn_2d_fief_2d, (turn_idx + 1), (fief_idx + 1));    // PRG $0792C -> bank15 $D134
     if (ui_state_flag_7bf9) goto L_p07939;    // PRG $07933
 L_p07939:
     view_render_five_stats();    // PRG $07936 -> bank1 $8094
-    if (rest_turns_remaining[ui_helper_d772(local10)]) goto L_p0797D;    // PRG $07943 -> bank15 $D772
-    switch (province_ai_state[local10]) {    // PRG $0794C
+    if (rest_turns_remaining[ui_helper_d772(fief_idx)]) goto L_p0797D;    // PRG $07943 -> bank15 $D772
+    switch (province_ai_state[fief_idx]) {    // PRG $0794C
         case 0: goto L_p0795F;    // PRG $0794C
         case 1: goto L_p07965;    // PRG $0794C
         case 2: goto L_p0796B;    // PRG $0794C
@@ -6832,18 +6832,18 @@ L_p07977:
     ai_develop_dam_and_grow();    // PRG $07977 -> bank1 $B42B
     goto L_p0798D;    // PRG $0797A
 L_p0797D:
-    if ((province_ai_state[local10] == 5)) {    // PRG $07985
+    if ((province_ai_state[fief_idx] == 5)) {    // PRG $07985
 L_p07988:
     }
 L_p0798D:
-    issue_province_command(local10);    // PRG $07989 -> bank1 $B79B
+    issue_province_command(fief_idx);    // PRG $07989 -> bank1 $B79B
     if (ai_turn_loop_redispatch_flag) {    // PRG $07990
-    local11 = (local11 + 1);    // PRG $07995
-    ai_per_fief_loop_index = (local11 + 1);    // PRG $07996
+    turn_idx = (turn_idx + 1);    // PRG $07995
+    ai_per_fief_loop_index = (turn_idx + 1);    // PRG $07996
     } else {
 L_p0799E:
-    local11 = (local11 + 1);    // PRG $0799E
-    if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_p078AA;    // PRG $079A4
+    turn_idx = (turn_idx + 1);    // PRG $0799E
+    if (((unsigned)turn_idx >= (unsigned)scenario_fief_count)) goto L_p078AA;    // PRG $079A4
     }
 L_p079A7:
     if (ai_turn_loop_redispatch_flag) goto L_p079B1;    // PRG $079AA

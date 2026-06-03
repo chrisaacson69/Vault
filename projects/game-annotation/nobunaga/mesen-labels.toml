@@ -1709,3 +1709,271 @@ local11 = { name = "is_decrease", comment = "[HIGH] Sign flag: local11=(arg2<0) 
 arg1 = { name = "rate", comment = "[HIGH] 1st multiplicand of floor(a*b/div). Every caller passes a price/exchange/loan RATE: gold_rice_exchange_rate, arms_buy_price_rate, hire_gold_rate, gold_men_hire_rate, loan_rate+10." }
 arg2 = { name = "amount", comment = "[HIGH] 2nd multiplicand: the QUANTITY scaled by rate. Callers pass the rice/men/loan amount (arg1 in A003/9F04, local10/local9/arg2 elsewhere); rate*amount=gold delta." }
 
+# --- bank-01 var-walk batch via var-walk-apply.py (41 subs / 130 slots) ---
+# propose@C (role + caller-propagation) -> independent verify@bytecode; names are the verifier's.
+[vars.bank1."0x87D8"]
+# effect_dam
+arg1 = { name = "fief", comment = "[HIGH] province record ptr: deref'd only as arg->output (+8); body=output?sqrt_int(output):9999. Both callers pass $7001+idx*26 base." }
+
+[vars.bank1."0x88A6"]
+# effect_build
+arg1 = { name = "fief", comment = "[HIGH] Province record ptr: deref +4 town, +24 header, +14 wealth(rw), (arg1+4)->helper_dam_rounding; caller pushes idx*26+0x7001 live record" }
+arg2 = { name = "amount", comment = "[HIGH] Gold spent: guarded arg2>=1, 1st arg to math32_3arg(amount,6-const_two,sqrt(town+amount)); caller pushes number_input then deducts from gold" }
+local11 = { name = "gain", comment = "[HIGH] Build gain: =math32_3arg(...), floored>=1, clamped to header-town, drives math32_2arg(gain,town) & dam_rounding(gain<<1), returned" }
+# local10 left positional — Reused scratch: $88DA=header-town headroom (clamp), then $88FC reassigned=math32_2arg drain% for pct_op; two disjoint ro
+
+[vars.bank1."0x891D"]
+# develop_loyalty
+arg1 = { name = "fief", comment = "[HIGH] Province ptr: deref +8 output, +12 loyalty, +24 header; loyalty+=gain<<1 written back. Caller give_transfer_apply passes its fief ptr." }
+arg2 = { name = "amount", comment = "[HIGH] Gated >=1 at $8924; math32_3arg 1st arg + added into sqrt denom. Caller pushes local10=number_input give amount." }
+local10 = { name = "headroom", comment = "[HIGH] $8959 local10=header-loyalty; sole use is capping gain at $8961-62. One coherent role (dev ceiling minus current)." }
+local11 = { name = "gain", comment = "[HIGH] math32_3arg result @$8948, clamp>=1 @$894E, cap to headroom @$8962, loyalty+=gain<<1 @$896C, returned. Single result role." }
+
+[vars.bank1."0x896F"]
+# develop_wealth
+arg1 = { name = "fief", comment = "[HIGH] Province record ptr: deref'd +4 town, +14 wealth, +24 header; wealth+=gain<<1. Caller give_transfer_apply passes the fief." }
+arg2 = { name = "amount", comment = "[HIGH] Develop amount: guarded >=1, numerator in math32_3arg and in sqrt denom. Caller pushes number_input give amount (local10)." }
+local10 = { name = "headroom", comment = "[HIGH] = header - wealth (dev ceiling distance @ $89AB); sole use is the cap comparison clamping gain to remaining headroom." }
+local11 = { name = "gain", comment = "[HIGH] Grow gain=math32_3arg(amount,6-const_two,sqrt(...)); clamped >=1, capped to headroom, applied wealth+=gain<<1, returned." }
+
+[vars.bank1."0x89C1"]
+# develop_morale
+arg1 = { name = "fief", comment = "[HIGH] Province record ptr: deref +16(men)/+18(morale)/+24(header); $8A12 writes [arg1+18]=morale+gain; caller passes the fief record." }
+arg2 = { name = "amount", comment = "[HIGH] Give amount: guarded arg2>=1 ($89C9), 1st arg to math32_3arg + in sqrt denom; caller pushes number_input give amount." }
+local11 = { name = "gain", comment = "[HIGH] Morale gain: =math32_3arg result ($89EE), floored to 1 ($89F4), capped to headroom ($8A09), added to morale + returned." }
+local10 = { name = "headroom", comment = "[HIGH] Dev headroom = header-morale ($8A00); sole use is capping gain ($8A05-09). One coherent role, no reuse." }
+
+[vars.bank1."0x8B0A"]
+# effect_subhandler_A003
+arg1 = { name = "rice_amount", comment = "[HIGH] Rice sold: gold+=math32_muladddiv(rate,arg1) @$8B30-32; rice-=arg1 @$8B37-39. Callers push number_input rice / *(arg2)/2." }
+local7 = { name = "header", comment = "[MED] =*(local11+18)=*(base+24)=header field, stored @$8B21 but never re-read (dead value). Role is the header read; consumer absent." }
+local9 = { name = "rate", comment = "[HIGH] =gold_rice_exchange_rate ($6E0D) @$8B22-25; sole use is 1st arg of math32_muladddiv(rate,arg1) added to gold. Pure rate." }
+local10 = { name = "fief", comment = "[HIGH] =selected_province_idx*26+$7001 @$8B0F-19; deref'd as gold@+0 (gold+=rate*amt) @$8B30; base for local11=+6. Province record ptr." }
+local11 = { name = "rice_ptr", comment = "[HIGH] =local10+6=rice@+6 ptr @$8B1A-1C; deref'd/written rice-=amt @$8B37-39; +18 base for header read. One role: rice-field ptr." }
+
+[vars.bank1."0x8B40"]
+# effect_subhandler_9F04
+arg1 = { name = "amount", comment = "[HIGH] Loan amount; caller pushes number_input(1,max). $8B6F clamps via helper_8357, then $8B88 gold+=arg1; $8B7A interest=f(rate,arg1)." }
+local7 = { name = "fief", comment = "[HIGH] Province record base ptr = idx*26+$7001 ($8B45-4F). $8B88 *(local7)+=amount writes gold@+0. Bytecode-exact." }
+local8 = { name = "debt_ptr", comment = "[HIGH] local7+2 = debt field ptr ($8B52). $8B81 *(local8)+=interest; also base+2 read for town. debt@+2 layout match." }
+local9 = { name = "town", comment = "[HIGH] *(local8+2)=*(base+4)=town ($8B56). Passed as 1st arg to helper_8357 and used in town-debt headroom. town@+4." }
+local10 = { name = "rate", comment = "[HIGH] loan_rate($6E0B)+10 = interest rate ($8B5B). Rate arg to helper_8357 and math32_muladddiv(rate,amount)." }
+local11 = { name = "interest", comment = "[HIGH] math32_muladddiv(rate,amount) accrued interest ($8B7A). $8B81 *(debt_ptr)+=local11. Single coherent role." }
+
+[vars.bank1."0x8BE5"]
+# effect_send
+arg1 = { name = "ceiling", comment = "[HIGH] Upper cap for stat; min_word(arg1-arg2,arg3). Callers push recipient header(+24) dev-ceiling, or min(year-cap,header)." }
+arg2 = { name = "current", comment = "[HIGH] Live field topped up: rice(+6)/gold(+0)/town(+4)/morale(+18); arg1-arg2=headroom; result added back into this field." }
+arg3 = { name = "budget", comment = "[HIGH] Affordable cap; result=min(headroom,budget). Callers push send-amount, gold surplus, or per-man budget (surplus/men+16)." }
+
+[vars.bank1."0x8CA5"]
+# effect_move
+arg1 = { name = "amount", comment = "[HIGH] Men moved; caller pushes number_input(1,min(donor.men,dest_headroom)); target.men+=, donor.men-=, 3rd arg to scaled_transfer." }
+local7 = { name = "target_stat_ptr", comment = "[HIGH] local9+2 (target stats from morale); LHS written by scaled_transfer each loop iter, advances +2/iter ($8CC5/$8CE2)." }
+local8 = { name = "donor_stat_ptr", comment = "[HIGH] local10+2 (donor stats from morale); advanced +2/iter ($8CD3), supplies source stat as blend into scaled_transfer." }
+local9 = { name = "target", comment = "[HIGH] battle_defending_province*26+0x7011 men ptr; men+=arg1 ($8CF2); base+header(local9+8) into scaled_transfer." }
+local10 = { name = "donor", comment = "[HIGH] selected_province_idx*26+0x7011 men ptr; men-=arg1 ($8CF9); base for local8 (donor stat walk)." }
+local11 = { name = "i", comment = "[HIGH] Loop counter: init 0 ($8CC7), inc 1 ($8CE5), loops while <3 via cmp_uge ($8CE9) over 3 stats." }
+
+[vars.bank1."0x8D4D"]
+# effect_bribe
+arg1 = { name = "gold_amount", comment = "[HIGH] Caller pushes number_input(1,own_gold-10): sqrt_int(arg1)=defection, arg1/2 refund on fail, *local8 (own gold) -= arg1" }
+local6 = { name = "result", comment = "[HIGH] =1 success ($8DBB) / =0 fail ($8DD9); returned at $8DFC as bribe outcome flag" }
+local7 = { name = "defect_amount", comment = "[HIGH] sqrt_int(arg1) @ $8D80; *local9 (tgt output) -= it, *(local8+8) (own output) += it, shown in 'peasants defected'" }
+local8 = { name = "own_fief", comment = "[HIGH] (selected_province_idx*26)+0x7001 @ $8D6D; *(local8+8) output gains, *local8 gold drained by arg1" }
+local9 = { name = "target_output_ptr", comment = "[HIGH] (battle_defending_province*26)+0x7009=tgt+8 @ $8D5C; *local9 output drained, *(local9-8) gold +arg1/2 on fail" }
+# local10 left positional — local11+2 = tgt+14 computed @ $8D62 but NEVER read afterward (dead derived ptr); no use earns the name -> stays position
+local11 = { name = "target_loyalty_ptr", comment = "[MED] local9+4 = tgt+12 (loyalty) @ $8D5F; passed to compute_bribe_effect_value(local11, defect_amount)" }
+
+[vars.bank1."0x8DFD"]
+# resolve_siege_assault_outcome
+local0 = { name = "attacker_men_ptr", comment = "[HIGH] =local4+2=$6F81 war_attacker_men addr; men term (flag+2)*(*local0) in local11; +=war_defender_men/2 on def-win then zeroed" }
+local1 = { name = "attacker_arms_ptr", comment = "[HIGH] =local2+2=idx*26+$7013+4=attacker record arms(+22); half-weighted (*local1/2) in attacker-strength sum" }
+local2 = { name = "attacker_skill_ptr", comment = "[HIGH] =local3+2=attacker record skill(+20); half-weighted (*local2/2) in attacker-strength sum" }
+local3 = { name = "attacker_morale_ptr", comment = "[HIGH] =selected_province_idx*26+$7013=attacker record morale(+18); full-weight term, +pct_op(.,10) when attacker wins tiebreak" }
+local4 = { name = "war_attacker_rice_ptr", comment = "[HIGH] =$6F7F=war_attacker_rice addr (head of attacker triple), used only as base: local0=local4+2; never deref'd. NOT a strength base" }
+# local5 left positional — READ at $8F76 (*(byte*)(local5+3)/10) but NEVER stored anywhere in this sub -> uninitialized/external-frame read; no evi
+local6 = { name = "attacker_daimyo", comment = "[HIGH] =selected_province_daimyo_record() ($D7EA, attacker daimyo rec); read +3 for capital-capture roll (local6+3)/10 at $8F28" }
+local7 = { name = "outcome_code", comment = "[HIGH] init 0 ($8E03); set 3 (capital taken) or 2 (province conquered); dispatched by final switch ($8FBE) on result path" }
+# local8 left positional — NEVER stored or loaded anywhere in this sub (no slot-8 op, no d772 call) -> proposer hallucinated it; stays positional
+local9 = { name = "attacker_name_idx", comment = "[MED] =ui_helper_d77e() at $8E07 (attacker daimyo name idx per ai_attack_announce); WRITE-ONLY/dead here, role from d77e semantics" }
+local10 = { name = "defender_strength", comment = "[HIGH] defender combat total: (capital+2)*men+((skill/2+arms/2)<<1)+morale via fp-26..-34 ptrs; +10% if def wins tiebreak; cmp >=local11" }
+local11 = { name = "attacker_strength", comment = "[HIGH] attacker combat total: (war_flag+2)*men+((arms/2+skill/2)<<1)+morale; +10% if attacker wins tiebreak; local10>=local11 picks winner" }
+
+[vars.bank1."0x9323"]
+# effect_war_combat_prep_a
+arg1 = { name = "fief", comment = "[HIGH] Fief index: bytecode does arg1*26+$7007 (=province rec +6 rice), passes to no-rice clamp helper; callers push selected_province_idx/local9 fief" }
+
+[vars.bank1."0x933A"]
+# effect_war_combat_prep_b
+arg1 = { name = "fief", comment = "[HIGH] fief idx: arg1*26+$7011 (men field, $7001+16) -> war_prep_clamp helper; callers push selected_province_idx & local9" }
+
+[vars.bank1."0x9351"]
+# effect_war_combat_prep_c
+arg1 = { name = "fief", comment = "[HIGH] Fief index: body computes province ptr arg1*26+$7001 (loadA+26*mul+$7001 add) & passes arg1 as field idx; all callers push selected_province_idx" }
+
+[vars.bank1."0x9368"]
+# effect_war_combat_prep_d
+arg1 = { name = "fief", comment = "[HIGH] Fief idx: storeB then passed straight to war_helper_d972(arg1); both call sites ($9867,$9769) push selected_province_idx." }
+local11 = { name = "is_too_weak", comment = "[HIGH] Set once @$9372 from war_helper_d972; gates 'too weak for battle' warn (branch_z) & is the return; caller aborts war if truthy." }
+
+[vars.bank1."0x93B3"]
+# pick_weakest_men_fief
+arg1 = { name = "fief_list_ptr", comment = "[HIGH] Caller $94D3 pushes ptr $6F4F; body derefs *(byte*)(arg1) as fief idx + incA/store to walk list until $FF sentinel ($93D8). Cursor." }
+local11 = { name = "weakest_fief", comment = "[HIGH] Init=*(byte*)(arg1); reassigned to current when fief_men_ratio_pct(local11,cur)>50 ($93CE); loadA_local_neg 11 then vm_return = result." }
+
+[vars.bank1."0x93DD"]
+# ai_relations_and_low_drive_skip_gate
+arg1 = { name = "candidate_fief", comment = "[HIGH] fief idx: passed to ui_helper_d772(arg1) as relations-matrix row vs selected_province_idx; caller pushes local11=*list_ptr (iterated attack-target candidate)" }
+
+[vars.bank1."0x9586"]
+# effect_train
+local10 = { name = "daimyo", comment = "[HIGH] = selected_province_daimyo_record(); deref ONLY at +3,+5 as stat bytes ($95B2/$95B6) to gate bonus. Daimyo record ptr." }
+local11 = { name = "skill_field", comment = "[HIGH] = idx*26+$7015 (province base $7001 +20 = skill). Written at $95A9 and $95C6 to apply training gain. Coherent ptr-to-skill." }
+
+[vars.bank1."0x95C9"]
+# ai_develop_grow_if_men_exceeds_gold
+local10 = { name = "result", comment = "[HIGH] status code: store 0 ($95EA), set 14 in grow branch ($9609), returned ($960A); one role, never scratch" }
+local11 = { name = "fief", comment = "[HIGH] province record ptr = selected_province_idx*26+$7001 ($95E8); read +0 gold & +16 men, passed to apply_two_grows" }
+
+[vars.bank1."0x960C"]
+# ai_reinforce_province_arms_and_econ_10pct
+local10 = { name = "arms_record_scratch", comment = "[MED] fp-4 ($FC): upper byte of address-taken 5-unit arms scratch record; *(rng_mod(2)+&it)+=5. NOT the base (base=fp-5)." }
+
+[vars.bank1."0x9814"]
+# effect_war_e
+arg1 = { name = "relation_flags_out", comment = "[MED] out buffer (caller pushes &local1 @ $988F); *(word*)arg1=1 then arg1+=2/iter, parallel to deduped_owner_list, marks daimyo where relations_roll_vs_owner fires" }
+local11 = { name = "owner_cursor", comment = "[HIGH] init $6F4F deduped_owner_list; read *(byte*)local11, +1/iter, loop ends when byte==255 ($00FF sentinel @ $9848); single-role byte-list cursor over unique daimyo ids" }
+
+[vars.bank1."0xA0ED"]
+# effect_subhandler_A113
+arg1 = { name = "fief", comment = "[HIGH] province record ptr: deref'd +24 header, +16 men, +22 arms ($A0F2-$A100); caller A113 passes its fief, result added to arg1->arms." }
+arg2 = { name = "amount", comment = "[HIGH] dividend in arg2/local11 ($A10F-$A111); caller pushes local10=number_input(1,divisor)=arms quantity bought." }
+local11 = { name = "divisor", comment = "[HIGH] math32_3arg((arms+men),5,header)=floor((arms+men)*5/header), clamped min 1, sole use = divisor in arg2/local11; one role." }
+
+[vars.bank1."0xA29B"]
+# effect_hire_pay_gold
+# arg1 left positional — Never loaded/stored/pushed anywhere in body $A2A0-$A2D1; no pos-slot opcode touches arg1 (0x0C). Dead pass-through -> po
+# arg2 left positional — $A2B4(3D)=push arg2 but never popped; gold subtrahend is local3, no multiply in body. Proposer's rate*arg2 was the CALLE
+
+[vars.bank1."0xA553"]
+# effect_hire_variant_pay
+arg1 = { name = "fief", comment = "[HIGH] province record ptr: deref'd gold@+0 ($A592), men@+16 ($A559/$A5AA), header@+24 ($A55E); caller driver_hire pushes (idx*26)+0x7001" }
+local9 = { name = "headroom", comment = "[HIGH] = arg1->header - arg1->men ($A563) = recruitable ceiling; guards 'at our limit' branch at $A5DD; one role" }
+local10 = { name = "amount", comment = "[HIGH] = number_input(1,local11) ($A580) player recruit count; feeds cost math32_muladddiv + apply_hire_unit_stats(arg1,local10) $A595" }
+local11 = { name = "max_affordable", comment = "[HIGH] = helper_8357(gold,hire_rate,headroom) ($A56F) affordable cap; upper bound of number_input at $A580; caller's local11 is a diff sub's slot" }
+
+[vars.bank1."0xA93A"]
+# effect_give_a
+arg1 = { name = "fief", comment = "[HIGH] Province record ptr: deref'd at +16 (men) & +8 (output) for give_eligibility_flags; driver_give passes idx*26+0x7001, give_c forwards it" }
+
+[vars.bank1."0xA95E"]
+# effect_give_b
+arg1 = { name = "fief", comment = "[HIGH] Province record ptr; callee $A94D derefs +0 gold/+6 rice, $A8D3 calls develop_loy/wlt/mor(arg1); caller pushes idx*26+$7001." }
+arg2 = { name = "give_type", comment = "[MED] Forwarded as give_transfer_apply arg3, tested ==1 -> loy+wlt vs morale-only; caller pushes effect_give_c (Peasnts/Men choice 1/2)." }
+local10 = { name = "eligibility_flags", comment = "[MED] Snapshot of gold/rice eligibility bitmask (=local11 at $A96D); then bitand vs menu sel + decA/test; one coherent role." }
+# local11 left positional — Reused scratch: first eligibility flags ($A968), overwritten by ui_helper_d351 menu sel ($A97C), reset to 0; two disjoin
+
+[vars.bank1."0xAC11"]
+# effect_assign
+arg1 = { name = "gold_cost", comment = "[HIGH] Caller driver_assign pushes literal 30 ($AD94), same value as gold<=30 gate ($AD91) + gold-=30 deduct ($ADA4); passed as render_arms_edit_screen price" }
+local3 = { name = "arms_field_ptr", comment = "[HIGH] = idx*26+0x7017 = $7001+22 = arms@+22 ($AC20); deref *(word*)(local3)/50+20 at $ACAF computes the arms upper cap" }
+local4 = { name = "edit_buffer", comment = "[HIGH] &local4 -> render_arms_edit_screen + commit_arms_record_from_buffer; word array (local10<<1)+&local4 read/inc/dec of edited values" }
+local9 = { name = "cursor_row", comment = "[HIGH] init 20, inc/dec wrap to 24 ($AC67); only ever passed to ui_helper_cc7b(4|14, local9) as the on-screen cursor row" }
+local10 = { name = "field_idx", comment = "[HIGH] init 0, inc/dec wrap 0..4/5; word-array index (local10<<1) into edit_buffer; compared !=2 / if(local10) to select edited field" }
+local11 = { name = "units_delta", comment = "[MED] net running pool: -- on field-inc ($ACB4), ++ on field-dec ($AD14); shown via ui_helper_d134(0xBE5D) + committed as count to commit_arms; 'budget' goes negative" }
+
+[vars.bank1."0xB2EF"]
+# ai_calc_men_surplus_over_gold_and_rice
+arg1 = { name = "out_gold_surplus", comment = "[HIGH] out-ptr: *arg1 = fief->gold(+0) - fief->men(+16), clamped >=0 ($B309/$B31A-1F); caller spends it via effect_send" }
+arg2 = { name = "out_rice_surplus", comment = "[HIGH] out-ptr: *arg2 = fief->rice(+6) - fief->men(+16), clamped >=0 ($B315/$B324-29); callers pass &local scratch" }
+local11 = { name = "fief", comment = "[HIGH] province rec ptr = selected_province_idx*26+$7001 ($B2FE); deref +0 gold,+6 rice,+16 men; single coherent role" }
+
+[vars.bank1."0xB79B"]
+# issue_province_command
+arg1 = { name = "fief", comment = "[HIGH] Fief idx. Caller B89B pushes daimyo_turn_order[i]; used as fief_is_daimyo_capital[arg1], effect_view_a(arg1), record base arg1*26+$7001." }
+local4 = { name = "fief_record", comment = "[MED] Province record base = arg1*26+$7001 ($B835); single coherent role though dead after store (local9 carries same value forward & is walked)." }
+local5 = { name = "cmd_handler", comment = "[HIGH] Fn ptr from command_driver_table[sel<<1] ($B80D loadA_ind_word), invoked via host_call_indirect ($B80F)." }
+local6 = { name = "result", comment = "[HIGH] Return of (*local5)() at $B810; branch_z re-loops on 0 ($B812) = handler success/continue flag." }
+local7 = { name = "command", comment = "[HIGH] Menu cmd id: init 0 ($B7E4), set = command_menu_select_loop ($B806), compared ==17/==1/==20 for control flow." }
+local8 = { name = "rest_turns_ptr", comment = "[HIGH] Ptr = ui_helper_d772(arg1)+$6D67 (rest_turns_remaining); deref'd ($B7B1) and decremented in place ($B7CA)." }
+local9 = { name = "fief_word_ptr", comment = "[HIGH] Walking province-record ptr: init arg1*26+$7001 ($B836), +2/iter ($B860), read as words ($B863 loadA_ind_word)." }
+local10 = { name = "daimyo_byte_ptr", comment = "[HIGH] Walking daimyo-record ptr: init fief_to_daimyo_record_addr(arg1) ($B82C), +1/iter ($B848), read as bytes ($B84B loadA_ind_byte)." }
+local11 = { name = "i", comment = "[HIGH] Loop counter 0..17: init 0 ($B838), inc ($B86C), cmp_uge 18 terminates ($B870); used as local11+1 / local11+13 row index." }
+
+[vars.bank1."0x9046"]
+# ai_commit_attack_deduct_resources
+local9 = { name = "spend_amount", comment = "[HIGH] pct_op(local10, rng_mod(30)+60)=60-89% of budget; set to war_attacker_men/gold, subtracted from fief gold(+0)&men(+16), feeds attacker_rice" }
+local10 = { name = "attack_budget", comment = "[HIGH] min_word(rice<<1, min_word(men,gold)) of attacker; gated >=5 and vs defender min(rice,men), base of pct_op for spend; one role: capacity" }
+# local11 left positional — reused scratch: holds attacker record (idx*26+0x7001) then REASSIGNED to defender record at $9163; two disjoint ptrs -> 
+
+[vars.bank1."0x9423"]
+# pick_ai_attack_target_fief
+arg1 = { name = "fief_list", comment = "[HIGH] Cursor into 255-terminated fief-idx list: deref *(byte*)arg1, incA-walk @$9450, loop ends @byte==255; caller pushes deduped_owner_list." }
+local11 = { name = "target_fief", comment = "[HIGH] Selected target fief: init=*list, fed to ai_state/relations_gate/men_ratio_pct, reset to *list on ratio>50, returned @$945B. One coherent role." }
+
+[vars.bank1."0xA2D2"]
+# effect_ninja_sabotage
+# arg1 left positional — REUSED: enters as payer fief (caller pushes selected_idx*26+0x7001, helper_8357 gold check) then REASSIGNED @$A37B to ta
+local7 = { name = "drain_amount", comment = "[HIGH] per-stat drain: storeA7=hire_stat_drain_rng($A255,stat,count), clamped to stat, fief->stat-=slot7, report_fief_stat_decline; same in every mission branch" }
+# local8 left positional — refund-path scratch: @$A54A storeB8 from regB leftover (with storeB9) before effect_hire_pay_gold(8,9); no coherent role
+local9 = { name = "unit_count", comment = "[HIGH] storeA9=number_input(1,max_affordable); drives drain magnitude (hire_stat_drain_rng arg) and gold cost; player ninja count sent" }
+local10 = { name = "mission", comment = "[HIGH] storeA10=number_input(1,5); switch-dispatched @$A39A to per-stat branch; (==4) gates assassin daimyo-present check; 1-5 mission select" }
+local11 = { name = "max_affordable_count", comment = "[HIGH] storeA11=helper_8357(payer gold-affordability); used as upper bound of number_input(1,local11) for the count prompt" }
+
+[vars.bank1."0xA9D5"]
+# effect_give_c
+arg1 = { name = "fief", comment = "[HIGH] live province record ptr (idx*26+$7001); sole caller driver_give pushes local9; passed to effect_give_a(arg1) province consumer" }
+# local11 left positional — reused scratch: eligibility-guard result, then ui_helper_d351 menu choice, then literal 2, then returned; 3 disjoint rol
+
+[vars.bank1."0xB338"]
+# ai_province_gold_to_rice_convert
+arg1 = { name = "gold_surplus_ptr", comment = "[MED] &local10 = gold-side surplus (max(0,men-gold)) from ai_calc_men_surplus...; NOT deref'd here, only forwarded to tail $B2EF recompute." }
+arg2 = { name = "rice_surplus_ptr", comment = "[HIGH] &local9 = rice-side surplus (max(0,men-rice)); deref'd *(word*)(arg2)/2 -> effect_subhandler_A003 rice buy/sell branch ($B360)." }
+local10 = { name = "rice_gain", comment = "[HIGH] = helper_8357(rate,headroom) at $B386; consumed once as rice converted: rice(+6)+=local10 ($B39D). One coherent role." }
+local11 = { name = "fief", comment = "[HIGH] = selected_province_idx*26+0x7001 ($B350); live province ptr deref'd +0 gold, +6 rice, +24 header. Verified in bytecode." }
+
+[vars.bank1."0xB42B"]
+# ai_develop_dam_and_grow
+local6 = { name = "grow_amount", comment = "[HIGH] $B4B7 = effect_send(...); then fief->output += it ($B4BF) and effect_grow(fief, it) ($B4C2) -- the growth applied." }
+# local7 left positional — Reused: first a GOLD spend (fief->gold-=local7 @$B47F), then reassigned =local7/effect_dam = a dam-level count @$B489. T
+local9 = { name = "rice_surplus", comment = "[HIGH] Init 0 @$B431; &local9 passed to ai_calc_men_surplus_over_gold_and_rice @$B43B as rice-surplus out; unused after (single role)." }
+local10 = { name = "gold_budget", comment = "[HIGH] Init 0 @$B432; filled as gold surplus by calc helper; min'd for dam spend, local10-=spend @$B496, then effect_send budget arg @$B4B7." }
+local11 = { name = "fief", comment = "[HIGH] $B454 = selected_province_idx*26+0x7001; deref'd +0 gold/+8 output/+10 dams/+12 loy/+24 header; province record ptr." }
+
+[vars.bank1."0xB89B"]
+# ai_per_fief_command_driver
+local10 = { name = "fief_idx", comment = "[HIGH] Set once @$B91B = daimyo_turn_order[turn_idx]; read as +1 display, idx into rest_turns/province_ai_state; $B988 store-5 is a dead scratch." }
+local11 = { name = "turn_idx", comment = "[HIGH] Loop counter over daimyo_turn_order: indexes [local11], inc'd @$B99E/$B995, cmp_uge scenario_fief_count @$B9A3, shown 1-based as turn no." }
+
+[vars.bank1."0x949A"]
+# ai_try_war_attack
+local6 = { name = "do_attack", comment = "[HIGH] Commit flag: storeA=1 @$952E and $9544; read as gate @$9572 (loadA 6) before battle_defending_province set + commit. One role." }
+local7 = { name = "fief", comment = "[HIGH] Province record ptr = selected_province_idx*26+$7001 @$94AD; deref +16(men)@$94B6 and +6(rice)@$94BD. Attacker's own fief record." }
+local8 = { name = "minority_target_idx", comment = "[HIGH] = find_fief_by_owner_men_minority(...) @$94FA; cmp_ne 255 @$94FF, if valid overrides local10 @$9504. Minority-owner candidate." }
+local9 = { name = "alt_target_idx", comment = "[HIGH] = pick_ai_attack_target_fief @$94E9; fed to get_province_ai_state @$9530 and fief_men_ratio_pct @$953F; may promote into local10 @$9546." }
+local10 = { name = "target_idx", comment = "[HIGH] Chosen prey idx: pick_weakest_men_fief @$94D7, may be overwritten by local8/local9; ->battle_defending_province @$9576. One role (selected target)." }
+local11 = { name = "attacker_idx", comment = "[HIGH] = selected_province_idx @$94A2; 1st arg to war_helper_d972 @$94AF and fief_men_ratio_pct(local11,target). Attacking own fief idx." }
+
+[vars.bank1."0xB3AA"]
+# ai_develop_town_handler
+local8 = { name = "gain", comment = "[HIGH] effect_send() return ($B3FB); then town(+4)+=gain ($B41E) and gold(+0)-=gain ($B425) -- town-development gain" }
+local9 = { name = "rice_surplus", comment = "[HIGH] init 0; &local9=arg2 to both helpers; $B2EF sets [arg2]=rice(+6)-men(+16) clamped>=0 ($B315) -- rice surplus" }
+local10 = { name = "gold_surplus", comment = "[HIGH] init 0; &local10=arg1, [arg1]=gold(+0)-men(+16) clamped>=0 ($B309); consumed as spend amt to effect_send ($B3F7)" }
+local11 = { name = "fief", comment = "[HIGH] selected_province_idx*26+$7001 base ($B3BC); deref'd +24 dev-ceiling, +4 town, +0 gold -- province record ptr" }
+
+[vars.bank1."0xB4D5"]
+# ai_state2_recruit_arm_train
+# local8 left positional — Reused scratch: hire-count from helper_8357 ($B53F), effect_send return ($B588/$B614), threshold cap ($B5B1), arms-buy q
+local9 = { name = "men_over_rice", comment = "[HIGH] 2nd out-param of ai_calc_men_surplus_over_gold_and_rice = max(0, men@+16 - rice@+6) (NOT rice-men); consumed as send amt local9/men@+16 ($B588)." }
+local10 = { name = "men_over_gold", comment = "[HIGH] 1st out-param of ai_calc_men_surplus_over_gold_and_rice = max(0, men@+16 - gold@+0) (NOT gold-men); spent local10/2 hiring ($B55E), local10/men send ($B614)." }
+local11 = { name = "fief", comment = "[HIGH] Province record ptr = selected_province_idx*26 + $7001 ($B4FB); deref'd gold+0/rice+6/men+16/morale+18/arms+22/header+24 throughout." }
+
+[vars.bank1."0xB64B"]
+# ai_econ_command_dispatch
+local11 = { name = "fief", comment = "[HIGH] Store-once @$B65A = $7001+idx*26 (province ptr); only ever deref'd as +6(rice)/+16(men). One coherent role." }
+
+[vars.bank1."0xB875"]
+# ai_econ_action_state0
+local11 = { name = "fief", comment = "[HIGH] province record ptr: $B88A computes selected_province_idx*26+$7001 (26-byte stride, live map); only use is deref +22 (arms) inc/return" }
+
