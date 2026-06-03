@@ -2002,3 +2002,272 @@ local11 = { name = "defender_depleted_flag", comment = "[HIGH] Init 0; set nonze
 arg1 = { name = "tile_x", comment = "[HIGH] opcode 0C: bounds-checked uge x_min($6FF6)/ugt x_max($6FFA); caller $9792 writes it to unit X field via unit_field_ptr_6fd0" }
 arg2 = { name = "tile_y", comment = "[HIGH] opcode 0D: bounds-checked uge y_min($6FF8)/ugt y_max($6FFC); caller $9792 writes it to unit Y field via unit_field_ptr_6fda" }
 
+# --- bank-02 var-walk batch via var-walk-apply.py (38 subs / 146 slots) ---
+# propose@C (role + caller-propagation) -> independent verify@bytecode; names are the verifier's.
+[vars.bank2."0x8086"]
+# compose_upload_daimyo_portrait
+arg1 = { name = "out_buf", comment = "[HIGH] dest tile-data buffer; filled in 4 segs (arg1/+12/+18/+24=36B); caller build_blit_fief_tile_block passes (fp-36) then blits it" }
+local7 = { name = "part3_digit", comment = "[HIGH] 4th base-5 digit (local8/5); indexes last part table *192 @ aeac/ad84; used once, single role" }
+# local8 left positional — REUSED scratch: first holds quotient local9/5, then overwritten with local8%5 (part2 digit); two disjoint roles -> posit
+# local9 left positional — REUSED scratch: first holds quotient local11/5, then overwritten with local9%5 (part1 digit); two disjoint roles -> posi
+local10 = { name = "part0_digit", comment = "[HIGH] 1st base-5 digit (local11%5); indexes face/part0 table *192 @ a604 & *12 @ ae34; used once, single role" }
+local11 = { name = "packed_portrait_code", comment = "[HIGH] packed base-5 portrait code = word at (active_province_idx*2)+0x6EB1; value unpacked into 4 part digits" }
+
+[vars.bank2."0x830B"]
+# consume_daily_battle_rice
+arg1 = { name = "strength_ptrs", comment = "[HIGH] in: 2-elem array of ptrs to per-side unit strength (+2); caller sets [side]=unit_record_ptr(side)+2, body decrements *ptr by drain, floors 0" }
+arg2 = { name = "remainder_accum", comment = "[HIGH] in/out: 2-elem per-side fractional-rice accumulator; caller inits 0, body adds local9 each day, carries -30 across 31-day loop" }
+local8 = { name = "side", comment = "[HIGH] loop index over the 2 battle sides (0,1); indexes strength_ptrs/remainder_accum and unit_record_ptr; bound >=2" }
+local9 = { name = "rice_remainder", comment = "[HIGH] local11 % 30 = fractional rice; added into remainder_accum[side] (the /30 accumulator), carry triggers extra drain" }
+local10 = { name = "drain", comment = "[HIGH] local11 / 30 = whole-unit strength drain to apply this day (+1 on accumulator carry); subtracted from *strength_ptr" }
+local11 = { name = "daily_rice", comment = "[HIGH] unit_record[+4] daily rice/food value; split into drain=/30 and rice_remainder=%30 for the strength-attrition accumulator" }
+
+[vars.bank2."0x8E5C"]
+# ai_sum_battle_strength
+local6 = { name = "i", comment = "[HIGH] Single loop counter for both passes: 0..4 (5 daimyo stats) then 5..6 (2 province fields); cmp_slt 5 / cmp_sge 7." }
+local7 = { name = "defender_fief_field", comment = "[HIGH] Defender province-record word-field cursor = battle_defending_province*26+$7013; +=2/iter, read as the compared stat." }
+local8 = { name = "attacker_fief_field", comment = "[HIGH] Own province-record word-field cursor = selected_province_idx*26+$7013; +=2/iter, compared vs defender_fief_field." }
+local9 = { name = "weight_ptr", comment = "[HIGH] Cursor into battle_strength_stat_weights ($B5B1); advanced both loops, its byte is the value added to the $7BEA strength sum." }
+local10 = { name = "defender_stat_ptr", comment = "[HIGH] Defender daimyo stat-byte cursor = fief_to_daimyo_record_addr(defender)+1; +1/iter, byte compared vs attacker in loop1." }
+local11 = { name = "attacker_stat_ptr", comment = "[HIGH] Own daimyo stat-byte cursor = selected_province_daimyo_record()+1; +1/iter; win when its byte >= defender's adds weight." }
+
+[vars.bank2."0x8F55"]
+# clear_unit_combat_flags
+arg1 = { name = "from_fief", comment = "[HIGH] origin fief idx: fief_is_daimyo_capital[arg1]=0; both callers pass get_battle_side_province(cur_combat_side) (own/current province)" }
+arg2 = { name = "to_fief", comment = "[HIGH] dest fief idx: fief_is_daimyo_capital[arg2]=1; callers pass flee-to/new province (prompt_select_province / deduped_owner_list)" }
+
+[vars.bank2."0x9030"]
+# is_battleside_province_aistate5_and_not_resting
+arg1 = { name = "side", comment = "[HIGH] battle side (0/1); both callers pass cur_combat_side, fed to get_battle_side_province to resolve its province" }
+local11 = { name = "fief", comment = "[HIGH] province idx of the battle side = get_battle_side_province(side); used for ai_state==5 check + rest-turns lookup" }
+
+[vars.bank2."0x90BB"]
+# build_daimyo_province_list
+arg1 = { name = "fief", comment = "[HIGH] fief index; ui_helper_d772(arg1)=its owner daimyo. Both callers push a fief (get_battle_side_province / local11)." }
+local5 = { name = "target_owner", comment = "[HIGH] owner daimyo of arg1 (ui_helper_d772(arg1)); loop keeps list entries whose owner==local5 ($90E1 cmp_eq)." }
+local6 = { name = "src_cursor", comment = "[HIGH] read cursor over FF-terminated fief list at $6F4F; deref'd as byte=fief id, incremented per iter ($90F0/$90F7)." }
+local7 = { name = "dst_ptr", comment = "[HIGH] output write pointer; inits to &local8, ++ then *dst=fief ($90E8/$90ED), writes -1 terminator ($90FD)." }
+local8 = { name = "out_buf", comment = "[HIGH] output buffer base (&local8); filled with matched fiefs, passed to syscall16_sram_wrap(2,&local8,deduped_owner_list,8)." }
+
+[vars.bank2."0x9675"]
+# set_combat_arena_rect_by_approach
+local7 = { name = "rect_adjusted", comment = "[HIGH] Result flag: 0 at entry, set 3 only if arena rect was shrunk by approach; the returned value (storeA/loadA off 7)" }
+local8 = { name = "def_map_y", comment = "[HIGH] Defender map Y = strategic_map_fief_y[mapid(battle_defending_province)]; dy term & y-edge sign test" }
+local9 = { name = "atk_map_y", comment = "[HIGH] Attacker map Y = strategic_map_fief_y[mapid(selected_province_idx)]; dy term & y-edge sign test" }
+local10 = { name = "def_map_x", comment = "[HIGH] Defender map X = strategic_map_fief_x[mapid(battle_defending_province)]; dx term & x-edge sign test" }
+local11 = { name = "atk_map_x", comment = "[HIGH] Attacker map X = strategic_map_fief_x[mapid(selected_province_idx)]; dx term & x-edge sign test" }
+
+[vars.bank2."0x9810"]
+# ai_place_unit_in_free_slot_resolve_coords
+arg1 = { name = "max_slots", comment = "[HIGH] Loop bound: callers push imm 5/3; sole use is cur_combat_unit_slot >= arg1 -> number of free slots to fill" }
+local9 = { name = "slot_idx", comment = "[HIGH] Unit-slot loop counter 0..5 (local9+1; local9>=6); passed as slot arg to sub_8003 coord-resolver" }
+local10 = { name = "tile_y", comment = "[HIGH] Y coord: loaded via unit_field_ptr_6fda ($6FDA=Y table), passed as 2nd arg to commit_unit_move(x,y)" }
+local11 = { name = "tile_x", comment = "[HIGH] X coord: loaded via unit_field_ptr_6fd0 ($6FD0=X table), passed as 1st arg to commit_unit_move(x,y)" }
+
+[vars.bank2."0x9954"]
+# rng_search_combat_rect_for_unit_cell
+arg1 = { name = "approach_dir", comment = "[HIGH] switch selector ($9965 loadA arg, $9966 switch) over 4 cases that seed x/y flip flags; caller $99D2 passes battle approach/side code" }
+local6 = { name = "flip_y", comment = "[HIGH] rng_mod(2) 0/1 flag ($9964), forced to 1 in a case, tested at $999F to pick y-axis fill direction (combat_arena_x_max-local11 path)" }
+local7 = { name = "flip_x", comment = "[HIGH] rng_mod(2) 0/1 flag ($995E), forced to 1 in a case, tested at $9991 to pick x-axis fill direction for cell search" }
+local8 = { name = "y", comment = "[HIGH] derived Y coord = combat_arena_y_max-local10 ($99AB), passed as 2nd arg to seek_enemy_adjacent_cell_and_commit_move(local9,local8)" }
+local9 = { name = "x", comment = "[HIGH] derived X coord = combat_arena_x_max-local11 ($999D), passed as 1st arg to seek_enemy_adjacent_cell_and_commit_move(local9,local8)" }
+local10 = { name = "yi", comment = "[HIGH] inner loop index: local10=local10+1 ($99BD) bounded by combat_arena_y_max ($99C3); scans rect rows" }
+local11 = { name = "xi", comment = "[HIGH] outer loop index: local11=local11+1 ($99C8) bounded by combat_arena_x_max ($99CE); scans rect columns" }
+
+[vars.bank2."0x9BB4"]
+# ai_terrain_strength_term
+arg1 = { name = "side", comment = "[HIGH] battle side selector; feeds unit_field_ptr_6fd0/6fda/6fbc(side,slot); caller passes its arg1 (cur_combat_side) straight through" }
+arg2 = { name = "unit_slot", comment = "[HIGH] unit slot index; 2nd arg to unit_field_ptr_6fd0/6fda/6fbc(side,slot); caller passes cur_combat_unit_slot through unchanged" }
+local11 = { name = "terrain_class_idx", comment = "[HIGH] =3, then dec 0-3x by map-cell terrain class (32/16/8), used as (idx<<1)+b9c2 table index for pct_op rate" }
+
+[vars.bank2."0x9C04"]
+# ai_province_stat_diff_term
+arg1 = { name = "side", comment = "[HIGH] battle side idx: get_battle_side_province(arg1) base for local9, also if(arg1) gate + unit_word_field_ptr_6fbc(arg1,arg2)" }
+arg2 = { name = "unit_field", comment = "[HIGH] unit field selector passed to unit_word_field_ptr_6fbc(arg1,arg2) to fetch the unit weight scaled by the stat diff" }
+# arg3 left positional — not a real slot of $9C04 (no frame ref in body/bytecode); the arg3 in decompile line is the CALLER's arg3 -- leave posit
+local7 = { name = "total", comment = "[HIGH] accumulator: local7 += pct_op(unit_wt, diff/100) per field, returned (local7*3); the running strength sum" }
+local8 = { name = "ref_fief", comment = "[HIGH] province record ptr for side 1 ((prov*26)+0x7013), walked +2/iter as the reference/baseline fief in the stat diff" }
+local9 = { name = "fief", comment = "[HIGH] province record ptr for arg1's side ((prov*26)+0x7013), walked +2/iter; the fief whose stats are diffed vs ref_fief" }
+local10 = { name = "stat_diff", comment = "[HIGH] per-field stat difference *local9-*local8 (gold/debt/town fields 0..2); used as pct via stat_diff/100" }
+local11 = { name = "i", comment = "[HIGH] loop index 0..2 over the first 3 province record fields; loop bound cmp_uge >=3 at $9C61" }
+
+[vars.bank2."0x9C69"]
+# ai_strength_term_gated_table_word
+arg1 = { name = "unit", comment = "[HIGH] unit/side index: passed as 1st arg to unit_word_field_ptr_6fbc (arg1*10 stride into $6FBC table); caller passes battle-side handle" }
+arg2 = { name = "idx", comment = "[HIGH] column index 0..2 (wrap_index_0_2_to_zero): selects $6FBC field (arg2<<1) and is the value gated vs arg3" }
+arg3 = { name = "gate_idx", comment = "[MED] gating bound 0..2 (wrap_index_0_2_to_zero): returns 0 unless idx(arg2) > gate_idx(arg3); never indexes, only compared" }
+
+[vars.bank2."0xA0F3"]
+# build_reachable_enemy_target_list
+arg1 = { name = "unit_x", comment = "[HIGH] Unit X/row coord; all 6 callers push *(unit_field_ptr_6fd0(...)); copied into cur_x(local9) each dir then stepped by sub_8003." }
+arg2 = { name = "unit_y", comment = "[HIGH] Unit Y/col coord; callers push *(unit_field_ptr_6fda(...)); copied into cur_y(local8) each dir, passed by-addr to sub_8003." }
+arg3 = { name = "out_buf", comment = "[HIGH] Output buffer ptr; callers pass &localN; aliased to out_ptr(local7), filled with target unit idx per dir, and returned." }
+local7 = { name = "out_ptr", comment = "[HIGH] Walking write ptr into out_buf: local7=arg3, *local7=-1/unit_idx, local7++ each of 6 dirs." }
+local8 = { name = "cur_y", comment = "[HIGH] Working Y coord, reset to arg2 each dir, passed by-addr to sub_8003 which steps it to neighbor cell." }
+local9 = { name = "cur_x", comment = "[HIGH] Working X coord, reset to arg1 each dir, passed by-addr to sub_8003; neighbor cell fed to is_unit_at_coords." }
+local10 = { name = "unit_idx", comment = "[HIGH] Inner loop index 0..4 over 5 enemy unit slots; is_unit_at_coords(cur_x,cur_y,side^1,local10); stored as found target." }
+local11 = { name = "dir_idx", comment = "[HIGH] Outer loop index 0..5 over 6 neighbor directions; drives sub_8003 step and advances out_ptr per direction." }
+
+[vars.bank2."0xA3BD"]
+# ai_step_unit_toward_target
+arg1 = { name = "unit_x", comment = "[HIGH] Unit tile X coord: callers push *unit_field_6fd0; fed to bfs_path_distance + place_unit_at_tile_if_free as 1st coord" }
+arg2 = { name = "unit_y", comment = "[HIGH] Unit tile Y coord: callers push *unit_field_6fda; paired with unit_x in bfs_path_distance and place_unit_at_tile_if_free" }
+local11 = { name = "steps_to_target", comment = "[HIGH] BFS path distance to target; decremented (local11-1) to advance one tile closer, passed as 3rd arg to sub_8003 pathing" }
+
+[vars.bank2."0xA721"]
+# ai_rng_resolve_combat_apply_casualties
+local8 = { name = "enemy_side", comment = "[HIGH] enemy battle-side index = cur_combat_side^1 ($A72B); feeds get_battle_side_province / unit_record_ptr / unit_word_field_ptr_6fbc throughout" }
+local9 = { name = "max_strength", comment = "[HIGH] running max of enemy unit-type strength: if local9<field then local9=field over the 5-type loop; the argmax value" }
+local10 = { name = "unit_type", comment = "[HIGH] loop index 0..4 over unit types (local10+1 each pass, while local10<5); used as the per-type index into unit fields" }
+local11 = { name = "strongest_unit_type", comment = "[HIGH] unit-type index holding the max (local11=local10 at each new max); passed as arg1 to resolve_attack_apply_casualties" }
+
+[vars.bank2."0xA9FB"]
+# combat_command_select_target_resolve_attack
+local8 = { name = "enemy_side", comment = "[HIGH] enemy side id = cur_combat_side^1 ($AA52 bitxor); feeds test_unit_type_present_flag(enemy_side, target_idx)" }
+local9 = { name = "own_province", comment = "[MED] own/attacking side province from get_battle_side_province(cur_combat_side) ($AA07); set-only in this sub" }
+local10 = { name = "target_idx", comment = "[HIGH] selected enemy unit slot: prompt(1,5) then -1 ($AA45/$AA4B); arg1 to resolve_attack_apply_casualties + presence test" }
+# local11 left positional — reused scratch: first attacker-defender range/max ($AA7B), then overwritten with chosen amount prompt(1,local11) ($AA95)
+
+[vars.bank2."0xAC7F"]
+# combat_command_dispatch_loop_per_unit
+local8 = { name = "cmd_handler", comment = "[HIGH] command handler fn-ptr: =*(b9f8 dispatch table)[sel], called via (*local8)() at $AD11 to run the chosen order" }
+local9 = { name = "unit_cell", comment = "[HIGH] current unit map cell = *cur_unit_field_ptr_6fd0(); fed to is_cell_valid_for_phase + draw_tactical_cursor at $ACD4/$ACD8" }
+local10 = { name = "battle_over", comment = "[HIGH] return/stop flag: init 0, =1 on retreat(sel==3), else commander-alive check; returned at $AD37 to end the per-unit loop" }
+# local11 left positional — REUSED scratch: 0..5 window-draw loop counter ($ACA8) THEN menu-selection/command index ($AD07); two disjoint roles -> s
+
+[vars.bank2."0xAF3B"]
+# dispatch_battle_resolution
+arg1 = { name = "outcome", comment = "[HIGH] battle resolution/outcome code; tested ==5, incremented to retreat-code on war_side_state_flag&31, passed to announce_battle_outcome; callers push 3/4/5/local6" }
+local11 = { name = "i", comment = "[HIGH] palette loop index 0..15 over battle_setup_select_prov_data_ba7f[i] for palette_write_wrap (frame[+0x0B], inc, cmp >=16)" }
+
+[vars.bank2."0x813C"]
+# build_blit_fief_tile_block
+arg1 = { name = "dst_col", comment = "[HIGH] Tile X (column) of blit dest; return passes (arg1,arg2,arg1+5,arg2+5) to ppu_blit_from_bank_wrap = 6x6 rect top-left X. Caller (12,20)." }
+arg2 = { name = "dst_row", comment = "[HIGH] Tile Y (row) of blit dest; arg2 & arg2+5 are y_min/y_max of the 6x6 portrait rect in ppu_blit_from_bank_wrap. Caller (12,20)." }
+
+[vars.bank2."0x9865"]
+# ai_advance_units_when_attacker_stronger
+local6 = { name = "dir", comment = "[HIGH] hex-direction index 0..5: set 0, passed to sub_8003(&x,&y,dir) neighbor-step, inc'd, loop while <6" }
+local7 = { name = "unit_idx", comment = "[HIGH] unit loop index into unit_field_ptr_6fd0/6fda(side,idx); inc'd, loop while < cur_combat_unit_slot" }
+local8 = { name = "cand_y", comment = "[HIGH] candidate Y: copied from unit Y (local10), stepped by sub_8003, then commit_unit_dest_tile_if_valid(x,y)" }
+local9 = { name = "cand_x", comment = "[HIGH] candidate X: copied from unit X (local11), stepped by sub_8003, then commit_unit_dest_tile_if_valid(x,y)" }
+local10 = { name = "unit_y", comment = "[HIGH] unit Y coord: out-param of find_free_tactical_placement_cell, reloaded from $6FDA unit-Y array via unit_field_ptr_6fda" }
+local11 = { name = "unit_x", comment = "[HIGH] unit X coord: out-param of find_free_tactical_placement_cell, reloaded from $6FD0 unit-X array via unit_field_ptr_6fd0" }
+
+[vars.bank2."0x9C88"]
+# ai_eval_battle_strength_total
+arg1 = { name = "side", comment = "[HIGH] combat side selector (0/1); feeds get_battle_side_province + test_6f65_bit7; caller passes cur_combat_side / (cur_combat_side^1)" }
+arg2 = { name = "unit_slot", comment = "[HIGH] this side's unit slot index; 2nd arg to unit_word_field_ptr_6fbc/terrain/stat-diff terms; caller passes cur_combat_unit_slot" }
+arg3 = { name = "other_unit_slot", comment = "[MED] opposing-side unit slot; indexes per-unit byte array [arg3+$7BEE] and gated-table term; caller passes the other side's slot" }
+local10 = { name = "strength_terms_total", comment = "[HIGH] accumulates strength terms (terrain+stat_diff+gated_table+score_40pct+morale_pct); added to base_strength in return" }
+local11 = { name = "base_strength", comment = "[HIGH] unit base strength word *unit_word_field_ptr_6fbc(side,slot); reused in score_40pct, pct_op, and (base+total) return" }
+
+[vars.bank2."0xA194"]
+# ai_place_units_near_enemy_loop
+local4 = { name = "i", comment = "[HIGH] Inner counter over target-list entries; init 0 @A1C1, inc @A1CE, bound <6 (A1D2/A1D8)." }
+local5 = { name = "dir", comment = "[HIGH] Outer direction index 0..5; init 0, inc @A1E7, bound>=6 @A1EA, passed as 3rd arg to sub_8003 (6 neighbor dirs)." }
+local6 = { name = "tile_y", comment = "[HIGH] Unit tile Y from cur_unit_field_ptr_6fda; by-ref to sub_8003, used in target-list build + place_unit_at_tile_if_free." }
+local7 = { name = "tile_x", comment = "[HIGH] Unit tile X from cur_unit_field_ptr_6fd0; by-ref to sub_8003, used in target-list build + place_unit_at_tile_if_free." }
+local8 = { name = "target_list_ptr", comment = "[HIGH] Ptr returned by build_reachable_enemy_target_list; walked (local8+1) and dereferenced (*ptr<5) @A1C4/A1C9." }
+local9 = { name = "target_count", comment = "[MED] Out-param (&local9) to build_reachable_enemy_target_list; receives list length/count via frameaddr push @A1B5." }
+
+[vars.bank2."0xA7E5"]
+# ai_test_own_double_ge_enemy_total_strength
+local5 = { name = "enemy_strength_total", comment = "[HIGH] Accumulator: =0 then += unit_word_field_6fbc(enemy_side,type) per type; final cmp own<<1 >= local5 = enemy total strength." }
+local6 = { name = "enemy_side", comment = "[HIGH] = cur_combat_side ^ 1; used as side arg to test_unit_type_present_flag(local6,t) and unit_word_field_6fbc(local6,t) -> opposing side." }
+local7 = { name = "i", comment = "[HIGH] Loop counter: =0, local7+=1 per iter, bound local7>=6; indexes the 6-entry reachable-target scan." }
+local8 = { name = "target_list_buf", comment = "[HIGH] &local8 passed as arg3 buffer to build_reachable_enemy_target_list, filled with 6 reachable enemy unit-type ids (-1 sentinels)." }
+local11 = { name = "target_ptr", comment = "[HIGH] = ptr returned (=&local8 buf base); cursor: deref *(byte*)local11 (type id<5), local11+=1 per iter walking target_list_buf." }
+
+[vars.bank2."0xAAA7"]
+# combat_flee_to_fief_command
+local11 = { name = "source_fief", comment = "[HIGH] fleeing side's own province from get_battle_side_province; feeds build_daimyo_province_list + battle_winner_province_sel + clear_unit_combat_flags" }
+local10 = { name = "dest_fief", comment = "[HIGH] flee destination idx from prompt_select_province_from_list; checked !=255, used as province_ai_state[dest]=5 and clear_unit_combat_flags arg" }
+
+[vars.bank2."0x99D2"]
+# ai_place_combat_units_random_or_smart
+arg1 = { name = "arena_rect", comment = "[HIGH] arena rect from set_combat_arena_rect_by_approach(); passed straight to rng_search_combat_rect_for_unit_cell to bound cell search" }
+
+[vars.bank2."0x9D75"]
+# calc_battle_strength_pct_one_side
+arg1 = { name = "unit_type", comment = "[HIGH] unit-type id (0-4): fed as unit-type selector into both ai_eval_battle_strength_total calls; callers pass *(byte*)(arg1) gated `<5` while iterating 5 unit types" }
+
+[vars.bank2."0xA52F"]
+# ai_decide_unit_action_attack_or_advance
+local7 = { name = "strength_threshold", comment = "[HIGH] =50 const ($A548 imm +50); 2nd arg to find_strongest_unit_type_by_strength and compared vs max_enemy_unit_type_strength_pct -> strength %% threshold" }
+local8 = { name = "reachable_enemy_list", comment = "[HIGH] &local8 ($A54B frameaddr) filled by build_reachable_enemy_target_list, then read by find_strongest/max_strength -> reachable-enemy unit-type list buffer" }
+local11 = { name = "target_unit_type", comment = "[HIGH] set by find_flagged_present_unit_type/find_strongest_unit_type_by_strength, gated <5 to decide attack -> selected enemy unit-type target" }
+
+[vars.bank2."0xA84D"]
+# ai_clear_province_state_when_strong_enough
+arg1 = { name = "fief", comment = "[MED] province index; bytecode $A880-$A883 cmp_ugt vs 29 (max fief idx); passed unchanged from ai_select_unit_combat_action caller" }
+local11 = { name = "side_fief", comment = "[HIGH] = get_battle_side_province(cur_combat_side); used as battle_winner_province_sel and clear_unit_combat_flags arg1 -> battle-side province idx" }
+local10 = { name = "owner", comment = "[HIGH] = deduped_owner_list ($6F4F byte); !=255 guard then indexes province_ai_state[owner] and clear_unit_combat_flags arg2 -> owner/daimyo idx" }
+
+[vars.bank2."0x9D9A"]
+# ai_battle_strength_ratio_below_50
+arg1 = { name = "unit_type", comment = "[HIGH] unit-type/slot idx passed straight to calc_battle_strength_pct_one_side; callers push *local6 iterating 6 unit types (<5/>=5)" }
+
+[vars.bank2."0xA1EF"]
+# ai_engage_present_enemy_if_favorable
+arg1 = { name = "unit_idx", comment = "[HIGH] unit slot index (0-4): passed to enemy-at-tile / strength-ratio / parity predicates; caller pushes loop var over test_unit_type_present_flag" }
+
+[vars.bank2."0xA3F8"]
+# ai_select_weak_reachable_enemy_target
+local6 = { name = "list_cursor", comment = "[HIGH] Walk pointer into the reachable-enemy list; init=builder return then &list_buf, deref *(byte*), incremented each pass ($A43B)" }
+local7 = { name = "target_list_buf", comment = "[HIGH] Output buffer filled by build_reachable_enemy_target_list(&local7); 6-entry unit-type array, base for all 3 scan passes" }
+local10 = { name = "chosen_target_type", comment = "[HIGH] Selected enemy unit-type idx; set from find_flagged/weak-target scans, then eval_and_announce(local10) if <5 ($A4B4)" }
+local11 = { name = "i", comment = "[HIGH] Loop index across all 3 list scans: =0, incremented per pass, bound cmp_uge >=6 ($A444/$A480/$A4AA); same role throughout" }
+
+[vars.bank2."0xA5A4"]
+# ai_advance_units_toward_reachable_enemies
+local6 = { name = "target_ptr", comment = "[HIGH] ptr returned by build_reachable_enemy_target_list; walked *(byte*)local6 (unit-type idx <5), local6++ each iter" }
+local7 = { name = "target_count", comment = "[MED] &local7 out-param to build_reachable_enemy_target_list (the list length/secondary output it fills)" }
+local10 = { name = "enemy_side", comment = "[HIGH] = cur_combat_side ^ 1; the opposing side index, used in unit_field_ptr_6fd0/6fda(local10, *target_ptr)" }
+local11 = { name = "i", comment = "[HIGH] loop counter: =0 then local11+1 each iter, bound while local11 < 6; pure iteration index" }
+
+[vars.bank2."0xA625"]
+# ai_advance_units_into_free_adjacent_cells
+local5 = { name = "free_cell_found", comment = "[HIGH] bool: init 0 ($A63C), set 1 when a free adjacent cell passes bounds/occupancy/blocked checks ($A671); gates advance at $A690" }
+local6 = { name = "enemy_side", comment = "[HIGH] opposing side = cur_combat_side ^ 1 ($A683); used as side arg to test_unit_type_present_flag / unit_field_ptr_6fd0(local6,0)" }
+local7 = { name = "origin_y", comment = "[HIGH] cur unit's Y tile coord = byte at cur_unit_field_ptr_6fda ($A63A); copied into candidate_y each iteration" }
+local8 = { name = "origin_x", comment = "[HIGH] cur unit's X tile coord = byte at cur_unit_field_ptr_6fd0 ($A635); copied into candidate_x each iteration" }
+local9 = { name = "candidate_y", comment = "[HIGH] neighbor cell Y: = origin_y ($A644), passed by-ref to sub_8003 (mutated to a direction), then bounds/occupancy tested" }
+local10 = { name = "candidate_x", comment = "[HIGH] neighbor cell X: = origin_x ($A642), passed by-ref to sub_8003 (mutated to a direction), then bounds/occupancy tested" }
+# local11 left positional — REUSED scratch: first a 0..5 direction index for sub_8003 ($A677), then reset and reused as 0..4 unit-type index ($A685+
+
+[vars.bank2."0xA6C5"]
+# ai_choose_combat_action_by_battle_strength
+arg1 = { name = "unit_type", comment = "[LOW] passed thru from ai_select_unit_combat_action; only use is `cur_combat_side==0 && arg1>5` gating advance — unit-type boundary (types 0-4)" }
+local2 = { name = "enemy_strength_pct", comment = "[HIGH] local2 = max_enemy_unit_type_strength_pct(...) then `if (local2 >= 20)` — enemy peak unit-type strength percent threshold" }
+local3 = { name = "enemy_target_list", comment = "[HIGH] &local3 out-buffer filled by build_reachable_enemy_target_list, then scanned by find_strongest_unit_type_by_strength(&local3,70)" }
+local6 = { name = "strongest_unit_type", comment = "[HIGH] local6 = find_strongest_unit_type_by_strength(&local3,70); passed to eval_and_announce_battle_strength_parity — id of strongest enemy unit type" }
+
+[vars.bank2."0xA8CF"]
+# ai_select_unit_combat_action
+arg1 = { name = "fief", comment = "[HIGH] province idx; passed straight through to ai_clear_province_state_when_strong_enough/ai_choose_combat_action_by_battle_strength; caller forwards its own fief arg unchanged" }
+arg2 = { name = "unit_idx", comment = "[MED] per-unit ordinal; caller passes local8 (init 0, +1 each unit-slot before call); used only at $A900 unit_type_count_gt3_and_equals_arg1(arg2)" }
+
+[vars.bank2."0xABB7"]
+# ai_run_all_units_combat_actions
+arg1 = { name = "battle_phase", comment = "[MED] Pass-through from run_both_sides_combat_turn; forwarded unchanged as 1st arg of ai_select_unit_combat_action(arg1,idx) = battle phase/mode" }
+local8 = { name = "unit_iter", comment = "[HIGH] Inited 0, +1 per acting unit ($AC4E), passed as arg2 ((local8+1)-1) to ai_select_unit_combat_action -> running per-unit action index/counter" }
+local9 = { name = "battle_over_flag", comment = "[HIGH] Result flag: =1 if unit action returned nonzero, else check_commander_alive_both_sides(); the sub's return value -> battle-terminate flag" }
+# local10 left positional — REUSED scratch: first a unit cell-coord byte from *6fd0() for cursor draw, then re-init to 1 as the <7 cursor-region loo
+local11 = { name = "action_result", comment = "[HIGH] Holds return of ai_select_unit_combat_action(arg1,idx) ($AC56); tested to set battle_over_flag -> per-unit combat-action result" }
+
+[vars.bank2."0xADD1"]
+# run_both_sides_combat_turn
+arg1 = { name = "day", comment = "[HIGH] battle day counter; caller passes local7 (=1, also draw_combat_day_header arg); forwarded to ai_run_all_units_combat_actions" }
+local9 = { name = "result", comment = "[HIGH] return status from combat_command_dispatch_loop_per_unit ($AE13); branched on then returned; caller uses it as battle-end code" }
+local10 = { name = "side_i", comment = "[HIGH] loop index over the 2 combat sides: 0..1, ++ each pass with cur_combat_side^=1, exits at >=2 ($AE23/$AE27)" }
+local11 = { name = "unit_i", comment = "[HIGH] inner index 0..4 zeroing per-unit slot array at $7BEE (5 units); ++ until >=5 ($ADE0/$ADEF)" }
+
+[vars.bank2."0xAFE1"]
+# battle_init_driver
+local5 = { name = "side", comment = "[HIGH] side index 0..1: loop counter indexing per-side arrays (local5<<1)+&local10/&local8, cmp_uge 2 ($B035/$B062)" }
+local6 = { name = "result", comment = "[HIGH] battle resolution/result code: =clear_defending() then =run_both_sides_combat_turn(); passed to dispatch_battle_resolution($B027/$B08D)" }
+local7 = { name = "day", comment = "[HIGH] day counter 1..30: draw_combat_day_header(local7), incA each pass, cmp_uge 31 ($B0A7) -> 31-day battle loop" }
+local8 = { name = "side_rice_accum", comment = "[HIGH] 2-elem per-side rice accumulator, init 0 ($B04F); &local8 passed to consume_daily_battle_rice($B09F) as the /30 accumulator" }
+local10 = { name = "side_unit_ptr", comment = "[HIGH] 2-elem per-side unit-record ptr = unit_record_ptr(side)+2 ($B044); deref'd & cmp_sge 0 to detect side wipe; &local10 to consume_daily_battle_rice" }
+
