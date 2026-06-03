@@ -568,10 +568,13 @@ def _body_arg_count(instructions):
 # them, and the section header resets the `[prg.bankN]` collectors (which bail on any
 # non-prg `[`), so the two tables never interfere.
 def load_var_names(toml_path):
-    """Parse `[vars.bankN."0xADDR"]` sections -> {(bank, addr): {slot: name}}."""
+    """Parse `[vars.bankN."0xADDR"]` sections -> {(bank, addr): {slot: name}}.
+    Slot keys are positional tokens (`arg1`/`localN`, bare) OR far-frame displacement
+    keys (`"fp-38"`/`"fp+40"`, quoted) — the latter for spill locals the disassembler
+    renders as raw `*(word*)(fp - 38)` rather than one of the 12 standard slots."""
     text = Path(toml_path).read_text(encoding="utf-8")
     sec_re = re.compile(r'^\s*\[vars\.bank(\d+)\."0x([0-9A-Fa-f]+)"\]')
-    slot_re = re.compile(r'^\s*([A-Za-z_]\w*)\s*=\s*\{\s*name\s*=\s*"([^"]+)"')
+    slot_re = re.compile(r'^\s*(?:([A-Za-z_]\w*)|"(fp[+-]\d+)")\s*=\s*\{\s*name\s*=\s*"([^"]+)"')
     out, cur = {}, None
     for line in text.splitlines():
         m = sec_re.match(line)
@@ -585,21 +588,46 @@ def load_var_names(toml_path):
         if cur is not None:
             sm = slot_re.match(line)
             if sm:
-                out[cur][sm.group(1)] = sm.group(2)
+                out[cur][sm.group(1) or sm.group(2)] = sm.group(3)
     return out
 
 
+# Far-frame slot key -> the exact displacement string vm-disasm renders (`_fp_disp`).
+_FAR_KEY_RE = re.compile(r'fp([+-])(\d+)$')
+
+
+def _far_disp(key):
+    """`'fp-38'` -> `'fp - 38'` (the literal `_fp_disp` form), or None if not a far key."""
+    m = _FAR_KEY_RE.match(key)
+    return f"fp {m.group(1)} {int(m.group(2))}" if m else None
+
+
 def apply_var_names(text, vmap):
-    """Substitute positional slot tokens (arg1/localN) with their semantic names.
-    Single-pass alternation (no cascade), word-bounded so `local1` never eats
-    `local11`. Run LAST in the emit pipeline — after annotate_field_access et al.,
-    which key on the literal arg1..arg4, so `arg1->output` is already formed and just
-    gets its base renamed to `fief->output`."""
+    """Substitute frame-slot placeholders with their semantic names. Run LAST in the
+    emit pipeline — after annotate_field_access et al., which key on the literal
+    arg1..arg4, so `arg1->output` is already formed and just gets its base renamed.
+
+    Two slot classes, disjoint text:
+      • Positional tokens (`arg1`/`localN`): word-bounded single-pass alternation
+        (no cascade — `local1` never eats `local11`).
+      • Far-frame slots (`fp-38`): replace the WHOLE rendered lvalue/rvalue. Every
+        `_fp_disp` form ends in `)`, so the displacement is closing-paren-anchored
+        (no `fp - 3` vs `fp - 38` prefix collision). Deref forms for ALL keys go
+        first, THEN the bare address-of form — so the `(fp - 38)` inside
+        `*(word*)(fp - 38)` isn't eaten before its deref match."""
     if not vmap:
         return text
-    keys = sorted(vmap, key=len, reverse=True)
-    pat = re.compile(r'\b(' + '|'.join(re.escape(k) for k in keys) + r')\b')
-    return pat.sub(lambda m: vmap[m.group(1)], text)
+    pos = {k: v for k, v in vmap.items() if not k.startswith("fp")}
+    far = {d: vmap[k] for k in vmap if (d := _far_disp(k))}
+    if pos:
+        keys = sorted(pos, key=len, reverse=True)
+        pat = re.compile(r'\b(' + '|'.join(re.escape(k) for k in keys) + r')\b')
+        text = pat.sub(lambda m: pos[m.group(1)], text)
+    for disp, name in far.items():                    # 1) typed derefs (word + byte)
+        text = text.replace(f"*(word*)({disp})", name).replace(f"*(byte*)({disp})", name)
+    for disp, name in far.items():                    # 2) bare address-of, after derefs gone
+        text = text.replace(f"({disp})", f"&{name}")
+    return text
 
 
 def decompile(filepath, sub_addr, labels=None, var_names=None):

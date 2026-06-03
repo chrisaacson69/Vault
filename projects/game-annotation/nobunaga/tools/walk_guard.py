@@ -32,14 +32,29 @@ def snapshot_decompiled(decompiled_dir):
             for p in Path(decompiled_dir).glob("*.c")}
 
 
+# Far-frame lvalue forms vm-disasm renders for un-named spill locals. var-walk
+# substitutes the WHOLE expression with a name (deref -> `name`, address-of ->
+# `&name`), so to keep "pure rename" honest the guard must treat the raw form as
+# identifier-equivalent: collapse the derefs to `ID` (== name) and the address-of to
+# `&ID` (== &name), BEFORE the generic identifier collapse. Derefs first so the inner
+# `(fp - N)` of a deref isn't eaten by the address-of rule (same ordering as the
+# substitution in apply_var_names). Symmetric on before/after — label-walk diffs have
+# no far forms, so this is a no-op there.
+_FAR_DEREF = re.compile(r'\*\((?:word|byte)\*\)\(fp [+-] \d+\)')
+_FAR_ADDR = re.compile(r'\(fp [+-] \d+\)')
+
+
 def norm_lines(text):
     """Non-comment lines with every identifier collapsed to 'ID' — so a pure rename
-    normalizes to the IDENTICAL line sequence (order preserved; logic changes survive)."""
+    (and a far-frame slot substitution) normalizes to the IDENTICAL line sequence
+    (order preserved; logic changes survive)."""
     out = []
     for ln in text.splitlines():
         s = ln.strip()
         if s.startswith("//"):
             continue
+        s = _FAR_DEREF.sub("ID", s)        # *(word*)(fp - 38) -> ID  (== name)
+        s = _FAR_ADDR.sub("&ID", s)        # (fp - 44)         -> &ID (== &name)
         out.append(re.sub(r"[A-Za-z_]\w*", "ID", s))
     return out
 

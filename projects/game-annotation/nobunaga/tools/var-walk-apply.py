@@ -36,7 +36,7 @@ from walk_guard import snapshot_decompiled, find_guard_violations
 ROOT = Path(__file__).resolve().parent.parent
 TOML = ROOT / "mesen-labels.toml"
 DECOMPILED = ROOT / "decompiled"
-SLOT_RE = re.compile(r'^(arg[1-4]|local\d+)$')
+SLOT_RE = re.compile(r'^(arg[1-4]|local\d+|fp[+-]\d+)$')   # positional OR far-frame (fp±N)
 
 
 def die(msg, code=2):
@@ -84,7 +84,8 @@ def render_block(bank, v):
             die(f"sub ${addr}: two slots share name '{name}'")
         seen.add(name)
         comment = f"[{s.get('confidence','?')}] {toml_escape(s.get('summary',''))}"
-        body.append(f'{slot} = {{ name = "{name}", comment = "{comment}" }}')
+        key = f'"{slot}"' if slot.startswith("fp") else slot   # far-frame keys quote (+ isn't a bare-key char)
+        body.append(f'{key} = {{ name = "{name}", comment = "{comment}" }}')
         n_named += 1
     return addr, n_named, head + "\n" + "\n".join(body) + "\n"
 

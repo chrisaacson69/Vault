@@ -2424,4 +2424,9 @@ local11 = { name = "face_code", comment = "[HIGH] packed composite face code fro
 # draw_daimyo_portrait
 arg1 = { name = "col", comment = "[HIGH] top-left COLUMN of 6x6 portrait; passed as x0 into ppu_blit_from_bank_wrap(arg1,arg2,arg1+5,arg2+5,..); +5=right edge" }
 arg2 = { name = "row", comment = "[HIGH] top-left ROW of 6x6 portrait; passed as y0 into ppu_blit_from_bank_wrap(arg1,arg2,arg1+5,arg2+5,..); +5=bottom edge" }
+# far-frame spill locals (var-walk far-frame pilot 2026-06-03)
+"fp-38" = { name = "pal_idx", comment = "[high] palette-copy loop counter 0..3: init 0 at $E775, indexes marry_helper_data_f7cc<<1, ++ and loops while <4 ($E777-$E78F)" }
+"fp-44" = { name = "descriptor_buf", comment = "[high] 4-byte portrait descriptor {chr_bank,tile_count,src_ptr_LE} copied from ROM via syscall16_sram_wrap(8,src,&buf,4) at $E7BE, then read field-wise" }
+"fp-40" = { name = "descriptor_ptr", comment = "[high] descriptor pointer: first the ROM table entry (fief_to_mapid<<2 + msg_ng_to_pieces), re-pointed at &descriptor_buf to read chr_bank/tile_count/src_ptr" }
+"fp-36" = { name = "face_buf", comment = "[high] assembled portrait CHR buffer: filled by unpack_composite_face_record($E7F2, generated path), blitted via ppu_blit_from_bank_wrap(...,&face_buf,8) at $E803" }
 

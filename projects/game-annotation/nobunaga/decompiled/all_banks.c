@@ -12684,23 +12684,23 @@ word unpack_composite_face_record(word dst_buf) {
 // (body @ PRG $3E774)
 
 word draw_daimyo_portrait(word col, word row) {
-    *(word*)(fp - 38) = 0;    // PRG $3E775
+    pal_idx = 0;    // PRG $3E775
 L_p3E777:
-    palette_write_wrap(*(word*)(fp - 38), *(word*)(((*(word*)(fp - 38) << 1) + marry_helper_data_f7cc)));    // PRG $3E782 -> bank15 $CF8B
-    *(word*)(fp - 38) = (*(word*)(fp - 38) + 1);    // PRG $3E789
-    if (((unsigned)*(word*)(fp - 38) >= (unsigned)4)) goto L_p3E777;    // PRG $3E78F
+    palette_write_wrap(pal_idx, *(word*)(((pal_idx << 1) + marry_helper_data_f7cc)));    // PRG $3E782 -> bank15 $CF8B
+    pal_idx = (pal_idx + 1);    // PRG $3E789
+    if (((unsigned)pal_idx >= (unsigned)4)) goto L_p3E777;    // PRG $3E78F
     if (((unsigned)active_province_idx_copy < (unsigned)53)) goto L_p3E7A7;    // PRG $3E798
     if (*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6))) goto L_p3E7EE;    // PRG $3E7A4 -> bank15 $D7CD
 L_p3E7A7:
-    *(word*)(fp - 40) = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + msg_ng_to_pieces);    // PRG $3E7B4 -> bank15 $DC66
-    syscall16_sram_wrap(8, *(word*)(fp - 40), (fp - 44), 4);    // PRG $3E7BE -> bank15 $CBBD
-    *(word*)(fp - 40) = (fp - 44);    // PRG $3E7C5
-    ppu_upload_block_wrap(*(byte*)(*(word*)(fp - 40)), *(word*)((*(word*)(fp - 40) + 2)), 0x15B0, *(byte*)((*(word*)(fp - 40) + 1)));    // PRG $3E7D8 -> bank15 $CF7C
+    descriptor_ptr = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + msg_ng_to_pieces);    // PRG $3E7B4 -> bank15 $DC66
+    syscall16_sram_wrap(8, descriptor_ptr, &descriptor_buf, 4);    // PRG $3E7BE -> bank15 $CBBD
+    descriptor_ptr = &descriptor_buf;    // PRG $3E7C5
+    ppu_upload_block_wrap(*(byte*)(descriptor_ptr), *(word*)((descriptor_ptr + 2)), 0x15B0, *(byte*)((descriptor_ptr + 1)));    // PRG $3E7D8 -> bank15 $CF7C
     goto L_p3E7FA;    // PRG $3E7EB
 L_p3E7EE:
-    unpack_composite_face_record((fp - 36));    // PRG $3E7F2 -> bank15 $E6B9
+    unpack_composite_face_record(&face_buf);    // PRG $3E7F2 -> bank15 $E6B9
 L_p3E7FA:
-    ppu_blit_from_bank_wrap(col, row, (col + 5), (row + 5), (fp - 36), 8);    // PRG $3E803 -> bank15 $CC54
+    ppu_blit_from_bank_wrap(col, row, (col + 5), (row + 5), &face_buf, 8);    // PRG $3E803 -> bank15 $CC54
     ui_pending_flag_7fc7 = 1;    // PRG $3E808
     return 1;    // PRG $3E80B
 }
