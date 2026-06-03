@@ -544,7 +544,7 @@ L_89D9:
     prompt_select_scenario_size();    // $89EB
     goto L_89FC;    // $89EF
 L_89F2:
-    *(byte*)((local11 + 0x6F1B)) = local11;    // $89F9
+    daimyo_turn_order[local11] = local11;    // $89F9
 L_89FC:
     local11 = (local11 + 1);    // $89FC
     if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_89F2;    // $8A02
@@ -1110,7 +1110,7 @@ word check_and_process_daimyo_natural_death(word arg1, word arg2, word arg3, wor
     local10 = check_daimyo_natural_death(/*stack underflow*/ regA);    // $91AD
     if (!(check_daimyo_natural_death(/*stack underflow*/ regA))) goto L_91FC;    // $91AE
     if ((local10 != 1)) goto L_91BE;    // $91B4
-    if (!(!(config_block))) return config_block;    // $91BA
+    if (!(!(current_season))) return current_season;    // $91BA
     local11 = 1;    // $91BE
     local11 = 1;    // $91C3
     list_op_6e4a(/*stack underflow*/ regA);    // $91BF
@@ -2003,9 +2003,9 @@ word build_event_eligible_fief_candidate_list(word arg1, word arg2, word arg3, w
     goto L_9ECA;    // $9EA9
 L_9EAC:
     arg1 = 0x6F1B;    // $9EB3
-    if (select_event_eligibility_check_by_type(/*via arg1*/ 0x6F1B, *(byte*)((local10 + 0x6F1B)))) {    // $9EB8
+    if (select_event_eligibility_check_by_type(/*via arg1*/ 0x6F1B, daimyo_turn_order[local10])) {    // $9EB8
     local11 = 0x6F1B;    // $9EBB
-    *(byte*)(0x6F1B) = *(byte*)((local10 + 0x6F1B));    // $9EC2
+    *(byte*)(0x6F1B) = daimyo_turn_order[local10];    // $9EC2
     local11 = (local11 + 1);    // $9EC5
     local9 = 1;    // $9EC7
     }
@@ -2334,7 +2334,7 @@ L_A349:
     redraw_window_f6c7();    // $A361
     process_fiefs_with_state_ff();    // $A364
     battle_defender_province_staging = -1;    // $A369
-    switch (config_block) {    // $A36F
+    switch (current_season) {    // $A36F
         case 0: goto L_A37E;    // $A36F
         case 1: goto L_A385;    // $A36F
         case 2: goto L_A38B;    // $A36F
@@ -2411,9 +2411,9 @@ word ai_strategic_turn_planner(word arg1, word arg2, word arg3, word arg4) {
     if (!(sram_save_pending_flag)) goto L_A47F;    // $A479
 L_A47F:
     write_sram_save_checksum_and_signature();    // $A47C
-    config_block = (config_block + 1);    // $A483
-    config_block = ((config_block + 1) & 3);    // $A488
-    if (((config_block + 1) & 3)) goto L_A498;    // $A48B
+    current_season = (current_season + 1);    // $A483
+    current_season = ((current_season + 1) & 3);    // $A488
+    if (((current_season + 1) & 3)) goto L_A498;    // $A48B
     current_game_year = (current_game_year + 1);    // $A492
 L_A498:
     roll_period_rate_table_6e0b();    // $A495
@@ -2428,7 +2428,7 @@ L_A4AE:
     if (((unsigned)local9 >= (unsigned)scenario_fief_count)) goto L_A49F;    // $A4B4
     if (!(!((ai_turn_flags & 128)))) return (ai_turn_flags & 128);    // $A4BE
     ai_planner_event_handler_select = 0;    // $A4C3
-    if ((config_block != 1)) goto L_A4DE;    // $A4CB
+    if ((current_season != 1)) goto L_A4DE;    // $A4CB
     if (!(rng_mod(2))) goto L_A4DE;    // $A4D3
     ai_planner_event_handler_select = 1;    // $A4D7
     local11 = decay_fief_list_wealth_and_output_disaster1;    // $A4DD

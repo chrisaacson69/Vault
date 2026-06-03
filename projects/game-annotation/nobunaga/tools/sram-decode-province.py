@@ -15,8 +15,9 @@ Record layout (16-bit LE per field):
     +10  dams              +22  arms
                            +24  header (base koku, the development ceiling)
 
-Also dumps the small config block at $6D5F (4 bytes) and the daimyo turn
-order at $6F0B (17 bytes) for sanity checking.
+Also dumps the small config block at $6D5F (4 bytes; byte 0 = current_season
+counter, 0-3) and the daimyo turn order at $6F1B (scenario_fief_count bytes)
+for sanity checking.
 
 Usage: python sram-decode-province.py <dump.dmp> [--diff <other.dmp>]
 """
@@ -32,7 +33,7 @@ NUM_RECORDS = 17
 
 CONFIG_BLOCK = 0x6D5F
 CONST_TWO    = 0x6D63
-TURN_ORDER   = 0x6F0B
+TURN_ORDER   = 0x6F1B  # was $6F0B (zero refs); real array base per main-turn-loop walk 2026-06-02
 SELECTED_IDX = 0x6F5F
 
 FIELDS = [
@@ -92,7 +93,7 @@ def dump_globals(data):
     print(f"  const_two   @ $6D63   = word {read_word(data, cpu_to_file(CONST_TWO))}  "
           f"(expect 2)")
     turn = data[cpu_to_file(TURN_ORDER):cpu_to_file(TURN_ORDER) + NUM_RECORDS]
-    print(f"  daimyo_turn_order @ $6F0B = {list(turn)}")
+    print(f"  daimyo_turn_order @ $6F1B = {list(turn)}")
     sel = read_word(data, cpu_to_file(SELECTED_IDX))
     print(f"  selected_province_idx @ $6F5F = {sel}  "
           f"(if in-game: {DAIMYO_NAMES_17[sel] if sel < len(DAIMYO_NAMES_17) else '?'})")

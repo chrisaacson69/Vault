@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Main Turn Loop — Nobunaga’s Ambition</title>
+<style>
+  :root{
+    --bg:#15151c; --panel:#1f1f2b; --ink:#e8e6df; --dim:#9a97a8;
+    --gold:#f0b429; --red:#e8431f; --blue:#3a6ee8; --green:#5ad05a;
+    --line:#33303f; --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--gold);padding-bottom:14px;margin-bottom:8px}
+  .cmdno{color:var(--gold);font:600 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  h1{margin:.18em 0 .1em;font-size:38px;letter-spacing:.01em}
+  .tag{color:var(--dim);font-style:italic}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 28px}
+  .skills span{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:6px 11px;text-transform:uppercase}
+  h2{margin:38px 0 4px;font-size:22px;border-left:4px solid var(--gold);padding-left:12px}
+  .sub{color:var(--dim);margin:0 0 16px;padding-left:16px;font-size:14px}
+  .anim{display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px}
+  .anim img{image-rendering:pixelated;width:256px;height:240px;background:#6b6b6b;border-radius:6px}
+  .anim .cap{flex:1;min-width:240px}
+  .anim .cap b{color:var(--gold)}
+  .pill{display:inline-block;font:600 11px/1 var(--mono);color:var(--bg);background:var(--green);
+    border-radius:4px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+  ol.flow{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+  ol.flow li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line)}
+  ol.flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  ol.flow .scr{color:var(--green);font-family:var(--mono);font-size:14px}
+  ol.flow .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right}
+  pre{background:#101019;border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:8px;padding:16px;overflow:auto;font:13.5px/1.5 var(--mono);color:#d6e4ff}
+  pre .c{color:#6f7b96}
+  pre .k{color:var(--gold)}
+  .callout{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--red);
+    border-radius:8px;padding:14px 18px;margin:18px 0}
+  .callout b{color:var(--red)}
+  .rabbit{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .rabbit b{color:#b89af0}
+  .rabbit a{color:var(--blue);text-decoration:none}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--panel);color:var(--gold);font-weight:600}
+  td .ok{color:var(--green)}
+  code{font-family:var(--mono);color:var(--gold);font-size:.92em}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer a{color:var(--blue);text-decoration:none}
+  .roi{color:var(--dim);font-style:italic;margin-top:6px}
+
+  .lead{color:var(--ink);font-size:16px;margin:6px 0 26px}
+  .lead b{color:var(--gold)}
+  .map{list-style:none;counter-reset:step;padding:0;margin:14px 0 8px}
+  .map li{position:relative;padding:11px 0 11px 52px;border-bottom:1px solid var(--line)}
+  .map li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:9px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  .map a{color:var(--ink);text-decoration:none;font-weight:600}
+  .map a:hover{color:var(--gold)}
+  .map .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right;margin-top:3px}
+  .map .gloss{display:block;color:var(--dim);font-size:13.5px;font-weight:400;margin-top:2px}
+  .st{display:inline-block;font:700 10px/1 var(--mono);letter-spacing:.05em;border-radius:4px;
+    padding:4px 7px;margin-right:8px;vertical-align:middle;text-transform:uppercase}
+  .st-inline{background:var(--green);color:var(--bg)}
+  .st-page{background:var(--blue);color:#fff}
+  .st-stub{background:var(--panel);color:var(--dim);border:1px solid var(--line)}
+  .phase{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:18px 20px;margin:16px 0}
+  .phase h3{margin:0 0 4px;font-size:19px}
+  .phase h3 .addr{color:var(--dim);font-family:var(--mono);font-size:12px;font-weight:400}
+  .phase .bank{color:var(--dim);font-family:var(--mono);font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em}
+  .phase p{margin:10px 0 0}
+  .phase a{color:var(--blue);text-decoration:none}
+  .branch{background:#10131f;border:1px solid #2a3358;border-left:4px solid var(--blue);
+    border-radius:8px;padding:14px 18px;margin:12px 0}
+  .branch b{color:#9ab8ff}
+  .branch a{color:#9ab8ff;text-decoration:none;font-weight:600}
+  .find{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--gold);
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .find b{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="cmdno">Nobunaga’s Ambition · NES · The Engine</div>
+  <h1>The Main Turn Loop</h1>
+  <div class="tag">vm_bootstrap $A778 — the per-season driver every other subsystem hangs off.</div>
+</header>
+
+<div class="skills">
+  <span>① decompiler → C</span>
+  <span>② data-walk labels</span>
+  <span>③ bytecode-verified control flow</span>
+  <span>⑤ the spine / map</span>
+</div>
+
+<p class="lead">This is the <b>spine</b> of the game. One routine — <code>vm_bootstrap $A778</code> — sequences every season: it runs the per-season tick, reshuffles who acts, and hands each fief to the command driver, looping out to the combat engine whenever a war is declared. The <b>command palette</b> (21 pages) and the <b>battle engine</b> are its two big branches; this page is the index above them, and the status badges are the remaining-work map.</p>
+
+<h2>The loop at a glance</h2>
+<p class="sub">One pass = one season. After <code>init</code> (once), phases 1–6 repeat. <span class="st st-inline">dived</span> = explained here · <span class="st st-page">has page</span> = its own deep dive · <span class="st st-stub">to do</span> = known entry point, not yet walked.</p>
+<ol class="map">
+  <li><span class="addr">$89A3 · bank 0</span><span class="st st-stub">to do</span><a href="#init">init_new_game_state</a><span class="gloss">One-time new-game setup — seeds the board, including the identity-filled turn order.</span></li>
+  <li><span class="addr">$A455 · bank 0</span><span class="st st-inline">dived</span><a href="#planner">ai_strategic_turn_planner</a><span class="gloss">The per-season tick — save, calendar, the season-phased economy update, events, illness.</span></li>
+  <li><span class="addr">$A5E6 · bank 0</span><span class="st st-inline">dived</span><a href="#uprising">spawn_zealot_uprising_force_from_province</a><span class="gloss">Ikkō-ikki / zealot uprising — builds a one-off attacking army in the $7515 slot.</span></li>
+  <li><span class="addr">$AFE1 · bank 2</span><span class="st st-stub">to do</span><a href="#combat">resolve staged combat</a><span class="gloss">call_bank_wrap(2) → the bank-2 battle engine. The other big branch — its own epic.</span></li>
+  <li><span class="addr">$A742 · bank 0</span><span class="st st-inline">dived</span><a href="#shuffle">shuffle_fief_turn_order_array</a><span class="gloss">Re-randomize who acts when this season — Fisher-Yates-style over $6F1B.</span></li>
+  <li><span class="addr">$B89B · bank 1</span><span class="st st-page">has page</span><a href="#command">ai_per_fief_command_driver</a><span class="gloss">The command pass — each fief, in turn order, picks and executes one command.</span></li>
+  <li><span class="addr">$8003 · bank 0</span><span class="st st-stub">to do</span><a href="#gameover">display_fullscreen_graphic_sequence</a><span class="gloss">Win/lose screen, then restart — reached when the abort bit (ai_turn_flags &amp; 128) is set.</span></li>
+</ol>
+
+<h2>The phases</h2>
+<div class="phase" id="init">
+  <div class="bank">Phase 0 · bank 0</div>
+  <h3><span class="st st-stub">to do</span>init_new_game_state <span class="addr">$89A3</span></h3>
+  <p>Runs once before the loop proper. Among other setup it seeds <code>daimyo_turn_order</code> as the identity permutation (<code>$89F9</code>: <code>turn_order[i]=i</code>) — later shuffled each season. Not yet fully dived; entry point noted so the next pass starts cold-free.</p>
+</div>
+<div class="phase" id="planner">
+  <div class="bank">Phase 1 · bank 0</div>
+  <h3><span class="st st-inline">dived</span>ai_strategic_turn_planner <span class="addr">$A455</span></h3>
+  <p>The heart of each season. In order:<ul><li><b>Season save</b> (<code>$A47C</code>) — if <code>sram_save_pending_flag</code> is set, <code>write_sram_save_checksum_and_signature</code> commits SRAM.</li><li><b>Calendar advance</b> (<code>$A47F</code>) — <code>current_season = (season+1)&amp;3</code>; <code>current_game_year</code> increments only when that wraps to 0 → <b>4 seasons = 1 year</b>.</li><li><b>Re-roll market rates</b> (<code>$A495</code>) — the per-period price book (<code>roll_period_rate_table_6e0b</code>); buy-low / sell-high timing is real because of this.</li><li><b>The season-phased economy update</b> (<code>per_period_fief_daimyo_update_driver $A30D</code>) — see the table below.</li><li><b>Random-event spawn</b> — pick a disaster / build / ravage handler, roll ~3% per fief to build the affected-province list, run it (the cracked event-spawn formula).</li><li><b>Per-daimyo illness pass</b> — mark weakness with probability <code>(100 − health) / 400</code>, then “… has taken ill.”</li></ul>This single routine is a candidate to graduate to its own deep-dive page — it is the densest node in the loop.</p>
+<h2 style="font-size:18px;border-left-width:3px">The season-phased economy</h2>
+<p class="sub"><code>per_period_fief_daimyo_update_driver $A30D</code> does a <code>switch(current_season)</code>. The right column runs <b>every</b> season; the middle column is the season’s special economic phase.</p>
+<table>
+  <tr><th>current_season</th><th>The season’s economic phase</th></tr>
+  <tr><td>0</td><td>— (nothing extra)</td></tr>
+  <tr><td>1</td><td>Reset high-water marks <span class='addr'>init_province_highwater_from_records</span></td></tr>
+  <tr><td>2</td><td><b>HARVEST — gold &amp; rice income</b> <span class='addr'>harvest_income_sweep_all_fiefs</span></td></tr>
+  <tr><td>3</td><td>Relations-matrix decay <span class='addr'>normalize_relations_matrix_lower</span></td></tr>
+</table>
+<p class="sub"><b>Every season, regardless:</b> Stat drift · loyalty decay toward 90% · aging + health decay · natural-death roll.</p>
+</div>
+<div class="phase" id="uprising">
+  <div class="bank">Phase 2 · bank 0</div>
+  <h3><span class="st st-inline">dived</span>spawn_zealot_uprising_force_from_province <span class="addr">$A5E6</span></h3>
+  <p>When an uprising fires, this constructs a full 26-byte province-record army in <code>zealot_uprising_slot $7515</code> (so it drops straight into the combat engine with no special-casing): each stat field seeded as <code>pct_op(rng%20+40, source_field)</code>, plus men/rice drawn from the host province. The marker values (header 9999, extreme loyalty/morale, tiny skill/arms) are what make it recognisable in a save dump.</p>
+</div>
+<div class="phase" id="combat">
+  <div class="bank">Phase 3 · bank 2</div>
+  <h3><span class="st st-stub">to do</span>resolve staged combat <span class="addr">$AFE1</span></h3>
+  <p>Any battle staged this season (a war declared during the previous command pass, or the uprising above) is resolved by handing control to the bank-2 combat engine (<code>battle_init_driver $AFE1</code>): tactical map, the 4-quadrant {1,2,4,7} damage model, the 31-day commander-resolution loop, ravage &amp; spoils. This is the second large branch off the spine and gets its own deep-dive page.</p>
+<div class="branch"><b>Branch:</b> <span style="color:var(--dim);font-weight:600">The combat engine</span> <span class="bank">— deep page TBD</span></div>
+</div>
+<div class="phase" id="shuffle">
+  <div class="bank">Phase 4 · bank 0</div>
+  <h3><span class="st st-inline">dived</span>shuffle_fief_turn_order_array <span class="addr">$A742</span></h3>
+  <p>Each season the turn order is reshuffled: <code>scenario_fief_count</code> random transpositions (<code>swap_byte(rng%count + $6F1B, rng%count + $6F1B)</code>). <b>“Random beats initiative”</b> — there is no fixed seating; a fief’s position in the order is re-rolled every season. The array lives at <code>daimyo_turn_order $6F1B</code> (see the find below — it is <i>not</i> at $6F0B as the labels long claimed).</p>
+</div>
+<div class="phase" id="command">
+  <div class="bank">Phase 5 · bank 1</div>
+  <h3><span class="st st-page">has page</span>ai_per_fief_command_driver <span class="addr">$B89B</span></h3>
+  <p>Walks <code>daimyo_turn_order</code> in order; for each fief, <code>selected_province_idx = daimyo_turn_order[ai_per_fief_loop_index]</code>, then dispatches on <code>province_ai_state</code> (the six Grant policies — Home / Industrial / Military / Balanced / Farming / Direct) into the matching AI econ handler, and finally <code>issue_province_command</code> executes it. Resting daimyo are skipped via <code>rest_turns_remaining</code>. <b>This is the “command palette” branch</b> — all 21 command pages are the leaves of this one node.</p>
+<div class="branch"><b>Branch:</b> <a href="./commands/index.html">→ The command palette — 21 command pages</a> <span class="bank">— branch complete</span></div>
+</div>
+<div class="phase" id="gameover">
+  <div class="bank">Phase 6 · bank 0</div>
+  <h3><span class="st st-stub">to do</span>display_fullscreen_graphic_sequence <span class="addr">$8003</span></h3>
+  <p>When any phase sets the abort gate (<code>ai_turn_flags &amp; 128</code> — unification achieved, player eliminated, or quit), the loop falls out to the full-screen end sequence and then restarts at <code>init_new_game_state</code>. The victory/defeat art is a static-asset render task.</p>
+</div>
+
+<h2>The mechanics it explains</h2>
+<p class="sub">Behaviours that had been hinted at across the project but never pinned to code, now ground-truth from the bytecode:</p>
+<div class="find"><b>The command pass resumes across combat.</b> <code>ai_per_fief_loop_index $6001</code> is a <i>persistent global</i>, restored into the frame at entry (<code>$B8A4</code>). When a daimyo declares war mid-pass, the index is saved (<code>$B996</code>), control loops out through the bank-2 combat engine, then re-enters and continues at the <b>next</b> fief — the season’s command pass is interruptible and resumable, not restarted.</div>
+<div class="find"><b>4 seasons = 1 year, and each season has a job.</b> <code>config_block $6D5F</code> was a misnomer — at runtime it is the season counter (0–3), renamed <code>current_season</code>. It increments each period; the year ticks only on its wrap to 0. The <code>switch</code> on it is what gives each season a distinct economic phase (above) — the harvest is specifically a season-2 event, confirming the long-standing “fall harvest” reading from the other direction.</div>
+<div class="find"><b>The turn order lives at $6F1B, not $6F0B.</b> The <code>daimyo_turn_order</code> label had been mis-addressed by 16 bytes — <code>$6F0B</code> has <b>zero</b> references anywhere. The real array (shuffled by <code>$A742</code>, read by the command driver at <code>$B918</code>) is <code>$6F1B</code>. The label was relocated and a latent bug in <code>sram-decode-province.py</code> (which dumped the wrong address) was fixed — exactly the drift-as-re-derivation this project exists to kill.</div>
+
+<footer>
+  <b>Entry:</b> <code>vm_bootstrap $A778</code> (bank 0). &nbsp;·&nbsp;
+  Sources: <code>decompiled/bank_00.c</code> · <code>decompiled/bank_01.c</code> · <code>disasm/bank_0{0,1}_vm.asm</code> · <a href="./commands/index.html">command palette</a> · memory <code>project_nobunaga_main_turn_loop</code>.
+  Generated by <code>tools/build-turn-loop.py</code> — do not hand-edit; edit the registry and regen.
+</footer>
+</div>
+</body>
+</html>

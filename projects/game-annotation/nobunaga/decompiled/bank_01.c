@@ -2654,10 +2654,10 @@ L_A72C:
     ui_helper_cd20();    // $A743
     if ((scenario_fief_count != 50)) goto L_A6FD;    // $A74C
 L_A753:
-    local11 = battle_init_driver_data_fea6[local8];    // $A755
-    local11 = battle_init_driver_data_fea6;    // $A75B
-    map_helper_e5f2(battle_init_driver_data_fea6[local8]);    // $A757
-    local8 = battle_init_driver_data_fea6;    // $A760
+    local11 = province_to_map_section_50[local8];    // $A755
+    local11 = province_to_map_section_50;    // $A75B
+    map_helper_e5f2(province_to_map_section_50[local8]);    // $A757
+    local8 = province_to_map_section_50;    // $A760
     map_helper_af10(/*stack underflow*/ regA);    // $A75C
     effect_view_a(/*stack underflow*/ regA);    // $A761
     goto L_A6D0;    // $A765
@@ -3258,9 +3258,9 @@ word driver_map(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_AF58:
-    local11 = *(byte*)((selected_province_idx + battle_init_driver_data_fed8));    // $AF5A
-    local11 = battle_init_driver_data_fed8;    // $AF60
-    map_helper_e5f2(*(byte*)((selected_province_idx + battle_init_driver_data_fed8)));    // $AF5C
+    local11 = *(byte*)((selected_province_idx + province_to_map_section_17));    // $AF5A
+    local11 = province_to_map_section_17;    // $AF60
+    map_helper_e5f2(*(byte*)((selected_province_idx + province_to_map_section_17)));    // $AF5C
     return map_helper_af10(/*stack underflow*/ regA);    // $AF65
     }
 }
@@ -3900,8 +3900,8 @@ L_B90D:
     }
 L_B90E:
     ai_turn_loop_redispatch_flag = 0;    // $B90F
-    selected_province_idx = *(byte*)((local11 + 0x6F1B));    // $B918
-    local10 = *(byte*)((local11 + 0x6F1B));    // $B91B
+    selected_province_idx = daimyo_turn_order[local11];    // $B918
+    local10 = daimyo_turn_order[local11];    // $B91B
     ui_helper_cc7b(26, 2);    // $B91F
     ui_helper_d134((local10 + 1), (local11 + 1), msg_turn_2d_fief_2d);    // $B92C
     if (ui_state_flag_7bf9) goto L_B939;    // $B933

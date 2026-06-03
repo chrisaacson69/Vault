@@ -369,11 +369,11 @@ L_CD4F:
     if (ui_pending_flag_7fc7) {    // $CD52
     local11 = 0;    // $CD56
 L_CD57:
-    local11 = ui_helper_data_f67a;    // $CD5F
-    palette_write_wrap(/*stack underflow*/ regA, *(word*)(((local11 << 1) + ui_helper_data_f67a)));    // $CD60
+    local11 = strategic_map_bg_palette;    // $CD5F
+    palette_write_wrap(/*stack underflow*/ regA, *(word*)(((local11 << 1) + strategic_map_bg_palette)));    // $CD60
     local11 = (local11 + 1);    // $CD66
     if (((unsigned)local11 >= (unsigned)4)) goto L_CD57;    // $CD6A
-    ppu_upload_block_wrap(36, 0x15B0, ui_helper_data_845c, 4);    // $CD76
+    ppu_upload_block_wrap(36, 0x15B0, strategic_map_chr_tiles, 4);    // $CD76
     ui_pending_flag_7fc7 = 0;    // $CD7B
     }
 L_CD7E:
@@ -1115,7 +1115,7 @@ word draw_window_f6c4(word arg1, word arg2, word arg3, word arg4) {
 // (body @ $D68C)
 
 word redraw_window_f6c7(word arg1, word arg2, word arg3, word arg4) {
-    switch (config_block) {    // $D68F
+    switch (current_season) {    // $D68F
         case 0: goto L_D69E;    // $D68F
         case 1: goto L_D6A6;    // $D68F
         case 2: goto L_D6AC;    // $D68F
@@ -2317,8 +2317,8 @@ word map_helper_e5f2(word arg1, word arg2, word arg3, word arg4) {
     if ((arg1 != selected_record_idx_9e3c)) {    // $E5FC
     marry_helper_cc35(1);    // $E600
     ppu_blit_nobank_wrap(1, 19, 31, 4, 30);    // $E60C
-    ppu_blit_from_bank_wrap(4, ((arg1 * 0x01C0) + map_helper_data_8d5c), 19, 29, 4, 2);    // $E621
-    ppu_upload_block_wrap(2, 0x23C8, ((arg1 << 5) + map_helper_data_9d1c), 4);    // $E632
+    ppu_blit_from_bank_wrap(4, ((arg1 * 0x01C0) + strategic_map_section_tilemaps), 19, 29, 4, 2);    // $E621
+    ppu_upload_block_wrap(2, 0x23C8, ((arg1 << 5) + strategic_map_section_attributes), 4);    // $E632
     selected_record_idx_9e3c = arg1;    // $E637
     local11 = ui_window_col;    // $E63D
     local10 = ui_cursor_row;    // $E641
@@ -2350,7 +2350,7 @@ word dispatch_map_helper_e694(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_E6B1:
-    return map_helper_e5f2(*(byte*)((selected_province_idx_latch_7fdd + battle_init_driver_data_fed8)));    // $E6B8
+    return map_helper_e5f2(*(byte*)((selected_province_idx_latch_7fdd + province_to_map_section_17)));    // $E6B8
     }
 }
 

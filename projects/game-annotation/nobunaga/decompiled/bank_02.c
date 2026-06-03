@@ -3704,9 +3704,9 @@ word battle_init_driver(word arg1, word arg2, word arg3, word arg4) {
     } else {
     }
 L_B021:
-    latched_selected_record_idx = *(byte*)((battle_defending_province + battle_init_driver_data_fed8));    // $B023
+    latched_selected_record_idx = *(byte*)((battle_defending_province + province_to_map_section_17));    // $B023
     if (local6) {    // $B027
-    local6 = battle_init_driver_data_fed8;    // $B02A
+    local6 = province_to_map_section_17;    // $B02A
     return battle_setup_select_province_phase(/*stack underflow*/ regA);    // $B02F
     }
 L_B030:
