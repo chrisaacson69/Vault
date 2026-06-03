@@ -6945,10 +6945,10 @@ L_p0826A:
 // PRG $08270 set_combat_state_pair_7bf5_7bf7
 // (body @ PRG $08275)
 
-word set_combat_state_pair_7bf5_7bf7(word arg1, word arg2) {
-    tactical_cursor_cell_7bf5 = arg1;    // PRG $08276
-    tactical_cursor_row_7bf7 = arg2;    // PRG $0827A
-    return arg2;    // PRG $0827D
+word set_combat_state_pair_7bf5_7bf7(word cursor_cell, word cursor_row) {
+    tactical_cursor_cell_7bf5 = cursor_cell;    // PRG $08276
+    tactical_cursor_row_7bf7 = cursor_row;    // PRG $0827A
+    return cursor_row;    // PRG $0827D
 }
 
 // ===== bank2 $827E  (PRG $0827E) =====
@@ -7070,8 +7070,8 @@ L_p08383:
 // PRG $0838F get_battle_side_province
 // (body @ PRG $08394)
 
-word get_battle_side_province(word arg1) {
-    if (arg1) goto L_p0839E;    // PRG $08395
+word get_battle_side_province(word side) {
+    if (side) goto L_p0839E;    // PRG $08395
     goto L_p083A1;    // PRG $0839B
 L_p0839E:
 L_p083A1:
@@ -7887,8 +7887,8 @@ L_p08E29:
 // PRG $08E40 ai_score_strength_term_40pct
 // (body @ PRG $08E45)
 
-word ai_score_strength_term_40pct(word arg1, word arg2) {
-    return (pct_op(pct_op(arg1, 40), *(word*)(((arg2 << 1) + 0x7BEA))) + arg1);    // PRG $08E5B -> bank15 $D70D
+word ai_score_strength_term_40pct(word strength_base, word side_idx) {
+    return (pct_op(pct_op(strength_base, 40), *(word*)(((side_idx << 1) + 0x7BEA))) + strength_base);    // PRG $08E5B -> bank15 $D70D
 }
 
 // ===== bank2 $8E5C  (PRG $08E5C) =====
@@ -8277,7 +8277,7 @@ L_p092A5:
 
 word battle_init_clear_defending_province_fields(void) {
     mem_7FE1 = 255;    // PRG $092D2
-    local11 = 0;    // PRG $092D6
+    defender_depleted_flag = 0;    // PRG $092D6
     battle_defender_status_flag_6f66 = (fief_is_daimyo_capital[battle_defending_province] << 7);    // PRG $092E1
     war_defender_gold = *(word*)(((battle_defending_province * 26) + 0x7001));    // PRG $092EF
     if ((*(word*)(((battle_defending_province * 26) + 0x7001)) >= 0)) {    // PRG $092F4
@@ -8289,17 +8289,17 @@ L_p09307:
     if ((*(word*)(((battle_defending_province * 26) + 0x7007)) >= 0)) {    // PRG $09317
     *(word*)(((battle_defending_province * 26) + 0x7007)) = 0;    // PRG $09326
     war_defender_rice = 0;    // PRG $09327
-    local11 = 7;    // PRG $0932B
+    defender_depleted_flag = 7;    // PRG $0932B
     }
 L_p0932C:
     war_defender_men = *(word*)(((battle_defending_province * 26) + 0x7011));    // PRG $09337
     if ((*(word*)(((battle_defending_province * 26) + 0x7011)) >= 0)) {    // PRG $0933C
     *(word*)(((battle_defending_province * 26) + 0x7011)) = 0;    // PRG $0934B
     war_defender_men = 0;    // PRG $0934C
-    local11 = 8;    // PRG $09350
+    defender_depleted_flag = 8;    // PRG $09350
     }
 L_p09351:
-    if (local11) goto L_p09362;    // PRG $09352
+    if (defender_depleted_flag) goto L_p09362;    // PRG $09352
     distribute_damage_across_unit_types();    // PRG $09355 -> bank2 $91D5
     reset_unit_field_grid_to_200();    // PRG $09358 -> bank2 $929C
     cur_combat_side = 1;    // PRG $0935C
@@ -8307,7 +8307,7 @@ L_p09351:
 L_p09362:
     battle_winner_province_sel = battle_defending_province;    // PRG $09365
 L_p09368:
-    return local11;    // PRG $09369
+    return defender_depleted_flag;    // PRG $09369
 }
 
 // ===== bank2 $936A  (PRG $0936A) =====
@@ -8575,11 +8575,11 @@ L_p09708:
 // PRG $0970A is_coord_in_combat_rect
 // (body @ PRG $0970F)
 
-word is_coord_in_combat_rect(word arg1, word arg2) {
-    if (((unsigned)arg1 >= (unsigned)combat_arena_x_min)) goto L_p0972F;    // PRG $09714
-    if (((unsigned)arg1 > (unsigned)combat_arena_x_max)) goto L_p0972F;    // PRG $0971C
-    if (((unsigned)arg2 >= (unsigned)combat_arena_y_min)) goto L_p0972F;    // PRG $09724
-    if (((unsigned)arg2 > (unsigned)combat_arena_y_max)) {    // PRG $0972C
+word is_coord_in_combat_rect(word tile_x, word tile_y) {
+    if (((unsigned)tile_x >= (unsigned)combat_arena_x_min)) goto L_p0972F;    // PRG $09714
+    if (((unsigned)tile_x > (unsigned)combat_arena_x_max)) goto L_p0972F;    // PRG $0971C
+    if (((unsigned)tile_y >= (unsigned)combat_arena_y_min)) goto L_p0972F;    // PRG $09724
+    if (((unsigned)tile_y > (unsigned)combat_arena_y_max)) {    // PRG $0972C
 L_p0972F:
     } else {
     }

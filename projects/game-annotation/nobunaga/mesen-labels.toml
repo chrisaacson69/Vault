@@ -1977,3 +1977,28 @@ local11 = { name = "fief", comment = "[HIGH] Store-once @$B65A = $7001+idx*26 (p
 # ai_econ_action_state0
 local11 = { name = "fief", comment = "[HIGH] province record ptr: $B88A computes selected_province_idx*26+$7001 (26-byte stride, live map); only use is deref +22 (arms) inc/return" }
 
+# --- bank-02 var-walk batch via var-walk-apply.py (5 subs / 8 slots) ---
+# propose@C (role + caller-propagation) -> independent verify@bytecode; names are the verifier's.
+[vars.bank2."0x8270"]
+# set_combat_state_pair_7bf5_7bf7
+arg1 = { name = "cursor_cell", comment = "[HIGH] Stored to global tactical_cursor_cell_7bf5 ($7BF5, STORE op A8); callers push unit $6FD0 X/cell field ($9B8C/$AC33). One role: cursor cell." }
+arg2 = { name = "cursor_row", comment = "[HIGH] Stored to global tactical_cursor_row_7bf7 ($7BF7) and returned; callers push unit $6FDA Y/row field. One role: cursor row." }
+
+[vars.bank2."0x838F"]
+# get_battle_side_province
+arg1 = { name = "side", comment = "[HIGH] Battle side boolean: branch_nz at $8395 picks $6F5F(side=0) vs $6F63(side=1) province idx; callers push cur_combat_side and cur_combat_side^1" }
+
+[vars.bank2."0x8E40"]
+# ai_score_strength_term_40pct
+arg1 = { name = "strength_base", comment = "[HIGH] pct_op(arg1,40) base, weighted then +arg1; callers push war_*_men ($8F10) and unit-strength local11 ($9CDC) -> not just men" }
+arg2 = { name = "side_idx", comment = "[HIGH] (arg2<<1)+$7BEA indexes per-side stat-weight word table; callers push 0/1 ($8F10) and cur_combat_side ($9CDC)" }
+
+[vars.bank2."0x92CA"]
+# battle_init_clear_defending_province_fields
+local11 = { name = "defender_depleted_flag", comment = "[HIGH] Init 0; set nonzero (7 rice / 8 men) when that defender field cleared; gates eliminated-vs-deploy branch & is returned -> caller's dispatch_battle_resolution" }
+
+[vars.bank2."0x970A"]
+# is_coord_in_combat_rect
+arg1 = { name = "tile_x", comment = "[HIGH] opcode 0C: bounds-checked uge x_min($6FF6)/ugt x_max($6FFA); caller $9792 writes it to unit X field via unit_field_ptr_6fd0" }
+arg2 = { name = "tile_y", comment = "[HIGH] opcode 0D: bounds-checked uge y_min($6FF8)/ugt y_max($6FFC); caller $9792 writes it to unit Y field via unit_field_ptr_6fda" }
+
