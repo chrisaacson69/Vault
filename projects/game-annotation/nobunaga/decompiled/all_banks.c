@@ -689,10 +689,10 @@ L_p00343:
 // (body @ PRG $0037C)
 
 word transfer_arms_field_pct(word arg1, word arg2, word arg3) {
-    *(byte*)(fp - 1) = pct_op(*(byte*)(arg2), arg3);    // PRG $00384 -> bank15 $D70D
-    *(byte*)(arg1) = (*(byte*)(arg1) + *(byte*)(fp - 1));    // PRG $0038F
-    *(byte*)(arg2) = (*(byte*)(arg2) - *(byte*)(fp - 1));    // PRG $00398
-    return (*(byte*)(arg2) - *(byte*)(fp - 1));    // PRG $00399
+    amount = pct_op(*(byte*)(arg2), arg3);    // PRG $00384 -> bank15 $D70D
+    *(byte*)(arg1) = (*(byte*)(arg1) + amount);    // PRG $0038F
+    *(byte*)(arg2) = (*(byte*)(arg2) - amount);    // PRG $00398
+    return (*(byte*)(arg2) - amount);    // PRG $00399
 }
 
 // ===== bank0 $839A  (PRG $0039A) =====
@@ -718,11 +718,11 @@ word apply_scenario_starting_stat_boosts(void) {
     goto L_p005B4;    // PRG $003F4
 L_p003F7:
     if (get_province_ai_state(local11)) goto L_p00593;    // PRG $003FC -> bank15 $D98D
-    *(word*)(fp - 40) = ((ui_helper_d772(local11) * 7) + 0x7530);    // PRG $0040A -> bank15 $D772
+    stat_ptr = ((ui_helper_d772(local11) * 7) + 0x7530);    // PRG $0040A -> bank15 $D772
     goto L_p00423;    // PRG $0040D
 L_p00410:
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // PRG $00419
-    *(byte*)(((*(word*)(fp - 40) + 1) - 1)) = (*(byte*)(((*(word*)(fp - 40) + 1) - 1)) + (const_two * 5));    // PRG $00420
+    stat_ptr = (stat_ptr + 1);    // PRG $00419
+    *(byte*)(((stat_ptr + 1) - 1)) = (*(byte*)(((stat_ptr + 1) - 1)) + (const_two * 5));    // PRG $00420
 L_p00423:
     local10 = (local10 + 1);    // PRG $00423
     if (((unsigned)local10 >= (unsigned)5)) goto L_p00410;    // PRG $00427
@@ -750,7 +750,7 @@ L_p00445:
     if ((local11 == 24)) {    // PRG $004B2
 L_p004B5:
     if (rng_mod(2)) {    // PRG $004BA -> bank15 $CA52
-    *(word*)(((local9 << 1) + (fp - 38))) = local11;    // PRG $004C7
+    *(word*)(((local9 << 1) + &boosted_fief_list)) = local11;    // PRG $004C7
     local9 = (local9 + 1);    // PRG $004CA
     *(word*)(((local11 * 26) + 0x7001)) = (*(word*)(((local11 * 26) + 0x7001)) * 2);    // PRG $004D8
     *(word*)(((local11 * 26) + 0x7007)) = (*(word*)(((local11 * 26) + 0x7007)) * 4);    // PRG $004E6
@@ -767,7 +767,7 @@ L_p00507:
     if ((local11 == 16)) {    // PRG $0052F
 L_p00532:
     if (rng_mod(2)) {    // PRG $00537 -> bank15 $CA52
-    *(word*)(((local9 << 1) + (fp - 38))) = local11;    // PRG $00544
+    *(word*)(((local9 << 1) + &boosted_fief_list)) = local11;    // PRG $00544
     local9 = (local9 + 1);    // PRG $00547
     *(word*)(((local11 * 26) + 0x7001)) = (*(word*)(((local11 * 26) + 0x7001)) * 2);    // PRG $00555
     *(word*)(((local11 * 26) + 0x7007)) = (*(word*)(((local11 * 26) + 0x7007)) * 3);    // PRG $00563
@@ -791,8 +791,8 @@ L_p005B4:
 L_p005C0:
     goto L_p005EB;    // PRG $005C1
 L_p005C4:
-    selected_province_idx = *(word*)(((local11 << 1) + (fp - 38)));    // PRG $005CD
-    battle_defending_province = *(word*)(((local10 << 1) + (fp - 38)));    // PRG $005D9
+    selected_province_idx = *(word*)(((local11 << 1) + &boosted_fief_list));    // PRG $005CD
+    battle_defending_province = *(word*)(((local10 << 1) + &boosted_fief_list));    // PRG $005D9
     if ((selected_province_idx != battle_defending_province)) {    // PRG $005E3
     }
 L_p005E9:
@@ -1309,7 +1309,7 @@ L_p00DE0:
 
 word dedup_owners_to_6f4f(word arg1) {
     arg1 = (arg1 + 1);    // PRG $00DE8
-    *(byte*)(fp - 14) = *(byte*)(((arg1 + 1) - 1));    // PRG $00DEB
+    dedup_buf = *(byte*)(((arg1 + 1) - 1));    // PRG $00DEB
     local10 = 1;    // PRG $00DEF
     goto L_p00E33;    // PRG $00DF0
 L_p00DF3:
@@ -1919,7 +1919,7 @@ L_p01659:
     if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_p01635;    // PRG $0165F
     province_ai_state[selected_province_idx] = 0;    // PRG $0166B
     local10 = audio_wait_gate;    // PRG $0166F
-    *(byte*)(fp - 5) = ai_turn_flags;    // PRG $01673
+    saved_ai_turn_flags = ai_turn_flags;    // PRG $01673
     audio_wait_gate = 1;    // PRG $01677
     ai_turn_flags = (ai_turn_flags | 4);    // PRG $01680
     message_display(msg_beware_a_treacherous_subordina);    // PRG $01686 -> bank15 $D326
@@ -1927,7 +1927,7 @@ L_p01659:
     ui_helper_cc89();    // PRG $01690 -> bank15 $CC89
     ui_helper_e80c(5);    // PRG $01694 -> bank15 $E80C
     audio_wait_gate = local10;    // PRG $01699
-    ai_turn_flags = *(byte*)(fp - 5);    // PRG $0169F
+    ai_turn_flags = saved_ai_turn_flags;    // PRG $0169F
     war_side_state_flag = 0;    // PRG $016A3
     war_attacker_rice = war_attacker_men;    // PRG $016A9
     war_attacker_gold = war_attacker_men;    // PRG $016AC
@@ -2068,9 +2068,9 @@ word set_fief_ownership_record(word arg1, word arg2, word arg3, word arg4) {
 word select_provinces_and_assign_ai_state(word arg1, word arg2) {
     combat_helper_dad7();    // PRG $018CB -> bank15 $DAD7
     combat_helper_dd3a(1, deduped_owner_list);    // PRG $018D2 -> bank15 $DD3A
-    local10 = (fp - 54);    // PRG $018D9
+    local10 = &list_buf;    // PRG $018D9
     local11 = 0x6F4F;    // PRG $018DD
-    *(word*)(fp - 56) = 0;    // PRG $018DF
+    count = 0;    // PRG $018DF
     goto L_p01906;    // PRG $018E1
 L_p018E4:
     if ((*(byte*)(local11) == 255)) goto L_p0190D;    // PRG $018EA
@@ -2078,18 +2078,18 @@ L_p018E4:
     *(byte*)(((local10 + 1) - 1)) = *(byte*)(local11);    // PRG $018F4
     mark_6f89_list_entry_by_value(*(byte*)(local11));    // PRG $018F8 -> bank0 $9879
     local11 = (local11 + 1);    // PRG $018FE
-    *(word*)(fp - 56) = (*(word*)(fp - 56) + 1);    // PRG $01903
+    count = (count + 1);    // PRG $01903
 L_p01906:
-    if (((unsigned)*(word*)(fp - 56) >= (unsigned)arg1)) goto L_p018E4;    // PRG $0190A
+    if (((unsigned)count >= (unsigned)arg1)) goto L_p018E4;    // PRG $0190A
 L_p0190D:
-    if (((unsigned)*(word*)(fp - 56) >= (unsigned)arg1)) {    // PRG $01911
+    if (((unsigned)count >= (unsigned)arg1)) {    // PRG $01911
     goto L_p0192A;    // PRG $01918
 L_p0191B:
     local10 = (local10 + 1);    // PRG $0191D
     *(byte*)(((local10 + 1) - 1)) = *(byte*)(arg2);    // PRG $01922
     *(byte*)(arg2) = -56;    // PRG $01926
 L_p0192A:
-    *(word*)(fp - 58) = (*(word*)(fp - 58) - 1);    // PRG $0192A
+    remaining = (remaining - 1);    // PRG $0192A
     goto L_p01944;    // PRG $0192C
 L_p0192F:
     if ((*(byte*)(arg2) != 200)) goto L_p0191B;    // PRG $01935
@@ -2097,7 +2097,7 @@ L_p0192F:
 L_p0193B:
     if ((*(byte*)(arg2) != 255)) goto L_p0192F;    // PRG $01941
 L_p01944:
-    if (((unsigned)*(word*)(fp - 58) > (unsigned)0)) goto L_p0193B;    // PRG $01948
+    if (((unsigned)remaining > (unsigned)0)) goto L_p0193B;    // PRG $01948
     }
 L_p0194B:
     *(byte*)(local10) = -1;    // PRG $0194E

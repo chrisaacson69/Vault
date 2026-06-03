@@ -2444,3 +2444,27 @@ arg2 = { name = "row", comment = "[HIGH] top-left ROW of 6x6 portrait; passed as
 "fp-154" = { name = "queue", comment = "[HIGH] Base of the BFS frontier ring-buffer queue; head/tail (local2/local3) init here, store x,y coord pairs + -1 markers, wrap back here" }
 "fp-21" = { name = "queue_end", comment = "[HIGH] One-past-end sentinel of the queue ring buffer; every (fp-21)==ptr check wraps the head/tail pointer back to fp-154" }
 
+# --- bank-00 var-walk far-frame batch (--merge, new sections) (5 subs) ---
+[vars.bank0."0x98C6"]
+# select_provinces_and_assign_ai_state
+"fp-58" = { name = "remaining", comment = "[HIGH] remaining slots to fill = arg1_count - copied; set arg1-fp56 @$992A then DEC each iter, loop while >0 ($9948)" }
+"fp-56" = { name = "count", comment = "[HIGH] province copy counter; init 0 @$98DF, INC per entry @$9900-05, loop bound 'while count<arg1' @$9906/$990D" }
+"fp-54" = { name = "list_buf", comment = "[HIGH] base of output fief-id list buffer; LEAL_far $FFCA->local10 @$98D9, walked+written forward, -1 terminated @$994E" }
+
+[vars.bank0."0x9621"]
+# reassign_daimyo24_fiefs_to_owner50
+"fp-5" = { name = "saved_ai_turn_flags", comment = "[HIGH] byte save of ai_turn_flags ($6DA1) at $9673, OR'd |4 during message block, restored back to $6DA1 at $969F" }
+
+[vars.bank0."0x8DE1"]
+# dedup_owners_to_6f4f
+"fp-14" = { name = "dedup_buf", comment = "[HIGH] base byte of local dedup scratch buffer: seeded w/ arg1[0], appended unique owners (&fp-14+i), then bulk-copied to deduped_owner_list $6F4F" }
+
+[vars.bank0."0x83E2"]
+# apply_scenario_starting_stat_boosts
+"fp-40" = { name = "stat_ptr", comment = "[MED] walking byte-ptr = 0x7530 + d772(fief)*7; INC then byte at it += const_two*5 over 5 iters (boosts 5 stat bytes)" }
+"fp-38" = { name = "boosted_fief_list", comment = "[HIGH] word array buffer of boosted fief indices: writes [local9++]=fief (84C7/8544), later read [local11] into selected_province_idx (85CD)" }
+
+[vars.bank0."0x8377"]
+# transfer_arms_field_pct
+"fp-1" = { name = "amount", comment = "[HIGH] byte temp = pct_op(*arg2,arg3); added to *arg1 and subtracted from *arg2 — the transfer amount moved between fields" }
+
