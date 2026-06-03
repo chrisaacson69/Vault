@@ -2271,3 +2271,106 @@ local7 = { name = "day", comment = "[HIGH] day counter 1..30: draw_combat_day_he
 local8 = { name = "side_rice_accum", comment = "[HIGH] 2-elem per-side rice accumulator, init 0 ($B04F); &local8 passed to consume_daily_battle_rice($B09F) as the /30 accumulator" }
 local10 = { name = "side_unit_ptr", comment = "[HIGH] 2-elem per-side unit-record ptr = unit_record_ptr(side)+2 ($B044); deref'd & cmp_sge 0 to detect side wipe; &local10 to consume_daily_battle_rice" }
 
+# --- bank-00 var-walk batch via var-walk-apply.py (18 subs / 46 slots) ---
+# propose@C (role + caller-propagation) -> independent verify@bytecode; names are the verifier's.
+[vars.bank0."0x89A3"]
+# init_new_game_state
+local11 = { name = "i", comment = "[HIGH] Loop index reused across every init loop ($7FD5[8], turn_order, ai_state, daimyo RNG seed[5], palettes, player-select); always counter vs bound." }
+
+[vars.bank0."0x8C35"]
+# relations_matrix_cell_addr
+arg1 = { name = "row_fief", comment = "[HIGH] Row fief idx: arg1*54 (per-fief stride) + base $6193; callers pass fief loop idx over scenario_fief_count" }
+arg2 = { name = "col_fief", comment = "[HIGH] Column fief idx: added unscaled to row*54 + $6193 to pick the pair cell; callers pass the other fief loop idx" }
+
+[vars.bank0."0x8F0A"]
+# ai_resolve_province_takeover_attempt
+arg1 = { name = "fief", comment = "[HIGH] fief index; (arg1*26)+0x7001 record base, fief_is_daimyo_capital[arg1], install/neutralize target; caller passes selected_province_idx" }
+local5 = { name = "fief_list_handle", comment = "[MED] capital-branch only: = ui_helper_d772(fief); fed to list_op_6e4a/list_remove_6e7f -- a fief-list handle/index for daimyo teardown" }
+local8 = { name = "defender_men", comment = "[HIGH] = *(rec+16) = men; 2nd arg to the strength compare; the defending men contested in the takeover" }
+local9 = { name = "attacker_strength", comment = "[HIGH] = sqrt(output)+sqrt(wealth)+rng_mod(20)+10; takeover-side strength, 1st arg of compare; true=>takeover wins" }
+local10 = { name = "fief_name_str", comment = "[MED] = select_message_string_de78(fief); message-string handle reused in ui_helper_d134(msg_s_have_won, local10)" }
+local11 = { name = "rec", comment = "[HIGH] fief record ptr = (fief*26)+0x7001; deref +8 output, +14 wealth, +16 men; drained via pct_op on lose branch" }
+
+[vars.bank0."0x9154"]
+# check_daimyo_natural_death
+arg1 = { name = "daimyo", comment = "[HIGH] daimyo index: passed to daimyo_record_addr(arg1) and indexes daimyo_weakness_flag[arg1]; caller pushes ui_helper_d772(fief) result" }
+local11 = { name = "daimyo_rec", comment = "[HIGH] daimyo record ptr = daimyo_record_addr(arg1); deref +0=age (>=70 gate), +1=health (alive flag, /4 in death prob)" }
+
+[vars.bank0."0x9B12"]
+# ai_scan_idle_fiefs_run_diplomacy_action
+local11 = { name = "owner_cursor", comment = "[HIGH] [HIGH] init $6F4F deduped_owner_list ($9B33); read *(byte*)local11 into selected_province_idx, +1/iter, loop ends at $00FF sentinel ($9B64); single-role byte cursor over owner list" }
+
+[vars.bank0."0x9BE5"]
+# ai_event_marry_random_eligible_fief
+local10 = { name = "candidate_fief", comment = "[HIGH] rng_mod(scenario_fief_count) random fief idx; checked via get_province_ai_state then stored to battle_defending_province as marriage target" }
+local11 = { name = "attempt_i", comment = "[HIGH] loop counter: local11++ each pass, compared >=scenario_fief_count as bound and returned; bounds the random-eligible-fief search" }
+
+[vars.bank0."0x9DA3"]
+# ai_event_eligibility_check_loyalty_variant
+arg1 = { name = "fief", comment = "[HIGH] Fief idx: arg1*26+$7001 province record (loyalty@+12, output@+8, men@+16), fief_to_daimyo_record_addr(arg1), province_state_is_FF; caller passes daimyo_turn_order[i]" }
+
+[vars.bank0."0x9E21"]
+# ai_event_eligibility_check_field18_variant
+arg1 = { name = "fief", comment = "[HIGH] fief idx: idx*26+$7001 record reads (morale@+18, men@+16>2), fief_to_daimyo_record_addr, province_state_is_FF; caller passes turn-order fief" }
+
+[vars.bank0."0x9E9D"]
+# build_event_eligible_fief_candidate_list
+arg1 = { name = "event_type", comment = "[HIGH] event eligibility type passed to select_event_eligibility_check_by_type; caller pushes rng_mod(2)+1 = riot(1)/revolt(2)" }
+local9 = { name = "found_any", comment = "[HIGH] init 0, set 1 on first eligible fief, returned at $9ED8 -> boolean 'at least one candidate found' flag" }
+local10 = { name = "i", comment = "[HIGH] loop index into daimyo_turn_order[] bounded by scenario_fief_count ($6D9D); not init here, walks fiefs" }
+local11 = { name = "out_ptr", comment = "[HIGH] candidate-list write cursor init $7BAD, *cursor++=fief idx per match, terminated with -1 at end" }
+
+[vars.bank0."0xA1AA"]
+# calc_fief_harvest_base_term
+arg1 = { name = "fief_idx", comment = "[HIGH] fief index: drives (arg1<<3) parallel-array reads ($6007/$6009) + fief_tax_rate[arg1]; both callers pass their fief idx" }
+
+[vars.bank0."0xA5E6"]
+# spawn_zealot_uprising_force_from_province
+arg1 = { name = "is_uprising", comment = "[HIGH] mode flag: if(arg1) full zealot-uprising path (split men/rice, daimyo-gated boost) else small revolt force; sole caller vm_bootstrap pushes 1" }
+local5 = { name = "fief", comment = "[HIGH] province record base ptr = battle_defending_province*26+$7001; all field ptrs (local10/9/7) derived from it; +8 +16 +6 +24 +18 +12" }
+local10 = { name = "output_ptr", comment = "[MED] ptr to fief->output (local5+8); receives split-off men, then accumulates uprising men -> war_attacker_men; single field location throughout" }
+# local9 left positional — REUSED scratch: first fief->men ptr (local5+16) for the men split, then reassigned to fief->rice ptr (local5+6) for rice
+local11 = { name = "men_transfer", comment = "[MED] men amount moved out: local11=pct_op(*men,rng_mod(50)) then *men-=local11; the zealot men siphon under the daimyo-age-gated boost" }
+local8 = { name = "staging_ptr", comment = "[HIGH] write cursor into battle-staging array $7515; walks +2 writing 8 scaled stats + war_attacker_men + header/morale/rng terminators" }
+local7 = { name = "src_ptr", comment = "[HIGH] read cursor over fief record (init local5), walks +2 in step with local8; src of pct_op(*local7,..) staging-array stat copy loop" }
+local6 = { name = "i", comment = "[HIGH] loop index: =0, +1 each iter, bound while local6<8; counts the 8 stat fields copied from fief record into staging array" }
+
+[vars.bank0."0xA742"]
+# shuffle_fief_turn_order_array
+local11 = { name = "i", comment = "[HIGH] Loop counter/fief index: init 0, INC each pass, bound while i<scenario_fief_count; passed to cap_fief_stats(i)" }
+
+[vars.bank0."0x90E8"]
+# normalize_relations_matrix_lower
+arg1 = { name = "decay_amount", comment = "[HIGH] per-cell amount subtracted from each lower-tri relations cell via saturating_sub(cell,arg1); callers pass 4/2/2/2" }
+local10 = { name = "col", comment = "[HIGH] inner loop index (col) into relations matrix; pushed as arg2 of cell_addr(local11,local10), bound scenario_fief_count" }
+local11 = { name = "row", comment = "[HIGH] outer loop index (row) into relations matrix; pushed as arg1 of cell_addr(row,col); lower-tri gate row>=col" }
+
+[vars.bank0."0x911E"]
+# normalize_relations_matrix_upper
+arg1 = { name = "decay", comment = "[HIGH] Per-cell decay amount; sole caller passes 2; subtracted from each relations cell via saturating_sub_byte_then_reset_if_ge_100(cell,arg1)" }
+local10 = { name = "col", comment = "[HIGH] Inner loop index over fiefs (slot10, INC+STORE, <scenario_fief_count); 1st arg of relations_matrix_cell_addr(col,row)" }
+local11 = { name = "row", comment = "[HIGH] Outer loop index over fiefs (slot11, INC+STORE, <scenario_fief_count); 2nd arg of relations_matrix_cell_addr; upper-triangle guard row>=col" }
+
+[vars.bank0."0x9194"]
+# check_and_process_daimyo_natural_death
+arg1 = { name = "fief", comment = "[HIGH] Fief index: caller A30D loops 0..scenario_fief_count; used in fief_is_daimyo_capital[], get_province_ai_state, clear_fief_pair_6193, find_fiefs_of_owner" }
+local11 = { name = "daimyo", comment = "[HIGH] Daimyo index from ui_helper_d772(fief); feeds check_daimyo_natural_death, list_op/remove, and *9+daimyo_name_table name lookup" }
+local10 = { name = "death_cause", comment = "[HIGH] Death result/cause from check_daimyo_natural_death; tested ==1, then (local10-1)<<1+$BBA5 indexes the died-of cause string table" }
+
+[vars.bank0."0xA26F"]
+# harvest_income_sweep_all_fiefs
+local9 = { name = "tax_rate", comment = "[HIGH] fief_tax_rate[fief_idx] (byte $6D2D+idx); single load, one role: this fief's tax rate" }
+local10 = { name = "fief_idx", comment = "[HIGH] loop index 0..scenario_fief_count; *26+$7001 record ptr, indexes tax/ai_state/cap_fief_stats" }
+local11 = { name = "fief", comment = "[HIGH] province record ptr = fief_idx*26+$7001; deref +12 loy/+0 gold/+6 rice; passed to debt/upkeep" }
+
+[vars.bank0."0xA30D"]
+# per_period_fief_daimyo_update_driver
+local11 = { name = "fief_idx", comment = "[HIGH] loop index 0..scenario_fief_count over fiefs/daimyo; drift_daimyo_luck(i), fief_tax_rate[i], i*26+$700D rec field, natural_death(i)" }
+
+[vars.bank0."0xA455"]
+# ai_strategic_turn_planner
+local8 = { name = "selected_count", comment = "[HIGH] event-spread counter: =0, ++ per qualifying fief, indexes $7BAD list + final count of provinces picked" }
+local9 = { name = "fief_i", comment = "[HIGH] fief loop index 0..scenario_fief_count across all 3 loops (cap-stats, event-spread, daimyo-illness)" }
+local10 = { name = "daimyo_ptr", comment = "[HIGH] daimyo record ptr: =daimyo_record_addr(fief_i); deref +1 = age (>99 skip, 100-age illness roll)" }
+local11 = { name = "event_handler_fn", comment = "[HIGH] event-handler function ptr (disaster1 or build-two-batches); invoked via (*local11)() at $A551" }
+
