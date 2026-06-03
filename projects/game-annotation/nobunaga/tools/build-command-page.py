@@ -577,24 +577,68 @@ COMMANDS = {
     "fields": "<code>dams</code>&nbsp;+gain (capped 0–100) · <code>gold</code>&nbsp;−amount",
   },
 
-  # ---- functional example (thin until War's deep page exists) ----
+  # ---- War: the gateway INTO the battle engine (the command itself is short) ----
   "war": {
     "type": "functional", "no": 2, "name": "War",
-    "driver": 0x9850, "effect": None, "anim_id": 8,
-    "tagline": "March an army into an adjacent enemy province and resolve a battle. "
-               "Not an economic command — it hands off to the tactical combat engine.",
-    "anim_cap": "The march-out / battle-intro animation.",
-    "summary": "War is a <b>subsystem entry point</b>, not a formula. The driver "
-               "(<code>$9850</code>) validates the target, debits the marching army, plays the "
-               "animation, then transfers control to the bank-2 tactical combat engine "
-               "(<code>battle_init_driver $AFE1</code>) where damage, morale, pursuit and the "
-               "commander-resolution loop play out over up to 31 in-battle days.",
+    "driver": 0x9850, "effect": None, "anim_id": 13,
+    "tagline": "Declare war and march an army at an adjacent enemy province. The command itself is "
+               "short — it stages the attack and hands the whole battle to the tactical combat engine.",
+    "anim_cap": "The march-out / battle-intro animation (id 13) — the army setting out for the front.",
+    "summary": (
+      "War (<code>driver_war $9850</code>) is the <b>gateway into the battle engine</b>, and by design "
+      "the command’s own logic is brief: it <b>raises and dispatches</b> an army, then steps aside. "
+      "After a chain of preconditions (<code>effect_war_combat_prep_a/b/c/d</code> — you need an army, "
+      "an adjacent valid target, and — if your daimyo is in the fief — his clearance to march), it asks "
+      "<span class=\"scr\">Attack where?</span> (allies are rejected: <span class=\"scr\">They are your "
+      "allies.</span>), then <span class=\"scr\">How many men?</span> and "
+      "<span class=\"scr\">How much rice will they take?</span> — the army carries its own <b>supply</b>, "
+      "which is the lever behind the rice-exhaustion siege. If your daimyo is present you may "
+      "<span class=\"scr\">lead them personally</span> (sets bit 7 of <code>war_side_state_flag</code> — "
+      "he joins the battle, and its risk). The driver then <b>debits the attacking fief</b> (men, rice "
+      "and gold), <b>declares war</b> — <code>effect_war_a</code> zeroes the two daimyo’s relations "
+      "cells, breaking any pact — stages the force in the <code>war_attacker_men/rice/gold</code> + "
+      "<code>battle_defending_province</code> globals, plays the march animation "
+      "(<code>ui_helper_e80c(13)</code>), flags the turn loop to redispatch "
+      "(<code>ai_turn_loop_redispatch_flag = 1</code>), and returns. <b>Everything after that</b> — the "
+      "tactical map, daily damage, morale, pursuit and the commander-resolution loop — runs in the "
+      "separate bank-2 combat engine."),
+    "flow": [
+      (0x985F, '<b>Preconditions</b> — daimyo clearance + army/target/adjacency checks '
+               '(<code>effect_war_combat_prep_a/b/c/d</code>).'),
+      (0x98A5, '<span class="scr">"Attack where?"</span> — select an adjacent enemy province '
+               '(an ally → <span class="scr">"They are your allies."</span> and abort).'),
+      (0x98F1, '<b>Force size</b> capped at <code>min(gold, men)</code> (quartered if already at war).'),
+      (0x9909, '<span class="scr">"How many men?"</span> → <code>war_attacker_men</code>.'),
+      (0x991C, '<span class="scr">"How much rice will they take?"</span> → <code>war_attacker_rice</code> '
+               '(the army’s <b>supply</b>), capped at <code>min(men, fief rice)</code>.'),
+      (0x994A, '<b>If the daimyo is here:</b> <span class="scr">"Will you lead them personally?"</span> '
+               '→ sets bit 7 of <code>war_side_state_flag</code> (he marches with the army).'),
+      (0x9967, '<b>Debit the attacking fief:</b> gold, rice and men all subtracted.'),
+      (0x9993, '<b>Declare war + hand off:</b> <code>effect_war_a</code> clears the relations cells; '
+               'march animation <code>13</code>; <code>ai_turn_loop_redispatch_flag = 1</code> → the '
+               'bank-2 engine takes over.'),
+    ],
+    "callout": (
+      "<b>Deliberately a thin page — the depth is the engine, not the command.</b> War’s own driver just "
+      "raises a force, charges its supply, declares the war, and flips a redispatch flag; the actual "
+      "fight — tactical map, the 4-quadrant <code>{1,2,4,7}</code> damage model, the up-to-31-day loop "
+      "that ends on <b>commander resolution</b> (not attrition), pursuit, and post-battle ravage / arms "
+      "capture / ownership transfer — all lives in the <b>bank-2 combat engine</b>, which gets its own "
+      "treatment. Two things the command <i>does</i> own are strategically load-bearing: the "
+      "<b>rice-as-supply</b> prompt (an attacker with too little rice loses the siege to starvation) and "
+      "the <b>lead-personally</b> choice (your daimyo can win a battle outright — or die in it)."),
     "rabbit_holes": [
-      ("Tactical combat engine", "4-quadrant damage from attacker/defender geometry, "
-       "<code>{1,2,4,7}</code> magnitudes, applied over a 31-day loop; battle ends on "
-       "COMMANDER resolution, not attrition.", "../12-combat-engine.md"),
-      ("Post-combat ravage / spoils", "the <code>$9323–$9368</code> cluster the driver reaches: "
-       "province ravage sweep, arms capture, ownership transfer.", None),
+      ("The bank-2 combat engine", "<code>battle_init_driver $AFE1</code> → the tactical battle: "
+       "4-quadrant damage from attacker/defender geometry (<code>{1,2,4,7}</code> magnitudes via "
+       "<code>select_quadrant_damage_by_direction $9675</code>), applied over a 31-day loop; the battle "
+       "ends on COMMANDER resolution, not attrition. <b>Its own page/epic — intentionally not inlined "
+       "here.</b>", "../12-combat-engine.md"),
+      ("Rice-exhaustion siege", "the <span class=\"scr\">How much rice will they take?</span> supply is "
+       "the rice-exhaustion mechanic — a coordinated assault can force a conquest by starving the "
+       "defender’s stockpile rather than by killing the garrison.", None),
+      ("Post-combat ravage / spoils", "the <code>$9323–$9368</code> ravage cluster + arms capture + "
+       "<code>set_fief_ownership_record</code> — what happens to the province when the battle ends "
+       "(part of the combat-engine epic).", None),
     ],
   },
 
@@ -750,6 +794,496 @@ COMMANDS = {
        "(success odds are gold-independent in <code>$8D02</code>).", None),
     ],
   },
+
+  # ---- Diplomacy: pay a rival daimyo for an alliance / non-aggression pact ----
+  "pact": {
+    "type": "functional", "no": 6, "name": "Pact",
+    "driver": 0x9C4F, "effect": None, "anim_id": 3,
+    "tagline": "Pay gold to a rival daimyo to broker an alliance — a diplomatic command, "
+               "not an economic one. He names the price; you pay or you don’t.",
+    "anim_cap": "The two houses’ banners meet — the pact-sealing scene (id 3).",
+    "summary": (
+      "Pact (<code>driver_pact $9C4F</code>) is a <b>diplomacy</b> command. You pick a target "
+      "daimyo (<span class=\"scr\">Which fief?</span>), and a relations helper "
+      "(<code>diplomacy_helper $9C9C</code>) sets the gold he demands to agree. The game shows "
+      "<span class=\"scr\">Lord &lt;you&gt;: &lt;him&gt; wants &lt;N&gt; gold. Pay?</span> — answer "
+      "yes (<code>ui_helper_d3a7</code>) and, if your selected fief holds the gold, it is debited and "
+      "the alliance is recorded (<code>diplomacy_helper2 $9CF3</code>); the pact animation plays "
+      "(<code>ui_helper_e80c(3)</code>) and you’re reminded "
+      "<span class=\"scr\">War is inevitable, so don’t let your guard down.</span> If you can’t (or "
+      "won’t) pay, you get <span class=\"scr\">You have no gold.</span> or — if <i>he</i> refuses — "
+      "<span class=\"scr\">They’ve refused.</span> / <span class=\"scr\">Who needs him anyway.</span> "
+      "No formula: the cost is set by the diplomacy state, and the only effect is gold spent + a "
+      "relation flipped."),
+    "flow": [
+      (0x9C6E, 'Select <b>Pact</b>; pick the target — <span class="scr">"Which fief?"</span>.'),
+      (0x9C9C, 'A diplomacy helper sets the gold the target daimyo demands to ally.'),
+      (0x9CBC, 'Prompt <span class="scr">"Lord &lt;you&gt;: &lt;him&gt; wants &lt;N&gt; gold. Pay?"</span>'),
+      (0x9CCA, '<b>Gold check.</b> Your fief lacks the gold → <span class="scr">"You have no gold."</span>'),
+      (0x9CE2, '<b>Pay:</b> gold is debited and the alliance recorded (<code>diplomacy_helper2</code>).'),
+      (0x9CF7, '<b>Animation</b> (<code>ui_helper_e80c(3)</code>), then '
+               '<span class="scr">"War is inevitable, so don’t let your guard down."</span>'),
+      (0x9D19, '<b>If he refuses:</b> <span class="scr">"They’ve refused."</span> / '
+               '<span class="scr">"Who needs him anyway."</span> — no gold spent.'),
+    ],
+    "callout": (
+      "<b>A diplomacy command, not an econ formula.</b> The price isn’t a curve you can solve — it’s "
+      "read out of the relations state by <code>diplomacy_helper</code>, and the whole effect is "
+      "<i>gold spent → relation set</i>. That’s why Pact gets a functional page: the depth is in the "
+      "diplomacy/relations subsystem (the relations matrix the AI decays each turn), not in Pact itself."),
+    "rabbit_holes": [
+      ("Relations matrix", "the per-daimyo relations grid Pact writes and the AI reads — "
+       "<code>normalize_relations_matrix_lower/upper</code> decay it each turn; "
+       "<code>relations_matrix_cell_addr</code> ($8C35 = arg1·54 + arg2 + $6193) indexes it.", None),
+    ],
+  },
+
+  # ---- Diplomacy: political marriage (pay a dowry to bind a house) ----
+  "marry": {
+    "type": "functional", "no": 8, "name": "Marry",
+    "driver": 0x9DC4, "effect": None, "anim_id": 16,
+    "tagline": "Bind a rival house by marriage — pay a dowry to wed into it. The strongest "
+               "diplomatic tie in the game, and the only command that paints a bride’s portrait.",
+    "anim_cap": "The wedding scene (id 16); the bride’s face is a randomly-rolled composite portrait "
+                "(<code>rng%22 + 53</code>).",
+    "summary": (
+      "Marry (<code>driver_marry $9DC4</code>) is a <b>diplomacy</b> command gated on your daimyo "
+      "being present in the fief (<code>$6DA2</code>). You choose a target house "
+      "(<span class=\"scr\">Which fief?</span>); the game rolls a bride and draws her portrait "
+      "(<code>active_province_idx_copy = rng%22 + 53 → draw_daimyo_portrait</code>), then names the "
+      "dowry: <span class=\"scr\">Lord &lt;you&gt;: &lt;him&gt; wants &lt;N&gt; gold. Pay?</span> Pay "
+      "it (and hold the gold) and the marriage alliance is recorded "
+      "(<code>diplomacy_helper3 $9E6F</code>), the wedding animation plays "
+      "(<code>ui_helper_e80c(16)</code>), and you’re told <span class=\"scr\">Your bride-to-be has "
+      "arrived.</span> / <span class=\"scr\">Don’t you long to hear the pitter-patter…</span> If the "
+      "house <b>refuses</b> (<span class=\"scr\">They’ve refused.</span>) your daimyo’s standing takes "
+      "the snub — records <code>+2</code>, <code>+3</code> (skill) and <code>+4</code> (charisma) each "
+      "drop by one."),
+    "flow": [
+      (0x9DD7, '<b>Daimyo-present gate</b> (<code>$6DA2</code>) — you must be in the fief to court.'),
+      (0x9DEA, 'Select the target house — <span class="scr">"Which fief?"</span>.'),
+      (0x9E22, '<b>The bride is rolled</b> — <code>rng%22 + 53</code> picks a composite face, drawn via '
+               '<code>draw_daimyo_portrait</code>.'),
+      (0x9E51, 'Prompt the dowry: <span class="scr">"&lt;him&gt; wants &lt;N&gt; gold. Pay?"</span>'),
+      (0x9E6C, '<b>Gold check</b> — your fief must hold the dowry.'),
+      (0x9E6F, '<b>Wed:</b> alliance recorded (<code>diplomacy_helper3</code>), dowry debited, '
+               'animation <code>16</code>, <span class="scr">"Your bride-to-be has arrived."</span>'),
+      (0x9EC6, '<b>If refused:</b> <span class="scr">"They’ve refused."</span> and your daimyo loses '
+               '1 each from records +2 / +3 (skill) / +4 (charisma).'),
+    ],
+    "callout": (
+      "<b>The only command that snubs you back.</b> Most refusals just cost a turn; a rejected marriage "
+      "proposal actually <b>drains three of your daimyo’s own stats</b> (records +2/+3/+4) — the public "
+      "loss of face. The reward is the tightest diplomatic bond in the game (a marriage alliance, "
+      "<code>diplomacy_helper3</code>), and a one-off bit of flavor: the bride gets a real, randomly "
+      "generated portrait through the same composite face system the replacement-daimyo generator uses."),
+    "rabbit_holes": [
+      ("Composite portrait system", "the bride’s face is built by the base-5 composite renderer "
+       "(<code>$6EB1 → bank-8 part tables</code>) — the same path generated/replacement daimyo use, "
+       "distinct from the historical roster’s preset CHR.", None),
+      ("Relations matrix", "marriage writes the strongest tie into the same relations grid Pact uses "
+       "and the AI decays each turn.", None),
+    ],
+  },
+
+  # ---- Rest: a multi-season self-imposed command lock to recuperate ----
+  "rest": {
+    "type": "functional", "no": 17, "name": "Rest",
+    "driver": 0xADB3, "effect": None, "anim_id": 32,
+    "tagline": "Stand your daimyo down for several seasons to recuperate. Not a turn-skip — a "
+               "<i>multi-turn</i> commitment that locks the daimyo out of every command until it ends.",
+    "anim_cap": "The resting/recuperation scene (id 32) — a short 2-frame clip.",
+    "summary": (
+      "Rest (<code>driver_rest $ADB3</code>) is the only command that spends <b>more than one turn</b>. "
+      "It is gated on your daimyo being present (<code>$6DA2</code>); you’re prompted "
+      "<span class=\"scr\">Seasons</span> and enter a count (<code>number_input</code>, <b>1–10</b>), "
+      "which is written to that daimyo’s slot in <code>rest_turns_remaining</code> "
+      "(<code>$6D67</code>, a per-daimyo counter). The game replies "
+      "<span class=\"scr\">It will do you good.</span> and plays the recuperation animation "
+      "(<code>ui_helper_e80c(32)</code>). While the counter is non-zero the daimyo <b>sits out</b>: "
+      "the per-turn logic checks <code>rest_turns_remaining</code> in at least five places across the "
+      "AI, event and combat banks and skips the daimyo’s action when it’s set. The cost is pure "
+      "<b>tempo</b> — you trade action-slots (the binding constraint of the game) for recovery."),
+    "flow": [
+      (0xADC0, '<b>Daimyo-present gate</b> (<code>$6DA2</code>) — only a daimyo in the fief can rest; '
+               'otherwise bail.'),
+      (0xADD8, 'Prompt <span class="scr">"Seasons"</span> → <code>number_input(1..10)</code> → '
+               '<code>rest_turns_remaining[daimyo]</code>.'),
+      (0xADDF, '<span class="scr">"It will do you good."</span> + animation <code>32</code>.'),
+      (0x902B, '<b>Each following turn</b>, the AI/event/combat logic sees the non-zero counter and '
+               '<b>skips this daimyo’s action</b> until it ticks back to zero.'),
+    ],
+    "callout": (
+      "<b>The action-economy command.</b> Everything else in the game spends one of your four "
+      "seasons-per-year slots; Rest spends <i>several</i> at once, voluntarily. That only pays off "
+      "because the daimyo is recuperating — the multi-season lock is the price of recovery. It also "
+      "explains a subtle interaction: a resting daimyo can’t be made to act, so the AI-side checks "
+      "(<code>is_battleside_province_aistate5_and_not_resting</code>, the rebellion and natural-death "
+      "passes) all special-case the rest counter before doing anything to that lord."),
+    "rabbit_holes": [
+      ("What recovery restores", "the seasons lock is read straight from the driver; the recuperation "
+       "it buys (the daimyo health/condition the Rest is <i>for</i>) is applied in the per-turn tick, "
+       "not the driver — pinning that exact write is a small open thread.", None),
+    ],
+  },
+
+  # ---- Grant: delegate a province to the AI with a governance policy ----
+  "grant": {
+    "type": "functional", "no": 19, "name": "Grant",
+    "driver": 0xAF66, "effect": None, "anim_id": 11,
+    "tagline": "Hand a province over to AI governance and tell it what to prioritize — develop, arm, "
+               "farm, or balance. Delegation, so you can spend your slots elsewhere.",
+    "anim_cap": "The orders-given scene (id 11).",
+    "summary": (
+      "Grant (<code>driver_grant $AF66</code>) sets a province’s <b>AI governance policy</b> "
+      "(<code>province_ai_state</code>). Gated on your daimyo being present, you pick the fief "
+      "(<span class=\"scr\">Which fief?</span>), the game asks "
+      "<span class=\"scr\">What are your orders?</span>, and you choose one of six stances from the "
+      "menu. The chosen value (1–5) is written to <code>province_ai_state[fief]</code> "
+      "(<code>$B050</code>); the game confirms <span class=\"scr\">It’s currently a &lt;X&gt; "
+      "state. OK to…?</span> (or <span class=\"scr\">It’s already a &lt;X&gt; state.</span>), plays "
+      "the animation (<code>ui_helper_e80c(11)</code>), and replies "
+      "<span class=\"scr\">Lord, you are truly wise.</span> State <b>0 = “Home fief”</b> means you keep "
+      "controlling it by hand; the other five hand the wheel to the AI with a focus. The AI’s per-fief "
+      "command driver then issues that province’s commands each turn according to the policy."),
+    "flow": [
+      (0xAF73, '<b>Daimyo-present gate</b> (<code>$6DA2</code>).'),
+      (0xAFA0, 'Select the fief — <span class="scr">"Which fief?"</span> — then '
+               '<span class="scr">"What are your orders?"</span>.'),
+      (0xAFCC, 'The six-option policy menu is drawn (from the <code>$F7D4</code> name table).'),
+      (0xAFFB, '<code>submenu_prompt(6)</code> → pick a policy; option 6 backs out.'),
+      (0xB00B, 'Already that policy → <span class="scr">"It’s already a &lt;X&gt; state."</span>'),
+      (0xB050, '<b>Set</b> <code>province_ai_state[fief] = policy</code>; animation <code>11</code>; '
+               '<span class="scr">"Lord, you are truly wise."</span>'),
+    ],
+    "table_heading": "The six governance policies",
+    "table": {
+      "caption": "The menu, read straight from the name table <code>effect_view_a_data_f7d4</code> "
+                 "(<code>$F7D4</code> → strings at <code>$F7E0…</code>). Index = the stored "
+                 "<code>province_ai_state</code> value.",
+      "headers": ["state", "Policy", "What the AI prioritizes"],
+      "rows": [
+        ["0", "Home fief", "you keep direct manual control — not delegated"],
+        ["1", "Industrial", "Build — grow the town / gold-income engine"],
+        ["2", "Military", "Train &amp; Hire — raise soldiers and skill"],
+        ["3", "Balanced", "spread effort across economy and army"],
+        ["4", "Farming", "Grow / Dam — raise agricultural output &amp; rice"],
+        ["5", "Direct", "the most hands-off / aggressive delegated mode"],
+      ],
+      "note": "The same six labels appear in the <b>View</b> screen "
+              "(<code>effect_view_a</code> reads the identical table), which is how you read back a "
+              "delegated fief’s current policy. Delegation is the late-game tempo play: once you hold "
+              "more fiefs than you have action-slots to micromanage, Grant lets the AI run the rear "
+              "provinces on a sensible focus while you spend your four seasons on the frontier.",
+    },
+    "callout": (
+      "<b>Genuinely a mechanic, not a UI screen.</b> Grant writes <code>province_ai_state</code>, the "
+      "very field the AI command driver reads each turn to decide that fief’s actions — and the same "
+      "field the conquest/neutralize code resets (<code>neutralize_fief</code> forces it to −1). It is "
+      "the player’s hook into the AI economy: hand a rear fief a <i>Farming</i> or <i>Industrial</i> "
+      "policy and it develops itself for free, no slot spent."),
+  },
+
+  # ---- Map: read-only strategic-map view (no state change, no turn spent) ----
+  "map": {
+    "type": "functional", "no": 18, "name": "Map",
+    "driver": 0xAF38, "effect": None, "anim_id": None,
+    "tagline": "Open the strategic map. A read-only view — it changes nothing and costs no turn. "
+               "The one command you can use as often as you like.",
+    "summary": (
+      "Map (<code>driver_map $AF38</code>) is a pure <b>view</b>. It redraws the strategic map "
+      "(<code>ui_helper_cd20</code>), branches on scenario size "
+      "(<code>scenario_fief_count == 50</code>) to choose the 17- or 50-fief layout, looks each "
+      "fief’s map-id up in <code>battle_init_driver_data_fed8</code>, and paints it via "
+      "<code>map_helper_e5f2</code> / <code>map_helper_af10</code>. It writes <b>no</b> game state and "
+      "<b>returns 0</b> — i.e. it does not consume your action for the season. There is no animation "
+      "and no effect handler. The illustrated map is a <b>9-section pannable</b> picture (arrows change "
+      "sections, A returns to the menu) blitted from <b>bank 4</b> — section tilemaps at "
+      "<code>map_helper_data_8d5c</code> (448 B each), attributes at <code>map_helper_data_9d1c</code>, "
+      "CHR via <code>ui_helper_cd20</code>. The same render core is reached from the kernel "
+      "<code>dispatch_map_helper_e694 ($E694)</code> standalone viewer and the "
+      "<a href=\"./view.html\">View command</a>’s map sub-screen."),
+    "callout": (
+      "<b>Why it’s a one-paragraph page.</b> Map touches nothing — no province field, no daimyo "
+      "record, no relations matrix — and unlike every other entry on the menu it doesn’t end your "
+      "turn. Two different map artifacts exist in this project: the <i>schematic</i> node-link "
+      "adjacency atlases (<code>tools/render-strategic-atlas.py</code> / "
+      "<code>render-strategic-50.py</code>, built from the adjacency table + fief coordinates) — "
+      "useful, but <b>not</b> the game’s art — and the actual <b>illustrated</b> map this command "
+      "blits from bank 4, a separate from-ROM render still to be pulled (tracked in the ROADMAP) for "
+      "both the 17- and 50-fief layouts."),
+  },
+
+  # ---- Other: the system / options menu (settings + Save) ----
+  "other": {
+    "type": "functional", "no": 20, "name": "Other",
+    "driver": 0xB23E, "effect": None, "anim_id": None,
+    "tagline": "The system menu — sound, animation and message-speed toggles, plus Save and the "
+               "end-turn / quit options. Settings, not strategy.",
+    "summary": (
+      "Other (<code>driver_other $B23E</code>) opens a <b>seven-entry system menu</b> "
+      "(<span class=\"scr\">Change which?</span>). Each pick is dispatched through a jump table "
+      "(<code>jumptab_b9e8</code>) to its own handler, and the menu loops until a handler signals exit "
+      "or you choose <b>End</b>. The labels come straight from <code>driver_other_data_ff1a</code>. "
+      "Most entries just flip a preference; <b>Save</b> writes the battery-backed game; and only "
+      "<b>End</b> (option index 5) returns true to actually conclude the turn."),
+    "table_heading": "The seven options",
+    "table": {
+      "caption": "Read from the label table <code>$FF1A</code> and the dispatch table "
+                 "<code>jumptab_b9e8</code> ($B9E8).",
+      "headers": ["#", "Option", "What it does"],
+      "rows": [
+        ["1", "Sound", "toggle / select background music"],
+        ["2", "Animat(ion)", "turn command &amp; battle animations on or off"],
+        ["3", "Wait", "message / text-advance speed"],
+        ["4", "Save", "write the game to battery-backed SRAM (with checksum)"],
+        ["5", "Battle", "auto- vs. manual battle resolution preference"],
+        ["6", "End", "conclude the turn (the only option that returns true)"],
+        ["7", "Menu", "back out to the command menu"],
+      ],
+      "note": "These are the same preferences the engine reads elsewhere — e.g. the <b>Animat</b> "
+              "toggle is what gates every <code>ui_helper_e80c</code> command animation the other "
+              "pages show, and <b>Save</b> routes through the checksummed SRAM writer "
+              "(<code>syscall_sram_block_with_checksum</code>).",
+    },
+    "callout": (
+      "<b>A settings command that quietly controls the rest of the game.</b> Nothing here touches a "
+      "province or a daimyo, but two entries matter: <b>Save</b> is the only persistence path, and the "
+      "<b>Animat</b> toggle is the master switch for the command-animation VM every other page on this "
+      "site renders. The seven handlers behind <code>jumptab_b9e8</code> are small, self-contained UI "
+      "routines — a settings panel, not a subsystem."),
+  },
+
+  # ---- Pass: spend the turn doing nothing ----
+  "pass": {
+    "type": "functional", "no": 21, "name": "Pass",
+    "driver": 0xB2A1, "effect": None, "anim_id": None,
+    "tagline": "Skip the season. Spend an action slot on nothing — and the game lets you know how it "
+               "feels about that.",
+    "summary": (
+      "Pass (<code>driver_pass $B2A1</code>) is the whole function: it prints "
+      "<span class=\"scr\">What a waste.</span>, waits for a confirm "
+      "(<code>confirm_prompt</code>), and <b>returns 1</b> — consuming the action so the turn advances. "
+      "No province field, no daimyo record, no roll. It exists because the turn structure needs an "
+      "explicit “do nothing” when you’ve no good move (or want to bank gold/rice into the harvest "
+      "without developing)."),
+    "callout": (
+      "<b>The shortest driver in the game — and a strategic statement.</b> With only four action-slots "
+      "a year, deliberately spending one on Pass is almost always wrong; the game agrees "
+      "(<span class=\"scr\">What a waste.</span>). It’s here for completeness — the one command whose "
+      "entire decompiled body is three lines."),
+  },
+
+  # ---- Move: relocate troops between your own provinces (logistics) ----
+  "move": {
+    "type": "functional", "no": 1, "name": "Move",
+    "driver": 0x96D1, "effect": 0x8CA5, "anim_id": 8,
+    "tagline": "March soldiers from one of your provinces to another — internal logistics, not an "
+               "attack. Optionally ride along and relocate your daimyo with the army.",
+    "anim_cap": "The march-out animation (id 8, shared with War) — the army moving overland.",
+    "summary": (
+      "Move (<code>driver_move $96D1</code>) is your <b>internal troop-logistics</b> command — it "
+      "shifts men between fiefs <i>you already own</i> (the destination list is "
+      "<code>deduped_owner_list</code>, your provinces), distinct from <b>War</b> (attack an enemy) and "
+      "<b>Send</b> (ship gold/rice). You pick a destination (<span class=\"scr\">Move where?</span>); "
+      "the capacity is <code>min(dest.header − dest.men, source.men)</code> — you can’t exceed the "
+      "destination’s army ceiling or send more than you have. After <span class=\"scr\">How many "
+      "men?</span> the transfer applies through <code>effect_move ($8CA5)</code>, which moves the men "
+      "and <b>blends the destination’s unit stats</b> (a men-weighted average over three fields, "
+      "<code>scaled_transfer_da24</code>) — the same anti-stacking averaging Hire uses, so pouring "
+      "raw troops into a crack garrison dilutes it. The march animation plays "
+      "(<code>ui_helper_e80c(8)</code>) and <span class=\"scr\">They have arrived safely.</span>"),
+    "flow": [
+      (0x96E9, 'Select <b>Move</b>; the destination list is built from <i>your own</i> fiefs.'),
+      (0x96FB, '<span class="scr">"Move where?"</span> — pick the destination province.'),
+      (0x9741, '<b>Capacity</b> = <code>min(dest.header − dest.men, source.men)</code>; zero → '
+               '<span class="scr">"That fief can’t hold more men."</span>'),
+      (0x9749, '<span class="scr">"How many men?"</span> → number entry (capped at capacity).'),
+      (0x976F, '<b>If your daimyo is here</b> (<code>$6DA2</code>): <span class="scr">"Will you lead '
+               'them personally?"</span> — yes <b>relocates the daimyo</b> to the destination and sets '
+               'its policy to <i>Direct</i> (<code>province_ai_state = 5</code>).'),
+      (0x9798, 'March animation <code>8</code>, then <span class="scr">"They have arrived safely."</span>'),
+      (0x97A7, '<code>effect_move</code> applies: men transferred, destination stats men-weighted-blended.'),
+    ],
+    "callout": (
+      "<b>Three commands move things — keep them straight.</b> <b>Move</b> shifts <i>men</i> between "
+      "<i>your</i> fiefs; <b>Send</b> ships <i>gold/rice</i> between your fiefs; <b>War</b> marches men "
+      "at an <i>enemy</i> fief. Move’s quiet power is the <b>“lead them personally”</b> option: it "
+      "physically relocates your daimyo (clearing <code>$6DA2</code> at the source, setting it at the "
+      "destination) and flips the new fief to direct control — that’s how you reposition your lord to "
+      "the front before a campaign, or pull him out of a fief that’s about to fall. The stat-blend on "
+      "arrival means Move is for massing bodies, not preserving an elite unit’s average."),
+    "rabbit_holes": [
+      ("Unit-stat blend", "<code>effect_move $8CA5 → scaled_transfer_da24</code> men-weighted-averages "
+       "three destination fields (morale / skill / arms) — the same dilution math as Hire, in reverse.",
+       None),
+    ],
+  },
+
+  # ---- Assign: reorganize a garrison's unit-type composition ----
+  "assign": {
+    "type": "functional", "no": 16, "name": "Assign",
+    "driver": 0xAD67, "effect": 0xAC11, "anim_id": None,
+    "tagline": "Reorganize a garrison — interactively reallocate its soldiers across the unit types. "
+               "An editor screen, not a one-shot effect. Costs a flat 30 gold.",
+    "summary": (
+      "Assign (<code>driver_assign $AD67</code>) opens an <b>interactive arms-allocation editor</b> "
+      "for the selected province. It requires soldiers (else <span class=\"scr\">You have no "
+      "soldiers.</span>) and a flat <b>30 gold</b> (else <span class=\"scr\">You have no gold.</span>), "
+      "which is debited up front. <code>effect_assign ($AC11)</code> then draws the arms-edit screen "
+      "(<code>render_arms_edit_screen</code> over the province’s arms region at <code>$7017</code>) and "
+      "runs an input loop: the d-pad moves a cursor across the rows and adjusts each, A/B "
+      "(<code>poll_input</code> cases) commit or cancel. The five rows are the army’s <b>unit-type "
+      "composition</b> — the foot / cavalry / musket mix that feeds straight into the combat damage "
+      "model (different unit types carry different damage multipliers). Unlike the econ commands there "
+      "is no formula and no animation: it’s a UI editor that writes the arms fields directly."),
+    "flow": [
+      (0xAD7D, '<b>Soldier check</b> — no men → <span class="scr">"You have no soldiers."</span>'),
+      (0xAD91, '<b>Gold check</b> — a flat <b>30 gold</b> is required and debited.'),
+      (0xAC26, '<code>effect_assign</code> draws the arms-edit screen over <code>$7017</code> '
+               '(the province arms region).'),
+      (0xAC36, '<b>Input loop:</b> d-pad moves the cursor over the five unit-type rows and adjusts '
+               'the allocation; A/B commit or cancel.'),
+    ],
+    "callout": (
+      "<b>The army-composition command.</b> Where Train raises <i>skill</i> and Hire adds <i>bodies</i>, "
+      "Assign decides <b>what kind</b> of soldiers they are — the foot/cavalry/musket split that the "
+      "combat engine multiplies into damage (foot ×1, cavalry ×2, musket ×3 in the damage model). It’s "
+      "an editor rather than a formula, which is why it gets a functional page: the depth is the combat "
+      "model the composition feeds, not Assign itself. The flat 30-gold fee is a small reorganization "
+      "tax — cheap, but it still spends one of your four action-slots."),
+    "rabbit_holes": [
+      ("Unit types & damage", "the five-row composition feeds the tactical damage model — unit-type "
+       "multipliers, the 4-quadrant <code>{1,2,4,7}</code> selector, and arms in the casualty math "
+       "(see the combat engine).", "../12-combat-engine.md"),
+    ],
+  },
+
+  # ---- View: the intelligence / inspection command (spying + map) ----
+  "view": {
+    "type": "functional", "no": 12, "name": "View",
+    "driver": 0xA6C7, "effect": 0x83FA, "anim_id": 14,
+    "tagline": "Inspect any province — your own for free, an enemy’s for gold (and the risk of a caught "
+               "spy). The information hub: fief stats, vassals, and the strategic map.",
+    "anim_cap": "The view/inspection animation (id 14).",
+    "summary": (
+      "View (<code>driver_view $A6C7</code>) is the game’s <b>intelligence command</b>, and the widest "
+      "of the non-econ commands — it’s a loop over several screens. <span class=\"scr\">View which "
+      "fief?</span> lets you inspect any province’s stats (<code>effect_view_a</code>); your own fiefs "
+      "are free, but <b>spying on an enemy costs 10 gold</b> per look (no gold → <span class=\"scr\">You "
+      "have no gold.</span>). Spying is a <b>contest</b>: <code>effect_view_d</code> compares your "
+      "daimyo against the target and, on a bad roll, <span class=\"scr\">Our spy was caught.</span> "
+      "(animation 14). From the same command you can list a daimyo’s vassals "
+      "(<span class=\"scr\">View vassals</span>, <code>effect_view_b/c</code>) and open the strategic "
+      "<b>map</b> (<code>map_helper_e5f2 / map_helper_af10</code> — the very same render path the Map "
+      "command uses, branched on <code>scenario_fief_count</code>)."),
+    "flow": [
+      (0xA716, '<span class="scr">"View which fief?"</span> — pick any province.'),
+      (0xA6EE, '<b>Own fief:</b> view its full stats free (<code>effect_view_a</code>).'),
+      (0xA7AA, '<b>Enemy fief:</b> costs <b>10 gold</b> to spy; debited on the attempt.'),
+      (0xA80A, '<b>Spy contest</b> (<code>effect_view_d</code>): your daimyo vs the target + an RNG roll.'),
+      (0xA843, '<b>Caught</b> → <span class="scr">"Our spy was caught."</span> (animation 14).'),
+      (0xA743, '<b>Map sub-screen</b> — opens the strategic map (<code>map_helper_e5f2/af10</code>, '
+               'the same renderer as the Map command).'),
+    ],
+    "callout": (
+      "<b>The information hub — and a second door to the map.</b> View bundles three things the other "
+      "commands keep separate: province inspection, vassal lists, and the strategic map. Reading your "
+      "own holdings is free; reading an <i>enemy’s</i> is espionage — 10 gold a look and a "
+      "skill-vs-skill roll that can get your spy caught. The map sub-screen calls the identical "
+      "<code>map_helper_e5f2</code> path as the <a href=\"./map.html\">Map command</a> (and the kernel "
+      "<code>$E694</code> standalone viewer), which is why all three share one render core — and why "
+      "pulling that illustrated map from ROM is filed as its own task."),
+    "rabbit_holes": [
+      ("Spy-contest math", "<code>effect_view_d ($A6B3)</code> — the daimyo-vs-daimyo skill roll that "
+       "decides whether an enemy inspection succeeds or the spy is caught; not yet pinned to a closed "
+       "form.", None),
+      ("The illustrated strategic map", "<code>map_helper_e5f2</code> blits a 9-section map from bank 4 "
+       "— rendering it from ROM (both 17 & 50 fief) is an open task (ROADMAP Inbox).", None),
+    ],
+  },
+
+  # ---- Trade: the merchant subsystem (credit + a fluctuating two-good market) ----
+  "trade": {
+    "type": "functional", "no": 9, "name": "Trade",
+    "driver": 0xA1B6, "effect": 0x8A15, "anim_id": 0,
+    "tagline": "Do business with a travelling merchant — borrow and repay gold, sell and buy rice, and "
+               "buy weapons. A whole commodity market behind one menu — when the merchant shows up.",
+    "anim_cap": "The merchant-deal animation (id 0) — plays after each completed transaction "
+                "(<span class=\"scr\">Let’s do business again.</span>).",
+    "summary": (
+      "Trade (<code>driver_trade $A1B6</code>) is the game’s <b>merchant subsystem</b> — by far the "
+      "richest of the non-combat commands. It is the one command that <b>may not be available on a "
+      "given turn</b>: it opens with a presence check (<code>effect_trade $8A15</code>) and, if it "
+      "fails, you only get <span class=\"scr\">No merchant in the area.</span> The merchant is "
+      "<b>always</b> in the two commercial capitals — <b>fief 13 (Kyoto / Yamashiro)</b> and <b>14 "
+      "(Sakai / Settsu)</b> — and <b>everywhere else only when a per-turn flag bit is set</b> "
+      "(<code>ai_turn_flags &amp; 1</code>), so roughly half your turns elsewhere have no merchant. "
+      "When he is present you’re greeted with <span class=\"scr\">Lord, how may I serve you?</span> and "
+      "a six-option menu; each completed deal plays animation 0 and offers "
+      "<span class=\"scr\">Let’s do business again.</span> Every price comes from the <b>market rate "
+      "table</b> (<code>loan_rate</code> / <code>gold_rice_exchange_rate</code> / "
+      "<code>arms_buy_price_rate</code> at <code>$6E0B…</code>), which <b>re-rolls every turn</b> — so "
+      "<i>when</i> and <i>where</i> you trade is itself a lever."),
+    "flow": [
+      (0xA1BE, '<b>Merchant-presence gate</b> (<code>effect_trade $8A15</code>): fief 13/14 always pass; '
+               'else <code>ai_turn_flags &amp; 1</code>. Fail → <span class="scr">"No merchant in the '
+               'area."</span>'),
+      (0xA1C8, 'The six-option menu is drawn (labels from <code>$FF4F</code>: '
+               'Loan / Repay / Sell / Buy / Arms / Menu).'),
+      (0xA1F3, '<span class="scr">"Lord, how may I serve you?"</span> → <code>submenu_prompt(6)</code> '
+               'dispatches through <code>jumptab_b9dc</code>.'),
+      (0xA216, '<b>On a completed deal:</b> animation <code>0</code> + '
+               '<span class="scr">"Let’s do business again."</span> (the menu loops).'),
+      (0xA23A, 'Pick <b>Menu</b> → <span class="scr">"Bye."</span> and exit.'),
+    ],
+    "table_heading": "The six services",
+    "table": {
+      "caption": "Read from <code>jumptab_b9dc</code> ($B9DC → $9F04/$9FAF/$A003/$A068/$A113/$A1AF) and "
+                 "the label table <code>$FF4F</code>. Every quantity cap is computed by the shared "
+                 "<code>helper_8357(headroom, rate, stock)</code>; every cost by "
+                 "<code>math32_muladddiv(N, rate)</code>.",
+      "headers": ["#", "Service", "Code", "What it does", "Rate"],
+      "rows": [
+        ["1", "Loan", "$9F04", "borrow gold; collateral is <code>town − debt</code>; gold += N, debt "
+         "+= N. Treasury already full → <span class='scr'>“…already full”</span>; no collateral → "
+         "<span class='scr'>“You can’t borrow”</span>", "<code>loan_rate</code> (+10)"],
+        ["2", "Repay", "$9FAF", "pay down debt 1:1, <code>N = min(gold, debt)</code>; gold −= N, debt "
+         "−= N. No debt → <span class='scr'>“Debt? What debt?”</span>", "—"],
+        ["3", "Sell", "$A003", "rice → gold; capped by rice held + treasury headroom. No rice → "
+         "<span class='scr'>“No rice”</span>", "<code>gold_rice_exchange_rate</code>"],
+        ["4", "Buy", "$A068", "gold → rice, <b>cash only</b>; gold −= N×rate, rice += N. Can’t afford → "
+         "<span class='scr'>“Sorry, no credit”</span>", "<code>gold_rice_exchange_rate</code>"],
+        ["5", "Arms", "$A113", "gold → weapons; <b>needs soldiers</b> (else <span class='scr'>“Weapons "
+         "for who?”</span>); gold −= N×rate, arms += N", "<code>arms_buy_price_rate</code>"],
+        ["6", "Menu", "$A1AF", "<span class='scr'>“Bye.”</span> — leave the merchant", "—"],
+      ],
+      "note": "The three rates live in the per-turn market table (<code>$6E0B…$6E13</code>) and "
+              "<b>re-roll every turn</b> — the same table that prices Hire and the loan system — so the "
+              "buy-low/sell-high timing is real. Exact price = <code>math32_muladddiv(N, rate)</code> "
+              "(a ⌊·⌋ of N×rate over a fixed divisor; the Arms “minimum to afford one” check "
+              "<code>(rate+9)/10</code> implies ≈ rate/10 gold per unit). Pinning the precise divisor "
+              "per good is a clean emulator-probe follow-up.",
+    },
+    "callout": (
+      "<b>The one command you can’t always use — and that’s the point.</b> Trade fuses three systems: a "
+      "<b>credit market</b> (Loan/Repay — borrow against your town, the only way to spend beyond your "
+      "treasury, at interest baked into <code>loan_rate</code>), a <b>commodity market</b> (Sell/Buy "
+      "rice — convert between your two liquid resources at a fluctuating exchange rate), and an "
+      "<b>arms market</b> (buy weapons for gold). Two design choices give it depth: the merchant is "
+      "<b>always</b> in Kyoto and Sakai but only <i>sometimes</i> elsewhere — a concrete reason to hold "
+      "the commercial capitals — and the rates <b>change every turn</b>, so a patient lord buys arms "
+      "when they’re cheap and sells rice when it’s dear. This is why Trade gets a full subsystem page, "
+      "not a thin one."),
+    "rabbit_holes": [
+      ("Loan / debt mechanic", "borrowing capacity = <code>town − debt</code>, priced at "
+       "<code>loan_rate</code>; debt is province field +2 and is repaid via Repay (or bleeds you each "
+       "harvest). The fuller credit model is its own thread.", None),
+      ("Per-turn market rates", "<code>gold_rice_exchange_rate</code> / <code>arms_buy_price_rate</code> "
+       "/ <code>loan_rate</code> re-roll every turn in <code>$6E0B…</code> — quantifying the "
+       "distribution (and the exact price divisor per good) wants an emulator probe.", None),
+    ],
+  },
 }
 
 # =====================================================================
@@ -903,23 +1437,144 @@ def render_functional(cmd, s):
                 f'script:</p>\n<ol class="flow">\n{items}\n</ol>\n\n')
     table = _table_html(s.get("table"), s.get("table_heading", "The options"))
     callout = f'<div class="callout">{s["callout"]}</div>\n' if s.get("callout") else ""
+    # Some commands are instant (no ui_helper_e80c → no animation): skip the "What you see" block.
+    if s.get("anim_id") is None:
+        skills = ('<div class="skills">\n  <span>① decompiler → C</span>\n  '
+                  '<span>② data-walk labels</span>\n  <span>⚡ instant — no animation</span>\n</div>\n\n')
+        seen = ''
+    else:
+        skills = ('<div class="skills">\n  <span>① decompiler → C</span>\n  '
+                  '<span>④ animation VM → ROM render</span>\n  <span>⚠ subsystem entry point</span>\n</div>\n\n')
+        seen = (f'<h2>What you see</h2>\n<p class="sub">The {s["name"]} animation, '
+                f'rendered from ROM bytes.</p>\n{_anim_block(s, cmd)}\n\n')
     body = (
       f'<header>\n  <div class="cmdno">Lord Command · No. {s["no"]}</div>\n'
       f'  <h1>{s["name"]}</h1>\n  <div class="tag">{s["tagline"]}</div>\n</header>\n\n'
-      '<div class="skills">\n  <span>① decompiler → C</span>\n  '
-      '<span>④ animation VM → ROM render</span>\n  <span>⚠ subsystem entry point</span>\n</div>\n\n'
-      f'<h2>What you see</h2>\n<p class="sub">The {s["name"]} animation, rendered from ROM bytes.</p>\n'
-      f'{_anim_block(s, cmd)}\n\n'
+      f'{skills}'
+      f'{seen}'
       f'<h2>What it does</h2>\n<p>{s["summary"]}</p>\n\n'
       f'{flow}'
       f'{table}\n{callout}\n'
-      f'<h2>Where it goes — the rabbit holes</h2>\n'
-      '<p class="sub">This command is a simple page on purpose: the depth lives in the subsystem it '
-      'hands off to. Those get their own pages.</p>\n'
-      f'{rabbits}\n'
-      f'<footer>\n  Driver <code>${s["driver"]:04X}</code> · '
-      f'<code>tools/run-animation.py</code> · <a href="./README.md">commands index</a>.\n</footer>')
+      + ('<h2>Where it goes — the rabbit holes</h2>\n'
+         '<p class="sub">This command is a simple page on purpose: the depth lives in the subsystem it '
+         'hands off to. Those get their own pages.</p>\n'
+         f'{rabbits}\n' if s.get("rabbit_holes") else "")
+      + (f'<footer>\n  Driver <code>${s["driver"]:04X}</code> · '
+      f'<code>tools/run-animation.py</code> · <a href="./README.md">commands index</a>.\n</footer>'))
     return _page(f'{s["name"]} — Nobunaga’s Ambition Command Reference', body)
+
+INDEX_CSS = CSS + """
+  .title{margin:.18em 0 .12em}
+  .title img{image-rendering:pixelated;height:54px;width:auto;display:block}
+  .menu{margin:22px 0 8px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+  .row{display:flex;align-items:center;gap:16px;padding:13px 18px;border-bottom:1px solid var(--line);
+    text-decoration:none;color:inherit;transition:background .12s}
+  .row:last-child{border-bottom:none}
+  .row:hover{background:#262633}
+  .num{flex:none;width:50px;height:46px;border:2px solid var(--gold);border-radius:8px;
+    display:flex;align-items:center;justify-content:center;background:#101019}
+  .num img{image-rendering:pixelated;height:22px;width:auto}
+  .rname{flex:none;width:130px;display:flex;align-items:center}
+  .rname img{image-rendering:pixelated;height:20px;width:auto}
+  .gnum-fb,.gname-fb{font:700 18px/1 var(--mono);color:var(--ink)}
+  .gtitle-fb{font:800 38px/1 var(--mono);color:var(--gold)}
+  .rtag{flex:1;color:var(--dim);font-size:13.5px;min-width:160px}
+  .rtype{flex:none;font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+    border:1px solid var(--line);border-radius:999px;padding:5px 9px}
+  .t-atomic{color:var(--green);border-color:#2c5a2c}
+  .t-functional{color:var(--blue);border-color:#2a3f6b}
+  .t-sub{color:#b89af0;border-color:#4a2e6b}
+  .sub-row{padding-left:50px;background:#191922}
+  .sub-row .num{width:40px;height:38px;border-color:#4a2e6b}
+  .sub-row .num img{height:16px}
+  .sub-row .rname img{height:16px}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 2px 0;color:var(--dim);font-size:12.5px}
+  .fontnote{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;border-radius:8px;
+    padding:12px 16px;margin:22px 0;font-size:13.5px;color:var(--dim)}
+  .fontnote b{color:#b89af0}
+"""
+
+def _font_png(text, fg=(240, 180, 41), scale=4):
+    """Render text in the game's own font (via render-text.py) -> base64 data-URI, or '' on failure."""
+    try:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import importlib
+        rt = importlib.import_module("render-text") if "render-text" not in sys.modules else sys.modules["render-text"]
+    except Exception:
+        try:
+            import importlib.util
+            spec = importlib.util.spec_from_file_location("render_text", ROOT / "tools" / "render-text.py")
+            rt = importlib.util.module_from_spec(spec); spec.loader.exec_module(rt)
+        except Exception:
+            return ""
+    try:
+        import io
+        img = rt.render_text(text, scale=scale, fg=fg, bg=None, tracking=1)
+        buf = io.BytesIO(); img.save(buf, "PNG")
+        return "data:image/png;base64," + base64.b64encode(buf.getvalue()).decode()
+    except Exception:
+        return ""
+
+def index_page():
+    """The command-reference landing page: the in-game 21-command menu, every entry linked."""
+    have = {p.stem for p in CMD_DIR.glob("*.html")}
+    by_no = sorted((s for s in COMMANDS.values() if s.get("no") and s["name"] != "Ninja (Hire ▸ Ninja)"),
+                   key=lambda s: s["no"])
+    GOLD, INK, PURPLE = (240, 180, 41), (232, 230, 223), (184, 154, 240)
+    def fontimg(text, fg, scale, cls):
+        src = _font_png(text, fg=fg, scale=scale)
+        return f'<img class="{cls}" src="{src}" alt="{text}">' if src else f'<span class="{cls}-fb">{text}</span>'
+    rows = ""
+    for s in by_no:
+        cmd = next(k for k, v in COMMANDS.items() if v is s)
+        link = f"./{cmd}.html" if cmd in have else "#"
+        t = s["type"]
+        tag = re.sub(r"</?(b|i|code|span)[^>]*>", "", s["tagline"]).split(". ")[0].rstrip(".") + "."
+        rows += (f'<a class="row" href="{link}">'
+                 f'<div class="num">{fontimg(str(s["no"]), GOLD, 4, "gnum")}</div>'
+                 f'<div class="rname">{fontimg(s["name"], INK, 4, "gname")}</div>'
+                 f'<div class="rtag">{tag}</div>'
+                 f'<div class="rtype t-{t}">{t}</div></a>\n')
+        if cmd == "hire" and "ninja" in have:
+            n = COMMANDS["ninja"]
+            ntag = re.sub(r"</?(b|i|code|span)[^>]*>", "", n["tagline"]).split(". ")[0].rstrip(".") + "."
+            rows += (f'<a class="row sub-row" href="./ninja.html">'
+                     f'<div class="num">{fontimg("+", PURPLE, 4, "gnum")}</div>'
+                     f'<div class="rname">{fontimg("Ninja", PURPLE, 4, "gname")}</div>'
+                     f'<div class="rtag">{ntag}</div>'
+                     f'<div class="rtype t-sub">sub</div></a>\n')
+    title = fontimg("LORD COMMANDS", GOLD, 7, "gtitle")
+    body = (
+      '<header>\n  <div class="cmdno">Nobunaga’s Ambition (NES) · Reverse-Engineering Atlas</div>\n'
+      f'  <div class="title">{title}</div>\n'
+      '  <div class="tag">All 21 commands of the daimyo’s turn menu — every one decoded from the '
+      'ROM bytecode, with its driver flow, formula or subsystem, and its in-game animation pulled '
+      'straight from the cartridge. <b>The numbers and names below are rendered in the game’s own '
+      'built-in font, pulled from the ROM.</b></div>\n</header>\n\n'
+      '<div class="menu">\n' + rows + '</div>\n'
+      '<div class="legend">'
+      '<span><b style="color:var(--green)">atomic</b> = self-contained, bytecode-validated formula</span>'
+      '<span><b style="color:var(--blue)">functional</b> = gateway into a subsystem</span>'
+      '<span><b style="color:#b89af0">sub</b> = nested command</span>'
+      '</div>\n'
+      '<div class="fontnote"><b>□ That font is the cartridge’s own.</b> Every number and command name '
+      'above is rendered in Nobunaga’s Ambition’s built-in font, extracted straight from the ROM by '
+      '<code>tools/render-text.py</code>. The text pipeline was decoded — <code>format_string</code> '
+      '→ <code>redraw_window</code> → <code>char_classify</code> (tile&nbsp;=&nbsp;ascii&nbsp;−&nbsp;offset, '
+      'piecewise per character range) — and the glyph bitmaps live at <code>$B2BA</code> in bank&nbsp;0 '
+      '(2bpp CHR uploaded to CHR-RAM by <code>render_boot_title_screens</code>). The renderer reuses '
+      'that exact mapping, so any string can be drawn in-engine.</div>\n'
+      '<footer>\n  Generated by <code>tools/build-command-page.py index</code> · font via '
+      '<code>tools/render-text.py</code> · '
+      '<a href="./README.md">test logs &amp; field maps</a> · '
+      '<a href="../ROADMAP.md">project roadmap</a>.\n</footer>')
+    html = (f'<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+            f'<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+            f'<title>Lord Commands — Nobunaga’s Ambition Command Reference</title>\n'
+            f'<style>{INDEX_CSS}</style>\n</head>\n<body>\n<div class="wrap">\n{body}\n</div>\n</body>\n</html>\n')
+    out = CMD_DIR / "index.html"
+    out.write_text(html, encoding="utf-8")
+    print(f"  wrote {out.relative_to(ROOT)}  (index, {len(by_no)} commands, {len(html)} bytes)")
 
 def build(cmd):
     s = COMMANDS[cmd]
@@ -1007,6 +1662,10 @@ def main():
     elif op == "build":
         targets = list(COMMANDS) if a[1:] == ["all"] else a[1:]
         for c in targets: build(c)
+        if a[1:] == ["all"]:
+            index_page()
+    elif op == "index":
+        index_page()
     elif op == "classify":
         targets = list(COMMANDS) if a[1:] == ["all"] else a[1:]
         for c in targets: classify(c)

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>View — Nobunaga’s Ambition Command Reference</title>
+<style>
+  :root{
+    --bg:#15151c; --panel:#1f1f2b; --ink:#e8e6df; --dim:#9a97a8;
+    --gold:#f0b429; --red:#e8431f; --blue:#3a6ee8; --green:#5ad05a;
+    --line:#33303f; --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--gold);padding-bottom:14px;margin-bottom:8px}
+  .cmdno{color:var(--gold);font:600 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  h1{margin:.18em 0 .1em;font-size:38px;letter-spacing:.01em}
+  .tag{color:var(--dim);font-style:italic}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 28px}
+  .skills span{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:6px 11px;text-transform:uppercase}
+  h2{margin:38px 0 4px;font-size:22px;border-left:4px solid var(--gold);padding-left:12px}
+  .sub{color:var(--dim);margin:0 0 16px;padding-left:16px;font-size:14px}
+  .anim{display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px}
+  .anim img{image-rendering:pixelated;width:256px;height:240px;background:#6b6b6b;border-radius:6px}
+  .anim .cap{flex:1;min-width:240px}
+  .anim .cap b{color:var(--gold)}
+  .pill{display:inline-block;font:600 11px/1 var(--mono);color:var(--bg);background:var(--green);
+    border-radius:4px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+  ol.flow{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+  ol.flow li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line)}
+  ol.flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  ol.flow .scr{color:var(--green);font-family:var(--mono);font-size:14px}
+  ol.flow .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right}
+  pre{background:#101019;border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:8px;padding:16px;overflow:auto;font:13.5px/1.5 var(--mono);color:#d6e4ff}
+  pre .c{color:#6f7b96}
+  pre .k{color:var(--gold)}
+  .callout{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--red);
+    border-radius:8px;padding:14px 18px;margin:18px 0}
+  .callout b{color:var(--red)}
+  .rabbit{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .rabbit b{color:#b89af0}
+  .rabbit a{color:var(--blue);text-decoration:none}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--panel);color:var(--gold);font-weight:600}
+  td .ok{color:var(--green)}
+  code{font-family:var(--mono);color:var(--gold);font-size:.92em}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer a{color:var(--blue);text-decoration:none}
+  .roi{color:var(--dim);font-style:italic;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="cmdno">Lord Command · No. 12</div>
+  <h1>View</h1>
+  <div class="tag">Inspect any province — your own for free, an enemy’s for gold (and the risk of a caught spy). The information hub: fief stats, vassals, and the strategic map.</div>
+</header>
+
+<div class="skills">
+  <span>① decompiler → C</span>
+  <span>④ animation VM → ROM render</span>
+  <span>⚠ subsystem entry point</span>
+</div>
+
+<h2>What you see</h2>
+<p class="sub">The View animation, rendered from ROM bytes.</p>
+<div class="anim">
+  <img src="data:image/gif;base64,R0lGODlhAAPQAoEAAPz8/PjYeHx8fPg4ACH/C05FVFNDQVBFMi4wAwEAAAAh+QQIDAAAACwAAAAAAAPQAgAI/wAFCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMb/KuustNZq66245qrrrrz26uuvwAYr7LDEFmvsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+678MYr77z01mvvvfjmq+++/Pbr778AByzwwAQXbPDBCCes8MIMN+zwwxBHLPHEFFds8cUYZ6zxxhx37PHHIIcs8sgkl2zyySinrPLKLLfs8sswxyzzzDTXbPPNOOes88489+zzz0AHLfTQRBdt9NFIJ6300kw37fTTUEct9dRUV2311VhnrfXWXHft9ddghy322GSXbfbZaKet9tpst+3223DHLffcdNdt991456333nz3/+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSUV2755ZhnrvnmnHfu+eeghy766KSXbvrpqKeu+uqst+7667DHLvvs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z59AgwodSrSo0aNIkypdyrSp06dQo0qdSrWq1atYs2rdyrWr169gw4odS7as2bNo06pdy7at27dw48qdS7eu3bt48+rdy7ev37+AAwseTLiw4cOIEytezLix48eQI0ueTLmy5cuYM2vezLmz58+gQ4seTbq06dOoU6tezbq169ewY8ueTbu27du4c+vezbu379/AgwsfTry48ePIkytfzry58+fQo0ufTr269evYs2vfzr279+/gw4v/H0++vPnz6NOrX8++vfv38OPLn0+/vv37+PPr38+/v///AAYo4IAEFmjggQgmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLMMYo44w01mjjjTjmqOOOPPbo449ABinkkEQWaeSRSCap5JJMNunkk1BGKeWUVFZp5ZVYZqnlllx26eWXYIYp5phklmnmmWimqeaabLbp5ptwxinnnHTWaeedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYq6aSUVmrppZhmqummnHbq6aeghirqqKSWauqpqKaq6qqsturqq7DG/yrrrLTWauutuOaq66689urrr8AGK+ywxBZr7LHIJqvsssw26+yz0EYr7bTUVmvttdhmq+223Hbr7bfghivuuOSWa+656Kar7rrstuvuu/DGK++89NZr77345qvvvvz26++/AAcs8MAEF2zwwQgnrPDCDDfs8MMQRyzxxBRXbPHFGGes8cYcd+zxxyCHLPLIJJds8skop6zyyiy37PLLMMcs88w012zzzTjnrPPOPPfs889ABy300EQXbfTRSCet9NJMN+3001BHLfXUVFdt9dVYZ6311lx37fXXYIct9thkl2322WinrfbabLft9ttwxy333HTXbffdeOet99589//t99+ABy744IQXbvjhiCeu+OKMN+7445BHLvnklFdu+eWYZ6755px37vnnoIcu+uikl2766ainrvrqrLfu+uuwxy777LTXbvvtuOeu++689+7778AHL/zwxBdv/PHIJ6/88sw37/zz0Ecv/fTUV2/99dhnr/323Hfv/ffghy/++OSXb/756Kev/vrst+/++/DHL//89Ndv//3456///vz37///AAygAAdIwAIa8IAITKACF8jABjrwgRCMoAQnSMEKWvCCGMygBjfI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uZEc2ZEe+ZEgGZIiOZIkWZImeZIomZIquZIs2ZIu+ZIwGZMyOZM0WZM2eZM4JZmTOrmTPNmTPvmTQBmUQjmURFmURnmUSJmUSrmUTNmUTukoAQEAIfkECAwAAAAsAAAAAAAD0AKB/Pz8+Nh4fHx8+DgACP8ABQgcSLCgwYMIEypcyLChw4cQI0qcSLGixYsYM2rcyLGjx48gQ4ocSbKkyZMoU6pcybKly5cwY8qcSbOmzZs4c+rcybOnz59AgwodSrSo0aNIkypdyrSp06dQo0qdSrWq1atYs2rdyrWr169gw4odS7as2bNo06pdy7at27dw48qdS7eu3bt48+rdy7ev37+AAwseTLiw4cOIEytezLix48eQI0ueTLmy5cuYM2vezLmz58+gQ4seTbq06dOoU6tezbq169ewY8ueTbu27du4c+vezbu379/AgwsfTry48ePIkytfzry58+fQo0ufTr269evYs2vfzr279+/gw4v/H0++vPnz6NOrX8++vfv38OPLn0+/vv37+PPr38+/v///AAYo4IAEFmjggQgmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLMMYo44w01mjjjTjmqOOOPPbo449ABinkkEQWaeSRSCap5JJMNunkk1BGKeWUVFZp5ZVYZqnlllx26eWXYIYp5phklmnmmWimqeaabLbp5ptwxinnnHTWaeedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYq6aSUVmrppZhmqummnHbq6aeghirqqKSWauqpqKaq6qqsturqq7DG/yrrrLTWauutuOaq66689urrr8AGK+ywxBZr7LHIJqvsssw26+yz0EYr7bTUVmvttdhmq+223Hbr7bfghivuuOSWa+656Kar7rrstuvuu/DGK++89NZr77345qvvvvz26++/AAcs8MAEF2zwwQgnrPDCDDfs8MMQRyzxxBRXbPHFGGes8cYcd+zxxyCHLPLIJJds8skop6zyyiy37PLLMMcs88w012zzzTjnrPPOPPfs889ABy300EQXbfTRSCet9NJMN+3001BHLfXUVFdt9dVYZ6311lx37fXXYIct9thkl2322WinrfbabLft9ttwxy333HTXbffdeOet99589//t99+ABy744IQXbvjhiCeu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6IUkmIec2IhL6IRnmICSuIgMOHhl+IV2mImXg4XKR3yvCIpoiDmy2ImOeIp4mDm5SIp1yIu1qImw04aIKIw1WDrGmInCWDvLaIvM6HepM4Sn5XfNeDvUiImaB4vYWIqe+HjcGDrJ+IgcFonR+ImbM47Bl4jQaI6co45liIrnCIeLY4ill3vSKHy3N4+WY4/ItIXwaIHImI+G44/l2IcBiXn8iDkGSVZMCInD6IqO05AS95DHCJHjKDgUaYHgF4wYCZFrFJIiOZIkWZImeZIomZIquZIs2ZIu+ZIwGZMyOZM0WZM2eZM4W5mTOrmTPNmTPvmTQBmUQjmURFmURnmUSJmUSrmUTNmUTvmUUBmVUjmVVFmVVnmVWJmVWrmVXNmVXvmVYBmWYjmWZFmWZnmWaJmWarmWbNmWbvmWcBmXcpkpAQEAIfkECAwAAAAsAAAAAAAD0AKBfHx8AAAAAAAAAAAACP8AAQgcSLCgwYMIEypcyLChw4cQI0qcSLGixYsYM2rcyLGjx48gQ4ocSbKkyZMoU6pcybKly5cwY8qcSbOmzZs4c+rcybOnz59AgwodSrSo0aNIkypdyrSp06dQo0qdSrWq1atYs2rdyrWr169gw4odS7as2bNo06pdy7at27dw48qdS7eu3bt48+rdy7ev37+AAwseTLiw4cOIEytezLix48eQI0ueTLmy5cuYM2vezLmz58+gQ4seTbq06dOoU6tezbq169ewY8ueTbu27du4c+vezbu379/AgwsfTry48ePIkytfzry58+fQo0ufTr269evYs2vfzr279+/gw4v/H0++vPnz6NOrX8++vfv38OPLn0+/vv37+PPr38+/v///AAYo4IAEFmjggQgmqOCCDDbo4IMQRijhhBRWaOGFGGao4YYcdujhhyCGKOKIJJZo4okopqjiiiy26OKLMMYo44w01mjjjTjmqOOOPPbo449ABinkkEQWaeSRSCap5JJMNunkk1BGKeWUVFZp5ZVYZqnlllx26eWXYIYp5phklmnmmWimqeaabLbp5ptwxinnnHTWaeedeOap55589unnn4AGKuighBZq6KGIJqrooow26uijkEYq6aSUVmrppZhmqummnHbq6aeghirqqKSWauqpqKaq6qqsturqq7DG/yrrrLTWauutuOaq66689urrr8AGK+ywxBZr7LHIJqvsssw26+yz0EYr7bTUVmvttdhmq+223Hbr7bfghivuuOSWa+656Kar7rrstuvuu/DGK++89NZr77345qvvvvz26++/AAcs8MAEF2zwwQgnrPDCDDfs8MMQRyzxxBRXbPHFGGes8cYcd+zxxyCHLPLIJJds8skop6zyyiy37PLLMMcs88w012zzzTjnrPPOPPfs889ABy300EQXbfTRSCet9NJMN+3001BHLfXUVFdt9dVYZ6311lx37fXXYIct9thkl2322WinrfbabLft9ttwxy333HTXbffdeOet99589//t99+ABy744IQXbvjhiCeu+OKMN+7445BHLvnklFdu+eWYZ6755px37vnnoIcu+uikl2766ainrvrqrLfu+uuwxy777LTXbvvtuOeu++689+7778AHL/zwxBdv/PHIJ6/88sw37/zz0Ecv/fTUV2/99dhnr/323Hfv/ffghy/++OSXb/756Kev/vrst+/++/DHL//89Ndv//3456///vz37///AAygAAdIwAIa8IAITKACF8jABjrwgRCMoAQnSMEKWvCCGMygBjfIwQ568IMgDKEIR0jCEprwhChMoQpXyMIWuvCFMIyhDGdIwxra8IY4zKEOd8jDHvrwh0AMohD/h0jEIhrxiEhMohKXyMQmOvGJUIyiFKdIxSpa8YpYzKIWt8jFLnrxi2AMoxjHSMYymvGMaEyjGtfIxja68Y1wjKMc50jHOtrxjnjMox73yMc++vGPgAykIAdJyEIa8pCITKQiF8nIRjrykZCMpCQnSclKWvKSmMykJjfJyU568pOgDKUoR0nKUprylKhMpSpXycpWuvKVsIylLGdJy1ra8pa4zKUud8nLXvryl8AMpjCHScxiGvOYyEymMpfJzGY685nQjKY0p0nNalrzmtjMpja3yc1uevOb4AynOMdJznKa85zoTKc618nOdrrznfCMpzznSc962vOe+MynPvfJL89++vOfAA2oQAdK0IIa9KAITahCF8rQhjr0oRCNqEQnStGKWvSiGM2oRjdqmIAAADs=" alt="View animation">
+  <div class="cap">
+    The view/inspection animation (id 14).
+    <span class="pill">FROM ROM</span><br><br>
+    Produced headless by <code>tools/run-animation.py 14</code>, which runs the game’s
+    own <b>animation scripting VM</b> (bank&nbsp;14 <code>$80AD</code>, id <code>14</code> from
+    the descriptor table at <code>$AF80</code>) and intercepts every CHR upload, palette write
+    and sprite placement to reconstruct each frame — real NES palette.
+  </div>
+</div>
+
+<h2>What it does</h2>
+<p>View (<code>driver_view $A6C7</code>) is the game’s <b>intelligence command</b>, and the widest of the non-econ commands — it’s a loop over several screens. <span class="scr">View which fief?</span> lets you inspect any province’s stats (<code>effect_view_a</code>); your own fiefs are free, but <b>spying on an enemy costs 10 gold</b> per look (no gold → <span class="scr">You have no gold.</span>). Spying is a <b>contest</b>: <code>effect_view_d</code> compares your daimyo against the target and, on a bad roll, <span class="scr">Our spy was caught.</span> (animation 14). From the same command you can list a daimyo’s vassals (<span class="scr">View vassals</span>, <code>effect_view_b/c</code>) and open the strategic <b>map</b> (<code>map_helper_e5f2 / map_helper_af10</code> — the very same render path the Map command uses, branched on <code>scenario_fief_count</code>).</p>
+
+<h2>How it works</h2>
+<p class="sub">The driver reads as a step-by-step script:</p>
+<ol class="flow">
+  <li><span class="addr">$A716</span><span class="scr">"View which fief?"</span> — pick any province.</li>
+  <li><span class="addr">$A6EE</span><b>Own fief:</b> view its full stats free (<code>effect_view_a</code>).</li>
+  <li><span class="addr">$A7AA</span><b>Enemy fief:</b> costs <b>10 gold</b> to spy; debited on the attempt.</li>
+  <li><span class="addr">$A80A</span><b>Spy contest</b> (<code>effect_view_d</code>): your daimyo vs the target + an RNG roll.</li>
+  <li><span class="addr">$A843</span><b>Caught</b> → <span class="scr">"Our spy was caught."</span> (animation 14).</li>
+  <li><span class="addr">$A743</span><b>Map sub-screen</b> — opens the strategic map (<code>map_helper_e5f2/af10</code>, the same renderer as the Map command).</li>
+</ol>
+
+
+<div class="callout"><b>The information hub — and a second door to the map.</b> View bundles three things the other commands keep separate: province inspection, vassal lists, and the strategic map. Reading your own holdings is free; reading an <i>enemy’s</i> is espionage — 10 gold a look and a skill-vs-skill roll that can get your spy caught. The map sub-screen calls the identical <code>map_helper_e5f2</code> path as the <a href="./map.html">Map command</a> (and the kernel <code>$E694</code> standalone viewer), which is why all three share one render core — and why pulling that illustrated map from ROM is filed as its own task.</div>
+
+<h2>Where it goes — the rabbit holes</h2>
+<p class="sub">This command is a simple page on purpose: the depth lives in the subsystem it hands off to. Those get their own pages.</p>
+<div class="rabbit"><b>🕳️ Spy-contest math.</b> <code>effect_view_d ($A6B3)</code> — the daimyo-vs-daimyo skill roll that decides whether an enemy inspection succeeds or the spy is caught; not yet pinned to a closed form. <i>(deep page TBD)</i></div>
+<div class="rabbit"><b>🕳️ The illustrated strategic map.</b> <code>map_helper_e5f2</code> blits a 9-section map from bank 4 — rendering it from ROM (both 17 & 50 fief) is an open task (ROADMAP Inbox). <i>(deep page TBD)</i></div>
+
+<footer>
+  Driver <code>$A6C7</code> · <code>tools/run-animation.py</code> · <a href="./README.md">commands index</a>.
+</footer>
+</div>
+</body>
+</html>

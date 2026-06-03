@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rest — Nobunaga’s Ambition Command Reference</title>
+<style>
+  :root{
+    --bg:#15151c; --panel:#1f1f2b; --ink:#e8e6df; --dim:#9a97a8;
+    --gold:#f0b429; --red:#e8431f; --blue:#3a6ee8; --green:#5ad05a;
+    --line:#33303f; --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--gold);padding-bottom:14px;margin-bottom:8px}
+  .cmdno{color:var(--gold);font:600 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  h1{margin:.18em 0 .1em;font-size:38px;letter-spacing:.01em}
+  .tag{color:var(--dim);font-style:italic}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 28px}
+  .skills span{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:6px 11px;text-transform:uppercase}
+  h2{margin:38px 0 4px;font-size:22px;border-left:4px solid var(--gold);padding-left:12px}
+  .sub{color:var(--dim);margin:0 0 16px;padding-left:16px;font-size:14px}
+  .anim{display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px}
+  .anim img{image-rendering:pixelated;width:256px;height:240px;background:#6b6b6b;border-radius:6px}
+  .anim .cap{flex:1;min-width:240px}
+  .anim .cap b{color:var(--gold)}
+  .pill{display:inline-block;font:600 11px/1 var(--mono);color:var(--bg);background:var(--green);
+    border-radius:4px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+  ol.flow{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+  ol.flow li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line)}
+  ol.flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  ol.flow .scr{color:var(--green);font-family:var(--mono);font-size:14px}
+  ol.flow .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right}
+  pre{background:#101019;border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:8px;padding:16px;overflow:auto;font:13.5px/1.5 var(--mono);color:#d6e4ff}
+  pre .c{color:#6f7b96}
+  pre .k{color:var(--gold)}
+  .callout{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--red);
+    border-radius:8px;padding:14px 18px;margin:18px 0}
+  .callout b{color:var(--red)}
+  .rabbit{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .rabbit b{color:#b89af0}
+  .rabbit a{color:var(--blue);text-decoration:none}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--panel);color:var(--gold);font-weight:600}
+  td .ok{color:var(--green)}
+  code{font-family:var(--mono);color:var(--gold);font-size:.92em}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer a{color:var(--blue);text-decoration:none}
+  .roi{color:var(--dim);font-style:italic;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="cmdno">Lord Command · No. 17</div>
+  <h1>Rest</h1>
+  <div class="tag">Stand your daimyo down for several seasons to recuperate. Not a turn-skip — a <i>multi-turn</i> commitment that locks the daimyo out of every command until it ends.</div>
+</header>
+
+<div class="skills">
+  <span>① decompiler → C</span>
+  <span>④ animation VM → ROM render</span>
+  <span>⚠ subsystem entry point</span>
+</div>
+
+<h2>What you see</h2>
+<p class="sub">The Rest animation, rendered from ROM bytes.</p>
+<div class="anim">
+  <img src="data:image/gif;base64,R0lGODlhAAPQAoEAAPz8/PjYeHx8fAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQIDAAAACwAAAAAAAPQAgAI/wAFCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMb/KuustNZq66245qrrrrz26uuvwAYr7LDEFmvsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+678MYr77z01mvvvfjmq+++/Pbr778AByzwwAQXbPDBCCes8MIMN+zwwxBHLPHEFFds8cUYZ6zxxhx37PHHIIcs8sgkl2zyySinrPLKLLfs8sswxyzzzDTXbPPNOOes88489+zzz0AHLfTQRBdt9NFIJ6300kw37fTTUEct9dRUV2311VhnrfXWXHft9ddghy322GSXbfbZaKet9tpst+3223DHLffcdNdt991456333nz3/+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSUV2755ZhnrvnmnHfu+eeghy766KSXbvrpqKeu+uqst+7667DHLvvs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aNOqXcu2rdu3cOPKnUu3rt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLmDNr3sy5s+fPoEOLHk26tOnTqFOrXs26tevXsGPLnk27tu3buHPr3s27t+/fwIMLH068uPHjyJMrX868ufPn0KNLn069uvXr2LNr3869u/fv4MOL/x9Pvrz58+jTq1/Pvr379/Djy59Pv779+/jz69/Pv7///wAGKOCABBZo4IEIJqjgggw26OCDEEYo4YQUVmjhhRhmqOGGHHbo4YcghijiiCSWaOKJKKao4oostujiizDGKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSSTDbp5JNQRinllFRWaeWVWGap5ZZcdunll2CGKeaYZJZp5plopqnmmmy26eabcMYp55x01mnnnXjmqeeefPbp55+ABirooIQWauihiCaq6KKMNuroo5BGKumklFZq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrLbq6quwxv8q66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCar7LLMNuvss9BGK+201FZr7bXYZqvtttx26+234IYr7rjklmvuueimq+667Lbr7rvwxivvvPTWa++9+Oar77789uvvvwAHLPDABBds8MEIJ6zwwgw37PDDEEcs8cQUV2zxxRhnrPHGHHfs8ccghyzyyCSXbPLJKKes8sost+zyyzDHLPPMNNds880456zzzjz37PPPQAct9NBEF2300UgnrfTSTDft9NNQRy311FRXbfXVWGet9dZcd+3112CHLfbYZJdt9tlop6322my37fbbcMct99x012333XjnrffefPf/7fffgAcu+OCEF2744YgnrvjijDfu+OOQRy755JRXbvnlmGeu+eacd+7556CHLvropJdu+umop6766qy37vrrsMcu++y012777bjnrvvuvPfu++/ABy/88MQXb/zxyCev/PLMN+/889BHL/301Fdv/fXYZ6/99tx37/334Icv/vjkl2/++einr/767Lfv/vvwxy///PTXb//9+Oev//789+///wAMoAAHSMACGvCACEygAhfIwAY68IEQjKAEJ0jBClrwghjMoAY3yMEOevCDIAyhCEdIwhKa8IQoTKEKV8jCFrrwhTCMoQxnSMMa2vCGOMyhDnfIwx768IdADKIQ/4dIxCIa8YhITKISl8jEJjrxiVCMohSnSMUqWvGKWMyiFrfIxS568YtgDKMYx0jGMprxjGhMoxrXyMY2uvGNcIyjHOdIxzra8Y54zKMe98jHPvrxj4AMpCAHSchCGvKQiEykIhfJyEY68pGQjKQkJ0nJSlrykpjMpCY3yclOevKToAylKEdJylKa8pSoTKUqV8nKVrrylbCMpSxnScta2vKWuMylLnfJy1768pfADKYwh0nMYhrzmMhMpjKXycxmOvOZ0IymNKdJzWpa85rYzKY2t8nNbnrzm+AMpzjHSc5ymvOc6EynOtfJzna6853wjKc850nPetrznvjMpz73yS/PfvrznwANqEAHStCCGvSgCE2oQhfK0IY69KEQjahEJ0rRilr0ohjNqEY3apiAAAA7" alt="Rest animation">
+  <div class="cap">
+    The resting/recuperation scene (id 32) — a short 2-frame clip.
+    <span class="pill">FROM ROM</span><br><br>
+    Produced headless by <code>tools/run-animation.py 32</code>, which runs the game’s
+    own <b>animation scripting VM</b> (bank&nbsp;14 <code>$80AD</code>, id <code>32</code> from
+    the descriptor table at <code>$AF80</code>) and intercepts every CHR upload, palette write
+    and sprite placement to reconstruct each frame — real NES palette.
+  </div>
+</div>
+
+<h2>What it does</h2>
+<p>Rest (<code>driver_rest $ADB3</code>) is the only command that spends <b>more than one turn</b>. It is gated on your daimyo being present (<code>$6DA2</code>); you’re prompted <span class="scr">Seasons</span> and enter a count (<code>number_input</code>, <b>1–10</b>), which is written to that daimyo’s slot in <code>rest_turns_remaining</code> (<code>$6D67</code>, a per-daimyo counter). The game replies <span class="scr">It will do you good.</span> and plays the recuperation animation (<code>ui_helper_e80c(32)</code>). While the counter is non-zero the daimyo <b>sits out</b>: the per-turn logic checks <code>rest_turns_remaining</code> in at least five places across the AI, event and combat banks and skips the daimyo’s action when it’s set. The cost is pure <b>tempo</b> — you trade action-slots (the binding constraint of the game) for recovery.</p>
+
+<h2>How it works</h2>
+<p class="sub">The driver reads as a step-by-step script:</p>
+<ol class="flow">
+  <li><span class="addr">$ADC0</span><b>Daimyo-present gate</b> (<code>$6DA2</code>) — only a daimyo in the fief can rest; otherwise bail.</li>
+  <li><span class="addr">$ADD8</span>Prompt <span class="scr">"Seasons"</span> → <code>number_input(1..10)</code> → <code>rest_turns_remaining[daimyo]</code>.</li>
+  <li><span class="addr">$ADDF</span><span class="scr">"It will do you good."</span> + animation <code>32</code>.</li>
+  <li><span class="addr">$902B</span><b>Each following turn</b>, the AI/event/combat logic sees the non-zero counter and <b>skips this daimyo’s action</b> until it ticks back to zero.</li>
+</ol>
+
+
+<div class="callout"><b>The action-economy command.</b> Everything else in the game spends one of your four seasons-per-year slots; Rest spends <i>several</i> at once, voluntarily. That only pays off because the daimyo is recuperating — the multi-season lock is the price of recovery. It also explains a subtle interaction: a resting daimyo can’t be made to act, so the AI-side checks (<code>is_battleside_province_aistate5_and_not_resting</code>, the rebellion and natural-death passes) all special-case the rest counter before doing anything to that lord.</div>
+
+<h2>Where it goes — the rabbit holes</h2>
+<p class="sub">This command is a simple page on purpose: the depth lives in the subsystem it hands off to. Those get their own pages.</p>
+<div class="rabbit"><b>🕳️ What recovery restores.</b> the seasons lock is read straight from the driver; the recuperation it buys (the daimyo health/condition the Rest is <i>for</i>) is applied in the per-turn tick, not the driver — pinning that exact write is a small open thread. <i>(deep page TBD)</i></div>
+
+<footer>
+  Driver <code>$ADB3</code> · <code>tools/run-animation.py</code> · <a href="./README.md">commands index</a>.
+</footer>
+</div>
+</body>
+</html>
