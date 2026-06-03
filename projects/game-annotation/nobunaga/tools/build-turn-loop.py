@@ -318,9 +318,9 @@ PHASE_PAGES = {
        "<p><code>per_period_fief_daimyo_update_driver $A30D</code> sweeps every fief, then does work that "
        "depends on the season:</p>"
        "<ul>"
-       "<li><b>Daimyo skill drifts.</b> <code>drift_daimyo_stat3_random</code> nudges each daimyo’s skill stat "
-       "(record +3) by <code>rng%11 − 5</code> = <b>−5…+5 every season</b>. Competence isn’t fixed — it wanders, "
-       "so a brilliant rival can dull and a mediocre one can sharpen.</li>"
+       "<li><b>Daimyo luck drifts.</b> <code>drift_daimyo_luck</code> nudges each daimyo’s <b>Luck</b> stat "
+       "(record +3) by <code>rng%11 − 5</code> = <b>−5…+5 every season</b> — a literal random walk, which is "
+       "exactly why a daimyo’s fortunes swing from year to year.</li>"
        "<li><b>Tax drives loyalty.</b> A fief whose <code>fief_tax_rate ($6D2D)</code> is below "
        "<code>90 − skill</code> has its loyalty multiplied by 0.9 that season. (Direction reads "
        "counterintuitively — flagged for a bytecode recheck — but the dependency on the tax rate is real.)</li>"
@@ -365,9 +365,10 @@ PHASE_PAGES = {
       ("Dams are flood insurance.",
        "Flood output loss is <code>(0.9 × dams)%</code> retained — a third strategic reason to build dams, "
        "alongside rice yield and the Dam-vs-Grow crossover. Undammed fiefs are wiped by a single flood."),
-      ("Daimyo skill is a random walk.",
-       "Every season each daimyo’s skill drifts <code>−5…+5</code>. Ratings aren’t static portraits; a rival’s "
-       "competence genuinely wanders over a campaign."),
+      ("Daimyo Luck is a random walk.",
+       "Every season each daimyo’s <b>Luck</b> (record +3) drifts <code>−5…+5</code> — so a rival’s fortunes "
+       "genuinely wander over a campaign, and the field-+3 swings seen across save dumps are just this walk, not "
+       "a hidden depletion mechanic. The 7 stats: Age, Health, Drive, Luck, Charisma, IQ, + a portrait flag."),
       ("Events target the disloyal, over-taxed, and poorly-led.",
        "Eligibility rolls on loyalty, (100 − tax), and charisma — the same three levers you manage with Give, "
        "Tax, and which daimyo governs. The event system is the feedback loop on bad governance."),

@@ -2302,10 +2302,10 @@ word roll_3pct_event_chance(word arg1, word arg2, word arg3, word arg4) {
     return (rng_mod(100) < 3);    // $A2EC
 }
 
-// $A2ED drift_daimyo_stat3_random
+// $A2ED drift_daimyo_luck
 // (body @ $A2F2)
 
-word drift_daimyo_stat3_random(word arg1, word arg2, word arg3, word arg4) {
+word drift_daimyo_luck(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // $A2F2
     local11 = (daimyo_record_addr(/*via arg1*/ ?) + 3);    // $A2F8
     *(byte*)(local11) = (*(byte*)(local11) + rng_mod(11));    // $A304
@@ -2320,7 +2320,7 @@ word per_period_fief_daimyo_update_driver(word arg1, word arg2, word arg3, word 
     goto L_A349;    // $A313
 L_A316:
     local11 = ?;    // $A316
-    drift_daimyo_stat3_random(/*stack underflow*/ regA);    // $A317
+    drift_daimyo_luck(/*stack underflow*/ regA);    // $A317
     if (((unsigned)fief_tax_rate[local11] < (unsigned)(90 - const_two))) {    // $A32A
     *(word*)(((local11 * 26) + 0x700D)) = pct_op(90, *(word*)(((local11 * 26) + 0x700D)));    // $A346
     }

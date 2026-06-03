@@ -104,7 +104,7 @@
 //   PRG $0221F  bank0  $A21F  calc_fief_rice_income
 //   PRG $0226F  bank0  $A26F  harvest_income_sweep_all_fiefs
 //   PRG $022DF  bank0  $A2DF  roll_3pct_event_chance
-//   PRG $022ED  bank0  $A2ED  drift_daimyo_stat3_random
+//   PRG $022ED  bank0  $A2ED  drift_daimyo_luck
 //   PRG $0230D  bank0  $A30D  per_period_fief_daimyo_update_driver
 //   PRG $023AA  bank0  $A3AA  write_sram_save_checksum_and_signature
 //   PRG $02455  bank0  $A455  ai_strategic_turn_planner
@@ -2899,10 +2899,10 @@ word roll_3pct_event_chance(word arg1, word arg2, word arg3, word arg4) {
 }
 
 // ===== bank0 $A2ED  (PRG $022ED) =====
-// PRG $022ED drift_daimyo_stat3_random
+// PRG $022ED drift_daimyo_luck
 // (body @ PRG $022F2)
 
-word drift_daimyo_stat3_random(word arg1, word arg2, word arg3, word arg4) {
+word drift_daimyo_luck(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // PRG $022F2
     local11 = (daimyo_record_addr(/*via arg1*/ ?) + 3);    // PRG $022F8 -> bank15 $D7CD
     *(byte*)(local11) = (*(byte*)(local11) + rng_mod(11));    // PRG $02304 -> bank15 $CA52
@@ -2918,7 +2918,7 @@ word per_period_fief_daimyo_update_driver(word arg1, word arg2, word arg3, word 
     goto L_p02349;    // PRG $02313
 L_p02316:
     local11 = ?;    // PRG $02316
-    drift_daimyo_stat3_random(/*stack underflow*/ regA);    // PRG $02317 -> bank0 $A2ED
+    drift_daimyo_luck(/*stack underflow*/ regA);    // PRG $02317 -> bank0 $A2ED
     if (((unsigned)fief_tax_rate[local11] < (unsigned)(90 - const_two))) {    // PRG $0232A
     *(word*)(((local11 * 26) + 0x700D)) = pct_op(90, *(word*)(((local11 * 26) + 0x700D)));    // PRG $02346 -> bank15 $D70D
     }
