@@ -2374,3 +2374,54 @@ local9 = { name = "fief_i", comment = "[HIGH] fief loop index 0..scenario_fief_c
 local10 = { name = "daimyo_ptr", comment = "[HIGH] daimyo record ptr: =daimyo_record_addr(fief_i); deref +1 = age (>99 skip, 100-age illness roll)" }
 local11 = { name = "event_handler_fn", comment = "[HIGH] event-handler function ptr (disaster1 or build-two-batches); invoked via (*local11)() at $A551" }
 
+# --- bank-15 var-walk batch via var-walk-apply.py (7 subs / 28 slots) ---
+# propose@C (role + caller-propagation) -> independent verify@bytecode; names are the verifier's.
+[vars.bank15."0xD836"]
+# cap_fief_stats
+arg1 = { name = "fief", comment = "[HIGH] fief index: arg1*26+0x7001 = province record; passed to fief_to_daimyo_record_addr & province_clear_fields_*" }
+local6 = { name = "daimyo_rec", comment = "[HIGH] daimyo record base = fief_to_daimyo_record_addr(arg1); saved copy (local8 is the walking cursor over its 6 stat bytes)" }
+local7 = { name = "fief_rec", comment = "[HIGH] live province record ptr = arg1*26+0x7001; read as +24 (header cap) and +10 (dams), clamped to 100" }
+local8 = { name = "daimyo_byte_ptr", comment = "[HIGH] daimyo-record byte cursor = fief_to_daimyo_record_addr(arg1); local8+=1 walks 6 stat bytes, clamps >235->0, >210->-46" }
+local9 = { name = "i", comment = "[HIGH] daimyo-stat loop index: local9=0, +=1, bound local9<6 (6 stat bytes)" }
+local10 = { name = "rec_base", comment = "[HIGH] copy of fief_rec base (local10=local7); used as field-loop end anchor local10+24 (13 fields of province record)" }
+local11 = { name = "field_ptr", comment = "[HIGH] province-record field cursor: local11+=2, deref, min_word vs header(+24) cap, floor at 0; bound local11>=rec_base+24" }
+
+[vars.bank15."0xD8BA"]
+# develop_gain
+arg1 = { name = "amount", comment = "[HIGH] develop amount: gated >=1, multiplicand in math32_3arg(amount,4,...)+sqrt(amount); both callers pass invest arg2" }
+arg2 = { name = "stat_ptr", comment = "[HIGH] ptr to primary stat word being grown (deref *arg2): caller d8f2 loyalty(+12), d919 wealth(+14); averaged with arg3 for denom" }
+arg3 = { name = "companion_ptr", comment = "[HIGH] ptr to companion stat word (deref *arg3): caller d8f2 output(+8), d919 town(+4); (*arg2+*arg3)/2 feeds sqrt denom" }
+local11 = { name = "gain", comment = "[HIGH] holds math32_3arg result = floor(amount*4/(sqrt((*arg2+*arg3)/2)+sqrt(amount))); the returned develop gain" }
+
+[vars.bank15."0xDAD7"]
+# combat_helper_dad7
+local10 = { name = "src", comment = "[HIGH] read cursor into $6F4F list; init=0x6F4F, *src deref + src++ each iter until 0xFF terminator" }
+local11 = { name = "dst", comment = "[HIGH] write cursor compacting $6F4F in place; init=0x6F4F, *dst=*src + dst++ only when ai_state!=255, final *dst=-1" }
+
+[vars.bank15."0xDD3A"]
+# combat_helper_dd3a
+arg1 = { name = "match_enemy", comment = "[HIGH] ownership filter flag; all 6 callers pass literal 0/1; used as is_enemy_owned(*src)^arg1 to keep matching fiefs" }
+arg2 = { name = "out_list", comment = "[HIGH] dest buffer addr; every caller passes deduped_owner_list; receives the filtered list via sram_wrap(0,&buf,arg2,8)" }
+local6 = { name = "write_ptr", comment = "[HIGH] output write cursor; inits to &local8, ++ then *write_ptr=*src per kept fief, finally *write_ptr=0xFF terminator" }
+local7 = { name = "src_ptr", comment = "[HIGH] source pointer walking input fief-index list; deref *src for ownership/state test, ++ until 0xFF terminator" }
+local8 = { name = "buf", comment = "[HIGH] local scratch buffer base (&local8); accumulates filtered fief indices, then sram_wrap copies 8 bytes to out_list" }
+
+[vars.bank15."0xE4A2"]
+# build_owned_fief_list_6f89
+local10 = { name = "saved_fief", comment = "[HIGH] saves selected_province_idx at entry ($E4AA), restored at end ($E4D8) and returned; the original/saved province index" }
+local11 = { name = "write_ptr", comment = "[HIGH] init=$6F89, incremented per owned fief ($E4BB) and used as store-ind cursor; output-list write pointer, terminated with -1" }
+
+[vars.bank15."0xE6B9"]
+# unpack_composite_face_record
+arg1 = { name = "dst_buf", comment = "[HIGH] dest tile buffer ptr; SRAM written at arg1,+12,+18,+24; sole caller draw_daimyo_portrait passes (fp-36) then blits it" }
+local7 = { name = "part_hair", comment = "[MED] base-5 digit3 of composite face code; indexes ad84(*192 chr) + aeac(*12 sram) part bank (top/hair layer)" }
+local8 = { name = "part_eyes", comment = "[MED] base-5 digit2; reused quotient->remainder but converges to digit; indexes aba4(*96)+ae8e(*6) part bank" }
+local9 = { name = "part_nose", comment = "[MED] base-5 digit1; reused quotient->remainder, converges to digit; indexes a9c4(*96)+ae70(*6) part bank" }
+local10 = { name = "part_face", comment = "[MED] base-5 digit0 (code%5); indexes a604(*192 chr)+ae34(*12 sram) part bank (base face layer)" }
+local11 = { name = "face_code", comment = "[HIGH] packed composite face code from *(0x6EB1+idx*2); base-5 source decomposed into the 4 part-digit slots" }
+
+[vars.bank15."0xE76F"]
+# draw_daimyo_portrait
+arg1 = { name = "col", comment = "[HIGH] top-left COLUMN of 6x6 portrait; passed as x0 into ppu_blit_from_bank_wrap(arg1,arg2,arg1+5,arg2+5,..); +5=right edge" }
+arg2 = { name = "row", comment = "[HIGH] top-left ROW of 6x6 portrait; passed as y0 into ppu_blit_from_bank_wrap(arg1,arg2,arg1+5,arg2+5,..); +5=bottom edge" }
+

@@ -1240,49 +1240,49 @@ L_D835:
 // $D836 cap_fief_stats
 // (body @ $D83B)
 
-word cap_fief_stats(word arg1) {
-    local7 = ((arg1 * 26) + 0x7001);    // $D843
-    local10 = local7;    // $D845
+word cap_fief_stats(word fief) {
+    fief_rec = ((fief * 26) + 0x7001);    // $D843
+    rec_base = fief_rec;    // $D845
     goto L_D863;    // $D846
 L_D849:
-    *(word*)(local11) = min_word(*(word*)(local11), *(word*)((local7 + 24)));    // $D856
-    if ((*(word*)(local11) < 0)) {    // $D85B
-    *(word*)(local11) = 0;    // $D860
+    *(word*)(field_ptr) = min_word(*(word*)(field_ptr), *(word*)((fief_rec + 24)));    // $D856
+    if ((*(word*)(field_ptr) < 0)) {    // $D85B
+    *(word*)(field_ptr) = 0;    // $D860
     }
 L_D861:
 L_D863:
-    local11 = (local11 + 2);    // $D863
-    if (((unsigned)local11 >= (unsigned)(local10 + 24))) goto L_D849;    // $D86B
-    *(word*)((local7 + 10)) = min_word(*(word*)((local7 + 10)), 100);    // $D87B
-    local9 = 0;    // $D87D
-    local6 = fief_to_daimyo_record_addr(arg1);    // $D883
-    local8 = fief_to_daimyo_record_addr(arg1);    // $D884
+    field_ptr = (field_ptr + 2);    // $D863
+    if (((unsigned)field_ptr >= (unsigned)(rec_base + 24))) goto L_D849;    // $D86B
+    *(word*)((fief_rec + 10)) = min_word(*(word*)((fief_rec + 10)), 100);    // $D87B
+    i = 0;    // $D87D
+    daimyo_rec = fief_to_daimyo_record_addr(fief);    // $D883
+    daimyo_byte_ptr = fief_to_daimyo_record_addr(fief);    // $D884
     goto L_D8A9;    // $D885
 L_D888:
-    if ((*(byte*)(local8) > 235)) {    // $D88E
-    *(byte*)(local8) = 0;    // $D893
+    if ((*(byte*)(daimyo_byte_ptr) > 235)) {    // $D88E
+    *(byte*)(daimyo_byte_ptr) = 0;    // $D893
     }
 L_D894:
-    if ((*(byte*)(local8) > 210)) {    // $D89A
-    *(byte*)(local8) = -46;    // $D8A0
+    if ((*(byte*)(daimyo_byte_ptr) > 210)) {    // $D89A
+    *(byte*)(daimyo_byte_ptr) = -46;    // $D8A0
     }
 L_D8A1:
-    local8 = (local8 + 1);    // $D8A3
-    local9 = (local9 + 1);    // $D8A7
+    daimyo_byte_ptr = (daimyo_byte_ptr + 1);    // $D8A3
+    i = (i + 1);    // $D8A7
 L_D8A9:
-    if (((unsigned)local9 >= (unsigned)6)) goto L_D888;    // $D8AC
-    province_clear_fields_d815(arg1);    // $D8B0
-    return province_clear_fields_d7f7(arg1);    // $D8B9
+    if (((unsigned)i >= (unsigned)6)) goto L_D888;    // $D8AC
+    province_clear_fields_d815(fief);    // $D8B0
+    return province_clear_fields_d7f7(fief);    // $D8B9
 }
 
 // $D8BA develop_gain
 // (body @ $D8BF)
 
-word develop_gain(word arg1, word arg2, word arg3) {
-    if ((!((arg1 >= 1)))) return 0;    // $D8C2
-    local11 = math32_3arg(arg1, (6 - const_two), (sqrt_int(((*(word*)(arg2) + *(word*)(arg3)) / 2)) + sqrt_int(arg1)));    // $D8E9
-    if (!(local11)) return 1;    // $D8EB
-    return local11;    // $D8F1
+word develop_gain(word amount, word stat_ptr, word companion_ptr) {
+    if ((!((amount >= 1)))) return 0;    // $D8C2
+    gain = math32_3arg(amount, (6 - const_two), (sqrt_int(((*(word*)(stat_ptr) + *(word*)(companion_ptr)) / 2)) + sqrt_int(amount)));    // $D8E9
+    if (!(gain)) return 1;    // $D8EB
+    return gain;    // $D8F1
 }
 
 // $D8F2 record_grow_capped_d8f2
@@ -1454,19 +1454,19 @@ L_DACC:
 
 word combat_helper_dad7(void) {
     relation_base_6f4f(selected_province_idx);    // $DADF
-    local10 = 0x6F4F;    // $DAE6
-    local11 = 0x6F4F;    // $DAE7
+    src = 0x6F4F;    // $DAE6
+    dst = 0x6F4F;    // $DAE7
     goto L_DB04;    // $DAE8
 L_DAEB:
-    if ((get_province_ai_state(*(byte*)(local10)) != 255)) {    // $DAF6
-    local11 = (local11 + 1);    // $DAFB
-    *(byte*)(((local11 + 1) - 1)) = *(byte*)(local10);    // $DB00
+    if ((get_province_ai_state(*(byte*)(src)) != 255)) {    // $DAF6
+    dst = (dst + 1);    // $DAFB
+    *(byte*)(((dst + 1) - 1)) = *(byte*)(src);    // $DB00
     }
 L_DB01:
-    local10 = (local10 + 1);    // $DB03
+    src = (src + 1);    // $DB03
 L_DB04:
-    if ((*(byte*)(local10) != 255)) goto L_DAEB;    // $DB0A
-    *(byte*)(local11) = -1;    // $DB10
+    if ((*(byte*)(src) != 255)) goto L_DAEB;    // $DB0A
+    *(byte*)(dst) = -1;    // $DB10
     return -1;    // $DB11
 }
 
@@ -1632,20 +1632,20 @@ L_DD25:
 // $DD3A combat_helper_dd3a
 // (body @ $DD3F)
 
-word combat_helper_dd3a(word arg1, word arg2) {
-    local6 = &local8;    // $DD42
+word combat_helper_dd3a(word match_enemy, word out_list) {
+    write_ptr = &buf;    // $DD42
     goto L_DD67;    // $DD44
 L_DD47:
-    if ((is_enemy_owned(*(byte*)(local7)) ^ arg1)) goto L_DD65;    // $DD50
-    if (province_state_is_FF(*(byte*)(local7))) goto L_DD65;    // $DD5A
-    local6 = (local6 + 1);    // $DD5F
-    *(byte*)(((local6 + 1) - 1)) = *(byte*)(local7);    // $DD64
+    if ((is_enemy_owned(*(byte*)(src_ptr)) ^ match_enemy)) goto L_DD65;    // $DD50
+    if (province_state_is_FF(*(byte*)(src_ptr))) goto L_DD65;    // $DD5A
+    write_ptr = (write_ptr + 1);    // $DD5F
+    *(byte*)(((write_ptr + 1) - 1)) = *(byte*)(src_ptr);    // $DD64
 L_DD65:
 L_DD67:
-    local7 = (local7 + 1);    // $DD67
-    if ((*(byte*)(local7) != 255)) goto L_DD47;    // $DD6E
-    *(byte*)(local6) = -1;    // $DD74
-    return syscall16_sram_wrap(0, &local8, arg2, 8);    // $DD80
+    src_ptr = (src_ptr + 1);    // $DD67
+    if ((*(byte*)(src_ptr) != 255)) goto L_DD47;    // $DD6E
+    *(byte*)(write_ptr) = -1;    // $DD74
+    return syscall16_sram_wrap(0, &buf, out_list, 8);    // $DD80
 }
 
 // $DD81 init_new_daimyo_province_stats
@@ -2083,21 +2083,21 @@ L_E4A1:
 // (body @ $E4A7)
 
 word build_owned_fief_list_6f89(void) {
-    local10 = selected_province_idx;    // $E4AA
-    local11 = 0x6F89;    // $E4AE
+    saved_fief = selected_province_idx;    // $E4AA
+    write_ptr = 0x6F89;    // $E4AE
     goto L_E4C6;    // $E4B0
 L_E4B3:
     if (get_6da2_cur()) {    // $E4B6
-    local11 = (local11 + 1);    // $E4BB
-    *(byte*)(((local11 + 1) - 1)) = selected_province_idx;    // $E4C1
+    write_ptr = (write_ptr + 1);    // $E4BB
+    *(byte*)(((write_ptr + 1) - 1)) = selected_province_idx;    // $E4C1
     }
 L_E4C2:
 L_E4C6:
     selected_province_idx = (selected_province_idx + 1);    // $E4C6
     if (((unsigned)selected_province_idx >= (unsigned)scenario_fief_count)) goto L_E4B3;    // $E4D0
-    *(byte*)(local11) = -1;    // $E4D6
-    selected_province_idx = local10;    // $E4D8
-    return local10;    // $E4DB
+    *(byte*)(write_ptr) = -1;    // $E4D6
+    selected_province_idx = saved_fief;    // $E4D8
+    return saved_fief;    // $E4DB
 }
 
 // $E4DC marry_helper_e4dc
@@ -2214,28 +2214,28 @@ L_E6B1:
 // $E6B9 unpack_composite_face_record
 // (body @ $E6BE)
 
-word unpack_composite_face_record(word arg1) {
-    local11 = *(word*)(((active_province_idx_copy << 1) + 0x6EB1));    // $E6C7
-    local9 = ((unsigned)local11 / (unsigned)5);    // $E6CB
-    local10 = ((unsigned)local11 % (unsigned)5);    // $E6CF
-    local8 = ((unsigned)local9 / (unsigned)5);    // $E6D3
-    local9 = ((unsigned)local9 % (unsigned)5);    // $E6D7
-    local7 = ((unsigned)local8 / (unsigned)5);    // $E6DB
-    local8 = ((unsigned)local8 % (unsigned)5);    // $E6DF
-    ppu_upload_block_wrap(8, ((local10 * 192) + unpack_record_to_sram_data_a604), 0x15B0, 12);    // $E6EF
-    ppu_upload_block_wrap(8, ((local9 * 96) + 0xA9C4), 0x1670, 6);    // $E701
-    ppu_upload_block_wrap(8, ((local8 * 96) + unpack_record_to_sram_data_aba4), 0x16D0, 6);    // $E713
-    ppu_upload_block_wrap(8, ((local7 * 192) + unpack_record_to_sram_data_ad84), 0x1730, 12);    // $E726
-    syscall16_sram_wrap(9, ((local10 * 12) + unpack_record_to_sram_data_ae34), arg1, 12);    // $E735
-    syscall16_sram_wrap(9, ((local9 * 6) + unpack_record_to_sram_data_ae70), (arg1 + 12), 6);    // $E746
-    syscall16_sram_wrap(9, ((local8 * 6) + unpack_record_to_sram_data_ae8e), (arg1 + 18), 6);    // $E758
-    return syscall16_sram_wrap(9, ((local7 * 12) + unpack_record_to_sram_data_aeac), (arg1 + 24), 12);    // $E76E
+word unpack_composite_face_record(word dst_buf) {
+    face_code = *(word*)(((active_province_idx_copy << 1) + 0x6EB1));    // $E6C7
+    part_nose = ((unsigned)face_code / (unsigned)5);    // $E6CB
+    part_face = ((unsigned)face_code % (unsigned)5);    // $E6CF
+    part_eyes = ((unsigned)part_nose / (unsigned)5);    // $E6D3
+    part_nose = ((unsigned)part_nose % (unsigned)5);    // $E6D7
+    part_hair = ((unsigned)part_eyes / (unsigned)5);    // $E6DB
+    part_eyes = ((unsigned)part_eyes % (unsigned)5);    // $E6DF
+    ppu_upload_block_wrap(8, ((part_face * 192) + unpack_record_to_sram_data_a604), 0x15B0, 12);    // $E6EF
+    ppu_upload_block_wrap(8, ((part_nose * 96) + 0xA9C4), 0x1670, 6);    // $E701
+    ppu_upload_block_wrap(8, ((part_eyes * 96) + unpack_record_to_sram_data_aba4), 0x16D0, 6);    // $E713
+    ppu_upload_block_wrap(8, ((part_hair * 192) + unpack_record_to_sram_data_ad84), 0x1730, 12);    // $E726
+    syscall16_sram_wrap(9, ((part_face * 12) + unpack_record_to_sram_data_ae34), dst_buf, 12);    // $E735
+    syscall16_sram_wrap(9, ((part_nose * 6) + unpack_record_to_sram_data_ae70), (dst_buf + 12), 6);    // $E746
+    syscall16_sram_wrap(9, ((part_eyes * 6) + unpack_record_to_sram_data_ae8e), (dst_buf + 18), 6);    // $E758
+    return syscall16_sram_wrap(9, ((part_hair * 12) + unpack_record_to_sram_data_aeac), (dst_buf + 24), 12);    // $E76E
 }
 
 // $E76F draw_daimyo_portrait
 // (body @ $E774)
 
-word draw_daimyo_portrait(word arg1, word arg2) {
+word draw_daimyo_portrait(word col, word row) {
     *(word*)(fp - 38) = 0;    // $E775
 L_E777:
     palette_write_wrap(*(word*)(fp - 38), *(word*)(((*(word*)(fp - 38) << 1) + marry_helper_data_f7cc)));    // $E782
@@ -2252,7 +2252,7 @@ L_E7A7:
 L_E7EE:
     unpack_composite_face_record((fp - 36));    // $E7F2
 L_E7FA:
-    ppu_blit_from_bank_wrap(arg1, arg2, (arg1 + 5), (arg2 + 5), (fp - 36), 8);    // $E803
+    ppu_blit_from_bank_wrap(col, row, (col + 5), (row + 5), (fp - 36), 8);    // $E803
     ui_pending_flag_7fc7 = 1;    // $E808
     return 1;    // $E80B
 }

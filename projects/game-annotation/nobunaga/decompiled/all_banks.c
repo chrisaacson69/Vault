@@ -11632,50 +11632,50 @@ L_p3D835:
 // PRG $3D836 cap_fief_stats
 // (body @ PRG $3D83B)
 
-word cap_fief_stats(word arg1) {
-    local7 = ((arg1 * 26) + 0x7001);    // PRG $3D843
-    local10 = local7;    // PRG $3D845
+word cap_fief_stats(word fief) {
+    fief_rec = ((fief * 26) + 0x7001);    // PRG $3D843
+    rec_base = fief_rec;    // PRG $3D845
     goto L_p3D863;    // PRG $3D846
 L_p3D849:
-    *(word*)(local11) = min_word(*(word*)(local11), *(word*)((local7 + 24)));    // PRG $3D856 -> bank15 $CB5E
-    if ((*(word*)(local11) < 0)) {    // PRG $3D85B
-    *(word*)(local11) = 0;    // PRG $3D860
+    *(word*)(field_ptr) = min_word(*(word*)(field_ptr), *(word*)((fief_rec + 24)));    // PRG $3D856 -> bank15 $CB5E
+    if ((*(word*)(field_ptr) < 0)) {    // PRG $3D85B
+    *(word*)(field_ptr) = 0;    // PRG $3D860
     }
 L_p3D861:
 L_p3D863:
-    local11 = (local11 + 2);    // PRG $3D863
-    if (((unsigned)local11 >= (unsigned)(local10 + 24))) goto L_p3D849;    // PRG $3D86B
-    *(word*)((local7 + 10)) = min_word(*(word*)((local7 + 10)), 100);    // PRG $3D87B -> bank15 $CB5E
-    local9 = 0;    // PRG $3D87D
-    local6 = fief_to_daimyo_record_addr(arg1);    // PRG $3D883 -> bank15 $D7DA
-    local8 = fief_to_daimyo_record_addr(arg1);    // PRG $3D884 -> bank15 $D7DA
+    field_ptr = (field_ptr + 2);    // PRG $3D863
+    if (((unsigned)field_ptr >= (unsigned)(rec_base + 24))) goto L_p3D849;    // PRG $3D86B
+    *(word*)((fief_rec + 10)) = min_word(*(word*)((fief_rec + 10)), 100);    // PRG $3D87B -> bank15 $CB5E
+    i = 0;    // PRG $3D87D
+    daimyo_rec = fief_to_daimyo_record_addr(fief);    // PRG $3D883 -> bank15 $D7DA
+    daimyo_byte_ptr = fief_to_daimyo_record_addr(fief);    // PRG $3D884 -> bank15 $D7DA
     goto L_p3D8A9;    // PRG $3D885
 L_p3D888:
-    if ((*(byte*)(local8) > 235)) {    // PRG $3D88E
-    *(byte*)(local8) = 0;    // PRG $3D893
+    if ((*(byte*)(daimyo_byte_ptr) > 235)) {    // PRG $3D88E
+    *(byte*)(daimyo_byte_ptr) = 0;    // PRG $3D893
     }
 L_p3D894:
-    if ((*(byte*)(local8) > 210)) {    // PRG $3D89A
-    *(byte*)(local8) = -46;    // PRG $3D8A0
+    if ((*(byte*)(daimyo_byte_ptr) > 210)) {    // PRG $3D89A
+    *(byte*)(daimyo_byte_ptr) = -46;    // PRG $3D8A0
     }
 L_p3D8A1:
-    local8 = (local8 + 1);    // PRG $3D8A3
-    local9 = (local9 + 1);    // PRG $3D8A7
+    daimyo_byte_ptr = (daimyo_byte_ptr + 1);    // PRG $3D8A3
+    i = (i + 1);    // PRG $3D8A7
 L_p3D8A9:
-    if (((unsigned)local9 >= (unsigned)6)) goto L_p3D888;    // PRG $3D8AC
-    province_clear_fields_d815(arg1);    // PRG $3D8B0 -> bank15 $D815
-    return province_clear_fields_d7f7(arg1);    // PRG $3D8B9 -> bank15 $D7F7
+    if (((unsigned)i >= (unsigned)6)) goto L_p3D888;    // PRG $3D8AC
+    province_clear_fields_d815(fief);    // PRG $3D8B0 -> bank15 $D815
+    return province_clear_fields_d7f7(fief);    // PRG $3D8B9 -> bank15 $D7F7
 }
 
 // ===== bank15 $D8BA  (PRG $3D8BA) =====
 // PRG $3D8BA develop_gain
 // (body @ PRG $3D8BF)
 
-word develop_gain(word arg1, word arg2, word arg3) {
-    if ((!((arg1 >= 1)))) return 0;    // PRG $3D8C2
-    local11 = math32_3arg(arg1, (6 - const_two), (sqrt_int(((*(word*)(arg2) + *(word*)(arg3)) / 2)) + sqrt_int(arg1)));    // PRG $3D8E9 -> bank15 $D6B8
-    if (!(local11)) return 1;    // PRG $3D8EB
-    return local11;    // PRG $3D8F1
+word develop_gain(word amount, word stat_ptr, word companion_ptr) {
+    if ((!((amount >= 1)))) return 0;    // PRG $3D8C2
+    gain = math32_3arg(amount, (6 - const_two), (sqrt_int(((*(word*)(stat_ptr) + *(word*)(companion_ptr)) / 2)) + sqrt_int(amount)));    // PRG $3D8E9 -> bank15 $D6B8
+    if (!(gain)) return 1;    // PRG $3D8EB
+    return gain;    // PRG $3D8F1
 }
 
 // ===== bank15 $D8F2  (PRG $3D8F2) =====
@@ -11866,19 +11866,19 @@ L_p3DACC:
 
 word combat_helper_dad7(void) {
     relation_base_6f4f(selected_province_idx);    // PRG $3DADF -> bank15 $DAAB
-    local10 = 0x6F4F;    // PRG $3DAE6
-    local11 = 0x6F4F;    // PRG $3DAE7
+    src = 0x6F4F;    // PRG $3DAE6
+    dst = 0x6F4F;    // PRG $3DAE7
     goto L_p3DB04;    // PRG $3DAE8
 L_p3DAEB:
-    if ((get_province_ai_state(*(byte*)(local10)) != 255)) {    // PRG $3DAF6 -> bank15 $D98D
-    local11 = (local11 + 1);    // PRG $3DAFB
-    *(byte*)(((local11 + 1) - 1)) = *(byte*)(local10);    // PRG $3DB00
+    if ((get_province_ai_state(*(byte*)(src)) != 255)) {    // PRG $3DAF6 -> bank15 $D98D
+    dst = (dst + 1);    // PRG $3DAFB
+    *(byte*)(((dst + 1) - 1)) = *(byte*)(src);    // PRG $3DB00
     }
 L_p3DB01:
-    local10 = (local10 + 1);    // PRG $3DB03
+    src = (src + 1);    // PRG $3DB03
 L_p3DB04:
-    if ((*(byte*)(local10) != 255)) goto L_p3DAEB;    // PRG $3DB0A
-    *(byte*)(local11) = -1;    // PRG $3DB10
+    if ((*(byte*)(src) != 255)) goto L_p3DAEB;    // PRG $3DB0A
+    *(byte*)(dst) = -1;    // PRG $3DB10
     return -1;    // PRG $3DB11
 }
 
@@ -12055,20 +12055,20 @@ L_p3DD25:
 // PRG $3DD3A combat_helper_dd3a
 // (body @ PRG $3DD3F)
 
-word combat_helper_dd3a(word arg1, word arg2) {
-    local6 = &local8;    // PRG $3DD42
+word combat_helper_dd3a(word match_enemy, word out_list) {
+    write_ptr = &buf;    // PRG $3DD42
     goto L_p3DD67;    // PRG $3DD44
 L_p3DD47:
-    if ((is_enemy_owned(*(byte*)(local7)) ^ arg1)) goto L_p3DD65;    // PRG $3DD50 -> bank15 $D9B7
-    if (province_state_is_FF(*(byte*)(local7))) goto L_p3DD65;    // PRG $3DD5A -> bank15 $D999
-    local6 = (local6 + 1);    // PRG $3DD5F
-    *(byte*)(((local6 + 1) - 1)) = *(byte*)(local7);    // PRG $3DD64
+    if ((is_enemy_owned(*(byte*)(src_ptr)) ^ match_enemy)) goto L_p3DD65;    // PRG $3DD50 -> bank15 $D9B7
+    if (province_state_is_FF(*(byte*)(src_ptr))) goto L_p3DD65;    // PRG $3DD5A -> bank15 $D999
+    write_ptr = (write_ptr + 1);    // PRG $3DD5F
+    *(byte*)(((write_ptr + 1) - 1)) = *(byte*)(src_ptr);    // PRG $3DD64
 L_p3DD65:
 L_p3DD67:
-    local7 = (local7 + 1);    // PRG $3DD67
-    if ((*(byte*)(local7) != 255)) goto L_p3DD47;    // PRG $3DD6E
-    *(byte*)(local6) = -1;    // PRG $3DD74
-    return syscall16_sram_wrap(0, &local8, arg2, 8);    // PRG $3DD80 -> bank15 $CBBD
+    src_ptr = (src_ptr + 1);    // PRG $3DD67
+    if ((*(byte*)(src_ptr) != 255)) goto L_p3DD47;    // PRG $3DD6E
+    *(byte*)(write_ptr) = -1;    // PRG $3DD74
+    return syscall16_sram_wrap(0, &buf, out_list, 8);    // PRG $3DD80 -> bank15 $CBBD
 }
 
 // ===== bank15 $DD81  (PRG $3DD81) =====
@@ -12524,21 +12524,21 @@ L_p3E4A1:
 // (body @ PRG $3E4A7)
 
 word build_owned_fief_list_6f89(void) {
-    local10 = selected_province_idx;    // PRG $3E4AA
-    local11 = 0x6F89;    // PRG $3E4AE
+    saved_fief = selected_province_idx;    // PRG $3E4AA
+    write_ptr = 0x6F89;    // PRG $3E4AE
     goto L_p3E4C6;    // PRG $3E4B0
 L_p3E4B3:
     if (get_6da2_cur()) {    // PRG $3E4B6 -> bank15 $D9A9
-    local11 = (local11 + 1);    // PRG $3E4BB
-    *(byte*)(((local11 + 1) - 1)) = selected_province_idx;    // PRG $3E4C1
+    write_ptr = (write_ptr + 1);    // PRG $3E4BB
+    *(byte*)(((write_ptr + 1) - 1)) = selected_province_idx;    // PRG $3E4C1
     }
 L_p3E4C2:
 L_p3E4C6:
     selected_province_idx = (selected_province_idx + 1);    // PRG $3E4C6
     if (((unsigned)selected_province_idx >= (unsigned)scenario_fief_count)) goto L_p3E4B3;    // PRG $3E4D0
-    *(byte*)(local11) = -1;    // PRG $3E4D6
-    selected_province_idx = local10;    // PRG $3E4D8
-    return local10;    // PRG $3E4DB
+    *(byte*)(write_ptr) = -1;    // PRG $3E4D6
+    selected_province_idx = saved_fief;    // PRG $3E4D8
+    return saved_fief;    // PRG $3E4DB
 }
 
 // ===== bank15 $E4DC  (PRG $3E4DC) =====
@@ -12661,29 +12661,29 @@ L_p3E6B1:
 // PRG $3E6B9 unpack_composite_face_record
 // (body @ PRG $3E6BE)
 
-word unpack_composite_face_record(word arg1) {
-    local11 = *(word*)(((active_province_idx_copy << 1) + 0x6EB1));    // PRG $3E6C7
-    local9 = ((unsigned)local11 / (unsigned)5);    // PRG $3E6CB
-    local10 = ((unsigned)local11 % (unsigned)5);    // PRG $3E6CF
-    local8 = ((unsigned)local9 / (unsigned)5);    // PRG $3E6D3
-    local9 = ((unsigned)local9 % (unsigned)5);    // PRG $3E6D7
-    local7 = ((unsigned)local8 / (unsigned)5);    // PRG $3E6DB
-    local8 = ((unsigned)local8 % (unsigned)5);    // PRG $3E6DF
-    ppu_upload_block_wrap(8, ((local10 * 192) + unpack_record_to_sram_data_a604), 0x15B0, 12);    // PRG $3E6EF -> bank15 $CF7C
-    ppu_upload_block_wrap(8, ((local9 * 96) + 0xA9C4), 0x1670, 6);    // PRG $3E701 -> bank15 $CF7C
-    ppu_upload_block_wrap(8, ((local8 * 96) + unpack_record_to_sram_data_aba4), 0x16D0, 6);    // PRG $3E713 -> bank15 $CF7C
-    ppu_upload_block_wrap(8, ((local7 * 192) + unpack_record_to_sram_data_ad84), 0x1730, 12);    // PRG $3E726 -> bank15 $CF7C
-    syscall16_sram_wrap(9, ((local10 * 12) + unpack_record_to_sram_data_ae34), arg1, 12);    // PRG $3E735 -> bank15 $CBBD
-    syscall16_sram_wrap(9, ((local9 * 6) + unpack_record_to_sram_data_ae70), (arg1 + 12), 6);    // PRG $3E746 -> bank15 $CBBD
-    syscall16_sram_wrap(9, ((local8 * 6) + unpack_record_to_sram_data_ae8e), (arg1 + 18), 6);    // PRG $3E758 -> bank15 $CBBD
-    return syscall16_sram_wrap(9, ((local7 * 12) + unpack_record_to_sram_data_aeac), (arg1 + 24), 12);    // PRG $3E76E -> bank15 $CBBD
+word unpack_composite_face_record(word dst_buf) {
+    face_code = *(word*)(((active_province_idx_copy << 1) + 0x6EB1));    // PRG $3E6C7
+    part_nose = ((unsigned)face_code / (unsigned)5);    // PRG $3E6CB
+    part_face = ((unsigned)face_code % (unsigned)5);    // PRG $3E6CF
+    part_eyes = ((unsigned)part_nose / (unsigned)5);    // PRG $3E6D3
+    part_nose = ((unsigned)part_nose % (unsigned)5);    // PRG $3E6D7
+    part_hair = ((unsigned)part_eyes / (unsigned)5);    // PRG $3E6DB
+    part_eyes = ((unsigned)part_eyes % (unsigned)5);    // PRG $3E6DF
+    ppu_upload_block_wrap(8, ((part_face * 192) + unpack_record_to_sram_data_a604), 0x15B0, 12);    // PRG $3E6EF -> bank15 $CF7C
+    ppu_upload_block_wrap(8, ((part_nose * 96) + 0xA9C4), 0x1670, 6);    // PRG $3E701 -> bank15 $CF7C
+    ppu_upload_block_wrap(8, ((part_eyes * 96) + unpack_record_to_sram_data_aba4), 0x16D0, 6);    // PRG $3E713 -> bank15 $CF7C
+    ppu_upload_block_wrap(8, ((part_hair * 192) + unpack_record_to_sram_data_ad84), 0x1730, 12);    // PRG $3E726 -> bank15 $CF7C
+    syscall16_sram_wrap(9, ((part_face * 12) + unpack_record_to_sram_data_ae34), dst_buf, 12);    // PRG $3E735 -> bank15 $CBBD
+    syscall16_sram_wrap(9, ((part_nose * 6) + unpack_record_to_sram_data_ae70), (dst_buf + 12), 6);    // PRG $3E746 -> bank15 $CBBD
+    syscall16_sram_wrap(9, ((part_eyes * 6) + unpack_record_to_sram_data_ae8e), (dst_buf + 18), 6);    // PRG $3E758 -> bank15 $CBBD
+    return syscall16_sram_wrap(9, ((part_hair * 12) + unpack_record_to_sram_data_aeac), (dst_buf + 24), 12);    // PRG $3E76E -> bank15 $CBBD
 }
 
 // ===== bank15 $E76F  (PRG $3E76F) =====
 // PRG $3E76F draw_daimyo_portrait
 // (body @ PRG $3E774)
 
-word draw_daimyo_portrait(word arg1, word arg2) {
+word draw_daimyo_portrait(word col, word row) {
     *(word*)(fp - 38) = 0;    // PRG $3E775
 L_p3E777:
     palette_write_wrap(*(word*)(fp - 38), *(word*)(((*(word*)(fp - 38) << 1) + marry_helper_data_f7cc)));    // PRG $3E782 -> bank15 $CF8B
@@ -12700,7 +12700,7 @@ L_p3E7A7:
 L_p3E7EE:
     unpack_composite_face_record((fp - 36));    // PRG $3E7F2 -> bank15 $E6B9
 L_p3E7FA:
-    ppu_blit_from_bank_wrap(arg1, arg2, (arg1 + 5), (arg2 + 5), (fp - 36), 8);    // PRG $3E803 -> bank15 $CC54
+    ppu_blit_from_bank_wrap(col, row, (col + 5), (row + 5), (fp - 36), 8);    // PRG $3E803 -> bank15 $CC54
     ui_pending_flag_7fc7 = 1;    // PRG $3E808
     return 1;    // PRG $3E80B
 }
