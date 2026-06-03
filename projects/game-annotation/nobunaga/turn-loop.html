@@ -117,7 +117,7 @@
   <li><span class="addr">$AFE1 · bank 2</span><span class="st st-stub">to do</span><a href="#combat">resolve staged combat</a><span class="gloss">call_bank_wrap(2) → the bank-2 battle engine. The other big branch — its own epic.</span></li>
   <li><span class="addr">$A742 · bank 0</span><span class="st st-inline">dived</span><a href="#shuffle">shuffle_fief_turn_order_array</a><span class="gloss">Re-randomize who acts when this season — Fisher-Yates-style over $6F1B.</span></li>
   <li><span class="addr">$B89B · bank 1</span><span class="st st-page">has page</span><a href="#command">ai_per_fief_command_driver</a><span class="gloss">The command pass — each fief, in turn order, picks and executes one command.</span></li>
-  <li><span class="addr">$8003 · bank 0</span><span class="st st-stub">to do</span><a href="#gameover">display_fullscreen_graphic_sequence</a><span class="gloss">Win/lose screen, then restart — reached when the abort bit (ai_turn_flags &amp; 128) is set.</span></li>
+  <li><span class="addr">$8003 · bank 0</span><span class="st st-page">has page</span><a href="#gameover">display_fullscreen_graphic_sequence</a><span class="gloss">Win/lose screen, then restart — reached when the abort bit (ai_turn_flags &amp; 128) is set.</span></li>
 </ol>
 
 <h2>The phases</h2>
@@ -166,8 +166,9 @@
 </div>
 <div class="phase" id="gameover">
   <div class="bank">Phase 6 · bank 0</div>
-  <h3><span class="st st-stub">to do</span>display_fullscreen_graphic_sequence <span class="addr">$8003</span></h3>
-  <p>When any phase sets the abort gate (<code>ai_turn_flags &amp; 128</code> — unification achieved, player eliminated, or quit), the loop falls out to the full-screen end sequence and then restarts at <code>init_new_game_state</code>. The victory/defeat art is a static-asset render task.</p>
+  <h3><span class="st st-page">has page</span>display_fullscreen_graphic_sequence <span class="addr">$8003</span></h3>
+  <p>When any phase sets the abort gate (<code>ai_turn_flags &amp; 128</code> — unification or player elimination), the loop falls out to the full-screen end sequence: a victory/defeat branch on <code>count_6da2_set</code>, the “You united Japan!” / “Game Over.” art + music, then a button-wait and a restart at <code>init_new_game_state</code>. The bank-6 end-screen art is a static-render target.</p>
+<div class="branch"><b>Deep dive:</b> <a href="./turn-loop-gameover.html">→ display_fullscreen_graphic_sequence — full page</a></div>
 </div>
 
 <h2>The mechanics it explains</h2>

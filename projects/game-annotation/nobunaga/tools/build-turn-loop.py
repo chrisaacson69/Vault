@@ -135,11 +135,13 @@ NODES = [
               "<code>rest_turns_remaining</code>. <b>This is the “command palette” branch</b> — all 21 command "
               "pages are the leaves of this one node.",
        branch=("The command palette — 21 command pages", "commands/index.html", "branch complete")),
-  dict(id="gameover", no="6", title="display_fullscreen_graphic_sequence", addr=0x8003, bank=0, status="stub",
+  dict(id="gameover", no="6", title="display_fullscreen_graphic_sequence", addr=0x8003, bank=0, status="page",
+       page="turn-loop-gameover.html",
        gloss="Win/lose screen, then restart — reached when the abort bit (ai_turn_flags &amp; 128) is set.",
-       detail="When any phase sets the abort gate (<code>ai_turn_flags &amp; 128</code> — unification achieved, "
-              "player eliminated, or quit), the loop falls out to the full-screen end sequence and then restarts at "
-              "<code>init_new_game_state</code>. The victory/defeat art is a static-asset render task."),
+       detail="When any phase sets the abort gate (<code>ai_turn_flags &amp; 128</code> — unification or player "
+              "elimination), the loop falls out to the full-screen end sequence: a victory/defeat branch on "
+              "<code>count_6da2_set</code>, the “You united Japan!” / “Game Over.” art + music, then a button-wait "
+              "and a restart at <code>init_new_game_state</code>. The bank-6 end-screen art is a static-render target."),
 ]
 
 # ── The season-phased economy update (per_period_fief_daimyo_update_driver $A30D) ──
@@ -251,6 +253,52 @@ PHASE_PAGES = {
     ],
     sources="<code>decompiled/bank_00.c</code> ($89A3, $83E2) · <code>tools/probe-skill-impact.py</code> · "
             "memory <code>project_nobunaga_main_turn_loop</code> · label <code>const_two $6D63</code>.",
+  ),
+  "gameover": dict(
+    no="6", title="Game Over", sub="display_fullscreen_graphic_sequence $8003 — the win / lose sequence and restart.",
+    intro=(
+      "The season loop only ever exits one way: a phase sets the abort gate "
+      "<code>ai_turn_flags &amp; 128</code> — either a daimyo has unified Japan, or the player has been wiped "
+      "out. <code>vm_bootstrap</code> falls through to <code>display_fullscreen_graphic_sequence</code>, which "
+      "plays the appropriate end screen, waits for a button, and returns — and the loop restarts at "
+      "<code>init_new_game_state</code> for a fresh game. It’s almost pure presentation: graphics, music, and "
+      "two strings. The one decision is victory vs defeat."),
+    steps=[
+      (0x800B, "<b>Quiet down.</b> Silence all audio (<code>syscall_audio_control(0,0)</code>), refresh the UI."),
+      (0x8015, "<b>Victory or defeat?</b> Branch on <code>count_6da2_set()</code> — it counts the flagged entries "
+               "in the per-fief array <code>$6DA2</code>. Flagged &gt; 0 takes the <b>victory</b> path; 0 takes "
+               "<b>defeat</b>. (The exact meaning of the <code>$6DA2</code> flag is still open — it also gates the "
+               "per-pass abort and AI targeting; flagged as a data-walk.)"),
+      (0x8019, "<b>Victory.</b> Upload the triumph graphic (<code>ppu_upload_block_wrap(…, $9054, bank 6)</code> + "
+               "the <code>$9D04</code> full screen), then “Congratulations, my lord!” → “In the year %d” "
+               "(<code>current_game_year</code>) → <b>“You united Japan!”</b>, with the victory fanfare "
+               "(<code>call_bank10_entry(5)</code>)."),
+      (0x811D, "<b>Defeat.</b> The defeat music (<code>call_bank10_entry(6)</code>), <b>“Game Over.”</b>, a "
+               "6×64-step palette-fade animation (the screen dims out), and the defeat graphic "
+               "(<code>$AF64</code>)."),
+      (0x81C5, "<b>Wait &amp; restart.</b> Spin until a controller press (<code>syscall_read_controller</code>), "
+               "then return. <code>vm_bootstrap</code> loops back to <code>init_new_game_state</code> — a new game."),
+    ],
+    sections=[
+      ("Where the art lives",
+       "<p>The victory and defeat full-screens are static CHR uploaded from <b>bank 6</b> "
+       "(<code>$9D04</code> victory, <code>$AF64</code> defeat) and blitted via the usual "
+       "<code>ppu_upload_block_wrap</code> / <code>ppu_blit_from_bank_wrap</code> pair. They’re prime targets for "
+       "the “render graphics bits from code” frontier — the same code-driven extraction that pulled the title and "
+       "portrait art — so both screens could be rendered to PNG straight from ROM without ever reaching the "
+       "ending in-game.</p>"),
+    ],
+    finds=[
+      ("Game-over is a discriminator, not a computation.",
+       "The whole sequence is two presentation branches selected by one boolean "
+       "(<code>count_6da2_set</code> over <code>$6DA2</code>). No formula — the interesting state was decided "
+       "earlier (whoever set the abort bit); this phase just announces it."),
+      ("$6DA2 is an unresolved per-fief flag array — queued for a data-walk.",
+       "It’s the victory/defeat discriminator here, but it’s also read in 10+ AI / combat sites and gates the "
+       "command-pass abort. That breadth means it deserves a real data-walk rather than a guessed name."),
+    ],
+    sources="<code>decompiled/bank_00.c</code> ($8003) · <code>count_6da2_set $D628</code> · "
+            "<code>appendix-asset-extraction.md</code> (for the bank-6 end-screen art).",
   ),
 }
 

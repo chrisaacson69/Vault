@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Over — Nobunaga’s Ambition Turn Loop</title>
+<style>
+  :root{
+    --bg:#15151c; --panel:#1f1f2b; --ink:#e8e6df; --dim:#9a97a8;
+    --gold:#f0b429; --red:#e8431f; --blue:#3a6ee8; --green:#5ad05a;
+    --line:#33303f; --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--gold);padding-bottom:14px;margin-bottom:8px}
+  .cmdno{color:var(--gold);font:600 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  h1{margin:.18em 0 .1em;font-size:38px;letter-spacing:.01em}
+  .tag{color:var(--dim);font-style:italic}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 28px}
+  .skills span{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:6px 11px;text-transform:uppercase}
+  h2{margin:38px 0 4px;font-size:22px;border-left:4px solid var(--gold);padding-left:12px}
+  .sub{color:var(--dim);margin:0 0 16px;padding-left:16px;font-size:14px}
+  .anim{display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px}
+  .anim img{image-rendering:pixelated;width:256px;height:240px;background:#6b6b6b;border-radius:6px}
+  .anim .cap{flex:1;min-width:240px}
+  .anim .cap b{color:var(--gold)}
+  .pill{display:inline-block;font:600 11px/1 var(--mono);color:var(--bg);background:var(--green);
+    border-radius:4px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+  ol.flow{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+  ol.flow li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line)}
+  ol.flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  ol.flow .scr{color:var(--green);font-family:var(--mono);font-size:14px}
+  ol.flow .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right}
+  pre{background:#101019;border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:8px;padding:16px;overflow:auto;font:13.5px/1.5 var(--mono);color:#d6e4ff}
+  pre .c{color:#6f7b96}
+  pre .k{color:var(--gold)}
+  .callout{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--red);
+    border-radius:8px;padding:14px 18px;margin:18px 0}
+  .callout b{color:var(--red)}
+  .rabbit{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .rabbit b{color:#b89af0}
+  .rabbit a{color:var(--blue);text-decoration:none}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--panel);color:var(--gold);font-weight:600}
+  td .ok{color:var(--green)}
+  code{font-family:var(--mono);color:var(--gold);font-size:.92em}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer a{color:var(--blue);text-decoration:none}
+  .roi{color:var(--dim);font-style:italic;margin-top:6px}
+
+  .lead{color:var(--ink);font-size:16px;margin:6px 0 26px}
+  .lead b{color:var(--gold)}
+  .map{list-style:none;counter-reset:step;padding:0;margin:14px 0 8px}
+  .map li{position:relative;padding:11px 0 11px 52px;border-bottom:1px solid var(--line)}
+  .map li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:9px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  .map a{color:var(--ink);text-decoration:none;font-weight:600}
+  .map a:hover{color:var(--gold)}
+  .map .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right;margin-top:3px}
+  .map .gloss{display:block;color:var(--dim);font-size:13.5px;font-weight:400;margin-top:2px}
+  .st{display:inline-block;font:700 10px/1 var(--mono);letter-spacing:.05em;border-radius:4px;
+    padding:4px 7px;margin-right:8px;vertical-align:middle;text-transform:uppercase}
+  .st-inline{background:var(--green);color:var(--bg)}
+  .st-page{background:var(--blue);color:#fff}
+  .st-stub{background:var(--panel);color:var(--dim);border:1px solid var(--line)}
+  .phase{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:18px 20px;margin:16px 0}
+  .phase h3{margin:0 0 4px;font-size:19px}
+  .phase h3 .addr{color:var(--dim);font-family:var(--mono);font-size:12px;font-weight:400}
+  .phase .bank{color:var(--dim);font-family:var(--mono);font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em}
+  .phase p{margin:10px 0 0}
+  .phase a{color:var(--blue);text-decoration:none}
+  .branch{background:#10131f;border:1px solid #2a3358;border-left:4px solid var(--blue);
+    border-radius:8px;padding:14px 18px;margin:12px 0}
+  .branch b{color:#9ab8ff}
+  .branch a{color:#9ab8ff;text-decoration:none;font-weight:600}
+  .find{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--gold);
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .find b{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="cmdno">Turn-loop phase 6 · deep dive</div>
+  <h1>Game Over</h1>
+  <div class="tag">display_fullscreen_graphic_sequence $8003 — the win / lose sequence and restart.</div>
+</header>
+
+<div class="skills">
+  <span>① decompiler → C</span>
+  <span>② data-walk labels</span>
+  <span>③ bytecode-verified flow</span>
+  <span>④ emulator-probed formula</span>
+</div>
+
+<p class="lead">The season loop only ever exits one way: a phase sets the abort gate <code>ai_turn_flags &amp; 128</code> — either a daimyo has unified Japan, or the player has been wiped out. <code>vm_bootstrap</code> falls through to <code>display_fullscreen_graphic_sequence</code>, which plays the appropriate end screen, waits for a button, and returns — and the loop restarts at <code>init_new_game_state</code> for a fresh game. It’s almost pure presentation: graphics, music, and two strings. The one decision is victory vs defeat.</p>
+
+<h2>The steps</h2>
+<p class="sub">The wizard, in order — each step grounded in the <code>$89A3</code> bytecode:</p>
+<ol class="flow">
+  <li><span class="addr">$800B</span><b>Quiet down.</b> Silence all audio (<code>syscall_audio_control(0,0)</code>), refresh the UI.</li>
+  <li><span class="addr">$8015</span><b>Victory or defeat?</b> Branch on <code>count_6da2_set()</code> — it counts the flagged entries in the per-fief array <code>$6DA2</code>. Flagged &gt; 0 takes the <b>victory</b> path; 0 takes <b>defeat</b>. (The exact meaning of the <code>$6DA2</code> flag is still open — it also gates the per-pass abort and AI targeting; flagged as a data-walk.)</li>
+  <li><span class="addr">$8019</span><b>Victory.</b> Upload the triumph graphic (<code>ppu_upload_block_wrap(…, $9054, bank 6)</code> + the <code>$9D04</code> full screen), then “Congratulations, my lord!” → “In the year %d” (<code>current_game_year</code>) → <b>“You united Japan!”</b>, with the victory fanfare (<code>call_bank10_entry(5)</code>).</li>
+  <li><span class="addr">$811D</span><b>Defeat.</b> The defeat music (<code>call_bank10_entry(6)</code>), <b>“Game Over.”</b>, a 6×64-step palette-fade animation (the screen dims out), and the defeat graphic (<code>$AF64</code>).</li>
+  <li><span class="addr">$81C5</span><b>Wait &amp; restart.</b> Spin until a controller press (<code>syscall_read_controller</code>), then return. <code>vm_bootstrap</code> loops back to <code>init_new_game_state</code> — a new game.</li>
+</ol>
+
+<h2>Where the art lives</h2>
+<p>The victory and defeat full-screens are static CHR uploaded from <b>bank 6</b> (<code>$9D04</code> victory, <code>$AF64</code> defeat) and blitted via the usual <code>ppu_upload_block_wrap</code> / <code>ppu_blit_from_bank_wrap</code> pair. They’re prime targets for the “render graphics bits from code” frontier — the same code-driven extraction that pulled the title and portrait art — so both screens could be rendered to PNG straight from ROM without ever reaching the ending in-game.</p>
+<h2>What it pinned down</h2>
+<div class="find"><b>Game-over is a discriminator, not a computation.</b> The whole sequence is two presentation branches selected by one boolean (<code>count_6da2_set</code> over <code>$6DA2</code>). No formula — the interesting state was decided earlier (whoever set the abort bit); this phase just announces it.</div>
+<div class="find"><b>$6DA2 is an unresolved per-fief flag array — queued for a data-walk.</b> It’s the victory/defeat discriminator here, but it’s also read in 10+ AI / combat sites and gates the command-pass abort. That breadth means it deserves a real data-walk rather than a guessed name.</div>
+
+<footer>
+  ← <a href="./turn-loop.html">back to the turn-loop map</a> &nbsp;·&nbsp; Sources: <code>decompiled/bank_00.c</code> ($8003) · <code>count_6da2_set $D628</code> · <code>appendix-asset-extraction.md</code> (for the bank-6 end-screen art).
+  Generated by <code>tools/build-turn-loop.py gameover</code>.
+</footer>
+</div>
+</body>
+</html>
