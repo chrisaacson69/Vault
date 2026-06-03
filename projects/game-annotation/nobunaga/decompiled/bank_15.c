@@ -201,10 +201,10 @@ L_CB7F:
 // (body @ $CB85)
 
 word swap_byte(word arg1, word arg2) {
-    *(byte*)(fp - 1) = *(byte*)(arg1);    // $CB87
+    tmp_byte = *(byte*)(arg1);    // $CB87
     *(byte*)(arg1) = *(byte*)(arg2);    // $CB8D
-    *(byte*)(arg2) = *(byte*)(fp - 1);    // $CB92
-    return *(byte*)(fp - 1);    // $CB93
+    *(byte*)(arg2) = tmp_byte;    // $CB92
+    return tmp_byte;    // $CB93
 }
 
 // $CB94 swap_word
@@ -456,30 +456,30 @@ L_CEC3:
 word redraw_window(word arg1) {
     goto L_CF1E;    // $CEC9
 L_CECC:
-    if (!((*(byte*)(fp - 3) == 10))) goto L_CEEC;    // $CED1
+    if (!((cur_char == 10))) goto L_CEEC;    // $CED1
     if ((local11 == ui_window_col)) goto L_CF1B;    // $CED9
     goto L_CF13;    // $CEE9
 L_CEEC:
-    *(word*)(fp - 5) = (*(word*)(fp - 5) + 1);    // $CEEF
-    *(byte*)(((*(word*)(fp - 5) + 1) - 1)) = char_classify(*(byte*)(fp - 3));    // $CEFB
+    buf_ptr = (buf_ptr + 1);    // $CEEF
+    *(byte*)(((buf_ptr + 1) - 1)) = char_classify(cur_char);    // $CEFB
     ui_window_col = (ui_window_col + 1);    // $CF00
     if (((ui_window_col + 1) == 32)) {    // $CF06
 L_CF13:
 L_CF1B:
-    ppu_blit_from_bank_wrap(local11, ui_cursor_row, 31, ui_cursor_row, (fp - 37), 4);    // $CF17
+    ppu_blit_from_bank_wrap(local11, ui_cursor_row, 31, ui_cursor_row, &tile_buf, 4);    // $CF17
 L_CF1E:
     ui_get_menu_count_7fcf();    // $CF1B
     local11 = ui_window_col;    // $CF21
-    *(word*)(fp - 5) = (fp - 37);    // $CF25
+    buf_ptr = &tile_buf;    // $CF25
     }
 L_CF27:
     arg1 = (arg1 + 1);    // $CF29
-    *(byte*)(fp - 3) = *(byte*)(((arg1 + 1) - 1));    // $CF2C
+    cur_char = *(byte*)(((arg1 + 1) - 1));    // $CF2C
     if (*(byte*)(((arg1 + 1) - 1))) goto L_CECC;    // $CF2F
     if ((local11 != ui_window_col)) {    // $CF37
     }
 L_CF4F:
-    return ppu_blit_from_bank_wrap(local11, ui_cursor_row, (ui_window_col - 1), ui_cursor_row, (fp - 37), 4);    // $CF4F
+    return ppu_blit_from_bank_wrap(local11, ui_cursor_row, (ui_window_col - 1), ui_cursor_row, &tile_buf, 4);    // $CF4F
 }
 
 // $CF50 fill_nametable_wrap
@@ -544,10 +544,10 @@ word atoi_decimal(word arg1) {
     local11 = 0;    // $CFDA
     goto L_CFED;    // $CFDB
 L_CFDE:
-    local11 = (*(byte*)(fp - 3) + (local11 * 10));    // $CFE7
+    local11 = (digit + (local11 * 10));    // $CFE7
     *(word*)(arg1) = (*(word*)(arg1) + 1);    // $CFEC
 L_CFED:
-    *(byte*)(fp - 3) = (*(byte*)(*(word*)(arg1)) + -48);    // $CFF2
+    digit = (*(byte*)(*(word*)(arg1)) + -48);    // $CFF2
     if (((*(byte*)(*(word*)(arg1)) + -48) < 10)) goto L_CFDE;    // $CFF7
     return local11;    // $CFFB
 }
@@ -557,37 +557,37 @@ L_CFED:
 
 word format_string(word arg1, word arg2) {
     arg1 = (arg1 + 2);    // $D003
-    *(word*)(fp - 3) = *(word*)(((arg1 + 2) + -2));    // $D007
-    *(word*)(fp - 23) = arg1;    // $D00A
+    fmt_cursor = *(word*)(((arg1 + 2) + -2));    // $D007
+    vararg_ptr = arg1;    // $D00A
     goto L_D018;    // $D00C
 L_D00F:
     arg2 = (arg2 + 1);    // $D011
-    *(byte*)(((arg2 + 1) - 1)) = *(byte*)(fp - 1);    // $D017
+    *(byte*)(((arg2 + 1) - 1)) = ch;    // $D017
 L_D018:
-    *(word*)(fp - 3) = (*(word*)(fp - 3) + 1);    // $D01B
-    *(byte*)(fp - 1) = *(byte*)(((*(word*)(fp - 3) + 1) - 1));    // $D01F
-    if (!(*(byte*)(((*(word*)(fp - 3) + 1) - 1)))) goto L_D130;    // $D022
-    if (!((*(byte*)(fp - 1) == 37))) goto L_D00F;    // $D02B
-    *(word*)(fp - 15) = (fp - 13);    // $D031
-    *(word*)(fp - 21) = 6;    // $D034
-    *(word*)(fp - 17) = 0;    // $D037
-    *(byte*)(fp - 1) = *(byte*)(*(word*)(fp - 3));    // $D03C
-    if (is_digit(*(byte*)(fp - 1))) {    // $D047
-    atoi_decimal((fp - 3));    // $D04E
+    fmt_cursor = (fmt_cursor + 1);    // $D01B
+    ch = *(byte*)(((fmt_cursor + 1) - 1));    // $D01F
+    if (!(*(byte*)(((fmt_cursor + 1) - 1)))) goto L_D130;    // $D022
+    if (!((ch == 37))) goto L_D00F;    // $D02B
+    out_cursor = &conv_buf;    // $D031
+    width = 6;    // $D034
+    has_precision = 0;    // $D037
+    ch = *(byte*)(fmt_cursor);    // $D03C
+    if (is_digit(ch)) {    // $D047
+    atoi_decimal(&fmt_cursor);    // $D04E
     } else {
     }
 L_D056:
-    *(word*)(fp - 19) = 0;    // $D056
-    *(word*)(fp - 3) = (*(word*)(fp - 3) + 1);    // $D05B
-    *(byte*)(fp - 1) = *(byte*)(((*(word*)(fp - 3) + 1) - 1));    // $D05F
-    if ((*(byte*)(((*(word*)(fp - 3) + 1) - 1)) == 46)) {    // $D065
-    *(word*)(fp - 21) = atoi_decimal((fp - 3));    // $D070
-    *(word*)(fp - 17) = 1;    // $D073
-    *(word*)(fp - 3) = (*(word*)(fp - 3) + 1);    // $D078
-    *(byte*)(fp - 1) = *(byte*)(((*(word*)(fp - 3) + 1) - 1));    // $D07C
+    pad = 0;    // $D056
+    fmt_cursor = (fmt_cursor + 1);    // $D05B
+    ch = *(byte*)(((fmt_cursor + 1) - 1));    // $D05F
+    if ((*(byte*)(((fmt_cursor + 1) - 1)) == 46)) {    // $D065
+    width = atoi_decimal(&fmt_cursor);    // $D070
+    has_precision = 1;    // $D073
+    fmt_cursor = (fmt_cursor + 1);    // $D078
+    ch = *(byte*)(((fmt_cursor + 1) - 1));    // $D07C
     }
 L_D07F:
-    switch (to_upper(*(byte*)(fp - 1))) {    // $D087
+    switch (to_upper(ch)) {    // $D087
         case 0: goto L_D12F;    // $D087
         case 67: goto L_D0D0;    // $D087
         case 68: goto L_D09C;    // $D087
@@ -595,44 +595,44 @@ L_D07F:
         default: goto L_D00F;    // $D087
     }    // $D087
 L_D09C:
-    *(word*)(fp - 23) = (*(word*)(fp - 23) + 2);    // $D0A0
-    *(word*)(fp - 19) = (*(word*)(fp - 19) - num_to_ascii((fp - 15), *(word*)(((*(word*)(fp - 23) + 2) + -2)), 10));    // $D0B2
+    vararg_ptr = (vararg_ptr + 2);    // $D0A0
+    pad = (pad - num_to_ascii(&out_cursor, *(word*)(((vararg_ptr + 2) + -2)), 10));    // $D0B2
     goto L_D0E5;    // $D0B4
 L_D0B7:
-    *(word*)(fp - 23) = (*(word*)(fp - 23) + 2);    // $D0BA
-    *(word*)(fp - 15) = *(word*)(((*(word*)(fp - 23) + 2) + -2));    // $D0BF
-    *(word*)(fp - 19) = (*(word*)(fp - 19) - strlen(*(word*)(fp - 15)));    // $D0CB
+    vararg_ptr = (vararg_ptr + 2);    // $D0BA
+    out_cursor = *(word*)(((vararg_ptr + 2) + -2));    // $D0BF
+    pad = (pad - strlen(out_cursor));    // $D0CB
     goto L_D0FC;    // $D0CD
 L_D0D0:
-    *(word*)(fp - 19) = (*(word*)(fp - 19) - 1);    // $D0D3
-    *(word*)(fp - 15) = (*(word*)(fp - 15) + 1);    // $D0D8
-    *(word*)(fp - 23) = (*(word*)(fp - 23) + 2);    // $D0DF
-    *(byte*)(((*(word*)(fp - 15) + 1) - 1)) = *(word*)(((*(word*)(fp - 23) + 2) + -2));    // $D0E4
+    pad = (pad - 1);    // $D0D3
+    out_cursor = (out_cursor + 1);    // $D0D8
+    vararg_ptr = (vararg_ptr + 2);    // $D0DF
+    *(byte*)(((out_cursor + 1) - 1)) = *(word*)(((vararg_ptr + 2) + -2));    // $D0E4
 L_D0E5:
-    *(byte*)(*(word*)(fp - 15)) = 0;    // $D0E8
-    *(word*)(fp - 15) = (fp - 13);    // $D0EC
-    *(word*)(fp - 17) = 0;    // $D0EF
+    *(byte*)(out_cursor) = 0;    // $D0E8
+    out_cursor = &conv_buf;    // $D0EC
+    has_precision = 0;    // $D0EF
     goto L_D0FC;    // $D0F1
 L_D0F4:
     arg2 = (arg2 + 1);    // $D0F6
     *(byte*)(((arg2 + 1) - 1)) = 32;    // $D0FB
 L_D0FC:
-    *(word*)(fp - 19) = (*(word*)(fp - 19) - 1);    // $D0FF
-    if ((((*(word*)(fp - 19) - 1) + 1) > 0)) goto L_D0F4;    // $D104
+    pad = (pad - 1);    // $D0FF
+    if ((((pad - 1) + 1) > 0)) goto L_D0F4;    // $D104
 L_D107:
-    if (!(*(byte*)(*(word*)(fp - 15)))) goto L_D018;    // $D10A
-    if (!(*(word*)(fp - 17))) goto L_D119;    // $D10F
-    if ((*(word*)(fp - 21) > 0)) {    // $D116
+    if (!(*(byte*)(out_cursor))) goto L_D018;    // $D10A
+    if (!(has_precision)) goto L_D119;    // $D10F
+    if ((width > 0)) {    // $D116
 L_D119:
     arg2 = (arg2 + 1);    // $D11B
-    *(byte*)(((arg2 + 1) - 1)) = *(byte*)(*(word*)(fp - 15));    // $D121
-    *(word*)(fp - 21) = (*(word*)(fp - 21) - 1);    // $D125
+    *(byte*)(((arg2 + 1) - 1)) = *(byte*)(out_cursor);    // $D121
+    width = (width - 1);    // $D125
     }
 L_D127:
-    *(word*)(fp - 15) = (*(word*)(fp - 15) + 1);    // $D12A
+    out_cursor = (out_cursor + 1);    // $D12A
     goto L_D107;    // $D12C
 L_D12F:
-    return (*(word*)(fp - 15) + 1);    // $D12F
+    return (out_cursor + 1);    // $D12F
 L_D130:
     *(byte*)(arg2) = 0;    // $D132
     return 0;    // $D133
@@ -643,8 +643,8 @@ L_D130:
 // (body @ $D139)
 
 word ui_helper_d134(void) {
-    format_string((fp + 11), (fp - 150));    // $D141
-    return redraw_window((fp - 150));    // $D14D
+    format_string((fp + 11), &msg_buf);    // $D141
+    return redraw_window(&msg_buf);    // $D14D
 }
 
 // $D14E poll_input
@@ -1591,8 +1591,8 @@ L_DC87:
 // (body @ $DC8D)
 
 word read_map_cell(word arg1, word arg2) {
-    syscall16_sram_wrap(4, ((((fief_to_mapid(battle_defending_province) * 55) + (arg2 * 11)) + arg1) + read_map_cell_data_a57e), (fp - 1), 1);    // $DCAA
-    return *(byte*)(fp - 1);    // $DCB1
+    syscall16_sram_wrap(4, ((((fief_to_mapid(battle_defending_province) * 55) + (arg2 * 11)) + arg1) + read_map_cell_data_a57e), &cell, 1);    // $DCAA
+    return cell;    // $DCB1
 }
 
 // $DCB2 generate_daimyo_name
@@ -1600,7 +1600,7 @@ word read_map_cell(word arg1, word arg2) {
 
 word generate_daimyo_name(word arg1) {
 L_DCB7:
-    local9 = (fp - 13);    // $DCBA
+    local9 = &name_buf;    // $DCBA
     local11 = (rng_mod(11) << 1);    // $DCC1
     local10 = (rng_mod(11) << 1);    // $DCC8
     *(byte*)(local9) = msg_aiaoieueoikakikusasisusotatuto[local11];    // $DCD0
@@ -1617,7 +1617,7 @@ L_DCB7:
     local8 = 0;    // $DCFD
     goto L_DD1C;    // $DCFF
 L_DD02:
-    if (strcmp((fp - 13), ((local11 * 9) + 0x77A8))) goto L_DD1A;    // $DD12
+    if (strcmp(&name_buf, ((local11 * 9) + 0x77A8))) goto L_DD1A;    // $DD12
     local8 = 1;    // $DD16
     goto L_DD25;    // $DD17
 L_DD1A:
@@ -1626,7 +1626,7 @@ L_DD1C:
     if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_DD02;    // $DD22
 L_DD25:
     if (local8) goto L_DCB7;    // $DD26
-    return strcpy(((arg1 * 9) + 0x77A8), (fp - 13));    // $DD39
+    return strcpy(((arg1 * 9) + 0x77A8), &name_buf);    // $DD39
 }
 
 // $DD3A combat_helper_dd3a
@@ -2150,20 +2150,20 @@ word find_record_9e3c(word arg1) {
     if (!(((unsigned)selected_record_idx_9e3c <= (unsigned)8))) goto L_E594;    // $E55E
     local11 = ui_window_col;    // $E564
     local10 = ui_cursor_row;    // $E568
-    syscall16_sram_wrap(4, ((selected_record_idx_9e3c * 34) + find_record_data_9e3c), (fp - 38), 34);    // $E57B
-    *(word*)(fp - 40) = (fp - 38);    // $E582
+    syscall16_sram_wrap(4, ((selected_record_idx_9e3c * 34) + find_record_data_9e3c), &record_buf, 34);    // $E57B
+    rec_cursor = &record_buf;    // $E582
 L_E584:
-    if ((*(byte*)(*(word*)(fp - 40)) != 255)) goto L_E595;    // $E58B
+    if ((*(byte*)(rec_cursor) != 255)) goto L_E595;    // $E58B
 L_E58E:
 L_E594:
     return ui_helper_cc7b(local11, local10);    // $E594
 L_E595:
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $E598
-    ui_window_col = *(byte*)(((*(word*)(fp - 40) + 1) - 1));    // $E59C
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $E5A2
-    ui_cursor_row = *(byte*)(((*(word*)(fp - 40) + 1) - 1));    // $E5A6
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $E5AC
-    if (!((*(byte*)(((*(word*)(fp - 40) + 1) - 1)) == arg1))) goto L_E584;    // $E5B2
+    rec_cursor = (rec_cursor + 1);    // $E598
+    ui_window_col = *(byte*)(((rec_cursor + 1) - 1));    // $E59C
+    rec_cursor = (rec_cursor + 1);    // $E5A2
+    ui_cursor_row = *(byte*)(((rec_cursor + 1) - 1));    // $E5A6
+    rec_cursor = (rec_cursor + 1);    // $E5AC
+    if (!((*(byte*)(((rec_cursor + 1) - 1)) == arg1))) goto L_E584;    // $E5B2
     ppu_blit_from_bank_wrap(ui_window_col, ui_cursor_row, min_word((ui_window_col + 8), 29), ui_cursor_row, ((((selected_record_idx_9e3c * 0x01C0) + ((ui_cursor_row + -4) * 28)) + ui_window_col) + find_record_data_8d5a), 4);    // $E5E6
     draw_window_f706(arg1);    // $E5EB
     goto L_E58E;    // $E5EF
@@ -2181,18 +2181,18 @@ word map_helper_e5f2(word arg1) {
     selected_record_idx_9e3c = arg1;    // $E637
     local11 = ui_window_col;    // $E63D
     local10 = ui_cursor_row;    // $E641
-    syscall16_sram_wrap(4, ((arg1 * 34) + find_record_data_9e3c), (fp - 38), 34);    // $E652
-    *(word*)(fp - 40) = (fp - 38);    // $E659
+    syscall16_sram_wrap(4, ((arg1 * 34) + find_record_data_9e3c), &record_buf, 34);    // $E652
+    cursor = &record_buf;    // $E659
     goto L_E67E;    // $E65B
 L_E65E:
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $E661
-    ui_window_col = *(byte*)(((*(word*)(fp - 40) + 1) - 1));    // $E665
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $E66B
-    ui_cursor_row = *(byte*)(((*(word*)(fp - 40) + 1) - 1));    // $E66F
-    *(word*)(fp - 40) = (*(word*)(fp - 40) + 1);    // $E675
+    cursor = (cursor + 1);    // $E661
+    ui_window_col = *(byte*)(((cursor + 1) - 1));    // $E665
+    cursor = (cursor + 1);    // $E66B
+    ui_cursor_row = *(byte*)(((cursor + 1) - 1));    // $E66F
+    cursor = (cursor + 1);    // $E675
 L_E67E:
-    draw_window_f706(*(byte*)(((*(word*)(fp - 40) + 1) - 1)));    // $E67A
-    if ((*(byte*)(*(word*)(fp - 40)) != 255)) goto L_E65E;    // $E685
+    draw_window_f706(*(byte*)(((cursor + 1) - 1)));    // $E67A
+    if ((*(byte*)(cursor) != 255)) goto L_E65E;    // $E685
     ui_helper_cc7b(local11, local10);    // $E68A
     }
 L_E693:

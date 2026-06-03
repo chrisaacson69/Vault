@@ -2491,3 +2491,51 @@ arg2 = { name = "row", comment = "[HIGH] top-left ROW of 6x6 portrait; passed as
 "fp-40" = { name = "cell_ptr", comment = "[HIGH] word cursor into fief_cell_buf; init &(fp-38), walked +1 reading (x,y,idx) triples until 255 terminator" }
 "fp-38" = { name = "fief_cell_buf", comment = "[HIGH] 34-byte buf: SRAM copy (syscall 4) of record selected_record_idx*34+data_9e3c; fief adjacency/cell triples, 255-term" }
 
+# --- bank-15 var-walk far-frame batch (--merge, new sections) (9 subs) ---
+[vars.bank15."0xE5F2"]
+# map_helper_e5f2
+"fp-40" = { name = "cursor", comment = "[HIGH] word walk-pointer; init to &record_buf ($E659), inc'd + loadA_ind_byte deref'd each iter, read until byte==255" }
+"fp-38" = { name = "record_buf", comment = "[HIGH] 34-byte struct buffer; syscall16_sram_wrap(4,record_data,&this,34) copies record in, then walked field-wise by cursor" }
+
+[vars.bank15."0xE554"]
+# find_record_9e3c
+"fp-38" = { name = "record_buf", comment = "[HIGH] 34-byte buffer; syscall16_sram_wrap(4, selected_record_idx*34+find_record_data_9e3c, &(fp-38), 34) copies a 9e3c record into it" }
+"fp-40" = { name = "rec_cursor", comment = "[HIGH] read pointer; init = &record_buf, walked field-wise (col,row,fief byte per entry), scans for entry whose fief == arg1, 255-terminated" }
+
+[vars.bank15."0xDCB2"]
+# generate_daimyo_name
+"fp-13" = { name = "name_buf", comment = "[HIGH] 5-byte scratch buffer the 2-syllable kana name is assembled into; addr passed to strcmp dedup vs $77A8 then strcpy'd out" }
+
+[vars.bank15."0xDC88"]
+# read_map_cell
+"fp-1" = { name = "cell", comment = "[HIGH] 1-byte dest buffer: syscall16_sram_wrap(4,src,(fp-1),1) reads the map cell byte into it, then return *(byte*)(fp-1)" }
+
+[vars.bank15."0xD134"]
+# ui_helper_d134
+"fp-150" = { name = "msg_buf", comment = "[HIGH] text buffer format_string writes into ($D141) then redraw_window renders ($D14D); printf-style msg output buf" }
+
+[vars.bank15."0xCFFC"]
+# format_string
+"fp-23" = { name = "vararg_ptr", comment = "[HIGH] Vararg cursor: init to arg1 base, advanced +2 each %d/%s/%c to fetch next word arg ([D0A0],[D0BA],[D0DF])." }
+"fp-21" = { name = "width", comment = "[HIGH] Field width/precision count: default 6, overwritten by atoi after '.', decremented per emitted char in copy loop." }
+"fp-19" = { name = "pad", comment = "[HIGH] Padding count: starts 0, -= content length (strlen/num digits), drives leading-space pad loop at D0FC." }
+"fp-17" = { name = "has_precision", comment = "[HIGH] Precision-specified flag: 0 default, set to 1 when '.' (46) seen; gates the width>0 trailing test." }
+"fp-15" = { name = "out_cursor", comment = "[HIGH] Conversion-source cursor: points into scratch buf (fp-13) or %s arg string, walked byte-wise to emit output." }
+"fp-13" = { name = "conv_buf", comment = "[HIGH] Scratch conversion buffer: address taken (fp-13) as num_to_ascii dest / atoi_decimal scratch for the converted number." }
+"fp-3" = { name = "fmt_cursor", comment = "[HIGH] Format-string read cursor: init from arg1, incremented and dereferenced to read each format char/spec byte." }
+"fp-1" = { name = "ch", comment = "[HIGH] Current format char byte: loaded from cursor, tested vs '%'(37)/'.'(46), fed to is_digit/to_upper switch." }
+
+[vars.bank15."0xCFD4"]
+# atoi_decimal
+"fp-3" = { name = "digit", comment = "[HIGH] byte current digit value = *(byte*)(*arg1)-48 at $CFF2, folded into accumulator local11 = digit + local11*10 ($CFE7), loop while <10; arg1 is the cursor not this (fused-agent corrected)" }
+
+[vars.bank15."0xCEC4"]
+# redraw_window
+"fp-37" = { name = "tile_buf", comment = "[HIGH] byte tile buffer; its addr (fp-37) passed to ppu_blit_from_bank_wrap(...,(fp-37),4); fp-5 writes classified chars into it" }
+"fp-5" = { name = "buf_ptr", comment = "[HIGH] word write-cursor into tile_buf; init=(fp-37), pre-incremented, *(buf_ptr)=char_classify(cur_char) per char" }
+"fp-3" = { name = "cur_char", comment = "[HIGH] byte: current char from msg string arg1; tested ==10 (newline) and passed to char_classify before buffering" }
+
+[vars.bank15."0xCB80"]
+# swap_byte
+"fp-1" = { name = "tmp_byte", comment = "[HIGH] swap temp: holds byte read from *arg1 ($CB87), written into *arg2 ($CB92) & returned; classic byte-swap holder" }
+
