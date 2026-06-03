@@ -237,7 +237,13 @@ def _build_opcode_to_mnemonic():
     rng(0x00, 0x0B, 'loadA_local_neg');  rng(0x0C, 0x0F, 'loadA_local_pos')
     rng(0x10, 0x1B, 'loadB_local_neg');  rng(0x1C, 0x1F, 'loadB_local_pos')
     rng(0x20, 0x2B, 'storeA_local_neg'); rng(0x2C, 0x2F, 'storeA_local_pos')
-    rng(0x30, 0x3B, 'storeB_local_neg'); rng(0x3C, 0x3F, 'storeB_local_pos')
+    # $30-$3F are PUSH_quick (per OPCODE_INFO, the semantics authority), NOT storeB.
+    # They push a frame slot's VALUE onto the data stack (locals for $30-$3B, args for
+    # $3C-$3F = arg-forwarding to a call). The old "storeB_local" mapping (store regB ->
+    # slot) was the buggy legacy mnemonic and is the root of a large share of the bogus
+    # `argN = ?` / `/*stack underflow*/` markers. Oracle-confirmed (forwarder stubs +
+    # $38 push local8). See [[project_nobunaga_vm_decompiler]] / ROADMAP frame-arg fix.
+    rng(0x30, 0x3B, 'push_local_neg'); rng(0x3C, 0x3F, 'push_local_pos')
     rng(0x40, 0x4F, 'loadA_imm4')   # LOADL_qimm: regL = opcode & 0x0F (0..15), NOT a clear
     m[0x50] = 'setB_imm4_50';            rng(0x51, 0x5F, 'setB_imm4')
     rng(0x60, 0x6F, 'push_imm4');        m[0x70] = 'nop'
@@ -568,14 +574,15 @@ def decompile(filepath, sub_addr, labels=None):
             name = local_name(opcode & 0x0F, 'neg')
             state.emit(f"{name} = {state.regA};")
             state.locals[opcode & 0x0F] = state.regA
-        elif mnem == 'storeB_local_neg':
-            name = local_name(opcode & 0x0F, 'neg')
-            state.emit(f"{name} = {state.regB};")
-        elif mnem == 'storeB_local_pos':
-            name = local_name(opcode & 0x0F, 'pos')
-            state.emit(f"{name} = {state.regB};")
-            # Track for implicit-arg-via-shadow on the next host_call
-            state.recent_pos_writes[opcode & 0x0F] = state.regB
+        elif mnem == 'push_local_neg':
+            # $30-$3B PUSH_quick: push a frame LOCAL's value onto the data stack.
+            # (Oracle-confirmed: $38 pushes local8, sp -= 2 — not a store of regB.)
+            state.stack.append(local_name(opcode & 0x0F, 'neg'))
+        elif mnem == 'push_local_pos':
+            # $3C-$3F PUSH_quick: push a frame ARG's value (arg-forwarding to a call).
+            # Oracle-confirmed on the syscall wrapper stubs ($CBBD memcpy_banked forwarder):
+            # $3C pushes arg1 (fp+0x0B) ... $3F pushes arg4 (fp+0x11).
+            state.stack.append(local_name(opcode & 0x0F, 'pos'))
 
         # === Immediates ===
         elif mnem == 'loadA_imm_word':
