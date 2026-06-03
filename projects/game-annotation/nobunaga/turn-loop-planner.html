@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Season Tick — Nobunaga’s Ambition Turn Loop</title>
+<style>
+  :root{
+    --bg:#15151c; --panel:#1f1f2b; --ink:#e8e6df; --dim:#9a97a8;
+    --gold:#f0b429; --red:#e8431f; --blue:#3a6ee8; --green:#5ad05a;
+    --line:#33303f; --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--gold);padding-bottom:14px;margin-bottom:8px}
+  .cmdno{color:var(--gold);font:600 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  h1{margin:.18em 0 .1em;font-size:38px;letter-spacing:.01em}
+  .tag{color:var(--dim);font-style:italic}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 28px}
+  .skills span{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:6px 11px;text-transform:uppercase}
+  h2{margin:38px 0 4px;font-size:22px;border-left:4px solid var(--gold);padding-left:12px}
+  .sub{color:var(--dim);margin:0 0 16px;padding-left:16px;font-size:14px}
+  .anim{display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px}
+  .anim img{image-rendering:pixelated;width:256px;height:240px;background:#6b6b6b;border-radius:6px}
+  .anim .cap{flex:1;min-width:240px}
+  .anim .cap b{color:var(--gold)}
+  .pill{display:inline-block;font:600 11px/1 var(--mono);color:var(--bg);background:var(--green);
+    border-radius:4px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+  ol.flow{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+  ol.flow li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line)}
+  ol.flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  ol.flow .scr{color:var(--green);font-family:var(--mono);font-size:14px}
+  ol.flow .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right}
+  pre{background:#101019;border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:8px;padding:16px;overflow:auto;font:13.5px/1.5 var(--mono);color:#d6e4ff}
+  pre .c{color:#6f7b96}
+  pre .k{color:var(--gold)}
+  .callout{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--red);
+    border-radius:8px;padding:14px 18px;margin:18px 0}
+  .callout b{color:var(--red)}
+  .rabbit{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .rabbit b{color:#b89af0}
+  .rabbit a{color:var(--blue);text-decoration:none}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--panel);color:var(--gold);font-weight:600}
+  td .ok{color:var(--green)}
+  code{font-family:var(--mono);color:var(--gold);font-size:.92em}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer a{color:var(--blue);text-decoration:none}
+  .roi{color:var(--dim);font-style:italic;margin-top:6px}
+
+  .lead{color:var(--ink);font-size:16px;margin:6px 0 26px}
+  .lead b{color:var(--gold)}
+  .map{list-style:none;counter-reset:step;padding:0;margin:14px 0 8px}
+  .map li{position:relative;padding:11px 0 11px 52px;border-bottom:1px solid var(--line)}
+  .map li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:9px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  .map a{color:var(--ink);text-decoration:none;font-weight:600}
+  .map a:hover{color:var(--gold)}
+  .map .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right;margin-top:3px}
+  .map .gloss{display:block;color:var(--dim);font-size:13.5px;font-weight:400;margin-top:2px}
+  .st{display:inline-block;font:700 10px/1 var(--mono);letter-spacing:.05em;border-radius:4px;
+    padding:4px 7px;margin-right:8px;vertical-align:middle;text-transform:uppercase}
+  .st-inline{background:var(--green);color:var(--bg)}
+  .st-page{background:var(--blue);color:#fff}
+  .st-stub{background:var(--panel);color:var(--dim);border:1px solid var(--line)}
+  .phase{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:18px 20px;margin:16px 0}
+  .phase h3{margin:0 0 4px;font-size:19px}
+  .phase h3 .addr{color:var(--dim);font-family:var(--mono);font-size:12px;font-weight:400}
+  .phase .bank{color:var(--dim);font-family:var(--mono);font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em}
+  .phase p{margin:10px 0 0}
+  .phase a{color:var(--blue);text-decoration:none}
+  .branch{background:#10131f;border:1px solid #2a3358;border-left:4px solid var(--blue);
+    border-radius:8px;padding:14px 18px;margin:12px 0}
+  .branch b{color:#9ab8ff}
+  .branch a{color:#9ab8ff;text-decoration:none;font-weight:600}
+  .find{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--gold);
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .find b{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="cmdno">Turn-loop phase 1 · deep dive</div>
+  <h1>The Season Tick</h1>
+  <div class="tag">ai_strategic_turn_planner $A455 — turn setup and the random-event engine.</div>
+</header>
+
+<div class="skills">
+  <span>① decompiler → C</span>
+  <span>② data-walk labels</span>
+  <span>③ bytecode-verified flow</span>
+  <span>④ emulator-probed formula</span>
+</div>
+
+<p class="lead">Before any daimyo picks a command, the whole world advances one season. <code>ai_strategic_turn_planner</code> is that tick: it saves, rolls the calendar forward, re-prices the market, runs the per-fief economy update (drift, the harvest, aging and death), and then fires the <b>random-event engine</b> — floods, earthquakes, riots, revolts. It’s the densest routine in the game, and walking it turned up two long-standing unknowns: what <code>$6D2D</code> is, and what the disaster events actually do.</p>
+
+<h2>The steps</h2>
+<p class="sub">The wizard, in order — each step grounded in the <code>$89A3</code> bytecode:</p>
+<ol class="flow">
+  <li><span class="addr">$A45B</span><b>Save &amp; UI.</b> Show the strategic map; if a save is pending, <code>write_sram_save_checksum_and_signature</code> commits SRAM (a checksum over the live regions — the game saves at season end).</li>
+  <li><span class="addr">$A47F</span><b>Calendar.</b> <code>current_season = (season+1)&amp;3</code>; the <b>year</b> ticks only when that wraps to 0 — four seasons to a year.</li>
+  <li><span class="addr">$A495</span><b>Re-price the market.</b> <code>roll_period_rate_table_6e0b</code> re-rolls the five market rates, so buy-low / sell-high timing genuinely matters period to period.</li>
+  <li><span class="addr">$A498</span><b>The per-fief economy update</b> (<code>per_period_fief_daimyo_update_driver $A30D</code>) — drift, the season-phased work (incl. the harvest), and the death sweep. See below.</li>
+  <li><span class="addr">$A4C3</span><b>The random-event engine.</b> Pick an event family, roll each fief for eligibility, then apply the disaster / riot / revolt to the affected provinces. See below.</li>
+  <li><span class="addr">$A55F</span><b>Illness pass.</b> Each daimyo (health ≤ 99, not resting) is weakness-marked with probability <code>(100 − health) / 400</code>; a freshly-marked one gets “… has taken ill.”</li>
+</ol>
+
+<h2>Turn setup — the per-fief economy update</h2>
+<p><code>per_period_fief_daimyo_update_driver $A30D</code> sweeps every fief, then does work that depends on the season:</p><ul><li><b>Daimyo skill drifts.</b> <code>drift_daimyo_stat3_random</code> nudges each daimyo’s skill stat (record +3) by <code>rng%11 − 5</code> = <b>−5…+5 every season</b>. Competence isn’t fixed — it wanders, so a brilliant rival can dull and a mediocre one can sharpen.</li><li><b>Tax drives loyalty.</b> A fief whose <code>fief_tax_rate ($6D2D)</code> is below <code>90 − skill</code> has its loyalty multiplied by 0.9 that season. (Direction reads counterintuitively — flagged for a bytecode recheck — but the dependency on the tax rate is real.)</li></ul><p>Then one season-specific job, on top of the universal aging + natural-death roll:</p><table>
+  <tr><th>current_season</th><th>The season’s job</th></tr>
+  <tr><td>0</td><td>— (aging + death only)</td></tr>
+  <tr><td>1</td><td>Reset the economic high-water marks</td></tr>
+  <tr><td>2</td><td><b>HARVEST</b> — gold &amp; rice income = <code>tax% × economic base</code></td></tr>
+  <tr><td>3</td><td>Relations-matrix decay</td></tr>
+</table>
+<p class='sub'>The big <code>$6D2D</code> find lives here: it’s the per-fief <b>tax rate</b> (<code>driver_tax</code> writes the player’s 1–100 input straight into it), and the harvest reads it as the income multiplier — <code>income = pct_op(tax, wealth) + pct_op(tax, 40%·town)</code>. So “raise tax” literally scales every fief’s gold/rice yield.</p>
+<h2>The random-event engine</h2>
+<p>Each season the planner may fire a world event. First it <b>selects a family</b> (season-gated and RNG-weighted — floods skew to one season, the political events to others), then it rolls <b>every fief for eligibility</b>: <code>square_over_2025_probability_roll</code> compares a stat² against <code>rng%2025</code> (the stat capped at 50), tested against <b>loyalty, (100 − tax), and the daimyo’s charisma</b>. Low loyalty, high tax, and weak leadership are what make a province a target. The eligible fiefs go on a list, and the handler hits each one:</p><table>
+  <tr><th>Event</th><th>Anim</th><th>What it does to each affected fief</th></tr>
+  <tr><td><b>Flood</b></td><td>20</td><td>wealth −1…4; <b>output cut to <code>(0.9 × dams)%</code></b> — so dams are <b>flood insurance</b>: a maxed fief keeps ~90% of output, an undammed one loses almost all</td></tr>
+  <tr><td><b>Quake / plague</b></td><td>31</td><td>men ×(50–99)% and output ×(50–99)%; if the daimyo is present in the fief, a health hit + weakness mark on top</td></tr>
+  <tr><td><b>Riot</b></td><td>23</td><td>unrest across high-tension provinces (no ownership change)</td></tr>
+  <tr><td><b>Revolt</b></td><td>25</td><td><code>revolt_spread_sweep_flip_fief_ownership</code> — a fief <b>changes hands</b> to the rebels; the harshest outcome</td></tr>
+  <tr><td><b>Boon</b></td><td>—</td><td><code>event_boost_province_wealth_loyalty</code>: wealth + (<code>rng%10 + charisma/10</code>), loyalty up — the rare good news</td></tr>
+</table>
+<p class='sub'>Every event has a from-ROM animation (the ids above) pullable with <code>tools/run-animation.py</code>. The exact family-selection probabilities live in goto-heavy bytecode and are the next depth increment — but the <b>effects</b> above are read straight from the handlers.</p>
+<h2>What it pinned down</h2>
+<div class="find"><b>$6D2D is the per-fief tax rate — confirmed.</b> <code>driver_tax</code> displays it as “Tax is %d” and writes the player’s 1–100 input into it; the harvest reads it as the income multiplier. The old harvest-formula “od_pct” was this. Labeled <code>fief_tax_rate</code> (regen-guard clean).</div>
+<div class="find"><b>Dams are flood insurance.</b> Flood output loss is <code>(0.9 × dams)%</code> retained — a third strategic reason to build dams, alongside rice yield and the Dam-vs-Grow crossover. Undammed fiefs are wiped by a single flood.</div>
+<div class="find"><b>Daimyo skill is a random walk.</b> Every season each daimyo’s skill drifts <code>−5…+5</code>. Ratings aren’t static portraits; a rival’s competence genuinely wanders over a campaign.</div>
+<div class="find"><b>Events target the disloyal, over-taxed, and poorly-led.</b> Eligibility rolls on loyalty, (100 − tax), and charisma — the same three levers you manage with Give, Tax, and which daimyo governs. The event system is the feedback loop on bad governance.</div>
+
+<footer>
+  ← <a href="./turn-loop.html">back to the turn-loop map</a> &nbsp;·&nbsp; Sources: <code>decompiled/bank_00.c</code> ($A455, $A30D, $9CB3, $9D00, $9ED9) · <code>driver_tax $99A6</code> · <code>fief_tax_rate $6D2D</code> · memory <code>project_nobunaga_main_turn_loop</code> · <code>tools/run-animation.py</code> (event anims).
+  Generated by <code>tools/build-turn-loop.py planner</code>.
+</footer>
+</div>
+</body>
+</html>

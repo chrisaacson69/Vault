@@ -3524,7 +3524,7 @@ word ai_seed_fief_collection_rate_6d2d(word arg1, word arg2, word arg3, word arg
     } else {
     }
 L_B2E2:
-    *(byte*)((battle_defending_province + 0x6D2D)) = (rng_mod(30) + 35);    // $B2E2
+    fief_tax_rate[battle_defending_province] = (rng_mod(30) + 35);    // $B2E2
     return swap_word(battle_defending_province, (fp + 11));    // $B2EE
     }
 }

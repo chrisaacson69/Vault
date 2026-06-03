@@ -1934,7 +1934,7 @@ word avg_byte_array_6d2d_over_fiefs(word arg1, word arg2, word arg3, word arg4) 
     local11 = 0;    // PRG $01535
     goto L_p01546;    // PRG $01537
 L_p0153A:
-    local11 = (local11 + *(byte*)((local10 + 0x6D2D)));    // PRG $01543
+    local11 = (local11 + fief_tax_rate[local10]);    // PRG $01543
 L_p01546:
     local10 = (local10 + 1);    // PRG $01546
     if (((unsigned)local10 >= (unsigned)scenario_fief_count)) goto L_p0153A;    // PRG $0154C
@@ -2514,9 +2514,9 @@ L_p01D95:
 word ai_event_eligibility_check_loyalty_variant(word arg1, word arg2, word arg3, word arg4) {
     battle_defending_province = arg1;    // PRG $01DA9
     if (square_over_2025_probability_roll(*(word*)(((arg1 * 26) + 0x700D)))) goto L_p01DE9;    // PRG $01DBA -> bank0 $9D86
-    if (square_over_2025_probability_roll((100 - *(byte*)((arg1 + 0x6D2D))))) goto L_p01DE9;    // PRG $01DCD -> bank0 $9D86
-    arg1 = *(byte*)((arg1 + 0x6D2D));    // PRG $01DD0
-    if (square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(/*via arg1*/ *(byte*)((arg1 + 0x6D2D))) + 4)))) goto L_p01DE9;    // PRG $01DDC -> bank0 $9D86
+    if (square_over_2025_probability_roll((100 - fief_tax_rate[arg1]))) goto L_p01DE9;    // PRG $01DCD -> bank0 $9D86
+    arg1 = fief_tax_rate[arg1];    // PRG $01DD0
+    if (square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(/*via arg1*/ fief_tax_rate[arg1]) + 4)))) goto L_p01DE9;    // PRG $01DDC -> bank0 $9D86
     if (rng_mod(0x03E8)) goto L_p01E1B;    // PRG $01DE6 -> bank15 $CA52
 L_p01DE9:
     if (!((*(word*)(((arg1 * 26) + 0x7009)) > 0))) goto L_p01E1B;    // PRG $01DF4
@@ -2810,7 +2810,7 @@ L_p02181:
 
 word calc_charisma_scaled_income_variance(word arg1, word arg2, word arg3, word arg4) {
     arg1 = 0x6D2D;    // PRG $0219D
-    return pct_op(/*stack underflow*/ regA, (get_daimyo_stat4_by_fief(*(byte*)((arg1 + 0x6D2D))) / 2));    // PRG $021A9 -> bank15 $D70D
+    return pct_op(/*stack underflow*/ regA, (get_daimyo_stat4_by_fief(fief_tax_rate[arg1]) / 2));    // PRG $021A9 -> bank15 $D70D
 }
 
 // ===== bank0 $A1AA  (PRG $021AA) =====
@@ -2818,7 +2818,7 @@ word calc_charisma_scaled_income_variance(word arg1, word arg2, word arg3, word 
 // (body @ PRG $021AF)
 
 word calc_fief_harvest_base_term(word arg1, word arg2, word arg3, word arg4) {
-    return (pct_op(*(byte*)((arg1 + 0x6D2D)), *(word*)(((arg1 << 3) + 0x6009))) + pct_op(*(byte*)((arg1 + 0x6D2D)), pct_op(40, *(word*)(((arg1 << 3) + 0x6007)))));    // PRG $021E1 -> bank15 $D70D
+    return (pct_op(fief_tax_rate[arg1], *(word*)(((arg1 << 3) + 0x6009))) + pct_op(fief_tax_rate[arg1], pct_op(40, *(word*)(((arg1 << 3) + 0x6007)))));    // PRG $021E1 -> bank15 $D70D
 }
 
 // ===== bank0 $A1E2  (PRG $021E2) =====
@@ -2828,7 +2828,7 @@ word calc_fief_harvest_base_term(word arg1, word arg2, word arg3, word arg4) {
 word calc_fief_gold_income(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // PRG $021E7
     arg1 = 0x6D2D;    // PRG $02203
-    local11 = ((calc_fief_harvest_base_term(pct_op(*(byte*)((arg1 + 0x6D2D)), arg2->town)) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1)));    // PRG $0220C -> bank0 $A1AA
+    local11 = ((calc_fief_harvest_base_term(pct_op(fief_tax_rate[arg1], arg2->town)) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1)));    // PRG $0220C -> bank0 $A1AA
     if ((local11 > arg2->header)) {    // PRG $02215
     local11 = arg2->header;    // PRG $0221C
     }
@@ -2843,7 +2843,7 @@ L_p0221D:
 word calc_fief_rice_income(word arg1, word arg2, word arg3, word arg4) {
     arg1 = ?;    // PRG $02224
     arg1 = 0x6003;    // PRG $02253
-    local11 = ((calc_fief_harvest_base_term(pct_op(*(byte*)((arg1 + 0x6D2D)), pct_op(*(word*)(((arg1 << 3) + 0x6005)), *(word*)(((arg1 << 3) + 0x6003))))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1)));    // PRG $0225C -> bank0 $A1AA
+    local11 = ((calc_fief_harvest_base_term(pct_op(fief_tax_rate[arg1], pct_op(*(word*)(((arg1 << 3) + 0x6005)), *(word*)(((arg1 << 3) + 0x6003))))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1))) + rng_mod((calc_charisma_scaled_income_variance(/*via arg1*/ ?) + 1)));    // PRG $0225C -> bank0 $A1AA
     if ((local11 > arg2->header)) {    // PRG $02265
     local11 = arg2->header;    // PRG $0226C
     }
@@ -2869,7 +2869,7 @@ L_p0227D:
 L_p02299:
     event_boost_province_gold_output(/*stack underflow*/ regA, /*stack underflow*/ regA);    // PRG $02295 -> bank0 $A128
     if (*(word*)((local11 + 12))) {    // PRG $0229C
-    local9 = *(byte*)((local10 + 0x6D2D));    // PRG $022A5
+    local9 = fief_tax_rate[local10];    // PRG $022A5
     local11 = 0x6D2D;    // PRG $022A6
     local10 = 0x6D2D;    // PRG $022A7
     *(word*)(local11) = (*(word*)(local11) + calc_fief_gold_income(/*stack underflow*/ regA, /*stack underflow*/ regA));    // PRG $022B2 -> bank0 $A1E2
@@ -2919,7 +2919,7 @@ word per_period_fief_daimyo_update_driver(word arg1, word arg2, word arg3, word 
 L_p02316:
     local11 = ?;    // PRG $02316
     drift_daimyo_stat3_random(/*stack underflow*/ regA);    // PRG $02317 -> bank0 $A2ED
-    if (((unsigned)*(byte*)((local11 + 0x6D2D)) < (unsigned)(90 - const_two))) {    // PRG $0232A
+    if (((unsigned)fief_tax_rate[local11] < (unsigned)(90 - const_two))) {    // PRG $0232A
     *(word*)(((local11 * 26) + 0x700D)) = pct_op(90, *(word*)(((local11 * 26) + 0x700D)));    // PRG $02346 -> bank15 $D70D
     }
 L_p02347:
@@ -6886,7 +6886,7 @@ word ai_seed_fief_collection_rate_6d2d(word arg1, word arg2, word arg3, word arg
     } else {
     }
 L_p072E2:
-    *(byte*)((battle_defending_province + 0x6D2D)) = (rng_mod(30) + 35);    // PRG $072E2 -> bank15 $CA52
+    fief_tax_rate[battle_defending_province] = (rng_mod(30) + 35);    // PRG $072E2 -> bank15 $CA52
     return swap_word(battle_defending_province, (fp + 11));    // PRG $072EE -> bank15 $CB94
     }
 }
@@ -13091,7 +13091,7 @@ L_p3DE45:
     if (((unsigned)local9 >= (unsigned)(local8 + 24))) goto L_p3DDDE;    // PRG $3DE4D
     *(word*)(((arg1 * 26) + 0x700D)) = (*(word*)(((arg1 * 26) + 0x700D)) + 50);    // PRG $3DE5E
     *(word*)(((arg1 * 26) + 0x7013)) = (*(word*)(((arg1 * 26) + 0x7013)) + 50);    // PRG $3DE6D
-    *(byte*)((arg1 + 0x6D2D)) = 20;    // PRG $3DE76
+    fief_tax_rate[arg1] = 20;    // PRG $3DE76
     return 20;    // PRG $3DE77
     }
     }
@@ -13212,8 +13212,8 @@ word clamp_field_6d2d_to_30(word arg1, word arg2, word arg3, word arg4) {
     goto L_p3DFEC;    // PRG $3DFC6
 L_p3DFC9:
     if (tax_helper_db12()) {    // PRG $3DFCC -> bank15 $DB12
-    if ((*(byte*)((battle_defending_province + 0x6D2D)) > 30)) {    // PRG $3DFDA
-    *(byte*)((battle_defending_province + 0x6D2D)) = 30;    // PRG $3DFE7
+    if ((fief_tax_rate[battle_defending_province] > 30)) {    // PRG $3DFDA
+    fief_tax_rate[battle_defending_province] = 30;    // PRG $3DFE7
     }
     }
 L_p3DFE8:
@@ -13526,7 +13526,7 @@ word neutralize_fief(word arg1, word arg2, word arg3, word arg4) {
     confirm_prompt();    // PRG $3E477 -> bank15 $D766
     province_ai_state[arg1] = -1;    // PRG $3E482
     *(byte*)((arg1 + 0x6DA2)) = 0;    // PRG $3E48A
-    *(byte*)((arg1 + 0x6D2D)) = 20;    // PRG $3E493
+    fief_tax_rate[arg1] = 20;    // PRG $3E493
     arg1 = 0x6D2D;    // PRG $3E497
     arg1 = 0x6D2D;    // PRG $3E49C
     copy_arms_record_5(/*via arg1*/ 0x6D2D, 0x77A3);    // PRG $3E498 -> bank15 $E2AF

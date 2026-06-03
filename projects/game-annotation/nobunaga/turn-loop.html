@@ -112,7 +112,7 @@
 <p class="sub">One pass = one season. After <code>init</code> (once), phases 1–6 repeat. <span class="st st-inline">dived</span> = explained here · <span class="st st-page">has page</span> = its own deep dive · <span class="st st-stub">to do</span> = known entry point, not yet walked.</p>
 <ol class="map">
   <li><span class="addr">$89A3 · bank 0</span><span class="st st-page">has page</span><a href="#init">init_new_game_state</a><span class="gloss">One-time new-game setup — the front-end wizard: scenario, players, daimyo, skill level.</span></li>
-  <li><span class="addr">$A455 · bank 0</span><span class="st st-inline">dived</span><a href="#planner">ai_strategic_turn_planner</a><span class="gloss">The per-season tick — save, calendar, the season-phased economy update, events, illness.</span></li>
+  <li><span class="addr">$A455 · bank 0</span><span class="st st-page">has page</span><a href="#planner">ai_strategic_turn_planner</a><span class="gloss">The per-season tick — save, calendar, the season-phased economy update, and the random-event engine.</span></li>
   <li><span class="addr">$A5E6 · bank 0</span><span class="st st-inline">dived</span><a href="#uprising">spawn_zealot_uprising_force_from_province</a><span class="gloss">Ikkō-ikki / zealot uprising — builds a one-off attacking army in the $7515 slot.</span></li>
   <li><span class="addr">$AFE1 · bank 2</span><span class="st st-stub">to do</span><a href="#combat">resolve staged combat</a><span class="gloss">call_bank_wrap(2) → the bank-2 battle engine. The other big branch — its own epic.</span></li>
   <li><span class="addr">$A742 · bank 0</span><span class="st st-inline">dived</span><a href="#shuffle">shuffle_fief_turn_order_array</a><span class="gloss">Re-randomize who acts when this season — Fisher-Yates-style over $6F1B.</span></li>
@@ -129,8 +129,8 @@
 </div>
 <div class="phase" id="planner">
   <div class="bank">Phase 1 · bank 0</div>
-  <h3><span class="st st-inline">dived</span>ai_strategic_turn_planner <span class="addr">$A455</span></h3>
-  <p>The heart of each season. In order:<ul><li><b>Season save</b> (<code>$A47C</code>) — if <code>sram_save_pending_flag</code> is set, <code>write_sram_save_checksum_and_signature</code> commits SRAM.</li><li><b>Calendar advance</b> (<code>$A47F</code>) — <code>current_season = (season+1)&amp;3</code>; <code>current_game_year</code> increments only when that wraps to 0 → <b>4 seasons = 1 year</b>.</li><li><b>Re-roll market rates</b> (<code>$A495</code>) — the per-period price book (<code>roll_period_rate_table_6e0b</code>); buy-low / sell-high timing is real because of this.</li><li><b>The season-phased economy update</b> (<code>per_period_fief_daimyo_update_driver $A30D</code>) — see the table below.</li><li><b>Random-event spawn</b> — pick a disaster / build / ravage handler, roll ~3% per fief to build the affected-province list, run it (the cracked event-spawn formula).</li><li><b>Per-daimyo illness pass</b> — mark weakness with probability <code>(100 − health) / 400</code>, then “… has taken ill.”</li></ul>This single routine is a candidate to graduate to its own deep-dive page — it is the densest node in the loop.</p>
+  <h3><span class="st st-page">has page</span>ai_strategic_turn_planner <span class="addr">$A455</span></h3>
+  <p>The densest node in the loop, and an epic in its own right: it runs the season save and calendar, the season-phased economy update (drift, the tax→income harvest, aging &amp; natural death), and the <b>random-event engine</b> (floods, quakes, riots, revolts) before any daimyo acts. This is <b>turn setup + events</b> — the whole world ticks here. Its deep-dive page has the formulas; the season table below is the quick view.</p>
 <h2 style="font-size:18px;border-left-width:3px">The season-phased economy</h2>
 <p class="sub"><code>per_period_fief_daimyo_update_driver $A30D</code> does a <code>switch(current_season)</code>. The right column runs <b>every</b> season; the middle column is the season’s special economic phase.</p>
 <table>
@@ -141,6 +141,7 @@
   <tr><td>3</td><td>Relations-matrix decay <span class='addr'>normalize_relations_matrix_lower</span></td></tr>
 </table>
 <p class="sub"><b>Every season, regardless:</b> Stat drift · loyalty decay toward 90% · aging + health decay · natural-death roll.</p>
+<div class="branch"><b>Deep dive:</b> <a href="./turn-loop-planner.html">→ ai_strategic_turn_planner — full page</a></div>
 </div>
 <div class="phase" id="uprising">
   <div class="bank">Phase 2 · bank 0</div>

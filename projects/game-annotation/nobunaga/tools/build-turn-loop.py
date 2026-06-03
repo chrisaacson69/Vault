@@ -84,25 +84,14 @@ NODES = [
               "how-many-players / character-creation wizard, and the skill-level pick. "
               "<b>Notable:</b> the skill level lands in <code>const_two</code> — the same value the Grow/Build "
               "gain formula subtracts — so difficulty is partly an economy knob (full writeup on the page)."),
-  dict(id="planner", no="1", title="ai_strategic_turn_planner", addr=0xA455, bank=0, status="inline",
-       gloss="The per-season tick — save, calendar, the season-phased economy update, events, illness.",
-       detail="The heart of each season. In order:"
-              "<ul>"
-              "<li><b>Season save</b> (<code>$A47C</code>) — if <code>sram_save_pending_flag</code> is set, "
-              "<code>write_sram_save_checksum_and_signature</code> commits SRAM.</li>"
-              "<li><b>Calendar advance</b> (<code>$A47F</code>) — <code>current_season = (season+1)&amp;3</code>; "
-              "<code>current_game_year</code> increments only when that wraps to 0 → <b>4 seasons = 1 year</b>.</li>"
-              "<li><b>Re-roll market rates</b> (<code>$A495</code>) — the per-period price book "
-              "(<code>roll_period_rate_table_6e0b</code>); buy-low / sell-high timing is real because of this.</li>"
-              "<li><b>The season-phased economy update</b> (<code>per_period_fief_daimyo_update_driver $A30D</code>) "
-              "— see the table below.</li>"
-              "<li><b>Random-event spawn</b> — pick a disaster / build / ravage handler, roll ~3% per fief "
-              "to build the affected-province list, run it (the cracked event-spawn formula).</li>"
-              "<li><b>Per-daimyo illness pass</b> — mark weakness with probability "
-              "<code>(100 − health) / 400</code>, then “… has taken ill.”</li>"
-              "</ul>"
-              "This single routine is a candidate to graduate to its own deep-dive page — it is the "
-              "densest node in the loop."),
+  dict(id="planner", no="1", title="ai_strategic_turn_planner", addr=0xA455, bank=0, status="page",
+       page="turn-loop-planner.html",
+       gloss="The per-season tick — save, calendar, the season-phased economy update, and the random-event engine.",
+       detail="The densest node in the loop, and an epic in its own right: it runs the season save and calendar, "
+              "the season-phased economy update (drift, the tax→income harvest, aging &amp; natural death), and "
+              "the <b>random-event engine</b> (floods, quakes, riots, revolts) before any daimyo acts. This is "
+              "<b>turn setup + events</b> — the whole world ticks here. Its deep-dive page has the formulas; the "
+              "season table below is the quick view."),
   dict(id="uprising", no="2", title="spawn_zealot_uprising_force_from_province", addr=0xA5E6, bank=0, status="inline",
        gloss="Ikkō-ikki / zealot uprising — builds a one-off attacking army in the $7515 slot.",
        detail="When an uprising fires, this constructs a full 26-byte province-record army in "
@@ -299,6 +288,93 @@ PHASE_PAGES = {
     ],
     sources="<code>decompiled/bank_00.c</code> ($8003) · <code>count_6da2_set $D628</code> · "
             "<code>appendix-asset-extraction.md</code> (for the bank-6 end-screen art).",
+  ),
+  "planner": dict(
+    no="1", title="The Season Tick", sub="ai_strategic_turn_planner $A455 — turn setup and the random-event engine.",
+    intro=(
+      "Before any daimyo picks a command, the whole world advances one season. "
+      "<code>ai_strategic_turn_planner</code> is that tick: it saves, rolls the calendar forward, re-prices the "
+      "market, runs the per-fief economy update (drift, the harvest, aging and death), and then fires the "
+      "<b>random-event engine</b> — floods, earthquakes, riots, revolts. It’s the densest routine in the game, "
+      "and walking it turned up two long-standing unknowns: what <code>$6D2D</code> is, and what the disaster "
+      "events actually do."),
+    steps=[
+      (0xA45B, "<b>Save &amp; UI.</b> Show the strategic map; if a save is pending, "
+               "<code>write_sram_save_checksum_and_signature</code> commits SRAM (a checksum over the live "
+               "regions — the game saves at season end)."),
+      (0xA47F, "<b>Calendar.</b> <code>current_season = (season+1)&amp;3</code>; the <b>year</b> ticks only when "
+               "that wraps to 0 — four seasons to a year."),
+      (0xA495, "<b>Re-price the market.</b> <code>roll_period_rate_table_6e0b</code> re-rolls the five market "
+               "rates, so buy-low / sell-high timing genuinely matters period to period."),
+      (0xA498, "<b>The per-fief economy update</b> (<code>per_period_fief_daimyo_update_driver $A30D</code>) — "
+               "drift, the season-phased work (incl. the harvest), and the death sweep. See below."),
+      (0xA4C3, "<b>The random-event engine.</b> Pick an event family, roll each fief for eligibility, then apply "
+               "the disaster / riot / revolt to the affected provinces. See below."),
+      (0xA55F, "<b>Illness pass.</b> Each daimyo (health ≤ 99, not resting) is weakness-marked with probability "
+               "<code>(100 − health) / 400</code>; a freshly-marked one gets “… has taken ill.”"),
+    ],
+    sections=[
+      ("Turn setup — the per-fief economy update",
+       "<p><code>per_period_fief_daimyo_update_driver $A30D</code> sweeps every fief, then does work that "
+       "depends on the season:</p>"
+       "<ul>"
+       "<li><b>Daimyo skill drifts.</b> <code>drift_daimyo_stat3_random</code> nudges each daimyo’s skill stat "
+       "(record +3) by <code>rng%11 − 5</code> = <b>−5…+5 every season</b>. Competence isn’t fixed — it wanders, "
+       "so a brilliant rival can dull and a mediocre one can sharpen.</li>"
+       "<li><b>Tax drives loyalty.</b> A fief whose <code>fief_tax_rate ($6D2D)</code> is below "
+       "<code>90 − skill</code> has its loyalty multiplied by 0.9 that season. (Direction reads "
+       "counterintuitively — flagged for a bytecode recheck — but the dependency on the tax rate is real.)</li>"
+       "</ul>"
+       "<p>Then one season-specific job, on top of the universal aging + natural-death roll:</p>"
+       "<table>\n  <tr><th>current_season</th><th>The season’s job</th></tr>\n"
+       "  <tr><td>0</td><td>— (aging + death only)</td></tr>\n"
+       "  <tr><td>1</td><td>Reset the economic high-water marks</td></tr>\n"
+       "  <tr><td>2</td><td><b>HARVEST</b> — gold &amp; rice income = <code>tax% × economic base</code></td></tr>\n"
+       "  <tr><td>3</td><td>Relations-matrix decay</td></tr>\n</table>\n"
+       "<p class='sub'>The big <code>$6D2D</code> find lives here: it’s the per-fief <b>tax rate</b> "
+       "(<code>driver_tax</code> writes the player’s 1–100 input straight into it), and the harvest reads it as "
+       "the income multiplier — <code>income = pct_op(tax, wealth) + pct_op(tax, 40%·town)</code>. So “raise tax” "
+       "literally scales every fief’s gold/rice yield.</p>"),
+      ("The random-event engine",
+       "<p>Each season the planner may fire a world event. First it <b>selects a family</b> (season-gated and "
+       "RNG-weighted — floods skew to one season, the political events to others), then it rolls <b>every fief "
+       "for eligibility</b>: <code>square_over_2025_probability_roll</code> compares a stat² against "
+       "<code>rng%2025</code> (the stat capped at 50), tested against <b>loyalty, (100 − tax), and the daimyo’s "
+       "charisma</b>. Low loyalty, high tax, and weak leadership are what make a province a target. The eligible "
+       "fiefs go on a list, and the handler hits each one:</p>"
+       "<table>\n  <tr><th>Event</th><th>Anim</th><th>What it does to each affected fief</th></tr>\n"
+       "  <tr><td><b>Flood</b></td><td>20</td><td>wealth −1…4; <b>output cut to <code>(0.9 × dams)%</code></b> — "
+       "so dams are <b>flood insurance</b>: a maxed fief keeps ~90% of output, an undammed one loses almost all</td></tr>\n"
+       "  <tr><td><b>Quake / plague</b></td><td>31</td><td>men ×(50–99)% and output ×(50–99)%; if the daimyo is "
+       "present in the fief, a health hit + weakness mark on top</td></tr>\n"
+       "  <tr><td><b>Riot</b></td><td>23</td><td>unrest across high-tension provinces (no ownership change)</td></tr>\n"
+       "  <tr><td><b>Revolt</b></td><td>25</td><td><code>revolt_spread_sweep_flip_fief_ownership</code> — a fief "
+       "<b>changes hands</b> to the rebels; the harshest outcome</td></tr>\n"
+       "  <tr><td><b>Boon</b></td><td>—</td><td><code>event_boost_province_wealth_loyalty</code>: wealth + "
+       "(<code>rng%10 + charisma/10</code>), loyalty up — the rare good news</td></tr>\n</table>\n"
+       "<p class='sub'>Every event has a from-ROM animation (the ids above) pullable with "
+       "<code>tools/run-animation.py</code>. The exact family-selection probabilities live in goto-heavy "
+       "bytecode and are the next depth increment — but the <b>effects</b> above are read straight from the "
+       "handlers.</p>"),
+    ],
+    finds=[
+      ("$6D2D is the per-fief tax rate — confirmed.",
+       "<code>driver_tax</code> displays it as “Tax is %d” and writes the player’s 1–100 input into it; the "
+       "harvest reads it as the income multiplier. The old harvest-formula “od_pct” was this. Labeled "
+       "<code>fief_tax_rate</code> (regen-guard clean)."),
+      ("Dams are flood insurance.",
+       "Flood output loss is <code>(0.9 × dams)%</code> retained — a third strategic reason to build dams, "
+       "alongside rice yield and the Dam-vs-Grow crossover. Undammed fiefs are wiped by a single flood."),
+      ("Daimyo skill is a random walk.",
+       "Every season each daimyo’s skill drifts <code>−5…+5</code>. Ratings aren’t static portraits; a rival’s "
+       "competence genuinely wanders over a campaign."),
+      ("Events target the disloyal, over-taxed, and poorly-led.",
+       "Eligibility rolls on loyalty, (100 − tax), and charisma — the same three levers you manage with Give, "
+       "Tax, and which daimyo governs. The event system is the feedback loop on bad governance."),
+    ],
+    sources="<code>decompiled/bank_00.c</code> ($A455, $A30D, $9CB3, $9D00, $9ED9) · "
+            "<code>driver_tax $99A6</code> · <code>fief_tax_rate $6D2D</code> · "
+            "memory <code>project_nobunaga_main_turn_loop</code> · <code>tools/run-animation.py</code> (event anims).",
   ),
 }
 

@@ -1784,7 +1784,7 @@ L_DE45:
     if (((unsigned)local9 >= (unsigned)(local8 + 24))) goto L_DDDE;    // $DE4D
     *(word*)(((arg1 * 26) + 0x700D)) = (*(word*)(((arg1 * 26) + 0x700D)) + 50);    // $DE5E
     *(word*)(((arg1 * 26) + 0x7013)) = (*(word*)(((arg1 * 26) + 0x7013)) + 50);    // $DE6D
-    *(byte*)((arg1 + 0x6D2D)) = 20;    // $DE76
+    fief_tax_rate[arg1] = 20;    // $DE76
     return 20;    // $DE77
     }
     }
@@ -1900,8 +1900,8 @@ word clamp_field_6d2d_to_30(word arg1, word arg2, word arg3, word arg4) {
     goto L_DFEC;    // $DFC6
 L_DFC9:
     if (tax_helper_db12()) {    // $DFCC
-    if ((*(byte*)((battle_defending_province + 0x6D2D)) > 30)) {    // $DFDA
-    *(byte*)((battle_defending_province + 0x6D2D)) = 30;    // $DFE7
+    if ((fief_tax_rate[battle_defending_province] > 30)) {    // $DFDA
+    fief_tax_rate[battle_defending_province] = 30;    // $DFE7
     }
     }
 L_DFE8:
@@ -2203,7 +2203,7 @@ word neutralize_fief(word arg1, word arg2, word arg3, word arg4) {
     confirm_prompt();    // $E477
     province_ai_state[arg1] = -1;    // $E482
     *(byte*)((arg1 + 0x6DA2)) = 0;    // $E48A
-    *(byte*)((arg1 + 0x6D2D)) = 20;    // $E493
+    fief_tax_rate[arg1] = 20;    // $E493
     arg1 = 0x6D2D;    // $E497
     arg1 = 0x6D2D;    // $E49C
     copy_arms_record_5(/*via arg1*/ 0x6D2D, 0x77A3);    // $E498
