@@ -2325,10 +2325,10 @@ word effect_hire_pay_gold(word arg1, word arg2, word arg3, word arg4) {
     return helper_8A4E(5);    // $A2D1
 }
 
-// $A2D2 effect_hire
+// $A2D2 effect_ninja_sabotage
 // (body @ $A2D7)
 
-word effect_hire(word arg1, word arg2, word arg3, word arg4) {
+word effect_ninja_sabotage(word arg1, word arg2, word arg3, word arg4) {
     local11 = helper_8357(arg1->header, hire_gold_rate, *(word*)(arg1));    // $A2E6
     if (!(helper_8357(arg1->header, hire_gold_rate, *(word*)(arg1)))) goto L_A360;    // $A2E7
     local11 = ?;    // $A2F1
@@ -2359,7 +2359,7 @@ L_A360:
 L_A36C:
     ui_helper_e80c(12);    // $A36D
     arg1 = ((battle_defending_province * 26) + 0x7001);    // $A37B
-    message_display(effect_hire_data_bdcf);    // $A37F
+    message_display(effect_ninja_sabotage_data_bdcf);    // $A37F
     if ((*(byte*)((fief_to_daimyo_record_addr(battle_defending_province) + 3)) < (*(byte*)((ui_helper_d7ea() + 3)) + 30))) {    // $A396
     switch (local10) {    // $A39A
         case 65535: goto L_A3AB;    // $A39A
@@ -2568,7 +2568,7 @@ word driver_hire(word arg1, word arg2, word arg3, word arg4) {
     }    // $A61C
 L_A629:
     local11 = 0x7001;    // $A629
-    return effect_hire(/*stack underflow*/ regA);    // $A62E
+    return effect_ninja_sabotage(/*stack underflow*/ regA);    // $A62E
 L_A62F:
     local11 = 0x7001;    // $A62F
     return effect_hire_variant_pay(/*stack underflow*/ regA);    // $A634

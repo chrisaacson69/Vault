@@ -198,7 +198,7 @@
 //   PRG $06255  bank1  $A255  hire_stat_drain_rng
 //   PRG $06274  bank1  $A274  report_fief_stat_decline
 //   PRG $0629B  bank1  $A29B  effect_hire_pay_gold
-//   PRG $062D2  bank1  $A2D2  effect_hire
+//   PRG $062D2  bank1  $A2D2  effect_ninja_sabotage
 //   PRG $06553  bank1  $A553  effect_hire_variant_pay
 //   PRG $065F4  bank1  $A5F4  driver_hire
 //   PRG $06637  bank1  $A637  driver_train
@@ -5654,10 +5654,10 @@ word effect_hire_pay_gold(word arg1, word arg2, word arg3, word arg4) {
 }
 
 // ===== bank1 $A2D2  (PRG $062D2) =====
-// PRG $062D2 effect_hire
+// PRG $062D2 effect_ninja_sabotage
 // (body @ PRG $062D7)
 
-word effect_hire(word arg1, word arg2, word arg3, word arg4) {
+word effect_ninja_sabotage(word arg1, word arg2, word arg3, word arg4) {
     local11 = helper_8357(arg1->header, hire_gold_rate, *(word*)(arg1));    // PRG $062E6 -> bank1 $8357
     if (!(helper_8357(arg1->header, hire_gold_rate, *(word*)(arg1)))) goto L_p06360;    // PRG $062E7 -> bank1 $8357
     local11 = ?;    // PRG $062F1
@@ -5688,7 +5688,7 @@ L_p06360:
 L_p0636C:
     ui_helper_e80c(12);    // PRG $0636D -> bank15 $E80C
     arg1 = ((battle_defending_province * 26) + 0x7001);    // PRG $0637B
-    message_display(effect_hire_data_bdcf);    // PRG $0637F -> bank15 $D326
+    message_display(effect_ninja_sabotage_data_bdcf);    // PRG $0637F -> bank15 $D326
     if ((*(byte*)((fief_to_daimyo_record_addr(battle_defending_province) + 3)) < (*(byte*)((ui_helper_d7ea() + 3)) + 30))) {    // PRG $06396 -> bank15 $D7DA
     switch (local10) {    // PRG $0639A
         case 65535: goto L_p063AB;    // PRG $0639A
@@ -5899,7 +5899,7 @@ word driver_hire(word arg1, word arg2, word arg3, word arg4) {
     }    // PRG $0661C
 L_p06629:
     local11 = 0x7001;    // PRG $06629
-    return effect_hire(/*stack underflow*/ regA);    // PRG $0662E -> bank1 $A2D2
+    return effect_ninja_sabotage(/*stack underflow*/ regA);    // PRG $0662E -> bank1 $A2D2
 L_p0662F:
     local11 = 0x7001;    // PRG $0662F
     return effect_hire_variant_pay(/*stack underflow*/ regA);    // PRG $06634 -> bank1 $A553

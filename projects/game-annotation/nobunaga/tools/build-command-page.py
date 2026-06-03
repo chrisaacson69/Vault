@@ -455,7 +455,8 @@ COMMANDS = {
     "flow": [
       (0xA5FC, 'Select <b>Hire</b>; validate the province.'),
       (0xA615, 'Prompt <span class="scr">"(Men/Ninja)?"</span> — <b>Men</b> recruits soldiers (this page); '
-               '<b>Ninja</b> opens the sabotage-mission menu (→ <code>$A2D2</code>, see Bribe).'),
+               '<b>Ninja</b> opens the sabotage-mission menu (→ <code>$A2D2</code>, see '
+               '<a href="./ninja.html">ninja.html</a>).'),
       (0xA558, '(Men path, <code>effect_hire_men</code> $A553) army headroom = <code>header − men</code>.'),
       (0xA564, '<b>Affordability:</b> max men = f(gold, hire rate). No gold → '
                '<span class="scr">"You have no gold."</span>'),
@@ -487,9 +488,11 @@ COMMANDS = {
     "callout": (
 "<b>Two commands behind one prompt.</b> “(Men/Ninja)?” — <b>Men</b> recruits soldiers (this page); "
 "<b>Ninja</b> opens the sabotage-mission menu (Uprising / Revolt / Dams / Assassin / Arson at "
-"<code>$A2D2</code>, animation 12) — the same subsystem <b>Bribe</b> uses, which gets its own page. "
-"<i>(The earlier docs labeled <code>$A2D2</code> “effect_hire”; the bytecode shows it is the ninja path, "
-"and recruit-men actually lives in <code>$A553</code>.)</i> For recruiting, the catch is <b>dilution</b>: "
+"<code>$A2D2</code>, animation 12) — its own page, <a href=\"./ninja.html\">ninja.html</a>. "
+"<i>(The earlier docs labeled <code>$A2D2</code> “effect_hire” and filed this menu under <b>Bribe</b>; the "
+"bytecode shows it is the Hire▸Ninja path — now <code>effect_ninja_sabotage</code> — recruit-men lives in "
+"<code>$A553</code>, and Bribe is a separate gold-for-spy command.)</i> For recruiting, the catch is "
+"<b>dilution</b>: "
 "fresh recruits (morale 40–59, skill 60–79, arms 50–59) are blended in by a men-weighted average, so "
 "hiring into a small elite garrison drags its skill <b>down</b>. That is exactly why elite armies are "
 "<b>trained</b> (no dilution — see train.html) and Hire is for restoring body-count or staffing a new fief."),
@@ -592,6 +595,159 @@ COMMANDS = {
        "COMMANDER resolution, not attrition.", "../12-combat-engine.md"),
       ("Post-combat ravage / spoils", "the <code>$9323–$9368</code> cluster the driver reaches: "
        "province ravage sweep, arms capture, ownership transfer.", None),
+    ],
+  },
+
+  # ---- Hire ▸ Ninja: the sabotage subsystem (the "buy → ninja" path) ----
+  "ninja": {
+    "type": "functional", "no": 10, "name": "Ninja (Hire ▸ Ninja)",
+    "driver": 0xA5F4, "effect": 0xA2D2, "anim_id": 12,
+    "tagline": "Buy a ninja and send him on a sabotage mission against an enemy fief — "
+               "uprising, revolt, flood, assassination or arson. The covert half of the Hire command.",
+    "anim_cap": "The hired ninja steals out toward the target province (the shared mission-launch "
+                "animation, id 12) — each mission then plays its own effect animation.",
+    "summary": (
+      "Reached from the <b>Hire</b> command’s <span class=\"scr\">(Men/Ninja)?</span> prompt — pick "
+      "<b>Ninja</b> and you leave the recruiting sandbox for an offensive espionage subsystem "
+      "(<code>effect_ninja_sabotage $A2D2</code>). You pay gold to hire the ninja (rate "
+      "<code>hire_gold_rate $6E13</code>, which re-rolls every turn), choose a target fief "
+      "(<span class=\"scr\">Send where?</span>), then choose one of five missions. A <b>ninja-skill "
+      "contest</b> gates the outcome: the run proceeds only when your daimyo’s skill stat "
+      "(<code>record +3</code>) <b>+ 30</b> beats the target daimyo’s — otherwise "
+      "<span class=\"scr\">Your ninja failed!</span> and you forfeit the gold anyway "
+      "(<code>effect_hire_pay_gold $A29B</code>). On success the target loses the mission’s fields and "
+      "you see <span class=\"scr\">Fief X’s &lt;stat&gt; has declined by N</span>. <i>This is the "
+      "system the old notes mis-filed under “Bribe” — see the correction below; the genuinely separate "
+      "Bribe command gets its own page.</i>"),
+    "flow": [
+      (0xA615, 'From <b>Hire</b>, answer <span class="scr">(Men/Ninja)?</span> with <b>Ninja</b> '
+               '(<code>ui_helper_d351</code>) → <code>effect_ninja_sabotage $A2D2</code>.'),
+      (0xA2ED, 'Prompt <span class="scr">"How many"</span> — number entry (gated by affordability vs '
+               '<code>hire_gold_rate</code>; no gold → <span class="scr">"You have no gold."</span>).'),
+      (0xA31B, 'Prompt <span class="scr">"Send where?"</span> — pick the target province.'),
+      (0xA335, 'Prompt <span class="scr">"What mission"</span> → the menu '
+               '<span class="scr">"1-Uprisng 2-Revolt 3-Dams 4-Assassin 5-Arson"</span> '
+               '(<code>$BD8F</code>).'),
+      (0xA36D, '<b>The ninja sets out</b> — <code>ui_helper_e80c(12)</code> plays the mission-launch '
+               'animation (each mission then has its own effect animation; see the table).'),
+      (0xA396, '<b>Ninja-skill contest.</b> Proceeds only if <code>target_daimyo[+3] &lt; '
+               'your_daimyo[+3] + 30</code> — a fixed +30 attacker edge on the skill stat.'),
+      (0xA39A, '<b>Mission switch</b> — dispatch to the chosen sabotage effect (drains via '
+               '<code>hire_stat_drain_rng</code>, clamped so a field never goes below 0).'),
+      (0xA2AD, '<b>On failure</b> → <span class="scr">"Your ninja failed!"</span>; gold is spent '
+               'regardless (<code>effect_hire_pay_gold</code>).'),
+    ],
+    "table_heading": "The five missions",
+    "table": {
+      "caption": "Each mission drains specific fields of the TARGET fief and plays its own animation. "
+                 "Read straight from the <code>switch</code> at <code>$A39A</code>.",
+      "headers": ["#", "Mission", "Drains on the target fief", "Anim", "Code"],
+      "rows": [
+        ["1", "Uprising", "loyalty + wealth", "28", "$A3AB"],
+        ["2", "Revolt", "morale", "27", "$A45A"],
+        ["3", "Dams", "dams + rice (flood)", "30", "$A497"],
+        ["4", "Assassin", "kills the enemy daimyo — gated by “daimyo present” ($6DA2); resolves in "
+         "ninja_mission_resolve_vs_defender", "1*", "$A508"],
+        ["5", "Arson", "town", "29", "$A510"],
+      ],
+      "note": "Drain magnitude (from <code>hire_stat_drain_rng $A255</code> bytecode): "
+              "<code>drain = (rng % max(1, ⌊field × √(your_skill+30) ÷ 100⌋) + 1) × 5</code> — always a "
+              "multiple of 5 (max 5×the cap), scaling with the target field’s value and your daimyo’s "
+              "skill (record +3, with a +30 edge). Each drain is clamped to the field (can zero a stat, "
+              "never negative). <b>Emulator-confirmed</b> across the full RNG band "
+              "(<code>tools/probe-espionage.py</code> — the observed drains matched "
+              "<code>{5,10,…,X×5}</code> for every test vector). *Assassin has no field-drain "
+              "animation of its own — it runs the resolution sub, which plays animation 1.",
+    },
+    "callout": (
+      "<b>This is the “buy → ninja” system — and it is NOT Bribe.</b> The toml long labeled "
+      "<code>$A2D2</code> <code>effect_hire</code>, and an earlier note filed the whole "
+      "Uprising/Revolt/Dams/Assassin/Arson menu under the <b>Bribe</b> command. The bytecode says "
+      "otherwise: this menu hangs off <b>Hire ▸ Ninja</b> (<code>driver_hire $A5F4</code>), while the "
+      "recruit-men path is <code>effect_hire_variant_pay $A553</code> and the real <b>Bribe</b> command "
+      "(<code>$8D4D</code>) is a separate gold-for-spy peasant-defection. The label is now "
+      "<code>effect_ninja_sabotage</code>. The sabotage mechanics the old note described were all real — "
+      "only the command attribution was wrong."),
+    "rabbit_holes": [
+      ("Assassination resolution", "<code>ninja_mission_resolve_vs_defender $918D</code> — the "
+       "daimyo-kill path: a skill/luck roll that can be <span class=\"scr\">counterattacked</span> / "
+       "<span class=\"scr\">you have repelled</span>, and on success neutralizes the fief "
+       "(<code>neutralize_fief</code>). Plausibly the source of Tokugawa’s mystery health loss.", None),
+      ("Drain magnitude", "<code>hire_stat_drain_rng $A255</code> — the per-mission "
+       "<code>(rng·scaled+1)×5</code> drain; the scaling term needs an emulator probe to pin exactly.",
+       None),
+    ],
+  },
+
+  # ---- Bribe: the separate gold-for-spy peasant-defection (NOT the ninja menu) ----
+  "bribe": {
+    "type": "functional", "no": 15, "name": "Bribe",
+    "driver": 0xAAAE, "effect": 0x8D4D, "anim_id": 26,
+    "tagline": "Pay a spy to bribe an enemy fief’s peasants into defecting to you — the gold-for-spy "
+               "command. A loyalty/charisma contest, not a sabotage menu.",
+    "anim_cap": "A spy (blue) approaches a banner-waving peasant — the defection scene (id 26). "
+                "A thin 2-frame clip (the un-seeded-CHR caveat the develop animations also hit).",
+    "summary": (
+      "Bribe (<code>driver_bribe $AAAE → effect_bribe $8D4D</code>) is the <b>separate</b> espionage "
+      "command — distinct from Hire▸Ninja’s sabotage menu (see <a href=\"./ninja.html\">ninja.html</a>). "
+      "You need more than 10 gold; you pick a target fief (<span class=\"scr\">Bribe which?</span>) and "
+      "answer <span class=\"scr\">Gold for spy?</span> with how much to spend. A contest "
+      "(<code>bribe_success_check $8D02</code>) then decides the outcome. On <b>success</b> a slice of the "
+      "target’s <b>output</b> — its peasant/agricultural base — defects to your fief "
+      "(<span class=\"scr\">%d peasants have defected</span>); on <b>failure</b> "
+      "(<span class=\"scr\">No peasants defected!</span>) your daimyo loses a charisma point and part of "
+      "the spent gold is forfeit. The number of peasants moved is "
+      "<code>loyalty − (⌊(30 + rng%25) × (min(loyalty, √gold) + 1) ÷ 100⌋ + 1)</code> — it scales with "
+      "the <b>target’s loyalty</b> (emulator: loyalty 80 → 63–76, loyalty 40 → 23–30, loyalty 10 → 4–6), "
+      "<i>not</i> a flat percentage of output (<code>compute_bribe_effect_value $8BC1</code>, "
+      "emulator-confirmed)."),
+    "flow": [
+      (0xAAC2, '<b>Gold gate.</b> Need <code>gold &gt; 10</code>, else '
+               '<span class="scr">"You have no gold."</span>'),
+      (0xAAD8, 'Prompt <span class="scr">"Bribe which?"</span> — pick the target province.'),
+      (0xAAF6, 'Prompt <span class="scr">"Gold for spy?"</span> → number entry (your gold, less the '
+               'base stake).'),
+      (0x8D74, '<b>The contest</b> (<code>bribe_success_check $8D02</code>) — see the table below.'),
+      (0x8D9D, '<b>On success</b> the defection animation plays — <code>ui_helper_e80c(26)</code> — and '
+               'a slice of the target’s output moves to your fief: '
+               '<span class="scr">"%d peasants have defected."</span>'),
+      (0x8DBF, '<b>On failure</b> → <span class="scr">"No peasants defected!"</span>, daimyo '
+               '<code>−1</code> charisma, part of the stake forfeit.'),
+    ],
+    "table_heading": "The contest — who wins",
+    "table": {
+      "caption": "The success roll, read straight from <code>bribe_success_check</code> bytecode "
+                 "(<code>$8D3D SCMPGT</code> → <code>$8D3E JUMPF</code>).",
+      "headers": ["Outcome", "Condition", "Effect on the fiefs"],
+      "rows": [
+        ["Success", "<b>your</b>(loyalty + daimyo charisma) &gt; <b>target</b>(loyalty + charisma) + "
+         "rng%10, <i>then</i> a 50% coin flip", "peasants (<b>output</b>) transfer to your fief: "
+         "<code>loyalty − (⌊(30+rng%25)·(min(loyalty,√gold)+1)/100⌋ + 1)</code>"],
+        ["Failure", "otherwise", "nothing transfers; your daimyo <b>−1 charisma</b>; part of the spent "
+         "gold is forfeit"],
+      ],
+      "note": "The win condition is the <b>intuitive</b> one — a loyal, charismatic lord bribes a "
+              "<i>weaker</i> enemy fief’s peasants away. The direction was settled from the bytecode: "
+              "<code>bribe_success_check</code> compares <code>local11</code> (built from the "
+              "LAST-pushed arg = <b>your</b> fief) against <code>local10</code> (the target + rng), and "
+              "the VM passes call args into frame slots in <b>reverse</b> push order (the same convention "
+              "probe-math32 documented). The <code>$8BD0 DEREF</code> of that same slot — only the pointer "
+              "arg can be dereferenced — independently confirms the reverse mapping. (Field identities: "
+              "loyalty@+12, daimyo charisma@+4.)",
+    },
+    "callout": (
+      "<b>Bribe is NOT the sabotage menu.</b> An earlier note filed the "
+      "Uprising/Revolt/Dams/Assassin/Arson menu under “Bribe”; the bytecode shows that menu belongs to "
+      "<b>Hire▸Ninja</b> (<a href=\"./ninja.html\">ninja.html</a>). Bribe (<code>$8D4D</code>) is its own, "
+      "simpler thing: <b>gold-for-spy peasant defection</b> — one contested effect that steals a chunk of "
+      "the target’s peasant output. Both are gold-funded espionage, which is why they blurred together; "
+      "the code keeps them firmly apart."),
+    "rabbit_holes": [
+      ("The spy-gold quirk", "the closed form is settled, but it has a counter-intuitive twist: "
+       "<b>more</b> spy gold raises <code>√gold</code>, which raises the subtracted resistance (until "
+       "<code>√gold ≥ loyalty</code>) — so <i>minimal</i> gold maximizes the peasant transfer. "
+       "Bytecode + emulator agree; worth an in-game sanity check that gold isn’t buying something else "
+       "(success odds are gold-independent in <code>$8D02</code>).", None),
     ],
   },
 }
@@ -721,11 +877,32 @@ def render_atomic(cmd, s):
       f'</footer>')
     return _page(f'{s["name"]} — Nobunaga’s Ambition Command Reference', body)
 
+def _table_html(t, heading):
+    """Optional structured table for functional/subsystem pages (mission grids etc.)."""
+    if not t:
+        return ""
+    head = "".join(f"<th>{h}</th>" for h in t["headers"])
+    rows = ""
+    for r in t["rows"]:
+        cells = "".join(
+            f'<td><span class="ok">✓</span></td>' if c == "ok" else f"<td>{c}</td>" for c in r)
+        rows += f"  <tr>{cells}</tr>\n"
+    cap = f'<p class="sub">{t["caption"]}</p>\n' if t.get("caption") else ""
+    note = f'<p class="sub">{t["note"]}</p>\n' if t.get("note") else ""
+    return f'<h2>{heading}</h2>\n{cap}<table>\n  <tr>{head}</tr>\n{rows}</table>\n{note}'
+
 def render_functional(cmd, s):
     rabbits = ""
     for label, desc, link in s.get("rabbit_holes", []):
         tgt = f' <a href="{link}">→ deep page</a>' if link else ' <i>(deep page TBD)</i>'
         rabbits += f'<div class="rabbit"><b>\U0001f573️ {label}.</b> {desc}{tgt}</div>\n'
+    flow = ""
+    if s.get("flow"):
+        items = "\n".join(f'  <li><span class="addr">${a:04X}</span>{h}</li>' for a, h in s["flow"])
+        flow = ('<h2>How it works</h2>\n<p class="sub">The driver reads as a step-by-step '
+                f'script:</p>\n<ol class="flow">\n{items}\n</ol>\n\n')
+    table = _table_html(s.get("table"), s.get("table_heading", "The options"))
+    callout = f'<div class="callout">{s["callout"]}</div>\n' if s.get("callout") else ""
     body = (
       f'<header>\n  <div class="cmdno">Lord Command · No. {s["no"]}</div>\n'
       f'  <h1>{s["name"]}</h1>\n  <div class="tag">{s["tagline"]}</div>\n</header>\n\n'
@@ -734,6 +911,8 @@ def render_functional(cmd, s):
       f'<h2>What you see</h2>\n<p class="sub">The {s["name"]} animation, rendered from ROM bytes.</p>\n'
       f'{_anim_block(s, cmd)}\n\n'
       f'<h2>What it does</h2>\n<p>{s["summary"]}</p>\n\n'
+      f'{flow}'
+      f'{table}\n{callout}\n'
       f'<h2>Where it goes — the rabbit holes</h2>\n'
       '<p class="sub">This command is a simple page on purpose: the depth lives in the subsystem it '
       'hands off to. Those get their own pages.</p>\n'

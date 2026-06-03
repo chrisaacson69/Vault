@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bribe — Nobunaga’s Ambition Command Reference</title>
+<style>
+  :root{
+    --bg:#15151c; --panel:#1f1f2b; --ink:#e8e6df; --dim:#9a97a8;
+    --gold:#f0b429; --red:#e8431f; --blue:#3a6ee8; --green:#5ad05a;
+    --line:#33303f; --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--gold);padding-bottom:14px;margin-bottom:8px}
+  .cmdno{color:var(--gold);font:600 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  h1{margin:.18em 0 .1em;font-size:38px;letter-spacing:.01em}
+  .tag{color:var(--dim);font-style:italic}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 28px}
+  .skills span{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:6px 11px;text-transform:uppercase}
+  h2{margin:38px 0 4px;font-size:22px;border-left:4px solid var(--gold);padding-left:12px}
+  .sub{color:var(--dim);margin:0 0 16px;padding-left:16px;font-size:14px}
+  .anim{display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px}
+  .anim img{image-rendering:pixelated;width:256px;height:240px;background:#6b6b6b;border-radius:6px}
+  .anim .cap{flex:1;min-width:240px}
+  .anim .cap b{color:var(--gold)}
+  .pill{display:inline-block;font:600 11px/1 var(--mono);color:var(--bg);background:var(--green);
+    border-radius:4px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+  ol.flow{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+  ol.flow li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line)}
+  ol.flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  ol.flow .scr{color:var(--green);font-family:var(--mono);font-size:14px}
+  ol.flow .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right}
+  pre{background:#101019;border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:8px;padding:16px;overflow:auto;font:13.5px/1.5 var(--mono);color:#d6e4ff}
+  pre .c{color:#6f7b96}
+  pre .k{color:var(--gold)}
+  .callout{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--red);
+    border-radius:8px;padding:14px 18px;margin:18px 0}
+  .callout b{color:var(--red)}
+  .rabbit{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .rabbit b{color:#b89af0}
+  .rabbit a{color:var(--blue);text-decoration:none}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--panel);color:var(--gold);font-weight:600}
+  td .ok{color:var(--green)}
+  code{font-family:var(--mono);color:var(--gold);font-size:.92em}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer a{color:var(--blue);text-decoration:none}
+  .roi{color:var(--dim);font-style:italic;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="cmdno">Lord Command · No. 15</div>
+  <h1>Bribe</h1>
+  <div class="tag">Pay a spy to bribe an enemy fief’s peasants into defecting to you — the gold-for-spy command. A loyalty/charisma contest, not a sabotage menu.</div>
+</header>
+
+<div class="skills">
+  <span>① decompiler → C</span>
+  <span>④ animation VM → ROM render</span>
+  <span>⚠ subsystem entry point</span>
+</div>
+
+<h2>What you see</h2>
+<p class="sub">The Bribe animation, rendered from ROM bytes.</p>
+<div class="anim">
+  <img src="data:image/gif;base64,R0lGODlhAAPQAoIAAPz8/PjYePygRGiI/Hx8fABY+AAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQIDAAAACwAAAAAAAPQAgAI/wAJCBxIsKDBgwgTKlzIsKHDhxAjSpxIsaLFixgzatzIsaPHjyBDihxJsqTJkyhTqlzJsqXLlzBjypxJs6bNmzhz6tzJs6fPn0CDCh1KtKjRo0iTKl3KtKnTp1CjSp1KtarVq1izat3KtavXr2DDih1LtqzZs2jTql3Ltq3bt3Djyp1Lt67du3jz6t3Lt6/fv4ADCx5MuLDhw4gTK17MuLHjx5AjS55MubLly5gza97MubPnz6BDix5NurTp06hTq17NurXr17Bjy55Nu7bt27hz697Nu7fv38CDCx9OvLjx48iTK1/OvLnz59CjS59Ovbr169iza9/Ovbv37+DDi/8fT768+fPo06tfz769+/fw48ufT7++/fv48+vfz7+///8ABijggAQWaOCBCCao4IIMNujggxBGKOGEFFZo4YUYZqjhhhx26OGHIIYo4ogklmjiiSimqOKKLLbo4oswxijjjDTWaOONOOao44489ujjj0AGKeSQRBZp5JFIJqnkkkw26eSTUEYp5ZRUVmnllVhmqeWWXHbp5ZdghinmmGSWaeaZaKap5ppstunmm3DGKeecdNZp55145qnnnnz26eefgAYq6KCEFmrooYgmquiijDbq6KOQRirppJRWaumlmGaq6aacdurpp6CGKuqopJZq6qmopqrqqqy26uqrsMb/KuustNZq66245qrrrrz26uuvwAYr7LDEFmvsscgmq+yyzDbr7LPQRivttNRWa+212Gar7bbcduvtt+CGK+645JZr7rnopqvuuuy26+678MYr77z01mvvvfjmq+++/Pbr778AByzwwAQXbPDBCCes8MIMN+zwwxBHLPHEFFds8cUYZ6zxxhx37PHHIIcs8sgkl2zyySinrPLKLLfs8sswxyzzzDTXbPPNOOes88489+zzz0AHLfTQRBdt9NFIJ6300kw37fTTUEct9dRUV2311VhnrfXWXHft9ddghy322GSXbfbZaKet9tpst+3223DHLffcdNdt991456333nz3/+3334AHLvjghBdu+OGIJ6744ow37vjjkEcu+eSUV2755ZhnrvnmnHfu+eeghy766KSXbvrpqKeu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i7q4i7zYi774i8AYjMI4jMRYjMZ4jMiYjMq4jMzYjM74jNAYjdI4jdSIPAEBACH5BAgMAAAALAAAAAAAA9ACgXx8fAAAAAAAAAAAAAj/AAEIHEiwoMGDCBMqXMiwocOHECNKnEixosWLGDNq3Mixo8ePIEOKHEmypMmTKFOqXMmypcuXMGPKnEmzps2bOHPq3Mmzp8+fQIMKHUq0qNGjSJMqXcq0qdOnUKNKnUq1qtWrWLNq3cq1q9evYMOKHUu2rNmzaNOqXcu2rdu3cOPKnUu3rt27ePPq3cu3r9+/gAMLHky4sOHDiBMrXsy4sePHkCNLnky5suXLmDNr3sy5s+fPoEOLHk26tOnTqFOrXs26tevXsGPLnk27tu3buHPr3s27t+/fwIMLH068uPHjyJMrX868ufPn0KNLn069uvXr2LNr3869u/fv4MOL/x9Pvrz58+jTq1/Pvr379/Djy59Pv779+/jz69/Pv7///wAGKOCABBZo4IEIJqjgggw26OCDEEYo4YQUVmjhhRhmqOGGHHbo4YcghijiiCSWaOKJKKao4oostujiizDGKOOMNNZo44045qjjjjz26OOPQAYp5JBEFmnkkUgmqeSSTDbp5JNQRinllFRWaeWVWGap5ZZcdunll2CGKeaYZJZp5plopqnmmmy26eabcMYp55x01mnnnXjmqeeefPbp55+ABirooIQWauihiCaq6KKMNuroo5BGKumklFZq6aWYZqrpppx26umnoIYq6qiklmrqqaimquqqrLbq6quwxv8q66y01mrrrbjmquuuvPbq66/ABivssMQWa+yxyCar7LLMNuvss9BGK+201FZr7bXYZqvtttx26+234IYr7rjklmvuueimq+667Lbr7rvwxivvvPTWa++9+Oar77789uvvvwAHLPDABBds8MEIJ6zwwgw37PDDEEcs8cQUV2zxxRhnrPHGHHfs8ccghyzyyCSXbPLJKKes8sost+zyyzDHLPPMNNds880456zzzjz37PPPQAct9NBEF2300UgnrfTSTDft9NNQRy311FRXbfXVWGet9dZcd+3112CHLfbYZJdt9tlop6322my37fbbcMct99x012333XjnrffefPf/7fffgAcu+OCEF2744YgnrvjijDfu+OOQRy755JRXbvnlmGeu+eacd+7556CHLvropJdu+umop6766qy37vrrsMcu++y012777bjnrvvuvPfu++/ABy/88MQXb/zxyCev/PLMN+/889BHL/301Fdv/fXYZ6/99tx37/334Icv/vjkl2/++einr/767Lfv/vvwxy///PTXb//9+Oev//789+///wAMoAAHSMACGvCACEygAhfIwAY68IEQjKAEJ0jBClrwghjMoAY3yMEOevCDIAyhCEdIwhKa8IQoTKEKV8jCFrrwhTCMoQxnSMMa2vCGOMyhDnfIwx768IdADKIQ/4dIxCIa8YhITKISl8jEJjrxiVCMohSnSMUqWvGKWMyiFrfIxS568YtgDKMYx0jGMprxjGhMoxrXyMY2uvGNcIyjHOdIxzra8Y54zKMe98jHPvrxj4AMpCAHSchCGvKQiEykIhfJyEY68pGQjKQkJ0nJSlrykpjMpCY3yclOevKToAylKEdJylKa8pSoTKUqV8nKVrrylbCMpSxnScta2vKWuMylLnfJy1768pfADKYwh0nMYhrzmMhMpjKXycxmOvOZ0IymNKdJzWpa85rYzKY2t8nNbnrzm+AMpzjHSc5ymvOc6EynOtfJzna6853wjKc850nPetrznvjMpz73yS/PfvrznwANqEAHStCCGvSgCE2oQhfK0IY69KEQjahEJ0rRilr0ohjNqEY3apiAAAA7" alt="Bribe animation">
+  <div class="cap">
+    A spy (blue) approaches a banner-waving peasant — the defection scene (id 26). A thin 2-frame clip (the un-seeded-CHR caveat the develop animations also hit).
+    <span class="pill">FROM ROM</span><br><br>
+    Produced headless by <code>tools/run-animation.py 26</code>, which runs the game’s
+    own <b>animation scripting VM</b> (bank&nbsp;14 <code>$80AD</code>, id <code>26</code> from
+    the descriptor table at <code>$AF80</code>) and intercepts every CHR upload, palette write
+    and sprite placement to reconstruct each frame — real NES palette.
+  </div>
+</div>
+
+<h2>What it does</h2>
+<p>Bribe (<code>driver_bribe $AAAE → effect_bribe $8D4D</code>) is the <b>separate</b> espionage command — distinct from Hire▸Ninja’s sabotage menu (see <a href="./ninja.html">ninja.html</a>). You need more than 10 gold; you pick a target fief (<span class="scr">Bribe which?</span>) and answer <span class="scr">Gold for spy?</span> with how much to spend. A contest (<code>bribe_success_check $8D02</code>) then decides the outcome. On <b>success</b> a slice of the target’s <b>output</b> — its peasant/agricultural base — defects to your fief (<span class="scr">%d peasants have defected</span>); on <b>failure</b> (<span class="scr">No peasants defected!</span>) your daimyo loses a charisma point and part of the spent gold is forfeit. The number of peasants moved is <code>loyalty − (⌊(30 + rng%25) × (min(loyalty, √gold) + 1) ÷ 100⌋ + 1)</code> — it scales with the <b>target’s loyalty</b> (emulator: loyalty 80 → 63–76, loyalty 40 → 23–30, loyalty 10 → 4–6), <i>not</i> a flat percentage of output (<code>compute_bribe_effect_value $8BC1</code>, emulator-confirmed).</p>
+
+<h2>How it works</h2>
+<p class="sub">The driver reads as a step-by-step script:</p>
+<ol class="flow">
+  <li><span class="addr">$AAC2</span><b>Gold gate.</b> Need <code>gold &gt; 10</code>, else <span class="scr">"You have no gold."</span></li>
+  <li><span class="addr">$AAD8</span>Prompt <span class="scr">"Bribe which?"</span> — pick the target province.</li>
+  <li><span class="addr">$AAF6</span>Prompt <span class="scr">"Gold for spy?"</span> → number entry (your gold, less the base stake).</li>
+  <li><span class="addr">$8D74</span><b>The contest</b> (<code>bribe_success_check $8D02</code>) — see the table below.</li>
+  <li><span class="addr">$8D9D</span><b>On success</b> the defection animation plays — <code>ui_helper_e80c(26)</code> — and a slice of the target’s output moves to your fief: <span class="scr">"%d peasants have defected."</span></li>
+  <li><span class="addr">$8DBF</span><b>On failure</b> → <span class="scr">"No peasants defected!"</span>, daimyo <code>−1</code> charisma, part of the stake forfeit.</li>
+</ol>
+
+<h2>The contest — who wins</h2>
+<p class="sub">The success roll, read straight from <code>bribe_success_check</code> bytecode (<code>$8D3D SCMPGT</code> → <code>$8D3E JUMPF</code>).</p>
+<table>
+  <tr><th>Outcome</th><th>Condition</th><th>Effect on the fiefs</th></tr>
+  <tr><td>Success</td><td><b>your</b>(loyalty + daimyo charisma) &gt; <b>target</b>(loyalty + charisma) + rng%10, <i>then</i> a 50% coin flip</td><td>peasants (<b>output</b>) transfer to your fief: <code>loyalty − (⌊(30+rng%25)·(min(loyalty,√gold)+1)/100⌋ + 1)</code></td></tr>
+  <tr><td>Failure</td><td>otherwise</td><td>nothing transfers; your daimyo <b>−1 charisma</b>; part of the spent gold is forfeit</td></tr>
+</table>
+<p class="sub">The win condition is the <b>intuitive</b> one — a loyal, charismatic lord bribes a <i>weaker</i> enemy fief’s peasants away. The direction was settled from the bytecode: <code>bribe_success_check</code> compares <code>local11</code> (built from the LAST-pushed arg = <b>your</b> fief) against <code>local10</code> (the target + rng), and the VM passes call args into frame slots in <b>reverse</b> push order (the same convention probe-math32 documented). The <code>$8BD0 DEREF</code> of that same slot — only the pointer arg can be dereferenced — independently confirms the reverse mapping. (Field identities: loyalty@+12, daimyo charisma@+4.)</p>
+
+<div class="callout"><b>Bribe is NOT the sabotage menu.</b> An earlier note filed the Uprising/Revolt/Dams/Assassin/Arson menu under “Bribe”; the bytecode shows that menu belongs to <b>Hire▸Ninja</b> (<a href="./ninja.html">ninja.html</a>). Bribe (<code>$8D4D</code>) is its own, simpler thing: <b>gold-for-spy peasant defection</b> — one contested effect that steals a chunk of the target’s peasant output. Both are gold-funded espionage, which is why they blurred together; the code keeps them firmly apart.</div>
+
+<h2>Where it goes — the rabbit holes</h2>
+<p class="sub">This command is a simple page on purpose: the depth lives in the subsystem it hands off to. Those get their own pages.</p>
+<div class="rabbit"><b>🕳️ The spy-gold quirk.</b> the closed form is settled, but it has a counter-intuitive twist: <b>more</b> spy gold raises <code>√gold</code>, which raises the subtracted resistance (until <code>√gold ≥ loyalty</code>) — so <i>minimal</i> gold maximizes the peasant transfer. Bytecode + emulator agree; worth an in-game sanity check that gold isn’t buying something else (success odds are gold-independent in <code>$8D02</code>). <i>(deep page TBD)</i></div>
+
+<footer>
+  Driver <code>$AAAE</code> · <code>tools/run-animation.py</code> · <a href="./README.md">commands index</a>.
+</footer>
+</div>
+</body>
+</html>

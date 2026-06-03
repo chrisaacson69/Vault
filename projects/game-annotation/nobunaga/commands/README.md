@@ -21,6 +21,8 @@ created: 2026-05-24
 | 14 | [Give](./give.md) | `effect_give_a/b/c` ($A93A / $A95E / $A9D5) → `give_transfer_apply` ($A8D3) → `$891D`/`$896F`/`$89C1` | **VERIFIED — bytecode + in-game test; pure benefit (no drain), +1 charisma; [give.html](./give.html)** |
 | 17 | [Rest](./rest.md) | (no effect handler — pure turn-skip) | stub |
 | 10 | [Hire](./hire.md) | Men: `effect_hire_men` ($A553) + dilution ($8BF4); Ninja: sabotage ($A2D2) | **VERIFIED — bytecode + in-game; $A2D2 is the NINJA/sabotage path (was mislabeled), recruit-men is $A553; [hire.html](./hire.html)** |
+| 10▸ | [Ninja (Hire▸Ninja)](./ninja.md) | `effect_ninja_sabotage` ($A2D2) → drains/assassinate | **MAPPED — 5-mission menu (Uprisng/Revolt/Dams/Assassin/Arson, $BD8F); label corrected from `effect_hire`; [ninja.html](./ninja.html)** |
+| 15 | [Bribe](./bribe.md) | `driver_bribe` ($AAAE) → `effect_bribe` ($8D4D) | **DECODED — gold-for-spy peasant defection (NOT the sabotage menu); success when YOUR loy+cha > target's +rng; peasants moved = loy−(⌊(30+rng%25)·(min(loy,√gold)+1)/100⌋+1), emulator-confirmed; [bribe.html](./bribe.html)** |
 | 2 | (War — Oda's failed invasion captured cross-fief) | — | **combat data point #1** captured 2026-05-25 |
 
 ## The snap protocol

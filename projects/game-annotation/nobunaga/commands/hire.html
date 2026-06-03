@@ -92,7 +92,7 @@
 <p class="sub">The driver <code>$A5F4</code> reads as a step-by-step script:</p>
 <ol class="flow">
   <li><span class="addr">$A5FC</span>Select <b>Hire</b>; validate the province.</li>
-  <li><span class="addr">$A615</span>Prompt <span class="scr">"(Men/Ninja)?"</span> — <b>Men</b> recruits soldiers (this page); <b>Ninja</b> opens the sabotage-mission menu (→ <code>$A2D2</code>, see Bribe).</li>
+  <li><span class="addr">$A615</span>Prompt <span class="scr">"(Men/Ninja)?"</span> — <b>Men</b> recruits soldiers (this page); <b>Ninja</b> opens the sabotage-mission menu (→ <code>$A2D2</code>, see <a href="./ninja.html">ninja.html</a>).</li>
   <li><span class="addr">$A558</span>(Men path, <code>effect_hire_men</code> $A553) army headroom = <code>header − men</code>.</li>
   <li><span class="addr">$A564</span><b>Affordability:</b> max men = f(gold, hire rate). No gold → <span class="scr">"You have no gold."</span></li>
   <li><span class="addr">$A573</span>Prompt <span class="scr">"How many?"</span> → number entry (capped).</li>
@@ -119,7 +119,7 @@ arms_base   = <span class="k">rng</span>%10 + 50                    <span class=
 new_stat = <span class="k">min</span>( header, (stat &times; men + base &times; amount) &divide; (men + amount) )
 men &plus;= amount</pre>
 <p class="roi">Hire when current stats are low (recruits don’t drag much) or to refill after combat losses. <b>Never</b> hire into a small high-skill army — you’ll wreck its average. Watch the per-turn hire rate; it fluctuates, so some seasons recruiting is markedly cheaper.</p>
-<div class="callout"><b>Two commands behind one prompt.</b> “(Men/Ninja)?” — <b>Men</b> recruits soldiers (this page); <b>Ninja</b> opens the sabotage-mission menu (Uprising / Revolt / Dams / Assassin / Arson at <code>$A2D2</code>, animation 12) — the same subsystem <b>Bribe</b> uses, which gets its own page. <i>(The earlier docs labeled <code>$A2D2</code> “effect_hire”; the bytecode shows it is the ninja path, and recruit-men actually lives in <code>$A553</code>.)</i> For recruiting, the catch is <b>dilution</b>: fresh recruits (morale 40–59, skill 60–79, arms 50–59) are blended in by a men-weighted average, so hiring into a small elite garrison drags its skill <b>down</b>. That is exactly why elite armies are <b>trained</b> (no dilution — see train.html) and Hire is for restoring body-count or staffing a new fief.</div>
+<div class="callout"><b>Two commands behind one prompt.</b> “(Men/Ninja)?” — <b>Men</b> recruits soldiers (this page); <b>Ninja</b> opens the sabotage-mission menu (Uprising / Revolt / Dams / Assassin / Arson at <code>$A2D2</code>, animation 12) — its own page, <a href="./ninja.html">ninja.html</a>. <i>(The earlier docs labeled <code>$A2D2</code> “effect_hire” and filed this menu under <b>Bribe</b>; the bytecode shows it is the Hire▸Ninja path — now <code>effect_ninja_sabotage</code> — recruit-men lives in <code>$A553</code>, and Bribe is a separate gold-for-spy command.)</i> For recruiting, the catch is <b>dilution</b>: fresh recruits (morale 40–59, skill 60–79, arms 50–59) are blended in by a men-weighted average, so hiring into a small elite garrison drags its skill <b>down</b>. That is exactly why elite armies are <b>trained</b> (no dilution — see train.html) and Hire is for restoring body-count or staffing a new fief.</div>
 
 <h2>Validated against the ROM</h2>
 <p class="sub">In-game (Fall 1566, fief 6 hired 30 men into 55) — the post-state matches the men-weighted dilution of the recruit bases.</p>

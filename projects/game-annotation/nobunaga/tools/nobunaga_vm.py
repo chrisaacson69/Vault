@@ -485,9 +485,19 @@ class NobunagaVM:
             bank, src, dst, n = rd(sp + 2), rw(sp + 4), rw(sp + 6), rw(sp + 8)
             for i in range(n & 0xFFFF):
                 self.mem.write((dst + i) & 0xFFFF, self.read_banked(bank, (src + i) & 0xFFFF))
-        elif task == 0x11:      # rng_next -> brk_scratch ($66/$67), deterministic LCG
+        elif task == 0x11:      # rng_next: advance the LCG and RETURN the value in regL.
+            # rng_next_wrapper ($CA46) is just `push $11; syscall; RETURN` — it relies on
+            # the syscall leaving the random word in regL (the $E9 plumbing copies a non-None
+            # stub return into regL). The old stub only wrote brk_scratch ($66/$67) and
+            # returned None, so regL kept a leftover and rng_mod's SIGNED `SMOD` produced
+            # negatives (e.g. -13752 smod 10 = -2). Mask to 15 bits so the value is always
+            # non-negative as signed -> rng_mod(n) yields a clean 0..n-1 for every modulus
+            # the game uses (<= ~2025). brk_scratch is kept in sync for any direct readers.
             self._rng = (self._rng * 1103515245 + 12345) & 0xFFFF
-            self.mem.write(0x66, self._rng & 0xFF); self.mem.write(0x67, self._rng >> 8)
+            val = self._rng & 0x7FFF
+            self.mem.write(0x66, val & 0xFF); self.mem.write(0x67, val >> 8)
+            self.syscall_log.append((task, name, kind))
+            return val
         elif task == 0x03:      # set_sprite: OAM shadow $0600+idx*4 = [Y, tile, attr, X]
             o = 0x0600 + (rd(sp + 2) & 0x3F) * 4
             self.mem.write(o, rd(sp + 6)); self.mem.write(o + 1, rd(sp + 0x0A))
