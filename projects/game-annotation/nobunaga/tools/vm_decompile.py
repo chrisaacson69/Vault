@@ -21,6 +21,23 @@ import re
 from pathlib import Path
 
 
+# --- VM-model drift-guard (M3, 2026-06-03) ----------------------------------
+# A self-check that the decompiler's per-opcode data-stack handling agrees with
+# the AUDITED authority `vm_stack_effect.STACK_EFFECT` (which vm-stack-audit.py
+# proves against the live ROM handler, M2). It would have caught both Pass-1/M2
+# stack-model bugs: $30-$3F (modeled as a store, Δ0, vs PUSH, Δ+1) and $B2
+# (modeled as PUSHL, Δ+1, vs NOP, Δ0). Drift-proof because it OBSERVES the real
+# handlers (no hand-maintained parallel table): when SELF_CHECK is on, decompile()
+# logs the data-stack DEPTH at the top of every instruction; check_stack_trace()
+# turns those into per-opcode Δ and compares to the table. SELF_CHECK defaults
+# False so the production decompile path (and decompiled/*.c) is byte-for-byte
+# unaffected. The full "decompiler reads the table to DRIVE its dispatch" rewrite
+# is deferred to the end-of-project VM teardown (ROADMAP); this guards against
+# drift in the meantime. Run: `py -3 tools/decompile-all.py --self-check`.
+SELF_CHECK = False
+_STACK_TRACE = []        # appended (opcode|None, depth) during a SELF_CHECK decompile
+
+
 # --- Opcode handlers: each takes (state, operand) and may emit C lines ---
 
 class State:
@@ -35,8 +52,6 @@ class State:
         self.indent = 1
         self.labels_needed = set()  # branch targets that need labels
         self.cur_addr = 0
-        # Track recent frame writes (for implicit-arg-via-shadow calling convention)
-        self.recent_pos_writes = {}  # slot index -> last expression written
 
     # regA is a stack-machine accumulator. A CALL writes a call-expr into it (via
     # set_call) but emits no statement — it only surfaces in C if something READS regA
@@ -274,7 +289,7 @@ def _build_opcode_to_mnemonic():
     m[0xAB] = 'op_AB_word'; m[0xAD] = 'op_AD_byte'
     m[0xAC] = 'host_call_simple'; m[0xAE] = 'adjust_stack_sbyte'
     m[0xB0] = 'loadA_ind_word';  m[0xB1] = 'storeA_ind_word'
-    m[0xB2] = 'pushA_B2';        m[0xB3] = 'pushA';     m[0xB4] = 'popB'
+    m[0xB2] = 'nop_B2';          m[0xB3] = 'pushA';     m[0xB4] = 'popB'
     m[0xB5] = 'mul';   m[0xB6] = 'div_signed';   m[0xB7] = 'ext_op'
     m[0xB8] = 'div_unsigned'
     m[0xB9] = 'mod_signed'; m[0xBA] = 'mod_unsigned'
@@ -325,8 +340,10 @@ EXT_OP_TABLE = {
 
 
 # Kernel syscall table — VM calls $F226 (syscall_dispatch) via CALL_abs_imm1; the
-# 1-byte immediate IS the syscall ID, and it renders as the LAST argument of the
-# emitted `syscall_dispatch(...)` expression. Resolve it to the handler name (the
+# 1-byte immediate IS the syscall ID, pushed LAST (right before the call), so under
+# the reverse-push display convention (M3, 2026-06-03) it renders as the FIRST
+# argument of the emitted `syscall_dispatch(...)` expression. Resolve it to the
+# handler name (the
 # 23-entry surface catalogued in 04-syscall-api.md). IDs 2/11/14/15 are RTS
 # placeholder slots — deliberately ABSENT so they stay `syscall_dispatch(…, N)`
 # (honest "unused slot" signal) rather than getting a fake name.
@@ -379,12 +396,14 @@ def _split_top_level(s):
 
 
 def annotate_syscall(text):
-    """Rewrite `syscall_dispatch(arg…, ID)` -> `syscall_<name>(arg…)`.
+    """Rewrite `syscall_dispatch(ID, arg…)` -> `syscall_<name>(arg…)`.
 
-    The trailing argument is the kernel syscall ID (the CALL_abs_imm1 immediate to
-    $F226). Resolve it through SYSCALL_TABLE and drop it from the visible arg list,
-    leaving the handler's actual parameters. Handles nested syscalls and balanced
-    parens; leaves unknown/placeholder IDs (and non-literal trailing args) untouched.
+    The LEADING argument is the kernel syscall ID (the CALL_abs_imm1 immediate to
+    $F226). It's the last-pushed value, so the reverse-push display convention (M3)
+    puts it first. Resolve it through SYSCALL_TABLE and drop it from the visible arg
+    list, leaving the handler's actual parameters. Handles nested syscalls and
+    balanced parens; leaves unknown/placeholder IDs (and non-literal leading args)
+    untouched.
     """
     needle = "syscall_dispatch("
     out, i = [], 0
@@ -404,10 +423,10 @@ def annotate_syscall(text):
             out.append(text[j:])
             break
         args = _split_top_level(text[start:k - 1])
-        id_val = _as_int(args[-1]) if args else None
+        id_val = _as_int(args[0]) if args else None
         name = SYSCALL_TABLE.get(id_val)
         if name:
-            rest = ", ".join(a.strip() for a in args[:-1])
+            rest = ", ".join(a.strip() for a in args[1:])
             out.append(f"{name}({rest})")
         else:
             out.append(text[j:k])           # keep raw dispatch for unmapped IDs
@@ -517,7 +536,73 @@ def _imm_word_repr(val, labels):
     return str(val) if val < 256 else f"0x{val:04X}"
 
 
-def decompile(filepath, sub_addr, labels=None):
+# The four quick-opcode families that address a frame ARG slot (vs a local): the
+# low nibble 0x0C-0x0F selects arg1..arg4 (fp+0x0B/0D/0F/11). See local_name('pos').
+_POS_ARG_MNEMONICS = frozenset({
+    'loadA_local_pos', 'loadB_local_pos', 'storeA_local_pos', 'push_local_pos',
+})
+
+
+def _body_arg_count(instructions):
+    """Highest arg slot (1..4) the body references via the quick arg-opcodes, i.e.
+    the real parameter count. 0 if the sub touches no arg slot (-> `void`). Args
+    above 4 (addressed only by the far-frame ops as raw vm_fp+N) aren't named argN
+    and so aren't counted here — by design the count matches the named args."""
+    n = 0
+    for ins in instructions:
+        if ins['mnemonic'] in _POS_ARG_MNEMONICS:
+            low = ins['bytes'][0] & 0x0F
+            if low >= 0x0C:                       # 0x0C..0x0F -> arg1..arg4
+                n = max(n, low - 0x0B)
+    return n
+
+
+# --- var-walk: per-(sub, slot) semantic names for args/locals (M4, 2026-06-03) ---
+# The variable-side twin of the label table. The decompiler names frame slots
+# positionally (arg1..arg4, local0..local11); var-walk replaces those with role
+# names (fief, amount, gain, …) recovered by usage-role inference + caller
+# propagation. Storage lives in mesen-labels.toml as `[vars.bankN."0xADDR"]`
+# sections (ADDR = the sub's stub address), one `slot = { name = "...", comment }`
+# line per renamed slot. Regex-parsed (no tomllib dep), exactly like load_labels;
+# the slot lines don't match the `"0x..."=` label regex so the label loaders ignore
+# them, and the section header resets the `[prg.bankN]` collectors (which bail on any
+# non-prg `[`), so the two tables never interfere.
+def load_var_names(toml_path):
+    """Parse `[vars.bankN."0xADDR"]` sections -> {(bank, addr): {slot: name}}."""
+    text = Path(toml_path).read_text(encoding="utf-8")
+    sec_re = re.compile(r'^\s*\[vars\.bank(\d+)\."0x([0-9A-Fa-f]+)"\]')
+    slot_re = re.compile(r'^\s*([A-Za-z_]\w*)\s*=\s*\{\s*name\s*=\s*"([^"]+)"')
+    out, cur = {}, None
+    for line in text.splitlines():
+        m = sec_re.match(line)
+        if m:
+            cur = (int(m.group(1)), int(m.group(2), 16))
+            out.setdefault(cur, {})
+            continue
+        if line.lstrip().startswith('['):       # left the vars sections
+            cur = None
+            continue
+        if cur is not None:
+            sm = slot_re.match(line)
+            if sm:
+                out[cur][sm.group(1)] = sm.group(2)
+    return out
+
+
+def apply_var_names(text, vmap):
+    """Substitute positional slot tokens (arg1/localN) with their semantic names.
+    Single-pass alternation (no cascade), word-bounded so `local1` never eats
+    `local11`. Run LAST in the emit pipeline — after annotate_field_access et al.,
+    which key on the literal arg1..arg4, so `arg1->output` is already formed and just
+    gets its base renamed to `fief->output`."""
+    if not vmap:
+        return text
+    keys = sorted(vmap, key=len, reverse=True)
+    pat = re.compile(r'\b(' + '|'.join(re.escape(k) for k in keys) + r')\b')
+    return pat.sub(lambda m: vmap[m.group(1)], text)
+
+
+def decompile(filepath, sub_addr, labels=None, var_names=None):
     body_addr, instructions = parse_listing(filepath, sub_addr)
     if not instructions:
         print(f"// sub ${sub_addr:04X} not found in {filepath}")
@@ -532,7 +617,18 @@ def decompile(filepath, sub_addr, labels=None):
         print(f"// ${sub_addr:04X} {fn_name}")
     print(f"// (body @ ${body_addr:04X})")
     print()
-    print(f"word {fn_name}(word arg1, word arg2, word arg3, word arg4) {{")
+    # Real arg count (M3, 2026-06-03 — replaces the hardcoded arg1..arg4). The
+    # callee names its params arg1..arg4 = frame slots fp+0x0B/0D/0F/11, reached by
+    # the quick arg-opcodes (low nibble 0x0C-0x0F across the load/store/push families).
+    # The signature declares exactly the highest arg slot the BODY references — a
+    # deterministic, per-sub measure that keeps bank_NN.c and the merged all_banks.c
+    # byte-identical (no cross-bank caller pre-pass / global state). It names exactly
+    # the args var-walk (M4) will rename. Caller-arity (the $E9 adj byte) is a possible
+    # future cross-check but is NOT the authority here (it would couple the two views).
+    arg_count = _body_arg_count(instructions)
+    params = ", ".join(f"word arg{i}" for i in range(1, arg_count + 1)) or "void"
+    params = apply_var_names(params, var_names)   # var-walk: rename args in the signature
+    print(f"word {fn_name}({params}) {{")
 
     # First pass: find branch targets (need labels)
     branch_targets = set()
@@ -553,6 +649,13 @@ def decompile(filepath, sub_addr, labels=None):
         operand = ins['operand']
         comment = ins['comment']
         opcode = ins['bytes'][0]
+
+        # Drift-guard: record data-stack depth at the TOP of each instruction (so
+        # per-op Δ = depth[next] - depth[this], which is `continue`-proof). Off by
+        # default → no effect on the emitted C. State is fresh per sub, so each
+        # sub's trace starts at depth 0 and is bounded by its terminal marker below.
+        if SELF_CHECK:
+            _STACK_TRACE.append((opcode, len(state.stack)))
 
         # Label for branch targets
         if ins['addr'] in branch_targets:
@@ -787,25 +890,16 @@ def decompile(filepath, sub_addr, labels=None):
                 0xD7CD: 1,  # daimyo_record_ptr(idx)
             }
             arity = arity_map.get(tgt, bytes_popped // 2)
-            args = []
-            for _ in range(arity):
-                if state.stack:
-                    args.append(state.stack.pop())
-                else:
-                    # Stack underflow: implicit arg via recent frame-slot shadow write.
-                    # If storeB_local_pos was used just before, that value is the implicit arg.
-                    if state.recent_pos_writes:
-                        # Use most-recently-written pos slot (heuristic)
-                        slot = sorted(state.recent_pos_writes.keys())[-1]
-                        args.append(f"/*via arg{slot - 0x0B}*/ {state.recent_pos_writes[slot]}")
-                    else:
-                        args.append(f"/*stack underflow*/ regA")
-            args.reverse()
-            state.recent_pos_writes.clear()  # consumed
-            if not args:
-                state.set_call(f"{fname}()")
-            else:
-                state.set_call(f"{fname}({', '.join(args)})")
+            # Pop args in LIFO (top-of-stack first). The VM pushes call args
+            # right-to-left, so the LAST-pushed word is the callee's arg1 (frame slot
+            # fp+0x0B) — i.e. the FIRST popped here. Displaying them in pop order
+            # therefore matches the callee's param numbering arg1, arg2, …, which is
+            # what var-walk caller-propagation needs (M3 reverse-push fix, 2026-06-03;
+            # this list used to be .reverse()d, inverting call-site order vs the body
+            # and forcing the mental flip in math32_3arg(c,b,a) etc.).
+            args = [state.stack.pop() if state.stack else "/*stack underflow*/ regA"
+                    for _ in range(arity)]
+            state.set_call(f"{fname}({', '.join(args)})" if args else f"{fname}()")
 
         # === Indirect host calls — VM opcodes $EA / $DD (call through regA) ===
         # The callee address is computed (in regA), not an inline label. $EA carries a
@@ -815,10 +909,10 @@ def decompile(filepath, sub_addr, labels=None):
             callee = state.regA
             bp = re.search(r'\$([0-9A-Fa-f]+)', operand)
             arity = (int(bp.group(1), 16) // 2) if bp else 0
-            args = []
-            for _ in range(arity):
-                args.append(state.stack.pop() if state.stack else "/*stack underflow*/ regA")
-            args.reverse()
+            # Pop in LIFO so arg1 (last-pushed, fp+0x0B) prints first — see the
+            # host_call note above (M3 reverse-push fix).
+            args = [state.stack.pop() if state.stack else "/*stack underflow*/ regA"
+                    for _ in range(arity)]
             state.set_call(f"(*({callee}))({', '.join(args)})")
 
         # === Extended (32-bit / bitfield) ops — VM opcode $B7 ('ext_op') ===
@@ -903,8 +997,15 @@ def decompile(filepath, sub_addr, labels=None):
             state.regA = f"((unsigned){state.regA} >> {state.regB})"
         elif mnem == 'ashr_by_regB':
             state.regA = f"({state.regA} >> {state.regB})"
-        elif mnem == 'pushA_B2':
-            state.stack.append(state.regA)
+        elif mnem == 'nop_B2':
+            # $B2 is a NOP (no stack/reg effect, length 1) — ORACLE-CONFIRMED 2026-06-03
+            # via a synthetic micro-test through the real ROM handler (dSP=0, regL/regR
+            # unchanged, pc+1). Resolves the M2 NOP-vs-PUSHL dispute: it was modeled here
+            # as PUSHL(regA), which was wrong (harmless only because $B2 is never emitted
+            # in this ROM — 0 occurrences across banks 0/1/2/15). OPCODE_INFO / v2 toml
+            # ("NOP") were right. Left as an explicit no-op so the model is correct if a
+            # $B2 ever turns up. See vm-stack-audit.py `validate_nop_b2`.
+            pass
         elif mnem == 'op_CB':            # $CB: 16-bit two's-complement negate of regA
             state.regA = f"(-{state.regA})"
 
@@ -929,6 +1030,9 @@ def decompile(filepath, sub_addr, labels=None):
         # === Misc ===
         else:
             state.emit(f"// TODO: {mnem} {operand}".strip())
+
+    if SELF_CHECK:           # terminal marker: closes this sub's trace (Δ of its last op)
+        _STACK_TRACE.append((None, len(state.stack)))
 
     state.flush_pending()  # function end: don't lose a trailing discarded call
 
@@ -958,6 +1062,7 @@ def decompile(filepath, sub_addr, labels=None):
         text = annotate_array_access(text, labels)
         text = annotate_syscall(text)
         text = simplify_expression(text)
+        text = apply_var_names(text, var_names)   # var-walk: LAST, so arg1->output -> fief->output
         if text.endswith(':') and not text.startswith('//'):
             print(f"{text}")
         elif text.startswith('//'):
@@ -1140,6 +1245,45 @@ def structure_lines(lines):
     return out
 
 
+# Opcodes whose decompiler model legitimately diverges from the runtime data-stack
+# delta and so are NOT gated by the drift-guard (documented, not silently skipped).
+# Populated empirically from the first clean run; each entry says WHY the decompiler's
+# observed Δ differs from STACK_EFFECT (it's an abstraction, not a faithful VM stack).
+_SELF_CHECK_EXCLUDE = {
+    # (none yet — added with a reason if the first run surfaces a benign divergence)
+}
+
+
+def check_stack_trace():
+    """Compare the SELF_CHECK trace (observed data-stack Δ per opcode, from the REAL
+    handlers) against the audited `vm_stack_effect.STACK_EFFECT`. Returns
+    (mismatches, observed) where mismatches is a list of (op, expected, got, mnem).
+
+    Only GATED classes (data/push/pop/store) are checked — their data-stack Δ is
+    branch-independent and must equal pushes-pops. call/return/control/probe/ext are
+    skipped (the decompiler models calls via variable arity / registers, not a fixed
+    data-stack Δ). See _SELF_CHECK_EXCLUDE for documented per-opcode carve-outs."""
+    from collections import defaultdict
+    from vm_stack_effect import STACK_EFFECT, GATED_CLASSES
+    observed = defaultdict(set)
+    for i in range(len(_STACK_TRACE) - 1):
+        op, depth = _STACK_TRACE[i]
+        if op is None:                       # terminal marker — don't pair across subs
+            continue
+        observed[op].add(_STACK_TRACE[i + 1][1] - depth)
+    mismatches = []
+    for op, deltas in sorted(observed.items()):
+        if op in _SELF_CHECK_EXCLUDE:
+            continue
+        eff = STACK_EFFECT.get(op)
+        if eff is None or eff.cls not in GATED_CLASSES:
+            continue
+        expected = eff.pushes - eff.pops    # net words onto the data stack
+        if deltas != {expected}:
+            mismatches.append((op, expected, sorted(deltas), eff.mnem))
+    return mismatches, observed
+
+
 def main():
     if len(sys.argv) < 3:
         print(__doc__)
@@ -1153,7 +1297,16 @@ def main():
         labels = load_labels()
     except Exception:
         pass
-    decompile(filepath, sub_addr, labels)
+    # Var-walk names: bank inferred from the listing filename (bank_NN_vm.asm).
+    var_names = None
+    try:
+        toml = Path(__file__).parent.parent / "mesen-labels.toml"
+        bm = re.search(r'bank_(\d+)', filepath)
+        if bm:
+            var_names = load_var_names(toml).get((int(bm.group(1)), sub_addr))
+    except Exception:
+        pass
+    decompile(filepath, sub_addr, labels, var_names=var_names)
 
 
 if __name__ == "__main__":

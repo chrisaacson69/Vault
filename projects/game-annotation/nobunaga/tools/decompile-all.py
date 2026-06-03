@@ -87,6 +87,12 @@ from nobunaga_vm import NobunagaVM
 
 CODE_BANKS = [0, 1, 2, 15]   # the only banks containing bytecode (rest are data)
 
+# Var-walk names (M4): {(bank, sub_addr): {slot: semantic_name}} from the toml's
+# [vars.bankN."0xADDR"] sections. Loaded once; bank_subs passes the per-sub dict to
+# vm_decompile.decompile so bank_NN.c AND the merged all_banks.c (which reuses
+# bank_subs) get the same renames — single source, can't diverge.
+VAR_NAMES = vm_decompile.load_var_names(LABELS_TOML)
+
 
 def bank_subs(bank, tmp_dir):
     """Decompile every sub in `bank`, returning (labels, subs, misaligned) where
@@ -123,7 +129,8 @@ def bank_subs(bank, tmp_dir):
     for stub in stubs:
         buf = io.StringIO()
         with redirect_stdout(buf):
-            vm_decompile.decompile(str(asm_path), stub, labels)
+            vm_decompile.decompile(str(asm_path), stub, labels,
+                                   var_names=VAR_NAMES.get((bank, stub)))
         sub_c = "\n".join(l for l in buf.getvalue().splitlines()
                           if not l.startswith("// Decompiled from"))
         subs.append((stub, sub_c.rstrip("\n")))
@@ -159,8 +166,49 @@ def decompile_bank(bank, out_dir, tmp_dir):
     return len(subs), text.count("\n")
 
 
+def run_self_check():
+    """VM-model drift-guard (M3): decompile all 4 code banks with vm_decompile.SELF_CHECK
+    on, then assert each gated opcode's OBSERVED data-stack Δ (from the real handlers)
+    matches the audited vm_stack_effect.STACK_EFFECT. Catches the $30-$3F / $B2 bug class.
+    Lives here (not in vm_decompile) so it shares THIS module's `import vm_decompile`
+    instance — the flag/trace globals must be the ones bank_subs() actually writes."""
+    from vm_stack_effect import STACK_EFFECT, GATED_CLASSES
+    vm_decompile.SELF_CHECK = True
+    vm_decompile._STACK_TRACE = []
+    try:
+        with tempfile.TemporaryDirectory() as td:
+            for bank in CODE_BANKS:
+                buf = io.StringIO()
+                with redirect_stdout(buf):           # swallow the decompiled C
+                    bank_subs(bank, Path(td))
+    finally:
+        vm_decompile.SELF_CHECK = False
+    mism, observed = vm_decompile.check_stack_trace()
+    n_gated = sum(1 for op in observed
+                  if (STACK_EFFECT.get(op) and STACK_EFFECT[op].cls in GATED_CLASSES
+                      and op not in vm_decompile._SELF_CHECK_EXCLUDE))
+    print(f"VM-model drift-guard: {len(observed)} opcodes observed across banks "
+          f"{list(CODE_BANKS)}; {n_gated} gated checked vs STACK_EFFECT")
+    if vm_decompile._SELF_CHECK_EXCLUDE:
+        print("  excluded (documented divergences): "
+              + ", ".join(f"${op:02X}" for op in sorted(vm_decompile._SELF_CHECK_EXCLUDE)))
+    if mism:
+        print(f"\n{len(mism)} OPCODE(S) DISAGREE with the audited table "
+              f"(decompiler data-stack model drifted):")
+        for op, exp, got, mnem in mism:
+            print(f"  ${op:02X} {mnem:<14} expected dStack={exp:+d}, observed dStack={got}")
+        sys.exit(1)
+    print("DRIFT-GUARD CLEAN -- decompiler data-stack model agrees with the audited authority")
+    sys.exit(0)
+
+
 def main():
+    if "--self-check" in sys.argv:
+        return run_self_check()
     ap = argparse.ArgumentParser(description="Decompile-all driver")
+    ap.add_argument("--self-check", action="store_true",
+                    help="VM-model drift-guard: assert the decompiler's data-stack effect per "
+                         "opcode matches the audited vm_stack_effect.STACK_EFFECT (no regen)")
     ap.add_argument("--banks", default=",".join(map(str, CODE_BANKS)),
                     help="comma-separated bank list (default: the 4 code banks)")
     ap.add_argument("--out-dir", default=str(ROOT / "decompiled"),
