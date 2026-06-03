@@ -76,12 +76,14 @@ HUB_CSS = BASE_CSS + """
 # ── The loop, in execution order. status ∈ {inline, page, stub} ───────────────
 # 'detail' is HTML shown in the per-phase card; 'link'/'link_text' add a button.
 NODES = [
-  dict(id="init", no="0", title="init_new_game_state", addr=0x89A3, bank=0, status="stub",
-       gloss="One-time new-game setup — seeds the board, including the identity-filled turn order.",
-       detail="Runs once before the loop proper. Among other setup it seeds "
-              "<code>daimyo_turn_order</code> as the identity permutation "
-              "(<code>$89F9</code>: <code>turn_order[i]=i</code>) — later shuffled each season. "
-              "Not yet fully dived; entry point noted so the next pass starts cold-free."),
+  dict(id="init", no="0", title="init_new_game_state", addr=0x89A3, bank=0, status="page",
+       page="turn-loop-init.html",
+       gloss="One-time new-game setup — the front-end wizard: scenario, players, daimyo, skill level.",
+       detail="Runs once before the loop proper: boot/title, save check, scenario size, board seeding "
+              "(<code>daimyo_turn_order[i]=i</code>, all fiefs manual, market rates randomized), the "
+              "how-many-players / character-creation wizard, and the skill-level pick. "
+              "<b>Notable:</b> the skill level lands in <code>const_two</code> — the same value the Grow/Build "
+              "gain formula subtracts — so difficulty is partly an economy knob (full writeup on the page)."),
   dict(id="planner", no="1", title="ai_strategic_turn_planner", addr=0xA455, bank=0, status="inline",
        gloss="The per-season tick — save, calendar, the season-phased economy update, events, illness.",
        detail="The heart of each season. In order:"
@@ -175,6 +177,106 @@ KEYSTONES = [
 
 ST_LABEL = {"inline": "dived", "page": "has page", "stub": "to do"}
 
+# ── Phase deep-dive pages (turn-loop-<id>.html). Keyed by NODE id. ─────────────
+# Each is a multi-step walkthrough of one phase. Add a node here, set its NODE
+# status to "page" + page="turn-loop-<id>.html", and it gets its own deep dive.
+PHASE_PAGES = {
+  "init": dict(
+    no="0", title="New Game", sub="init_new_game_state $89A3 — the front-end wizard that builds a fresh game.",
+    intro=(
+      "Before the season loop can run, the board has to exist. <code>init_new_game_state</code> is the "
+      "setup wizard: it boots the title, checks for a save, then walks the player through scenario, "
+      "player count, daimyo creation, and skill level — seeding every fief, the turn order, and the market "
+      "before handing off to the main loop. Most of it we’d glimpsed in earlier walks; reading it end-to-end "
+      "turned up the answer to a question the game never explains: <b>what does the skill level actually do?</b>"),
+    steps=[
+      (0x89B1, "<b>Boot &amp; title.</b> <code>render_boot_title_screens</code> plays the KOEI / Nobunaga title "
+               "sequence; audio is reset (<code>call_bank10_entry(0)</code>)."),
+      (0x89CC, "<b>Save check.</b> <code>verify_sram_save_integrity</code> — if a valid save is present the routine "
+               "bails out here (the load path takes over). New-game proceeds only on no / invalid save."),
+      (0x89EB, "<b>Choose the scenario.</b> <code>prompt_select_scenario_size</code> — 17-fief or 50-fief — sets "
+               "<code>scenario_fief_count</code>, which every later loop bound reads."),
+      (0x89F9, "<b>Seed the board.</b> <code>daimyo_turn_order[i] = i</code> (identity — later reshuffled each "
+               "season); <code>province_ai_state[i] = 0</code> (every fief starts under manual/AI-default control); "
+               "the five market rates <code>$6E0B..$6E13</code> are randomized to <code>rng%10 + 8</code>."),
+      (0x8A22, "<b>How many players?</b> <code>newgame_player_count = number_input(1..8)</code>."),
+      (0x8A91, "<b>Character creation</b> (per human player). <code>prompt_select_player_daimyo</code> picks the "
+               "house; <code>daimyo_creation_stat_roll_screen</code> rolls its stats and <b>marks that fief "
+               "<code>province_ai_state = 5</code> (Direct / player-controlled)</b> — the flag that later excludes "
+               "it from the AI starting boost."),
+      (0x8AD6, "<b>Skill level.</b> “Please select skill level.” → <code>const_two = number_input(1..5)</code>. "
+               "This one input is the whole difficulty system (see below)."),
+      (0x8ADF, "<b>Confirm.</b> “Is everything OK so far?” — yes proceeds; no loops all the way back to the "
+               "scenario step and starts the selection over."),
+      (0x8B50, "<b>Finalize.</b> <code>ai_player_count = 8 − humans</code>; "
+               "<code>apply_scenario_starting_stat_boosts</code> buffs the AI; “Then, on with the game!”"),
+    ],
+    sections=[
+      ("What skill level actually does",
+       "<p>The skill level isn’t a separate difficulty system — it’s written straight into "
+       "<code>const_two ($6D63)</code>, a single value the engine reads in <b>~35 places across all four "
+       "banks</b>. The headline: all five development commands use <code>(6 − skill)</code> as the gain "
+       "multiplier, so:</p>"
+       "<pre>Grow gain = 2 · <span class='k'>floor</span>( amount · (6 − skill) / sqrt(output + amount) )</pre>"
+       "<p class='sub'>Emulator-confirmed on one fief (amount = 100), via <code>tools/probe-skill-impact.py</code>:</p>"
+       "<table>\n  <tr><th>skill level</th><th>Grow gain (amount 100)</th><th>vs skill 1</th></tr>\n"
+       "  <tr><td>1 (easiest)</td><td>76</td><td>—</td></tr>\n"
+       "  <tr><td>2 (default)</td><td>60</td><td>0.79×</td></tr>\n"
+       "  <tr><td>3</td><td>46</td><td>0.61×</td></tr>\n"
+       "  <tr><td>4</td><td>30</td><td>0.39×</td></tr>\n"
+       "  <tr><td>5 (hardest)</td><td>14</td><td>0.18×</td></tr>\n</table>\n"
+       "<p>That also explains the mystery “×5” in every early Grow/Build derivation: those tests ran at "
+       "skill 1, where <code>6 − 1 = 5</code>. The cracked formulas were all implicitly the default-skill case.</p>"),
+      ("One dial, three pressures",
+       "<p>Picking a higher skill level doesn’t just make the AI “smarter” — the same value leans on three "
+       "subsystems at once, all against the player:</p>"
+       "<table>\n  <tr><th>Pressure</th><th>Mechanism</th><th>Effect of higher skill</th></tr>\n"
+       "  <tr><td>Your economy</td><td><code>(6 − skill)</code> develop multiplier</td><td>up to ~5× slower growth</td></tr>\n"
+       "  <tr><td>AI head start</td><td><code>apply_scenario_starting_stat_boosts</code>: AI daimyo stats "
+       "<code>+ skill×5</code>, province fields <code>+ skill×10</code> — applied only to "
+       "<code>province_ai_state == 0</code> (i.e. <b>not</b> your Direct fiefs)</td><td>stronger opponents from turn 1</td></tr>\n"
+       "  <tr><td>World volatility</td><td>uprising size <code>(skill+1)×10</code>, combat casualty rolls "
+       "<code>rng(6 − skill)</code> / <code>−skill</code> damage</td><td>bigger rebellions, harsher battles</td></tr>\n</table>\n"
+       "<p class='sub'>The boost loop’s <code>province_ai_state == 0</code> gate is the key: character creation "
+       "sets your own fief to state 5, so the buff lands on every AI house but never on you.</p>"),
+    ],
+    finds=[
+      ("Skill level = const_two, the economy throttle.",
+       "“Please select skill level.” writes 1–5 to <code>const_two</code> — the very value the development "
+       "formulas divide the field-root into. Difficulty is, first and foremost, an economy dial."),
+      ("The starting boost targets the AI, confirmed.",
+       "<code>apply_scenario_starting_stat_boosts</code> only buffs fiefs with <code>province_ai_state == 0</code>; "
+       "your daimyo-creation step marks your fief state 5 (Direct), so you are excluded. Higher skill = bigger AI "
+       "head start, never a player one."),
+    ],
+    sources="<code>decompiled/bank_00.c</code> ($89A3, $83E2) · <code>tools/probe-skill-impact.py</code> · "
+            "memory <code>project_nobunaga_main_turn_loop</code> · label <code>const_two $6D63</code>.",
+  ),
+}
+
+
+def render_phase_page(pid):
+    p = PHASE_PAGES[pid]
+    steps = "\n".join(f'  <li><span class="addr">${a:04X}</span>{h}</li>' for a, h in p["steps"])
+    secs = "".join(
+        f'<h2>{head}</h2>\n{html}\n' for head, html in p.get("sections", []))
+    finds = "".join(
+        f'<div class="find"><b>{t}</b> {b}</div>\n' for t, b in p.get("finds", []))
+    body = (
+      f'<header>\n  <div class="cmdno">Turn-loop phase {p["no"]} · deep dive</div>\n'
+      f'  <h1>{p["title"]}</h1>\n  <div class="tag">{p["sub"]}</div>\n</header>\n\n'
+      '<div class="skills">\n  <span>① decompiler → C</span>\n  <span>② data-walk labels</span>\n'
+      '  <span>③ bytecode-verified flow</span>\n  <span>④ emulator-probed formula</span>\n</div>\n\n'
+      f'<p class="lead">{p["intro"]}</p>\n\n'
+      f'<h2>The steps</h2>\n<p class="sub">The wizard, in order — each step grounded in the '
+      f'<code>$89A3</code> bytecode:</p>\n<ol class="flow">\n{steps}\n</ol>\n\n'
+      f'{secs}'
+      f'<h2>What it pinned down</h2>\n{finds}\n'
+      f'<footer>\n  ← <a href="./turn-loop.html">back to the turn-loop map</a> &nbsp;·&nbsp; '
+      f'Sources: {p["sources"]}\n  Generated by <code>tools/build-turn-loop.py {pid}</code>.\n</footer>')
+    return _bcp._page(f'{p["title"]} — Nobunaga’s Ambition Turn Loop', body).replace(
+        f"<style>{_bcp.CSS}</style>", f"<style>{HUB_CSS}</style>")
+
 
 def _map_list():
     items = ""
@@ -200,10 +302,14 @@ def _phase_cards():
         season = ""
         if n["id"] == "planner":
             season = _season_table()
+        page = ""
+        if n.get("page") and (ROOT / n["page"]).exists():
+            page = (f'<div class="branch"><b>Deep dive:</b> '
+                    f'<a href="./{n["page"]}">→ {n["title"]} — full page</a></div>\n')
         out += (f'<div class="phase" id="{n["id"]}">\n'
                 f'  <div class="bank">Phase {n["no"]} · bank {n["bank"]}</div>\n'
                 f'  <h3>{st}{n["title"]} <span class="addr">${n["addr"]:04X}</span></h3>\n'
-                f'  <p>{n["detail"]}</p>\n{season}{branch}</div>\n')
+                f'  <p>{n["detail"]}</p>\n{season}{page}{branch}</div>\n')
     return out
 
 
@@ -259,17 +365,37 @@ def render():
         f"<style>{_bcp.CSS}</style>", f"<style>{HUB_CSS}</style>")
 
 
+def _write_phase(pid):
+    out = ROOT / f"turn-loop-{pid}.html"
+    out.write_text(render_phase_page(pid), encoding="utf-8")
+    print(f"  wrote {out.relative_to(ROOT)}  ({out.stat().st_size} bytes, phase '{pid}')")
+
+
+def _write_hub():
+    out = ROOT / "turn-loop.html"
+    out.write_text(render(), encoding="utf-8")
+    print(f"  wrote {out.relative_to(ROOT)}  ({out.stat().st_size} bytes, {len(NODES)} phases)")
+
+
 def main():
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(
+        description="Generate turn-loop.html (the hub) and turn-loop-<phase>.html deep dives.")
+    ap.add_argument("target", nargs="?", default="all",
+                    help="'hub', a phase id (e.g. init), or 'all' (default = hub + every phase page)")
     ap.add_argument("--print", action="store_true", help="dump HTML to stdout instead of writing")
     args = ap.parse_args()
-    html = render()
     if args.print:
-        print(html)
+        print(render() if args.target in ("hub", "all") else render_phase_page(args.target))
         return
-    out = ROOT / "turn-loop.html"
-    out.write_text(html, encoding="utf-8")
-    print(f"  wrote {out.relative_to(ROOT)}  ({len(html)} bytes, {len(NODES)} phases)")
+    if args.target in PHASE_PAGES:           # a single phase page
+        _write_phase(args.target)
+        _write_hub()                         # regen hub so its link/badge reflect the page
+    elif args.target == "hub":
+        _write_hub()
+    else:                                    # 'all'
+        for pid in PHASE_PAGES:
+            _write_phase(pid)
+        _write_hub()
 
 
 if __name__ == "__main__":

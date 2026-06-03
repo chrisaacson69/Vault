@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Game — Nobunaga’s Ambition Turn Loop</title>
+<style>
+  :root{
+    --bg:#15151c; --panel:#1f1f2b; --ink:#e8e6df; --dim:#9a97a8;
+    --gold:#f0b429; --red:#e8431f; --blue:#3a6ee8; --green:#5ad05a;
+    --line:#33303f; --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:2px solid var(--gold);padding-bottom:14px;margin-bottom:8px}
+  .cmdno{color:var(--gold);font:600 13px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase}
+  h1{margin:.18em 0 .1em;font-size:38px;letter-spacing:.01em}
+  .tag{color:var(--dim);font-style:italic}
+  .skills{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 28px}
+  .skills span{font:600 11px/1 var(--mono);letter-spacing:.06em;color:var(--dim);
+    border:1px solid var(--line);border-radius:999px;padding:6px 11px;text-transform:uppercase}
+  h2{margin:38px 0 4px;font-size:22px;border-left:4px solid var(--gold);padding-left:12px}
+  .sub{color:var(--dim);margin:0 0 16px;padding-left:16px;font-size:14px}
+  .anim{display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px}
+  .anim img{image-rendering:pixelated;width:256px;height:240px;background:#6b6b6b;border-radius:6px}
+  .anim .cap{flex:1;min-width:240px}
+  .anim .cap b{color:var(--gold)}
+  .pill{display:inline-block;font:600 11px/1 var(--mono);color:var(--bg);background:var(--green);
+    border-radius:4px;padding:3px 7px;margin-left:6px;vertical-align:middle}
+  ol.flow{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+  ol.flow li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line)}
+  ol.flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  ol.flow .scr{color:var(--green);font-family:var(--mono);font-size:14px}
+  ol.flow .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right}
+  pre{background:#101019;border:1px solid var(--line);border-left:3px solid var(--blue);
+    border-radius:8px;padding:16px;overflow:auto;font:13.5px/1.5 var(--mono);color:#d6e4ff}
+  pre .c{color:#6f7b96}
+  pre .k{color:var(--gold)}
+  .callout{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--red);
+    border-radius:8px;padding:14px 18px;margin:18px 0}
+  .callout b{color:var(--red)}
+  .rabbit{background:#1a1426;border:1px solid #4a2e6b;border-left:4px solid #9a6ef0;
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .rabbit b{color:#b89af0}
+  .rabbit a{color:var(--blue);text-decoration:none}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:var(--panel);color:var(--gold);font-weight:600}
+  td .ok{color:var(--green)}
+  code{font-family:var(--mono);color:var(--gold);font-size:.92em}
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:13px}
+  footer a{color:var(--blue);text-decoration:none}
+  .roi{color:var(--dim);font-style:italic;margin-top:6px}
+
+  .lead{color:var(--ink);font-size:16px;margin:6px 0 26px}
+  .lead b{color:var(--gold)}
+  .map{list-style:none;counter-reset:step;padding:0;margin:14px 0 8px}
+  .map li{position:relative;padding:11px 0 11px 52px;border-bottom:1px solid var(--line)}
+  .map li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:9px;
+    width:34px;height:34px;border-radius:50%;background:var(--panel);border:1px solid var(--gold);
+    color:var(--gold);font:700 15px/34px var(--mono);text-align:center}
+  .map a{color:var(--ink);text-decoration:none;font-weight:600}
+  .map a:hover{color:var(--gold)}
+  .map .addr{color:var(--dim);font-family:var(--mono);font-size:12px;float:right;margin-top:3px}
+  .map .gloss{display:block;color:var(--dim);font-size:13.5px;font-weight:400;margin-top:2px}
+  .st{display:inline-block;font:700 10px/1 var(--mono);letter-spacing:.05em;border-radius:4px;
+    padding:4px 7px;margin-right:8px;vertical-align:middle;text-transform:uppercase}
+  .st-inline{background:var(--green);color:var(--bg)}
+  .st-page{background:var(--blue);color:#fff}
+  .st-stub{background:var(--panel);color:var(--dim);border:1px solid var(--line)}
+  .phase{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:18px 20px;margin:16px 0}
+  .phase h3{margin:0 0 4px;font-size:19px}
+  .phase h3 .addr{color:var(--dim);font-family:var(--mono);font-size:12px;font-weight:400}
+  .phase .bank{color:var(--dim);font-family:var(--mono);font-size:11px;text-transform:uppercase;
+    letter-spacing:.08em}
+  .phase p{margin:10px 0 0}
+  .phase a{color:var(--blue);text-decoration:none}
+  .branch{background:#10131f;border:1px solid #2a3358;border-left:4px solid var(--blue);
+    border-radius:8px;padding:14px 18px;margin:12px 0}
+  .branch b{color:#9ab8ff}
+  .branch a{color:#9ab8ff;text-decoration:none;font-weight:600}
+  .find{background:#241a12;border:1px solid #6b4a1e;border-left:4px solid var(--gold);
+    border-radius:8px;padding:14px 18px;margin:14px 0}
+  .find b{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="cmdno">Turn-loop phase 0 · deep dive</div>
+  <h1>New Game</h1>
+  <div class="tag">init_new_game_state $89A3 — the front-end wizard that builds a fresh game.</div>
+</header>
+
+<div class="skills">
+  <span>① decompiler → C</span>
+  <span>② data-walk labels</span>
+  <span>③ bytecode-verified flow</span>
+  <span>④ emulator-probed formula</span>
+</div>
+
+<p class="lead">Before the season loop can run, the board has to exist. <code>init_new_game_state</code> is the setup wizard: it boots the title, checks for a save, then walks the player through scenario, player count, daimyo creation, and skill level — seeding every fief, the turn order, and the market before handing off to the main loop. Most of it we’d glimpsed in earlier walks; reading it end-to-end turned up the answer to a question the game never explains: <b>what does the skill level actually do?</b></p>
+
+<h2>The steps</h2>
+<p class="sub">The wizard, in order — each step grounded in the <code>$89A3</code> bytecode:</p>
+<ol class="flow">
+  <li><span class="addr">$89B1</span><b>Boot &amp; title.</b> <code>render_boot_title_screens</code> plays the KOEI / Nobunaga title sequence; audio is reset (<code>call_bank10_entry(0)</code>).</li>
+  <li><span class="addr">$89CC</span><b>Save check.</b> <code>verify_sram_save_integrity</code> — if a valid save is present the routine bails out here (the load path takes over). New-game proceeds only on no / invalid save.</li>
+  <li><span class="addr">$89EB</span><b>Choose the scenario.</b> <code>prompt_select_scenario_size</code> — 17-fief or 50-fief — sets <code>scenario_fief_count</code>, which every later loop bound reads.</li>
+  <li><span class="addr">$89F9</span><b>Seed the board.</b> <code>daimyo_turn_order[i] = i</code> (identity — later reshuffled each season); <code>province_ai_state[i] = 0</code> (every fief starts under manual/AI-default control); the five market rates <code>$6E0B..$6E13</code> are randomized to <code>rng%10 + 8</code>.</li>
+  <li><span class="addr">$8A22</span><b>How many players?</b> <code>newgame_player_count = number_input(1..8)</code>.</li>
+  <li><span class="addr">$8A91</span><b>Character creation</b> (per human player). <code>prompt_select_player_daimyo</code> picks the house; <code>daimyo_creation_stat_roll_screen</code> rolls its stats and <b>marks that fief <code>province_ai_state = 5</code> (Direct / player-controlled)</b> — the flag that later excludes it from the AI starting boost.</li>
+  <li><span class="addr">$8AD6</span><b>Skill level.</b> “Please select skill level.” → <code>const_two = number_input(1..5)</code>. This one input is the whole difficulty system (see below).</li>
+  <li><span class="addr">$8ADF</span><b>Confirm.</b> “Is everything OK so far?” — yes proceeds; no loops all the way back to the scenario step and starts the selection over.</li>
+  <li><span class="addr">$8B50</span><b>Finalize.</b> <code>ai_player_count = 8 − humans</code>; <code>apply_scenario_starting_stat_boosts</code> buffs the AI; “Then, on with the game!”</li>
+</ol>
+
+<h2>What skill level actually does</h2>
+<p>The skill level isn’t a separate difficulty system — it’s written straight into <code>const_two ($6D63)</code>, a single value the engine reads in <b>~35 places across all four banks</b>. The headline: all five development commands use <code>(6 − skill)</code> as the gain multiplier, so:</p><pre>Grow gain = 2 · <span class='k'>floor</span>( amount · (6 − skill) / sqrt(output + amount) )</pre><p class='sub'>Emulator-confirmed on one fief (amount = 100), via <code>tools/probe-skill-impact.py</code>:</p><table>
+  <tr><th>skill level</th><th>Grow gain (amount 100)</th><th>vs skill 1</th></tr>
+  <tr><td>1 (easiest)</td><td>76</td><td>—</td></tr>
+  <tr><td>2 (default)</td><td>60</td><td>0.79×</td></tr>
+  <tr><td>3</td><td>46</td><td>0.61×</td></tr>
+  <tr><td>4</td><td>30</td><td>0.39×</td></tr>
+  <tr><td>5 (hardest)</td><td>14</td><td>0.18×</td></tr>
+</table>
+<p>That also explains the mystery “×5” in every early Grow/Build derivation: those tests ran at skill 1, where <code>6 − 1 = 5</code>. The cracked formulas were all implicitly the default-skill case.</p>
+<h2>One dial, three pressures</h2>
+<p>Picking a higher skill level doesn’t just make the AI “smarter” — the same value leans on three subsystems at once, all against the player:</p><table>
+  <tr><th>Pressure</th><th>Mechanism</th><th>Effect of higher skill</th></tr>
+  <tr><td>Your economy</td><td><code>(6 − skill)</code> develop multiplier</td><td>up to ~5× slower growth</td></tr>
+  <tr><td>AI head start</td><td><code>apply_scenario_starting_stat_boosts</code>: AI daimyo stats <code>+ skill×5</code>, province fields <code>+ skill×10</code> — applied only to <code>province_ai_state == 0</code> (i.e. <b>not</b> your Direct fiefs)</td><td>stronger opponents from turn 1</td></tr>
+  <tr><td>World volatility</td><td>uprising size <code>(skill+1)×10</code>, combat casualty rolls <code>rng(6 − skill)</code> / <code>−skill</code> damage</td><td>bigger rebellions, harsher battles</td></tr>
+</table>
+<p class='sub'>The boost loop’s <code>province_ai_state == 0</code> gate is the key: character creation sets your own fief to state 5, so the buff lands on every AI house but never on you.</p>
+<h2>What it pinned down</h2>
+<div class="find"><b>Skill level = const_two, the economy throttle.</b> “Please select skill level.” writes 1–5 to <code>const_two</code> — the very value the development formulas divide the field-root into. Difficulty is, first and foremost, an economy dial.</div>
+<div class="find"><b>The starting boost targets the AI, confirmed.</b> <code>apply_scenario_starting_stat_boosts</code> only buffs fiefs with <code>province_ai_state == 0</code>; your daimyo-creation step marks your fief state 5 (Direct), so you are excluded. Higher skill = bigger AI head start, never a player one.</div>
+
+<footer>
+  ← <a href="./turn-loop.html">back to the turn-loop map</a> &nbsp;·&nbsp; Sources: <code>decompiled/bank_00.c</code> ($89A3, $83E2) · <code>tools/probe-skill-impact.py</code> · memory <code>project_nobunaga_main_turn_loop</code> · label <code>const_two $6D63</code>.
+  Generated by <code>tools/build-turn-loop.py init</code>.
+</footer>
+</div>
+</body>
+</html>
