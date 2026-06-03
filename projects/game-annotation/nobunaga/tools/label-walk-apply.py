@@ -28,9 +28,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+from walk_guard import snapshot_decompiled, find_guard_violations
+
 ROOT = Path(__file__).resolve().parent.parent
 TOML = ROOT / "mesen-labels.toml"
 MLB = ROOT / "Nobunaga's Ambition (USA).mlb"
+DECOMPILED = ROOT / "decompiled"
 
 
 def die(msg, code=2):
@@ -100,33 +103,19 @@ def regen():
             die(f"regen step failed: {' '.join(cmd)}\n{r.stdout}\n{r.stderr}")
 
 
-def changed_decompiled():
-    r = run(["git", "diff", "--numstat", "--", "decompiled/"])
-    files = [ln.split("\t")[-1] for ln in r.stdout.splitlines() if ln.strip()]
-    return [f for f in files]
-
-
-def assert_pure_rename(bank):
-    bankc = f"projects/game-annotation/nobunaga/decompiled/bank_{bank:02d}.c"
-    changed = changed_decompiled()
-    others = [f for f in changed if not f.endswith(f"decompiled/bank_{bank:02d}.c")]
+def assert_pure_rename(bank, before):
+    """A sub rename legitimately touches decompiled/bank_NN.c AND the merged all_banks.c, and
+    each change must be a pure identifier rename. `before` = snapshot taken before regen.
+    Snapshot-vs-pre-regen (NOT git-diff-vs-HEAD) so a dirty tree can't false-positive; shared
+    guard logic lives in walk_guard (same check var-walk-apply uses). Backported 2026-06-03."""
+    allowed = {f"bank_{bank:02d}.c", "all_banks.c"}
+    others, nonrename = find_guard_violations(before, snapshot_decompiled(DECOMPILED), allowed)
     if others:
-        die(f"cross-bank BLEED — these decompiled files changed besides bank_{bank:02d}.c:\n  "
-            + "\n  ".join(others) + "\nA switchable-window label leaked banks; fix the section, do NOT commit.")
-    r = run(["git", "diff", "--", f"decompiled/bank_{bank:02d}.c"])
-    adds, rems = [], []
-    for ln in r.stdout.splitlines():
-        if ln[:3] in ("+++", "---") or not ln or ln[0] not in "+-":
-            continue
-        body = ln[1:].strip()
-        if body.startswith("//") or re.match(r"^(word|void)\s+\w+\(", body):
-            continue                                # header comment / signature decl
-        (adds if ln[0] == "+" else rems).append(re.sub(r"[A-Za-z_]\w*", "ID", body))
-    if sorted(adds) != sorted(rems):
-        only_add = sorted(set(adds) - set(rems))
-        only_rem = sorted(set(rems) - set(adds))
-        die("bank_%02d.c diff is NOT a pure rename (logic changed):\n  ONLY+ %s\n  ONLY- %s"
-            % (bank, only_add[:8], only_rem[:8]))
+        die(f"cross-bank BLEED — these decompiled files changed besides bank_{bank:02d}.c "
+            "(+ the merged all_banks.c):\n  " + "\n  ".join(others)
+            + "\nA switchable-window label leaked banks; fix the section, do NOT commit.")
+    if nonrename:
+        die(f"{nonrename[0]} diff is NOT a pure rename (logic changed) — inspect, do NOT commit.")
 
 
 def main():
@@ -179,20 +168,22 @@ def main():
         print("--no-regen: skipped regen+guard (toml written; run the guard before committing).")
         return
 
+    before = snapshot_decompiled(DECOMPILED)
     regen()
-    assert_pure_rename(a.bank)
-    print(f"guard PASS: only decompiled/bank_{a.bank:02d}.c changed, diff is pure renames.")
+    assert_pure_rename(a.bank, before)
+    print(f"guard PASS: only bank_{a.bank:02d}.c + all_banks.c changed, both pure renames.")
 
     if not a.commit:
         print("guard clean. Re-run with --commit to commit (or commit manually).")
         return
 
-    files = ["mesen-labels.toml", "Nobunaga's Ambition (USA).mlb", f"decompiled/bank_{a.bank:02d}.c"]
+    files = ["mesen-labels.toml", "Nobunaga's Ambition (USA).mlb",
+             f"decompiled/bank_{a.bank:02d}.c", "decompiled/all_banks.c"]
     run(["git", "add"] + files)
     msg = (f"Nobunaga: label-walk bank_{a.bank:02d} batch — {len(verified)} named ({tally_str})\n\n"
            f"Names from the label-walk skill (propose@C -> independent verify@bytecode),\n"
            f"written by label-walk-apply.py. Regen guard clean: only bank_{a.bank:02d}.c\n"
-           f"changed, diff is pure renames.\n\n"
+           f"+ all_banks.c changed, both pure renames.\n\n"
            f"Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>")
     r = run(["git", "commit", "-m", msg])
     if r.returncode != 0:

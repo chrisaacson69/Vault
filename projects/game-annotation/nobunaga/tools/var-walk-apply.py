@@ -31,8 +31,11 @@ import subprocess
 import sys
 from pathlib import Path
 
+from walk_guard import snapshot_decompiled, find_guard_violations
+
 ROOT = Path(__file__).resolve().parent.parent
 TOML = ROOT / "mesen-labels.toml"
+DECOMPILED = ROOT / "decompiled"
 SLOT_RE = re.compile(r'^(arg[1-4]|local\d+)$')
 
 
@@ -101,39 +104,18 @@ def regen():
         die(f"regen failed: decompile-all.py\n{r.stdout}\n{r.stderr}")
 
 
-def snapshot_decompiled():
-    """{filename: text} for every decompiled/*.c — taken BEFORE regen so the guard compares
-    against the actual pre-batch state, NOT git HEAD. (git-diff-vs-HEAD gives false positives
-    when the tree already has unrelated uncommitted regens, e.g. a prior milestone's; this
-    is self-contained and robust to a dirty tree.)"""
-    return {p.name: p.read_text(encoding="utf-8") for p in (ROOT / "decompiled").glob("*.c")}
-
-
-def _norm_lines(text):
-    """Non-comment lines with every identifier collapsed to 'ID' — so a pure rename normalizes
-    to the IDENTICAL line sequence (order preserved; structure/logic changes survive)."""
-    out = []
-    for ln in text.splitlines():
-        s = ln.strip()
-        if s.startswith("//"):
-            continue
-        out.append(re.sub(r"[A-Za-z_]\w*", "ID", s))
-    return out
-
-
 def assert_guard(bank, before):
     """Var renames legitimately touch ONLY decompiled/bank_NN.c AND the merged all_banks.c, and
-    each change must be a pure identifier rename. `before` = snapshot taken before regen."""
-    after = snapshot_decompiled()
+    each change must be a pure identifier rename. `before` = snapshot taken before regen.
+    Shared guard logic lives in walk_guard (same check label-walk-apply uses)."""
     allowed = {f"bank_{bank:02d}.c", "all_banks.c"}
-    changed = {n for n in set(before) | set(after) if before.get(n) != after.get(n)}
-    others = sorted(changed - allowed)
+    others, nonrename = find_guard_violations(before, snapshot_decompiled(DECOMPILED), allowed)
     if others:
         die("unexpected decompiled files changed (a var name leaked banks?):\n  "
             + "\n  ".join(others))
-    for name in sorted(changed):
-        if _norm_lines(before.get(name, "")) != _norm_lines(after.get(name, "")):
-            die(f"{name} change is NOT a pure rename (logic/structure changed) — inspect, do NOT commit.")
+    if nonrename:
+        die(f"{nonrename[0]} change is NOT a pure rename (logic/structure changed) — "
+            "inspect, do NOT commit.")
 
 
 def main():
@@ -186,7 +168,7 @@ def main():
         print("--no-regen: skipped regen+guard (toml written; run the guard before committing).")
         return
 
-    before = snapshot_decompiled()
+    before = snapshot_decompiled(DECOMPILED)
     regen()
     assert_guard(a.bank, before)
     print(f"guard PASS: only bank_{a.bank:02d}.c + all_banks.c changed, both pure renames.")
