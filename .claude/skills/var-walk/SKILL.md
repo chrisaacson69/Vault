@@ -80,7 +80,20 @@ Each batch the toml grows and the next `prep` returns the next un-done subs (one
 propose→verify into ONE fused agent per sub (it proposes AND self-checks against bytecode+callers in
 one pass). Halves agent count — use when rate-limited or for a large batch. It trades the independent
 second-altitude verifier for economy (Chris-sanctioned); the deterministic regen guard still gates the
-write. Default (omit the flag) keeps the stronger 2-agent propose→verify.
+write. Default (omit the flag) keeps the stronger 2-agent propose→verify. ⚠️ In single mode the
+coordinator should sanity-skim the verdicts before `apply` — the regen guard catches a name LEAK, not
+a name that's simply WRONG. (Far sweep 2026-06-03: single mode mislabeled `atoi_decimal` fp-3 as
+`cursor_ptr` while its own summary described `arg1`; the coordinator re-read the C and amended it to
+`digit`. The coordinator IS the verifier of last resort — [[feedback_coordinator_subagent_context_transfer]].)
+
+**Far-frame mode (`--far` + `--merge`):** spill locals that land outside the 12 standard slots render
+raw as `*(word*)(fp - N)`. Surface them with `var-walk-prep.py <bank> --far` (keys `fp-38`, **negative
+offsets only** — positives are args/header in this VM; per-SLOT done-tracking so an already-named sub
+re-surfaces for its un-named far slots) and write them with `var-walk-apply.py <bank> <json> --merge`
+(splices into the sub's existing `[vars.*]` section, per-SLOT collision). The Workflow needs no change
+— the `FAR_SEEDS` vocabulary rides in via `seeds`. Pilot + full 4-bank sweep done 2026-06-03 (55 far
+slots). Far-frame uses the SAME role-inference; common far roles: copy-into buffers, walked pointers,
+kernel loop counters.
 
 **Why auto-writing is correct, not a shortcut:** the verifier IS the check (lateral, lower-altitude
 bytecode + independent caller read); a coordinator self-review rubber-stamps
