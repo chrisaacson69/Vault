@@ -94,11 +94,16 @@ CODE_BANKS = [0, 1, 2, 15]   # the only banks containing bytecode (rest are data
 VAR_NAMES = vm_decompile.load_var_names(LABELS_TOML)
 
 
-def bank_subs(bank, tmp_dir):
+def bank_subs(bank, tmp_dir, on_sub=None):
     """Decompile every sub in `bank`, returning (labels, subs, misaligned) where
     subs = [(stub_addr, sub_c_text), ...]. The shared decompile core of the per-bank
     writer (`decompile_bank`) AND the merged PRG view (`decompile-merged.py`), so both
     produce byte-identical C from the same pipeline (single source of truth).
+
+    `on_sub(stub, collect)`, if given, is called per sub with the decompiler's
+    `collect` dict (raw + structured control-flow line lists + decoded instructions)
+    — the hook the CFG equivalence gate (tools/vm-cfg-gate.py) reads. None = no
+    collection (the default production path is untouched).
 
     Bank-aware label set: global labels (<$8000 RAM/ZP, >=$C000 fixed bank 15) and any
     window addr with NO [prg.bankN] section entry come from the flattened vm.labels (the
@@ -128,12 +133,16 @@ def bank_subs(bank, tmp_dir):
     subs = []
     for stub in stubs:
         buf = io.StringIO()
+        collect = {} if on_sub else None
         with redirect_stdout(buf):
             vm_decompile.decompile(str(asm_path), stub, labels,
-                                   var_names=VAR_NAMES.get((bank, stub)))
+                                   var_names=VAR_NAMES.get((bank, stub)),
+                                   collect=collect)
         sub_c = "\n".join(l for l in buf.getvalue().splitlines()
                           if not l.startswith("// Decompiled from"))
         subs.append((stub, sub_c.rstrip("\n")))
+        if on_sub:
+            on_sub(stub, collect)
     return labels, subs, misaligned
 
 
@@ -211,15 +220,25 @@ def main():
                          "opcode matches the audited vm_stack_effect.STACK_EFFECT (no regen)")
     ap.add_argument("--banks", default=",".join(map(str, CODE_BANKS)),
                     help="comma-separated bank list (default: the 4 code banks)")
-    ap.add_argument("--out-dir", default=str(ROOT / "decompiled"),
-                    help="output directory for bank_NN.c (default: ./decompiled)")
+    ap.add_argument("--out-dir", default=None,
+                    help="output directory for bank_NN.c (default: ./decompiled, "
+                         "or ./decompiled/raw under --raw)")
     ap.add_argument("--no-merged", action="store_true",
                     help="skip the merged PRG-keyed all_banks.c view (auto-built when the "
                          "full default bank set is decompiled; see decompile-merged.py)")
+    ap.add_argument("--raw", action="store_true",
+                    help="emit the RAW goto/label witness (skip structure_lines): the "
+                         "round-trip reference for the CFG equivalence gate. Default out-dir "
+                         "becomes ./decompiled/raw so the canonical structured .c is never "
+                         "clobbered; the merged view is skipped. (CFG epic, Phase 0)")
     args = ap.parse_args()
 
+    # CFG epic Phase 0: --raw flips the rendering switch to the goto witness.
+    if args.raw:
+        vm_decompile.STRUCTURE = False
     banks = [int(b, 0) for b in args.banks.split(",") if b.strip()]
-    out_dir = Path(args.out_dir)
+    default_out = ROOT / "decompiled" / "raw" if args.raw else ROOT / "decompiled"
+    out_dir = Path(args.out_dir) if args.out_dir else default_out
     out_dir.mkdir(parents=True, exist_ok=True)
 
     total_subs = total_lines = 0
@@ -240,7 +259,7 @@ def main():
     # files — a single `decompile-all.py` run keeps both in sync. Only when the full
     # default bank set was requested (a partial --banks run is a per-bank iteration;
     # the merged view is always all 4 code banks). Lazy import avoids a circular load.
-    if not args.no_merged and banks == CODE_BANKS:
+    if not args.no_merged and not args.raw and banks == CODE_BANKS:
         merged = _load("decompile_merged", "decompile-merged.py")
         records, warnings = merged.build(bank_subs)
         merged_path = out_dir / "all_banks.c"

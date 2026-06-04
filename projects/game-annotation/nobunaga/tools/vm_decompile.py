@@ -38,6 +38,18 @@ SELF_CHECK = False
 _STACK_TRACE = []        # appended (opcode|None, depth) during a SELF_CHECK decompile
 
 
+# --- Rendering switch: structured C vs the raw goto witness (CFG epic, Phase 0) -
+# Decision (B), Chris 2026-06-03: the READABLE structured C (if/while/switch + braces)
+# is the on-by-default canonical artifact; the raw goto form is a producible WITNESS
+# (`decompile-all.py --raw`) for the CFG round-trip / equivalence gate. STRUCTURE=True
+# runs structure_lines() exactly as before, so decompiled/*.c stays byte-identical;
+# STRUCTURE=False skips ALL structuring → the pure label+goto form that maps 1:1 to the
+# bytecode CFG. The control-flow structuring epic crosses the project's reversibility
+# line (text-level losslessness → behaviour-level CFG-equivalence) but NOT determinism;
+# tools/vm-cfg-gate.py is the honesty gate. Mirrors the SELF_CHECK default-off pattern.
+STRUCTURE = True
+
+
 # --- Opcode handlers: each takes (state, operand) and may emit C lines ---
 
 class State:
@@ -721,7 +733,7 @@ _UNARY_A = {
 }
 
 
-def decompile(filepath, sub_addr, labels=None, var_names=None):
+def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     body_addr, instructions = parse_listing(filepath, sub_addr)
     if not instructions:
         print(f"// sub ${sub_addr:04X} not found in {filepath}")
@@ -1075,7 +1087,17 @@ def decompile(filepath, sub_addr, labels=None, var_names=None):
     #   L_X:
     #     <else-body>
     #   L_Y:
-    structured = structure_lines(state.lines)
+    structured = structure_lines(state.lines) if STRUCTURE else state.lines
+
+    # CFG epic Phase 0: hand the raw + structured control-flow line lists (and the
+    # decoded instructions) back to a caller (the equivalence gate) without disturbing
+    # the print path. Pre-annotation lines suffice — the annotate passes rewrite
+    # expressions/operands, never the goto/label/keyword scaffolding the CFG reads.
+    if collect is not None:
+        collect['raw'] = list(state.lines)
+        collect['structured'] = list(structured)
+        collect['instructions'] = instructions
+        collect['body_addr'] = body_addr
 
     # Emit lines with field-name annotation
     for addr, indent, text in structured:
