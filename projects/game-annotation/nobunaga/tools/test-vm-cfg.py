@@ -351,6 +351,45 @@ def main():
         bad = vm_cfg.lower_goto_cfg(cap['raw'], sorted(cfg_raw)) == cfg_raw
         check(f"b{bank}/${sub:04X}: witness != UNcontracted cfg (contraction load-bearing)", not bad)
 
+    # Phase 3 (switch case-body inlining): a single-entry switch's case bodies move INSIDE
+    # the braces as a native C switch (inline `case N:` labels + honest internal goto where
+    # fall-through can't reach). The switch HEADER's successors are read from those inline
+    # labels, so DELETING a case label drops a real dispatch edge (or, for a `default:`,
+    # flips has_default and fabricates a fall-through) — a CFG change the gate MUST catch,
+    # else a switch could silently lose a case. $A30D = the season dispatcher (goto into a
+    # shared body); $DE78 = a message selector whose merge is reached by goto.
+    for bank, sub in [(0, 0xA30D), (1, 0xB09D), (2, 0x9954), (15, 0xDE78)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        block_of = vm_cfg._block_of_fn(leaders)
+        has_case = any(re.match(r'(?:case -?\d+|default):$', t.strip()) for _a, _i, t in struct)
+        check(f"b{bank}/${sub:04X}: inlined switch case bodies", has_case)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: switch inline ~= raw", ok)
+
+        # Dropping a case whose target is a pure router shared by a sibling case is genuinely
+        # CFG-neutral (contraction absorbs it — the gate is RIGHT to accept that). So the
+        # non-vacuousness claim is EXISTENTIAL: at least one unique-target case exists whose
+        # deletion the gate REJECTS (proving a lost dispatch edge is caught, not waved through).
+        tgt_count, case_idx = {}, {}
+        for i, (a, _ind, t) in enumerate(struct):
+            if re.match(r'(?:case -?\d+|default):$', t.strip()):
+                b = block_of(a)
+                tgt_count[b] = tgt_count.get(b, 0) + 1
+                case_idx.setdefault(b, i)
+        rejected_any = False
+        for b, c in tgt_count.items():
+            if c != 1:
+                continue
+            dropped = [ln for k, ln in enumerate(struct) if k != case_idx[b]]
+            bad, _, _ = vm_cfg.structured_equivalent(raw, dropped, leaders)
+            if not bad:
+                rejected_any = True
+                break
+        check(f"b{bank}/${sub:04X}: a dropped case (dispatch edge lost) is REJECTED", rejected_any)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 

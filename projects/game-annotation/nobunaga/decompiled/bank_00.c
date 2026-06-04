@@ -603,21 +603,18 @@ word select_message_string_by_flags_and_arg(word arg1) {
     if (!(!((ai_turn_flags & 32)))) return msg_rebels;    // $8BA8
     if (!(!((ai_turn_flags & 16)))) return 0x796A;    // $8BB5
     switch (arg1) {    // $8BBD
-        case 7: goto L_8BD2;    // $8BBD
-        case 13: goto L_8BD8;    // $8BBD
-        case 23: goto L_8BD2;    // $8BBD
-        case 30: goto L_8BD8;    // $8BBD
-        default: goto L_8BDE;    // $8BBD
-    }    // $8BBD
-L_8BD2:
+    case 7:
+    case 23:
 L_8BD5:
-    local11 = msg_zealots;    // $8BD5
-    return local11;    // $8BD7
-L_8BD8:
-    goto L_8BD5;    // $8BDB
-L_8BDE:
-    select_msg_by_state_7b79(arg1);    // $8BDF
-    goto L_8BD5;    // $8BE3
+        local11 = msg_zealots;    // $8BD5
+        return local11;    // $8BD7
+    case 13:
+    case 30:
+        goto L_8BD5;    // $8BDB
+    default:
+        select_msg_by_state_7b79(arg1);    // $8BDF
+        goto L_8BD5;    // $8BE3
+    }
 }
 
 // $8BE6 find_first_enemy_owned_fief
@@ -1201,16 +1198,13 @@ word avg_daimyo_charisma_over_fief_list(void) {
 
 word announce_provinces_by_ai_state_mode(word arg1) {
     switch (arg1) {    // $94B7
-        case 1: goto L_94C4;    // $94B7
-        case 2: goto L_94E9;    // $94B7
-        default: goto L_94CE;    // $94B7
-    }    // $94B7
-L_94C4:
+    case 1:
 L_94C7:
-    message_display(msg_summer_this_year_brings_typhoo);    // $94C7
-L_94CE:
-    confirm_prompt();    // $94CB
-    local11 = 0;    // $94CF
+        message_display(msg_summer_this_year_brings_typhoo);    // $94C7
+    default:
+        confirm_prompt();    // $94CB
+        local11 = 0;    // $94CF
+    }
     while ((*(byte*)((((local11 + 1) - 1) + 0x7BAD)) != 255)) {    // $951D
         if (!(get_province_ai_state(local10))) continue;    // $94D8
         switch (arg1) {    // $94DC
@@ -2086,25 +2080,21 @@ L_A349:
     process_fiefs_with_state_ff();    // $A364
     battle_defender_province_staging = -1;    // $A369
     switch (current_season) {    // $A36F
-        case 0: goto L_A37E;    // $A36F
-        case 1: goto L_A385;    // $A36F
-        case 2: goto L_A38B;    // $A36F
-        case 3: goto L_A391;    // $A36F
-        default: goto L_A381;    // $A36F
-    }    // $A36F
-L_A37E:
+    case 0:
+    default:
 L_A381:
-    per_turn_age_daimyo_decay_health_and_province_stats();    // $A37E
-    goto L_A3A0;    // $A382
-L_A385:
-    init_province_highwater_from_records();    // $A385
-    goto L_A381;    // $A388
-L_A38B:
-    harvest_income_sweep_all_fiefs();    // $A38B
-    goto L_A381;    // $A38E
-L_A391:
-    normalize_relations_matrix_lower(2);    // $A392
-    goto L_A381;    // $A396
+        per_turn_age_daimyo_decay_health_and_province_stats();    // $A37E
+        goto L_A3A0;    // $A382
+    case 1:
+        init_province_highwater_from_records();    // $A385
+        goto L_A381;    // $A388
+    case 2:
+        harvest_income_sweep_all_fiefs();    // $A38B
+        goto L_A381;    // $A38E
+    case 3:
+        normalize_relations_matrix_lower(2);    // $A392
+        goto L_A381;    // $A396
+    }
 L_A399:
     check_and_process_daimyo_natural_death(fief_idx);    // $A39A
 L_A3A0:

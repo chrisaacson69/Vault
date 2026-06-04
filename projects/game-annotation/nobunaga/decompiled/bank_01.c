@@ -70,27 +70,24 @@ word view_render_five_stats(void) {
 
 word target_eligible_by_cmd(word cmd, word fief) {
     switch (cmd) {    // $8135
-        case 1: goto L_815A;    // $8135
-        case 2: goto L_8166;    // $8135
-        case 4: goto L_815A;    // $8135
-        case 6: goto L_8166;    // $8135
-        case 8: goto L_8166;    // $8135
-        case 15: goto L_8166;    // $8135
-        case 19: goto L_815A;    // $8135
-        case 255: goto L_8166;    // $8135
-        default: goto L_8164;    // $8135
-    }    // $8135
-L_815A:
-    is_enemy_owned(fief);    // $815B
-    goto L_8163;    // $815F
+    case 1:
+    case 4:
+    case 19:
+        is_enemy_owned(fief);    // $815B
+        goto L_8163;    // $815F
 L_8162:
 L_8163:
-    eligible = 0;    // $8163
-L_8164:
-    return eligible;    // $8165
-L_8166:
-    if (is_enemy_owned(fief)) goto L_8162;    // $816B
-    goto L_8163;    // $816F
+        eligible = 0;    // $8163
+    default:
+        return eligible;    // $8165
+    case 2:
+    case 6:
+    case 8:
+    case 15:
+    case 255:
+        if (is_enemy_owned(fief)) goto L_8162;    // $816B
+        goto L_8163;    // $816F
+    }
 }
 
 // $8172 count_eligible_targets
@@ -2974,17 +2971,14 @@ L_B09B:
 word subhandler_B09D(void) {
     message_display(msg_animation);    // $B0A5
     switch (ui_helper_d351(msg_on_off_bed0)) {    // $B0B0
-        case 1: goto L_B0BD;    // $B0B0
-        case 0: goto L_B0C8;    // $B0B0
-        default: goto L_B0C6;    // $B0B0
-    }    // $B0B0
-L_B0BD:
+    case 1:
 L_B0C3:
-    ai_turn_flags = (ai_turn_flags | 4);    // $B0C3
-L_B0C6:
-    return 0;    // $B0C7
-L_B0C8:
-    goto L_B0C3;    // $B0CF
+        ai_turn_flags = (ai_turn_flags | 4);    // $B0C3
+    default:
+        return 0;    // $B0C7
+    case 0:
+        goto L_B0C3;    // $B0CF
+    }
 }
 
 // $B0D2 subhandler_B0D2

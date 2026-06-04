@@ -397,38 +397,35 @@ L_8591:
 word tactical_cursor_input_validate_redraw(void) {
     local11 = poll_input();    // $85AF
     switch (poll_input()) {    // $85B0
-        case 1: goto L_8600;    // $85B0
-        case 2: goto L_8600;    // $85B0
-        case 16: goto L_8600;    // $85B0
-        case 32: goto L_8600;    // $85B0
-        case 64: goto L_85CD;    // $85B0
-        case 128: goto L_8602;    // $85B0
-        default: goto L_85FE;    // $85B0
-    }    // $85B0
-L_85CD:
-    if (is_cell_valid_for_phase(0)) goto L_85FE;    // $85D2
-    read_frame_timer(0);    // $85D6
-    local10 = ui_window_col;    // $85DD
-    local9 = ui_cursor_row;    // $85E1
-    if (is_cell_valid_for_phase(5)) goto L_85EE;    // $85E7
+    case 64:
+        if (is_cell_valid_for_phase(0)) goto L_85FE;    // $85D2
+        read_frame_timer(0);    // $85D6
+        local10 = ui_window_col;    // $85DD
+        local9 = ui_cursor_row;    // $85E1
+        if (is_cell_valid_for_phase(5)) goto L_85EE;    // $85E7
 L_85EA:
-    goto L_85EF;    // $85EB
+        goto L_85EF;    // $85EB
 L_85EE:
 L_85EF:
-    draw_tactical_cursor_region_arg0(0);    // $85EF
-    ui_helper_cc7b(local10, local9);    // $85F5
+        draw_tactical_cursor_region_arg0(0);    // $85EF
+        ui_helper_cc7b(local10, local9);    // $85F5
+    default:
 L_85FE:
-    read_frame_timer(2);    // $85FA
-    local11 = 0;    // $85FF
-L_8600:
-    return local11;    // $8601
-L_8602:
-    if (is_cell_valid_for_phase(10)) goto L_85FE;    // $8607
-    read_frame_timer(0);    // $860B
-    local10 = ui_window_col;    // $8612
-    local9 = ui_cursor_row;    // $8616
-    if (!(is_cell_valid_for_phase(5))) goto L_85EA;    // $861C
-    goto L_85EF;    // $8620
+        read_frame_timer(2);    // $85FA
+        local11 = 0;    // $85FF
+    case 1:
+    case 2:
+    case 16:
+    case 32:
+        return local11;    // $8601
+    case 128:
+        if (is_cell_valid_for_phase(10)) goto L_85FE;    // $8607
+        read_frame_timer(0);    // $860B
+        local10 = ui_window_col;    // $8612
+        local9 = ui_cursor_row;    // $8616
+        if (!(is_cell_valid_for_phase(5))) goto L_85EA;    // $861C
+        goto L_85EF;    // $8620
+    }
 }
 
 // $8623 poll_cursor_input_until_button
@@ -1722,25 +1719,21 @@ word rng_search_combat_rect_for_unit_cell(word approach_dir) {
     flip_x = rng_mod(2);    // $995E
     flip_y = rng_mod(2);    // $9964
     switch (approach_dir) {    // $9966
-        case 65535: goto L_9975;    // $9966
-        case 65536: goto L_997D;    // $9966
-        case 65537: goto L_9981;    // $9966
-        case 65538: goto L_9986;    // $9966
-        default: goto L_9977;    // $9966
-    }    // $9966
-L_9975:
+    case 65535:
 L_9976:
-    flip_y = 1;    // $9976
+        flip_y = 1;    // $9976
+    default:
 L_9977:
-    goto L_99C8;    // $997A
-L_997D:
-    goto L_9976;    // $997E
-L_9981:
+        goto L_99C8;    // $997A
+    case 65536:
+        goto L_9976;    // $997E
+    case 65537:
 L_9982:
-    flip_x = 1;    // $9982
-    goto L_9977;    // $9983
-L_9986:
-    goto L_9982;    // $9987
+        flip_x = 1;    // $9982
+        goto L_9977;    // $9983
+    case 65538:
+        goto L_9982;    // $9987
+    }
 L_998A:
     goto L_99BD;    // $998D
 L_9990:

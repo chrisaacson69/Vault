@@ -477,6 +477,119 @@ def natural_loop(u, h, cfg):
     return loop
 
 
+# --- switch dispatch regions (Phase 3: inline the case BODIES) ------------------
+# The shared detector both the decompiler's structure_switches emit pass AND the gate's
+# lower_struct_cfg consume — same rule, so they can't disagree (the value_diamonds /
+# boolean_regions pattern). A switch is FOLDABLE (its case bodies can move inside the
+# braces) iff its dispatch region is SINGLE-ENTRY: every case-target block is dominated by
+# the switch block S, so the only way into the case bodies is through S. The braces enclose
+# the contiguous address range (S, max region addr]; nothing is reordered (lexical order ==
+# address order is preserved, so the address-based lowering stays faithful AND the emitted C
+# is correct). A case body whose every edge can't fall through keeps an honest internal goto.
+
+def post_dominators(cfg):
+    """pdom[n] = blocks every path n->EXIT passes through (dual of `dominators` over the
+    reversed CFG with EXIT as the single sink)."""
+    nodes = set(cfg) | {EXIT}
+    pdom = {n: set(nodes) for n in nodes}
+    pdom[EXIT] = {EXIT}
+    changed = True
+    while changed:
+        changed = False
+        for n in cfg:
+            new = set(nodes)
+            for s in cfg.get(n, ()):
+                new &= pdom.get(s, {EXIT})
+            new.add(n)
+            if new != pdom[n]:
+                pdom[n] = new
+                changed = True
+    return pdom
+
+
+def _imm_post_dom(pdom, n):
+    """The immediate (nearest) post-dominator of n: the strict post-dom b such that every
+    other strict post-dom c post-dominates b (c is farther from n). May be EXIT."""
+    cand = [b for b in pdom.get(n, ()) if b != n]
+    for b in cand:
+        if all((c in pdom.get(b, set())) for c in cand if c != b):
+            return b
+    return EXIT
+
+
+def switch_dispatches(instructions):
+    """Foldable switch dispatch regions, one dict per `switch` whose case bodies form a
+    SINGLE-ENTRY region (every case target dominated by the switch block). Dict fields:
+      switch_addr   : addr of the switch instruction (= the dispatch lines' addr)
+      S             : leader of the switch block
+      key_targets   : [(key_int, target_block), ...] in declaration order (keys may repeat
+                      a target; default is appended as key=None)
+      has_default   : bool
+      enclosed      : sorted leaders the braces enclose = leaders in (switch_addr, brace_close]
+      brace_close   : the highest enclosed leader addr (the `}` goes after this block)
+      merge         : immediate post-dominator of S (the switch's natural exit; may be EXIT)
+      break_target  : merge, IFF it is a real block laid out cleanly AFTER the region
+                      (addr > brace_close) — then edges to it may render as `break;`. Else
+                      None (the merge is interleaved / returns -> convergence stays goto).
+    A switch whose region is NOT single-entry, or whose enclosed span would swallow a block
+    NOT dominated by S (external code), is omitted -> it stays goto-cases (honest)."""
+    if not instructions:
+        return []
+    cfg, leaders = bytecode_cfg(instructions)
+    if not leaders:
+        return []
+    block_of = _block_of_fn(leaders)
+    dom = dominators(cfg, leaders[0])
+    pdom = post_dominators(cfg)
+    lead_set = set(leaders)
+    out = []
+    for ins in instructions:
+        if ins['mnemonic'] != 'switch':
+            continue
+        sa = ins['addr']
+        S = block_of(sa)
+        comment = ins['comment'] or ''
+        key_targets = [(int(k), block_of(int(t, 16)))
+                       for k, t in re.findall(r'(-?\d+)=>\$([0-9A-Fa-f]{4})', comment)]
+        dflt = re.search(r'default=>\$([0-9A-Fa-f]{4})', comment)
+        has_default = dflt is not None
+        if has_default:
+            key_targets.append((None, block_of(int(dflt.group(1), 16))))
+        if not key_targets:
+            continue
+        targets = {t for _k, t in key_targets}
+        # SINGLE-ENTRY: every case target dominated by S (no external jump into a body).
+        if not all(S in dom.get(t, set()) for t in targets):
+            continue
+        M = _imm_post_dom(pdom, S)
+        # region = S-dominated, NOT M-dominated (strictly between the switch and its merge).
+        region = {b for b in leaders
+                  if S in dom.get(b, set()) and b != S
+                  and not (M is not EXIT and M in dom.get(b, set()))}
+        if not region:
+            continue
+        brace_close = max(region)
+        # The braces enclose (switch_addr, brace_close]; every leader in that span must be
+        # S-dominated (no external code swallowed). The merge, if interleaved, sits inside.
+        enclosed = sorted(L for L in leaders if sa < L <= brace_close)
+        if not all(S in dom.get(L, set()) for L in enclosed):
+            continue
+        break_target = M if (M is not EXIT and M in lead_set and M > brace_close) else None
+        # body_end = the leader where the territory ENDS (the first leader past the last
+        # enclosed BLOCK). The braces enclose every line up to but not including it; None =>
+        # the territory runs to the end of the function. (brace_close is the last enclosed
+        # block's LEADER; its body lines extend to body_end, so the emit must not stop at the
+        # leader — that would cut the last case body off mid-block.)
+        later = [L for L in leaders if L > brace_close]
+        body_end = min(later) if later else None
+        out.append({
+            'switch_addr': sa, 'S': S, 'key_targets': key_targets,
+            'has_default': has_default, 'enclosed': enclosed, 'brace_close': brace_close,
+            'body_end': body_end, 'merge': M, 'break_target': break_target,
+        })
+    return out
+
+
 # --- lowering a C line list (raw goto OR structured) to the block CFG ----------
 
 def _classify_stmt(text):
@@ -513,6 +626,7 @@ _RE_SWITCH_OPEN = re.compile(r'switch \((.+)\) \{$')
 _RE_DOWHILE_CLOSE = re.compile(r'\} while \((.+)\);$')
 _RE_LABEL       = re.compile(r'L_[0-9A-Fa-f]{4}:$')
 _RE_SWITCH_CASE = re.compile(r'(case -?\d+|default): goto L_([0-9A-Fa-f]{4});$')
+_RE_CASE_LABEL  = re.compile(r'(?:case -?\d+|default):$')   # Phase-3 INLINED case label
 
 
 # --- true/false edge labels (catch a guard inversion / then-else swap) ----------
@@ -649,6 +763,7 @@ def _is_scaffold(t):
     """A stripped line that carries no control AND no observable effect: blank,
     comment, label, or a brace/keyword opener/closer."""
     return (not t or t.startswith('//') or _RE_LABEL.match(t) is not None
+            or _RE_CASE_LABEL.match(t) is not None        # Phase-3 inlined `case N:` marker
             or t == '}' or t == '} else {' or t.endswith('{')
             or _RE_DOWHILE_CLOSE.match(t) is not None)
 
@@ -695,12 +810,12 @@ def _loop_body_leaders(lines, open_idx, close_idx, block_of, leaders=None):
 
 
 def _match_constructs(lines):
-    """Brace-match the structured if/while/switch/do blocks. Returns (ifs, whiles)
-    where ifs = [(header_addr, header_idx, else_idx|None, closer_idx)] and
-    whiles = [(header_addr, header_idx, closer_idx)]; dowhiles =
-    [(do_addr, do_idx, close_addr, close_idx)]. Switches are handled per-block via
-    their case lines, so they're matched only to keep the brace stack balanced."""
-    ifs, whiles, dowhiles, stack = [], [], [], []
+    """Brace-match the structured if/while/switch/do blocks. Returns (ifs, whiles,
+    dowhiles, switches) where ifs = [(header_addr, header_idx, else_idx|None, closer_idx)],
+    whiles = [(header_addr, header_idx, closer_idx)], dowhiles = [(do_addr, do_idx,
+    close_addr, close_idx)], and switches = [(header_addr, header_idx, closer_idx)] for
+    INLINED switches (Phase 3) whose successors come from the `case N:` labels in the span."""
+    ifs, whiles, dowhiles, switches, stack = [], [], [], [], []
     for idx, (addr, _ind, text) in enumerate(lines):
         t = text.strip()
         if _RE_IF_OPEN.match(t):
@@ -728,7 +843,9 @@ def _match_constructs(lines):
                 ifs.append((top[1], top[2], top[3], idx))
             elif top[0] == 'while':
                 whiles.append((top[1], top[2], idx))
-    return ifs, whiles, dowhiles
+            elif top[0] == 'switch':
+                switches.append((top[1], top[2], idx))
+    return ifs, whiles, dowhiles, switches
 
 
 def _span_max_leader(lines, lo, hi, block_of):
@@ -767,7 +884,27 @@ def lower_struct_cfg(lines, leaders, orient=None):
     block_of = _block_of_fn(leaders)
     next_leader = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else EXIT)
                    for i in range(len(leaders))}
-    ifs, whiles, dowhiles = _match_constructs(lines)
+    ifs, whiles, dowhiles, switches = _match_constructs(lines)
+
+    # Phase-3 INLINED switches: the `switch (E) {` header block's successors are the
+    # case-target blocks (the inline `case N:` labels in its brace span), plus the
+    # selector-unmatched fall-through if there is no `default`. Same successor set the raw
+    # `case N: goto L_X` form gives lower_goto_cfg, so the inlined render stays CFG-faithful.
+    switch_edges = {}
+    for sh_addr, sh_idx, sh_close in switches:
+        sb = block_of(sh_addr)
+        tgts, has_default = set(), False
+        for k in range(sh_idx + 1, sh_close):
+            ct = lines[k][2].strip()
+            if _RE_CASE_LABEL.match(ct):
+                tgts.add(block_of(lines[k][0]))
+                if ct.startswith('default'):
+                    has_default = True
+        if tgts:
+            succ = set(tgts)
+            if not has_default:
+                succ.add(next_leader[sb])
+            switch_edges[sb] = succ
 
     header_edges, back_edges, tail_redirect, dowhile_edges = {}, {}, {}, {}
     # A loop body-TAIL block falls off the bottom `}` back to the loop HEADER, not to the
@@ -925,6 +1062,11 @@ def lower_struct_cfg(lines, leaders, orient=None):
 
     cfg = {}
     for L in leaders:
+        if L in switch_edges:
+            # Inlined switch header: successors are the case targets (+ no-default fall),
+            # not the per-block scan (whose only statement is the `switch (E) {` opener).
+            cfg[L] = frozenset(switch_edges[L] | back_edges.get(L, set()))
+            continue
         if L in header_edges:
             cfg[L] = frozenset(header_edges[L] | back_edges.get(L, set()))
             continue

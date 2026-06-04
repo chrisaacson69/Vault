@@ -1193,31 +1193,40 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     #     <else-body>
     #   L_Y:
     if STRUCTURE:
-        # Phase 1: fold loops first (while), then fold the if/else inside the bodies.
+        # Phase 1: fold loops first (while), then the if/else inside the bodies, and LAST
+        # inline switch case bodies (Phase 3). Switches go last so structure_lines folds the
+        # case bodies on clean goto lines BEFORE the case labels exist — else its if/else span
+        # can cross a `case:` boundary and swallow the next case (lexically wrong C the
+        # address-based gate would still accept).
         looped = structure_loops(state.lines, instructions)
-        structured = structure_lines(looped)
+        ifelse = structure_lines(looped)
+        structured = structure_switches(ifelse, instructions)
     else:
         structured = state.lines
 
-    # CFG epic Phase 1: GATE the structuring. structure_lines is not always
-    # CFG-preserving (it can mis-fold irreducible regions — e.g. it once nested
-    # num_to_ascii's recursive branch inside an `if`, returning garbage). So verify
-    # the structured form induces the SAME control-flow graph as the raw witness
-    # (== the bytecode) under the equivalence relation; if it does not, fall back to
-    # the honest goto form for this sub. This makes every fold safe-by-construction:
-    # fidelity rises only where it is provably correct, never where it would lie.
+    # CFG epic Phase 1: GATE the structuring. structure_lines / structure_loops /
+    # structure_switches are not always CFG-preserving (a fold can mis-route an irreducible
+    # region — structure_lines once nested num_to_ascii's recursive branch inside an `if`,
+    # returning garbage). So verify the structured form induces the SAME control-flow graph
+    # as the raw witness (== the bytecode); if not, fall back. PROGRESSIVE fallback: peel the
+    # most-speculative pass off and retry, so one bad fold (a loop OR a switch) never costs a
+    # sub its OTHER valid folds. Order: full -> drop switch -> drop loop+switch -> honest goto.
     structured_ungated, gated_fallback = structured, False
     if STRUCTURE and structured is not state.lines:
         import vm_cfg
         _bc, _leaders = vm_cfg.bytecode_cfg(instructions)
-        ok, _nr, _ns = vm_cfg.structured_equivalent(state.lines, structured, _leaders)
-        if not ok and looped is not state.lines:
-            # Two-tier fallback: the LOOP fold may be the only culprit. Retry with the
-            # if/else structuring ALONE (no loop fold) so a sub keeps its valid if/else
-            # folds instead of reverting wholesale to goto over a bad loop attempt.
+
+        def _ok(cand):
+            r, _nr, _ns = vm_cfg.structured_equivalent(state.lines, cand, _leaders)
+            return r
+
+        ok = _ok(structured)
+        if not ok and structured is not ifelse:          # the SWITCH inline may be the culprit
+            if _ok(ifelse):
+                structured, ok = ifelse, True
+        if not ok and looped is not state.lines:          # else the LOOP fold may be
             alt = structure_lines(state.lines)
-            ok_alt, _, _ = vm_cfg.structured_equivalent(state.lines, alt, _leaders)
-            if ok_alt:
+            if _ok(alt):
                 structured, ok = alt, True
         if not ok:
             structured = state.lines
@@ -1245,7 +1254,12 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
         text = simplify_expression(text)
         text = apply_var_names(text, var_names)   # var-walk: LAST, so arg1->output -> fief->output
         if text.endswith(':') and not text.startswith('//'):
-            print(f"{text}")
+            # `L_XXXX:` goto labels sit at column 0 (existing convention); Phase-3 inlined
+            # `case N:` / `default:` labels live INSIDE the switch, so keep their indent.
+            if re.match(r'(?:case -?\d+|default):$', text):
+                print(f"{'    ' * indent}{text}")
+            else:
+                print(f"{text}")
         elif text.startswith('//'):
             print(f"{'    ' * indent}{text}")
         else:
@@ -1660,6 +1674,143 @@ def _fold_while1(lines, cfg, leaders, loop, h):
         if i == hi:
             out.append((0, base_ind, "}"))
     return _emit_break_continue(out, leaders, loop, h, exit_e)
+
+
+def structure_switches(lines, instructions):
+    """CFG epic, Phase 3: INLINE switch case bodies into the braces.
+
+    Today a switch renders as `switch(E){ case N: goto L_T; ... }` with the bodies laid out
+    AFTER the closing brace. This moves each case body INSIDE the braces as a native C
+    `switch` (the VM's switch is first-class — `$D5`/`$D9`). For every FOLDABLE switch
+    (single-entry dispatch — see vm_cfg.switch_dispatches, the shared detector the gate also
+    uses) we:
+      * keep the `switch (E) {` opener, DROP the `case N: goto L_T;` dispatch lines + closer;
+      * walk the body lines in ADDRESS order (never reordered, so lexical == address order is
+        preserved -> the address-based gate stays faithful AND the emitted C is correct),
+        inserting `case N:` / `default:` labels before each case-target block; and
+      * move the closing `}` to just past the highest enclosed block.
+    Internal control (goto/return) is kept verbatim — a case body whose edge can't fall
+    through keeps an HONEST internal goto (Chris's option 1: formalize every single-entry
+    switch, bodies inside the braces, gotos local to the case). The merge stays inside when
+    it is address-interleaved with the cases (reached by goto); only a cleanly-trailing merge
+    could become `break` (left for a follow-up). The CFG gate is the backstop: a fold that is
+    not CFG-preserving reverts the whole sub to honest goto.
+    """
+    import vm_cfg
+    dispatches = {d['switch_addr']: d for d in vm_cfg.switch_dispatches(instructions)}
+    if not dispatches:
+        return lines
+
+    def _depth_delta(t):
+        return (1 if t.endswith('{') else 0) - (1 if t.startswith('}') else 0)
+
+    def _lex_foldable(d):
+        """A switch is lexically foldable only if every case target sits at brace-depth 0
+        within the switch body — i.e. NOT nested inside an if/while/do block that
+        structure_lines already folded around it (a `case:` jumping into a nested block is
+        legal-but-ugly Duff's-device C; we leave those as honest goto-cases). Also requires
+        the enclosed body to be brace-balanced so the wrap is well-formed."""
+        sa, targets, body_end = d['switch_addr'], {t for _k, t in d['key_targets']}, d['body_end']
+        # locate the switch opener, then skip the dispatch `case: goto` lines + closer `}`.
+        j = 0
+        while j < len(lines) and not (lines[j][0] == sa
+                                      and re.match(r'switch \(.+\) \{$', lines[j][2].strip())):
+            j += 1
+        if j >= len(lines):
+            return False
+        j += 1
+        while j < len(lines):
+            inner = lines[j][2].strip()
+            if lines[j][0] == sa and (vm_cfg._RE_SWITCH_CASE.match(inner) or inner == '}'):
+                closed = inner == '}'
+                j += 1
+                if closed:
+                    break
+                continue
+            return False
+        depth = 0
+        while j < len(lines):
+            baddr, _bi, btext = lines[j]
+            if baddr != 0 and body_end is not None and baddr >= body_end:
+                break
+            if baddr in targets and depth != 0:
+                return False
+            depth += _depth_delta(btext.strip())
+            j += 1
+        return depth == 0
+
+    dispatches = {sa: d for sa, d in dispatches.items() if _lex_foldable(d)}
+    if not dispatches:
+        return lines
+
+    # Per switch: target block -> the case-label lines to emit before it (key order).
+    def _labels_for(d):
+        by_target = {}
+        for key, tgt in d['key_targets']:
+            by_target.setdefault(tgt, []).append('default:' if key is None else f'case {key}:')
+        return by_target
+
+    case_target_addrs = set()      # leaders we attach a `case`/`default:` label to
+    out = []
+    i = 0
+    n = len(lines)
+    while i < n:
+        addr, ind, text = lines[i]
+        t = text.strip()
+        d = dispatches.get(addr) if re.match(r'switch \(.+\) \{$', t) else None
+        if d is None:
+            out.append(lines[i])
+            i += 1
+            continue
+        # Foldable switch opener. Emit it, then SKIP the dispatch case lines + the closer `}`
+        # (all share the switch instruction's addr and sit immediately after the opener).
+        out.append((addr, ind, text))
+        i += 1
+        while i < n:
+            inner = lines[i][2].strip()
+            if lines[i][0] == addr and (vm_cfg._RE_SWITCH_CASE.match(inner) or inner == '}'):
+                closed = inner == '}'
+                i += 1
+                if closed:
+                    break
+                continue
+            break
+        # Now inline the body lines: addr in (switch_addr, brace_close]. Insert case labels
+        # at the first line of each target block; +1 indent everything; close after the last.
+        by_target = _labels_for(d)
+        labeled = set()
+        body_end = d['body_end']
+        while i < n:
+            baddr, bind, btext = lines[i]
+            # Stop the switch body at the first line of the block PAST the territory (the
+            # `body_end` leader). None => the territory runs to the function end. Inserted
+            # scaffold carries addr 0 — keep consuming it as part of the current body.
+            if baddr != 0 and body_end is not None and baddr >= body_end:
+                break
+            if baddr in by_target and baddr not in labeled:
+                for lab in by_target[baddr]:
+                    out.append((baddr, ind, lab))
+                labeled.add(baddr)
+                case_target_addrs.add(baddr)
+            out.append((baddr, bind + 1, btext))
+            i += 1
+        out.append((0, ind, "}"))
+
+    # Drop the now-redundant `L_XXXX:` labels at case-target leaders: their only references
+    # were the `case N: goto L_X;` dispatch lines we removed. A label still targeted by a
+    # surviving `goto` (e.g. a shared merge inside a case body) is kept. Labels are scaffold,
+    # so removing an unreferenced one is CFG-neutral (the gate is the backstop).
+    referenced = set()
+    for _a, _ind, txt in out:
+        for m in re.finditer(r'goto L_([0-9A-Fa-f]{4})', txt):
+            referenced.add(int(m.group(1), 16))
+    pruned = []
+    for a, ind, txt in out:
+        lm = re.match(r'L_([0-9A-Fa-f]{4}):$', txt.strip())
+        if lm and a in case_target_addrs and int(lm.group(1), 16) not in referenced:
+            continue
+        pruned.append((a, ind, txt))
+    return pruned
 
 
 def structure_lines(lines):
