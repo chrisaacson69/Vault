@@ -1292,28 +1292,33 @@ def structure_loops(lines, instructions):
         return lines
     # Phase 2: a single header with MULTIPLE back edges = a top-test `while` whose body
     # has extra jump-back points -> each becomes a `continue` (the `_emit_break_continue`
-    # post-pass rewrites them). Requires a 2-way header (the loop condition); a switch
-    # header is a `while(1){ switch }` infinite loop, deferred. Nested/sibling loops
-    # (>1 distinct header) need inner-then-outer folding, also deferred.
+    # post-pass rewrites them). A 2-way header gives the loop condition; a non-2-way
+    # (switch) header is a `while(1){ switch }` infinite loop. Nested/sibling loops
+    # (>1 distinct header) need inner-then-outer folding, deferred.
     if len(bes) >= 2:
         headers = {hh for _u, hh in bes}
         if len(headers) != 1:
             return lines                   # nested / sibling loops -> deferred
         h = next(iter(headers))
-        if len(cfg[h]) != 2:
-            return lines                   # switch-header while(1) -> deferred
         loop = set()
         for ub, _h in bes:
             loop |= vm_cfg.natural_loop(ub, h, cfg)
-        return _fold_while(lines, cfg, leaders, loop, None, h, multi=True)
+        if len(cfg[h]) == 2:
+            return _fold_while(lines, cfg, leaders, loop, None, h, multi=True)
+        return _fold_while1(lines, cfg, leaders, loop, h)   # switch-header while(1)
     (u, h), = bes
     loop = vm_cfg.natural_loop(u, h, cfg)
     htest, utest = len(cfg[h]) == 2, len(cfg[u]) == 2
-    if u == h or (utest and not htest):
-        return _fold_dowhile(lines, cfg, leaders, loop, u, h)
-    if u != h and htest and not utest:
-        return _fold_while(lines, cfg, leaders, loop, u, h)
-    return lines                           # two-test / unclear -> Phase 2
+    out = lines
+    if u != h and htest and not utest:      # top-test  while (C) { body }
+        out = _fold_while(lines, cfg, leaders, loop, u, h)
+    elif (u == h and htest) or (utest and not htest):  # bottom-test do { } while (C);
+        out = _fold_dowhile(lines, cfg, leaders, loop, u, h)
+    # A 2-way fold that did not apply (or bailed) leaves `out is lines`; fall back to the
+    # infinite-loop shape (switch / no clean test header). _fold_while1 self-validates.
+    if out is lines:
+        out = _fold_while1(lines, cfg, leaders, loop, h)
+    return out
 
 
 def _fold_while(lines, cfg, leaders, loop, u, h, multi=False):
@@ -1463,6 +1468,54 @@ def _fold_dowhile(lines, cfg, leaders, loop, u, h):
             out.append((addr, ind, text))
         if i == hi:
             out.append((tail_addr, base_ind, f"}} while ({cond});"))
+    return _emit_break_continue(out, leaders, loop, h, exit_e)
+
+
+def _fold_while1(lines, cfg, leaders, loop, h):
+    """Infinite-loop fold -> `while (1) { body }`. For a loop whose header IS the loop
+    top with no clean 2-way condition exit (e.g. a `switch (poll_input())` menu loop):
+    control leaves only via break/return inside the body. Wraps the loop's listing span
+    in `while (1) { }` (the header switch + label STAY inside as the loop top); body
+    `goto L_h` -> continue, `goto L_exit` -> break. Switch CASE gotos keep their labels
+    (Phase 3 inlines case bodies). Requires the loop top to be the FIRST line of the
+    span (no rotation) and any interleaved foreign block to be pure-exit (a mid-body
+    return/break that reads correctly in place)."""
+    import vm_cfg
+    block_of = vm_cfg._block_of_fn(leaders)
+    if not _loop_single_entry(cfg, loop, h, None):
+        return lines
+    # A CONDITIONAL back edge (a loop block that branches EITHER back to the header OR
+    # out of the loop, `if (C) goto L_h`) is a do-while / two-test CONDITION, not an
+    # infinite loop. Folding it as while(1) would turn the tail into `if (C) continue;`
+    # whose fall-through then wrongly LOOPS instead of exiting. Leave those to the
+    # do-while folder / Phase-1c — here, bail.
+    for n in loop:
+        if (h in cfg[n] and len(cfg[n]) == 2
+                and any(s is not vm_cfg.EXIT and s not in loop for s in cfg[n])):
+            return lines
+    loop_idxs = [i for i, (a, _i, _t) in enumerate(lines) if block_of(a) in loop]
+    if not loop_idxs:
+        return lines
+    lo, hi = min(loop_idxs), max(loop_idxs)
+    if block_of(lines[lo][0]) != h:           # loop top must open the span (no hoist)
+        return lines
+    if any(not _is_pure_exit_block(block_of(lines[i][0]), cfg, loop)
+           for i in range(lo, hi + 1) if block_of(lines[i][0]) not in loop):
+        return lines
+    # exit_e for break emission: the block right after the loop if it's an exit target,
+    # else the single exit (if exactly one), else leave breaks as gotos (EXIT sentinel).
+    exits = {s for n in loop for s in cfg[n] if s is not vm_cfg.EXIT and s not in loop}
+    after = block_of(lines[hi + 1][0]) if hi + 1 < len(lines) else None
+    exit_e = after if after in exits else (next(iter(exits)) if len(exits) == 1 else vm_cfg.EXIT)
+
+    base_ind = lines[lo][1] or 1
+    out = []
+    for i, (addr, ind, text) in enumerate(lines):
+        if i == lo:
+            out.append((h, base_ind, "while (1) {"))
+        out.append((addr, ind + 1, text) if lo <= i <= hi else (addr, ind, text))
+        if i == hi:
+            out.append((0, base_ind, "}"))
     return _emit_break_continue(out, leaders, loop, h, exit_e)
 
 

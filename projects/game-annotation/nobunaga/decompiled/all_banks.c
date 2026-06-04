@@ -5856,68 +5856,70 @@ word effect_assign(word gold_cost) {
     cursor_row = 20;    // PRG $06C2F
     field_idx = 0;    // PRG $06C31
     units_delta = 0;    // PRG $06C32
+    while (1) {    // PRG $06C33
 L_p06C33:
-    switch (poll_input()) {    // PRG $06C36 -> bank15 $D14E
-        case 1: goto L_p06D4B;    // PRG $06C36
-        case 2: goto L_p06D5D;    // PRG $06C36
-        case 16: goto L_p06C92;    // PRG $06C36
-        case 32: goto L_p06CFA;    // PRG $06C36
-        case 64: goto L_p06C53;    // PRG $06C36
-        case 128: goto L_p06C7B;    // PRG $06C36
-        default: goto L_p06C33;    // PRG $06C36
-    }    // PRG $06C36
+        switch (poll_input()) {    // PRG $06C36 -> bank15 $D14E
+            case 1: goto L_p06D4B;    // PRG $06C36
+            case 2: goto L_p06D5D;    // PRG $06C36
+            case 16: goto L_p06C92;    // PRG $06C36
+            case 32: goto L_p06CFA;    // PRG $06C36
+            case 64: goto L_p06C53;    // PRG $06C36
+            case 128: goto L_p06C7B;    // PRG $06C36
+            default: goto L_p06C33;    // PRG $06C36
+        }    // PRG $06C36
 L_p06C53:
-    read_frame_timer(0);    // PRG $06C54 -> bank15 $D29D
-    cursor_row = (cursor_row - 1);    // PRG $06C5A
-    field_idx = (field_idx - 1);    // PRG $06C5D
-    if (((field_idx - 1) < 0)) {    // PRG $06C60
-    field_idx = 4;    // PRG $06C64
+        read_frame_timer(0);    // PRG $06C54 -> bank15 $D29D
+        cursor_row = (cursor_row - 1);    // PRG $06C5A
+        field_idx = (field_idx - 1);    // PRG $06C5D
+        if (((field_idx - 1) < 0)) {    // PRG $06C60
+        field_idx = 4;    // PRG $06C64
 L_p06C67:
-    cursor_row = 24;    // PRG $06C67
-    }
+        cursor_row = 24;    // PRG $06C67
+        }
 L_p06C68:
-    ui_helper_cc7b(4, cursor_row);    // PRG $06C6A -> bank15 $CC7B
-    read_frame_timer(2);    // PRG $06C6F -> bank15 $D29D
-    delay_loop(2);    // PRG $06C74 -> bank15 $D73E
-    goto L_p06C33;    // PRG $06C78
+        ui_helper_cc7b(4, cursor_row);    // PRG $06C6A -> bank15 $CC7B
+        read_frame_timer(2);    // PRG $06C6F -> bank15 $D29D
+        delay_loop(2);    // PRG $06C74 -> bank15 $D73E
+        continue;    // PRG $06C78
 L_p06C7B:
-    read_frame_timer(0);    // PRG $06C7C -> bank15 $D29D
-    cursor_row = (cursor_row + 1);    // PRG $06C82
-    field_idx = (field_idx + 1);    // PRG $06C85
-    if (!(((field_idx + 1) <= 5))) goto L_p06C68;    // PRG $06C88
-    field_idx = 0;    // PRG $06C8C
-    goto L_p06C67;    // PRG $06C8F
+        read_frame_timer(0);    // PRG $06C7C -> bank15 $D29D
+        cursor_row = (cursor_row + 1);    // PRG $06C82
+        field_idx = (field_idx + 1);    // PRG $06C85
+        if (!(((field_idx + 1) <= 5))) goto L_p06C68;    // PRG $06C88
+        field_idx = 0;    // PRG $06C8C
+        goto L_p06C67;    // PRG $06C8F
 L_p06C92:
-    if (!(units_delta)) goto L_p06C33;    // PRG $06C93
-    if ((field_idx != 2)) goto L_p06CB2;    // PRG $06C99
-    if ((*(word*)(((field_idx << 1) + &edit_buffer)) < ((*(word*)(arms_field_ptr) / 50) + 20))) {    // PRG $06CAF
+        if (!(units_delta)) continue;    // PRG $06C93
+        if ((field_idx != 2)) goto L_p06CB2;    // PRG $06C99
+        if ((*(word*)(((field_idx << 1) + &edit_buffer)) < ((*(word*)(arms_field_ptr) / 50) + 20))) {    // PRG $06CAF
 L_p06CB2:
-    units_delta = (units_delta - 1);    // PRG $06CB4
-    *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) + 1);    // PRG $06CC0
-    }
+        units_delta = (units_delta - 1);    // PRG $06CB4
+        *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) + 1);    // PRG $06CC0
+        }
 L_p06CC1:
-    read_frame_timer(0);    // PRG $06CC2 -> bank15 $D29D
-    ui_helper_cc7b(14, cursor_row);    // PRG $06CC8 -> bank15 $CC7B
-    ui_helper_d134(0xBE59, *(word*)(((field_idx << 1) + &edit_buffer)));    // PRG $06CD9 -> bank15 $D134
+        read_frame_timer(0);    // PRG $06CC2 -> bank15 $D29D
+        ui_helper_cc7b(14, cursor_row);    // PRG $06CC8 -> bank15 $CC7B
+        ui_helper_d134(0xBE59, *(word*)(((field_idx << 1) + &edit_buffer)));    // PRG $06CD9 -> bank15 $D134
 L_p06CE8:
-    ui_helper_cc7b(14, 25);    // PRG $06CE0 -> bank15 $CC7B
-    ui_helper_d134(0xBE5D, units_delta);    // PRG $06CE8 -> bank15 $D134
-    ui_helper_cc7b(4, cursor_row);    // PRG $06CEE -> bank15 $CC7B
-    read_frame_timer(2);    // PRG $06CF3 -> bank15 $D29D
-    goto L_p06C33;    // PRG $06CF7
+        ui_helper_cc7b(14, 25);    // PRG $06CE0 -> bank15 $CC7B
+        ui_helper_d134(0xBE5D, units_delta);    // PRG $06CE8 -> bank15 $D134
+        ui_helper_cc7b(4, cursor_row);    // PRG $06CEE -> bank15 $CC7B
+        read_frame_timer(2);    // PRG $06CF3 -> bank15 $D29D
+        continue;    // PRG $06CF7
 L_p06CFA:
-    if (field_idx) goto L_p06D02;    // PRG $06CFB
-    goto L_p06D03;    // PRG $06CFF
+        if (field_idx) goto L_p06D02;    // PRG $06CFB
+        goto L_p06D03;    // PRG $06CFF
 L_p06D02:
 L_p06D03:
-    if (!((*(word*)(((field_idx << 1) + &edit_buffer)) > 0))) goto L_p06C33;    // PRG $06D0F
-    units_delta = (units_delta + 1);    // PRG $06D14
-    *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) - 1);    // PRG $06D20
-    read_frame_timer(0);    // PRG $06D22 -> bank15 $D29D
-    ui_helper_cc7b(14, cursor_row);    // PRG $06D28 -> bank15 $CC7B
-    ui_helper_d134(0xBE61, *(word*)(((field_idx << 1) + &edit_buffer)));    // PRG $06D39 -> bank15 $D134
-    ui_helper_cc7b(14, 25);    // PRG $06D40 -> bank15 $CC7B
-    goto L_p06CE8;    // PRG $06D48
+        if (!((*(word*)(((field_idx << 1) + &edit_buffer)) > 0))) continue;    // PRG $06D0F
+        units_delta = (units_delta + 1);    // PRG $06D14
+        *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) - 1);    // PRG $06D20
+        read_frame_timer(0);    // PRG $06D22 -> bank15 $D29D
+        ui_helper_cc7b(14, cursor_row);    // PRG $06D28 -> bank15 $CC7B
+        ui_helper_d134(0xBE61, *(word*)(((field_idx << 1) + &edit_buffer)));    // PRG $06D39 -> bank15 $D134
+        ui_helper_cc7b(14, 25);    // PRG $06D40 -> bank15 $CC7B
+        goto L_p06CE8;    // PRG $06D48
+    }
 L_p06D4B:
     read_frame_timer(0);    // PRG $06D4C -> bank15 $D29D
     ui_helper_cc89();    // PRG $06D50 -> bank15 $CC89

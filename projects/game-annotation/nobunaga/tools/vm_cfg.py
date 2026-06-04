@@ -529,6 +529,13 @@ def lower_struct_cfg(lines, leaders, orient=None):
     ifs, whiles, dowhiles = _match_constructs(lines)
 
     header_edges, back_edges, tail_redirect, dowhile_edges = {}, {}, {}, {}
+    # A loop body-TAIL block falls off the bottom `}` back to the loop HEADER, not to the
+    # block after the loop. For a rotated `while(C)` next_leader[tail] already IS the
+    # header (the test sits right after the body by address), so this was invisible; for
+    # `while(1)` (tail at the end, header at the top) it matters — modelling the fall as
+    # next_leader fabricated a spurious exit edge that let a bad fold pass. fall_of()
+    # routes a tail's fall to the header.
+    tail_fall_to_header = {}
     while_bodies = []   # (header_block, frozenset(body_leaders)) per while construct
 
     def span_after(lo, hi, header_block):
@@ -603,18 +610,31 @@ def lower_struct_cfg(lines, leaders, orient=None):
         # listing — NOT necessarily the leader right after the header by address.
         #   while(C){body}: header -> { body_entry, exit }; body_tail -> header
         hb = block_of(header_addr)
-        body_entry = first_real_block(h_idx + 1, close_idx)
         body_tail = last_real_block(h_idx + 1, close_idx)
         exit_blk = first_real_block(close_idx + 1, len(lines))
         if exit_blk is None:
             exit_blk = EXIT
+        _wcond = _RE_WHILE_OPEN.match(lines[h_idx][2].strip())
+        wcond = _wcond.group(1) if _wcond else ''
+        if wcond == '1':
+            # while(1) infinite loop: the opener adds NO condition edge — hb IS the loop
+            # top, a normal body block (the switch / first statement) whose own edges the
+            # per-block scan supplies. Register only the loop CONTEXT (break->exit,
+            # continue->hb) and the fall-off back edge; hb stays in the body-leader set.
+            bls = _loop_body_leaders(lines, h_idx, close_idx, block_of, leaders)
+            if body_tail is not None and body_tail != hb and tail_falls_off(h_idx + 1, close_idx):
+                back_edges.setdefault(body_tail, set()).add(hb)
+                tail_fall_to_header[body_tail] = hb
+            loop_meta.append((close_idx - h_idx, hb, exit_blk, frozenset(bls)))
+            continue
+        body_entry = first_real_block(h_idx + 1, close_idx)
         if body_entry is None:          # degenerate empty body: header just gates exit
             body_entry = exit_blk
         header_edges[hb] = {body_entry, exit_blk}
-        _wcond = _RE_WHILE_OPEN.match(lines[h_idx][2].strip())
-        _record_orient(orient, hb, _wcond.group(1) if _wcond else '', body_entry, exit_blk)
+        _record_orient(orient, hb, wcond, body_entry, exit_blk)
         if body_tail is not None and body_tail != hb and tail_falls_off(h_idx + 1, close_idx):
             back_edges.setdefault(body_tail, set()).add(hb)   # body tail loops back
+            tail_fall_to_header[body_tail] = hb
         # Body leaders (incl. label-only / folded ones): a rotated while hoists the
         # bottom test above the body, so any block OUTSIDE the loop whose address-next
         # leader lands INSIDE the body must instead enter via the header (the dropped
@@ -666,6 +686,9 @@ def lower_struct_cfg(lines, leaders, orient=None):
             continue
         succ = None
         sw_targets, sw_has_default, is_switch = set(), False, False
+        # The block's fall-through (not-taken / no-terminator) edge: the loop header if L
+        # is a body tail, else the address-next leader. (goto/jmp TARGETS are unaffected.)
+        fall_thru = tail_fall_to_header.get(L, next_leader[L])
         for t in blocks[L]:
             mc = _RE_SWITCH_CASE.match(t)
             if mc:
@@ -678,9 +701,9 @@ def lower_struct_cfg(lines, leaders, orient=None):
             if cl == 'goto':
                 succ = {block_of(tgt)}
             elif cl == 'ifgoto':
-                succ = {block_of(tgt), next_leader[L]}
+                succ = {block_of(tgt), fall_thru}
                 mcnd = re.match(r'if \((.+)\) goto', t)
-                _record_orient(orient, L, mcnd.group(1), block_of(tgt), next_leader[L])
+                _record_orient(orient, L, mcnd.group(1), block_of(tgt), fall_thru)
             elif cl in ('break', 'continue', 'ifbreak', 'ifcontinue'):
                 ctx = loop_ctx.get(L)
                 if ctx is not None:
@@ -689,27 +712,27 @@ def lower_struct_cfg(lines, leaders, orient=None):
                     if cl in ('break', 'continue'):
                         succ = {jmp}
                     else:
-                        succ = {jmp, next_leader[L]}
+                        succ = {jmp, fall_thru}
                         kw = 'break' if cl == 'ifbreak' else 'continue'
                         mcnd = re.match(rf'if \((.+)\) {kw}', t)
-                        _record_orient(orient, L, mcnd.group(1), jmp, next_leader[L])
+                        _record_orient(orient, L, mcnd.group(1), jmp, fall_thru)
             elif cl == 'return':
                 succ = {EXIT}
             elif cl == 'ifreturn':
-                succ = {EXIT, next_leader[L]}
+                succ = {EXIT, fall_thru}
                 mcnd = re.match(r'if \((.+)\) return', t)
-                _record_orient(orient, L, mcnd.group(1), EXIT, next_leader[L])
+                _record_orient(orient, L, mcnd.group(1), EXIT, fall_thru)
         if is_switch:
             succ = {block_of(x) for x in sw_targets}
             if not sw_has_default:
-                succ.add(next_leader[L])
+                succ.add(fall_thru)
         if succ is None:
-            # fall-through: if-else then-tail -> merge, else the address-next leader —
-            # but a block falling into a HOISTED while body must enter via the header
-            # (you can't fall into the middle of a rotated loop).
+            # fall-through: if-else then-tail -> merge, else the (tail-aware) fall — but a
+            # block falling into a HOISTED while body must enter via the header (you can't
+            # fall into the middle of a rotated loop).
             fall = tail_redirect.get(L)
             if fall is None:
-                fall = next_leader[L]
+                fall = fall_thru
                 for hb2, bls in while_bodies:
                     if fall in bls and L not in bls and L != hb2:
                         fall = hb2

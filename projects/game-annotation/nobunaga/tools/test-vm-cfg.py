@@ -215,6 +215,46 @@ def main():
             bad, _, _ = vm_cfg.structured_equivalent(raw, dropped, leaders)
             check(f"b{bank}/${sub:04X}: mid-loop return deletion REJECTED", not bad)
 
+    # Phase 2 (while(1) soundness / the body-tail fall model): a loop with a CONDITIONAL
+    # back edge `if (C) goto L_h` is a do-while, NOT an infinite loop. Mis-folding it as
+    # `while (1) { ...; if (C) continue; }` makes the fall-through (the do-while EXIT) wrongly
+    # loop. The gate must REJECT this — it did NOT before the body-tail fall fix (the tail's
+    # fall was modelled as next_leader, fabricating the exit edge and matching the bytecode).
+    def _wrap_as_bad_while1(raw):
+        """Wrap a backward `if (C) goto L_h ... L_h:` loop as while(1) with the tail
+        rendered `if (C) continue;` (the unsound fold). Returns the mutated lines or None."""
+        labels = {}
+        for i, (a, ind, t) in enumerate(raw):
+            m = re.match(r'L_([0-9A-Fa-f]{4}):$', t.strip())
+            if m:
+                labels[m.group(1).upper()] = i
+        for i, (a, ind, t) in enumerate(raw):
+            m = re.match(r'if \((.+)\) goto L_([0-9A-Fa-f]{4});$', t.strip())
+            if m and labels.get(m.group(2).upper(), i) < i:   # backward = a loop back edge
+                lo, cond = labels[m.group(2).upper()], m.group(1)
+                out = []
+                for k, (aa, ii, tt) in enumerate(raw):
+                    if k == lo:
+                        out.append((0, ind, "while (1) {"))
+                    if k == i:
+                        out.append((aa, ii + 1, f"if ({cond}) continue;"))
+                        out.append((0, ind, "}"))
+                    elif lo <= k <= i:
+                        out.append((aa, ii + 1, tt))
+                    else:
+                        out.append((aa, ii, tt))
+                return out
+        return None
+
+    for bank, sub in [(2, 0x830B)]:                 # consume_daily_battle_rice: do-while
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        bad = _wrap_as_bad_while1(cap['raw'])
+        check(f"b{bank}/${sub:04X}: built a bad while(1)", bad is not None)
+        if bad is not None:
+            rej, _, _ = vm_cfg.structured_equivalent(cap['raw'], bad, leaders)
+            check(f"b{bank}/${sub:04X}: cond-back-edge as while(1) REJECTED", not rej)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 

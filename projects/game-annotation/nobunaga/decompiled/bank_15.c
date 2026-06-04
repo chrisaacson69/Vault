@@ -95,13 +95,11 @@ word fill_bytes_ca97(word arg1, word arg2, word arg3) {
 // (body @ $CAB5)
 
 word strcmp(word arg1, word arg2) {
-    goto L_CAC7;    // $CAB5
-L_CAB8:
-    if (!(*(byte*)(arg1))) return 0;    // $CABA
-    arg1 = (arg1 + 1);    // $CAC1
-    arg2 = (arg2 + 1);    // $CAC5
-L_CAC7:
-    if ((*(byte*)(arg1) == *(byte*)(arg2))) goto L_CAB8;    // $CACE
+    while ((*(byte*)(arg1) == *(byte*)(arg2))) {    // $CAC7
+        if (!(*(byte*)(arg1))) return 0;    // $CABA
+        arg1 = (arg1 + 1);    // $CAC1
+        arg2 = (arg2 + 1);    // $CAC5
+    }
     return (*(byte*)(arg1) - *(byte*)(arg2));    // $CAD8
 }
 
@@ -122,13 +120,11 @@ word strcpy(word arg1, word arg2) {
 // (body @ $CAF5)
 
 word memchr(word arg1, word arg2, word arg3) {
-    goto L_CB0B;    // $CAF5
-L_CAF8:
-    if ((!((*(byte*)(arg1) != *(byte*)&arg2)))) return arg1;    // $CB00
-    arg1 = (arg1 + 1);    // $CB07
-    arg3 = (arg3 - 1);    // $CB0A
-L_CB0B:
-    if (arg3) goto L_CAF8;    // $CB0C
+    while (arg3) {    // $CB0B
+        if ((!((*(byte*)(arg1) != *(byte*)&arg2)))) return arg1;    // $CB00
+        arg1 = (arg1 + 1);    // $CB07
+        arg3 = (arg3 - 1);    // $CB0A
+    }
     return 0;    // $CB10
 }
 

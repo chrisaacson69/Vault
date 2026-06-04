@@ -2744,68 +2744,70 @@ word effect_assign(word gold_cost) {
     cursor_row = 20;    // $AC2F
     field_idx = 0;    // $AC31
     units_delta = 0;    // $AC32
+    while (1) {    // $AC33
 L_AC33:
-    switch (poll_input()) {    // $AC36
-        case 1: goto L_AD4B;    // $AC36
-        case 2: goto L_AD5D;    // $AC36
-        case 16: goto L_AC92;    // $AC36
-        case 32: goto L_ACFA;    // $AC36
-        case 64: goto L_AC53;    // $AC36
-        case 128: goto L_AC7B;    // $AC36
-        default: goto L_AC33;    // $AC36
-    }    // $AC36
+        switch (poll_input()) {    // $AC36
+            case 1: goto L_AD4B;    // $AC36
+            case 2: goto L_AD5D;    // $AC36
+            case 16: goto L_AC92;    // $AC36
+            case 32: goto L_ACFA;    // $AC36
+            case 64: goto L_AC53;    // $AC36
+            case 128: goto L_AC7B;    // $AC36
+            default: goto L_AC33;    // $AC36
+        }    // $AC36
 L_AC53:
-    read_frame_timer(0);    // $AC54
-    cursor_row = (cursor_row - 1);    // $AC5A
-    field_idx = (field_idx - 1);    // $AC5D
-    if (((field_idx - 1) < 0)) {    // $AC60
-    field_idx = 4;    // $AC64
+        read_frame_timer(0);    // $AC54
+        cursor_row = (cursor_row - 1);    // $AC5A
+        field_idx = (field_idx - 1);    // $AC5D
+        if (((field_idx - 1) < 0)) {    // $AC60
+        field_idx = 4;    // $AC64
 L_AC67:
-    cursor_row = 24;    // $AC67
-    }
+        cursor_row = 24;    // $AC67
+        }
 L_AC68:
-    ui_helper_cc7b(4, cursor_row);    // $AC6A
-    read_frame_timer(2);    // $AC6F
-    delay_loop(2);    // $AC74
-    goto L_AC33;    // $AC78
+        ui_helper_cc7b(4, cursor_row);    // $AC6A
+        read_frame_timer(2);    // $AC6F
+        delay_loop(2);    // $AC74
+        continue;    // $AC78
 L_AC7B:
-    read_frame_timer(0);    // $AC7C
-    cursor_row = (cursor_row + 1);    // $AC82
-    field_idx = (field_idx + 1);    // $AC85
-    if (!(((field_idx + 1) <= 5))) goto L_AC68;    // $AC88
-    field_idx = 0;    // $AC8C
-    goto L_AC67;    // $AC8F
+        read_frame_timer(0);    // $AC7C
+        cursor_row = (cursor_row + 1);    // $AC82
+        field_idx = (field_idx + 1);    // $AC85
+        if (!(((field_idx + 1) <= 5))) goto L_AC68;    // $AC88
+        field_idx = 0;    // $AC8C
+        goto L_AC67;    // $AC8F
 L_AC92:
-    if (!(units_delta)) goto L_AC33;    // $AC93
-    if ((field_idx != 2)) goto L_ACB2;    // $AC99
-    if ((*(word*)(((field_idx << 1) + &edit_buffer)) < ((*(word*)(arms_field_ptr) / 50) + 20))) {    // $ACAF
+        if (!(units_delta)) continue;    // $AC93
+        if ((field_idx != 2)) goto L_ACB2;    // $AC99
+        if ((*(word*)(((field_idx << 1) + &edit_buffer)) < ((*(word*)(arms_field_ptr) / 50) + 20))) {    // $ACAF
 L_ACB2:
-    units_delta = (units_delta - 1);    // $ACB4
-    *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) + 1);    // $ACC0
-    }
+        units_delta = (units_delta - 1);    // $ACB4
+        *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) + 1);    // $ACC0
+        }
 L_ACC1:
-    read_frame_timer(0);    // $ACC2
-    ui_helper_cc7b(14, cursor_row);    // $ACC8
-    ui_helper_d134(0xBE59, *(word*)(((field_idx << 1) + &edit_buffer)));    // $ACD9
+        read_frame_timer(0);    // $ACC2
+        ui_helper_cc7b(14, cursor_row);    // $ACC8
+        ui_helper_d134(0xBE59, *(word*)(((field_idx << 1) + &edit_buffer)));    // $ACD9
 L_ACE8:
-    ui_helper_cc7b(14, 25);    // $ACE0
-    ui_helper_d134(0xBE5D, units_delta);    // $ACE8
-    ui_helper_cc7b(4, cursor_row);    // $ACEE
-    read_frame_timer(2);    // $ACF3
-    goto L_AC33;    // $ACF7
+        ui_helper_cc7b(14, 25);    // $ACE0
+        ui_helper_d134(0xBE5D, units_delta);    // $ACE8
+        ui_helper_cc7b(4, cursor_row);    // $ACEE
+        read_frame_timer(2);    // $ACF3
+        continue;    // $ACF7
 L_ACFA:
-    if (field_idx) goto L_AD02;    // $ACFB
-    goto L_AD03;    // $ACFF
+        if (field_idx) goto L_AD02;    // $ACFB
+        goto L_AD03;    // $ACFF
 L_AD02:
 L_AD03:
-    if (!((*(word*)(((field_idx << 1) + &edit_buffer)) > 0))) goto L_AC33;    // $AD0F
-    units_delta = (units_delta + 1);    // $AD14
-    *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) - 1);    // $AD20
-    read_frame_timer(0);    // $AD22
-    ui_helper_cc7b(14, cursor_row);    // $AD28
-    ui_helper_d134(0xBE61, *(word*)(((field_idx << 1) + &edit_buffer)));    // $AD39
-    ui_helper_cc7b(14, 25);    // $AD40
-    goto L_ACE8;    // $AD48
+        if (!((*(word*)(((field_idx << 1) + &edit_buffer)) > 0))) continue;    // $AD0F
+        units_delta = (units_delta + 1);    // $AD14
+        *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) - 1);    // $AD20
+        read_frame_timer(0);    // $AD22
+        ui_helper_cc7b(14, cursor_row);    // $AD28
+        ui_helper_d134(0xBE61, *(word*)(((field_idx << 1) + &edit_buffer)));    // $AD39
+        ui_helper_cc7b(14, 25);    // $AD40
+        goto L_ACE8;    // $AD48
+    }
 L_AD4B:
     read_frame_timer(0);    // $AD4C
     ui_helper_cc89();    // $AD50
