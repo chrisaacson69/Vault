@@ -658,7 +658,13 @@ def lower_struct_cfg(lines, leaders, orient=None):
         _dcond = _RE_DOWHILE_CLOSE.match(lines[close_idx][2].strip())
         _record_orient(orient, ub, _dcond.group(1) if _dcond else '', hb, exit_blk)
         dbls = _loop_body_leaders(lines, _do_idx, close_idx, block_of, leaders)
-        dbls.discard(hb)
+        # KEEP the header block hb in the loop context (unlike the top-test `while`, whose
+        # header is special-cased via header_edges). A two-test do-while puts its exit-test
+        # `if (C) break;` INSIDE the header block; that block is lowered by the per-statement
+        # scan, so it needs loop_ctx[hb] = (hb, exit) for the break to resolve to the loop
+        # exit (else the header loses its exit edge -> CFG divergence). Harmless for plain
+        # do-whiles (header has no break/continue) and for self-loops (hb == ub is special-
+        # cased via dowhile_edges before the scan).
         loop_meta.append((close_idx - _do_idx, hb, exit_blk, frozenset(dbls)))
 
     # Map each body block to its INNERMOST enclosing loop (largest span first so the

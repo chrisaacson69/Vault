@@ -283,6 +283,31 @@ def main():
         bad, _, _ = vm_cfg.structured_equivalent(raw, swapped, leaders)
         check(f"b{bank}/${sub:04X}: if-continue->break (header->exit) REJECTED", not bad)
 
+    # Phase 2 step 3 (two-test "both" loops): header AND tail both 2-way -> a do-while
+    # whose HEADER block carries an exit-test `if (C) break;` (the top guard) while the
+    # tail carries the `} while (C);` (the bottom test). Folded as a do-while; the header's
+    # break is the new case — it lives in the do-HEADER block, which the lowering models
+    # only because loop_ctx now KEEPS the header (the vm_cfg fix). The relation must
+    # (a) accept the genuine fold and (b) reject the header break turned into a continue:
+    # that routes header->header (an infinite loop) instead of header->exit, dropping the
+    # header's exit edge — exactly the CFG divergence the loop_ctx-header fix repairs.
+    # $D351 (ui_helper_d351) carries TWO header breaks (proves multiple header exits
+    # resolve). $822A is the archetype with a HOISTED pre-loop flushed call before `do {`.
+    for bank, sub in [(2, 0x822A), (15, 0xD3A7), (15, 0xD351)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        has_do = any(t.strip() == 'do {' for _a, _i, t in struct)
+        has_hdr_break = any(re.match(r'if \(.+\) break;$', t.strip()) for _a, _i, t in struct)
+        check(f"b{bank}/${sub:04X}: folded two-test do-while + header break", has_do and has_hdr_break)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: two-test fold ~= raw", ok)
+
+        swapped = [(a, i, re.sub(r'\bbreak;', 'continue;', t)) for a, i, t in struct]
+        bad, _, _ = vm_cfg.structured_equivalent(raw, swapped, leaders)
+        check(f"b{bank}/${sub:04X}: header break->continue (exit->header) REJECTED", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 

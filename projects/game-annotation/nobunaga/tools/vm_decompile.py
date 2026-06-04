@@ -1314,6 +1314,13 @@ def structure_loops(lines, instructions):
         out = _fold_while(lines, cfg, leaders, loop, u, h)
     elif (u == h and htest) or (utest and not htest):  # bottom-test do { } while (C);
         out = _fold_dowhile(lines, cfg, leaders, loop, u, h)
+    elif utest and htest and u != h:         # two-test "both" loop -> do { } while (C);
+        # Phase 2 step 3: header AND tail are both 2-way. The tail's conditional back
+        # edge is the do-while condition; the header's extra exit-test is an in-loop
+        # `goto L_exit` that `_fold_dowhile`'s `_emit_break_continue` post-pass rewrites
+        # to `if (C) break;`. No new rendering — same do-while machinery, and the CFG
+        # gate is the backstop (a mis-fold reverts the whole sub to honest goto).
+        out = _fold_dowhile(lines, cfg, leaders, loop, u, h)
     # A 2-way fold that did not apply (or bailed) leaves `out is lines`; fall back to the
     # infinite-loop shape (switch / no clean test header). _fold_while1 self-validates.
     if out is lines:
@@ -1447,23 +1454,34 @@ def _fold_dowhile(lines, cfg, leaders, loop, u, h):
     lo, hi = min(loop_idxs), max(loop_idxs)
     if hi != idx_tail:                       # the test must be the LAST loop line
         return lines
-    # Interleaved non-loop lines inside the do-body span are OK only if they form
-    # pure-exit blocks (a `return`/`break`/`goto` that only leaves the loop). UNLIKE the
-    # top-test `while` (whose interleaved block IS the loop exit and gets relocated past
-    # `}`), a do-while's interleaved block is unrelated exit-path code reached by a goto.
-    # We must NOT relocate it: the lowering's merge/fall computations are ADDRESS-based
-    # (lexical order is assumed to track address order), so moving a block to an
-    # address-inconsistent lexical slot breaks any if/else that merges to it. Left in
-    # place it renders inside the do-body, reached by an honest backward `goto` (which
-    # structure_lines won't mis-fold — Patterns A/B are forward-only); the CFG stays
-    # exact and the gate is the backstop. Genuinely non-exit foreign code -> bail.
-    if any(not _is_pure_exit_block(block_of(lines[i][0]), cfg, loop)
-           for i in range(lo, hi + 1) if block_of(lines[i][0]) not in loop):
-        return lines
+    # Interleaved non-loop lines inside the do-body span — classify each:
+    #  * pre-loop FLUSHED call (addr < header h, block not in loop, non-leader): a
+    #    discarded-return CALL the decompiler emitted AFTER `L_h:` but tagged with its
+    #    earlier, pre-header address (e.g. `read_frame_timer(1)` atop a button-wait
+    #    loop like prompt_yes_no $822A / ui_helper_d3a7). It belongs BEFORE the loop and
+    #    runs ONCE -> HOIST it out to before `do {`. This is the SAFE relocation direction
+    #    (to an address-CONSISTENT slot, below h, beside the other pre-loop lines) — the
+    #    opposite of the $8C88 move-to-a-LATER-slot that broke if/else merges. Control
+    #    lines keep their address position, so an in-span line with addr < h is always a
+    #    flushed side-effect; bail defensively if it looks control-shaped.
+    #  * pure-exit block: leave in place (rendered inside, reached by a backward goto).
+    #  * anything else: genuinely foreign control -> bail (gate is the final backstop).
+    hoist = set()
+    for i in range(lo, hi + 1):
+        a = lines[i][0]
+        if not a or block_of(a) in loop:
+            continue
+        t = lines[i][2].strip()
+        if a < h and a not in leaders and not re.search(r'\b(goto|if|while|do|return)\b|^[}{]|:$', t):
+            hoist.add(i)
+        elif _is_pure_exit_block(block_of(a), cfg, loop):
+            continue
+        else:
+            return lines
 
     tail_addr, _ti, tail_text = lines[idx_tail]
     _k, _tgt, cond = _parse_branch_line(tail_text)   # taken -> h is continue => while(cond)
-    drop = {idx_tail}
+    drop = {idx_tail} | hoist
     for i in range(lo, hi + 1):
         if lines[i][2].strip() == f"L_{h:04X}:":
             drop.add(i)                      # header label -> replaced by `do {`
@@ -1472,6 +1490,8 @@ def _fold_dowhile(lines, cfg, leaders, loop, u, h):
     out = []
     for i, (addr, ind, text) in enumerate(lines):
         if i == lo:
+            for hj in sorted(hoist):         # pre-loop flushed calls, hoisted before `do {`
+                out.append((lines[hj][0], base_ind, lines[hj][2]))
             out.append((h, base_ind, "do {"))
         if i not in drop and lo <= i <= hi:
             out.append((addr, ind + 1, text))

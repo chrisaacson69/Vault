@@ -803,12 +803,12 @@ L_D345:
 
 word ui_helper_d351(word arg1) {
     redraw_window(arg1);    // $D357
-L_D360:
     read_frame_timer(1);    // $D35C
-    local11 = wait_button_edge();    // $D363
-    if (!((wait_button_edge() != 64))) goto L_D378;    // $D367
-    if ((local11 == 128)) goto L_D378;    // $D36F
-    if ((local11 != 2)) goto L_D360;    // $D375
+    do {    // $D360
+        local11 = wait_button_edge();    // $D363
+        if (!((wait_button_edge() != 64))) break;    // $D367
+        if ((local11 == 128)) break;    // $D36F
+    } while ((local11 != 2));    // $D375
 L_D378:
     read_frame_timer(0);    // $D379
     if ((local11 == 64)) {    // $D381
@@ -831,11 +831,11 @@ L_D3A1:
 
 word ui_helper_d3a7(void) {
     redraw_window(msg_y_n_f695);    // $D3AF
-L_D3B8:
     read_frame_timer(1);    // $D3B4
-    local11 = wait_button_edge();    // $D3BB
-    if (!((wait_button_edge() != 64))) goto L_D3CA;    // $D3BF
-    if ((local11 != 128)) goto L_D3B8;    // $D3C7
+    do {    // $D3B8
+        local11 = wait_button_edge();    // $D3BB
+        if (!((wait_button_edge() != 64))) break;    // $D3BF
+    } while ((local11 != 128));    // $D3C7
 L_D3CA:
     read_frame_timer(0);    // $D3CB
     if ((local11 == 64)) {    // $D3D3
@@ -2106,18 +2106,18 @@ word find_record_9e3c(word arg1) {
     local10 = ui_cursor_row;    // $E568
     syscall16_sram_wrap(4, ((selected_record_idx_9e3c * 34) + find_record_data_9e3c), &record_buf, 34);    // $E57B
     rec_cursor = &record_buf;    // $E582
-L_E584:
-    if ((*(byte*)(rec_cursor) != 255)) goto L_E595;    // $E58B
+    do {    // $E584
+        if ((*(byte*)(rec_cursor) != 255)) goto L_E595;    // $E58B
 L_E58E:
 L_E594:
-    return ui_helper_cc7b(local11, local10);    // $E594
+        return ui_helper_cc7b(local11, local10);    // $E594
 L_E595:
-    rec_cursor = (rec_cursor + 1);    // $E598
-    ui_window_col = *(byte*)(((rec_cursor + 1) - 1));    // $E59C
-    rec_cursor = (rec_cursor + 1);    // $E5A2
-    ui_cursor_row = *(byte*)(((rec_cursor + 1) - 1));    // $E5A6
-    rec_cursor = (rec_cursor + 1);    // $E5AC
-    if (!((*(byte*)(((rec_cursor + 1) - 1)) == arg1))) goto L_E584;    // $E5B2
+        rec_cursor = (rec_cursor + 1);    // $E598
+        ui_window_col = *(byte*)(((rec_cursor + 1) - 1));    // $E59C
+        rec_cursor = (rec_cursor + 1);    // $E5A2
+        ui_cursor_row = *(byte*)(((rec_cursor + 1) - 1));    // $E5A6
+        rec_cursor = (rec_cursor + 1);    // $E5AC
+    } while (!((*(byte*)(((rec_cursor + 1) - 1)) == arg1)));    // $E5B2
     ppu_blit_from_bank_wrap(ui_window_col, ui_cursor_row, min_word((ui_window_col + 8), 29), ui_cursor_row, ((((selected_record_idx_9e3c * 0x01C0) + ((ui_cursor_row + -4) * 28)) + ui_window_col) + find_record_data_8d5a), 4);    // $E5E6
     draw_window_f706(arg1);    // $E5EB
     goto L_E58E;    // $E5EF
