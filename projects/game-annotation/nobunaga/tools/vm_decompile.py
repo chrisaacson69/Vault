@@ -1447,7 +1447,18 @@ def _fold_dowhile(lines, cfg, leaders, loop, u, h):
     lo, hi = min(loop_idxs), max(loop_idxs)
     if hi != idx_tail:                       # the test must be the LAST loop line
         return lines
-    if any(block_of(lines[i][0]) not in loop for i in range(lo, hi + 1)):
+    # Interleaved non-loop lines inside the do-body span are OK only if they form
+    # pure-exit blocks (a `return`/`break`/`goto` that only leaves the loop). UNLIKE the
+    # top-test `while` (whose interleaved block IS the loop exit and gets relocated past
+    # `}`), a do-while's interleaved block is unrelated exit-path code reached by a goto.
+    # We must NOT relocate it: the lowering's merge/fall computations are ADDRESS-based
+    # (lexical order is assumed to track address order), so moving a block to an
+    # address-inconsistent lexical slot breaks any if/else that merges to it. Left in
+    # place it renders inside the do-body, reached by an honest backward `goto` (which
+    # structure_lines won't mis-fold — Patterns A/B are forward-only); the CFG stays
+    # exact and the gate is the backstop. Genuinely non-exit foreign code -> bail.
+    if any(not _is_pure_exit_block(block_of(lines[i][0]), cfg, loop)
+           for i in range(lo, hi + 1) if block_of(lines[i][0]) not in loop):
         return lines
 
     tail_addr, _ti, tail_text = lines[idx_tail]

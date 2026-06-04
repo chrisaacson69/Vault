@@ -879,53 +879,53 @@ word draw_unit_roster_columns(word arg1) {
     local11 = fief_to_daimyo_record_addr(get_battle_side_province(arg1));    // $8C7D
     local9 = unit_record_ptr(arg1);    // $8C83
     ui_cursor_row = 6;    // $8C85
-L_8C88:
-    ui_window_col = ((arg1 + 1) * 12);    // $8C8C
-    switch (ui_cursor_row) {    // $8C92
-        case 65530: goto L_8CB1;    // $8C92
-        case 65531: goto L_8CB1;    // $8C92
-        case 65532: goto L_8CB1;    // $8C92
-        case 65533: goto L_8CB1;    // $8C92
-        case 65534: goto L_8CB1;    // $8C92
-        case 65535: goto L_8CB1;    // $8C92
-        case 65536: goto L_8CE7;    // $8C92
-        case 65537: goto L_8CE7;    // $8C92
-        case 65538: goto L_8CE7;    // $8C92
-        case 65539: goto L_8CF4;    // $8C92
-        case 65540: goto L_8CF4;    // $8C92
-        case 65541: goto L_8CF4;    // $8C92
-        default: goto L_8D12;    // $8C92
-    }    // $8C92
+    do {    // $8C88
+        ui_window_col = ((arg1 + 1) * 12);    // $8C8C
+        switch (ui_cursor_row) {    // $8C92
+            case 65530: goto L_8CB1;    // $8C92
+            case 65531: goto L_8CB1;    // $8C92
+            case 65532: goto L_8CB1;    // $8C92
+            case 65533: goto L_8CB1;    // $8C92
+            case 65534: goto L_8CB1;    // $8C92
+            case 65535: goto L_8CB1;    // $8C92
+            case 65536: goto L_8CE7;    // $8C92
+            case 65537: goto L_8CE7;    // $8C92
+            case 65538: goto L_8CE7;    // $8C92
+            case 65539: goto L_8CF4;    // $8C92
+            case 65540: goto L_8CF4;    // $8C92
+            case 65541: goto L_8CF4;    // $8C92
+            default: goto L_8D12;    // $8C92
+        }    // $8C92
 L_8CB1:
-    if (!(is_no_province_selected())) goto L_8CBB;    // $8CB4
-    if (!(arg1)) goto L_8CE1;    // $8CB8
+        if (!(is_no_province_selected())) goto L_8CBB;    // $8CB4
+        if (!(arg1)) goto L_8CE1;    // $8CB8
 L_8CBB:
-    local11 = (local11 + 1);    // $8CBD
+        local11 = (local11 + 1);    // $8CBD
 L_8CC4:
-    ui_helper_d134(0xB591, *(byte*)(((local11 + 1) - 1)));    // $8CC4
-    goto L_8D12;    // $8CC8
+        ui_helper_d134(0xB591, *(byte*)(((local11 + 1) - 1)));    // $8CC4
+        goto L_8D12;    // $8CC8
 L_8CCB:
-    if (is_no_province_selected()) goto L_8D38;    // $8CCE
-    active_province_idx_copy = ui_helper_d77e();    // $8CD4
-    build_blit_fief_tile_block(12, 20);    // $8CDA
-    goto L_8D38;    // $8CDE
+        if (is_no_province_selected()) goto L_8D38;    // $8CCE
+        active_province_idx_copy = ui_helper_d77e();    // $8CD4
+        build_blit_fief_tile_block(12, 20);    // $8CDA
+        goto L_8D38;    // $8CDE
 L_8CE1:
-    goto L_8D0E;    // $8CE4
+        goto L_8D0E;    // $8CE4
 L_8CE7:
-    local9 = (local9 + 2);    // $8CE9
-    goto L_8CC4;    // $8CF1
+        local9 = (local9 + 2);    // $8CE9
+        goto L_8CC4;    // $8CF1
 L_8CF4:
-    if (!(is_no_province_selected())) goto L_8CFE;    // $8CF7
-    if (!(arg1)) goto L_8D0B;    // $8CFB
+        if (!(is_no_province_selected())) goto L_8CFE;    // $8CF7
+        if (!(arg1)) goto L_8D0B;    // $8CFB
 L_8CFE:
-    local10 = (local10 + 2);    // $8D00
-    goto L_8CC4;    // $8D08
+        local10 = (local10 + 2);    // $8D00
+        goto L_8CC4;    // $8D08
 L_8D0B:
 L_8D0E:
 L_8D12:
-    redraw_window(0xB5A2);    // $8D0E
-    ui_cursor_row = (ui_cursor_row + 1);    // $8D16
-    if (((unsigned)ui_cursor_row >= (unsigned)18)) goto L_8C88;    // $8D1F
+        redraw_window(0xB5A2);    // $8D0E
+        ui_cursor_row = (ui_cursor_row + 1);    // $8D16
+    } while (((unsigned)ui_cursor_row >= (unsigned)18));    // $8D1F
     if (!(arg1)) goto L_8CCB;    // $8D23
     active_province_idx_copy = ui_helper_d772(battle_defending_province);    // $8D2D
 L_8D38:

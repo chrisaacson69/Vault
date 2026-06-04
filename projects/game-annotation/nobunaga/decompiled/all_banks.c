@@ -7658,53 +7658,53 @@ word draw_unit_roster_columns(word arg1) {
     local11 = fief_to_daimyo_record_addr(get_battle_side_province(arg1));    // PRG $08C7D -> bank15 $D7DA
     local9 = unit_record_ptr(arg1);    // PRG $08C83 -> bank2 $827E
     ui_cursor_row = 6;    // PRG $08C85
-L_p08C88:
-    ui_window_col = ((arg1 + 1) * 12);    // PRG $08C8C
-    switch (ui_cursor_row) {    // PRG $08C92
-        case 65530: goto L_p08CB1;    // PRG $08C92
-        case 65531: goto L_p08CB1;    // PRG $08C92
-        case 65532: goto L_p08CB1;    // PRG $08C92
-        case 65533: goto L_p08CB1;    // PRG $08C92
-        case 65534: goto L_p08CB1;    // PRG $08C92
-        case 65535: goto L_p08CB1;    // PRG $08C92
-        case 65536: goto L_p08CE7;    // PRG $08C92
-        case 65537: goto L_p08CE7;    // PRG $08C92
-        case 65538: goto L_p08CE7;    // PRG $08C92
-        case 65539: goto L_p08CF4;    // PRG $08C92
-        case 65540: goto L_p08CF4;    // PRG $08C92
-        case 65541: goto L_p08CF4;    // PRG $08C92
-        default: goto L_p08D12;    // PRG $08C92
-    }    // PRG $08C92
+    do {    // PRG $08C88
+        ui_window_col = ((arg1 + 1) * 12);    // PRG $08C8C
+        switch (ui_cursor_row) {    // PRG $08C92
+            case 65530: goto L_p08CB1;    // PRG $08C92
+            case 65531: goto L_p08CB1;    // PRG $08C92
+            case 65532: goto L_p08CB1;    // PRG $08C92
+            case 65533: goto L_p08CB1;    // PRG $08C92
+            case 65534: goto L_p08CB1;    // PRG $08C92
+            case 65535: goto L_p08CB1;    // PRG $08C92
+            case 65536: goto L_p08CE7;    // PRG $08C92
+            case 65537: goto L_p08CE7;    // PRG $08C92
+            case 65538: goto L_p08CE7;    // PRG $08C92
+            case 65539: goto L_p08CF4;    // PRG $08C92
+            case 65540: goto L_p08CF4;    // PRG $08C92
+            case 65541: goto L_p08CF4;    // PRG $08C92
+            default: goto L_p08D12;    // PRG $08C92
+        }    // PRG $08C92
 L_p08CB1:
-    if (!(is_no_province_selected())) goto L_p08CBB;    // PRG $08CB4 -> bank2 $82FF
-    if (!(arg1)) goto L_p08CE1;    // PRG $08CB8
+        if (!(is_no_province_selected())) goto L_p08CBB;    // PRG $08CB4 -> bank2 $82FF
+        if (!(arg1)) goto L_p08CE1;    // PRG $08CB8
 L_p08CBB:
-    local11 = (local11 + 1);    // PRG $08CBD
+        local11 = (local11 + 1);    // PRG $08CBD
 L_p08CC4:
-    ui_helper_d134(0xB591, *(byte*)(((local11 + 1) - 1)));    // PRG $08CC4 -> bank15 $D134
-    goto L_p08D12;    // PRG $08CC8
+        ui_helper_d134(0xB591, *(byte*)(((local11 + 1) - 1)));    // PRG $08CC4 -> bank15 $D134
+        goto L_p08D12;    // PRG $08CC8
 L_p08CCB:
-    if (is_no_province_selected()) goto L_p08D38;    // PRG $08CCE -> bank2 $82FF
-    active_province_idx_copy = ui_helper_d77e();    // PRG $08CD4 -> bank15 $D77E
-    build_blit_fief_tile_block(12, 20);    // PRG $08CDA -> bank2 $813C
-    goto L_p08D38;    // PRG $08CDE
+        if (is_no_province_selected()) goto L_p08D38;    // PRG $08CCE -> bank2 $82FF
+        active_province_idx_copy = ui_helper_d77e();    // PRG $08CD4 -> bank15 $D77E
+        build_blit_fief_tile_block(12, 20);    // PRG $08CDA -> bank2 $813C
+        goto L_p08D38;    // PRG $08CDE
 L_p08CE1:
-    goto L_p08D0E;    // PRG $08CE4
+        goto L_p08D0E;    // PRG $08CE4
 L_p08CE7:
-    local9 = (local9 + 2);    // PRG $08CE9
-    goto L_p08CC4;    // PRG $08CF1
+        local9 = (local9 + 2);    // PRG $08CE9
+        goto L_p08CC4;    // PRG $08CF1
 L_p08CF4:
-    if (!(is_no_province_selected())) goto L_p08CFE;    // PRG $08CF7 -> bank2 $82FF
-    if (!(arg1)) goto L_p08D0B;    // PRG $08CFB
+        if (!(is_no_province_selected())) goto L_p08CFE;    // PRG $08CF7 -> bank2 $82FF
+        if (!(arg1)) goto L_p08D0B;    // PRG $08CFB
 L_p08CFE:
-    local10 = (local10 + 2);    // PRG $08D00
-    goto L_p08CC4;    // PRG $08D08
+        local10 = (local10 + 2);    // PRG $08D00
+        goto L_p08CC4;    // PRG $08D08
 L_p08D0B:
 L_p08D0E:
 L_p08D12:
-    redraw_window(0xB5A2);    // PRG $08D0E -> bank15 $CEC4
-    ui_cursor_row = (ui_cursor_row + 1);    // PRG $08D16
-    if (((unsigned)ui_cursor_row >= (unsigned)18)) goto L_p08C88;    // PRG $08D1F
+        redraw_window(0xB5A2);    // PRG $08D0E -> bank15 $CEC4
+        ui_cursor_row = (ui_cursor_row + 1);    // PRG $08D16
+    } while (((unsigned)ui_cursor_row >= (unsigned)18));    // PRG $08D1F
     if (!(arg1)) goto L_p08CCB;    // PRG $08D23
     active_province_idx_copy = ui_helper_d772(battle_defending_province);    // PRG $08D2D -> bank15 $D772
 L_p08D38:

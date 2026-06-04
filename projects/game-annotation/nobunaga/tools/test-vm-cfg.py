@@ -104,7 +104,12 @@ def main():
     # Phase 1b (do-while): bottom-test loops + self-loops -> do { body } while (C);.
     # Corrupting the `} while (C);` tail into a plain `}` deletes the back edge — the
     # relation MUST reject it (else a do-while could silently lose its loop).
-    for bank, sub in [(2, 0x885E), (1, 0x8B8F), (15, 0xCD20)]:
+    # $8C61 (draw_unit_roster_columns, loop header $8C88) is the INTERLEAVED-PURE-EXIT
+    # variant: a do-while whose listing span contains an unrelated exit-path block left
+    # IN PLACE (not relocated). Its `fold ~= raw` check is the regression guard for that
+    # handling — it FAILED before the in-place fix (a relocated block broke the
+    # address-based if/else merge computation).
+    for bank, sub in [(2, 0x885E), (1, 0x8B8F), (15, 0xCD20), (2, 0x8C61)]:
         cap = _grab(bank, sub)
         _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
         raw, struct = cap['raw'], cap['structured']
