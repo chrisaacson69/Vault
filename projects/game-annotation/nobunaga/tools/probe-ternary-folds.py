@@ -48,9 +48,12 @@ def call2(bank, body, a1, a2):
 
 
 # (label, bank, body_addr, reference fn over (a,b)). body_addr = the sub's `// (body @ $X)`.
+# min/max pin the simple-diamond polarity; is_tile_in_bounds pins the short-circuit BOOLEAN
+# region fold (a wrong && / || / negation in the recovered formula changes the truth table).
 FIXTURES = [
     ("min_word", 15, 0xCB63, min),
     ("max_word", 15, 0xCB74, max),
+    ("is_tile_in_bounds", 2, 0x8F16, lambda x, y: 1 if (x <= 10 and y <= 4) else 0),
 ]
 PAIRS = [(3, 6), (6, 3), (9, 2), (2, 9), (5, 5), (0, 7), (7, 0)]
 

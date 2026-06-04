@@ -162,12 +162,7 @@ L_826A:
 // (body @ $8276)
 
 word relations_rng_predicate(word arg1, word arg2) {
-    if (((unsigned)rng_mod(100) < (unsigned)relations_matrix_get(ui_helper_d772(arg1), ui_helper_d772(arg2), 1))) goto L_82AA;    // $8290
-    if (((unsigned)rng_mod(100) < (unsigned)relations_matrix_get(arg1, arg2, 0))) goto L_82AA;    // $82A3
-    goto L_82AB;    // $82A7
-L_82AA:
-L_82AB:
-    return 1;    // $82AB
+    return (((unsigned)rng_mod(100) < (unsigned)relations_matrix_get(ui_helper_d772(arg1), ui_helper_d772(arg2), 1)) || ((unsigned)rng_mod(100) < (unsigned)relations_matrix_get(arg1, arg2, 0)));    // $82AB
 }
 
 // $82AC helper_82AC
@@ -1205,15 +1200,7 @@ L_93CF:
 // (body @ $93E2)
 
 word ai_relations_and_low_drive_skip_gate(word candidate_fief) {
-    if (((unsigned)relations_matrix_get(candidate_fief, selected_province_idx, 0) > (unsigned)rng_mod(100))) goto L_9412;    // $93F4
-    if (!(((unsigned)relations_matrix_get(ui_helper_d772(candidate_fief), ui_helper_d77e(), 1) > (unsigned)rng_mod(100)))) goto L_941D;    // $940F
-L_9412:
-    if ((*(byte*)((selected_province_daimyo_record() + 2)) < 50)) goto L_9421;    // $941A
-L_941D:
-    goto L_9422;    // $941E
-L_9421:
-L_9422:
-    return 1;    // $9422
+    return ((((unsigned)relations_matrix_get(candidate_fief, selected_province_idx, 0) > (unsigned)rng_mod(100)) && (*(byte*)((selected_province_daimyo_record() + 2)) < 50)) || (!(((unsigned)relations_matrix_get(candidate_fief, selected_province_idx, 0) > (unsigned)rng_mod(100))) && (((unsigned)relations_matrix_get(ui_helper_d772(candidate_fief), ui_helper_d77e(), 1) > (unsigned)rng_mod(100)) && (*(byte*)((selected_province_daimyo_record() + 2)) < 50))));    // $9422
 }
 
 // $9423 pick_ai_attack_target_fief

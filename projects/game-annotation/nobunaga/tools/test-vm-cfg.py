@@ -332,6 +332,25 @@ def main():
         bad = vm_cfg.lower_goto_cfg(cap['raw'], sorted(cfg_raw)) == cfg_raw
         check(f"b{bank}/${sub:04X}: witness != UNcontracted cfg (contraction load-bearing)", not bad)
 
+    # Short-circuit BOOLEAN regions (K>=2 conditions -> `c1 && c2 … ? a : b`): same contract
+    # contract that the simple diamond gets, but over a multi-block region. Same checks:
+    # region detected, a &&/|| compound emitted, witness ~= CONTRACTED and != UNcontracted.
+    # (is_tile_in_bounds $8F11 = a 2-cond &&; $9714 = the 4-cond combat-arena bounds check.)
+    for bank, sub in [(2, 0x8F11), (2, 0x970A)]:
+        cap = _grab(bank, sub)
+        ins = cap['instructions']
+        regions = vm_cfg.boolean_regions(ins)
+        check(f"b{bank}/${sub:04X}: boolean region detected", len(regions) >= 1)
+        has_bool = any(re.search(r'&&|\|\|', t) for _a, _i, t in cap['structured'])
+        check(f"b{bank}/${sub:04X}: emitted a &&/|| compound", has_bool)
+
+        cfg_c, leaders_c = vm_cfg.bytecode_cfg(ins)
+        cfg_raw, _lr = vm_cfg._bytecode_cfg_raw(ins)
+        ok_c = vm_cfg.lower_goto_cfg(cap['raw'], leaders_c) == cfg_c
+        check(f"b{bank}/${sub:04X}: witness ~= CONTRACTED bytecode cfg", ok_c)
+        bad = vm_cfg.lower_goto_cfg(cap['raw'], sorted(cfg_raw)) == cfg_raw
+        check(f"b{bank}/${sub:04X}: witness != UNcontracted cfg (contraction load-bearing)", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 

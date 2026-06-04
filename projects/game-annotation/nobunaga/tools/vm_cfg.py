@@ -169,18 +169,20 @@ def bytecode_cfg(instructions):
     Both sides use the SAME detector (`value_diamonds`), so they can't disagree."""
     cfg, leaders = _bytecode_cfg_raw(instructions)
     diamonds = value_diamonds(instructions)
-    if not diamonds:
+    regions = boolean_regions(instructions)
+    if not diamonds and not regions:
         return cfg, leaders
     block_of = _block_of_fn(leaders)
     cfg = dict(cfg)
     removed = set()
-    for d in diamonds:
-        H = block_of(d['head'])
-        cfg[H] = frozenset({d['merge']})     # head flows straight to the merge (expression)
-        removed.add(d['taken_block'])
-        removed.add(d['fall_block'])
-    for r in removed:
-        cfg.pop(r, None)
+    for d in diamonds:                       # 1-condition: head -> merge, drop both arms
+        cfg[block_of(d['head'])] = frozenset({d['merge']})
+        removed |= {d['taken_block'], d['fall_block']}
+    for r in regions:                        # K-condition short-circuit: entry -> merge
+        cfg[r['entry']] = frozenset({r['merge']})
+        removed |= (r['cond'] | r['value_blocks']) - {r['entry']}
+    for b in removed:
+        cfg.pop(b, None)
     return cfg, [L for L in leaders if L not in removed]
 
 
@@ -266,6 +268,138 @@ def value_diamonds(instructions):
             'fall_jump_addr': jmp_f, 'taken_jump_addr': jmp_t,
         })
     return out
+
+
+def _neg(c):
+    """Negate a C boolean condition (reusing the decompiler's invert idiom inline)."""
+    c = c.strip()
+    if c.startswith('!(') and c.endswith(')'):
+        return c[2:-1]
+    return f"!({c})"
+
+
+def _band(x, y):
+    if x == 'F' or y == 'F': return 'F'
+    if x == 'T': return y
+    if y == 'T': return x
+    return f"({x} && {y})"
+
+
+def _bor(x, y):
+    if x == 'T' or y == 'T': return 'T'
+    if x == 'F': return y
+    if y == 'F': return x
+    return f"({x} || {y})"
+
+
+def _combine_bool(c, T, F):
+    """The boolean for a 2-way block: (c && reach-via-true) || (!c && reach-via-false),
+    simplified for the &&/|| chain cases so a clean chain yields `c1 && c2 && …`."""
+    if T == 'T' and F == 'F': return c
+    if T == 'F' and F == 'T': return _neg(c)
+    if F == 'F': return _band(c, T)            # c && T
+    if T == 'T': return _bor(c, F)             # c || F
+    if T == 'F': return _band(_neg(c), F)      # !c && F
+    if F == 'T': return _bor(_neg(c), T)       # !c || T
+    return _bor(_band(c, T), _band(_neg(c), F))
+
+
+def boolean_regions(instructions):
+    """Short-circuit boolean regions: K>=2 conditional blocks + exactly 2 value-load blocks
+    converging at one merge → `regA = <boolean of the K conditions> ? vA : vB` (&&/|| chains;
+    e.g. is_tile_in_bounds = (x<=10 && y<=4)). The 1-condition case is a plain value-diamond
+    (`value_diamonds`); THIS handles the multi-predecessor compound conditions those leave
+    behind (a value arm reached from several branch points = a short-circuit exit). Same
+    soundness guards: a single region entry, every branch stays in the region, both value
+    arms are reached only from inside it, and forward layout (entry = min, merge = max) so
+    the decoder can fold in address order. Returns region dicts for the decoder + the gate."""
+    cfg, leaders = _bytecode_cfg_raw(instructions)
+    block_of = _block_of_fn(leaders)
+    bmap = {L: [] for L in leaders}
+    for ins in instructions:
+        bmap[block_of(ins['addr'])].append(ins)
+    preds = _predecessors(cfg)
+    regions, used = [], set()
+    for M in leaders:
+        if M in used:
+            continue
+        varms = [p for p in preds.get(M, ()) if _value_arm(bmap.get(p, []))[0]]
+        if len(varms) != 2:
+            continue
+        va, vb = varms
+        # BFS back from the two value arms through 2-way conditional blocks only.
+        cond, stack, ok = set(), [], True
+        for v in (va, vb):
+            stack += [p for p in preds.get(v, ()) if p not in (va, vb)]
+        while stack:
+            b = stack.pop()
+            if b in cond:
+                continue
+            blk = bmap.get(b, [])
+            if not blk or blk[-1]['mnemonic'] not in ('branch_z_abs', 'branch_nz_abs') or len(cfg[b]) != 2:
+                ok = False
+                break
+            cond.add(b)
+            stack += [p for p in preds.get(b, ()) if p not in cond and p not in (va, vb)]
+        if not ok or len(cond) < 2:
+            continue
+        nodes = cond | {va, vb}
+        if not all(all(s in nodes for s in cfg[c]) for c in cond):
+            continue                                  # a branch escapes the region
+        if any(p not in cond for p in preds.get(va, ())) or any(p not in cond for p in preds.get(vb, ())):
+            continue                                  # a value arm is reached from outside
+        entries = [c for c in cond if not (preds.get(c, set()) & cond)]
+        if len(entries) != 1:
+            continue                                  # not a single-entry region
+        entry = entries[0]
+        members = list(cond) + [va, vb]
+        if not (entry == min(members) and M > max(members)):
+            continue                                  # forward layout only
+        cinfo = {}
+        for c in cond:
+            br = bmap[c][-1]
+            tgt = block_of(_target(br))
+            fall = next(s for s in cfg[c] if s != tgt)
+            # branch_z (JUMPF) jumps when cond FALSE; branch_nz (JUMPT) when TRUE.
+            tsucc, fsucc = (fall, tgt) if br['mnemonic'] == 'branch_z_abs' else (tgt, fall)
+            cinfo[c] = {'branch_addr': br['addr'], 'true': tsucc, 'false': fsucc}
+        # Of the two value blocks, exactly one JUMPS to the merge (the lower-addr one,
+        # jumping over the other) and one FALLS into it — the decoder captures the jumper's
+        # value at its jump and the faller's value on reaching the merge.
+        jmp_a, jmp_b = _value_arm(bmap[va])[1], _value_arm(bmap[vb])[1]
+        if (jmp_a is None) == (jmp_b is None):
+            continue                                  # need exactly one jumper + one faller
+        jumper, faller = (va, vb) if jmp_a is not None else (vb, va)
+        used.add(M)
+        regions.append({
+            'entry': entry, 'merge': M, 'cond': cond, 'cinfo': cinfo,
+            'va': va, 'vb': vb, 'value_blocks': {va, vb},
+            'cond_branch_addrs': {cinfo[c]['branch_addr']: c for c in cond},
+            'jumper': jumper, 'faller': faller,
+            'jump_addr': _value_arm(bmap[jumper])[1],
+        })
+    return regions
+
+
+def recover_bool_formula(region, cond_expr, target):
+    """C boolean expression for reaching value block `target` from the region entry, given
+    each cond block's rendered condition (cond_expr[block]). Pure recursion over the branch
+    DAG with algebraic simplification (`_combine_bool`) — a clean &&/|| chain collapses to
+    `c1 && c2 && …` / `c1 || c2 || …`."""
+    cinfo, vblocks, entry = region['cinfo'], region['value_blocks'], region['entry']
+    memo = {}
+
+    def rec(block):
+        if block == target:
+            return 'T'
+        if block in vblocks:
+            return 'F'
+        if block in memo:
+            return memo[block]
+        ci = cinfo[block]
+        memo[block] = r = _combine_bool(cond_expr[block], rec(ci['true']), rec(ci['false']))
+        return r
+    return rec(entry)
 
 
 def unknown_control_mnemonics(instructions):

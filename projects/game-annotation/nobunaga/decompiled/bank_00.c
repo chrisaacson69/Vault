@@ -643,13 +643,7 @@ word is_selected_province_ai_state_5(void) {
 // (body @ $8C23)
 
 word cur_flag_and_selected_ai_state5(void) {
-    if (!(get_6da2_cur())) goto L_8C2F;    // $8C26
-    if (is_selected_province_ai_state_5()) goto L_8C33;    // $8C2C
-L_8C2F:
-    goto L_8C34;    // $8C30
-L_8C33:
-L_8C34:
-    return 1;    // $8C34
+    return (get_6da2_cur() && is_selected_province_ai_state_5());    // $8C34
 }
 
 // $8C35 relations_matrix_cell_addr
@@ -1758,22 +1752,7 @@ L_9D95:
 
 word ai_event_eligibility_check_loyalty_variant(word fief) {
     battle_defending_province = fief;    // $9DA9
-    if (square_over_2025_probability_roll(*(word*)(((fief * 26) + 0x700D)))) goto L_9DE9;    // $9DBA
-    if (square_over_2025_probability_roll((100 - fief_tax_rate[fief]))) goto L_9DE9;    // $9DCD
-    if (square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(fief) + 4)))) goto L_9DE9;    // $9DDC
-    if (rng_mod(0x03E8)) goto L_9E1B;    // $9DE6
-L_9DE9:
-    if (!((*(word*)(((fief * 26) + 0x7009)) > 0))) goto L_9E1B;    // $9DF4
-    if (!((*(word*)(((fief * 26) + 0x7011)) > 2))) goto L_9E1B;    // $9E02
-    if (tax_helper_db12()) goto L_9E1B;    // $9E08
-    if (province_state_is_FF(fief)) goto L_9E1B;    // $9E10
-    if (rng_mod(4)) {    // $9E18
-L_9E1B:
-    } else {
-    }
-L_9E20:
-    return 1;    // $9E20
-    }
+    return !(((square_over_2025_probability_roll(*(word*)(((fief * 26) + 0x700D))) && (!((*(word*)(((fief * 26) + 0x7009)) > 0)) || (!((*(word*)(((fief * 26) + 0x7011)) > 2)) || (tax_helper_db12() || (province_state_is_FF(fief) || rng_mod(4)))))) || (!(square_over_2025_probability_roll(*(word*)(((fief * 26) + 0x700D)))) && ((square_over_2025_probability_roll((100 - fief_tax_rate[fief])) && (!((*(word*)(((fief * 26) + 0x7009)) > 0)) || (!((*(word*)(((fief * 26) + 0x7011)) > 2)) || (tax_helper_db12() || (province_state_is_FF(fief) || rng_mod(4)))))) || (!(square_over_2025_probability_roll((100 - fief_tax_rate[fief]))) && ((square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(fief) + 4))) && (!((*(word*)(((fief * 26) + 0x7009)) > 0)) || (!((*(word*)(((fief * 26) + 0x7011)) > 2)) || (tax_helper_db12() || (province_state_is_FF(fief) || rng_mod(4)))))) || (!(square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(fief) + 4)))) && (rng_mod(0x03E8) || (!((*(word*)(((fief * 26) + 0x7009)) > 0)) || (!((*(word*)(((fief * 26) + 0x7011)) > 2)) || (tax_helper_db12() || (province_state_is_FF(fief) || rng_mod(4)))))))))))));    // $9E20
 }
 
 // $9E21 ai_event_eligibility_check_field18_variant

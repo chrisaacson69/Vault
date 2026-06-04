@@ -1020,13 +1020,7 @@ word ai_attacker_outstrengths_defender(void) {
 // (body @ $8F16)
 
 word is_tile_in_bounds(word arg1, word arg2) {
-    if (!(((unsigned)arg1 <= (unsigned)10))) goto L_8F22;    // $8F19
-    if (((unsigned)arg2 <= (unsigned)4)) goto L_8F26;    // $8F1F
-L_8F22:
-    goto L_8F27;    // $8F23
-L_8F26:
-L_8F27:
-    return 1;    // $8F27
+    return (((unsigned)arg1 <= (unsigned)10) && ((unsigned)arg2 <= (unsigned)4));    // $8F27
 }
 
 // $8F28 validate_dir_code_and_dispatch
@@ -1061,13 +1055,7 @@ word clear_unit_combat_flags(word from_fief, word to_fief) {
 // (body @ $8F7E)
 
 word test_unit_type_present_flag(word arg1, word arg2) {
-    if (!(((unsigned)arg2 < (unsigned)5))) goto L_8F91;    // $8F81
-    if ((((unsigned)war_side_state_flag[arg1] >> arg2) & 1)) goto L_8F95;    // $8F8E
-L_8F91:
-    goto L_8F96;    // $8F92
-L_8F95:
-L_8F96:
-    return 1;    // $8F96
+    return (((unsigned)arg2 < (unsigned)5) && (((unsigned)war_side_state_flag[arg1] >> arg2) & 1));    // $8F96
 }
 
 // $8F97 clear_unit_status_flag_set_field_200
@@ -1128,12 +1116,7 @@ word test_map_cell_blocked_c2(word arg1, word arg2) {
 
 word is_battleside_province_aistate5_and_not_resting(word side) {
     fief = get_battle_side_province(side);    // $903A
-    if ((get_province_ai_state(fief) != 5)) goto L_9056;    // $9042
-    if (rest_turns_remaining[ui_helper_d772(fief)]) goto L_9056;    // $904F
-    goto L_9057;    // $9053
-L_9056:
-L_9057:
-    return 1;    // $9057
+    return ((get_province_ai_state(fief) != 5) || rest_turns_remaining[ui_helper_d772(fief)]);    // $9057
 }
 
 // $9058 place_unit_at_tile_if_free
@@ -1521,21 +1504,7 @@ L_9605:
 // (body @ $9613)
 
 word is_cell_valid_for_phase(word arg1) {
-    if (!(((unsigned)arg1 < (unsigned)5))) goto L_961F;    // $9616
-    if (tactical_battle_phase) {    // $961C
-L_961F:
-    if (!(((unsigned)arg1 > (unsigned)2))) goto L_9633;    // $9622
-    if (!(((unsigned)arg1 < (unsigned)8))) goto L_9633;    // $9628
-    if ((tactical_battle_phase == 1)) goto L_9645;    // $9630
-L_9633:
-    if (!(((unsigned)arg1 > (unsigned)5))) goto L_9641;    // $9636
-    if ((tactical_battle_phase == 2)) goto L_9645;    // $963E
-L_9641:
-    } else {
-    }
-L_9646:
-    return 1;    // $9646
-    }
+    return ((((unsigned)arg1 < (unsigned)5) && (!(tactical_battle_phase) || ((((unsigned)arg1 > (unsigned)2) && ((((unsigned)arg1 < (unsigned)8) && ((tactical_battle_phase == 1) || (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2)))) || (!(((unsigned)arg1 < (unsigned)8)) && (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2))))) || (!(((unsigned)arg1 > (unsigned)2)) && (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2)))))) || (!(((unsigned)arg1 < (unsigned)5)) && ((((unsigned)arg1 > (unsigned)2) && ((((unsigned)arg1 < (unsigned)8) && ((tactical_battle_phase == 1) || (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2)))) || (!(((unsigned)arg1 < (unsigned)8)) && (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2))))) || (!(((unsigned)arg1 > (unsigned)2)) && (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2))))));    // $9646
 }
 
 // $9647 find_free_tactical_placement_cell
@@ -1597,16 +1566,7 @@ L_9708:
 // (body @ $970F)
 
 word is_coord_in_combat_rect(word tile_x, word tile_y) {
-    if (((unsigned)tile_x < (unsigned)combat_arena_x_min)) goto L_972F;    // $9714
-    if (((unsigned)tile_x > (unsigned)combat_arena_x_max)) goto L_972F;    // $971C
-    if (((unsigned)tile_y < (unsigned)combat_arena_y_min)) goto L_972F;    // $9724
-    if (((unsigned)tile_y > (unsigned)combat_arena_y_max)) {    // $972C
-L_972F:
-    } else {
-    }
-L_9734:
-    return 1;    // $9734
-    }
+    return !((((unsigned)tile_x < (unsigned)combat_arena_x_min) || (((unsigned)tile_x > (unsigned)combat_arena_x_max) || (((unsigned)tile_y < (unsigned)combat_arena_y_min) || ((unsigned)tile_y > (unsigned)combat_arena_y_max)))));    // $9734
 }
 
 // $9735 tile_blocked_by_existing_unit_in_placement
@@ -2150,14 +2110,7 @@ L_A04D:
 // (body @ $A053)
 
 word is_unit_at_coords(word arg1, word arg2, word arg3, word arg4) {
-    if (!(test_unit_type_present_flag(arg3, arg4))) goto L_A074;    // $A059
-    if (!((*(byte*)(unit_field_ptr_6fd0(arg3, arg4)) == arg1))) goto L_A074;    // $A065
-    if ((*(byte*)(unit_field_ptr_6fda(arg3, arg4)) == arg2)) goto L_A078;    // $A071
-L_A074:
-    goto L_A079;    // $A075
-L_A078:
-L_A079:
-    return 1;    // $A079
+    return (test_unit_type_present_flag(arg3, arg4) && ((*(byte*)(unit_field_ptr_6fd0(arg3, arg4)) == arg1) && (*(byte*)(unit_field_ptr_6fda(arg3, arg4)) == arg2)));    // $A079
 }
 
 // $A07A find_adjacent_unit_around_tile
@@ -2180,13 +2133,7 @@ word find_adjacent_unit_around_tile(word arg1, word arg2, word arg3, word arg4) 
 
 word enemy_unit_type_present_at_unit_tile(word arg1) {
     local11 = (cur_combat_side ^ 1);    // $A0B7
-    if (!(test_unit_type_present_flag(local11, arg1))) goto L_A0D4;    // $A0BE
-    if (find_adjacent_unit_around_tile(*(byte*)(cur_unit_field_ptr_6fd0()), *(byte*)(cur_unit_field_ptr_6fda()), local11, arg1)) goto L_A0D8;    // $A0D1
-L_A0D4:
-    goto L_A0D9;    // $A0D5
-L_A0D8:
-L_A0D9:
-    return 1;    // $A0D9
+    return (test_unit_type_present_flag(local11, arg1) && find_adjacent_unit_around_tile(*(byte*)(cur_unit_field_ptr_6fd0()), *(byte*)(cur_unit_field_ptr_6fda()), local11, arg1));    // $A0D9
 }
 
 // $A0DA eval_and_announce_battle_strength_parity_if_enemy_present
@@ -2505,13 +2452,7 @@ L_A51F:
 // (body @ $A534)
 
 word ai_decide_unit_action_attack_or_advance(void) {
-    if (unit_type_count_gt3_and_equals_arg1(cur_combat_unit_slot)) goto L_A544;    // $A53B
-    if (cur_combat_side) goto L_A548;    // $A541
-L_A544:
-    goto L_A54A;    // $A545
-L_A548:
-L_A54A:
-    strength_threshold = 50;    // $A54A
+    strength_threshold = ((unit_type_count_gt3_and_equals_arg1(cur_combat_unit_slot) || !(cur_combat_side)) ? 0 : 50);    // $A54A
     target_unit_type = find_flagged_present_unit_type(build_reachable_enemy_target_list(*(byte*)(cur_unit_field_ptr_6fd0()), *(byte*)(cur_unit_field_ptr_6fda()), &reachable_enemy_list));    // $A562
     if (((unsigned)find_flagged_present_unit_type(build_reachable_enemy_target_list(*(byte*)(cur_unit_field_ptr_6fd0()), *(byte*)(cur_unit_field_ptr_6fda()), &reachable_enemy_list)) >= (unsigned)5)) {    // $A565
     target_unit_type = find_strongest_unit_type_by_strength(&reachable_enemy_list, strength_threshold);    // $A571

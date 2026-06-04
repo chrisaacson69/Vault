@@ -58,13 +58,7 @@ word rng_mod(word arg1) {
 // (body @ $CA6A)
 
 word is_digit(word arg1) {
-    if (!(((unsigned)48 <= (unsigned)arg1))) goto L_CA78;    // $CA6E
-    if (((unsigned)arg1 <= (unsigned)57)) goto L_CA7C;    // $CA75
-L_CA78:
-    goto L_CA7D;    // $CA79
-L_CA7C:
-L_CA7D:
-    return 1;    // $CA7D
+    return (((unsigned)48 <= (unsigned)arg1) && ((unsigned)arg1 <= (unsigned)57));    // $CA7D
 }
 
 // $CA7E strlen
@@ -132,13 +126,7 @@ word memchr(word arg1, word arg2, word arg3) {
 // (body @ $CB16)
 
 word is_lower(word arg1) {
-    if (!((97 <= *(byte*)&arg1))) goto L_CB2A;    // $CB1E
-    if ((*(byte*)&arg1 <= 122)) goto L_CB2E;    // $CB27
-L_CB2A:
-    goto L_CB2F;    // $CB2B
-L_CB2E:
-L_CB2F:
-    return 1;    // $CB2F
+    return ((97 <= *(byte*)&arg1) && (*(byte*)&arg1 <= 122));    // $CB2F
 }
 
 // $CB30 to_upper

@@ -1166,13 +1166,7 @@ word is_selected_province_ai_state_5(void) {
 // (body @ PRG $00C23)
 
 word cur_flag_and_selected_ai_state5(void) {
-    if (!(get_6da2_cur())) goto L_p00C2F;    // PRG $00C26 -> bank15 $D9A9
-    if (is_selected_province_ai_state_5()) goto L_p00C33;    // PRG $00C2C -> bank0 $8C0E
-L_p00C2F:
-    goto L_p00C34;    // PRG $00C30
-L_p00C33:
-L_p00C34:
-    return 1;    // PRG $00C34
+    return (get_6da2_cur() && is_selected_province_ai_state_5());    // PRG $00C34 -> bank15 $D9A9
 }
 
 // ===== bank0 $8C35  (PRG $00C35) =====
@@ -2338,22 +2332,7 @@ L_p01D95:
 
 word ai_event_eligibility_check_loyalty_variant(word fief) {
     battle_defending_province = fief;    // PRG $01DA9
-    if (square_over_2025_probability_roll(*(word*)(((fief * 26) + 0x700D)))) goto L_p01DE9;    // PRG $01DBA -> bank0 $9D86
-    if (square_over_2025_probability_roll((100 - fief_tax_rate[fief]))) goto L_p01DE9;    // PRG $01DCD -> bank0 $9D86
-    if (square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(fief) + 4)))) goto L_p01DE9;    // PRG $01DDC -> bank0 $9D86
-    if (rng_mod(0x03E8)) goto L_p01E1B;    // PRG $01DE6 -> bank15 $CA52
-L_p01DE9:
-    if (!((*(word*)(((fief * 26) + 0x7009)) > 0))) goto L_p01E1B;    // PRG $01DF4
-    if (!((*(word*)(((fief * 26) + 0x7011)) > 2))) goto L_p01E1B;    // PRG $01E02
-    if (tax_helper_db12()) goto L_p01E1B;    // PRG $01E08 -> bank15 $DB12
-    if (province_state_is_FF(fief)) goto L_p01E1B;    // PRG $01E10 -> bank15 $D999
-    if (rng_mod(4)) {    // PRG $01E18 -> bank15 $CA52
-L_p01E1B:
-    } else {
-    }
-L_p01E20:
-    return 1;    // PRG $01E20
-    }
+    return !(((square_over_2025_probability_roll(*(word*)(((fief * 26) + 0x700D))) && (!((*(word*)(((fief * 26) + 0x7009)) > 0)) || (!((*(word*)(((fief * 26) + 0x7011)) > 2)) || (tax_helper_db12() || (province_state_is_FF(fief) || rng_mod(4)))))) || (!(square_over_2025_probability_roll(*(word*)(((fief * 26) + 0x700D)))) && ((square_over_2025_probability_roll((100 - fief_tax_rate[fief])) && (!((*(word*)(((fief * 26) + 0x7009)) > 0)) || (!((*(word*)(((fief * 26) + 0x7011)) > 2)) || (tax_helper_db12() || (province_state_is_FF(fief) || rng_mod(4)))))) || (!(square_over_2025_probability_roll((100 - fief_tax_rate[fief]))) && ((square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(fief) + 4))) && (!((*(word*)(((fief * 26) + 0x7009)) > 0)) || (!((*(word*)(((fief * 26) + 0x7011)) > 2)) || (tax_helper_db12() || (province_state_is_FF(fief) || rng_mod(4)))))) || (!(square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(fief) + 4)))) && (rng_mod(0x03E8) || (!((*(word*)(((fief * 26) + 0x7009)) > 0)) || (!((*(word*)(((fief * 26) + 0x7011)) > 2)) || (tax_helper_db12() || (province_state_is_FF(fief) || rng_mod(4)))))))))))));    // PRG $01E20 -> bank0 $9D86
 }
 
 // ===== bank0 $9E21  (PRG $01E21) =====
@@ -3147,12 +3126,7 @@ L_p0426A:
 // (body @ PRG $04276)
 
 word relations_rng_predicate(word arg1, word arg2) {
-    if (((unsigned)rng_mod(100) < (unsigned)relations_matrix_get(ui_helper_d772(arg1), ui_helper_d772(arg2), 1))) goto L_p042AA;    // PRG $04290 -> bank15 $CA52
-    if (((unsigned)rng_mod(100) < (unsigned)relations_matrix_get(arg1, arg2, 0))) goto L_p042AA;    // PRG $042A3 -> bank15 $CA52
-    goto L_p042AB;    // PRG $042A7
-L_p042AA:
-L_p042AB:
-    return 1;    // PRG $042AB
+    return (((unsigned)rng_mod(100) < (unsigned)relations_matrix_get(ui_helper_d772(arg1), ui_helper_d772(arg2), 1)) || ((unsigned)rng_mod(100) < (unsigned)relations_matrix_get(arg1, arg2, 0)));    // PRG $042AB -> bank15 $CA52
 }
 
 // ===== bank1 $82AC  (PRG $042AC) =====
@@ -4240,15 +4214,7 @@ L_p053CF:
 // (body @ PRG $053E2)
 
 word ai_relations_and_low_drive_skip_gate(word candidate_fief) {
-    if (((unsigned)relations_matrix_get(candidate_fief, selected_province_idx, 0) > (unsigned)rng_mod(100))) goto L_p05412;    // PRG $053F4 -> bank1 $8250
-    if (!(((unsigned)relations_matrix_get(ui_helper_d772(candidate_fief), ui_helper_d77e(), 1) > (unsigned)rng_mod(100)))) goto L_p0541D;    // PRG $0540F -> bank1 $8250
-L_p05412:
-    if ((*(byte*)((selected_province_daimyo_record() + 2)) < 50)) goto L_p05421;    // PRG $0541A -> bank15 $D7EA
-L_p0541D:
-    goto L_p05422;    // PRG $0541E
-L_p05421:
-L_p05422:
-    return 1;    // PRG $05422
+    return ((((unsigned)relations_matrix_get(candidate_fief, selected_province_idx, 0) > (unsigned)rng_mod(100)) && (*(byte*)((selected_province_daimyo_record() + 2)) < 50)) || (!(((unsigned)relations_matrix_get(candidate_fief, selected_province_idx, 0) > (unsigned)rng_mod(100))) && (((unsigned)relations_matrix_get(ui_helper_d772(candidate_fief), ui_helper_d77e(), 1) > (unsigned)rng_mod(100)) && (*(byte*)((selected_province_daimyo_record() + 2)) < 50))));    // PRG $05422 -> bank1 $8250
 }
 
 // ===== bank1 $9423  (PRG $05423) =====
@@ -7717,13 +7683,7 @@ word ai_attacker_outstrengths_defender(void) {
 // (body @ PRG $08F16)
 
 word is_tile_in_bounds(word arg1, word arg2) {
-    if (!(((unsigned)arg1 <= (unsigned)10))) goto L_p08F22;    // PRG $08F19
-    if (((unsigned)arg2 <= (unsigned)4)) goto L_p08F26;    // PRG $08F1F
-L_p08F22:
-    goto L_p08F27;    // PRG $08F23
-L_p08F26:
-L_p08F27:
-    return 1;    // PRG $08F27
+    return (((unsigned)arg1 <= (unsigned)10) && ((unsigned)arg2 <= (unsigned)4));    // PRG $08F27
 }
 
 // ===== bank2 $8F28  (PRG $08F28) =====
@@ -7761,13 +7721,7 @@ word clear_unit_combat_flags(word from_fief, word to_fief) {
 // (body @ PRG $08F7E)
 
 word test_unit_type_present_flag(word arg1, word arg2) {
-    if (!(((unsigned)arg2 < (unsigned)5))) goto L_p08F91;    // PRG $08F81
-    if ((((unsigned)war_side_state_flag[arg1] >> arg2) & 1)) goto L_p08F95;    // PRG $08F8E
-L_p08F91:
-    goto L_p08F96;    // PRG $08F92
-L_p08F95:
-L_p08F96:
-    return 1;    // PRG $08F96
+    return (((unsigned)arg2 < (unsigned)5) && (((unsigned)war_side_state_flag[arg1] >> arg2) & 1));    // PRG $08F96
 }
 
 // ===== bank2 $8F97  (PRG $08F97) =====
@@ -7834,12 +7788,7 @@ word test_map_cell_blocked_c2(word arg1, word arg2) {
 
 word is_battleside_province_aistate5_and_not_resting(word side) {
     fief = get_battle_side_province(side);    // PRG $0903A -> bank2 $838F
-    if ((get_province_ai_state(fief) != 5)) goto L_p09056;    // PRG $09042 -> bank15 $D98D
-    if (rest_turns_remaining[ui_helper_d772(fief)]) goto L_p09056;    // PRG $0904F -> bank15 $D772
-    goto L_p09057;    // PRG $09053
-L_p09056:
-L_p09057:
-    return 1;    // PRG $09057
+    return ((get_province_ai_state(fief) != 5) || rest_turns_remaining[ui_helper_d772(fief)]);    // PRG $09057 -> bank15 $D98D
 }
 
 // ===== bank2 $9058  (PRG $09058) =====
@@ -8242,21 +8191,7 @@ L_p09605:
 // (body @ PRG $09613)
 
 word is_cell_valid_for_phase(word arg1) {
-    if (!(((unsigned)arg1 < (unsigned)5))) goto L_p0961F;    // PRG $09616
-    if (tactical_battle_phase) {    // PRG $0961C
-L_p0961F:
-    if (!(((unsigned)arg1 > (unsigned)2))) goto L_p09633;    // PRG $09622
-    if (!(((unsigned)arg1 < (unsigned)8))) goto L_p09633;    // PRG $09628
-    if ((tactical_battle_phase == 1)) goto L_p09645;    // PRG $09630
-L_p09633:
-    if (!(((unsigned)arg1 > (unsigned)5))) goto L_p09641;    // PRG $09636
-    if ((tactical_battle_phase == 2)) goto L_p09645;    // PRG $0963E
-L_p09641:
-    } else {
-    }
-L_p09646:
-    return 1;    // PRG $09646
-    }
+    return ((((unsigned)arg1 < (unsigned)5) && (!(tactical_battle_phase) || ((((unsigned)arg1 > (unsigned)2) && ((((unsigned)arg1 < (unsigned)8) && ((tactical_battle_phase == 1) || (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2)))) || (!(((unsigned)arg1 < (unsigned)8)) && (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2))))) || (!(((unsigned)arg1 > (unsigned)2)) && (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2)))))) || (!(((unsigned)arg1 < (unsigned)5)) && ((((unsigned)arg1 > (unsigned)2) && ((((unsigned)arg1 < (unsigned)8) && ((tactical_battle_phase == 1) || (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2)))) || (!(((unsigned)arg1 < (unsigned)8)) && (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2))))) || (!(((unsigned)arg1 > (unsigned)2)) && (((unsigned)arg1 > (unsigned)5) && (tactical_battle_phase == 2))))));    // PRG $09646
 }
 
 // ===== bank2 $9647  (PRG $09647) =====
@@ -8321,16 +8256,7 @@ L_p09708:
 // (body @ PRG $0970F)
 
 word is_coord_in_combat_rect(word tile_x, word tile_y) {
-    if (((unsigned)tile_x < (unsigned)combat_arena_x_min)) goto L_p0972F;    // PRG $09714
-    if (((unsigned)tile_x > (unsigned)combat_arena_x_max)) goto L_p0972F;    // PRG $0971C
-    if (((unsigned)tile_y < (unsigned)combat_arena_y_min)) goto L_p0972F;    // PRG $09724
-    if (((unsigned)tile_y > (unsigned)combat_arena_y_max)) {    // PRG $0972C
-L_p0972F:
-    } else {
-    }
-L_p09734:
-    return 1;    // PRG $09734
-    }
+    return !((((unsigned)tile_x < (unsigned)combat_arena_x_min) || (((unsigned)tile_x > (unsigned)combat_arena_x_max) || (((unsigned)tile_y < (unsigned)combat_arena_y_min) || ((unsigned)tile_y > (unsigned)combat_arena_y_max)))));    // PRG $09734
 }
 
 // ===== bank2 $9735  (PRG $09735) =====
@@ -8898,14 +8824,7 @@ L_p0A04D:
 // (body @ PRG $0A053)
 
 word is_unit_at_coords(word arg1, word arg2, word arg3, word arg4) {
-    if (!(test_unit_type_present_flag(arg3, arg4))) goto L_p0A074;    // PRG $0A059 -> bank2 $8F79
-    if (!((*(byte*)(unit_field_ptr_6fd0(arg3, arg4)) == arg1))) goto L_p0A074;    // PRG $0A065 -> bank2 $828B
-    if ((*(byte*)(unit_field_ptr_6fda(arg3, arg4)) == arg2)) goto L_p0A078;    // PRG $0A071 -> bank2 $829A
-L_p0A074:
-    goto L_p0A079;    // PRG $0A075
-L_p0A078:
-L_p0A079:
-    return 1;    // PRG $0A079
+    return (test_unit_type_present_flag(arg3, arg4) && ((*(byte*)(unit_field_ptr_6fd0(arg3, arg4)) == arg1) && (*(byte*)(unit_field_ptr_6fda(arg3, arg4)) == arg2)));    // PRG $0A079 -> bank2 $8F79
 }
 
 // ===== bank2 $A07A  (PRG $0A07A) =====
@@ -8930,13 +8849,7 @@ word find_adjacent_unit_around_tile(word arg1, word arg2, word arg3, word arg4) 
 
 word enemy_unit_type_present_at_unit_tile(word arg1) {
     local11 = (cur_combat_side ^ 1);    // PRG $0A0B7
-    if (!(test_unit_type_present_flag(local11, arg1))) goto L_p0A0D4;    // PRG $0A0BE -> bank2 $8F79
-    if (find_adjacent_unit_around_tile(*(byte*)(cur_unit_field_ptr_6fd0()), *(byte*)(cur_unit_field_ptr_6fda()), local11, arg1)) goto L_p0A0D8;    // PRG $0A0D1 -> bank2 $A07A
-L_p0A0D4:
-    goto L_p0A0D9;    // PRG $0A0D5
-L_p0A0D8:
-L_p0A0D9:
-    return 1;    // PRG $0A0D9
+    return (test_unit_type_present_flag(local11, arg1) && find_adjacent_unit_around_tile(*(byte*)(cur_unit_field_ptr_6fd0()), *(byte*)(cur_unit_field_ptr_6fda()), local11, arg1));    // PRG $0A0D9 -> bank2 $8F79
 }
 
 // ===== bank2 $A0DA  (PRG $0A0DA) =====
@@ -9266,13 +9179,7 @@ L_p0A51F:
 // (body @ PRG $0A534)
 
 word ai_decide_unit_action_attack_or_advance(void) {
-    if (unit_type_count_gt3_and_equals_arg1(cur_combat_unit_slot)) goto L_p0A544;    // PRG $0A53B -> bank2 $A01A
-    if (cur_combat_side) goto L_p0A548;    // PRG $0A541
-L_p0A544:
-    goto L_p0A54A;    // PRG $0A545
-L_p0A548:
-L_p0A54A:
-    strength_threshold = 50;    // PRG $0A54A
+    strength_threshold = ((unit_type_count_gt3_and_equals_arg1(cur_combat_unit_slot) || !(cur_combat_side)) ? 0 : 50);    // PRG $0A54A -> bank2 $A01A
     target_unit_type = find_flagged_present_unit_type(build_reachable_enemy_target_list(*(byte*)(cur_unit_field_ptr_6fd0()), *(byte*)(cur_unit_field_ptr_6fda()), &reachable_enemy_list));    // PRG $0A562 -> bank2 $A148
     if (((unsigned)find_flagged_present_unit_type(build_reachable_enemy_target_list(*(byte*)(cur_unit_field_ptr_6fd0()), *(byte*)(cur_unit_field_ptr_6fda()), &reachable_enemy_list)) >= (unsigned)5)) {    // PRG $0A565 -> bank2 $A148
     target_unit_type = find_strongest_unit_type_by_strength(&reachable_enemy_list, strength_threshold);    // PRG $0A571 -> bank2 $A4BC
@@ -10048,13 +9955,7 @@ word rng_mod(word arg1) {
 // (body @ PRG $3CA6A)
 
 word is_digit(word arg1) {
-    if (!(((unsigned)48 <= (unsigned)arg1))) goto L_p3CA78;    // PRG $3CA6E
-    if (((unsigned)arg1 <= (unsigned)57)) goto L_p3CA7C;    // PRG $3CA75
-L_p3CA78:
-    goto L_p3CA7D;    // PRG $3CA79
-L_p3CA7C:
-L_p3CA7D:
-    return 1;    // PRG $3CA7D
+    return (((unsigned)48 <= (unsigned)arg1) && ((unsigned)arg1 <= (unsigned)57));    // PRG $3CA7D
 }
 
 // ===== bank15 $CA7E  (PRG $3CA7E) =====
@@ -10128,13 +10029,7 @@ word memchr(word arg1, word arg2, word arg3) {
 // (body @ PRG $3CB16)
 
 word is_lower(word arg1) {
-    if (!((97 <= *(byte*)&arg1))) goto L_p3CB2A;    // PRG $3CB1E
-    if ((*(byte*)&arg1 <= 122)) goto L_p3CB2E;    // PRG $3CB27
-L_p3CB2A:
-    goto L_p3CB2F;    // PRG $3CB2B
-L_p3CB2E:
-L_p3CB2F:
-    return 1;    // PRG $3CB2F
+    return ((97 <= *(byte*)&arg1) && (*(byte*)&arg1 <= 122));    // PRG $3CB2F
 }
 
 // ===== bank15 $CB30  (PRG $3CB30) =====

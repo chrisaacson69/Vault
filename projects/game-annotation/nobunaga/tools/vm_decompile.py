@@ -745,6 +745,18 @@ def _ternary_expr(cond, vt, vf, polarity):
     return f"({cond} ? {tval} : {fval})"
 
 
+def _bool_ternary_expr(formula, tval, fval):
+    """`(formula ? tval : fval)` for a short-circuit boolean region, with the boolean-predicate
+    simplifications `(B ? 1 : 0)` -> `B` and `(B ? 0 : 1)` -> `!(B)` (so `is_tile_in_bounds`
+    reads `(x<=10 && y<=4)` not `((x<=10 && y<=4) ? 1 : 0)`)."""
+    if tval == '1' and fval == '0':
+        return formula
+    if tval == '0' and fval == '1':
+        f = formula.strip()
+        return f[2:-1] if f.startswith('!(') and f.endswith(')') else f"!({formula})"
+    return f"({formula} ? {tval} : {fval})"
+
+
 def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     body_addr, instructions = parse_listing(filepath, sub_addr)
     if not instructions:
@@ -786,8 +798,21 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     dia_merge = {}
     for d in diamonds:
         dia_merge.setdefault(d['merge'], []).append(d)
-    # A label is dead once its only branch source is a suppressed diamond branch.
-    suppressed_src = set(dia_by_head) | dia_fall_jump
+    # Short-circuit BOOLEAN regions (K>=2 conditions -> `cond1 && cond2 … ? a : b`). Like
+    # diamonds but multi-block: capture each cond block's condition at its branch + each
+    # value block's value, then recover the boolean formula and emit the ternary at the merge.
+    bregions = _vmcfg.boolean_regions(instructions)
+    breg_cond_branch = {}       # branch addr -> (region, cond block)
+    breg_merge = {}             # merge addr -> region
+    breg_jump = {}              # jumper value-block jump addr -> region
+    for r in bregions:
+        for ba, cb in r['cond_branch_addrs'].items():
+            breg_cond_branch[ba] = (r, cb)
+        breg_merge[r['merge']] = r
+        breg_jump[r['jump_addr']] = r
+    # A label is dead once its only branch source is a suppressed diamond/region branch.
+    suppressed_src = (set(dia_by_head) | dia_fall_jump
+                      | set(breg_cond_branch) | set(breg_jump))
 
     # First pass: find branch targets (need labels) — EXCLUDING suppressed diamond branches,
     # so a taken-arm label (solely the head's target) and a merge label (solely the fall
@@ -808,6 +833,8 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     # Second pass: decompile
     dia_active = None          # the value-diamond currently being folded (None = not in one)
     dia_cond = dia_vt = None   # its captured condition expr + the fall-arm (true-path) value
+    breg_active = None         # the boolean-region currently being folded
+    breg_cond_expr, breg_val = {}, {}   # captured per-cond conditions + per-value values
     for ins in instructions:
         state.cur_addr = ins['addr']
         mnem = ins['mnemonic']
@@ -825,6 +852,30 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
         # Label for branch targets
         if ins['addr'] in branch_targets:
             state.lines.append((ins['addr'], 0, f"L_{ins['addr']:04X}:"))
+
+        # === Short-circuit boolean-region folding (K>=2 conditions) ===
+        # Capture each cond block's condition at its branch (READ consumes a pending call),
+        # the jumper value at its jump, the faller value at the merge; then recover the
+        # boolean formula and emit `(formula ? a : b)`. Disjoint from the diamond path below.
+        if ins['addr'] in breg_cond_branch:
+            region, cblock = breg_cond_branch[ins['addr']]
+            breg_active = region
+            breg_cond_expr[cblock] = state.regA
+            continue
+        if breg_active is not None and ins['addr'] == breg_active['jump_addr']:
+            breg_val[breg_active['jumper']] = state.regA
+            continue
+        if breg_active is not None and ins['addr'] == breg_active['merge']:
+            r = breg_active
+            breg_val[r['faller']] = state.regA
+            fa = _vmcfg.recover_bool_formula(r, breg_cond_expr, r['va'])
+            fb = _vmcfg.recover_bool_formula(r, breg_cond_expr, r['vb'])
+            if len(fb) <= len(fa):                      # pick the simpler (positive) formula
+                state.regA = _bool_ternary_expr(fb, breg_val[r['vb']], breg_val[r['va']])
+            else:
+                state.regA = _bool_ternary_expr(fa, breg_val[r['va']], breg_val[r['vb']])
+            breg_active, breg_cond_expr, breg_val = None, {}, {}
+            # fall through: the merge instruction consumes regA (the folded expression)
 
         # === Value-diamond ternary folding ===
         # Order matters: capture the fall-arm value when we ENTER the taken arm (before its
