@@ -58,6 +58,8 @@ are proven FIRST, before any rule can introduce a bug.
 """
 
 
+import re
+
 import vm_cfg
 
 
@@ -85,16 +87,171 @@ def _partition(lines, leaders):
     return buckets
 
 
-def reduce(lines, instructions):
-    """Region reducer (CFG epic V2). Rung 1: build the block partition and emit the
-    blocks in leader order — the trivial sequence-of-blocks tree, goto/label form intact.
-    Later rungs replace the flat leader-order emit with a region tree (if/while/switch).
-    Falls back to a verbatim passthrough when there's no CFG (empty/degenerate sub)."""
-    _cfg, leaders = vm_cfg.bytecode_cfg(instructions)
-    if not leaders:
-        return list(lines)
-    buckets = _partition(lines, leaders)
+def _flat_emit(buckets, leaders):
+    """Rung-1 fallback: blocks in leader order, goto/label form intact."""
     out = []
     for L in leaders:
         out.extend(buckets[L])
+    return out
+
+
+# === Rung 2: sequence + if-then + if-then-else =================================
+# The first reduction rule. Over an ACYCLIC sub (no back edges — loops are rung 4),
+# recursively structure the single-entry/single-exit region from the entry to EXIT
+# into a tree of Seq / IfThen / IfThenElse, using the post-dominator as each 2-way
+# branch's merge point. Branch polarity mirrors the decompiler exactly: a header's
+# raw line is `if (RAWC) goto L_T` (goto = TRUE arm, fall-through = the body), so the
+# structured then-body is the FALL-THROUGH arm with condition `_neg(RAWC)` — the same
+# Pattern-A/B inversion, and the print loop's simplify_expression cleans `!((a<b))` ->
+# `(a>=b)`. CONSERVATIVE by design: any shape this rung doesn't cleanly own (a block
+# reached twice = cross/shared edge, a forward goto skipping the merge, a switch, a
+# body that lives on the goto side and would force a reorder) raises NotReducible and
+# the whole sub falls back to the rung-1 flat emit. The CFG-equivalence gate
+# (structured_equivalent, applied in vm_decompile.decompile) is the backstop: a tree
+# that builds but mis-routes is rejected there and the sub reverts to honest goto.
+
+# A statement line to emit verbatim, vs control scaffolding the structure consumes.
+_RE_IFGOTO = re.compile(r'if \((.+)\) goto L_([0-9A-Fa-f]{4});$')
+_RE_GOTO = re.compile(r'goto L_([0-9A-Fa-f]{4});$')
+
+
+class _NotReducible(Exception):
+    pass
+
+
+def _parse_block(block_lines):
+    """(stmts, rawcond, branch_addr, goto_target, is_switch) for one block's raw lines.
+    stmts = [(addr, text)] to emit verbatim (the block body incl. any `return …;`); the
+    label and the goto/if-goto terminator are stripped (the structure re-supplies them)."""
+    stmts, rawcond, branch_addr, goto_target, is_switch = [], None, None, None, False
+    for addr, _ind, text in block_lines:
+        t = text.strip()
+        if vm_cfg._RE_LABEL.match(t):
+            continue
+        m = _RE_IFGOTO.match(t)
+        if m:
+            rawcond, goto_target, branch_addr = m.group(1), int(m.group(2), 16), addr
+            continue
+        if _RE_GOTO.match(t):
+            branch_addr = addr
+            continue
+        if vm_cfg._RE_SWITCH_CASE.match(t):
+            is_switch = True
+            continue
+        stmts.append((addr, t))
+    return stmts, rawcond, branch_addr, goto_target, is_switch
+
+
+def _structure(entry, stop, cfg, info, block_of, pdom, nxt, visited):
+    """Structure the single-entry region from `entry` until control reaches `stop`
+    (a merge/exit block outside this region) or EXIT. Returns (seq, used) where seq is
+    a list of AST items and used is the set of block leaders the region consumed:
+      ('block', leader, [(addr, text)…])                      — a basic block's body
+      ('if',    branch_addr, [(addr,text)…], cond, then, else) — then/else are item lists;
+                                                                 else is [] for an if-then.
+    Raises _NotReducible on any shape rung 2 doesn't cleanly own."""
+    seq, used = [], set()
+    n = entry
+    while n is not vm_cfg.EXIT and n != stop:
+        if n in visited:
+            raise _NotReducible                      # cross / shared edge
+        visited.add(n)
+        used.add(n)
+        stmts, rawcond, baddr, gtgt, _sw = info[n]
+        succ = cfg[n]
+        if len(succ) == 1:
+            (s,) = tuple(succ)
+            seq.append(('block', n, stmts))
+            n = s
+        elif len(succ) == 2 and rawcond is not None and gtgt is not None:
+            goto_block = block_of(gtgt)
+            if goto_block not in succ:
+                raise _NotReducible
+            fall = next((x for x in succ if x != goto_block), None)
+            if fall is vm_cfg.EXIT or fall is None:
+                raise _NotReducible                  # header falls off the end — rare
+            merge = vm_cfg._imm_post_dom(pdom, n)
+            # The goto target must stay within the region (<= merge by address); a goto
+            # PAST the merge is a forward skip (break-like) -> irreducible at rung 2.
+            if merge is not vm_cfg.EXIT and goto_block > merge:
+                raise _NotReducible
+            then_seq, then_used = ([], set()) if fall == merge else \
+                _structure(fall, merge, cfg, info, block_of, pdom, nxt, visited)
+            else_seq, else_used = ([], set()) if goto_block == merge else \
+                _structure(goto_block, merge, cfg, info, block_of, pdom, nxt, visited)
+            if not then_seq:
+                # empty/degenerate then, or body lives only on the goto side (would reorder
+                # above the fall) -> bail.
+                raise _NotReducible
+            if else_seq:
+                if not (fall < goto_block):
+                    raise _NotReducible              # if-else needs then(fall) before else(goto)
+                # The ENTIRE then-region must precede the ENTIRE else-region by address —
+                # else emitting then-then-else reverses address order and the address-based
+                # gate mis-routes (e.g. $A853: a nested if whose arm sits at a HIGHER addr
+                # than the outer else-body, so the spans interleave). Lexical order == address
+                # order is the invariant the gate (and readable C) rely on.
+                if max(then_used) >= min(else_used):
+                    raise _NotReducible
+            # LEXICAL-ADJACENCY of the merge: the gate lowers a construct's merge as the
+            # address-next leader after its last block, so the merge MUST be that block.
+            # When an outer arm is laid out between this construct and its (shared) merge,
+            # next_leader(last) != merge -> the nesting interleaves; bail (the gate would
+            # otherwise mis-route, e.g. $8F0A's twin nested if/else sharing one merge).
+            consumed = {n} | then_used | else_used
+            if nxt[max(consumed)] != merge:
+                raise _NotReducible
+            cond = vm_cfg._neg(rawcond)
+            seq.append(('if', baddr if baddr is not None else n, stmts, cond, then_seq, else_seq))
+            used |= consumed
+            n = merge
+        else:
+            raise _NotReducible                      # switch / >2-way / cond-less 2-way
+    return seq, used
+
+
+def _emit(seq, indent, out):
+    for item in seq:
+        if item[0] == 'block':
+            _, _L, stmts = item
+            for addr, text in stmts:
+                out.append((addr, indent, text))
+        else:  # 'if'
+            _, baddr, stmts, cond, then_seq, else_seq = item
+            for addr, text in stmts:
+                out.append((addr, indent, text))
+            out.append((baddr, indent, f"if ({cond}) {{"))
+            _emit(then_seq, indent + 1, out)
+            if else_seq:
+                out.append((0, indent, "} else {"))
+                _emit(else_seq, indent + 1, out)
+            out.append((0, indent, "}"))
+
+
+def reduce(lines, instructions):
+    """Region reducer (CFG epic V2). Rungs 0-1 = block partition + flat emit; rung 2 adds
+    sequence/if-then/if-then-else over acyclic subs (loops -> flat, handled at rung 4).
+    Falls back to the rung-1 flat emit whenever the structure can't be cleanly recovered;
+    the CFG-equivalence gate in vm_decompile.decompile is the final backstop."""
+    cfg, leaders = vm_cfg.bytecode_cfg(instructions)
+    if not leaders:
+        return list(lines)
+    buckets = _partition(lines, leaders)
+    # Rung 2 only structures acyclic subs; a back edge means a loop (rung 4).
+    edges, _dom = vm_cfg.back_edges(cfg, leaders[0])
+    if edges:
+        return _flat_emit(buckets, leaders)
+    try:
+        block_of = vm_cfg._block_of_fn(leaders)
+        info = {L: _parse_block(buckets[L]) for L in leaders}
+        if any(i[4] for i in info.values()):            # a switch -> rung 5
+            return _flat_emit(buckets, leaders)
+        nxt = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else vm_cfg.EXIT)
+               for i in range(len(leaders))}
+        seq, _used = _structure(leaders[0], vm_cfg.EXIT, cfg, info,
+                                block_of, vm_cfg.post_dominators(cfg), nxt, set())
+    except _NotReducible:
+        return _flat_emit(buckets, leaders)
+    out = []
+    _emit(seq, 1, out)
     return out
