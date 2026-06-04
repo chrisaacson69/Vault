@@ -5785,35 +5785,37 @@ L_p06B20:
 
 word render_arms_edit_screen(word arg1, word arg2) {
     local11 = 0;    // PRG $06B28
+    while (1) {    // PRG $06B29
 L_p06B29:
-    *(word*)(((local11 << 1) + arg2)) = *(byte*)((((selected_province_idx * 5) + local11) + 0x76A9));    // PRG $06B3A
-    ui_helper_cc7b(14, (local11 + 20));    // PRG $06B40 -> bank15 $CC7B
-    if ((*(word*)(((local11 << 1) + arg2)) > 0x270F)) {    // PRG $06B4D
-    *(word*)(((local11 << 1) + arg2)) = 0x270F;    // PRG $06B58
-    }
+        *(word*)(((local11 << 1) + arg2)) = *(byte*)((((selected_province_idx * 5) + local11) + 0x76A9));    // PRG $06B3A
+        ui_helper_cc7b(14, (local11 + 20));    // PRG $06B40 -> bank15 $CC7B
+        if ((*(word*)(((local11 << 1) + arg2)) > 0x270F)) {    // PRG $06B4D
+        *(word*)(((local11 << 1) + arg2)) = 0x270F;    // PRG $06B58
+        }
 L_p06B59:
-    ui_helper_d134(msg_fmt__3d_be43, *(word*)(((local11 << 1) + arg2)));    // PRG $06B62 -> bank15 $D134
-    ui_helper_cc7b(5, (local11 + 20));    // PRG $06B6B -> bank15 $CC7B
-    switch (local11) {    // PRG $06B70
-        case 1: goto L_p06B7D;    // PRG $06B70
-        case 2: goto L_p06BB5;    // PRG $06B70
-        default: goto L_p06BB9;    // PRG $06B70
-    }    // PRG $06B70
+        ui_helper_d134(msg_fmt__3d_be43, *(word*)(((local11 << 1) + arg2)));    // PRG $06B62 -> bank15 $D134
+        ui_helper_cc7b(5, (local11 + 20));    // PRG $06B6B -> bank15 $CC7B
+        switch (local11) {    // PRG $06B70
+            case 1: goto L_p06B7D;    // PRG $06B70
+            case 2: goto L_p06BB5;    // PRG $06B70
+            default: goto L_p06BB9;    // PRG $06B70
+        }    // PRG $06B70
 L_p06B7D:
 L_p06B7E:
-    local10 = 2;    // PRG $06B7E
-    ui_helper_d134(msg_d_s, (local11 + 1), *(word*)(((local10 << 1) + draw_unit_label_data_f9af)));    // PRG $06B8D -> bank15 $D134
-    ui_helper_cc7b(5, 25);    // PRG $06B94 -> bank15 $CC7B
-    redraw_window(msg_available_0);    // PRG $06B9B -> bank15 $CEC4
-    ui_helper_cc7b(4, 20);    // PRG $06BA2 -> bank15 $CC7B
-    read_frame_timer(2);    // PRG $06BA7 -> bank15 $D29D
-    local11 = (local11 + 1);    // PRG $06BAD
-    if (((unsigned)local11 >= (unsigned)5)) goto L_p06B29;    // PRG $06BB1
-    return ((unsigned)local11 >= (unsigned)5);    // PRG $06BB4
+        local10 = 2;    // PRG $06B7E
+        ui_helper_d134(msg_d_s, (local11 + 1), *(word*)(((local10 << 1) + draw_unit_label_data_f9af)));    // PRG $06B8D -> bank15 $D134
+        ui_helper_cc7b(5, 25);    // PRG $06B94 -> bank15 $CC7B
+        redraw_window(msg_available_0);    // PRG $06B9B -> bank15 $CEC4
+        ui_helper_cc7b(4, 20);    // PRG $06BA2 -> bank15 $CC7B
+        read_frame_timer(2);    // PRG $06BA7 -> bank15 $D29D
+        local11 = (local11 + 1);    // PRG $06BAD
+        if (((unsigned)local11 >= (unsigned)5)) continue;    // PRG $06BB1
+        return ((unsigned)local11 >= (unsigned)5);    // PRG $06BB4
 L_p06BB5:
-    goto L_p06B7E;    // PRG $06BB6
+        goto L_p06B7E;    // PRG $06BB6
 L_p06BB9:
-    goto L_p06B7E;    // PRG $06BBA
+        goto L_p06B7E;    // PRG $06BBA
+    }
 }
 
 // ===== bank1 $ABBD  (PRG $06BBD) =====
@@ -6537,61 +6539,63 @@ word command_menu_select_loop(void) {
 L_p076D3:
     local10 = 0;    // PRG $076D3
     local11 = 0;    // PRG $076D5
+    while (1) {    // PRG $076D6
 L_p076D6:
-    switch (poll_input()) {    // PRG $076D9 -> bank15 $D14E
-        case 1: goto L_p076F9;    // PRG $076D9
-        case 2: goto L_p076F6;    // PRG $076D9
-        case 16: goto L_p0775D;    // PRG $076D9
-        case 32: goto L_p07773;    // PRG $076D9
-        case 64: goto L_p07709;    // PRG $076D9
-        case 128: goto L_p07709;    // PRG $076D9
-        default: goto L_p07703;    // PRG $076D9
-    }    // PRG $076D9
+        switch (poll_input()) {    // PRG $076D9 -> bank15 $D14E
+            case 1: goto L_p076F9;    // PRG $076D9
+            case 2: goto L_p076F6;    // PRG $076D9
+            case 16: goto L_p0775D;    // PRG $076D9
+            case 32: goto L_p07773;    // PRG $076D9
+            case 64: goto L_p07709;    // PRG $076D9
+            case 128: goto L_p07709;    // PRG $076D9
+            default: goto L_p07703;    // PRG $076D9
+        }    // PRG $076D9
 L_p076F6:
-    local10 = 17;    // PRG $076F8
+        local10 = 17;    // PRG $076F8
 L_p076F9:
-    read_frame_timer(0);    // PRG $076FA -> bank15 $D29D
-    local11 = 1;    // PRG $076FF
+        read_frame_timer(0);    // PRG $076FA -> bank15 $D29D
+        local11 = 1;    // PRG $076FF
 L_p07703:
-    ui_helper_cc89();    // PRG $07700 -> bank15 $CC89
-    if (!(local11)) goto L_p076D6;    // PRG $07704
-    return local10;    // PRG $07708
+        ui_helper_cc89();    // PRG $07700 -> bank15 $CC89
+        if (!(local11)) continue;    // PRG $07704
+        return local10;    // PRG $07708
 L_p07709:
-    read_frame_timer(0);    // PRG $0770A -> bank15 $D29D
-    if (fief_menu_info_mode_flag) goto L_p07724;    // PRG $07711
+        read_frame_timer(0);    // PRG $0770A -> bank15 $D29D
+        if (fief_menu_info_mode_flag) goto L_p07724;    // PRG $07711
 L_p07719:
-    fief_info_display(1);    // PRG $07715 -> bank1 $871E
-    ui_helper_cc7b(21, 7);    // PRG $0771C -> bank15 $CC7B
-    goto L_p0774F;    // PRG $07721
+        fief_info_display(1);    // PRG $07715 -> bank1 $871E
+        ui_helper_cc7b(21, 7);    // PRG $0771C -> bank15 $CC7B
+        goto L_p0774F;    // PRG $07721
 L_p07724:
 L_p07729:
-    fief_info_display(0);    // PRG $07725 -> bank1 $871E
-    ui_helper_cc7b(21, 7);    // PRG $0772C -> bank15 $CC7B
-    goto L_p0774F;    // PRG $07731
+        fief_info_display(0);    // PRG $07725 -> bank1 $871E
+        ui_helper_cc7b(21, 7);    // PRG $0772C -> bank15 $CC7B
+        goto L_p0774F;    // PRG $07731
 L_p07734:
-    if (fief_menu_info_mode_flag) goto L_p07746;    // PRG $07737
-    ui_helper_cc7b(21, 18);    // PRG $0773E -> bank15 $CC7B
-    goto L_p0774F;    // PRG $07743
+        if (fief_menu_info_mode_flag) goto L_p07746;    // PRG $07737
+        ui_helper_cc7b(21, 18);    // PRG $0773E -> bank15 $CC7B
+        goto L_p0774F;    // PRG $07743
 L_p07746:
-    ui_helper_cc7b(21, 15);    // PRG $07749 -> bank15 $CC7B
+        ui_helper_cc7b(21, 15);    // PRG $07749 -> bank15 $CC7B
 L_p0774F:
-    local10 = 20;    // PRG $0774F
-    read_frame_timer(2);    // PRG $07751 -> bank15 $D29D
-    delay_loop(2);    // PRG $07756 -> bank15 $D73E
-    goto L_p07703;    // PRG $0775A
+        local10 = 20;    // PRG $0774F
+        read_frame_timer(2);    // PRG $07751 -> bank15 $D29D
+        delay_loop(2);    // PRG $07756 -> bank15 $D73E
+        goto L_p07703;    // PRG $0775A
 L_p0775D:
-    read_frame_timer(0);    // PRG $0775E -> bank15 $D29D
-    ui_cursor_row = (ui_cursor_row - 1);    // PRG $07766
-    if (((ui_cursor_row - 1) == 6)) goto L_p07734;    // PRG $0776B
-    goto L_p0774F;    // PRG $07770
+        read_frame_timer(0);    // PRG $0775E -> bank15 $D29D
+        ui_cursor_row = (ui_cursor_row - 1);    // PRG $07766
+        if (((ui_cursor_row - 1) == 6)) goto L_p07734;    // PRG $0776B
+        goto L_p0774F;    // PRG $07770
 L_p07773:
-    read_frame_timer(0);    // PRG $07774 -> bank15 $D29D
-    ui_cursor_row = (ui_cursor_row + 1);    // PRG $0777C
-    if (((ui_cursor_row + 1) == 19)) goto L_p07729;    // PRG $07782
-    if ((ui_cursor_row != 16)) goto L_p07796;    // PRG $0778B
-    if ((fief_menu_info_mode_flag == 1)) goto L_p07719;    // PRG $07793
+        read_frame_timer(0);    // PRG $07774 -> bank15 $D29D
+        ui_cursor_row = (ui_cursor_row + 1);    // PRG $0777C
+        if (((ui_cursor_row + 1) == 19)) goto L_p07729;    // PRG $07782
+        if ((ui_cursor_row != 16)) goto L_p07796;    // PRG $0778B
+        if ((fief_menu_info_mode_flag == 1)) goto L_p07719;    // PRG $07793
 L_p07796:
-    goto L_p0774F;    // PRG $07798
+        goto L_p0774F;    // PRG $07798
+    }
     }
 }
 

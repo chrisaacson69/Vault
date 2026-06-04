@@ -1495,15 +1495,22 @@ def _fold_while1(lines, cfg, leaders, loop, h):
     block_of = vm_cfg._block_of_fn(leaders)
     if not _loop_single_entry(cfg, loop, h, None):
         return lines
-    # A CONDITIONAL back edge (a loop block that branches EITHER back to the header OR
-    # out of the loop, `if (C) goto L_h`) is a do-while / two-test CONDITION, not an
-    # infinite loop. Folding it as while(1) would turn the tail into `if (C) continue;`
-    # whose fall-through then wrongly LOOPS instead of exiting. Leave those to the
-    # do-while folder / Phase-1c — here, bail.
+    # A CONDITIONAL back edge (`if (C) goto L_h`: branch back to the header OR fall
+    # elsewhere) is do-while / two-test territory. As while(1) the tail becomes
+    # `if (C) continue;` whose FALL-THROUGH then runs — SAFE iff that fall-through EXITS:
+    # the non-continue branch is a PURE-EXIT block (a `return`/`break`), so
+    # `if (C) continue; return …;` exits correctly. If instead it re-enters LIVE loop
+    # code, the do-while's exit would wrongly LOOP here (the gate-hole fix's concern) ->
+    # bail. A plain bottom-test do-while is already intercepted by _fold_dowhile before
+    # reaching here; this relaxed path lights up for the test-in-the-MIDDLE menu loop
+    # (switch header, case bodies laid out AFTER the test) that do-while can't express.
+    # The gate — proven sound vs the bad while(1) by test-vm-cfg $830B — is the backstop.
     for n in loop:
-        if (h in cfg[n] and len(cfg[n]) == 2
-                and any(s is not vm_cfg.EXIT and s not in loop for s in cfg[n])):
-            return lines
+        if h in cfg[n] and len(cfg[n]) == 2:
+            for s in cfg[n]:
+                if (s is not vm_cfg.EXIT and s != h and s not in loop
+                        and not _is_pure_exit_block(s, cfg, loop)):
+                    return lines
     loop_idxs = [i for i, (a, _i, _t) in enumerate(lines) if block_of(a) in loop]
     if not loop_idxs:
         return lines

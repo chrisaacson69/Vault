@@ -260,6 +260,29 @@ def main():
             rej, _, _ = vm_cfg.structured_equivalent(cap['raw'], bad, leaders)
             check(f"b{bank}/${sub:04X}: cond-back-edge as while(1) REJECTED", not rej)
 
+    # while(1) WITH a conditional back edge whose non-continue branch EXITS — the
+    # test-in-the-MIDDLE menu loop ($B6B4 command_menu_select_loop, hdr $B6D6; $AB29).
+    # `_fold_while1` is allowed to attempt these (the relaxed source guard: the other
+    # branch is a pure-exit `return`, so `if(C) continue; return …` exits correctly,
+    # NOT the do-while-loops-wrongly hole — which $830B above still proves the gate
+    # catches). Here: (a) it folds to while(1) + an `if(C) continue;`, (b) fold ~= raw,
+    # (c) swapping that continue->break (header->exit) is REJECTED — proves the
+    # conditional back edge's continue TARGET is checked, the soundness this fold rests on.
+    for bank, sub in [(1, 0xB6B4), (1, 0xAB22)]:    # command_menu_select_loop; render_arms_edit_screen
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        has_w1 = any(t.strip() == 'while (1) {' for _a, _i, t in struct)
+        has_ifcont = any(re.match(r'if \(.+\) continue;$', t.strip()) for _a, _i, t in struct)
+        check(f"b{bank}/${sub:04X}: folded while(1) + if-continue", has_w1 and has_ifcont)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: while(1)-cond-exit fold ~= raw", ok)
+
+        swapped = [(a, i, re.sub(r'\bcontinue;', 'break;', t)) for a, i, t in struct]
+        bad, _, _ = vm_cfg.structured_equivalent(raw, swapped, leaders)
+        check(f"b{bank}/${sub:04X}: if-continue->break (header->exit) REJECTED", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 

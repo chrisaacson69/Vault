@@ -2675,35 +2675,37 @@ L_AB20:
 
 word render_arms_edit_screen(word arg1, word arg2) {
     local11 = 0;    // $AB28
+    while (1) {    // $AB29
 L_AB29:
-    *(word*)(((local11 << 1) + arg2)) = *(byte*)((((selected_province_idx * 5) + local11) + 0x76A9));    // $AB3A
-    ui_helper_cc7b(14, (local11 + 20));    // $AB40
-    if ((*(word*)(((local11 << 1) + arg2)) > 0x270F)) {    // $AB4D
-    *(word*)(((local11 << 1) + arg2)) = 0x270F;    // $AB58
-    }
+        *(word*)(((local11 << 1) + arg2)) = *(byte*)((((selected_province_idx * 5) + local11) + 0x76A9));    // $AB3A
+        ui_helper_cc7b(14, (local11 + 20));    // $AB40
+        if ((*(word*)(((local11 << 1) + arg2)) > 0x270F)) {    // $AB4D
+        *(word*)(((local11 << 1) + arg2)) = 0x270F;    // $AB58
+        }
 L_AB59:
-    ui_helper_d134(msg_fmt__3d_be43, *(word*)(((local11 << 1) + arg2)));    // $AB62
-    ui_helper_cc7b(5, (local11 + 20));    // $AB6B
-    switch (local11) {    // $AB70
-        case 1: goto L_AB7D;    // $AB70
-        case 2: goto L_ABB5;    // $AB70
-        default: goto L_ABB9;    // $AB70
-    }    // $AB70
+        ui_helper_d134(msg_fmt__3d_be43, *(word*)(((local11 << 1) + arg2)));    // $AB62
+        ui_helper_cc7b(5, (local11 + 20));    // $AB6B
+        switch (local11) {    // $AB70
+            case 1: goto L_AB7D;    // $AB70
+            case 2: goto L_ABB5;    // $AB70
+            default: goto L_ABB9;    // $AB70
+        }    // $AB70
 L_AB7D:
 L_AB7E:
-    local10 = 2;    // $AB7E
-    ui_helper_d134(msg_d_s, (local11 + 1), *(word*)(((local10 << 1) + draw_unit_label_data_f9af)));    // $AB8D
-    ui_helper_cc7b(5, 25);    // $AB94
-    redraw_window(msg_available_0);    // $AB9B
-    ui_helper_cc7b(4, 20);    // $ABA2
-    read_frame_timer(2);    // $ABA7
-    local11 = (local11 + 1);    // $ABAD
-    if (((unsigned)local11 >= (unsigned)5)) goto L_AB29;    // $ABB1
-    return ((unsigned)local11 >= (unsigned)5);    // $ABB4
+        local10 = 2;    // $AB7E
+        ui_helper_d134(msg_d_s, (local11 + 1), *(word*)(((local10 << 1) + draw_unit_label_data_f9af)));    // $AB8D
+        ui_helper_cc7b(5, 25);    // $AB94
+        redraw_window(msg_available_0);    // $AB9B
+        ui_helper_cc7b(4, 20);    // $ABA2
+        read_frame_timer(2);    // $ABA7
+        local11 = (local11 + 1);    // $ABAD
+        if (((unsigned)local11 >= (unsigned)5)) continue;    // $ABB1
+        return ((unsigned)local11 >= (unsigned)5);    // $ABB4
 L_ABB5:
-    goto L_AB7E;    // $ABB6
+        goto L_AB7E;    // $ABB6
 L_ABB9:
-    goto L_AB7E;    // $ABBA
+        goto L_AB7E;    // $ABBA
+    }
 }
 
 // $ABBD commit_arms_record_from_buffer
@@ -3401,61 +3403,63 @@ word command_menu_select_loop(void) {
 L_B6D3:
     local10 = 0;    // $B6D3
     local11 = 0;    // $B6D5
+    while (1) {    // $B6D6
 L_B6D6:
-    switch (poll_input()) {    // $B6D9
-        case 1: goto L_B6F9;    // $B6D9
-        case 2: goto L_B6F6;    // $B6D9
-        case 16: goto L_B75D;    // $B6D9
-        case 32: goto L_B773;    // $B6D9
-        case 64: goto L_B709;    // $B6D9
-        case 128: goto L_B709;    // $B6D9
-        default: goto L_B703;    // $B6D9
-    }    // $B6D9
+        switch (poll_input()) {    // $B6D9
+            case 1: goto L_B6F9;    // $B6D9
+            case 2: goto L_B6F6;    // $B6D9
+            case 16: goto L_B75D;    // $B6D9
+            case 32: goto L_B773;    // $B6D9
+            case 64: goto L_B709;    // $B6D9
+            case 128: goto L_B709;    // $B6D9
+            default: goto L_B703;    // $B6D9
+        }    // $B6D9
 L_B6F6:
-    local10 = 17;    // $B6F8
+        local10 = 17;    // $B6F8
 L_B6F9:
-    read_frame_timer(0);    // $B6FA
-    local11 = 1;    // $B6FF
+        read_frame_timer(0);    // $B6FA
+        local11 = 1;    // $B6FF
 L_B703:
-    ui_helper_cc89();    // $B700
-    if (!(local11)) goto L_B6D6;    // $B704
-    return local10;    // $B708
+        ui_helper_cc89();    // $B700
+        if (!(local11)) continue;    // $B704
+        return local10;    // $B708
 L_B709:
-    read_frame_timer(0);    // $B70A
-    if (fief_menu_info_mode_flag) goto L_B724;    // $B711
+        read_frame_timer(0);    // $B70A
+        if (fief_menu_info_mode_flag) goto L_B724;    // $B711
 L_B719:
-    fief_info_display(1);    // $B715
-    ui_helper_cc7b(21, 7);    // $B71C
-    goto L_B74F;    // $B721
+        fief_info_display(1);    // $B715
+        ui_helper_cc7b(21, 7);    // $B71C
+        goto L_B74F;    // $B721
 L_B724:
 L_B729:
-    fief_info_display(0);    // $B725
-    ui_helper_cc7b(21, 7);    // $B72C
-    goto L_B74F;    // $B731
+        fief_info_display(0);    // $B725
+        ui_helper_cc7b(21, 7);    // $B72C
+        goto L_B74F;    // $B731
 L_B734:
-    if (fief_menu_info_mode_flag) goto L_B746;    // $B737
-    ui_helper_cc7b(21, 18);    // $B73E
-    goto L_B74F;    // $B743
+        if (fief_menu_info_mode_flag) goto L_B746;    // $B737
+        ui_helper_cc7b(21, 18);    // $B73E
+        goto L_B74F;    // $B743
 L_B746:
-    ui_helper_cc7b(21, 15);    // $B749
+        ui_helper_cc7b(21, 15);    // $B749
 L_B74F:
-    local10 = 20;    // $B74F
-    read_frame_timer(2);    // $B751
-    delay_loop(2);    // $B756
-    goto L_B703;    // $B75A
+        local10 = 20;    // $B74F
+        read_frame_timer(2);    // $B751
+        delay_loop(2);    // $B756
+        goto L_B703;    // $B75A
 L_B75D:
-    read_frame_timer(0);    // $B75E
-    ui_cursor_row = (ui_cursor_row - 1);    // $B766
-    if (((ui_cursor_row - 1) == 6)) goto L_B734;    // $B76B
-    goto L_B74F;    // $B770
+        read_frame_timer(0);    // $B75E
+        ui_cursor_row = (ui_cursor_row - 1);    // $B766
+        if (((ui_cursor_row - 1) == 6)) goto L_B734;    // $B76B
+        goto L_B74F;    // $B770
 L_B773:
-    read_frame_timer(0);    // $B774
-    ui_cursor_row = (ui_cursor_row + 1);    // $B77C
-    if (((ui_cursor_row + 1) == 19)) goto L_B729;    // $B782
-    if ((ui_cursor_row != 16)) goto L_B796;    // $B78B
-    if ((fief_menu_info_mode_flag == 1)) goto L_B719;    // $B793
+        read_frame_timer(0);    // $B774
+        ui_cursor_row = (ui_cursor_row + 1);    // $B77C
+        if (((ui_cursor_row + 1) == 19)) goto L_B729;    // $B782
+        if ((ui_cursor_row != 16)) goto L_B796;    // $B78B
+        if ((fief_menu_info_mode_flag == 1)) goto L_B719;    // $B793
 L_B796:
-    goto L_B74F;    // $B798
+        goto L_B74F;    // $B798
+    }
     }
 }
 
