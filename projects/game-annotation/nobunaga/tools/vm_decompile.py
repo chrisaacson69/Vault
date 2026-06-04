@@ -50,6 +50,24 @@ _STACK_TRACE = []        # appended (opcode|None, depth) during a SELF_CHECK dec
 STRUCTURE = True
 
 
+# --- Structurer selector: template menagerie (V1) vs region reducer (V2) --------
+# CFG epic, REFRAME 2026-06-04: the template approach (structure_loops/structure_lines/
+# structure_switches) is being replaced by a single bottom-up CFG region reducer
+# (tools/vm_reduce.py) that is closed under composition — see vm_reduce's docstring +
+# the ROADMAP epic. Default OFF while V2 is built rung-by-rung: STRUCTURE_V2=False keeps
+# the proven template path (decompiled/*.c byte-identical). Flip True to run V2 instead;
+# it feeds the SAME structured_equivalent gate, so the safety model is unchanged.
+STRUCTURE_V2 = False
+
+
+def structure_v2(lines, instructions):
+    """The region-reducer structurer (CFG epic V2). Thin delegate to vm_reduce.reduce
+    so the reducer lives in its own module; this keeps the gate-wiring in decompile()
+    one symbol to swap when V2 dominates. Rung 0: passthrough (returns raw lines)."""
+    import vm_reduce
+    return vm_reduce.reduce(lines, instructions)
+
+
 # --- Opcode handlers: each takes (state, operand) and may emit C lines ---
 
 class State:
@@ -1192,7 +1210,22 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     #   L_X:
     #     <else-body>
     #   L_Y:
-    if STRUCTURE:
+    structured_ungated, gated_fallback = state.lines, False
+    if STRUCTURE and STRUCTURE_V2:
+        # CFG epic V2 — REGION REDUCER. A SINGLE bottom-up reducer (vm_reduce, behind
+        # structure_v2) replaces the three template passes. It detects irreducibility
+        # structurally and emits honest gotos there itself, so the gate is a pure
+        # backstop for rule BUGS — one pass, no progressive peel (nothing to peel).
+        structured = structure_v2(state.lines, instructions)
+        structured_ungated = structured
+        if structured is not state.lines:
+            import vm_cfg
+            _leaders = vm_cfg.bytecode_cfg(instructions)[1]
+            r, _nr, _ns = vm_cfg.structured_equivalent(state.lines, structured, _leaders)
+            if not r:
+                structured, gated_fallback = state.lines, True
+    elif STRUCTURE:
+        # Template menagerie (V1, superseded by V2 but the default until cutover).
         # Phase 1: fold loops first (while), then the if/else inside the bodies, and LAST
         # inline switch case bodies (Phase 3). Switches go last so structure_lines folds the
         # case bodies on clean goto lines BEFORE the case labels exist — else its if/else span
@@ -1204,36 +1237,35 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
         looped = structure_loops(state.lines, instructions)
         ifelse = structure_lines(looped, _case_barriers)
         structured = structure_switches(ifelse, instructions)
+        # CFG epic Phase 1: GATE the structuring. structure_lines / structure_loops /
+        # structure_switches are not always CFG-preserving (a fold can mis-route an irreducible
+        # region — structure_lines once nested num_to_ascii's recursive branch inside an `if`,
+        # returning garbage). So verify the structured form induces the SAME control-flow graph
+        # as the raw witness (== the bytecode); if not, fall back. PROGRESSIVE fallback: peel the
+        # most-speculative pass off and retry, so one bad fold (a loop OR a switch) never costs a
+        # sub its OTHER valid folds. Order: full -> drop switch -> drop loop+switch -> honest goto.
+        structured_ungated = structured
+        if structured is not state.lines:
+            import vm_cfg
+            _bc, _leaders = vm_cfg.bytecode_cfg(instructions)
+
+            def _ok(cand):
+                r, _nr, _ns = vm_cfg.structured_equivalent(state.lines, cand, _leaders)
+                return r
+
+            ok = _ok(structured)
+            if not ok and structured is not ifelse:          # the SWITCH inline may be the culprit
+                if _ok(ifelse):
+                    structured, ok = ifelse, True
+            if not ok and looped is not state.lines:          # else the LOOP fold may be
+                alt = structure_lines(state.lines)
+                if _ok(alt):
+                    structured, ok = alt, True
+            if not ok:
+                structured = state.lines
+                gated_fallback = True
     else:
         structured = state.lines
-
-    # CFG epic Phase 1: GATE the structuring. structure_lines / structure_loops /
-    # structure_switches are not always CFG-preserving (a fold can mis-route an irreducible
-    # region — structure_lines once nested num_to_ascii's recursive branch inside an `if`,
-    # returning garbage). So verify the structured form induces the SAME control-flow graph
-    # as the raw witness (== the bytecode); if not, fall back. PROGRESSIVE fallback: peel the
-    # most-speculative pass off and retry, so one bad fold (a loop OR a switch) never costs a
-    # sub its OTHER valid folds. Order: full -> drop switch -> drop loop+switch -> honest goto.
-    structured_ungated, gated_fallback = structured, False
-    if STRUCTURE and structured is not state.lines:
-        import vm_cfg
-        _bc, _leaders = vm_cfg.bytecode_cfg(instructions)
-
-        def _ok(cand):
-            r, _nr, _ns = vm_cfg.structured_equivalent(state.lines, cand, _leaders)
-            return r
-
-        ok = _ok(structured)
-        if not ok and structured is not ifelse:          # the SWITCH inline may be the culprit
-            if _ok(ifelse):
-                structured, ok = ifelse, True
-        if not ok and looped is not state.lines:          # else the LOOP fold may be
-            alt = structure_lines(state.lines)
-            if _ok(alt):
-                structured, ok = alt, True
-        if not ok:
-            structured = state.lines
-            gated_fallback = True
 
     # Hand the raw + (gated) structured control-flow line lists and the decoded
     # instructions back to a caller (the equivalence gate) without disturbing the
