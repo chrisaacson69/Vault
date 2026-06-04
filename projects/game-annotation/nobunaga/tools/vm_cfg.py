@@ -264,7 +264,72 @@ _RE_LABEL       = re.compile(r'L_[0-9A-Fa-f]{4}:$')
 _RE_SWITCH_CASE = re.compile(r'(case -?\d+|default): goto L_([0-9A-Fa-f]{4});$')
 
 
-def lower_goto_cfg(lines, leaders):
+# --- true/false edge labels (catch a guard inversion / then-else swap) ----------
+# The unlabelled CFG above treats a conditional block's two successors as an
+# unordered set, so a fold that SWAPS the then/else bodies (or inverts the guard
+# without compensating) preserves the edge SET and slips through. The fix: record,
+# per 2-way conditional block, an ORIENTED (taken, fall) pair — taken = where control
+# goes when the condition is TRUE — with all negation folded out so semantically equal
+# guards compare equal. A branch condition is atomic here (the VM tests one regA value
+# per branch), so it is either a bare value or a single `LHS op RHS` comparison; the
+# only condition rewrites structuring performs are outer `!(...)` toggling and the
+# comparison-operator flips in invert_condition (`<`<->`>=`, `>`<->`<=`, `==`<->`!=`).
+# _canon_cond peels both into a parity bit, so raw and structured agree iff the routing
+# is the same boolean function — and disagree exactly on a real swap.
+
+_CMP_NEG = {'>=': '<', '<=': '>', '!=': '==', '<': '>=', '>': '<=', '==': '!='}
+_RE_CMP = re.compile(r'^(.*?)\s*(<=|>=|==|!=|<|>)\s*(.*)$')
+
+
+def _balanced_to_end(s, open_idx):
+    """True iff the '(' at s[open_idx] has its matching ')' at the final char of s."""
+    depth = 0
+    for i in range(open_idx, len(s)):
+        if s[i] == '(':
+            depth += 1
+        elif s[i] == ')':
+            depth -= 1
+            if depth == 0:
+                return i == len(s) - 1
+    return False
+
+
+def _canon_cond(cond):
+    """Canonicalise a branch condition to (base_text, parity). parity counts the
+    negations folded out — outer `!(...)` wrappers AND a negated comparison operator —
+    so two conditions that are boolean negations of each other share a base and differ
+    in parity by exactly 1. Only parity is used by the orientation check; base is
+    returned for diagnostics."""
+    c = (cond or '').strip()
+    parity = 0
+    changed = True
+    while changed:                                  # peel outer !(...) and redundant ( )
+        changed = False
+        if c.startswith('!(') and _balanced_to_end(c, 1):
+            c, parity, changed = c[2:-1].strip(), parity ^ 1, True
+        elif c.startswith('(') and _balanced_to_end(c, 0):
+            c, changed = c[1:-1].strip(), True
+    m = _RE_CMP.match(c)                             # single top-level comparison?
+    if m:
+        lhs, op, rhs = m.group(1).strip(), m.group(2), m.group(3).strip()
+        if op in ('>=', '<=', '!='):                # fold negated op to its canonical mate
+            op, parity = _CMP_NEG[op], parity ^ 1
+        c = f"{lhs} {op} {rhs}"
+    return c, parity
+
+
+def _record_orient(orient, L, cond, taken, fall):
+    """Store the parity-folded oriented edge for conditional block L: after folding the
+    guard's negations out, `taken` is the TRUE side and `fall` the FALSE side."""
+    if orient is None:
+        return
+    _base, parity = _canon_cond(cond)
+    if parity:
+        taken, fall = fall, taken
+    orient[L] = (taken, fall)
+
+
+def lower_goto_cfg(lines, leaders, orient=None):
     """Lower a RAW goto/label line list (no structured braces) to the block CFG.
 
     Per-block + ADDRESS-based, which makes it robust to two things a lexical /
@@ -310,10 +375,14 @@ def lower_goto_cfg(lines, leaders):
                 succ = {block_of(tgt)}
             elif cl == 'ifgoto':
                 succ = {block_of(tgt), next_leader[L]}
+                mcnd = re.match(r'if \((.+)\) goto', t)
+                _record_orient(orient, L, mcnd.group(1), block_of(tgt), next_leader[L])
             elif cl == 'return':
                 succ = {EXIT}
             elif cl == 'ifreturn':
                 succ = {EXIT, next_leader[L]}
+                mcnd = re.match(r'if \((.+)\) return', t)
+                _record_orient(orient, L, mcnd.group(1), EXIT, next_leader[L])
             # plain statements contribute no edge; the block still falls through
         if is_switch:
             succ = {block_of(x) for x in sw_targets}
@@ -399,7 +468,7 @@ def _span_max_leader(lines, lo, hi, block_of):
     return best
 
 
-def lower_struct_cfg(lines, leaders):
+def lower_struct_cfg(lines, leaders, orient=None):
     """Lower the STRUCTURED C (if/while/switch + braces) to the block CFG over
     `leaders`. Per-block + ADDRESS-based like lower_goto_cfg (same robustness to
     flushed-call reordering / folded blocks), except a block whose branch became an
@@ -430,9 +499,12 @@ def lower_struct_cfg(lines, leaders):
     for header_addr, h_idx, else_idx, close_idx in ifs:
         hb = block_of(header_addr)
         then_true = next_leader[hb]                    # then-body starts right after header
+        _ifcond = _RE_IF_OPEN.match(lines[h_idx][2].strip())
+        _ifcond = _ifcond.group(1) if _ifcond else ''
         if else_idx is None:
             merge = span_after(h_idx + 1, close_idx, hb)   # block past the whole if
             header_edges[hb] = {then_true, merge}
+            _record_orient(orient, hb, _ifcond, then_true, merge)
         else:
             then_top = _span_max_leader(lines, h_idx + 1, else_idx, block_of)
             else_start = next_leader[then_top] if then_top is not None else next_leader[hb]
@@ -443,6 +515,7 @@ def lower_struct_cfg(lines, leaders):
                 else_top = else_start
             merge = next_leader[else_top]
             header_edges[hb] = {then_true, else_start}
+            _record_orient(orient, hb, _ifcond, then_true, else_start)
             # structure_lines stripped the then-body's trailing `goto L_merge`, so its
             # tail block must JUMP to the merge, not fall lexically into the else.
             if then_top is not None and then_top != hb:
@@ -478,6 +551,8 @@ def lower_struct_cfg(lines, leaders):
         if body_entry is None:          # degenerate empty body: header just gates exit
             body_entry = exit_blk
         header_edges[hb] = {body_entry, exit_blk}
+        _wcond = _RE_WHILE_OPEN.match(lines[h_idx][2].strip())
+        _record_orient(orient, hb, _wcond.group(1) if _wcond else '', body_entry, exit_blk)
         if body_tail is not None and body_tail != hb:
             back_edges.setdefault(body_tail, set()).add(hb)   # body tail loops back
         # Body leaders (incl. label-only / folded ones): a rotated while hoists the
@@ -506,6 +581,8 @@ def lower_struct_cfg(lines, leaders):
         if exit_blk is None:
             exit_blk = EXIT
         dowhile_edges[ub] = {hb, exit_blk}
+        _dcond = _RE_DOWHILE_CLOSE.match(lines[close_idx][2].strip())
+        _record_orient(orient, ub, _dcond.group(1) if _dcond else '', hb, exit_blk)
 
     blocks = {L: [] for L in leaders}
     for addr, _ind, text in lines:
@@ -537,10 +614,14 @@ def lower_struct_cfg(lines, leaders):
                 succ = {block_of(tgt)}
             elif cl == 'ifgoto':
                 succ = {block_of(tgt), next_leader[L]}
+                mcnd = re.match(r'if \((.+)\) goto', t)
+                _record_orient(orient, L, mcnd.group(1), block_of(tgt), next_leader[L])
             elif cl == 'return':
                 succ = {EXIT}
             elif cl == 'ifreturn':
                 succ = {EXIT, next_leader[L]}
+                mcnd = re.match(r'if \((.+)\) return', t)
+                _record_orient(orient, L, mcnd.group(1), EXIT, next_leader[L])
         if is_switch:
             succ = {block_of(x) for x in sw_targets}
             if not sw_has_default:
@@ -580,14 +661,21 @@ def observable_blocks(lines, leaders):
     return obs
 
 
-def contract(cfg, observable, entry):
+def contract(cfg, observable, entry, orient=None):
     """Normalise a CFG by bypassing pure-routing blocks: any non-entry, non-observable
     block with a SINGLE successor (goto-only / empty fall-through / bare-`return`→EXIT)
     is removed and its predecessors rewired through it. Applied identically to both
     sides, this is the equivalence relation that ACCEPTS the behaviour-preserving folds
     structure_lines performs (early-return merges a return block; empty-arm if/else
     collapses a routing diamond) while still distinguishing any MISROUTE between
-    observable (side-effecting) blocks. Returns the contracted CFG."""
+    observable (side-effecting) blocks. Returns the contracted CFG.
+
+    If `orient` (a {cond_block: (taken, fall)} map of true/false edge labels) is given, it
+    is rewired IN LOCKSTEP with the edges — each removed B->t bypass replaces B with t in
+    every label too. Conditional blocks have 2 successors so are never themselves removed,
+    so their labels survive and end up pointing at exactly the contracted graph's nodes.
+    Doing this through contract() (not a separate resolver) is what keeps the orientation
+    consistent with the contracted CFG on loop tails / mid-contraction self-loops."""
     g = {L: set(s) for L, s in cfg.items()}
     changed = True
     while changed:
@@ -604,6 +692,10 @@ def contract(cfg, observable, entry):
             for X in g:
                 if B in g[X]:
                     g[X] = (g[X] - {B}) | {t}
+            if orient is not None:
+                for L, (tk, fl) in list(orient.items()):
+                    if tk == B or fl == B:
+                        orient[L] = (t if tk == B else tk, t if fl == B else fl)
             del g[B]
             changed = True
             break
@@ -611,17 +703,29 @@ def contract(cfg, observable, entry):
 
 
 def structured_equivalent(raw_lines, struct_lines, leaders):
-    """The Phase-1 structured-equivalence gate: True iff the STRUCTURED form has the
-    same control flow as the RAW witness (= the bytecode, proven) under contract().
+    """The structured-equivalence gate: True iff the STRUCTURED form has the
+    same control flow as the RAW witness (= the bytecode, proven). Two checks:
+      (1) contract()ed CFGs are equal — same routing between observable blocks; and
+      (2) every conditional's TRUE/FALSE orientation agrees — so a then/else swap or a
+          guard inversion (same two targets, wrong side) is caught, which the unlabelled
+          edge SET in (1) would miss.
     Returns (ok, contracted_raw, contracted_struct) for reporting."""
     if not leaders:
         return True, {}, {}
     entry = leaders[0]
-    n_raw = contract(lower_goto_cfg(raw_lines, leaders),
-                     observable_blocks(raw_lines, leaders), entry)
-    n_str = contract(lower_struct_cfg(struct_lines, leaders),
-                     observable_blocks(struct_lines, leaders), entry)
-    return n_raw == n_str, n_raw, n_str
+    or_raw, or_str = {}, {}
+    cfg_raw = lower_goto_cfg(raw_lines, leaders, orient=or_raw)
+    cfg_str = lower_struct_cfg(struct_lines, leaders, orient=or_str)
+    n_raw = contract(cfg_raw, observable_blocks(raw_lines, leaders), entry, orient=or_raw)
+    n_str = contract(cfg_str, observable_blocks(struct_lines, leaders), entry, orient=or_str)
+    if n_raw != n_str:
+        return False, n_raw, n_str
+    # true/false edge-label check: contract() rewired each conditional's (taken, fall) to
+    # the contracted graph's nodes; drop the vacuous (taken == fall) ones and compare. A
+    # then/else swap or guard inversion shows up here as a true/false target mismatch.
+    fo_raw = {L: tf for L, tf in or_raw.items() if tf[0] != tf[1]}
+    fo_str = {L: tf for L, tf in or_str.items() if tf[0] != tf[1]}
+    return fo_raw == fo_str, n_raw, n_str
 
 
 def _selftest(bank, sub_hex):

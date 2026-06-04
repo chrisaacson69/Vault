@@ -119,6 +119,30 @@ def main():
         bad, _, _ = vm_cfg.structured_equivalent(raw, deloop, leaders)
         check(f"b{bank}/${sub:04X}: do-while tail dropped REJECTED", not bad)
 
+    # Phase 2 step 0 (true/false edge labels): a guard INVERSION that does NOT move the
+    # bodies — `if (C) {` -> `if (!(C)) {` — runs the then/else bodies on the wrong guard.
+    # The unlabelled successor SET is unchanged, so contract() alone would miss it; only
+    # the orientation labels catch it. These subs have a non-empty if-header (an
+    # `if (C) {} else {}` with both arms empty IS a genuine no-op under inversion, so the
+    # relation correctly accepts that — excluded here).
+    for bank, sub in [(0, 0x862B), (0, 0x8C45), (1, 0x8003)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        inv, ci = None, None
+        for i, (a, ind, t) in enumerate(struct):
+            m = re.match(r'if \((.+)\) \{$', t.strip())
+            if m:
+                inv = list(struct)
+                inv[i] = (a, ind, t.replace(f"if ({m.group(1)}) {{",
+                                            f"if (!({m.group(1)})) {{"))
+                ci = i
+                break
+        check(f"b{bank}/${sub:04X}: has an if-header to invert", inv is not None)
+        if inv is not None:
+            bad, _, _ = vm_cfg.structured_equivalent(raw, inv, leaders)
+            check(f"b{bank}/${sub:04X}: guard inversion (then/else swap) REJECTED", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 
