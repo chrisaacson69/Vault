@@ -83,6 +83,24 @@ def main():
         same, _, _ = vm_cfg.structured_equivalent(raw, raw, leaders)
         check(f"b{bank}/${sub:04X}: raw ~= raw (identity)", same)
 
+    # Phase 1 (loop folding): subs whose `structure_loops` emits a real `while`.
+    # The gate must (a) accept the genuine fold and (b) reject a loop turned into a
+    # non-loop — replacing `while (` with `if (` deletes the back edge, a CFG change
+    # the contraction relation MUST catch (else loops could silently degrade to ifs).
+    for bank, sub in [(0, 0x947A), (0, 0x9E9D), (0, 0xA742)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        has_while = any('while (' in t for _a, _i, t in struct)
+        check(f"b{bank}/${sub:04X}: folded a while", has_while)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: while fold ~= raw", ok)
+
+        deloop = [(a, i, t.replace('while (', 'if (', 1)) for a, i, t in struct]
+        bad, _, _ = vm_cfg.structured_equivalent(raw, deloop, leaders)
+        check(f"b{bank}/${sub:04X}: while->if (back edge dropped) REJECTED", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 

@@ -169,6 +169,69 @@ def unknown_control_mnemonics(instructions):
     return unknown
 
 
+# --- dominators / natural loops (the Phase-1 loop-structuring substrate) --------
+# Standard iterative dataflow over the block CFG. Keyed on leader addrs + EXIT, the
+# same coordinate system everything else here uses. These let the decompiler find
+# the back edges that become `while`/`do-while` and the loop bodies they enclose.
+
+def dominators(cfg, entry):
+    """dom[n] = set of blocks that dominate n (every path entry->n passes through
+    them). Iterative fixpoint; cfg = {leader: frozenset(succ)} incl. the EXIT node."""
+    nodes = set(cfg) | {EXIT}
+    preds = {n: set() for n in nodes}
+    for n, succ in cfg.items():
+        for s in succ:
+            preds.setdefault(s, set()).add(n)
+    dom = {n: set(nodes) for n in nodes}
+    dom[entry] = {entry}
+    changed = True
+    while changed:
+        changed = False
+        for n in nodes:
+            if n == entry:
+                continue
+            new = set(nodes)
+            for p in preds[n]:
+                new &= dom[p]
+            new.add(n)
+            if new != dom[n]:
+                dom[n] = new
+                changed = True
+    return dom
+
+
+def back_edges(cfg, entry):
+    """The list of (u, h) edges where h dominates u — i.e. u->h closes a loop whose
+    header is h. (Requires a reducible region for h to be the natural header; the
+    natural_loop builder below is only meaningful on these.) Returns (edges, dom)."""
+    dom = dominators(cfg, entry)
+    edges = []
+    for u, succ in cfg.items():
+        for h in succ:
+            if h is not EXIT and h in dom.get(u, ()):
+                edges.append((u, h))
+    return edges, dom
+
+
+def natural_loop(u, h, cfg):
+    """The natural loop of back edge u->h: {h} plus every node that can reach u
+    without going through h. Standard backward worklist from u, stopping at h."""
+    preds = {n: set() for n in cfg}
+    for n, succ in cfg.items():
+        for s in succ:
+            if s is not EXIT:
+                preds.setdefault(s, set()).add(n)
+    loop = {h, u}
+    work = [u]
+    while work:
+        n = work.pop()
+        for p in preds.get(n, ()):
+            if p not in loop:
+                loop.add(p)
+                work.append(p)
+    return loop
+
+
 # --- lowering a C line list (raw goto OR structured) to the block CFG ----------
 
 def _classify_stmt(text):
@@ -266,6 +329,15 @@ def _is_scaffold(t):
             or _RE_DOWHILE_CLOSE.match(t) is not None)
 
 
+def _opens_block(t):
+    """A construct-OPENER (`if (C) {`, `while (C) {`, `switch (E) {`, `do {`). These
+    end in `{` (so _is_scaffold calls them scaffold for the 'no effect' question) but
+    they DO start a basic block — the header's condition-evaluation lives here. The
+    while-loop lowering must count them when locating a body's first/last block."""
+    return (_RE_IF_OPEN.match(t) is not None or _RE_WHILE_OPEN.match(t) is not None
+            or _RE_SWITCH_OPEN.match(t) is not None or t == 'do {')
+
+
 def _match_constructs(lines):
     """Brace-match the structured if/while/switch/do blocks. Returns (ifs, whiles)
     where ifs = [(header_addr, header_idx, else_idx|None, closer_idx)] and
@@ -338,6 +410,7 @@ def lower_struct_cfg(lines, leaders):
     ifs, whiles = _match_constructs(lines)
 
     header_edges, back_edges, tail_redirect = {}, {}, {}
+    while_bodies = []   # (header_block, frozenset(body_leaders)) per while construct
 
     def span_after(lo, hi, header_block):
         """Block reached just past the line span [lo,hi): the leader following the
@@ -366,13 +439,54 @@ def lower_struct_cfg(lines, leaders):
             # tail block must JUMP to the merge, not fall lexically into the else.
             if then_top is not None and then_top != hb:
                 tail_redirect[then_top] = merge
+    def _occupies_block(t):
+        return (not _is_scaffold(t)) or _opens_block(t)
+
+    def first_real_block(lo, hi):
+        """Block of the first block-occupying line in lines[lo:hi], else None."""
+        for k in range(lo, hi):
+            if _occupies_block(lines[k][2].strip()):
+                return block_of(lines[k][0])
+        return None
+
+    def last_real_block(lo, hi):
+        """Block of the last block-occupying line in lines[lo:hi], else None."""
+        for k in range(hi - 1, lo - 1, -1):
+            if _occupies_block(lines[k][2].strip()):
+                return block_of(lines[k][0])
+        return None
+
     for header_addr, h_idx, close_idx in whiles:
+        # POSITION-based (not next_leader): the loop emitter rotates the test to the
+        # top, so the body's entry/tail are wherever the brace contents sit in the
+        # listing — NOT necessarily the leader right after the header by address.
+        #   while(C){body}: header -> { body_entry, exit }; body_tail -> header
         hb = block_of(header_addr)
-        exit_blk = span_after(h_idx + 1, close_idx, hb)
-        header_edges[hb] = {next_leader[hb], exit_blk}
-        body_top = _span_max_leader(lines, h_idx + 1, close_idx, block_of)
-        if body_top is not None and body_top != hb:
-            back_edges.setdefault(body_top, set()).add(hb)   # body tail loops back
+        body_entry = first_real_block(h_idx + 1, close_idx)
+        body_tail = last_real_block(h_idx + 1, close_idx)
+        exit_blk = first_real_block(close_idx + 1, len(lines))
+        if exit_blk is None:
+            exit_blk = EXIT
+        if body_entry is None:          # degenerate empty body: header just gates exit
+            body_entry = exit_blk
+        header_edges[hb] = {body_entry, exit_blk}
+        if body_tail is not None and body_tail != hb:
+            back_edges.setdefault(body_tail, set()).add(hb)   # body tail loops back
+        # Body leaders (incl. label-only / folded ones): a rotated while hoists the
+        # bottom test above the body, so any block OUTSIDE the loop whose address-next
+        # leader lands INSIDE the body must instead enter via the header (the dropped
+        # entry-guard `goto L_h` used to make that explicit). Recorded for the
+        # fall-through fix below — keeps the address-based lowering otherwise intact.
+        bls = set()
+        for k in range(h_idx + 1, close_idx):
+            t = lines[k][2].strip()
+            m = _RE_LABEL.match(t)
+            if m:
+                bls.add(int(t[2:6], 16))
+            elif _occupies_block(t):
+                bls.add(block_of(lines[k][0]))
+        bls.discard(hb)
+        while_bodies.append((hb, frozenset(bls)))
 
     blocks = {L: [] for L in leaders}
     for addr, _ind, text in lines:
@@ -410,7 +524,17 @@ def lower_struct_cfg(lines, leaders):
             if not sw_has_default:
                 succ.add(next_leader[L])
         if succ is None:
-            succ = {tail_redirect.get(L, next_leader[L])}    # if-else then-tail -> merge
+            # fall-through: if-else then-tail -> merge, else the address-next leader —
+            # but a block falling into a HOISTED while body must enter via the header
+            # (you can't fall into the middle of a rotated loop).
+            fall = tail_redirect.get(L)
+            if fall is None:
+                fall = next_leader[L]
+                for hb2, bls in while_bodies:
+                    if fall in bls and L not in bls and L != hb2:
+                        fall = hb2
+                        break
+            succ = {fall}
         cfg[L] = frozenset(succ | back_edges.get(L, set()))
     return cfg
 

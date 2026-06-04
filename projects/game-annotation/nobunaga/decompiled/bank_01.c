@@ -1226,15 +1226,13 @@ word fief_men_ratio_pct(word arg1, word arg2) {
 
 word pick_weakest_men_fief(word fief_list_ptr) {
     weakest_fief = *(byte*)(fief_list_ptr);    // $93BA
-    goto L_93D2;    // $93BB
-L_93BE:
-    if (((unsigned)fief_men_ratio_pct(weakest_fief, *(byte*)(fief_list_ptr)) > (unsigned)50)) {    // $93C9
-    weakest_fief = *(byte*)(fief_list_ptr);    // $93CE
-    }
+    while ((*(byte*)(fief_list_ptr) != 255)) {    // $93D2
+        if (((unsigned)fief_men_ratio_pct(weakest_fief, *(byte*)(fief_list_ptr)) > (unsigned)50)) {    // $93C9
+        weakest_fief = *(byte*)(fief_list_ptr);    // $93CE
+        }
 L_93CF:
-    fief_list_ptr = (fief_list_ptr + 1);    // $93D1
-L_93D2:
-    if ((*(byte*)(fief_list_ptr) != 255)) goto L_93BE;    // $93D8
+        fief_list_ptr = (fief_list_ptr + 1);    // $93D1
+    }
     return weakest_fief;    // $93DC
 }
 
@@ -1258,18 +1256,16 @@ L_9422:
 
 word pick_ai_attack_target_fief(word fief_list) {
     target_fief = *(byte*)(fief_list);    // $942A
-    goto L_9452;    // $942B
-L_942E:
-    if (get_province_ai_state(target_fief)) {    // $9433
-    if (ai_relations_and_low_drive_skip_gate(target_fief)) goto L_944F;    // $943B
-    if (((unsigned)fief_men_ratio_pct(target_fief, *(byte*)(fief_list)) > (unsigned)50)) {    // $9449
-    target_fief = *(byte*)(fief_list);    // $944E
-    }
-    }
+    while ((*(byte*)(fief_list) != 255)) {    // $9452
+        if (get_province_ai_state(target_fief)) {    // $9433
+        if (ai_relations_and_low_drive_skip_gate(target_fief)) goto L_944F;    // $943B
+        if (((unsigned)fief_men_ratio_pct(target_fief, *(byte*)(fief_list)) > (unsigned)50)) {    // $9449
+        target_fief = *(byte*)(fief_list);    // $944E
+        }
+        }
 L_944F:
-    fief_list = (fief_list + 1);    // $9451
-L_9452:
-    if ((*(byte*)(fief_list) != 255)) goto L_942E;    // $9458
+        fief_list = (fief_list + 1);    // $9451
+    }
     return target_fief;    // $945C
 }
 
@@ -1484,18 +1480,16 @@ L_980D:
 
 word effect_war_e(word relation_flags_out) {
     owner_cursor = 0x6F4F;    // $981C
-    goto L_9846;    // $981D
-L_9820:
-    if (relations_roll_vs_owner(*(byte*)(owner_cursor), 1)) goto L_983B;    // $9829
-    if (relations_roll_vs_owner(*(byte*)(owner_cursor), 0)) goto L_983B;    // $9834
-    goto L_983C;    // $9838
+    while ((*(byte*)(owner_cursor) != 255)) {    // $9846
+        if (relations_roll_vs_owner(*(byte*)(owner_cursor), 1)) goto L_983B;    // $9829
+        if (relations_roll_vs_owner(*(byte*)(owner_cursor), 0)) goto L_983B;    // $9834
+        goto L_983C;    // $9838
 L_983B:
 L_983C:
-    *(word*)(relation_flags_out) = 1;    // $983C
-    owner_cursor = (owner_cursor + 1);    // $983F
-    relation_flags_out = (relation_flags_out + 2);    // $9843
-L_9846:
-    if ((*(byte*)(owner_cursor) != 255)) goto L_9820;    // $984C
+        *(word*)(relation_flags_out) = 1;    // $983C
+        owner_cursor = (owner_cursor + 1);    // $983F
+        relation_flags_out = (relation_flags_out + 2);    // $9843
+    }
     return (*(byte*)(owner_cursor) != 255);    // $984F
 }
 
@@ -2945,12 +2939,10 @@ L_AF06:
 word map_helper_af10(word arg1) {
     message_display(msg_arrows_other_sections);    // $AF18
     redraw_window(msg_a_button_menu);    // $AF1F
-    goto L_AF2B;    // $AF23
-L_AF26:
-L_AF2B:
-    map_helper_e5f2(arg1);    // $AF27
-    arg1 = fief_select_input_loop(arg1);    // $AF30
-    if ((fief_select_input_loop(arg1) != 10)) goto L_AF26;    // $AF33
+    while ((fief_select_input_loop(arg1) != 10)) {    // $AF2B
+        map_helper_e5f2(arg1);    // $AF27
+        arg1 = fief_select_input_loop(arg1);    // $AF30
+    }
     return 0;    // $AF37
 }
 

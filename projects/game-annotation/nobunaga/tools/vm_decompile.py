@@ -1087,7 +1087,12 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     #   L_X:
     #     <else-body>
     #   L_Y:
-    structured = structure_lines(state.lines) if STRUCTURE else state.lines
+    if STRUCTURE:
+        # Phase 1: fold loops first (while), then fold the if/else inside the bodies.
+        looped = structure_loops(state.lines, instructions)
+        structured = structure_lines(looped)
+    else:
+        structured = state.lines
 
     # CFG epic Phase 1: GATE the structuring. structure_lines is not always
     # CFG-preserving (it can mis-fold irreducible regions — e.g. it once nested
@@ -1174,6 +1179,130 @@ def simplify_expression(text):
             if new == text: break
             text = new
     return text
+
+
+def _parse_branch_line(text):
+    """(kind, target_addr, cond) for a control line, else (None, None, None).
+    kind: 'ifgoto' (cond -> target) / 'goto' (uncond -> target)."""
+    t = text.strip()
+    m = re.match(r'if \((.+)\) goto L_([0-9A-Fa-f]{4});$', t)
+    if m:
+        return 'ifgoto', int(m.group(2), 16), m.group(1)
+    m = re.match(r'goto L_([0-9A-Fa-f]{4});$', t)
+    if m:
+        return 'goto', int(m.group(1), 16), None
+    return None, None, None
+
+
+def _negate_cond(cond):
+    """Loop-continue condition = negation of a 'taken -> exit' test. Unwrap an
+    explicit `!(X)` to X; otherwise flip the comparison (or fall back to !(...))."""
+    c = cond.strip()
+    if c.startswith('!(') and c.endswith(')'):
+        return c[2:-1]
+    return invert_condition(c)
+
+
+def structure_loops(lines, instructions):
+    """CFG epic, Phase 1: fold a clean single-back-edge, single-exit reducible
+    'while' loop into `while (C) { body }`. CFG-DRIVEN — the header / body / exit all
+    come from the bytecode CFG (ground truth), never from line-text guessing.
+
+    Handles the common compiler idiom where the loop is ROTATED (test emitted at the
+    BOTTOM, body above it, with an entry `goto L_test` guard) — the structured form
+    hoists the test to the top, and the entry block then falls into the `while`
+    header (modelled by lower_struct_cfg's entry_into redirect, so the address-based
+    raw lowering stays untouched). Only ONE loop per sub for now; anything that isn't
+    provably a top-test while is left as goto (the CFG-equivalence gate is the
+    backstop — a mis-fold simply reverts the whole sub to honest goto)."""
+    import vm_cfg
+    cfg, leaders = vm_cfg.bytecode_cfg(instructions)
+    if len(leaders) < 2:
+        return lines
+    entry = leaders[0]
+    bes, _dom = vm_cfg.back_edges(cfg, entry)
+    if len(bes) != 1:                      # Phase 1a: exactly one loop per sub
+        return lines
+    (u, h), = bes
+    if u == h:                              # self-loop: a do-while job, not Phase 1a
+        return lines
+    if len(cfg[h]) != 2:                    # header must be the 2-way exit test
+        return lines
+    loop = vm_cfg.natural_loop(u, h, cfg)
+    body_in = [s for s in cfg[h] if s in loop]
+    exit_out = [s for s in cfg[h] if s not in loop]
+    if len(body_in) != 1 or len(exit_out) != 1:
+        return lines
+    body_entry, exit_e = body_in[0], exit_out[0]
+    if body_entry == h:                     # header is its own body entry: skip
+        return lines
+    # Single exit: no loop node escapes to anywhere but exit_e (a `return`/EXIT inside
+    # the body is fine — it stays a `return` and lowers correctly).
+    for n in loop:
+        for s in cfg[n]:
+            if s is not vm_cfg.EXIT and s not in loop and s != exit_e:
+                return lines
+    # Single entry: only the header h is reached from outside the loop.
+    for n in loop:
+        if n != h and any(n in cfg[p] and p not in loop for p in cfg):
+            return lines
+
+    block_of = vm_cfg._block_of_fn(leaders)
+    idx_h_test = idx_backedge = idx_entry_guard = None
+    loop_idxs = []
+    for i, (addr, _ind, text) in enumerate(lines):
+        blk = block_of(addr)
+        kind, tgt, _cond = _parse_branch_line(text)
+        if blk in loop:
+            loop_idxs.append(i)
+            if blk == h and kind == 'ifgoto':
+                idx_h_test = i                       # header test (removed; gives C)
+            elif kind == 'goto' and tgt == h and blk != h:
+                idx_backedge = i                     # explicit tail back-goto (removed)
+        elif kind == 'goto' and tgt == h:
+            idx_entry_guard = i                      # guard from outside (removed)
+    if idx_h_test is None or not loop_idxs:
+        return lines
+    lo, hi = min(loop_idxs), max(loop_idxs)
+    # The loop's listing span must hold ONLY loop lines, so removing the test/back-edge
+    # leaves the body intact and in order (no foreign code interleaved).
+    if any(block_of(lines[i][0]) not in loop for i in range(lo, hi + 1)):
+        return lines
+
+    _k, tgt, cond = _parse_branch_line(lines[idx_h_test][2])
+    cont = cond if block_of(tgt) in loop else _negate_cond(cond)
+
+    drop = {idx_h_test}
+    if idx_backedge is not None:
+        drop.add(idx_backedge)
+    if idx_entry_guard is not None:
+        drop.add(idx_entry_guard)
+    for i in range(lo, hi + 1):
+        if lines[i][2].strip() == f"L_{h:04X}:":
+            drop.add(i)                              # header label -> replaced by `while`
+    # The body-entry label is now unreferenced (the header test that targeted it was
+    # dropped) UNLESS an internal back-jump still uses it — drop it only if dead.
+    refs = set()
+    for j, (_a, _ind, text) in enumerate(lines):
+        if j not in drop:
+            refs.update(int(m, 16) for m in re.findall(r'goto L_([0-9A-Fa-f]{4})', text))
+    if body_entry not in refs:
+        for i in range(lo, hi + 1):
+            if lines[i][2].strip() == f"L_{body_entry:04X}:":
+                drop.add(i)
+
+    base_ind = lines[lo][1] or 1
+    out = []
+    for i, (addr, ind, text) in enumerate(lines):
+        if i == lo:
+            out.append((h, base_ind, f"while ({cont}) {{"))
+        if i not in drop and lo <= i <= hi:
+            out.append((addr, ind + 1, text))
+        elif i not in drop:
+            out.append((addr, ind, text))
+        if i == hi:
+            out.append((0, base_ind, "}"))
+    return out
 
 
 def structure_lines(lines):
