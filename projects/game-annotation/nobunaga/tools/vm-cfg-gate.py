@@ -73,27 +73,28 @@ def run(banks, verbose=False, show_structured=False):
                 for a, mn in vm_cfg.unknown_control_mnemonics(instrs):
                     unknown_mn.append((bank, stub, a, mn))
                 cc_raw = vm_cfg.lower_goto_cfg(collect['raw'], leaders)
-                cc_str = vm_cfg.lower_c_to_cfg(collect['structured'], leaders)
                 if cc_raw != bc:
                     raw_fail.append((bank, stub))
                     if verbose:
                         print(f"\nRAW != bytecode  bank {bank} ${stub:04X}")
                         print("  bytecode:\n" + _fmt(bc))
                         print("  lower(raw):\n" + _fmt(cc_raw))
-                if cc_str != bc:
+                ok, n_raw, n_str = vm_cfg.structured_equivalent(
+                    collect['raw'], collect['structured'], leaders)
+                if not ok:
                     struct_diff.append((bank, stub))
                     if show_structured:
-                        print(f"\nSTRUCT != bytecode  bank {bank} ${stub:04X}")
-                        print("  bytecode:\n" + _fmt(bc))
-                        print("  lower(structured):\n" + _fmt(cc_str))
+                        print(f"\nSTRUCT !~= raw (contracted)  bank {bank} ${stub:04X}")
+                        print("  contracted raw:\n" + _fmt(n_raw))
+                        print("  contracted structured:\n" + _fmt(n_str))
 
     print(f"\nCFG gate over {n_subs} subs in banks {banks}:")
-    print(f"  (1) witness faithfulness  lower(raw) == bytecode : "
+    print(f"  (1) witness faithfulness   lower(raw) == bytecode        : "
           f"{n_subs - len(raw_fail)}/{n_subs} pass"
           + ("" if not raw_fail else f"  — {len(raw_fail)} FAIL"))
-    print(f"  (2) structured exact-match lower(struct) == bytecode: "
-          f"{n_subs - len(struct_diff)}/{n_subs} exact "
-          f"({len(struct_diff)} differ by destructive folds — informational)")
+    print(f"  (2) structured equivalence contract(struct)==contract(raw): "
+          f"{n_subs - len(struct_diff)}/{n_subs} pass"
+          + ("" if not struct_diff else f"  — {len(struct_diff)} FAIL"))
     if unknown_mn:
         print(f"  ! {len(unknown_mn)} unrecognised control mnemonic(s):")
         for bank, sub, a, mn in unknown_mn[:20]:

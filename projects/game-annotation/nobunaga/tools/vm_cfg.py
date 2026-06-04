@@ -197,72 +197,6 @@ _RE_LABEL       = re.compile(r'L_[0-9A-Fa-f]{4}:$')
 _RE_SWITCH_CASE = re.compile(r'(case -?\d+|default): goto L_([0-9A-Fa-f]{4});$')
 
 
-def _parse_switch(lines, i):
-    """Parse a `switch (...) {` body of `case/default: goto L_X;` lines up to `}`.
-    Returns (node, next_index). node = ('SWITCH', sw_addr, frozenset(targets), has_default)."""
-    sw_addr = lines[i][0]
-    i += 1
-    targets, has_default = set(), False
-    while i < len(lines):
-        t = lines[i][2].strip()
-        if t == '}':
-            i += 1
-            break
-        m = _RE_SWITCH_CASE.match(t)
-        if m:
-            targets.add(int(m.group(2), 16))
-            if m.group(1) == 'default':
-                has_default = True
-        i += 1
-    return ('SWITCH', sw_addr, frozenset(targets), has_default), i
-
-
-def _parse_seq(lines, i):
-    """Recursive-descent parse of a brace-delimited sequence. Returns
-    (nodes, next_index, closer) where closer is '}', 'else', ('dowhile', cond),
-    or 'eof'. Labels and comments are skipped (labels are redundant with the
-    target-address coordinate system; comments carry no control flow)."""
-    nodes = []
-    while i < len(lines):
-        addr, _ind, text = lines[i]
-        t = text.strip()
-        if t == '}':
-            return nodes, i + 1, '}'
-        if t == '} else {':
-            return nodes, i + 1, 'else'
-        m = _RE_DOWHILE_CLOSE.match(t)
-        if m:
-            return nodes, i + 1, ('dowhile', m.group(1))
-        if _RE_LABEL.match(t) or t.startswith('//'):
-            i += 1
-            continue
-        if _RE_SWITCH_OPEN.match(t):
-            node, i = _parse_switch(lines, i)
-            nodes.append(node)
-            continue
-        m = _RE_IF_OPEN.match(t)
-        if m:
-            then_nodes, i, closer = _parse_seq(lines, i + 1)
-            els = None
-            if closer == 'else':
-                els, i, _closer2 = _parse_seq(lines, i)
-            nodes.append(('IF', addr, m.group(1), then_nodes, els))
-            continue
-        m = _RE_WHILE_OPEN.match(t)
-        if m:
-            body, i, _closer = _parse_seq(lines, i + 1)
-            nodes.append(('WHILE', addr, m.group(1), body))
-            continue
-        if t == 'do {':
-            body, i, closer = _parse_seq(lines, i + 1)
-            cond = closer[1] if isinstance(closer, tuple) else '?'
-            nodes.append(('DOWHILE', addr, cond, body))
-            continue
-        nodes.append(('STMT', addr, t))
-        i += 1
-    return nodes, i, 'eof'
-
-
 def lower_goto_cfg(lines, leaders):
     """Lower a RAW goto/label line list (no structured braces) to the block CFG.
 
@@ -324,108 +258,224 @@ def lower_goto_cfg(lines, leaders):
     return cfg
 
 
-def lower_c_to_cfg(lines, leaders):
-    """Lower a (addr, indent, text) C line list to the block CFG over `leaders`.
+def _is_scaffold(t):
+    """A stripped line that carries no control AND no observable effect: blank,
+    comment, label, or a brace/keyword opener/closer."""
+    return (not t or t.startswith('//') or _RE_LABEL.match(t) is not None
+            or t == '}' or t == '} else {' or t.endswith('{')
+            or _RE_DOWHILE_CLOSE.match(t) is not None)
 
-    Returns {leader: frozenset(succ leaders / EXIT)}. Built by a structured
-    interpreter over the brace tree: each construct contributes the exact edges
-    its control flow induces, all collapsed to blocks via block_of. Statement-less
-    blocks (everything folded) get their fall-through reconstructed from `leaders`.
-    """
+
+def _match_constructs(lines):
+    """Brace-match the structured if/while/switch/do blocks. Returns (ifs, whiles)
+    where ifs = [(header_addr, header_idx, else_idx|None, closer_idx)] and
+    whiles = [(header_addr, header_idx, closer_idx)]. Switches are handled per-block
+    via their case lines, so they're matched only to keep the brace stack balanced."""
+    ifs, whiles, stack = [], [], []
+    for idx, (addr, _ind, text) in enumerate(lines):
+        t = text.strip()
+        if _RE_IF_OPEN.match(t):
+            stack.append(['if', addr, idx, None])
+        elif _RE_WHILE_OPEN.match(t):
+            stack.append(['while', addr, idx])
+        elif _RE_SWITCH_OPEN.match(t):
+            stack.append(['switch', addr, idx])
+        elif t == 'do {':
+            stack.append(['do', addr, idx])
+        elif t == '} else {':
+            if stack and stack[-1][0] == 'if':
+                stack[-1][3] = idx
+        elif _RE_DOWHILE_CLOSE.match(t):
+            if stack and stack[-1][0] == 'do':
+                stack.pop()
+        elif t == '}':
+            if not stack:
+                continue
+            top = stack.pop()
+            if top[0] == 'if':
+                ifs.append((top[1], top[2], top[3], idx))
+            elif top[0] == 'while':
+                whiles.append((top[1], top[2], idx))
+    return ifs, whiles
+
+
+def _span_max_leader(lines, lo, hi, block_of):
+    """The highest basic-block LEADER touched by lines[lo:hi], counting both real
+    statements (via block_of) and label lines `L_XXXX:` (whose addr IS a leader).
+    Labels matter: an empty / folded arm contributes no real statement but its label
+    still marks the leader, so the merge / else-start lands past it. None if empty."""
+    best = None
+    for k in range(lo, hi):
+        addr, _i, text = lines[k]
+        t = text.strip()
+        m = _RE_LABEL.match(t)
+        if m:
+            L = int(t[2:6], 16)
+        elif _is_scaffold(t):
+            continue
+        else:
+            L = block_of(addr)
+        best = L if best is None else max(best, L)
+    return best
+
+
+def lower_struct_cfg(lines, leaders):
+    """Lower the STRUCTURED C (if/while/switch + braces) to the block CFG over
+    `leaders`. Per-block + ADDRESS-based like lower_goto_cfg (same robustness to
+    flushed-call reordering / folded blocks), except a block whose branch became an
+    if/while HEADER takes its edges from the brace structure:
+      if(C){then}            : header -> { next_leader(header) [then], merge }
+      if(C){then}else{else}  : header -> { next_leader(header) [then], else_start }
+      while(C){body}         : header -> { next_leader(header) [body], exit };  body-tail -> header
+    Merge / else-start / exit are computed from the next leader AFTER the relevant
+    span by address, so an empty or folded arm still resolves (and contraction then
+    absorbs the routing blocks). Non-header blocks fall back to the per-block scan."""
     if not leaders:
         return {}
     block_of = _block_of_fn(leaders)
-    leader_set = set(leaders)
-    edges = {}
+    next_leader = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else EXIT)
+                   for i in range(len(leaders))}
+    ifs, whiles = _match_constructs(lines)
 
-    def add(src_block, dst):
-        edges.setdefault(src_block, set()).add(dst)
+    header_edges, back_edges, tail_redirect = {}, {}, {}
 
-    def node_entry(node, cont):
-        """The block control enters when it reaches `node` (cont if node is None)."""
-        if node is None:
-            return cont
-        return block_of(node[1])
+    def span_after(lo, hi, header_block):
+        """Block reached just past the line span [lo,hi): the leader following the
+        HIGHEST leader the span touches. Falls to the header's own next leader when
+        the span is empty."""
+        top = _span_max_leader(lines, lo, hi, block_of)
+        return next_leader[top] if top is not None else next_leader[header_block]
 
-    def seq_entry(seq, cont):
-        return node_entry(seq[0], cont) if seq else cont
+    for header_addr, h_idx, else_idx, close_idx in ifs:
+        hb = block_of(header_addr)
+        then_true = next_leader[hb]                    # then-body starts right after header
+        if else_idx is None:
+            merge = span_after(h_idx + 1, close_idx, hb)   # block past the whole if
+            header_edges[hb] = {then_true, merge}
+        else:
+            then_top = _span_max_leader(lines, h_idx + 1, else_idx, block_of)
+            else_start = next_leader[then_top] if then_top is not None else next_leader[hb]
+            # merge = the block past the ELSE body (which begins at else_start). An empty
+            # else contributes no leader of its own, so fall back to else_start itself.
+            else_top = _span_max_leader(lines, else_idx + 1, close_idx, block_of)
+            if else_top is None:
+                else_top = else_start
+            merge = next_leader[else_top]
+            header_edges[hb] = {then_true, else_start}
+            # structure_lines stripped the then-body's trailing `goto L_merge`, so its
+            # tail block must JUMP to the merge, not fall lexically into the else.
+            if then_top is not None and then_top != hb:
+                tail_redirect[then_top] = merge
+    for header_addr, h_idx, close_idx in whiles:
+        hb = block_of(header_addr)
+        exit_blk = span_after(h_idx + 1, close_idx, hb)
+        header_edges[hb] = {next_leader[hb], exit_blk}
+        body_top = _span_max_leader(lines, h_idx + 1, close_idx, block_of)
+        if body_top is not None and body_top != hb:
+            back_edges.setdefault(body_top, set()).add(hb)   # body tail loops back
 
-    def flow(seq, cont):
-        """Wire a sibling sequence; `cont` = block/EXIT it flows to when done.
-        Returns the sequence's entry block."""
-        for idx, node in enumerate(seq):
-            nxt = seq_entry(seq[idx + 1:], cont)
-            flow_node(node, nxt)
-        return seq_entry(seq, cont)
+    blocks = {L: [] for L in leaders}
+    for addr, _ind, text in lines:
+        t = text.strip()
+        if _is_scaffold(t):
+            continue
+        blocks[block_of(addr)].append(t)
 
-    def flow_node(node, nxt_block):
-        kind = node[0]
-        if kind == 'STMT':
-            addr, text = node[1], node[2]
-            bt = block_of(addr)
-            cl, tgt = _classify_stmt(text)
+    cfg = {}
+    for L in leaders:
+        if L in header_edges:
+            cfg[L] = frozenset(header_edges[L] | back_edges.get(L, set()))
+            continue
+        succ = None
+        sw_targets, sw_has_default, is_switch = set(), False, False
+        for t in blocks[L]:
+            mc = _RE_SWITCH_CASE.match(t)
+            if mc:
+                is_switch = True
+                sw_targets.add(int(mc.group(2), 16))
+                if mc.group(1) == 'default':
+                    sw_has_default = True
+                continue
+            cl, tgt = _classify_stmt(t)
             if cl == 'goto':
-                add(bt, block_of(tgt))
+                succ = {block_of(tgt)}
             elif cl == 'ifgoto':
-                add(bt, block_of(tgt))
-                add(bt, nxt_block)
+                succ = {block_of(tgt), next_leader[L]}
             elif cl == 'return':
-                add(bt, EXIT)
+                succ = {EXIT}
             elif cl == 'ifreturn':
-                add(bt, EXIT)
-                add(bt, nxt_block)
-            else:   # plain statement: only a boundary fall-through is a real edge
-                if nxt_block != bt:
-                    add(bt, nxt_block)
-            return bt
-        if kind == 'IF':
-            _, addr, _cond, then, els = node
-            bt = block_of(addr)
-            then_entry = flow(then, nxt_block)
-            if els is not None:
-                else_entry = flow(els, nxt_block)
-                add(bt, then_entry)
-                add(bt, else_entry)
-            else:
-                add(bt, then_entry)
-                add(bt, nxt_block)
-            return bt
-        if kind == 'WHILE':
-            _, addr, _cond, body = node
-            bt = block_of(addr)
-            body_entry = flow(body, bt)     # body loops back to the header test
-            add(bt, body_entry)
-            add(bt, nxt_block)
-            return bt
-        if kind == 'DOWHILE':
-            # do { body } while(C): test is at the body's EXIT, not the header.
-            # No do-while is emitted before Phase 1; modelled as body that loops
-            # to its own entry with an exit to nxt_block (refined when generated).
-            _, _addr, _cond, body = node
-            body_entry = flow(body, nxt_block)
-            return body_entry
-        if kind == 'SWITCH':
-            _, addr, targets, has_default = node
-            bt = block_of(addr)
-            for X in targets:
-                add(bt, block_of(X))
-            if not has_default:
-                add(bt, nxt_block)
-            return bt
-        raise AssertionError(f"unknown node kind {kind!r}")
+                succ = {EXIT, next_leader[L]}
+        if is_switch:
+            succ = {block_of(x) for x in sw_targets}
+            if not sw_has_default:
+                succ.add(next_leader[L])
+        if succ is None:
+            succ = {tail_redirect.get(L, next_leader[L])}    # if-else then-tail -> merge
+        cfg[L] = frozenset(succ | back_edges.get(L, set()))
+    return cfg
 
-    nodes, _i, _closer = _parse_seq(lines, 0)
-    flow(nodes, EXIT)
 
-    # Statement-less / comment-only blocks emitted no edge: a folded block cannot
-    # branch (a branch always emits a statement), so its only honest reading is
-    # fall-through to the next block (or EXIT past the end). Reconstruct from leaders.
-    for idx, L in enumerate(leaders):
-        if L not in edges:
-            nxt = leaders[idx + 1] if idx + 1 < len(leaders) else EXIT
-            edges[L] = {nxt}
+def observable_blocks(lines, leaders):
+    """Leaders whose block contains an observable side-effect statement (a store /
+    call / assignment — anything that is NOT pure control or scaffold). These blocks
+    are PRESERVED by contract(); routing-only and bare-`return` blocks are not, so
+    they get bypassed. (A `return` alone is intentionally not "observable" — that is
+    exactly what lets a bare return block fold into its branch, the early-return idiom.)"""
+    block_of = _block_of_fn(leaders)
+    obs = set()
+    for addr, _ind, text in lines:
+        t = text.strip()
+        if _is_scaffold(t) or _RE_SWITCH_CASE.match(t):
+            continue
+        cl, _tgt = _classify_stmt(t)
+        if cl in ('goto', 'ifgoto', 'return', 'ifreturn'):
+            continue
+        obs.add(block_of(addr))     # a plain statement = real side effect
+    return obs
 
-    return {L: frozenset(s) for L, s in edges.items()}
+
+def contract(cfg, observable, entry):
+    """Normalise a CFG by bypassing pure-routing blocks: any non-entry, non-observable
+    block with a SINGLE successor (goto-only / empty fall-through / bare-`return`→EXIT)
+    is removed and its predecessors rewired through it. Applied identically to both
+    sides, this is the equivalence relation that ACCEPTS the behaviour-preserving folds
+    structure_lines performs (early-return merges a return block; empty-arm if/else
+    collapses a routing diamond) while still distinguishing any MISROUTE between
+    observable (side-effecting) blocks. Returns the contracted CFG."""
+    g = {L: set(s) for L, s in cfg.items()}
+    changed = True
+    while changed:
+        changed = False
+        for B in list(g):
+            if B is EXIT or B == entry or B in observable:
+                continue
+            succ = g.get(B)
+            if succ is None or len(succ) != 1:
+                continue
+            (t,) = tuple(succ)
+            if t == B:                          # self-loop: not a router
+                continue
+            for X in g:
+                if B in g[X]:
+                    g[X] = (g[X] - {B}) | {t}
+            del g[B]
+            changed = True
+            break
+    return {L: frozenset(s) for L, s in g.items()}
+
+
+def structured_equivalent(raw_lines, struct_lines, leaders):
+    """The Phase-1 structured-equivalence gate: True iff the STRUCTURED form has the
+    same control flow as the RAW witness (= the bytecode, proven) under contract().
+    Returns (ok, contracted_raw, contracted_struct) for reporting."""
+    if not leaders:
+        return True, {}, {}
+    entry = leaders[0]
+    n_raw = contract(lower_goto_cfg(raw_lines, leaders),
+                     observable_blocks(raw_lines, leaders), entry)
+    n_str = contract(lower_struct_cfg(struct_lines, leaders),
+                     observable_blocks(struct_lines, leaders), entry)
+    return n_raw == n_str, n_raw, n_str
 
 
 def _selftest(bank, sub_hex):
@@ -455,7 +505,8 @@ def _selftest(bank, sub_hex):
         return
     bc, leaders = bytecode_cfg(captured['instructions'])
     cc_raw = lower_goto_cfg(captured['raw'], leaders)
-    cc_str = lower_c_to_cfg(captured['structured'], leaders)
+    cc_str = lower_struct_cfg(captured['structured'], leaders)
+    ok, n_raw, n_str = structured_equivalent(captured['raw'], captured['structured'], leaders)
 
     def show(name, cfg):
         print(f"\n{name}:")
@@ -466,8 +517,10 @@ def _selftest(bank, sub_hex):
     show("bytecode_cfg", bc)
     show("lower(raw)", cc_raw)
     show("lower(structured)", cc_str)
-    print(f"\nraw == bytecode:        {cc_raw == bc}")
-    print(f"structured == bytecode: {cc_str == bc}")
+    show("contracted raw", n_raw)
+    show("contracted structured", n_str)
+    print(f"\nraw == bytecode:            {cc_raw == bc}")
+    print(f"structured ~= raw (contract): {ok}")
 
 
 if __name__ == "__main__":
