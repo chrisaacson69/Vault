@@ -222,25 +222,19 @@ word calc_tactical_cell_coords(word arg1, word arg2) {
 word lookup_terrain_attr_record(word arg1, word arg2) {
     local11 = 5;    // $83CC
     switch ((read_map_cell(arg1, arg2) & 254)) {    // $83D7
-        case 4: goto L_8400;    // $83D7
-        case 8: goto L_83FA;    // $83D7
-        case 16: goto L_83F7;    // $83D7
-        case 32: goto L_83F4;    // $83D7
-        case 64: goto L_8403;    // $83D7
-        case 128: goto L_83FD;    // $83D7
-        default: goto L_8403;    // $83D7
-    }    // $83D7
-L_83F4:
-    local11 = (local11 - 1);    // $83F6
-L_83F7:
-    local11 = (local11 - 1);    // $83F9
-L_83FA:
-    local11 = (local11 - 1);    // $83FC
-L_83FD:
-    local11 = (local11 - 1);    // $83FF
-L_8400:
-    local11 = (local11 - 1);    // $8402
-L_8403:
+    case 32:
+        local11 = (local11 - 1);    // $83F6
+    case 16:
+        local11 = (local11 - 1);    // $83F9
+    case 8:
+        local11 = (local11 - 1);    // $83FC
+    case 128:
+        local11 = (local11 - 1);    // $83FF
+    case 4:
+        local11 = (local11 - 1);    // $8402
+    case 64:
+    default:
+    }
     return ((local11 << 4) + lookup_terrain_attr_reco_data_b11e);    // $840A
 }
 
@@ -857,46 +851,43 @@ word draw_unit_roster_columns(word arg1) {
     do {    // $8C88
         ui_window_col = ((arg1 + 1) * 12);    // $8C8C
         switch (ui_cursor_row) {    // $8C92
-            case 65530: goto L_8CB1;    // $8C92
-            case 65531: goto L_8CB1;    // $8C92
-            case 65532: goto L_8CB1;    // $8C92
-            case 65533: goto L_8CB1;    // $8C92
-            case 65534: goto L_8CB1;    // $8C92
-            case 65535: goto L_8CB1;    // $8C92
-            case 65536: goto L_8CE7;    // $8C92
-            case 65537: goto L_8CE7;    // $8C92
-            case 65538: goto L_8CE7;    // $8C92
-            case 65539: goto L_8CF4;    // $8C92
-            case 65540: goto L_8CF4;    // $8C92
-            case 65541: goto L_8CF4;    // $8C92
-            default: goto L_8D12;    // $8C92
-        }    // $8C92
-L_8CB1:
-        if (!(is_no_province_selected())) goto L_8CBB;    // $8CB4
-        if (!(arg1)) goto L_8CE1;    // $8CB8
+        case 65530:
+        case 65531:
+        case 65532:
+        case 65533:
+        case 65534:
+        case 65535:
+            if (!(is_no_province_selected())) goto L_8CBB;    // $8CB4
+            if (!(arg1)) goto L_8CE1;    // $8CB8
 L_8CBB:
-        local11 = (local11 + 1);    // $8CBD
+            local11 = (local11 + 1);    // $8CBD
 L_8CC4:
-        ui_helper_d134(0xB591, *(byte*)(((local11 + 1) - 1)));    // $8CC4
-        goto L_8D12;    // $8CC8
+            ui_helper_d134(0xB591, *(byte*)(((local11 + 1) - 1)));    // $8CC4
+            goto L_8D12;    // $8CC8
 L_8CCB:
-        if (is_no_province_selected()) goto L_8D38;    // $8CCE
-        active_province_idx_copy = ui_helper_d77e();    // $8CD4
-        build_blit_fief_tile_block(12, 20);    // $8CDA
-        goto L_8D38;    // $8CDE
+            if (is_no_province_selected()) goto L_8D38;    // $8CCE
+            active_province_idx_copy = ui_helper_d77e();    // $8CD4
+            build_blit_fief_tile_block(12, 20);    // $8CDA
+            goto L_8D38;    // $8CDE
 L_8CE1:
-        goto L_8D0E;    // $8CE4
-L_8CE7:
-        local9 = (local9 + 2);    // $8CE9
-        goto L_8CC4;    // $8CF1
-L_8CF4:
-        if (!(is_no_province_selected())) goto L_8CFE;    // $8CF7
-        if (!(arg1)) goto L_8D0B;    // $8CFB
+            goto L_8D0E;    // $8CE4
+        case 65536:
+        case 65537:
+        case 65538:
+            local9 = (local9 + 2);    // $8CE9
+            goto L_8CC4;    // $8CF1
+        case 65539:
+        case 65540:
+        case 65541:
+            if (!(is_no_province_selected())) goto L_8CFE;    // $8CF7
+            if (!(arg1)) goto L_8D0B;    // $8CFB
 L_8CFE:
-        local10 = (local10 + 2);    // $8D00
-        goto L_8CC4;    // $8D08
+            local10 = (local10 + 2);    // $8D00
+            goto L_8CC4;    // $8D08
 L_8D0B:
 L_8D0E:
+        default:
+        }
 L_8D12:
         redraw_window(0xB5A2);    // $8D0E
         ui_cursor_row = (ui_cursor_row + 1);    // $8D16
@@ -945,20 +936,18 @@ L_8DD7:
     local10 = 6;    // $8DF6
     while (((unsigned)local11 < (unsigned)18)) {    // $8E29
         switch (local11) {    // $8DFB
-            case 65529: goto L_8E26;    // $8DFB
-            case 65530: goto L_8E26;    // $8DFB
-            case 65531: goto L_8E10;    // $8DFB
-            case 65532: goto L_8E26;    // $8DFB
-            case 65533: goto L_8E26;    // $8DFB
-            case 65534: goto L_8E26;    // $8DFB
-            case 65535: goto L_8E26;    // $8DFB
-            default: goto L_8E10;    // $8DFB
-        }    // $8DFB
-L_8E10:
-        ui_helper_cc7b(18, local10);    // $8E13
-        redraw_window(*(word*)(((local11 << 1) + effect_view_a_data_f8ae)));    // $8E1F
-        local10 = (local10 + 1);    // $8E25
-L_8E26:
+        case 65531:
+        default:
+            ui_helper_cc7b(18, local10);    // $8E13
+            redraw_window(*(word*)(((local11 << 1) + effect_view_a_data_f8ae)));    // $8E1F
+            local10 = (local10 + 1);    // $8E25
+        case 65529:
+        case 65530:
+        case 65532:
+        case 65533:
+        case 65534:
+        case 65535:
+        }
         local11 = (local11 + 1);    // $8E28
     }
     draw_unit_roster_columns(0);    // $8E31
@@ -1891,18 +1880,14 @@ L_9B80:
 word ai_terrain_strength_term(word side, word unit_slot) {
     terrain_class_idx = 3;    // $9BBA
     switch ((read_map_cell(*(byte*)(unit_field_ptr_6fd0(side, unit_slot)), *(byte*)(unit_field_ptr_6fda(side, unit_slot))) & 254)) {    // $9BD3
-        case 32: goto L_9BE4;    // $9BD3
-        case 16: goto L_9BE7;    // $9BD3
-        case 8: goto L_9BEA;    // $9BD3
-        default: goto L_9BED;    // $9BD3
-    }    // $9BD3
-L_9BE4:
-    terrain_class_idx = (terrain_class_idx - 1);    // $9BE6
-L_9BE7:
-    terrain_class_idx = (terrain_class_idx - 1);    // $9BE9
-L_9BEA:
-    terrain_class_idx = (terrain_class_idx - 1);    // $9BEC
-L_9BED:
+    case 32:
+        terrain_class_idx = (terrain_class_idx - 1);    // $9BE6
+    case 16:
+        terrain_class_idx = (terrain_class_idx - 1);    // $9BE9
+    case 8:
+        terrain_class_idx = (terrain_class_idx - 1);    // $9BEC
+    default:
+    }
     return (pct_op(*(word*)(unit_word_field_ptr_6fbc(side, unit_slot)), *(word*)(((terrain_class_idx << 1) + ai_terrain_strength_term_data_b9c2))) * 3);    // $9C03
 }
 

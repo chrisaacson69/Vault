@@ -357,8 +357,10 @@ def main():
     # labels, so DELETING a case label drops a real dispatch edge (or, for a `default:`,
     # flips has_default and fabricates a fall-through) — a CFG change the gate MUST catch,
     # else a switch could silently lose a case. $A30D = the season dispatcher (goto into a
-    # shared body); $DE78 = a message selector whose merge is reached by goto.
-    for bank, sub in [(0, 0xA30D), (1, 0xB09D), (2, 0x9954), (15, 0xDE78)]:
+    # shared body); $DE78 = a message selector whose merge is reached by goto; $9BB4 = a
+    # FALL-THROUGH LADDER (`terrain = 3 - count`) whose `default` is an empty trailing case
+    # falling through the `}` to the trailing merge (the step-2 break-by-fall-through case).
+    for bank, sub in [(0, 0xA30D), (1, 0xB09D), (2, 0x9BB4), (15, 0xDE78)]:
         cap = _grab(bank, sub)
         _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
         raw, struct = cap['raw'], cap['structured']

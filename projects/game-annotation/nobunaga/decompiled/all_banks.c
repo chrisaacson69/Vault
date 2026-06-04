@@ -6841,25 +6841,19 @@ word calc_tactical_cell_coords(word arg1, word arg2) {
 word lookup_terrain_attr_record(word arg1, word arg2) {
     local11 = 5;    // PRG $083CC
     switch ((read_map_cell(arg1, arg2) & 254)) {    // PRG $083D7 -> bank15 $DC88
-        case 4: goto L_p08400;    // PRG $083D7
-        case 8: goto L_p083FA;    // PRG $083D7
-        case 16: goto L_p083F7;    // PRG $083D7
-        case 32: goto L_p083F4;    // PRG $083D7
-        case 64: goto L_p08403;    // PRG $083D7
-        case 128: goto L_p083FD;    // PRG $083D7
-        default: goto L_p08403;    // PRG $083D7
-    }    // PRG $083D7
-L_p083F4:
-    local11 = (local11 - 1);    // PRG $083F6
-L_p083F7:
-    local11 = (local11 - 1);    // PRG $083F9
-L_p083FA:
-    local11 = (local11 - 1);    // PRG $083FC
-L_p083FD:
-    local11 = (local11 - 1);    // PRG $083FF
-L_p08400:
-    local11 = (local11 - 1);    // PRG $08402
-L_p08403:
+    case 32:
+        local11 = (local11 - 1);    // PRG $083F6
+    case 16:
+        local11 = (local11 - 1);    // PRG $083F9
+    case 8:
+        local11 = (local11 - 1);    // PRG $083FC
+    case 128:
+        local11 = (local11 - 1);    // PRG $083FF
+    case 4:
+        local11 = (local11 - 1);    // PRG $08402
+    case 64:
+    default:
+    }
     return ((local11 << 4) + lookup_terrain_attr_reco_data_b11e);    // PRG $0840A
 }
 
@@ -7498,46 +7492,43 @@ word draw_unit_roster_columns(word arg1) {
     do {    // PRG $08C88
         ui_window_col = ((arg1 + 1) * 12);    // PRG $08C8C
         switch (ui_cursor_row) {    // PRG $08C92
-            case 65530: goto L_p08CB1;    // PRG $08C92
-            case 65531: goto L_p08CB1;    // PRG $08C92
-            case 65532: goto L_p08CB1;    // PRG $08C92
-            case 65533: goto L_p08CB1;    // PRG $08C92
-            case 65534: goto L_p08CB1;    // PRG $08C92
-            case 65535: goto L_p08CB1;    // PRG $08C92
-            case 65536: goto L_p08CE7;    // PRG $08C92
-            case 65537: goto L_p08CE7;    // PRG $08C92
-            case 65538: goto L_p08CE7;    // PRG $08C92
-            case 65539: goto L_p08CF4;    // PRG $08C92
-            case 65540: goto L_p08CF4;    // PRG $08C92
-            case 65541: goto L_p08CF4;    // PRG $08C92
-            default: goto L_p08D12;    // PRG $08C92
-        }    // PRG $08C92
-L_p08CB1:
-        if (!(is_no_province_selected())) goto L_p08CBB;    // PRG $08CB4 -> bank2 $82FF
-        if (!(arg1)) goto L_p08CE1;    // PRG $08CB8
+        case 65530:
+        case 65531:
+        case 65532:
+        case 65533:
+        case 65534:
+        case 65535:
+            if (!(is_no_province_selected())) goto L_p08CBB;    // PRG $08CB4 -> bank2 $82FF
+            if (!(arg1)) goto L_p08CE1;    // PRG $08CB8
 L_p08CBB:
-        local11 = (local11 + 1);    // PRG $08CBD
+            local11 = (local11 + 1);    // PRG $08CBD
 L_p08CC4:
-        ui_helper_d134(0xB591, *(byte*)(((local11 + 1) - 1)));    // PRG $08CC4 -> bank15 $D134
-        goto L_p08D12;    // PRG $08CC8
+            ui_helper_d134(0xB591, *(byte*)(((local11 + 1) - 1)));    // PRG $08CC4 -> bank15 $D134
+            goto L_p08D12;    // PRG $08CC8
 L_p08CCB:
-        if (is_no_province_selected()) goto L_p08D38;    // PRG $08CCE -> bank2 $82FF
-        active_province_idx_copy = ui_helper_d77e();    // PRG $08CD4 -> bank15 $D77E
-        build_blit_fief_tile_block(12, 20);    // PRG $08CDA -> bank2 $813C
-        goto L_p08D38;    // PRG $08CDE
+            if (is_no_province_selected()) goto L_p08D38;    // PRG $08CCE -> bank2 $82FF
+            active_province_idx_copy = ui_helper_d77e();    // PRG $08CD4 -> bank15 $D77E
+            build_blit_fief_tile_block(12, 20);    // PRG $08CDA -> bank2 $813C
+            goto L_p08D38;    // PRG $08CDE
 L_p08CE1:
-        goto L_p08D0E;    // PRG $08CE4
-L_p08CE7:
-        local9 = (local9 + 2);    // PRG $08CE9
-        goto L_p08CC4;    // PRG $08CF1
-L_p08CF4:
-        if (!(is_no_province_selected())) goto L_p08CFE;    // PRG $08CF7 -> bank2 $82FF
-        if (!(arg1)) goto L_p08D0B;    // PRG $08CFB
+            goto L_p08D0E;    // PRG $08CE4
+        case 65536:
+        case 65537:
+        case 65538:
+            local9 = (local9 + 2);    // PRG $08CE9
+            goto L_p08CC4;    // PRG $08CF1
+        case 65539:
+        case 65540:
+        case 65541:
+            if (!(is_no_province_selected())) goto L_p08CFE;    // PRG $08CF7 -> bank2 $82FF
+            if (!(arg1)) goto L_p08D0B;    // PRG $08CFB
 L_p08CFE:
-        local10 = (local10 + 2);    // PRG $08D00
-        goto L_p08CC4;    // PRG $08D08
+            local10 = (local10 + 2);    // PRG $08D00
+            goto L_p08CC4;    // PRG $08D08
 L_p08D0B:
 L_p08D0E:
+        default:
+        }
 L_p08D12:
         redraw_window(0xB5A2);    // PRG $08D0E -> bank15 $CEC4
         ui_cursor_row = (ui_cursor_row + 1);    // PRG $08D16
@@ -7588,20 +7579,18 @@ L_p08DD7:
     local10 = 6;    // PRG $08DF6
     while (((unsigned)local11 < (unsigned)18)) {    // PRG $08E29
         switch (local11) {    // PRG $08DFB
-            case 65529: goto L_p08E26;    // PRG $08DFB
-            case 65530: goto L_p08E26;    // PRG $08DFB
-            case 65531: goto L_p08E10;    // PRG $08DFB
-            case 65532: goto L_p08E26;    // PRG $08DFB
-            case 65533: goto L_p08E26;    // PRG $08DFB
-            case 65534: goto L_p08E26;    // PRG $08DFB
-            case 65535: goto L_p08E26;    // PRG $08DFB
-            default: goto L_p08E10;    // PRG $08DFB
-        }    // PRG $08DFB
-L_p08E10:
-        ui_helper_cc7b(18, local10);    // PRG $08E13 -> bank15 $CC7B
-        redraw_window(*(word*)(((local11 << 1) + effect_view_a_data_f8ae)));    // PRG $08E1F -> bank15 $CEC4
-        local10 = (local10 + 1);    // PRG $08E25
-L_p08E26:
+        case 65531:
+        default:
+            ui_helper_cc7b(18, local10);    // PRG $08E13 -> bank15 $CC7B
+            redraw_window(*(word*)(((local11 << 1) + effect_view_a_data_f8ae)));    // PRG $08E1F -> bank15 $CEC4
+            local10 = (local10 + 1);    // PRG $08E25
+        case 65529:
+        case 65530:
+        case 65532:
+        case 65533:
+        case 65534:
+        case 65535:
+        }
         local11 = (local11 + 1);    // PRG $08E28
     }
     draw_unit_roster_columns(0);    // PRG $08E31 -> bank2 $8C61
@@ -8578,18 +8567,14 @@ L_p09B80:
 word ai_terrain_strength_term(word side, word unit_slot) {
     terrain_class_idx = 3;    // PRG $09BBA
     switch ((read_map_cell(*(byte*)(unit_field_ptr_6fd0(side, unit_slot)), *(byte*)(unit_field_ptr_6fda(side, unit_slot))) & 254)) {    // PRG $09BD3 -> bank15 $DC88
-        case 32: goto L_p09BE4;    // PRG $09BD3
-        case 16: goto L_p09BE7;    // PRG $09BD3
-        case 8: goto L_p09BEA;    // PRG $09BD3
-        default: goto L_p09BED;    // PRG $09BD3
-    }    // PRG $09BD3
-L_p09BE4:
-    terrain_class_idx = (terrain_class_idx - 1);    // PRG $09BE6
-L_p09BE7:
-    terrain_class_idx = (terrain_class_idx - 1);    // PRG $09BE9
-L_p09BEA:
-    terrain_class_idx = (terrain_class_idx - 1);    // PRG $09BEC
-L_p09BED:
+    case 32:
+        terrain_class_idx = (terrain_class_idx - 1);    // PRG $09BE6
+    case 16:
+        terrain_class_idx = (terrain_class_idx - 1);    // PRG $09BE9
+    case 8:
+        terrain_class_idx = (terrain_class_idx - 1);    // PRG $09BEC
+    default:
+    }
     return (pct_op(*(word*)(unit_word_field_ptr_6fbc(side, unit_slot)), *(word*)(((terrain_class_idx << 1) + ai_terrain_strength_term_data_b9c2))) * 3);    // PRG $09C03 -> bank15 $D70D
 }
 

@@ -1794,6 +1794,17 @@ def structure_switches(lines, instructions):
                 case_target_addrs.add(baddr)
             out.append((baddr, bind + 1, btext))
             i += 1
+        # A case targeting the trailing merge M (== body_end, the block right after the `}`)
+        # has no block inside the territory — emit it as an EMPTY trailing case that falls
+        # through the `}` to M (fall-off-the-switch == break semantics; the address-based gate
+        # models it as a fall to body_end). Covers the fall-through ladders (e.g. $9BB4:
+        # `terrain = 3 - count`, where `default` points at the post-decrement return).
+        for tgt in sorted(t for t in by_target if t not in labeled):
+            if tgt == body_end:
+                for lab in by_target[tgt]:
+                    out.append((tgt, ind, lab))
+                labeled.add(tgt)
+                case_target_addrs.add(tgt)
         out.append((0, ind, "}"))
 
     # Drop the now-redundant `L_XXXX:` labels at case-target leaders: their only references
