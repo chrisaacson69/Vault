@@ -241,7 +241,9 @@ def natural_loop(u, h, cfg):
 def _classify_stmt(text):
     """(kind, target_addr) for a leaf C statement. kinds:
     goto / ifgoto (cond -> target, else fall) / return / ifreturn (cond -> EXIT,
-    else fall) / plain (sequential fall-through)."""
+    else fall) / break / continue / ifbreak / ifcontinue (target is the enclosing
+    loop's exit / header, resolved by the caller via loop context, so target_addr is
+    None here) / plain (sequential fall-through)."""
     t = text.strip()
     m = re.match(r'goto L_([0-9A-Fa-f]{4});$', t)
     if m:
@@ -249,6 +251,14 @@ def _classify_stmt(text):
     m = re.match(r'if \(.+\) goto L_([0-9A-Fa-f]{4});$', t)   # if(C) and if(!(C))
     if m:
         return 'ifgoto', int(m.group(1), 16)
+    if t == 'break;':
+        return 'break', None
+    if t == 'continue;':
+        return 'continue', None
+    if re.match(r'if \(.+\) break;$', t):
+        return 'ifbreak', None
+    if re.match(r'if \(.+\) continue;$', t):
+        return 'ifcontinue', None
     if re.match(r'return\b', t):
         return 'return', None
     if re.match(r'if \(.+\) return\b', t):       # structure_lines early-return idiom
@@ -411,6 +421,29 @@ def _opens_block(t):
             or _RE_SWITCH_OPEN.match(t) is not None or t == 'do {')
 
 
+def _occupies_block(t):
+    """A line that starts/holds a basic block: any non-scaffold statement, OR a
+    construct opener (which is scaffold for the 'no effect' test but still begins a
+    block — the header's condition lives there)."""
+    return (not _is_scaffold(t)) or _opens_block(t)
+
+
+def _loop_body_leaders(lines, open_idx, close_idx, block_of):
+    """The basic-block leaders touched by a loop's body (the lines strictly between its
+    opener `open_idx` and closer `close_idx`), counting label-only lines (whose addr IS
+    a leader) and folded openers. Used to map each body block to its enclosing loop so a
+    `break`/`continue` inside it resolves to that loop's exit/header."""
+    bls = set()
+    for k in range(open_idx + 1, close_idx):
+        t = lines[k][2].strip()
+        m = _RE_LABEL.match(t)
+        if m:
+            bls.add(int(t[2:6], 16))
+        elif _occupies_block(t):
+            bls.add(block_of(lines[k][0]))
+    return bls
+
+
 def _match_constructs(lines):
     """Brace-match the structured if/while/switch/do blocks. Returns (ifs, whiles)
     where ifs = [(header_addr, header_idx, else_idx|None, closer_idx)] and
@@ -520,8 +553,8 @@ def lower_struct_cfg(lines, leaders, orient=None):
             # tail block must JUMP to the merge, not fall lexically into the else.
             if then_top is not None and then_top != hb:
                 tail_redirect[then_top] = merge
-    def _occupies_block(t):
-        return (not _is_scaffold(t)) or _opens_block(t)
+
+    loop_meta = []   # (span, header_block, exit_block, frozenset(body_leaders)) per loop
 
     def first_real_block(lo, hi):
         """Block of the first block-occupying line in lines[lo:hi], else None."""
@@ -560,16 +593,10 @@ def lower_struct_cfg(lines, leaders, orient=None):
         # leader lands INSIDE the body must instead enter via the header (the dropped
         # entry-guard `goto L_h` used to make that explicit). Recorded for the
         # fall-through fix below — keeps the address-based lowering otherwise intact.
-        bls = set()
-        for k in range(h_idx + 1, close_idx):
-            t = lines[k][2].strip()
-            m = _RE_LABEL.match(t)
-            if m:
-                bls.add(int(t[2:6], 16))
-            elif _occupies_block(t):
-                bls.add(block_of(lines[k][0]))
+        bls = _loop_body_leaders(lines, h_idx, close_idx, block_of)
         bls.discard(hb)
         while_bodies.append((hb, frozenset(bls)))
+        loop_meta.append((close_idx - h_idx, hb, exit_blk, frozenset(bls)))
 
     for do_addr, _do_idx, close_addr, close_idx in dowhiles:
         # do { body } while (C);  — NO hoist (test stays at the bottom where it is).
@@ -583,6 +610,17 @@ def lower_struct_cfg(lines, leaders, orient=None):
         dowhile_edges[ub] = {hb, exit_blk}
         _dcond = _RE_DOWHILE_CLOSE.match(lines[close_idx][2].strip())
         _record_orient(orient, ub, _dcond.group(1) if _dcond else '', hb, exit_blk)
+        dbls = _loop_body_leaders(lines, _do_idx, close_idx, block_of)
+        dbls.discard(hb)
+        loop_meta.append((close_idx - _do_idx, hb, exit_blk, frozenset(dbls)))
+
+    # Map each body block to its INNERMOST enclosing loop (largest span first so the
+    # smallest/innermost overwrites) — the context a `break`/`continue` resolves against:
+    # break -> that loop's exit block, continue -> its header block.
+    loop_ctx = {}
+    for _span, hb_, exit_, bls_ in sorted(loop_meta, key=lambda m: -m[0]):
+        for L in bls_:
+            loop_ctx[L] = (hb_, exit_)
 
     blocks = {L: [] for L in leaders}
     for addr, _ind, text in lines:
@@ -616,6 +654,18 @@ def lower_struct_cfg(lines, leaders, orient=None):
                 succ = {block_of(tgt), next_leader[L]}
                 mcnd = re.match(r'if \((.+)\) goto', t)
                 _record_orient(orient, L, mcnd.group(1), block_of(tgt), next_leader[L])
+            elif cl in ('break', 'continue', 'ifbreak', 'ifcontinue'):
+                ctx = loop_ctx.get(L)
+                if ctx is not None:
+                    hb_, exit_ = ctx
+                    jmp = exit_ if cl in ('break', 'ifbreak') else hb_
+                    if cl in ('break', 'continue'):
+                        succ = {jmp}
+                    else:
+                        succ = {jmp, next_leader[L]}
+                        kw = 'break' if cl == 'ifbreak' else 'continue'
+                        mcnd = re.match(rf'if \((.+)\) {kw}', t)
+                        _record_orient(orient, L, mcnd.group(1), jmp, next_leader[L])
             elif cl == 'return':
                 succ = {EXIT}
             elif cl == 'ifreturn':
@@ -655,7 +705,8 @@ def observable_blocks(lines, leaders):
         if _is_scaffold(t) or _RE_SWITCH_CASE.match(t):
             continue
         cl, _tgt = _classify_stmt(t)
-        if cl in ('goto', 'ifgoto', 'return', 'ifreturn'):
+        if cl in ('goto', 'ifgoto', 'return', 'ifreturn',
+                  'break', 'continue', 'ifbreak', 'ifcontinue'):
             continue
         obs.add(block_of(addr))     # a plain statement = real side effect
     return obs

@@ -1218,6 +1218,38 @@ def _loop_single_exit_entry(cfg, loop, h, exit_e):
     return True
 
 
+def _emit_break_continue(out, leaders, loop, h, exit_e):
+    """CFG epic, Phase 2: inside a just-folded loop body, rewrite the gotos that the
+    structure now makes redundant into `break;` / `continue;`:
+      goto L_exit       -> break;            if (C) goto L_exit -> if (C) break;
+      goto L_header     -> continue;         if (C) goto L_header -> if (C) continue;
+    Only lines whose block is IN the loop are touched (a same-target goto from OUTSIDE
+    the loop must stay a goto), and only the loop's own exit / header addresses match —
+    every other in-body goto (to a sibling label) is left alone. The CFG gate is the
+    backstop: break lowers to the loop exit, continue to the header, so a mis-rewrite
+    would change the lowered CFG and be rejected (reverting the whole sub to goto)."""
+    import vm_cfg
+    block_of = vm_cfg._block_of_fn(leaders)
+    exit_lbl = None if exit_e is vm_cfg.EXIT else f"L_{exit_e:04X}"
+    head_lbl = f"L_{h:04X}"
+    res = []
+    for addr, ind, text in out:
+        if addr and block_of(addr) in loop:
+            t = text.strip()
+            for lbl, kw in ((exit_lbl, 'break'), (head_lbl, 'continue')):
+                if lbl is None:
+                    continue
+                if t == f"goto {lbl};":
+                    text = f"{kw};"
+                    break
+                m = re.match(rf'if \((.+)\) goto {re.escape(lbl)};$', t)
+                if m:
+                    text = f"if ({m.group(1)}) {kw};"
+                    break
+        res.append((addr, ind, text))
+    return res
+
+
 def structure_loops(lines, instructions):
     """CFG epic, Phase 1: fold a clean single-back-edge, single-exit reducible loop.
     CFG-DRIVEN — header / body / exit come from the bytecode CFG (ground truth), never
@@ -1315,7 +1347,7 @@ def _fold_while(lines, cfg, leaders, loop, u, h):
             out.append((addr, ind, text))
         if i == hi:
             out.append((0, base_ind, "}"))
-    return out
+    return _emit_break_continue(out, leaders, loop, h, exit_e)
 
 
 def _fold_dowhile(lines, cfg, leaders, loop, u, h):
@@ -1368,7 +1400,7 @@ def _fold_dowhile(lines, cfg, leaders, loop, u, h):
             out.append((addr, ind, text))
         if i == hi:
             out.append((tail_addr, base_ind, f"}} while ({cond});"))
-    return out
+    return _emit_break_continue(out, leaders, loop, h, exit_e)
 
 
 def structure_lines(lines):

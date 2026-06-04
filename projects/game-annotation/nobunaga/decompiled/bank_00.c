@@ -1399,7 +1399,7 @@ L_9776:
 word revolt_spread_sweep_flip_fief_ownership(void) {
     local7 = 0;    // $977E
     while ((*(byte*)(local11) != 255)) {    // $986E
-        if (scenario50_fief30_event_eligible(*(byte*)(local11))) goto L_9878;    // $978C
+        if (scenario50_fief30_event_eligible(*(byte*)(local11))) break;    // $978C
         selected_province_idx = *(byte*)(local11);    // $9791
         call_bank10_entry(30);    // $9796
         if (cur_flag_and_selected_ai_state5()) {    // $979D
@@ -1521,7 +1521,7 @@ L_9969:
 word process_first_n_unmarked_list_entries(word arg1, word arg2, word arg3) {
     local11 = 1;    // $997A
     while (arg1) {    // $99A6
-        if ((*(byte*)(arg2) == 255)) goto L_99AA;    // $9984
+        if ((*(byte*)(arg2) == 255)) break;    // $9984
         if ((*(byte*)(arg2) != 200)) {    // $998D
         set_fief_ownership_record(arg3, local11, 0, *(byte*)(arg2));    // $9996
         *(byte*)(arg2) = -56;    // $999D

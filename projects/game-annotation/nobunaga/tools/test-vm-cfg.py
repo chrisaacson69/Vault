@@ -143,6 +143,25 @@ def main():
             bad, _, _ = vm_cfg.structured_equivalent(raw, inv, leaders)
             check(f"b{bank}/${sub:04X}: guard inversion (then/else swap) REJECTED", not bad)
 
+    # Phase 2 (break / continue): an in-loop goto to the loop exit becomes `break;`.
+    # The relation must (a) accept the genuine break fold and (b) reject break turned
+    # into continue — they route to DIFFERENT blocks (exit vs header), so swapping them
+    # is a real control change the new loop-context lowering MUST catch (else a break
+    # could silently become an infinite-loop continue, or vice-versa).
+    for bank, sub in [(0, 0x9778), (0, 0x9974)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        has_break = any(re.search(r'\bbreak;', t) for _a, _i, t in struct)
+        check(f"b{bank}/${sub:04X}: emitted a break", has_break)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: break fold ~= raw", ok)
+
+        swapped = [(a, i, re.sub(r'\bbreak;', 'continue;', t)) for a, i, t in struct]
+        bad, _, _ = vm_cfg.structured_equivalent(raw, swapped, leaders)
+        check(f"b{bank}/${sub:04X}: break->continue (exit->header) REJECTED", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 
