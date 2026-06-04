@@ -214,9 +214,12 @@ def value_diamonds(instructions):
     the selected value (keeping only one arm). Returns a list of dicts:
       {head, polarity('z'|'nz'), taken_block, fall_block, merge, fall_jump_addr, taken_jump_addr}
     Conservative guards keep the fold sound: abs conditional head only; each arm's SOLE
-    predecessor is the head (so removing it strands nothing); both arms converge on one
-    non-EXIT merge; and the head block contains NO call (a call-valued cond would be
-    double-rendered by the pending-call flush, so leave those as honest gotos)."""
+    predecessor is the head (so removing it strands nothing — this excludes shared/join
+    arms = compound `(X||Y)?a:b` conditions); both arms converge on one non-EXIT merge;
+    and FORWARD layout `head<fall<taken<merge` (the decode loop folds in address order).
+    A call-VALUED cond is fine: capturing `dia_cond = state.regA` READS regA, which the
+    decompiler's getter treats as CONSUMING the pending call, so the arm's later regA write
+    won't flush it as a duplicate statement — the call lives only in the ternary."""
     cfg, leaders = _bytecode_cfg_raw(instructions)
     block_of = _block_of_fn(leaders)
     bmap = {L: [] for L in leaders}
@@ -233,8 +236,6 @@ def value_diamonds(instructions):
             continue
         branch = hblock[-1]
         if branch['mnemonic'] not in ('branch_z_abs', 'branch_nz_abs'):
-            continue
-        if any('call' in i['mnemonic'] for i in hblock):     # call-valued cond -> skip
             continue
         tgt = _target(branch)
         if tgt is None:

@@ -175,13 +175,8 @@ L_82AB:
 
 word helper_82AC(word arg1) {
     *(word*)(arg1) = min_word(*(word*)(((selected_province_idx * 26) + 0x7019)), *(word*)(arg1));    // $82C5
-    if ((*(word*)(arg1) < 0)) {    // $82CB
-    } else {
-    }
-L_82D4:
-    *(word*)(arg1) = *(word*)(arg1);    // $82D4
-    return *(word*)(arg1);    // $82D5
-    }
+    *(word*)(arg1) = ((*(word*)(arg1) < 0) ? 0 : *(word*)(arg1));    // $82D4
+    return ((*(word*)(arg1) < 0) ? 0 : *(word*)(arg1));    // $82D5
 }
 
 // $82D6 effect_tax
@@ -324,12 +319,8 @@ word effect_view_a(word arg1) {
     redraw_window_f6c7();    // $846D
     cap_fief_stats(arg1);    // $8471
     ui_helper_cc7b(10, 5);    // $8477
-    if (province_state_is_FF(arg1)) {    // $8480
-    } else {
-    }
-L_8488:
-    local8 = 1;    // $8488
-    if (!(1)) goto L_84C3;    // $8489
+    local8 = (province_state_is_FF(arg1) ? 0 : 1);    // $8488
+    if (!((province_state_is_FF(arg1) ? 0 : 1))) goto L_84C3;    // $8489
     local6 = fief_is_daimyo_capital[arg1];    // $8492
     if (get_province_ai_state(arg1)) {    // $8498
     if (!(local6)) goto L_84A3;    // $849C
@@ -394,7 +385,6 @@ L_858C:
     return marry_helper_cc35(0);    // $8599
         }
         }
-    }
     }
     }
 }
@@ -779,11 +769,7 @@ L_8B7A:
 
 word helper_8B8F(word arg1) {
     syscall_audio_control(0, 0);    // $8B97
-    if (arg1) goto L_8BA3;    // $8B9C
-    goto L_8BA4;    // $8BA0
-L_8BA3:
-L_8BA4:
-    call_bank10_entry(8);    // $8BA5
+    call_bank10_entry((arg1 ? 8 : 7));    // $8BA5
     if ((audio_wait_gate == 1)) {    // $8BAE
     do {    // $8BB1
     } while (syscall_audio_control(1, 2));    // $8BB8
@@ -1549,12 +1535,8 @@ word driver_tax(void) {
     message_display(driver_tax_data_bbe2);    // $99B8
     ui_helper_d134(msg_tax_is_d_enter_new_tax, *(byte*)(local6));    // $99C2
     battle_defending_province = selected_province_idx;    // $99C9
-    if (tax_helper_db12()) {    // $99CF
-    } else {
-    }
-L_99D9:
-    local5 = number_input(1, 100);    // $99DF
-    if (number_input(1, 100)) {    // $99E0
+    local5 = number_input(1, (tax_helper_db12() ? 30 : 100));    // $99DF
+    if (number_input(1, (tax_helper_db12() ? 30 : 100))) {    // $99E0
     if ((*(byte*)(local6) != local5)) {    // $99E7
     if ((local5 > *(byte*)(local6))) {    // $99F0
     ui_helper_e80c(19);    // $99F5
@@ -1563,11 +1545,7 @@ L_99D9:
 L_9A08:
     ui_helper_e80c(18);    // $9A01
     message_display(msg_the_peasants_are_delighted);    // $9A08
-    if (((*(byte*)(local6) - local5) > 0)) {    // $9A12
-    } else {
-    }
-L_9A1B:
-    local7 = -1;    // $9A1B
+    local7 = (((*(byte*)(local6) - local5) > 0) ? 1 : -1);    // $9A1B
     if ((local7 != 1)) goto L_9A2D;    // $9A20
     if ((*(byte*)((selected_province_daimyo_record() + 4)) < 1)) goto L_9A38;    // $9A2A
 L_9A2D:
@@ -1582,8 +1560,6 @@ L_9A38:
     return 1;    // $9A5A
 L_9A5B:
     return 0;    // $9A5C
-    }
-    }
     }
     }
     }
@@ -3369,11 +3345,7 @@ word command_menu_select_loop(void) {
     ui_helper_cc7b(21, 7);    // $B6BC
     read_frame_timer(2);    // $B6C1
     wait_button_edge();    // $B6C5
-    if (fief_menu_info_mode_flag) {    // $B6CB
-    } else {
-    }
-L_B6D3:
-    local10 = 0;    // $B6D3
+    local10 = (fief_menu_info_mode_flag ? 12 : 0);    // $B6D3
     local11 = 0;    // $B6D5
     while (1) {    // $B6D6
 L_B6D6:
@@ -3431,7 +3403,6 @@ L_B773:
         if ((fief_menu_info_mode_flag == 1)) goto L_B719;    // $B793
 L_B796:
         goto L_B74F;    // $B798
-    }
     }
 }
 
@@ -3511,11 +3482,7 @@ word ai_per_fief_command_driver(void) {
         ai_turn_flags = (ai_turn_flags & -2);    // $B8B1
         ai_turn_flags = (ai_turn_flags | ((unsigned)rng_mod(100) < (unsigned)(55 - (const_two * 5))));    // $B8CC
         if (war_helper_d972(selected_province_idx)) {    // $B8D6
-        if (rng_mod(4)) goto L_B8E5;    // $B8DE
-        goto L_B8E6;    // $B8E2
-L_B8E5:
-L_B8E6:
-        ai_turn_flags = (ai_turn_flags | 0);    // $B8EB
+        ai_turn_flags = (ai_turn_flags | (rng_mod(4) ? 0 : 1));    // $B8EB
         }
 L_B8EE:
         if (count_6da2_set()) goto L_B8FA;    // $B8F1

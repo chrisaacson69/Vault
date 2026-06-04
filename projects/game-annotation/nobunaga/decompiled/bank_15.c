@@ -262,12 +262,7 @@ word ui_helper_cc7b(word arg1, word arg2) {
 
 word ui_helper_cc89(void) {
     ppu_blit_nobank_wrap(2, (ui_msg_col_shift_flag ? 20 : 22), 19, 25, 1);    // $CCA2
-    if (ui_msg_col_shift_flag) {    // $CCA9
-    } else {
-    }
-L_CCB3:
-    return ui_helper_cc7b(2, 22);    // $CCB9
-    }
+    return ui_helper_cc7b(2, (ui_msg_col_shift_flag ? 20 : 22));    // $CCB9
 }
 
 // $CCBA ui_get_7bf9
@@ -994,15 +989,10 @@ L_D64B:
         local10 = (local10 + 1);    // $D64D
     }
     if ((local11 == 1)) {    // $D659
-    if (get_6e09()) {    // $D65F
-    } else {
+    local11 = (local11 & (get_6e09() ? 0 : 1));    // $D66A
     }
-L_D667:
-    local11 = (local11 & 1);    // $D66A
 L_D66B:
     return ((local11 != 1) ? 0 : 1);    // $D676
-    }
-    }
 }
 
 // $D677 draw_window_f6c4
@@ -1472,11 +1462,7 @@ word assign_unique_daimyo_face_code(word arg1) {
     local8 = 0;    // $DBA6
 L_DBA7:
     local10 = ((((rng_mod(5) * 125) + (rng_mod(5) * 25)) + (rng_mod(5) * 5)) + rng_mod(5));    // $DBCC
-    if ((scenario_fief_count == 50)) {    // $DBD3
-    } else {
-    }
-L_DBDD:
-    local9 = 17;    // $DBDD
+    local9 = ((scenario_fief_count == 50) ? 53 : 17);    // $DBDD
     local11 = 0;    // $DBDF
     local8 = 1;    // $DBE1
     goto L_DBF6;    // $DBE2
@@ -1491,7 +1477,6 @@ L_DBF6:
     if (!(local8)) goto L_DBA7;    // $DBFD
     *(word*)(((ui_helper_d772(arg1) << 1) + 0x6EB1)) = local10;    // $DC0C
     return local10;    // $DC0D
-    }
 }
 
 // $DC0E list_op_6e4a
@@ -1606,11 +1591,7 @@ word init_new_daimyo_province_stats(word arg1) {
     goto L_DDC8;    // $DD9C
 L_DD9F:
     *(byte*)(local11) = pct_op(*(byte*)(local11), (rng_mod(20) + 50));    // $DDB0
-    if ((*(byte*)(local11) < 30)) {    // $DDB6
-    } else {
-    }
-L_DDBF:
-    *(byte*)(local11) = (*(byte*)(local11) + 0);    // $DDC5
+    *(byte*)(local11) = (*(byte*)(local11) + ((*(byte*)(local11) < 30) ? 30 : 0));    // $DDC5
 L_DDC8:
     local11 = (local11 + 1);    // $DDC8
     if (((unsigned)local11 <= (unsigned)(local10 + 4))) goto L_DD9F;    // $DDCF
@@ -1639,7 +1620,6 @@ L_DE45:
     *(word*)(((arg1 * 26) + 0x7013)) = (*(word*)(((arg1 * 26) + 0x7013)) + 50);    // $DE6D
     fief_tax_rate[arg1] = 20;    // $DE76
     return 20;    // $DE77
-    }
     }
     }
 }
@@ -1677,22 +1657,17 @@ word reassign_fiefs_to_conqueror(void) {
     local9 = ui_helper_d772(battle_winner_province_sel);    // $DEE7
     list_op_6e4a(ui_helper_d772(battle_winner_province_sel));    // $DEE9
     list_remove_6e7f(local9);    // $DEEE
-    goto L_DF33;    // $DEF3
-L_DEF6:
-    if (!((ui_helper_d772(local11) == local9))) goto L_DF31;    // $DEFD
-    if (province_state_is_FF(local11)) goto L_DF31;    // $DF05
-    fief_to_daimyo_map[local11] = local10;    // $DF0F
-    fief_is_daimyo_capital[local11] = 0;    // $DF17
-    if (!(get_province_ai_state(local8))) goto L_DF2A;    // $DF23
-    goto L_DF2B;    // $DF27
-L_DF2A:
-L_DF2B:
-    province_ai_state[local11] = 0;    // $DF2B
+    while (((unsigned)local11 < (unsigned)scenario_fief_count)) {    // $DF33
+        if ((ui_helper_d772(local11) == local9)) {    // $DEFD
+        if (province_state_is_FF(local11)) goto L_DF31;    // $DF05
+        fief_to_daimyo_map[local11] = local10;    // $DF0F
+        fief_is_daimyo_capital[local11] = 0;    // $DF17
+        province_ai_state[local11] = (get_province_ai_state(local8) ? 5 : 0);    // $DF2B
+        }
 L_DF31:
-    find_record_9e3c(local11);    // $DF2D
-L_DF33:
-    local11 = (local11 + 1);    // $DF33
-    if (((unsigned)local11 < (unsigned)scenario_fief_count)) goto L_DEF6;    // $DF39
+        find_record_9e3c(local11);    // $DF2D
+        local11 = (local11 + 1);    // $DF33
+    }
     return ((unsigned)local11 < (unsigned)scenario_fief_count);    // $DF3C
 }
 
@@ -1823,11 +1798,7 @@ L_E16E:
     goto L_E19C;    // $E175
 L_E178:
     *(byte*)(local10) = ui_helper_d77e();    // $E17C
-    if (!(get_province_ai_state(selected_province_idx))) goto L_E193;    // $E18C
-    goto L_E194;    // $E190
-L_E193:
-L_E194:
-    *(byte*)(province_ai_state_addr(battle_defending_province)) = 0;    // $E194
+    *(byte*)(province_ai_state_addr(battle_defending_province)) = (get_province_ai_state(selected_province_idx) ? 5 : 0);    // $E194
 L_E19C:
     find_record_9e3c(battle_defending_province);    // $E198
     if (local8) goto L_E1C7;    // $E19D

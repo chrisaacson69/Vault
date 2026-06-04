@@ -543,11 +543,7 @@ L_8A91:
     ui_helper_cd20();    // $8A91
     palette_write_wrap(7, 33);    // $8A97
     palette_write_wrap(11, 48);    // $8A9E
-    if (((i & 1) == 1)) {    // $8AA7
-    } else {
-    }
-L_8AAF:
-    ui_input_mode = 4;    // $8AAF
+    ui_input_mode = (((i & 1) == 1) ? 0 : 4);    // $8AAF
     prompt_select_player_daimyo(i);    // $8AB3
     daimyo_creation_stat_roll_screen();    // $8AB7
 L_8ABC:
@@ -584,7 +580,6 @@ L_8B44:
     syscall_audio_control(0, 0);    // $8B5D
     palette_write_wrap(7, 33);    // $8B64
     return palette_write_wrap(11, 48);    // $8B6F
-    }
     }
 }
 
@@ -728,11 +723,7 @@ L_8D2E:
     install_new_daimyo(battle_defending_province);    // $8D46
     goto L_8DE0;    // $8D4A
 L_8D4D:
-    if (get_province_ai_state(local10)) {    // $8D5A
-    } else {
-    }
-L_8D62:
-    province_ai_state[battle_defending_province] = 0;    // $8D62
+    province_ai_state[battle_defending_province] = (get_province_ai_state(local10) ? 5 : 0);    // $8D62
     fief_is_daimyo_capital[battle_defending_province] = 0;    // $8D6C
     fief_to_daimyo_map[battle_defending_province] = ui_helper_d772(local10);    // $8D7A
     *(word*)(((local10 * 26) + 0x7001)) = (*(word*)(((local10 * 26) + 0x7001)) - local8);    // $8D88
@@ -750,7 +741,6 @@ L_8DD6:
     find_record_9e3c(battle_defending_province);    // $8DD9
 L_8DE0:
     return confirm_prompt();    // $8DE0
-    }
     }
 }
 
@@ -1793,11 +1783,7 @@ word ai_event_eligibility_check_field18_variant(word fief) {
     battle_defending_province = fief;    // $9E27
     if (square_over_2025_probability_roll(*(word*)(((fief * 26) + 0x7013)))) goto L_9E60;    // $9E38
     if (square_over_2025_probability_roll(*(byte*)((fief_to_daimyo_record_addr(fief) + 4)))) goto L_9E60;    // $9E47
-    if (tax_helper_db12()) {    // $9E4D
-    } else {
-    }
-L_9E58:
-    if (rng_mod(0x03E8)) goto L_9E76;    // $9E5D
+    if (rng_mod((tax_helper_db12() ? 20 : 0x03E8))) goto L_9E76;    // $9E5D
 L_9E60:
     if (!((*(word*)(((fief * 26) + 0x7011)) > 2))) goto L_9E76;    // $9E6B
     if (province_state_is_FF(fief)) {    // $9E73
@@ -1806,7 +1792,6 @@ L_9E76:
     }
 L_9E7B:
     return 1;    // $9E7B
-    }
     }
 }
 
