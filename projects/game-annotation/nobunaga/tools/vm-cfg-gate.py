@@ -50,8 +50,9 @@ def _fmt(cfg):
 
 
 def run(banks, verbose=False, show_structured=False):
-    raw_fail = []        # (bank, sub) where lower(raw) != bytecode  — the HARD gate
-    struct_diff = []     # (bank, sub) where lower(structured) != bytecode — informational
+    raw_fail = []        # lower(raw) != bytecode                    — HARD (witness faithful)
+    struct_fail = []     # the GATED structured output != raw        — HARD (gating regression)
+    fellback = []        # subs where structure_lines was rejected -> honest goto (expected)
     unknown_mn = []      # (bank, sub, addr, mnemonic) — unrecognised control op
     n_subs = 0
 
@@ -79,45 +80,53 @@ def run(banks, verbose=False, show_structured=False):
                         print(f"\nRAW != bytecode  bank {bank} ${stub:04X}")
                         print("  bytecode:\n" + _fmt(bc))
                         print("  lower(raw):\n" + _fmt(cc_raw))
+                # The GATED output decompile actually emits must be CFG-equivalent.
                 ok, n_raw, n_str = vm_cfg.structured_equivalent(
                     collect['raw'], collect['structured'], leaders)
                 if not ok:
-                    struct_diff.append((bank, stub))
+                    struct_fail.append((bank, stub))
                     if show_structured:
-                        print(f"\nSTRUCT !~= raw (contracted)  bank {bank} ${stub:04X}")
+                        print(f"\nGATED STRUCT !~= raw  bank {bank} ${stub:04X}")
                         print("  contracted raw:\n" + _fmt(n_raw))
                         print("  contracted structured:\n" + _fmt(n_str))
+                if collect.get('gated_fallback'):
+                    fellback.append((bank, stub))
 
     print(f"\nCFG gate over {n_subs} subs in banks {banks}:")
-    print(f"  (1) witness faithfulness   lower(raw) == bytecode        : "
+    print(f"  (1) witness faithfulness   lower(raw) == bytecode : "
           f"{n_subs - len(raw_fail)}/{n_subs} pass"
           + ("" if not raw_fail else f"  — {len(raw_fail)} FAIL"))
-    print(f"  (2) structured equivalence contract(struct)==contract(raw): "
-          f"{n_subs - len(struct_diff)}/{n_subs} pass"
-          + ("" if not struct_diff else f"  — {len(struct_diff)} FAIL"))
+    print(f"  (2) gated structuring is CFG-preserving           : "
+          f"{n_subs - len(struct_fail)}/{n_subs} pass"
+          + ("" if not struct_fail else f"  — {len(struct_fail)} FAIL"))
+    print(f"      ({len(fellback)} subs fell back to honest goto — structure_lines was "
+          f"not CFG-preserving there)")
     if unknown_mn:
         print(f"  ! {len(unknown_mn)} unrecognised control mnemonic(s):")
         for bank, sub, a, mn in unknown_mn[:20]:
             print(f"      bank {bank} ${sub:04X} @ ${a:04X}: {mn}")
 
-    hard_fail = bool(raw_fail) or bool(unknown_mn)
+    hard_fail = bool(raw_fail) or bool(struct_fail) or bool(unknown_mn)
     if hard_fail:
         print("\nHARD GATE FAILED.")
         if raw_fail:
             print("  raw-witness CFG diverged from bytecode at: "
                   + ", ".join(f"b{b}/${s:04X}" for b, s in raw_fail[:20]))
+        if struct_fail:
+            print("  GATED structured output is NOT CFG-preserving at (gating bug): "
+                  + ", ".join(f"b{b}/${s:04X}" for b, s in struct_fail[:20]))
         return 1
-    print("\nHARD GATE CLEAN — the --raw witness is CFG-faithful to the bytecode "
-          "across the whole codebase.")
+    print("\nHARD GATE CLEAN — the --raw witness is CFG-faithful to the bytecode, AND "
+          "every emitted structured fold is CFG-preserving (else it fell back to goto).")
     return 0
 
 
 def main():
-    ap = argparse.ArgumentParser(description="CFG equivalence gate (Phase 0)")
+    ap = argparse.ArgumentParser(description="CFG equivalence gate (structuring epic)")
     ap.add_argument("--banks", default=",".join(map(str, CODE_BANKS)))
     ap.add_argument("--verbose", action="store_true", help="dump each raw-gate failure")
     ap.add_argument("--show-structured", action="store_true",
-                    help="dump each structured/bytecode difference (informational)")
+                    help="dump each gated-structured/raw difference (a gating regression)")
     args = ap.parse_args()
     banks = [int(b, 0) for b in args.banks.split(",") if b.strip()]
     sys.exit(run(banks, args.verbose, args.show_structured))

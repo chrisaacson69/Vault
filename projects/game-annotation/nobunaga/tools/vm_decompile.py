@@ -1089,13 +1089,31 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     #   L_Y:
     structured = structure_lines(state.lines) if STRUCTURE else state.lines
 
-    # CFG epic Phase 0: hand the raw + structured control-flow line lists (and the
-    # decoded instructions) back to a caller (the equivalence gate) without disturbing
-    # the print path. Pre-annotation lines suffice — the annotate passes rewrite
+    # CFG epic Phase 1: GATE the structuring. structure_lines is not always
+    # CFG-preserving (it can mis-fold irreducible regions — e.g. it once nested
+    # num_to_ascii's recursive branch inside an `if`, returning garbage). So verify
+    # the structured form induces the SAME control-flow graph as the raw witness
+    # (== the bytecode) under the equivalence relation; if it does not, fall back to
+    # the honest goto form for this sub. This makes every fold safe-by-construction:
+    # fidelity rises only where it is provably correct, never where it would lie.
+    structured_ungated, gated_fallback = structured, False
+    if STRUCTURE and structured is not state.lines:
+        import vm_cfg
+        _bc, _leaders = vm_cfg.bytecode_cfg(instructions)
+        ok, _nr, _ns = vm_cfg.structured_equivalent(state.lines, structured, _leaders)
+        if not ok:
+            structured = state.lines
+            gated_fallback = True
+
+    # Hand the raw + (gated) structured control-flow line lists and the decoded
+    # instructions back to a caller (the equivalence gate) without disturbing the
+    # print path. Pre-annotation lines suffice — the annotate passes rewrite
     # expressions/operands, never the goto/label/keyword scaffolding the CFG reads.
     if collect is not None:
         collect['raw'] = list(state.lines)
         collect['structured'] = list(structured)
+        collect['structured_ungated'] = list(structured_ungated)
+        collect['gated_fallback'] = gated_fallback
         collect['instructions'] = instructions
         collect['body_addr'] = body_addr
 
