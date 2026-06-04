@@ -1106,6 +1106,14 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
         import vm_cfg
         _bc, _leaders = vm_cfg.bytecode_cfg(instructions)
         ok, _nr, _ns = vm_cfg.structured_equivalent(state.lines, structured, _leaders)
+        if not ok and looped is not state.lines:
+            # Two-tier fallback: the LOOP fold may be the only culprit. Retry with the
+            # if/else structuring ALONE (no loop fold) so a sub keeps its valid if/else
+            # folds instead of reverting wholesale to goto over a bad loop attempt.
+            alt = structure_lines(state.lines)
+            ok_alt, _, _ = vm_cfg.structured_equivalent(state.lines, alt, _leaders)
+            if ok_alt:
+                structured, ok = alt, True
         if not ok:
             structured = state.lines
             gated_fallback = True
@@ -1203,6 +1211,16 @@ def _negate_cond(cond):
     return invert_condition(c)
 
 
+def _is_pure_exit_block(b, cfg, loop):
+    """A block none of whose successors re-enter the loop — i.e. it only returns
+    (EXIT) or jumps OUT of the loop. Such a block sitting lexically inside the loop's
+    listing span (e.g. a top-test header's fall-through `return`, emitted between the
+    test and the body) can be safely RELOCATED to after the loop: the CFG lowering is
+    address-keyed, so moving its lines past the `}` leaves its edges unchanged."""
+    import vm_cfg
+    return all(s is vm_cfg.EXIT or s not in loop for s in cfg.get(b, ()))
+
+
 def _loop_single_exit_entry(cfg, loop, h, exit_e):
     """Shared loop validation: the only way OUT of the loop is `exit_e` (no break to
     elsewhere; an in-body `return`/EXIT is fine), and the only way IN is the header h
@@ -1264,8 +1282,24 @@ def structure_loops(lines, instructions):
     if len(leaders) < 2:
         return lines
     bes, _dom = vm_cfg.back_edges(cfg, leaders[0])
-    if len(bes) != 1:                      # exactly one loop per sub
+    if not bes:
         return lines
+    # Phase 2: a single header with MULTIPLE back edges = a top-test `while` whose body
+    # has extra jump-back points -> each becomes a `continue` (the `_emit_break_continue`
+    # post-pass rewrites them). Requires a 2-way header (the loop condition); a switch
+    # header is a `while(1){ switch }` infinite loop, deferred. Nested/sibling loops
+    # (>1 distinct header) need inner-then-outer folding, also deferred.
+    if len(bes) >= 2:
+        headers = {hh for _u, hh in bes}
+        if len(headers) != 1:
+            return lines                   # nested / sibling loops -> deferred
+        h = next(iter(headers))
+        if len(cfg[h]) != 2:
+            return lines                   # switch-header while(1) -> deferred
+        loop = set()
+        for ub, _h in bes:
+            loop |= vm_cfg.natural_loop(ub, h, cfg)
+        return _fold_while(lines, cfg, leaders, loop, None, h, multi=True)
     (u, h), = bes
     loop = vm_cfg.natural_loop(u, h, cfg)
     htest, utest = len(cfg[h]) == 2, len(cfg[u]) == 2
@@ -1276,11 +1310,16 @@ def structure_loops(lines, instructions):
     return lines                           # two-test / unclear -> Phase 2
 
 
-def _fold_while(lines, cfg, leaders, loop, u, h):
+def _fold_while(lines, cfg, leaders, loop, u, h, multi=False):
     """Top-test loop -> `while (C) { body }`. Handles the common ROTATED idiom (test
     emitted at the BOTTOM with an entry `goto L_test` guard, body above) by hoisting
     the test to the top — lower_struct_cfg's body-leaders redirect keeps the
-    address-based raw lowering correct after the hoist."""
+    address-based raw lowering correct after the hoist.
+
+    multi=True (Phase 2): the loop has SEVERAL back edges to this one header. Only the
+    structural tail (the back-goto that is the very last loop line) is dropped into the
+    `while`; every OTHER in-body `goto L_h` is left in place for `_emit_break_continue`
+    to rewrite as `continue;`. `u` is unused (kept for call symmetry)."""
     import vm_cfg
     body_in = [s for s in cfg[h] if s in loop]
     exit_out = [s for s in cfg[h] if s not in loop]
@@ -1308,11 +1347,20 @@ def _fold_while(lines, cfg, leaders, loop, u, h):
             idx_entry_guard = i                      # guard from outside (removed)
     if idx_h_test is None or not loop_idxs:
         return lines
+    if multi:
+        idx_backedge = None    # keep every in-body `goto L_h` -> `continue` (post-pass)
     lo, hi = min(loop_idxs), max(loop_idxs)
-    # The loop's listing span must hold ONLY loop lines, so removing the test/back-edge
-    # leaves the body intact and in order (no foreign code interleaved).
-    if any(block_of(lines[i][0]) not in loop for i in range(lo, hi + 1)):
+    # Foreign lines inside the loop's listing span are OK only if they form pure-exit
+    # blocks (the classic case: a TOP-test header's fall-through `return` emitted between
+    # the test and the body). Those get RELOCATED to after the loop — address-keyed
+    # lowering makes the move CFG-neutral. Any non-exit foreign code = a genuinely
+    # interleaved body -> bail (revert to honest goto; the gate is the backstop anyway).
+    interleaved = [i for i in range(lo, hi + 1)
+                   if block_of(lines[i][0]) not in loop]
+    if any(not _is_pure_exit_block(block_of(lines[i][0]), cfg, loop)
+           for i in interleaved):
         return lines
+    relocate = set(interleaved)
 
     _k, tgt, cond = _parse_branch_line(lines[idx_h_test][2])
     cont = cond if block_of(tgt) in loop else _negate_cond(cond)
@@ -1337,16 +1385,19 @@ def _fold_while(lines, cfg, leaders, loop, u, h):
                 drop.add(i)
 
     base_ind = lines[lo][1] or 1
-    out = []
+    out, moved = [], []
     for i, (addr, ind, text) in enumerate(lines):
         if i == lo:
             out.append((h, base_ind, f"while ({cont}) {{"))
-        if i not in drop and lo <= i <= hi:
+        if i in relocate:
+            moved.append((addr, base_ind, text))     # pure-exit block -> after the loop
+        elif i not in drop and lo <= i <= hi:
             out.append((addr, ind + 1, text))
         elif i not in drop:
             out.append((addr, ind, text))
         if i == hi:
             out.append((0, base_ind, "}"))
+            out.extend(moved)                        # exit code, now lexically after `}`
     return _emit_break_continue(out, leaders, loop, h, exit_e)
 
 

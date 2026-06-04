@@ -7254,43 +7254,44 @@ word combat_command_menu_input_loop(word arg1, word arg2) {
     read_frame_timer(2);    // PRG $08675 -> bank15 $D29D
     local10 = 0;    // PRG $0867A
     local11 = 0;    // PRG $0867C
-L_p0867D:
-    if (!(!(local11))) return local10;    // PRG $0867E
-    switch (poll_cursor_input_until_button(arg1, arg2)) {    // PRG $08689 -> bank2 $8623
-        case 1: goto L_p086A0;    // PRG $08689
-        case 2: goto L_p0869E;    // PRG $08689
-        case 16: goto L_p086AD;    // PRG $08689
-        case 32: goto L_p086E2;    // PRG $08689
-        default: goto L_p0867D;    // PRG $08689
-    }    // PRG $08689
+    while (!(local11)) {    // PRG $0867D
+        switch (poll_cursor_input_until_button(arg1, arg2)) {    // PRG $08689 -> bank2 $8623
+            case 1: goto L_p086A0;    // PRG $08689
+            case 2: goto L_p0869E;    // PRG $08689
+            case 16: goto L_p086AD;    // PRG $08689
+            case 32: goto L_p086E2;    // PRG $08689
+            default: goto L_p0867D;    // PRG $08689
+        }    // PRG $08689
 L_p0869E:
-    local10 = 4;    // PRG $0869F
+        local10 = 4;    // PRG $0869F
 L_p086A0:
-    read_frame_timer(0);    // PRG $086A1 -> bank15 $D29D
-    local11 = 1;    // PRG $086A6
-    ui_draw_window_d309();    // PRG $086A7 -> bank15 $D309
-    goto L_p0867D;    // PRG $086AA
+        read_frame_timer(0);    // PRG $086A1 -> bank15 $D29D
+        local11 = 1;    // PRG $086A6
+        ui_draw_window_d309();    // PRG $086A7 -> bank15 $D309
+        continue;    // PRG $086AA
 L_p086AD:
-    read_frame_timer(0);    // PRG $086AE -> bank15 $D29D
-    ui_cursor_row = (ui_cursor_row - 1);    // PRG $086B6
-    if (((ui_cursor_row - 1) == 9)) {    // PRG $086BB
-    ui_helper_cc7b(3, 15);    // PRG $086C0 -> bank15 $CC7B
-    } else {
-    goto L_p086D4;    // PRG $086CA
+        read_frame_timer(0);    // PRG $086AE -> bank15 $D29D
+        ui_cursor_row = (ui_cursor_row - 1);    // PRG $086B6
+        if (((ui_cursor_row - 1) == 9)) {    // PRG $086BB
+        ui_helper_cc7b(3, 15);    // PRG $086C0 -> bank15 $CC7B
+        } else {
+        goto L_p086D4;    // PRG $086CA
 L_p086CD:
-    ui_helper_cc7b(3, 10);    // PRG $086CF -> bank15 $CC7B
-    }
+        ui_helper_cc7b(3, 10);    // PRG $086CF -> bank15 $CC7B
+        }
 L_p086D4:
-    local10 = 0;    // PRG $086D4
-    read_frame_timer(2);    // PRG $086D6 -> bank15 $D29D
-    delay_loop(2);    // PRG $086DB -> bank15 $D73E
-    goto L_p0867D;    // PRG $086DF
+        local10 = 0;    // PRG $086D4
+        read_frame_timer(2);    // PRG $086D6 -> bank15 $D29D
+        delay_loop(2);    // PRG $086DB -> bank15 $D73E
+        continue;    // PRG $086DF
 L_p086E2:
-    read_frame_timer(0);    // PRG $086E3 -> bank15 $D29D
-    ui_cursor_row = (ui_cursor_row + 1);    // PRG $086EB
-    if (((ui_cursor_row + 1) == 16)) goto L_p086CD;    // PRG $086F1
-    goto L_p086D4;    // PRG $086F6
+        read_frame_timer(0);    // PRG $086E3 -> bank15 $D29D
+        ui_cursor_row = (ui_cursor_row + 1);    // PRG $086EB
+        if (((ui_cursor_row + 1) == 16)) goto L_p086CD;    // PRG $086F1
+        goto L_p086D4;    // PRG $086F6
     }
+    return local10;    // PRG $08682
+        }
 }
 
 // ===== bank2 $86F9  (PRG $086F9) =====
@@ -7302,43 +7303,44 @@ word select_entry_from_b52f_table_by_cursor(word arg1, word arg2) {
     read_frame_timer(2);    // PRG $08706 -> bank15 $D29D
     local10 = 0;    // PRG $0870B
     local11 = 0;    // PRG $0870D
-L_p0870E:
-    if (!(!(local11))) return msg_d_d[local10];    // PRG $0870F
-    switch (poll_cursor_input_until_button(arg1, arg2)) {    // PRG $0871F -> bank2 $8623
-        case 1: goto L_p08736;    // PRG $0871F
-        case 2: goto L_p08734;    // PRG $0871F
-        case 16: goto L_p08743;    // PRG $0871F
-        case 32: goto L_p0877B;    // PRG $0871F
-        default: goto L_p0870E;    // PRG $0871F
-    }    // PRG $0871F
+    while (!(local11)) {    // PRG $0870E
+        switch (poll_cursor_input_until_button(arg1, arg2)) {    // PRG $0871F -> bank2 $8623
+            case 1: goto L_p08736;    // PRG $0871F
+            case 2: goto L_p08734;    // PRG $0871F
+            case 16: goto L_p08743;    // PRG $0871F
+            case 32: goto L_p0877B;    // PRG $0871F
+            default: goto L_p0870E;    // PRG $0871F
+        }    // PRG $0871F
 L_p08734:
-    local10 = 6;    // PRG $08735
+        local10 = 6;    // PRG $08735
 L_p08736:
-    read_frame_timer(0);    // PRG $08737 -> bank15 $D29D
-    local11 = 1;    // PRG $0873C
-    ui_draw_window_d309();    // PRG $0873D -> bank15 $D309
-    goto L_p0870E;    // PRG $08740
+        read_frame_timer(0);    // PRG $08737 -> bank15 $D29D
+        local11 = 1;    // PRG $0873C
+        ui_draw_window_d309();    // PRG $0873D -> bank15 $D309
+        continue;    // PRG $08740
 L_p08743:
-    read_frame_timer(0);    // PRG $08744 -> bank15 $D29D
-    ui_cursor_row = (ui_cursor_row - 1);    // PRG $0874C
-    if (((ui_cursor_row - 1) == 20)) {    // PRG $08752
-    ui_helper_cc7b(2, 26);    // PRG $08758 -> bank15 $CC7B
-    } else {
-    goto L_p0876D;    // PRG $08762
+        read_frame_timer(0);    // PRG $08744 -> bank15 $D29D
+        ui_cursor_row = (ui_cursor_row - 1);    // PRG $0874C
+        if (((ui_cursor_row - 1) == 20)) {    // PRG $08752
+        ui_helper_cc7b(2, 26);    // PRG $08758 -> bank15 $CC7B
+        } else {
+        goto L_p0876D;    // PRG $08762
 L_p08765:
-    ui_helper_cc7b(2, 21);    // PRG $08768 -> bank15 $CC7B
-    }
+        ui_helper_cc7b(2, 21);    // PRG $08768 -> bank15 $CC7B
+        }
 L_p0876D:
-    local10 = 0;    // PRG $0876D
-    read_frame_timer(2);    // PRG $0876F -> bank15 $D29D
-    delay_loop(2);    // PRG $08774 -> bank15 $D73E
-    goto L_p0870E;    // PRG $08778
+        local10 = 0;    // PRG $0876D
+        read_frame_timer(2);    // PRG $0876F -> bank15 $D29D
+        delay_loop(2);    // PRG $08774 -> bank15 $D73E
+        continue;    // PRG $08778
 L_p0877B:
-    read_frame_timer(0);    // PRG $0877C -> bank15 $D29D
-    ui_cursor_row = (ui_cursor_row + 1);    // PRG $08784
-    if (((ui_cursor_row + 1) == 27)) goto L_p08765;    // PRG $0878A
-    goto L_p0876D;    // PRG $0878F
+        read_frame_timer(0);    // PRG $0877C -> bank15 $D29D
+        ui_cursor_row = (ui_cursor_row + 1);    // PRG $08784
+        if (((ui_cursor_row + 1) == 27)) goto L_p08765;    // PRG $0878A
+        goto L_p0876D;    // PRG $0878F
     }
+    return msg_d_d[local10];    // PRG $08718
+        }
 }
 
 // ===== bank2 $8792  (PRG $08792) =====

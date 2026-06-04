@@ -570,6 +570,24 @@ def lower_struct_cfg(lines, leaders, orient=None):
                 return block_of(lines[k][0])
         return None
 
+    def tail_falls_off(lo, hi):
+        """True if the body's last statement can FALL off the bottom `}` (back to the
+        loop top). An UNCONDITIONAL terminator (goto/return/break/continue, or a switch
+        whose cases dispatch every path) cannot — its edge is already explicit, so the
+        implicit body_tail->header back-edge must NOT be added (the menu-loop case: a
+        tail `goto L_x` that targets a continue block would otherwise fabricate a
+        spurious header edge). A conditional terminator (`if(C) goto/…`) or a plain
+        statement DOES fall through, so the back-edge is kept."""
+        for k in range(hi - 1, lo - 1, -1):
+            t = lines[k][2].strip()
+            if _is_scaffold(t):
+                continue
+            if _RE_SWITCH_CASE.match(t):
+                return False
+            cl, _ = _classify_stmt(t)
+            return cl not in ('goto', 'return', 'break', 'continue')
+        return True
+
     for header_addr, h_idx, close_idx in whiles:
         # POSITION-based (not next_leader): the loop emitter rotates the test to the
         # top, so the body's entry/tail are wherever the brace contents sit in the
@@ -586,7 +604,7 @@ def lower_struct_cfg(lines, leaders, orient=None):
         header_edges[hb] = {body_entry, exit_blk}
         _wcond = _RE_WHILE_OPEN.match(lines[h_idx][2].strip())
         _record_orient(orient, hb, _wcond.group(1) if _wcond else '', body_entry, exit_blk)
-        if body_tail is not None and body_tail != hb:
+        if body_tail is not None and body_tail != hb and tail_falls_off(h_idx + 1, close_idx):
             back_edges.setdefault(body_tail, set()).add(hb)   # body tail loops back
         # Body leaders (incl. label-only / folded ones): a rotated while hoists the
         # bottom test above the body, so any block OUTSIDE the loop whose address-next

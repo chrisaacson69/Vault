@@ -162,6 +162,27 @@ def main():
         bad, _, _ = vm_cfg.structured_equivalent(raw, swapped, leaders)
         check(f"b{bank}/${sub:04X}: break->continue (exit->header) REJECTED", not bad)
 
+    # Phase 2 (multi-back-edge menu loops): a single header with several back edges +
+    # an interleaved exit `return` folds to `while (C) { switch...; continue; ... }` (the
+    # exit block relocated past the `}`). The relation must (a) accept the fold and (b)
+    # reject a continue turned into break (header->exit, which would leave the loop early
+    # instead of re-dispatching) — exercises the loop-context lowering + the
+    # tail-falls-off back-edge rule together.
+    for bank, sub in [(2, 0x8669), (2, 0x86F9)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        has_loop = any('while (' in t for _a, _i, t in struct)
+        has_cont = any(t.strip() == 'continue;' for _a, _i, t in struct)
+        check(f"b{bank}/${sub:04X}: folded menu while+continue", has_loop and has_cont)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: menu-loop fold ~= raw", ok)
+
+        swapped = [(a, i, re.sub(r'\bcontinue;', 'break;', t)) for a, i, t in struct]
+        bad, _, _ = vm_cfg.structured_equivalent(raw, swapped, leaders)
+        check(f"b{bank}/${sub:04X}: continue->break (header->exit) REJECTED", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 
