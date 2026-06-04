@@ -31,10 +31,10 @@ word compose_upload_daimyo_portrait(word out_buf) {
 
 word build_blit_fief_tile_block(word dst_col, word dst_row) {
     i = 0;    // $8142
-L_8144:
-    palette_write_wrap(i, *(word*)(((i << 1) + build_blit_fief_tile_blo_data_b51e)));    // $814F
-    i = (i + 1);    // $8156
-    if (((unsigned)i < (unsigned)4)) goto L_8144;    // $815C
+    do {    // $8144
+        palette_write_wrap(i, *(word*)(((i << 1) + build_blit_fief_tile_blo_data_b51e)));    // $814F
+        i = (i + 1);    // $8156
+    } while (((unsigned)i < (unsigned)4));    // $815C
     if (*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6))) goto L_81E8;    // $8168
     descriptor_ptr = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + build_blit_fief_tile_blo_data_bbd0);    // $8178
     syscall16_sram_wrap(8, descriptor_ptr, &tile_descriptor, 4);    // $8182
@@ -42,26 +42,22 @@ L_8144:
     ppu_upload_block_wrap(*(byte*)(descriptor_ptr), *(word*)((descriptor_ptr + 2)), 0x17F0, *(byte*)((descriptor_ptr + 1)));    // $819C
     i = 0;    // $81A1
     src_ptr = ((fief_to_mapid(active_province_idx_copy) * 36) + build_blit_fief_tile_blo_data_b144);    // $81B1
-    goto L_81DD;    // $81B3
-L_81B6:
-    syscall16_sram_wrap(8, src_ptr, &tile_byte, 1);    // $81BE
-    *(byte*)((i + &tile_buf)) = (tile_byte + 36);    // $81D0
-    i = (i + 1);    // $81D4
-    src_ptr = (src_ptr + 1);    // $81DA
-L_81DD:
-    if (((unsigned)i < (unsigned)36)) goto L_81B6;    // $81E2
+    while (((unsigned)i < (unsigned)36)) {    // $81DD
+        syscall16_sram_wrap(8, src_ptr, &tile_byte, 1);    // $81BE
+        *(byte*)((i + &tile_buf)) = (tile_byte + 36);    // $81D0
+        i = (i + 1);    // $81D4
+        src_ptr = (src_ptr + 1);    // $81DA
+    }
     goto L_8218;    // $81E5
 L_81E8:
     compose_upload_daimyo_portrait(&tile_buf);    // $81EC
     i = 0;    // $81F1
     src_ptr = &tile_buf;    // $81F6
-    goto L_8210;    // $81F8
-L_81FB:
-    *(byte*)(src_ptr) = (*(byte*)(src_ptr) + 36);    // $8203
-    i = (i + 1);    // $8207
-    src_ptr = (src_ptr + 1);    // $820D
-L_8210:
-    if (((unsigned)i < (unsigned)36)) goto L_81FB;    // $8215
+    while (((unsigned)i < (unsigned)36)) {    // $8210
+        *(byte*)(src_ptr) = (*(byte*)(src_ptr) + 36);    // $8203
+        i = (i + 1);    // $8207
+        src_ptr = (src_ptr + 1);    // $820D
+    }
 L_8218:
     return ppu_blit_from_bank_wrap(dst_col, dst_row, (dst_col + 5), (dst_row + 5), &tile_buf, 8);    // $8229
 }
@@ -972,25 +968,23 @@ word ai_sum_battle_strength(void) {
     attacker_stat_ptr = (selected_province_daimyo_record() + 1);    // $8E6C
     defender_stat_ptr = (fief_to_daimyo_record_addr(battle_defending_province) + 1);    // $8E75
     weight_ptr = battle_strength_stat_weights;    // $8E79
-    goto L_8EA5;    // $8E7B
-L_8E7E:
-    weight_ptr = (weight_ptr + 1);    // $8E80
-    defender_stat_ptr = (defender_stat_ptr + 1);    // $8E86
-    attacker_stat_ptr = (attacker_stat_ptr + 1);    // $8E8C
-    *(word*)(((((*(byte*)(((attacker_stat_ptr + 1) - 1)) <= *(byte*)(((defender_stat_ptr + 1) - 1))) ? 1 : 0) << 1) + 0x7BEA)) = (*(word*)(((((*(byte*)(((attacker_stat_ptr + 1) - 1)) <= *(byte*)(((defender_stat_ptr + 1) - 1))) ? 1 : 0) << 1) + 0x7BEA)) + *(byte*)(((weight_ptr + 1) - 1)));    // $8EA2
-L_8EA5:
-    i = (i + 1);    // $8EA5
-    if ((i < 5)) goto L_8E7E;    // $8EA9
+    while ((i < 5)) {    // $8EA5
+        weight_ptr = (weight_ptr + 1);    // $8E80
+        defender_stat_ptr = (defender_stat_ptr + 1);    // $8E86
+        attacker_stat_ptr = (attacker_stat_ptr + 1);    // $8E8C
+        *(word*)(((((*(byte*)(((attacker_stat_ptr + 1) - 1)) <= *(byte*)(((defender_stat_ptr + 1) - 1))) ? 1 : 0) << 1) + 0x7BEA)) = (*(word*)(((((*(byte*)(((attacker_stat_ptr + 1) - 1)) <= *(byte*)(((defender_stat_ptr + 1) - 1))) ? 1 : 0) << 1) + 0x7BEA)) + *(byte*)(((weight_ptr + 1) - 1)));    // $8EA2
+        i = (i + 1);    // $8EA5
+    }
     attacker_fief_field = ((selected_province_idx * 26) + 0x7013);    // $8EB6
     defender_fief_field = ((battle_defending_province * 26) + 0x7013);    // $8EC1
     i = 5;    // $8EC3
-L_8EC4:
-    weight_ptr = (weight_ptr + 1);    // $8EC6
-    defender_fief_field = (defender_fief_field + 2);    // $8ECC
-    attacker_fief_field = (attacker_fief_field + 2);    // $8ED3
-    *(word*)(((((*(word*)(((attacker_fief_field + 2) + -2)) <= *(word*)(((defender_fief_field + 2) + -2))) ? 1 : 0) << 1) + 0x7BEA)) = (*(word*)(((((*(word*)(((attacker_fief_field + 2) + -2)) <= *(word*)(((defender_fief_field + 2) + -2))) ? 1 : 0) << 1) + 0x7BEA)) + *(byte*)(((weight_ptr + 1) - 1)));    // $8EEA
-    i = (i + 1);    // $8EED
-    if ((i <= 7)) goto L_8EC4;    // $8EF1
+    do {    // $8EC4
+        weight_ptr = (weight_ptr + 1);    // $8EC6
+        defender_fief_field = (defender_fief_field + 2);    // $8ECC
+        attacker_fief_field = (attacker_fief_field + 2);    // $8ED3
+        *(word*)(((((*(word*)(((attacker_fief_field + 2) + -2)) <= *(word*)(((defender_fief_field + 2) + -2))) ? 1 : 0) << 1) + 0x7BEA)) = (*(word*)(((((*(word*)(((attacker_fief_field + 2) + -2)) <= *(word*)(((defender_fief_field + 2) + -2))) ? 1 : 0) << 1) + 0x7BEA)) + *(byte*)(((weight_ptr + 1) - 1)));    // $8EEA
+        i = (i + 1);    // $8EED
+    } while ((i <= 7));    // $8EF1
     return (i <= 7);    // $8EF4
 }
 
@@ -2466,33 +2460,31 @@ word ai_advance_units_into_free_adjacent_cells(void) {
     origin_x = *(byte*)(cur_unit_field_ptr_6fd0());    // $A635
     origin_y = *(byte*)(cur_unit_field_ptr_6fda());    // $A63A
     free_cell_found = 0;    // $A63C
-    goto L_A677;    // $A63E
-L_A641:
-    candidate_x = origin_x;    // $A642
-    candidate_y = origin_y;    // $A644
-    if (sub_8003(&candidate_x, &candidate_y, local11)) {    // $A652
-    if (!(is_tile_in_bounds(candidate_x, candidate_y))) goto L_A675;    // $A65B
-    if (find_unit_at_tile(candidate_x, candidate_y)) goto L_A675;    // $A664
-    if (test_map_cell_blocked_c2(candidate_x, candidate_y)) goto L_A675;    // $A66D
-    free_cell_found = 1;    // $A671
-    } else {
-L_A677:
-    local11 = (local11 + 1);    // $A677
-    if (((unsigned)local11 < (unsigned)6)) goto L_A641;    // $A67B
+    while (((unsigned)local11 < (unsigned)6)) {    // $A677
+        candidate_x = origin_x;    // $A642
+        candidate_y = origin_y;    // $A644
+        if (sub_8003(&candidate_x, &candidate_y, local11)) {    // $A652
+        if (!(is_tile_in_bounds(candidate_x, candidate_y))) goto L_A675;    // $A65B
+        if (find_unit_at_tile(candidate_x, candidate_y)) goto L_A675;    // $A664
+        if (test_map_cell_blocked_c2(candidate_x, candidate_y)) goto L_A675;    // $A66D
+        free_cell_found = 1;    // $A671
+        } else {
+        local11 = (local11 + 1);    // $A677
     }
+        }
 L_A67E:
     enemy_side = (cur_combat_side ^ 1);    // $A683
     local11 = 0;    // $A685
-L_A686:
-    if (!(test_unit_type_present_flag(enemy_side, local11))) goto L_A6B8;    // $A68C
-    if (!(free_cell_found)) goto L_A6AF;    // $A690
-    if (local11) goto L_A6AF;    // $A694
-    if (!(!(ai_step_unit_toward_target(*(byte*)(unit_field_ptr_6fd0(enemy_side, 0)), *(byte*)(unit_field_ptr_6fda(enemy_side, 0)))))) return ai_step_unit_toward_target(*(byte*)(unit_field_ptr_6fd0(enemy_side, 0)), *(byte*)(unit_field_ptr_6fda(enemy_side, 0)));    // $A6AB
-    if (!(!(ai_engage_present_enemy_if_favorable(local11)))) return ai_engage_present_enemy_if_favorable(local11);    // $A6B4
-    local11 = (local11 + 1);    // $A6BA
-    if (((unsigned)local11 < (unsigned)5)) goto L_A686;    // $A6BE
+    do {    // $A686
+        if (!(test_unit_type_present_flag(enemy_side, local11))) goto L_A6B8;    // $A68C
+        if (!(free_cell_found)) goto L_A6AF;    // $A690
+        if (local11) goto L_A6AF;    // $A694
+        if (!(!(ai_step_unit_toward_target(*(byte*)(unit_field_ptr_6fd0(enemy_side, 0)), *(byte*)(unit_field_ptr_6fda(enemy_side, 0)))))) return ai_step_unit_toward_target(*(byte*)(unit_field_ptr_6fd0(enemy_side, 0)), *(byte*)(unit_field_ptr_6fda(enemy_side, 0)));    // $A6AB
+        if (!(!(ai_engage_present_enemy_if_favorable(local11)))) return ai_engage_present_enemy_if_favorable(local11);    // $A6B4
+        local11 = (local11 + 1);    // $A6BA
+    } while (((unsigned)local11 < (unsigned)5));    // $A6BE
     return ai_decide_unit_action_attack_or_advance();    // $A6C4
-    }
+        }
 }
 
 // $A6C5 ai_choose_combat_action_by_battle_strength

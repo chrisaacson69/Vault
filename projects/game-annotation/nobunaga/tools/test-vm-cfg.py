@@ -351,6 +351,38 @@ def main():
         bad = vm_cfg.lower_goto_cfg(cap['raw'], sorted(cfg_raw)) == cfg_raw
         check(f"b{bank}/${sub:04X}: witness != UNcontracted cfg (contraction load-bearing)", not bad)
 
+    # Phase 1c (SIBLING loops): a sub with >1 DISJOINT loop header folds each loop
+    # independently (each gated against the raw witness on its own, so one bad sibling fold
+    # can't sink the others). $A3AA (write_sram_save_checksum) = two sequential do-while loops
+    # (checksum SRAM $6100-$6F00, then $7100-$7E00). The relation must (a) accept >= 2 folded
+    # loops, and (b) reject dropping just ONE loop's back edge — proving the second fold does
+    # NOT mask a corruption of the first (the per-sibling independence the gating relies on).
+    for bank, sub in [(0, 0xA3AA), (0, 0xA455)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        nloops = sum(1 for _a, _i, t in struct if ('while (' in t or t.strip() == 'do {'))
+        check(f"b{bank}/${sub:04X}: folded >=2 sibling loops", nloops >= 2)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: sibling folds ~= raw", ok)
+
+        # Drop just the FIRST loop's back edge (a `} while(C);` -> `}`, or `while(C){` ->
+        # `if(C){`) and assert the gate REJECTS it — the other sibling fold must not hide it.
+        mut, done = [], False
+        for a, i, t in struct:
+            ts = t.strip()
+            if not done and vm_cfg._RE_DOWHILE_CLOSE.match(ts):
+                mut.append((a, i, '}')); done = True
+            elif not done and re.match(r'while \(.+\) \{$', ts):
+                mut.append((a, i, t.replace('while (', 'if (', 1))); done = True
+            else:
+                mut.append((a, i, t))
+        check(f"b{bank}/${sub:04X}: found a sibling loop to corrupt", done)
+        if done:
+            bad, _, _ = vm_cfg.structured_equivalent(raw, mut, leaders)
+            check(f"b{bank}/${sub:04X}: one sibling loop's back edge dropped REJECTED", not bad)
+
     # Phase 3 (switch case-body inlining): a single-entry switch's case bodies move INSIDE
     # the braces as a native C switch (inline `case N:` labels + honest internal goto where
     # fall-through can't reach). The switch HEADER's successors are read from those inline

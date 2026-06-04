@@ -294,15 +294,13 @@ L_85F4:
 
 word prompt_roll_stat_value(void) {
     local11 = ui_window_col;    // $8604
-L_8605:
-    if (poll_input()) goto L_8605;    // $8608
-    goto L_8612;    // $860B
-L_860E:
-    ui_window_col = local11;    // $860F
-L_8612:
-    local10 = (rng_mod(50) + 60);    // $861A
-    ui_helper_d134(msg_fmt__3d, (rng_mod(50) + 60));    // $861F
-    if (!(poll_input())) goto L_860E;    // $8626
+    do {    // $8605
+    } while (poll_input());    // $8608
+    while (!(poll_input())) {    // $8612
+        ui_window_col = local11;    // $860F
+        local10 = (rng_mod(50) + 60);    // $861A
+        ui_helper_d134(msg_fmt__3d, (rng_mod(50) + 60));    // $861F
+    }
     return local10;    // $862A
 }
 
@@ -454,19 +452,19 @@ word render_boot_title_screens(void) {
     ppu_upload_block_wrap(0, render_boot_title_screen_data_a84a, 0x23C0, 4);    // $88CF
     ppu_blit_from_bank_wrap(0, 0, 31, 29, render_boot_title_screen_data_a88a, 0);    // $88DD
     local11 = 0;    // $88E2
-L_88E3:
-    palette_write_wrap(local11, msg_new_game_b862[local11]);    // $88EB
-    local11 = (local11 + 1);    // $88F1
-    if (((unsigned)local11 < (unsigned)32)) goto L_88E3;    // $88F6
+    do {    // $88E3
+        palette_write_wrap(local11, msg_new_game_b862[local11]);    // $88EB
+        local11 = (local11 + 1);    // $88F1
+    } while (((unsigned)local11 < (unsigned)32));    // $88F6
     marry_helper_cc35(0);    // $88FA
     ui_input_sel_latch_7fdf = 255;    // $8901
     ui_input_mode = 0;    // $8905
 L_8908:
     if (syscall_read_controller(0)) goto L_8908;    // $890E
     if (syscall_read_controller(1)) goto L_8908;    // $8917
-L_891A:
-    if (syscall_read_controller(0)) goto L_892C;    // $8920
-    if (!(syscall_read_controller(1))) goto L_891A;    // $8929
+    do {    // $891A
+        if (syscall_read_controller(0)) break;    // $8920
+    } while (!(syscall_read_controller(1)));    // $8929
 L_892C:
     marry_helper_cc35(1);    // $892D
     ppu_upload_block_wrap(0, display_fullscreen_graph_data_b2ba, 0x1000, 81);    // $893A
@@ -479,10 +477,10 @@ L_892C:
     ui_helper_cc7b(21, 26);    // $897B
     redraw_window(msg_control_1);    // $8982
     local11 = 0;    // $8987
-L_8988:
-    palette_write_wrap(local11, msg_new_game[local11]);    // $8990
-    local11 = (local11 + 1);    // $8996
-    if (((unsigned)local11 < (unsigned)8)) goto L_8988;    // $899A
+    do {    // $8988
+        palette_write_wrap(local11, msg_new_game[local11]);    // $8990
+        local11 = (local11 + 1);    // $8996
+    } while (((unsigned)local11 < (unsigned)8));    // $899A
     return marry_helper_cc35(0);    // $89A2
 }
 
@@ -2063,16 +2061,14 @@ word drift_daimyo_luck(word arg1) {
 // (body @ $A312)
 
 word per_period_fief_daimyo_update_driver(void) {
-    goto L_A349;    // $A313
-L_A316:
-    drift_daimyo_luck(fief_idx);    // $A317
-    if (((unsigned)fief_tax_rate[fief_idx] >= (unsigned)(90 - const_two))) {    // $A32A
-    *(word*)(((fief_idx * 26) + 0x700D)) = pct_op(*(word*)(((fief_idx * 26) + 0x700D)), 90);    // $A346
-    }
+    while (((unsigned)fief_idx < (unsigned)scenario_fief_count)) {    // $A349
+        drift_daimyo_luck(fief_idx);    // $A317
+        if (((unsigned)fief_tax_rate[fief_idx] >= (unsigned)(90 - const_two))) {    // $A32A
+        *(word*)(((fief_idx * 26) + 0x700D)) = pct_op(*(word*)(((fief_idx * 26) + 0x700D)), 90);    // $A346
+        }
 L_A347:
-L_A349:
-    fief_idx = (fief_idx + 1);    // $A349
-    if (((unsigned)fief_idx < (unsigned)scenario_fief_count)) goto L_A316;    // $A34F
+        fief_idx = (fief_idx + 1);    // $A349
+    }
     ui_helper_cc7b(2, 3);    // $A354
     draw_window_f6c4();    // $A358
     ui_helper_cc7b(7, 3);    // $A35D
@@ -2110,16 +2106,16 @@ word write_sram_save_checksum_and_signature(void) {
     local9 = sram_save_pending_flag;    // $A3B2
     local10 = syscall_sram_block_with_checksum(0, local9, ai_per_fief_loop_index, 255);    // $A3C1
     local11 = 0x6100;    // $A3C5
-L_A3C6:
-    local10 = (local10 + syscall_sram_block_with_checksum(0, local9, local11, 0x0100));    // $A3D5
-    local11 = (local11 + 0x0100);    // $A3DC
-    if (((unsigned)local11 < (unsigned)0x7000)) goto L_A3C6;    // $A3E2
+    do {    // $A3C6
+        local10 = (local10 + syscall_sram_block_with_checksum(0, local9, local11, 0x0100));    // $A3D5
+        local11 = (local11 + 0x0100);    // $A3DC
+    } while (((unsigned)local11 < (unsigned)0x7000));    // $A3E2
     local10 = (local10 + syscall_sram_block_with_checksum(0, local9, province_table_live, 255));    // $A3F6
     local11 = 0x7100;    // $A3FA
-L_A3FB:
-    local10 = (local10 + syscall_sram_block_with_checksum(0, local9, local11, 0x0100));    // $A40A
-    local11 = (local11 + 0x0100);    // $A411
-    if (((unsigned)local11 < (unsigned)0x7F00)) goto L_A3FB;    // $A417
+    do {    // $A3FB
+        local10 = (local10 + syscall_sram_block_with_checksum(0, local9, local11, 0x0100));    // $A40A
+        local11 = (local11 + 0x0100);    // $A411
+    } while (((unsigned)local11 < (unsigned)0x7F00));    // $A417
     local10 = (local10 + syscall_sram_block_with_checksum(0, local9, ui_transient_state, verify_sram_save_integri_data_81eb));    // $A42B
     sram_save_checksum = local10;    // $A42D
     strcpy(0x7FED, msg_koei_bf17);    // $A436
@@ -2151,13 +2147,11 @@ L_A47F:
 L_A498:
     roll_period_rate_table_6e0b();    // $A495
     per_period_fief_daimyo_update_driver();    // $A498
-    goto L_A4AE;    // $A49C
-L_A49F:
-    cap_fief_stats(fief_i);    // $A4A0
-    daimyo_weakness_flag[fief_i] = 0;    // $A4AB
-L_A4AE:
-    fief_i = (fief_i + 1);    // $A4AE
-    if (((unsigned)fief_i < (unsigned)scenario_fief_count)) goto L_A49F;    // $A4B4
+    while (((unsigned)fief_i < (unsigned)scenario_fief_count)) {    // $A4AE
+        cap_fief_stats(fief_i);    // $A4A0
+        daimyo_weakness_flag[fief_i] = 0;    // $A4AB
+        fief_i = (fief_i + 1);    // $A4AE
+    }
     if (!(!((ai_turn_flags & 128)))) return (ai_turn_flags & 128);    // $A4BE
     ai_planner_event_handler_select = 0;    // $A4C3
     if ((current_season != 1)) goto L_A4DE;    // $A4CB
@@ -2176,41 +2170,37 @@ L_A4FD:
 L_A4FE:
     fief_i = 0;    // $A4FF
     selected_count = 0;    // $A501
-    goto L_A534;    // $A502
-L_A505:
-    if (province_state_is_FF(fief_i)) goto L_A531;    // $A50A
-    if ((ai_planner_event_handler_select == 3)) goto L_A520;    // $A512
-    goto L_A523;    // $A51D
+    while (((unsigned)fief_i < (unsigned)scenario_fief_count)) {    // $A534
+        if (province_state_is_FF(fief_i)) goto L_A531;    // $A50A
+        if ((ai_planner_event_handler_select == 3)) goto L_A520;    // $A512
+        goto L_A523;    // $A51D
 L_A520:
 L_A523:
-    if (!(roll_3pct_event_chance())) goto L_A531;    // $A523
-    selected_count = (selected_count + 1);    // $A528
-    *(byte*)((((selected_count + 1) - 1) + 0x7BAD)) = fief_i;    // $A530
+        if (!(roll_3pct_event_chance())) goto L_A531;    // $A523
+        selected_count = (selected_count + 1);    // $A528
+        *(byte*)((((selected_count + 1) - 1) + 0x7BAD)) = fief_i;    // $A530
 L_A531:
-    fief_i = (fief_i + 1);    // $A533
-L_A534:
-    if (((unsigned)fief_i < (unsigned)scenario_fief_count)) goto L_A505;    // $A539
+        fief_i = (fief_i + 1);    // $A533
+    }
     *(byte*)((selected_count + 0x7BAD)) = -1;    // $A544
     if (!(selected_count)) goto L_A55B;    // $A546
     announce_provinces_by_ai_state_mode(ai_planner_event_handler_select);    // $A54C
     (*(event_handler_fn))();    // $A551
     if (((ai_turn_planner_resume_flag == 1))) return (ai_turn_planner_resume_flag == 1);    // $A557
-    goto L_A5CB;    // $A55C
-L_A55F:
-    daimyo_ptr = daimyo_record_addr(fief_i);    // $A564
-    if ((*(byte*)((daimyo_ptr + 1)) > 99)) goto L_A5C9;    // $A56B
-    if (rest_turns_remaining[ui_helper_d772(fief_i)]) goto L_A5C9;    // $A578
-    daimyo_weakness_flag[fief_i] = ((rng_mod(0x0190) < (100 - *(byte*)((daimyo_ptr + 1)))) | daimyo_weakness_flag[fief_i]);    // $A59C
-    selected_province_idx = fief_i;    // $A59E
-    if (!(war_helper_d972(fief_i))) goto L_A5C9;    // $A5A6
-    if (!(cur_flag_and_selected_ai_state5())) goto L_A5C9;    // $A5AC
-    message_display(((ui_helper_d772(fief_i) * 9) + 0x77A8));    // $A5BB
-    redraw_window(msg_has_taken_ill);    // $A5C2
+    while (((unsigned)fief_i < (unsigned)scenario_fief_count)) {    // $A5CB
+        daimyo_ptr = daimyo_record_addr(fief_i);    // $A564
+        if ((*(byte*)((daimyo_ptr + 1)) > 99)) goto L_A5C9;    // $A56B
+        if (rest_turns_remaining[ui_helper_d772(fief_i)]) goto L_A5C9;    // $A578
+        daimyo_weakness_flag[fief_i] = ((rng_mod(0x0190) < (100 - *(byte*)((daimyo_ptr + 1)))) | daimyo_weakness_flag[fief_i]);    // $A59C
+        selected_province_idx = fief_i;    // $A59E
+        if (!(war_helper_d972(fief_i))) goto L_A5C9;    // $A5A6
+        if (!(cur_flag_and_selected_ai_state5())) goto L_A5C9;    // $A5AC
+        message_display(((ui_helper_d772(fief_i) * 9) + 0x77A8));    // $A5BB
+        redraw_window(msg_has_taken_ill);    // $A5C2
 L_A5C9:
-    confirm_prompt();    // $A5C6
-L_A5CB:
-    fief_i = (fief_i + 1);    // $A5CB
-    if (((unsigned)fief_i < (unsigned)scenario_fief_count)) goto L_A55F;    // $A5D1
+        confirm_prompt();    // $A5C6
+        fief_i = (fief_i + 1);    // $A5CB
+    }
     }
 L_A5D4:
     return ((unsigned)fief_i < (unsigned)scenario_fief_count);    // $A5D4

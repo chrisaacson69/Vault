@@ -647,11 +647,9 @@ L_D1FE:
         if (((unsigned)local11 < (unsigned)8)) goto L_D1FC;    // $D211
 L_D214:
         if (((unsigned)local11 >= (unsigned)8)) {    // $D217
-        goto L_D220;    // $D21B
-L_D21E:
-L_D220:
-        local11 = (local11 + 1);    // $D220
-        if ((*(byte*)((local11 + 0x7FD5)) != ui_helper_d772(battle_defending_province))) goto L_D21E;    // $D231
+        while ((*(byte*)((local11 + 0x7FD5)) != ui_helper_d772(battle_defending_province))) {    // $D220
+            local11 = (local11 + 1);    // $D220
+        }
         local11 = (local11 + 1);    // $D236
         }
 L_D237:
@@ -678,12 +676,12 @@ L_D270:
 // (body @ $D28C)
 
 word wait_button_edge(void) {
-L_D28C:
-    if (poll_input()) goto L_D28C;    // $D28F
+    do {    // $D28C
+    } while (poll_input());    // $D28F
     local11 = 0;    // $D293
-L_D294:
-    local11 = poll_input();    // $D297
-    if (!(poll_input())) goto L_D294;    // $D298
+    do {    // $D294
+        local11 = poll_input();    // $D297
+    } while (!(poll_input()));    // $D298
     return local11;    // $D29C
 }
 
@@ -807,30 +805,38 @@ word cursor_nav_loop(word arg1) {
     local4 = 0;    // $D3F3
     local6 = 0;    // $D3F5
     local5 = 1;    // $D3F7
-L_D3F8:
-    *(word*)(((local5 << 1) + &local6)) = 255;    // $D404
-    local5 = (local5 + 1);    // $D407
-    if ((local5 <= 5)) goto L_D3F8;    // $D40B
+    do {    // $D3F8
+        *(word*)(((local5 << 1) + &local6)) = 255;    // $D404
+        local5 = (local5 + 1);    // $D407
+    } while ((local5 <= 5));    // $D40B
     ui_helper_d134(msg_fmt__d_f69e, local6);    // $D412
     ui_window_col = (ui_window_col - 1);    // $D41A
     read_frame_timer(1);    // $D41E
     wait_button_edge();    // $D422
     local2 = 0;    // $D426
+    while (1) {    // $D427
 L_D427:
-    switch (poll_input()) {    // $D42A
-    case 2:
+        switch (poll_input()) {    // $D42A
+            case 1: goto L_D459;    // $D42A
+            case 2: goto L_D447;    // $D42A
+            case 16: goto L_D469;    // $D42A
+            case 32: goto L_D4AF;    // $D42A
+            case 64: goto L_D4DB;    // $D42A
+            case 128: goto L_D511;    // $D42A
+            default: goto L_D460;    // $D42A
+        }    // $D42A
+L_D447:
         read_frame_timer(0);    // $D448
         if (((ui_input_prompt_active_flag == 1))) return -1;    // $D451
         return 0;    // $D458
-    case 1:
+L_D459:
         read_frame_timer(0);    // $D45A
         local2 = 1;    // $D45F
-    default:
 L_D460:
-        if (!(local2)) goto L_D427;    // $D461
+        if (!(local2)) continue;    // $D461
         local3 = 0;    // $D465
         goto L_D573;    // $D466
-    case 16:
+L_D469:
         *(word*)(((local4 << 1) + &local6)) = (*(word*)(((local4 << 1) + &local6)) + 1);    // $D474
         if (((unsigned)(*(word*)(((local4 << 1) + &local6)) + 1) >= (unsigned)10)) {    // $D477
         *(word*)(((local4 << 1) + &local6)) = 0;    // $D484
@@ -843,14 +849,14 @@ L_D492:
         delay_loop(2);    // $D4A3
         read_frame_timer(1);    // $D4A8
         goto L_D460;    // $D4AC
-    case 32:
+L_D4AF:
         *(word*)(((local4 << 1) + &local6)) = (*(word*)(((local4 << 1) + &local6)) - 1);    // $D4BA
         if (((unsigned)(*(word*)(((local4 << 1) + &local6)) - 1) >= (unsigned)10)) {    // $D4BD
         *(word*)(((local4 << 1) + &local6)) = 9;    // $D4CA
         }
 L_D4CB:
         goto L_D492;    // $D4D8
-    case 64:
+L_D4DB:
         if (!(local4)) goto L_D460;    // $D4DC
         read_frame_timer(0);    // $D4E0
         redraw_window(0xF6A7);    // $D4E7
@@ -861,7 +867,7 @@ L_D4CB:
 L_D509:
         delay_loop(2);    // $D50A
         goto L_D460;    // $D50E
-    case 128:
+L_D511:
         if (!(((arg1 - 1) != local4))) goto L_D460;    // $D515
         if (local4) goto L_D528;    // $D519
         if (!(*(word*)(((local4 << 1) + &local6)))) goto L_D460;    // $D525
@@ -874,13 +880,13 @@ L_D528:
         ui_window_col = (ui_window_col - 1);    // $D556
         read_frame_timer(1);    // $D55A
         goto L_D509;    // $D55E
-L_D561:
-        local3 = ((local3 * 10) + *(word*)(((local5 << 1) + &local6)));    // $D570
-L_D573:
-        local5 = (local5 + 1);    // $D573
-        if ((*(word*)(((local5 << 1) + &local6)) != 255)) goto L_D561;    // $D581
-        return local3;    // $D585
     }
+L_D561:
+    local3 = ((local3 * 10) + *(word*)(((local5 << 1) + &local6)));    // $D570
+L_D573:
+    local5 = (local5 + 1);    // $D573
+    if ((*(word*)(((local5 << 1) + &local6)) != 255)) goto L_D561;    // $D581
+    return local3;    // $D585
 }
 
 // $D586 count_div_iterations_d586
@@ -1155,34 +1161,30 @@ L_D835:
 word cap_fief_stats(word fief) {
     fief_rec = ((fief * 26) + 0x7001);    // $D843
     rec_base = fief_rec;    // $D845
-    goto L_D863;    // $D846
-L_D849:
-    *(word*)(field_ptr) = min_word(*(word*)(field_ptr), *(word*)((fief_rec + 24)));    // $D856
-    if ((*(word*)(field_ptr) < 0)) {    // $D85B
-    *(word*)(field_ptr) = 0;    // $D860
-    }
+    while (((unsigned)field_ptr < (unsigned)(rec_base + 24))) {    // $D863
+        *(word*)(field_ptr) = min_word(*(word*)(field_ptr), *(word*)((fief_rec + 24)));    // $D856
+        if ((*(word*)(field_ptr) < 0)) {    // $D85B
+        *(word*)(field_ptr) = 0;    // $D860
+        }
 L_D861:
-L_D863:
-    field_ptr = (field_ptr + 2);    // $D863
-    if (((unsigned)field_ptr < (unsigned)(rec_base + 24))) goto L_D849;    // $D86B
+        field_ptr = (field_ptr + 2);    // $D863
+    }
     *(word*)((fief_rec + 10)) = min_word(*(word*)((fief_rec + 10)), 100);    // $D87B
     i = 0;    // $D87D
     daimyo_rec = fief_to_daimyo_record_addr(fief);    // $D883
     daimyo_byte_ptr = fief_to_daimyo_record_addr(fief);    // $D884
-    goto L_D8A9;    // $D885
-L_D888:
-    if ((*(byte*)(daimyo_byte_ptr) > 235)) {    // $D88E
-    *(byte*)(daimyo_byte_ptr) = 0;    // $D893
-    }
+    while (((unsigned)i < (unsigned)6)) {    // $D8A9
+        if ((*(byte*)(daimyo_byte_ptr) > 235)) {    // $D88E
+        *(byte*)(daimyo_byte_ptr) = 0;    // $D893
+        }
 L_D894:
-    if ((*(byte*)(daimyo_byte_ptr) > 210)) {    // $D89A
-    *(byte*)(daimyo_byte_ptr) = -46;    // $D8A0
-    }
+        if ((*(byte*)(daimyo_byte_ptr) > 210)) {    // $D89A
+        *(byte*)(daimyo_byte_ptr) = -46;    // $D8A0
+        }
 L_D8A1:
-    daimyo_byte_ptr = (daimyo_byte_ptr + 1);    // $D8A3
-    i = (i + 1);    // $D8A7
-L_D8A9:
-    if (((unsigned)i < (unsigned)6)) goto L_D888;    // $D8AC
+        daimyo_byte_ptr = (daimyo_byte_ptr + 1);    // $D8A3
+        i = (i + 1);    // $D8A7
+    }
     province_clear_fields_d815(fief);    // $D8B0
     return province_clear_fields_d7f7(fief);    // $D8B9
 }
@@ -1552,40 +1554,36 @@ L_DD65:
 word init_new_daimyo_province_stats(word arg1) {
     *(byte*)(fief_to_daimyo_record_addr(arg1)) = (rng_mod(20) + 20);    // $DD94
     local10 = (fief_to_daimyo_record_addr(arg1) + 1);    // $DD9B
-    goto L_DDC8;    // $DD9C
-L_DD9F:
-    *(byte*)(local11) = pct_op(*(byte*)(local11), (rng_mod(20) + 50));    // $DDB0
-    *(byte*)(local11) = (*(byte*)(local11) + ((*(byte*)(local11) < 30) ? 30 : 0));    // $DDC5
-L_DDC8:
-    local11 = (local11 + 1);    // $DDC8
-    if (((unsigned)local11 <= (unsigned)(local10 + 4))) goto L_DD9F;    // $DDCF
+    while (((unsigned)local11 <= (unsigned)(local10 + 4))) {    // $DDC8
+        *(byte*)(local11) = pct_op(*(byte*)(local11), (rng_mod(20) + 50));    // $DDB0
+        *(byte*)(local11) = (*(byte*)(local11) + ((*(byte*)(local11) < 30) ? 30 : 0));    // $DDC5
+        local11 = (local11 + 1);    // $DDC8
+    }
     local8 = ((arg1 * 26) + 0x7001);    // $DDDA
-    goto L_DE45;    // $DDDB
-L_DDDE:
-    if (!((((arg1 * 26) + 0x7017) == local9))) goto L_DE0A;    // $DDE8
-    *(word*)(local9) = pct_op(*(word*)(local9), (rng_mod(31) + 50));    // $DDFC
-    if (!((*(word*)(local9) < 50))) goto L_DE3B;    // $DE02
-    goto L_DE3C;    // $DE07
+    while (((unsigned)local9 < (unsigned)(local8 + 24))) {    // $DE45
+        if (!((((arg1 * 26) + 0x7017) == local9))) goto L_DE0A;    // $DDE8
+        *(word*)(local9) = pct_op(*(word*)(local9), (rng_mod(31) + 50));    // $DDFC
+        if (!((*(word*)(local9) < 50))) goto L_DE3B;    // $DE02
+        goto L_DE3C;    // $DE07
 L_DE0A:
-    if (fief_is_daimyo_capital[arg1]) {    // $DE11
-    } else {
-    }
+        if (fief_is_daimyo_capital[arg1]) {    // $DE11
+        } else {
+        }
 L_DE27:
-    *(word*)(local9) = pct_op(*(word*)(local9), (rng_mod(30) + 30));    // $DE2F
-    if ((*(word*)(local9) < 10)) {    // $DE34
-    } else {
-    }
+        *(word*)(local9) = pct_op(*(word*)(local9), (rng_mod(30) + 30));    // $DE2F
+        if ((*(word*)(local9) < 10)) {    // $DE34
+        } else {
+        }
 L_DE3C:
-    *(word*)(local9) = (*(word*)(local9) + 0);    // $DE42
-L_DE45:
-    local9 = (local9 + 2);    // $DE45
-    if (((unsigned)local9 < (unsigned)(local8 + 24))) goto L_DDDE;    // $DE4D
+        *(word*)(local9) = (*(word*)(local9) + 0);    // $DE42
+        local9 = (local9 + 2);    // $DE45
+    }
     *(word*)(((arg1 * 26) + 0x700D)) = (*(word*)(((arg1 * 26) + 0x700D)) + 50);    // $DE5E
     *(word*)(((arg1 * 26) + 0x7013)) = (*(word*)(((arg1 * 26) + 0x7013)) + 50);    // $DE6D
     fief_tax_rate[arg1] = 20;    // $DE76
     return 20;    // $DE77
-    }
-    }
+        }
+        }
 }
 
 // $DE78 select_message_string_de78

@@ -1396,15 +1396,70 @@ def _emit_break_continue(out, leaders, loop, h, exit_e):
     return res
 
 
+def _fold_one_loop(lines, cfg, leaders, bes, loop, h):
+    """Fold the single loop with header `h` (its back edges = the (u, h) in `bes`, its body
+    = `loop`) with the shape-appropriate folder. The per-shape dispatch, factored out so it
+    serves BOTH the lone-loop path and each disjoint SIBLING (Phase 1c). Returns the
+    (possibly unchanged) line list.
+      * multi-back-edge  -> top-test `while`-with-continues, or `while(1){switch}`
+      * top-test         -> `while (C) { body }`         (header is the 2-way exit test)
+      * bottom-test/both -> `do { body } while (C);`     (tail is the 2-way test)
+    A two-test ("both") loop is a do-while whose HEADER also carries an exit-test that the
+    `_emit_break_continue` post-pass rewrites to `if (C) break;`. Unmatched shapes fall back
+    to the infinite-loop `while(1)`; the CFG gate is the backstop for all of them."""
+    h_bes = [(u, hh) for u, hh in bes if hh == h]
+    if len(h_bes) >= 2:                          # multiple jump-back points -> continues
+        if len(cfg[h]) == 2:
+            return _fold_while(lines, cfg, leaders, loop, None, h, multi=True)
+        return _fold_while1(lines, cfg, leaders, loop, h)   # switch-header while(1)
+    (u, _h), = h_bes
+    htest, utest = len(cfg[h]) == 2, len(cfg[u]) == 2
+    out = lines
+    if u != h and htest and not utest:          # top-test  while (C) { body }
+        out = _fold_while(lines, cfg, leaders, loop, u, h)
+    elif (u == h and htest) or (utest and not htest):   # bottom-test do { } while (C);
+        out = _fold_dowhile(lines, cfg, leaders, loop, u, h)
+    elif utest and htest and u != h:            # two-test "both" loop -> do-while + hdr break
+        out = _fold_dowhile(lines, cfg, leaders, loop, u, h)
+    if out is lines:                            # no clean test header -> infinite-loop shape
+        out = _fold_while1(lines, cfg, leaders, loop, h)
+    return out
+
+
+def _fold_siblings(lines, cfg, leaders, bes):
+    """Phase 1c — SIBLING loops (>1 loop header whose natural loops are pairwise DISJOINT:
+    sequential, not nested). Fold each independently with `_fold_one_loop`, highest header
+    address first so a fold's inserted scaffold never shifts a not-yet-folded sibling's line
+    indices. Each fold is GATED against the raw witness on its own, so one bad sibling fold
+    can't sink the others (and the sub keeps every good one). NESTED / overlapping loops
+    (a loop inside another) need inner-then-outer folding — still deferred (the big bucket)."""
+    import vm_cfg
+    by_header = {}
+    for u, h in bes:
+        by_header.setdefault(h, set()).update(vm_cfg.natural_loop(u, h, cfg))
+    loops = sorted(by_header.items(), key=lambda x: -x[0])   # high header addr first
+    for i in range(len(loops)):
+        for j in range(i + 1, len(loops)):
+            if loops[i][1] & loops[j][1]:
+                return lines                    # nested / overlapping -> deferred
+    raw, out = lines, lines
+    for h, loop in loops:
+        cand = _fold_one_loop(out, cfg, leaders, bes, loop, h)
+        if cand is out:
+            continue
+        ok, _r, _s = vm_cfg.structured_equivalent(raw, cand, leaders)
+        if ok:
+            out = cand                          # keep only CFG-preserving sibling folds
+    return out
+
+
 def structure_loops(lines, instructions):
-    """CFG epic, Phase 1: fold a clean single-back-edge, single-exit reducible loop.
+    """CFG epic, Phase 1: fold reducible loops to `while` / `do-while` / `while(1)`.
     CFG-DRIVEN — header / body / exit come from the bytecode CFG (ground truth), never
-    from line-text guessing. Dispatches by shape:
-      * top-test  `while (C) { body }`      — header is the 2-way exit test (Phase 1a)
-      * bottom-test `do { body } while (C);` — tail is the 2-way test; incl. self-loops
-    Only ONE loop per sub for now; two-test ("both") and multi-back-edge loops need
-    break/continue and are left for Phase 2 (the CFG-equivalence gate is the backstop —
-    a mis-fold simply reverts the whole sub to honest goto)."""
+    from line-text guessing. A sub with ONE loop header folds that loop (`_fold_one_loop`);
+    a sub with several DISJOINT headers folds each sibling (`_fold_siblings`, Phase 1c).
+    Nested loops (a header inside another's body) are still deferred. The CFG-equivalence
+    gate is the backstop — a mis-fold reverts (per-sibling, or the whole sub) to honest goto."""
     import vm_cfg
     cfg, leaders = vm_cfg.bytecode_cfg(instructions)
     if len(leaders) < 2:
@@ -1412,42 +1467,14 @@ def structure_loops(lines, instructions):
     bes, _dom = vm_cfg.back_edges(cfg, leaders[0])
     if not bes:
         return lines
-    # Phase 2: a single header with MULTIPLE back edges = a top-test `while` whose body
-    # has extra jump-back points -> each becomes a `continue` (the `_emit_break_continue`
-    # post-pass rewrites them). A 2-way header gives the loop condition; a non-2-way
-    # (switch) header is a `while(1){ switch }` infinite loop. Nested/sibling loops
-    # (>1 distinct header) need inner-then-outer folding, deferred.
-    if len(bes) >= 2:
-        headers = {hh for _u, hh in bes}
-        if len(headers) != 1:
-            return lines                   # nested / sibling loops -> deferred
-        h = next(iter(headers))
-        loop = set()
-        for ub, _h in bes:
-            loop |= vm_cfg.natural_loop(ub, h, cfg)
-        if len(cfg[h]) == 2:
-            return _fold_while(lines, cfg, leaders, loop, None, h, multi=True)
-        return _fold_while1(lines, cfg, leaders, loop, h)   # switch-header while(1)
-    (u, h), = bes
-    loop = vm_cfg.natural_loop(u, h, cfg)
-    htest, utest = len(cfg[h]) == 2, len(cfg[u]) == 2
-    out = lines
-    if u != h and htest and not utest:      # top-test  while (C) { body }
-        out = _fold_while(lines, cfg, leaders, loop, u, h)
-    elif (u == h and htest) or (utest and not htest):  # bottom-test do { } while (C);
-        out = _fold_dowhile(lines, cfg, leaders, loop, u, h)
-    elif utest and htest and u != h:         # two-test "both" loop -> do { } while (C);
-        # Phase 2 step 3: header AND tail are both 2-way. The tail's conditional back
-        # edge is the do-while condition; the header's extra exit-test is an in-loop
-        # `goto L_exit` that `_fold_dowhile`'s `_emit_break_continue` post-pass rewrites
-        # to `if (C) break;`. No new rendering — same do-while machinery, and the CFG
-        # gate is the backstop (a mis-fold reverts the whole sub to honest goto).
-        out = _fold_dowhile(lines, cfg, leaders, loop, u, h)
-    # A 2-way fold that did not apply (or bailed) leaves `out is lines`; fall back to the
-    # infinite-loop shape (switch / no clean test header). _fold_while1 self-validates.
-    if out is lines:
-        out = _fold_while1(lines, cfg, leaders, loop, h)
-    return out
+    headers = {hh for _u, hh in bes}
+    if len(headers) != 1:
+        return _fold_siblings(lines, cfg, leaders, bes)
+    h = next(iter(headers))
+    loop = set()
+    for ub, _h in bes:
+        loop |= vm_cfg.natural_loop(ub, h, cfg)
+    return _fold_one_loop(lines, cfg, leaders, bes, loop, h)
 
 
 def _fold_while(lines, cfg, leaders, loop, u, h, multi=False):
