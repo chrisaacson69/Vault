@@ -215,20 +215,24 @@ def back_edges(cfg, entry):
 
 def natural_loop(u, h, cfg):
     """The natural loop of back edge u->h: {h} plus every node that can reach u
-    without going through h. Standard backward worklist from u, stopping at h."""
+    without going through h. Standard backward worklist seeded from u and stopping at
+    h — h is added up front and never pushed, so its own predecessors stay OUT (the
+    header is the loop's single entry). A self-loop (u == h) is just {h}."""
     preds = {n: set() for n in cfg}
     for n, succ in cfg.items():
         for s in succ:
             if s is not EXIT:
                 preds.setdefault(s, set()).add(n)
-    loop = {h, u}
-    work = [u]
-    while work:
-        n = work.pop()
-        for p in preds.get(n, ()):
-            if p not in loop:
-                loop.add(p)
-                work.append(p)
+    loop = {h}
+    if u != h:
+        loop.add(u)
+        work = [u]
+        while work:
+            n = work.pop()
+            for p in preds.get(n, ()):
+                if p not in loop:
+                    loop.add(p)
+                    work.append(p)
     return loop
 
 
@@ -341,9 +345,10 @@ def _opens_block(t):
 def _match_constructs(lines):
     """Brace-match the structured if/while/switch/do blocks. Returns (ifs, whiles)
     where ifs = [(header_addr, header_idx, else_idx|None, closer_idx)] and
-    whiles = [(header_addr, header_idx, closer_idx)]. Switches are handled per-block
-    via their case lines, so they're matched only to keep the brace stack balanced."""
-    ifs, whiles, stack = [], [], []
+    whiles = [(header_addr, header_idx, closer_idx)]; dowhiles =
+    [(do_addr, do_idx, close_addr, close_idx)]. Switches are handled per-block via
+    their case lines, so they're matched only to keep the brace stack balanced."""
+    ifs, whiles, dowhiles, stack = [], [], [], []
     for idx, (addr, _ind, text) in enumerate(lines):
         t = text.strip()
         if _RE_IF_OPEN.match(t):
@@ -359,7 +364,10 @@ def _match_constructs(lines):
                 stack[-1][3] = idx
         elif _RE_DOWHILE_CLOSE.match(t):
             if stack and stack[-1][0] == 'do':
-                stack.pop()
+                top = stack.pop()
+                # do_addr (the `do {` line = loop header) + close_addr (the
+                # `} while(C);` line = the tail TEST instruction's addr).
+                dowhiles.append((top[1], top[2], addr, idx))
         elif t == '}':
             if not stack:
                 continue
@@ -368,7 +376,7 @@ def _match_constructs(lines):
                 ifs.append((top[1], top[2], top[3], idx))
             elif top[0] == 'while':
                 whiles.append((top[1], top[2], idx))
-    return ifs, whiles
+    return ifs, whiles, dowhiles
 
 
 def _span_max_leader(lines, lo, hi, block_of):
@@ -383,8 +391,8 @@ def _span_max_leader(lines, lo, hi, block_of):
         m = _RE_LABEL.match(t)
         if m:
             L = int(t[2:6], 16)
-        elif _is_scaffold(t):
-            continue
+        elif _is_scaffold(t) and not _opens_block(t):
+            continue                       # openers (`do {`, `if (C) {`, …) start a block
         else:
             L = block_of(addr)
         best = L if best is None else max(best, L)
@@ -407,9 +415,9 @@ def lower_struct_cfg(lines, leaders):
     block_of = _block_of_fn(leaders)
     next_leader = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else EXIT)
                    for i in range(len(leaders))}
-    ifs, whiles = _match_constructs(lines)
+    ifs, whiles, dowhiles = _match_constructs(lines)
 
-    header_edges, back_edges, tail_redirect = {}, {}, {}
+    header_edges, back_edges, tail_redirect, dowhile_edges = {}, {}, {}, {}
     while_bodies = []   # (header_block, frozenset(body_leaders)) per while construct
 
     def span_after(lo, hi, header_block):
@@ -488,6 +496,17 @@ def lower_struct_cfg(lines, leaders):
         bls.discard(hb)
         while_bodies.append((hb, frozenset(bls)))
 
+    for do_addr, _do_idx, close_addr, close_idx in dowhiles:
+        # do { body } while (C);  — NO hoist (test stays at the bottom where it is).
+        # The tail block (where the `} while(C);` test lives) branches back to the
+        # header on continue, else falls to the block after the construct.
+        hb = block_of(do_addr)
+        ub = block_of(close_addr)
+        exit_blk = first_real_block(close_idx + 1, len(lines))
+        if exit_blk is None:
+            exit_blk = EXIT
+        dowhile_edges[ub] = {hb, exit_blk}
+
     blocks = {L: [] for L in leaders}
     for addr, _ind, text in lines:
         t = text.strip()
@@ -499,6 +518,9 @@ def lower_struct_cfg(lines, leaders):
     for L in leaders:
         if L in header_edges:
             cfg[L] = frozenset(header_edges[L] | back_edges.get(L, set()))
+            continue
+        if L in dowhile_edges:
+            cfg[L] = frozenset(dowhile_edges[L] | back_edges.get(L, set()))
             continue
         succ = None
         sw_targets, sw_has_default, is_switch = set(), False, False

@@ -101,6 +101,24 @@ def main():
         bad, _, _ = vm_cfg.structured_equivalent(raw, deloop, leaders)
         check(f"b{bank}/${sub:04X}: while->if (back edge dropped) REJECTED", not bad)
 
+    # Phase 1b (do-while): bottom-test loops + self-loops -> do { body } while (C);.
+    # Corrupting the `} while (C);` tail into a plain `}` deletes the back edge — the
+    # relation MUST reject it (else a do-while could silently lose its loop).
+    for bank, sub in [(2, 0x885E), (1, 0x8B8F), (15, 0xCD20)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        has_do = any(t.strip() == 'do {' for _a, _i, t in struct)
+        check(f"b{bank}/${sub:04X}: folded a do-while", has_do)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: do-while fold ~= raw", ok)
+
+        deloop = [(a, i, ('}' if t.strip().startswith('} while (') else t))
+                  for a, i, t in struct]
+        bad, _, _ = vm_cfg.structured_equivalent(raw, deloop, leaders)
+        check(f"b{bank}/${sub:04X}: do-while tail dropped REJECTED", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 

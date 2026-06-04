@@ -806,8 +806,8 @@ L_8BA3:
 L_8BA4:
     call_bank10_entry(8);    // $8BA5
     if ((audio_wait_gate == 1)) {    // $8BAE
-L_8BB1:
-    if (syscall_audio_control(1, 2)) goto L_8BB1;    // $8BB8
+    do {    // $8BB1
+    } while (syscall_audio_control(1, 2));    // $8BB8
     }
 L_8BBB:
     return call_bank10_entry(1);    // $8BC0
@@ -862,12 +862,12 @@ word effect_move(word amount) {
     target = ((battle_defending_province * 26) + 0x7011);    // $8CC2
     target_stat_ptr = (target + 2);    // $8CC5
     i = 0;    // $8CC7
-L_8CC8:
-    donor_stat_ptr = (donor_stat_ptr + 2);    // $8CD3
-    *(word*)(target_stat_ptr) = scaled_transfer_da24(*(word*)(target_stat_ptr), *(word*)(((donor_stat_ptr + 2) + -2)), amount, *(word*)(target), *(word*)((target + 8)));    // $8CDF
-    target_stat_ptr = (target_stat_ptr + 2);    // $8CE2
-    i = (i + 1);    // $8CE5
-    if (((unsigned)i >= (unsigned)3)) goto L_8CC8;    // $8CE9
+    do {    // $8CC8
+        donor_stat_ptr = (donor_stat_ptr + 2);    // $8CD3
+        *(word*)(target_stat_ptr) = scaled_transfer_da24(*(word*)(target_stat_ptr), *(word*)(((donor_stat_ptr + 2) + -2)), amount, *(word*)(target), *(word*)((target + 8)));    // $8CDF
+        target_stat_ptr = (target_stat_ptr + 2);    // $8CE2
+        i = (i + 1);    // $8CE5
+    } while (((unsigned)i >= (unsigned)3));    // $8CE9
     *(word*)(target) = (*(word*)(target) + amount);    // $8CF2
     *(word*)(donor) = (*(word*)(donor) - amount);    // $8CF9
     return province_clear_fields_d815(selected_province_idx);    // $8D01

@@ -310,10 +310,10 @@ L_8612:
 // (body @ $8630)
 
 word prompt_select_scenario_size(void) {
-L_8630:
-    message_display(prompt_select_scenario_s_data_b8c7);    // $8633
-    local10 = ui_helper_d351(msg_fiefs_50fiefs);    // $863E
-    if ((local10 == 2)) goto L_8630;    // $8642
+    do {    // $8630
+        message_display(prompt_select_scenario_s_data_b8c7);    // $8633
+        local10 = ui_helper_d351(msg_fiefs_50fiefs);    // $863E
+    } while ((local10 == 2));    // $8642
     if ((local10 == 1)) {    // $8648
     scenario_fief_count = 17;    // $864D
     } else {

@@ -1203,32 +1203,53 @@ def _negate_cond(cond):
     return invert_condition(c)
 
 
-def structure_loops(lines, instructions):
-    """CFG epic, Phase 1: fold a clean single-back-edge, single-exit reducible
-    'while' loop into `while (C) { body }`. CFG-DRIVEN — the header / body / exit all
-    come from the bytecode CFG (ground truth), never from line-text guessing.
+def _loop_single_exit_entry(cfg, loop, h, exit_e):
+    """Shared loop validation: the only way OUT of the loop is `exit_e` (no break to
+    elsewhere; an in-body `return`/EXIT is fine), and the only way IN is the header h
+    (reducible single-entry). Both folders require this — anything else is Phase 2."""
+    import vm_cfg
+    for n in loop:
+        for s in cfg[n]:
+            if s is not vm_cfg.EXIT and s not in loop and s != exit_e:
+                return False
+    for n in loop:
+        if n != h and any(n in cfg[p] and p not in loop for p in cfg):
+            return False
+    return True
 
-    Handles the common compiler idiom where the loop is ROTATED (test emitted at the
-    BOTTOM, body above it, with an entry `goto L_test` guard) — the structured form
-    hoists the test to the top, and the entry block then falls into the `while`
-    header (modelled by lower_struct_cfg's entry_into redirect, so the address-based
-    raw lowering stays untouched). Only ONE loop per sub for now; anything that isn't
-    provably a top-test while is left as goto (the CFG-equivalence gate is the
-    backstop — a mis-fold simply reverts the whole sub to honest goto)."""
+
+def structure_loops(lines, instructions):
+    """CFG epic, Phase 1: fold a clean single-back-edge, single-exit reducible loop.
+    CFG-DRIVEN — header / body / exit come from the bytecode CFG (ground truth), never
+    from line-text guessing. Dispatches by shape:
+      * top-test  `while (C) { body }`      — header is the 2-way exit test (Phase 1a)
+      * bottom-test `do { body } while (C);` — tail is the 2-way test; incl. self-loops
+    Only ONE loop per sub for now; two-test ("both") and multi-back-edge loops need
+    break/continue and are left for Phase 2 (the CFG-equivalence gate is the backstop —
+    a mis-fold simply reverts the whole sub to honest goto)."""
     import vm_cfg
     cfg, leaders = vm_cfg.bytecode_cfg(instructions)
     if len(leaders) < 2:
         return lines
-    entry = leaders[0]
-    bes, _dom = vm_cfg.back_edges(cfg, entry)
-    if len(bes) != 1:                      # Phase 1a: exactly one loop per sub
+    bes, _dom = vm_cfg.back_edges(cfg, leaders[0])
+    if len(bes) != 1:                      # exactly one loop per sub
         return lines
     (u, h), = bes
-    if u == h:                              # self-loop: a do-while job, not Phase 1a
-        return lines
-    if len(cfg[h]) != 2:                    # header must be the 2-way exit test
-        return lines
     loop = vm_cfg.natural_loop(u, h, cfg)
+    htest, utest = len(cfg[h]) == 2, len(cfg[u]) == 2
+    if u == h or (utest and not htest):
+        return _fold_dowhile(lines, cfg, leaders, loop, u, h)
+    if u != h and htest and not utest:
+        return _fold_while(lines, cfg, leaders, loop, u, h)
+    return lines                           # two-test / unclear -> Phase 2
+
+
+def _fold_while(lines, cfg, leaders, loop, u, h):
+    """Top-test loop -> `while (C) { body }`. Handles the common ROTATED idiom (test
+    emitted at the BOTTOM with an entry `goto L_test` guard, body above) by hoisting
+    the test to the top — lower_struct_cfg's body-leaders redirect keeps the
+    address-based raw lowering correct after the hoist."""
+    import vm_cfg
     body_in = [s for s in cfg[h] if s in loop]
     exit_out = [s for s in cfg[h] if s not in loop]
     if len(body_in) != 1 or len(exit_out) != 1:
@@ -1236,16 +1257,8 @@ def structure_loops(lines, instructions):
     body_entry, exit_e = body_in[0], exit_out[0]
     if body_entry == h:                     # header is its own body entry: skip
         return lines
-    # Single exit: no loop node escapes to anywhere but exit_e (a `return`/EXIT inside
-    # the body is fine — it stays a `return` and lowers correctly).
-    for n in loop:
-        for s in cfg[n]:
-            if s is not vm_cfg.EXIT and s not in loop and s != exit_e:
-                return lines
-    # Single entry: only the header h is reached from outside the loop.
-    for n in loop:
-        if n != h and any(n in cfg[p] and p not in loop for p in cfg):
-            return lines
+    if not _loop_single_exit_entry(cfg, loop, h, exit_e):
+        return lines
 
     block_of = vm_cfg._block_of_fn(leaders)
     idx_h_test = idx_backedge = idx_entry_guard = None
@@ -1302,6 +1315,59 @@ def structure_loops(lines, instructions):
             out.append((addr, ind, text))
         if i == hi:
             out.append((0, base_ind, "}"))
+    return out
+
+
+def _fold_dowhile(lines, cfg, leaders, loop, u, h):
+    """Bottom-test loop -> `do { body } while (C);`. The tail block `u` ends in the
+    conditional back-branch `if (C) goto L_h` (taken = continue), else falls to the
+    exit. NO hoist — the test stays where it is, so address order is preserved and the
+    only edits are `L_h:` -> `do {` and the tail test -> `} while (C);`. Covers both
+    self-loops (u == h) and multi-block bottom-test loops (h < u)."""
+    import vm_cfg
+    succ_u = cfg[u]
+    if h not in succ_u or len(succ_u) != 2:
+        return lines
+    exit_e = next(s for s in succ_u if s != h)
+    if not _loop_single_exit_entry(cfg, loop, h, exit_e):
+        return lines
+
+    block_of = vm_cfg._block_of_fn(leaders)
+    idx_tail = None                          # the `if (C) goto L_h` tail-test line
+    loop_idxs = []
+    for i, (addr, _ind, text) in enumerate(lines):
+        blk = block_of(addr)
+        if blk in loop:
+            loop_idxs.append(i)
+            kind, tgt, _cond = _parse_branch_line(text)
+            if blk == u and kind == 'ifgoto' and block_of(tgt) == h:
+                idx_tail = i
+    if idx_tail is None or not loop_idxs:
+        return lines
+    lo, hi = min(loop_idxs), max(loop_idxs)
+    if hi != idx_tail:                       # the test must be the LAST loop line
+        return lines
+    if any(block_of(lines[i][0]) not in loop for i in range(lo, hi + 1)):
+        return lines
+
+    tail_addr, _ti, tail_text = lines[idx_tail]
+    _k, _tgt, cond = _parse_branch_line(tail_text)   # taken -> h is continue => while(cond)
+    drop = {idx_tail}
+    for i in range(lo, hi + 1):
+        if lines[i][2].strip() == f"L_{h:04X}:":
+            drop.add(i)                      # header label -> replaced by `do {`
+
+    base_ind = lines[lo][1] or 1
+    out = []
+    for i, (addr, ind, text) in enumerate(lines):
+        if i == lo:
+            out.append((h, base_ind, "do {"))
+        if i not in drop and lo <= i <= hi:
+            out.append((addr, ind + 1, text))
+        elif i not in drop:
+            out.append((addr, ind, text))
+        if i == hi:
+            out.append((tail_addr, base_ind, f"}} while ({cond});"))
     return out
 
 
