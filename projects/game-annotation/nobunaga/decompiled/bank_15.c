@@ -132,8 +132,8 @@ word memchr(word arg1, word arg2, word arg3) {
 // (body @ $CB16)
 
 word is_lower(word arg1) {
-    if (!((97 >= *(byte*)&arg1))) goto L_CB2A;    // $CB1E
-    if ((*(byte*)&arg1 >= 122)) goto L_CB2E;    // $CB27
+    if (!((97 <= *(byte*)&arg1))) goto L_CB2A;    // $CB1E
+    if ((*(byte*)&arg1 <= 122)) goto L_CB2E;    // $CB27
 L_CB2A:
     goto L_CB2F;    // $CB2B
 L_CB2E:
@@ -342,7 +342,7 @@ L_CD4F:
     do {    // $CD57
         palette_write_wrap(local11, *(word*)(((local11 << 1) + strategic_map_bg_palette)));    // $CD60
         local11 = (local11 + 1);    // $CD66
-    } while (((unsigned)local11 >= (unsigned)4));    // $CD6A
+    } while (((unsigned)local11 < (unsigned)4));    // $CD6A
     ppu_upload_block_wrap(4, strategic_map_chr_tiles, 0x15B0, 36);    // $CD76
     ui_pending_flag_7fc7 = 0;    // $CD7B
     }
@@ -377,17 +377,17 @@ L_CDC9:
 // (body @ $CDCF)
 
 word char_classify(word arg1) {
-    if (!((*(byte*)&arg1 <= 95))) goto L_CDF4;    // $CDD5
-    if (!((*(byte*)&arg1 >= 122))) goto L_CDF4;    // $CDDE
+    if (!((*(byte*)&arg1 >= 95))) goto L_CDF4;    // $CDD5
+    if (!((*(byte*)&arg1 <= 122))) goto L_CDF4;    // $CDDE
     goto L_CE11;    // $CDE3
 L_CDE6:
-    if (!((*(byte*)&arg1 >= 90))) goto L_CDFD;    // $CDEC
+    if (!((*(byte*)&arg1 <= 90))) goto L_CDFD;    // $CDEC
     goto L_CE11;    // $CDF1
 L_CDF4:
-    if ((*(byte*)&arg1 <= 65)) goto L_CDE6;    // $CDFA
+    if ((*(byte*)&arg1 >= 65)) goto L_CDE6;    // $CDFA
 L_CDFD:
-    if ((*(byte*)&arg1 <= 45)) {    // $CE03
-    if ((*(byte*)&arg1 >= 58)) {    // $CE0C
+    if ((*(byte*)&arg1 >= 45)) {    // $CE03
+    if ((*(byte*)&arg1 <= 58)) {    // $CE0C
 L_CE11:
 L_CE16:
     *(byte*)&arg1 = (*(byte*)&arg1 - 40);    // $CE16
@@ -513,9 +513,9 @@ word palette_write_wrap(word arg1, word arg2) {
 // (body @ $CF9D)
 
 word num_to_ascii(word arg1, word arg2, word arg3) {
-    if (!(((unsigned)arg2 >= (unsigned)arg3))) goto L_CFBC;    // $CFA0
+    if (!(((unsigned)arg2 < (unsigned)arg3))) goto L_CFBC;    // $CFA0
     *(word*)(arg1) = (*(word*)(arg1) + 1);    // $CFA7
-    if (!(((unsigned)arg2 >= (unsigned)10))) goto L_CFB6;    // $CFAD
+    if (!(((unsigned)arg2 < (unsigned)10))) goto L_CFB6;    // $CFAD
     goto L_CFB9;    // $CFB3
 L_CFB6:
 L_CFB9:
@@ -690,9 +690,9 @@ L_D1FC:
 L_D1FE:
     local11 = (local11 + 1);    // $D1FE
     if (!((*(byte*)((local11 + 0x7FD5)) != ui_helper_d77e()))) goto L_D214;    // $D20B
-    if (((unsigned)local11 >= (unsigned)8)) goto L_D1FC;    // $D211
+    if (((unsigned)local11 < (unsigned)8)) goto L_D1FC;    // $D211
 L_D214:
-    if (((unsigned)local11 < (unsigned)8)) {    // $D217
+    if (((unsigned)local11 >= (unsigned)8)) {    // $D217
     goto L_D220;    // $D21B
 L_D21E:
 L_D220:
@@ -860,7 +860,7 @@ word cursor_nav_loop(word arg1) {
 L_D3F8:
     *(word*)(((local5 << 1) + &local6)) = 255;    // $D404
     local5 = (local5 + 1);    // $D407
-    if ((local5 >= 5)) goto L_D3F8;    // $D40B
+    if ((local5 <= 5)) goto L_D3F8;    // $D40B
     ui_helper_d134(msg_fmt__d_f69e, local6);    // $D412
     ui_window_col = (ui_window_col - 1);    // $D41A
     read_frame_timer(1);    // $D41E
@@ -889,7 +889,7 @@ L_D460:
     goto L_D573;    // $D466
 L_D469:
     *(word*)(((local4 << 1) + &local6)) = (*(word*)(((local4 << 1) + &local6)) + 1);    // $D474
-    if (((unsigned)(*(word*)(((local4 << 1) + &local6)) + 1) < (unsigned)10)) {    // $D477
+    if (((unsigned)(*(word*)(((local4 << 1) + &local6)) + 1) >= (unsigned)10)) {    // $D477
     *(word*)(((local4 << 1) + &local6)) = 0;    // $D484
     }
 L_D485:
@@ -902,7 +902,7 @@ L_D492:
     goto L_D460;    // $D4AC
 L_D4AF:
     *(word*)(((local4 << 1) + &local6)) = (*(word*)(((local4 << 1) + &local6)) - 1);    // $D4BA
-    if (((unsigned)(*(word*)(((local4 << 1) + &local6)) - 1) < (unsigned)10)) {    // $D4BD
+    if (((unsigned)(*(word*)(((local4 << 1) + &local6)) - 1) >= (unsigned)10)) {    // $D4BD
     *(word*)(((local4 << 1) + &local6)) = 9;    // $D4CA
     }
 L_D4CB:
@@ -967,9 +967,9 @@ L_D5C2:
     if ((local10 < local11)) goto L_D5BA;    // $D5C6
     ui_helper_cc7b(local9, local8);    // $D5CB
     local7 = cursor_nav_loop(local11);    // $D5D4
-    if ((local7 >= 0)) goto L_D5E7;    // $D5D8
-    if (!((local7 <= arg1))) goto L_D5B0;    // $D5DE
-    if (!((local7 >= arg2))) goto L_D5B0;    // $D5E4
+    if ((local7 <= 0)) goto L_D5E7;    // $D5D8
+    if (!((local7 >= arg1))) goto L_D5B0;    // $D5DE
+    if (!((local7 <= arg2))) goto L_D5B0;    // $D5E4
 L_D5E7:
     return local7;    // $D5E8
 }
@@ -1004,7 +1004,7 @@ word ui_prompt_redraw(void) {
 word count_6da2_set(void) {
     local10 = 0;    // $D62E
     local11 = 0;    // $D62F
-    while (((unsigned)local10 >= (unsigned)scenario_fief_count)) {    // $D64E
+    while (((unsigned)local10 < (unsigned)scenario_fief_count)) {    // $D64E
         if (fief_is_daimyo_capital[local10]) goto L_D648;    // $D639
         if ((get_province_ai_state(local10) == 255)) {    // $D645
 L_D648:
@@ -1235,7 +1235,7 @@ L_D849:
 L_D861:
 L_D863:
     field_ptr = (field_ptr + 2);    // $D863
-    if (((unsigned)field_ptr >= (unsigned)(rec_base + 24))) goto L_D849;    // $D86B
+    if (((unsigned)field_ptr < (unsigned)(rec_base + 24))) goto L_D849;    // $D86B
     *(word*)((fief_rec + 10)) = min_word(*(word*)((fief_rec + 10)), 100);    // $D87B
     i = 0;    // $D87D
     daimyo_rec = fief_to_daimyo_record_addr(fief);    // $D883
@@ -1253,7 +1253,7 @@ L_D8A1:
     daimyo_byte_ptr = (daimyo_byte_ptr + 1);    // $D8A3
     i = (i + 1);    // $D8A7
 L_D8A9:
-    if (((unsigned)i >= (unsigned)6)) goto L_D888;    // $D8AC
+    if (((unsigned)i < (unsigned)6)) goto L_D888;    // $D8AC
     province_clear_fields_d815(fief);    // $D8B0
     return province_clear_fields_d7f7(fief);    // $D8B9
 }
@@ -1316,7 +1316,7 @@ word war_helper_d972(word arg1) {
 // (body @ $D987)
 
 word get_6e09(void) {
-    return ((unsigned)ai_player_count < (unsigned)8);    // $D98C
+    return ((unsigned)ai_player_count >= (unsigned)8);    // $D98C
 }
 
 // $D98D get_province_ai_state
@@ -1395,7 +1395,7 @@ word scaled_transfer_da24(word arg1, word arg2, word arg3, word arg4, word arg5)
 // (body @ $DA54)
 
 word diplomacy_helper2(void) {
-    if (((unsigned)selected_province_idx >= (unsigned)battle_defending_province)) {    // $DA5B
+    if (((unsigned)selected_province_idx < (unsigned)battle_defending_province)) {    // $DA5B
     } else {
     }
 L_DA73:
@@ -1410,7 +1410,7 @@ L_DA73:
 word diplomacy_helper3(void) {
     local11 = ui_helper_d77e();    // $DA85
     local10 = ui_helper_d772(battle_defending_province);    // $DA8D
-    if (((unsigned)local11 >= (unsigned)local10)) {    // $DA91
+    if (((unsigned)local11 < (unsigned)local10)) {    // $DA91
     } else {
     }
 L_DAA1:
@@ -1515,7 +1515,7 @@ L_DBE5:
 L_DBF3:
     local11 = (local11 + 1);    // $DBF5
 L_DBF6:
-    if (((unsigned)local11 >= (unsigned)local9)) goto L_DBE5;    // $DBF9
+    if (((unsigned)local11 < (unsigned)local9)) goto L_DBE5;    // $DBF9
     if (!(local8)) goto L_DBA7;    // $DBFD
     *(word*)(((ui_helper_d772(arg1) << 1) + 0x6EB1)) = local10;    // $DC0C
     return local10;    // $DC0D
@@ -1542,7 +1542,7 @@ L_DC2A:
 word list_remove_6e7f(word arg1) {
     local10 = 0x6E7F;    // $DC44
     local11 = 0;    // $DC46
-    while (((unsigned)local11 >= (unsigned)scenario_fief_count)) {    // $DC5D
+    while (((unsigned)local11 < (unsigned)scenario_fief_count)) {    // $DC5D
         if ((*(byte*)(local10) == arg1)) {    // $DC4E
         *(byte*)(local10) = -1;    // $DC54
         }
@@ -1550,7 +1550,7 @@ L_DC55:
         local10 = (local10 + 1);    // $DC57
         local11 = (local11 + 1);    // $DC5B
     }
-    return ((unsigned)local11 >= (unsigned)scenario_fief_count);    // $DC65
+    return ((unsigned)local11 < (unsigned)scenario_fief_count);    // $DC65
 }
 
 // $DC66 fief_to_mapid
@@ -1602,7 +1602,7 @@ L_DD02:
 L_DD1A:
 L_DD1C:
     local11 = (local11 + 1);    // $DD1C
-    if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_DD02;    // $DD22
+    if (((unsigned)local11 < (unsigned)scenario_fief_count)) goto L_DD02;    // $DD22
 L_DD25:
     if (local8) goto L_DCB7;    // $DD26
     return strcpy(((arg1 * 9) + 0x77A8), &name_buf);    // $DD39
@@ -1662,7 +1662,7 @@ L_DE3C:
     *(word*)(local9) = (*(word*)(local9) + 0);    // $DE42
 L_DE45:
     local9 = (local9 + 2);    // $DE45
-    if (((unsigned)local9 >= (unsigned)(local8 + 24))) goto L_DDDE;    // $DE4D
+    if (((unsigned)local9 < (unsigned)(local8 + 24))) goto L_DDDE;    // $DE4D
     *(word*)(((arg1 * 26) + 0x700D)) = (*(word*)(((arg1 * 26) + 0x700D)) + 50);    // $DE5E
     *(word*)(((arg1 * 26) + 0x7013)) = (*(word*)(((arg1 * 26) + 0x7013)) + 50);    // $DE6D
     fief_tax_rate[arg1] = 20;    // $DE76
@@ -1724,8 +1724,8 @@ L_DF31:
     find_record_9e3c(local11);    // $DF2D
 L_DF33:
     local11 = (local11 + 1);    // $DF33
-    if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_DEF6;    // $DF39
-    return ((unsigned)local11 >= (unsigned)scenario_fief_count);    // $DF3C
+    if (((unsigned)local11 < (unsigned)scenario_fief_count)) goto L_DEF6;    // $DF39
+    return ((unsigned)local11 < (unsigned)scenario_fief_count);    // $DF3C
 }
 
 // $DF3D daimyo_stat_transfer
@@ -1756,8 +1756,8 @@ word transfer_force_triplet(void) {
         local8 = (local8 + 1);    // $DFA9
         local10 = (local10 + 2);    // $DFAD
         local9 = (local9 + 2);    // $DFB2
-    } while (((unsigned)local8 >= (unsigned)3));    // $DFB8
-    return ((unsigned)local8 >= (unsigned)3);    // $DFBB
+    } while (((unsigned)local8 < (unsigned)3));    // $DFB8
+    return ((unsigned)local8 < (unsigned)3);    // $DFBB
 }
 
 // $DFBC clamp_field_6d2d_to_30
@@ -1765,7 +1765,7 @@ word transfer_force_triplet(void) {
 
 word clamp_field_6d2d_to_30(void) {
     local11 = battle_defending_province;    // $DFC4
-    while (((unsigned)battle_defending_province >= (unsigned)scenario_fief_count)) {    // $DFEC
+    while (((unsigned)battle_defending_province < (unsigned)scenario_fief_count)) {    // $DFEC
         if (tax_helper_db12()) {    // $DFCC
         if ((fief_tax_rate[battle_defending_province] > 30)) {    // $DFDA
         fief_tax_rate[battle_defending_province] = 30;    // $DFE7
@@ -1849,7 +1849,7 @@ L_E145:
 L_E163:
 L_E165:
     local11 = (local11 + 1);    // $E165
-    if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_E145;    // $E16B
+    if (((unsigned)local11 < (unsigned)scenario_fief_count)) goto L_E145;    // $E16B
 L_E16E:
     install_new_daimyo(battle_defending_province);    // $E171
     goto L_E19C;    // $E175
@@ -1880,12 +1880,12 @@ L_E1E6:
 
 word clear_fief_pair_6193(word arg1) {
     call_bank10_entry(29);    // $E1EE
-    while (((unsigned)local11 >= (unsigned)scenario_fief_count)) {    // $E211
+    while (((unsigned)local11 < (unsigned)scenario_fief_count)) {    // $E211
         *(byte*)((((local11 * 54) + arg1) + 0x6193)) = 0;    // $E20D
         *(byte*)((((arg1 * 54) + local11) + 0x6193)) = 0;    // $E20E
         local11 = (local11 + 1);    // $E211
     }
-    return ((unsigned)local11 >= (unsigned)scenario_fief_count);    // $E21A
+    return ((unsigned)local11 < (unsigned)scenario_fief_count);    // $E21A
 }
 
 // $E21B install_new_daimyo
@@ -1923,13 +1923,13 @@ L_E2AB:
 word copy_arms_record_5(word arg1, word arg2) {
     local10 = 0;    // $E2B5
     local11 = ((arg1 * 5) + 0x76A9);    // $E2BD
-    while (((unsigned)local10 >= (unsigned)5)) {    // $E2CF
+    while (((unsigned)local10 < (unsigned)5)) {    // $E2CF
         local11 = (local11 + 1);    // $E2C3
         arg2 = (arg2 + 1);    // $E2C8
         *(byte*)(((local11 + 1) - 1)) = *(byte*)(((arg2 + 1) - 1));    // $E2CB
         local10 = (local10 + 1);    // $E2CE
     }
-    return ((unsigned)local10 >= (unsigned)5);    // $E2D5
+    return ((unsigned)local10 < (unsigned)5);    // $E2D5
 }
 
 // $E2D6 draw_daimyo_name_menu
@@ -2018,8 +2018,8 @@ L_E448:
     neutralize_fief(local11);    // $E444
 L_E44A:
     local11 = (local11 + 1);    // $E44A
-    if (((unsigned)local11 >= (unsigned)scenario_fief_count)) goto L_E439;    // $E450
-    return ((unsigned)local11 >= (unsigned)scenario_fief_count);    // $E453
+    if (((unsigned)local11 < (unsigned)scenario_fief_count)) goto L_E439;    // $E450
+    return ((unsigned)local11 < (unsigned)scenario_fief_count);    // $E453
 }
 
 // $E454 neutralize_fief
@@ -2045,7 +2045,7 @@ L_E4A1:
 word build_owned_fief_list_6f89(void) {
     saved_fief = selected_province_idx;    // $E4AA
     write_ptr = 0x6F89;    // $E4AE
-    while (((unsigned)selected_province_idx >= (unsigned)scenario_fief_count)) {    // $E4C6
+    while (((unsigned)selected_province_idx < (unsigned)scenario_fief_count)) {    // $E4C6
         if (get_6da2_cur()) {    // $E4B6
         write_ptr = (write_ptr + 1);    // $E4BB
         *(byte*)(((write_ptr + 1) - 1)) = selected_province_idx;    // $E4C1
@@ -2082,7 +2082,7 @@ L_E4FF:
 word ui_helper_e510(word arg1) {
     local9 = 0x6F89;    // $E518
     local10 = 0;    // $E51A
-    while (((unsigned)local11 >= (unsigned)scenario_fief_count)) {    // $E545
+    while (((unsigned)local11 < (unsigned)scenario_fief_count)) {    // $E545
         if (province_state_is_FF(local11)) goto L_E543;    // $E524
         if ((is_enemy_owned(local11) ^ arg1)) goto L_E543;    // $E52E
         if ((selected_province_idx != local11)) {    // $E536
@@ -2192,8 +2192,8 @@ word draw_daimyo_portrait(word col, word row) {
     do {    // $E777
         palette_write_wrap(pal_idx, *(word*)(((pal_idx << 1) + marry_helper_data_f7cc)));    // $E782
         pal_idx = (pal_idx + 1);    // $E789
-    } while (((unsigned)pal_idx >= (unsigned)4));    // $E78F
-    if (((unsigned)active_province_idx_copy < (unsigned)53)) goto L_E7A7;    // $E798
+    } while (((unsigned)pal_idx < (unsigned)4));    // $E78F
+    if (((unsigned)active_province_idx_copy >= (unsigned)53)) goto L_E7A7;    // $E798
     if (*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6))) goto L_E7EE;    // $E7A4
 L_E7A7:
     descriptor_ptr = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + msg_ng_to_pieces);    // $E7B4

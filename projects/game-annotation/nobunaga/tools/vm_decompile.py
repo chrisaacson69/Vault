@@ -344,9 +344,13 @@ def _build_opcode_to_mnemonic():
     m[0xB9] = 'mod_signed'; m[0xBA] = 'mod_unsigned'
     m[0xBB] = 'add';   m[0xBC] = 'sub'
     m[0xBD] = 'shl_by_regB'; m[0xBE] = 'lshr_by_regB'; m[0xBF] = 'ashr_by_regB'
-    m[0xC0] = 'cmp_eq'; m[0xC1] = 'cmp_ne'; m[0xC2] = 'cmp_slt'; m[0xC3] = 'cmp_sge'
-    m[0xC4] = 'cmp_sgt'; m[0xC5] = 'cmp_sle'; m[0xC6] = 'cmp_uge'; m[0xC7] = 'cmp_ule'
-    m[0xC8] = 'cmp_ugt'; m[0xC9] = 'cmp_ult'; m[0xCA] = 'is_zero'
+    # Compare block — ORACLE-CONFIRMED vs the live ROM handler (probe-compare-opcodes.py)
+    # and matches vm-opcodes-v2.toml (SCMP*/UCMP*). Regular layout: signed [lt,le,gt,ge]
+    # = C2-C5, unsigned [lt,le,gt,ge] = C6-C9. (Earlier hand map had C3/C5 le<->ge swapped
+    # and C6/C9 lt<->ge swapped, rendering those four comparisons BACKWARDS everywhere.)
+    m[0xC0] = 'cmp_eq'; m[0xC1] = 'cmp_ne'; m[0xC2] = 'cmp_slt'; m[0xC3] = 'cmp_sle'
+    m[0xC4] = 'cmp_sgt'; m[0xC5] = 'cmp_sge'; m[0xC6] = 'cmp_ult'; m[0xC7] = 'cmp_ule'
+    m[0xC8] = 'cmp_ugt'; m[0xC9] = 'cmp_uge'; m[0xCA] = 'is_zero'
     m[0xCB] = 'op_CB';   m[0xCD] = 'swap_AB'; m[0xCE] = 'trigger_syscall_CE'
     m[0xCF] = 'vm_return'
     m[0xD0] = 'incA'; m[0xD1] = 'decA'; m[0xD2] = 'aslA'
