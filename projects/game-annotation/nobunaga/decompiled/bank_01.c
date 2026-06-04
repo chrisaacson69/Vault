@@ -2080,7 +2080,7 @@ word effect_ninja_sabotage(word arg1) {
     redraw_window(msg_uprisng_2_revolt_3_dams_4_assa);    // $A335
     mission = number_input(1, 5);    // $A33F
     if (!(number_input(1, 5))) goto L_A551;    // $A340
-    if ((mission != 4)) goto L_A36C;    // $A346
+    if ((mission == 4)) {    // $A346
     if (fief_is_daimyo_capital[battle_defending_province]) goto L_A36C;    // $A351
     message_display(msg_the_daimyo_is_out);    // $A357
     ui_helper_d759();    // $A35B
@@ -2089,119 +2089,125 @@ L_A360:
     message_display(msg_you_have_no_gold);    // $A363
     confirm_prompt();    // $A367
     return 0;    // $A36B
+    }
 L_A36C:
     ui_helper_e80c(12);    // $A36D
     arg1 = ((battle_defending_province * 26) + 0x7001);    // $A37B
     message_display(effect_ninja_sabotage_data_bdcf);    // $A37F
     if (!((*(byte*)((fief_to_daimyo_record_addr(battle_defending_province) + 3)) < (*(byte*)((selected_province_daimyo_record() + 3)) + 30)))) goto L_A549;    // $A396
     switch (mission) {    // $A39A
-        case 65535: goto L_A3AB;    // $A39A
-        case 65536: goto L_A45A;    // $A39A
-        case 65537: goto L_A497;    // $A39A
-        case 65538: goto L_A508;    // $A39A
-        case 65539: goto L_A510;    // $A39A
-        default: goto L_A41D;    // $A39A
-    }    // $A39A
-L_A3AB:
-    if (arg1->loyalty) goto L_A3BF;    // $A3AE
-    if (arg1->wealth) goto L_A3BF;    // $A3B4
-    effect_hire_pay_gold(local8, unit_count);    // $A3B9
-    return 1;    // $A3BE
+    case 65535:
+        if (arg1->loyalty) goto L_A3BF;    // $A3AE
+        if (arg1->wealth) goto L_A3BF;    // $A3B4
+        effect_hire_pay_gold(local8, unit_count);    // $A3B9
+        return 1;    // $A3BE
 L_A3BF:
-    ui_helper_e80c(28);    // $A3C1
-    drain_amount = hire_stat_drain_rng(arg1->loyalty, unit_count);    // $A3CE
-    if (!((arg1->loyalty >= drain_amount))) goto L_A3DB;    // $A3D4
-    goto L_A3DE;    // $A3D8
-L_A3DB:
+        ui_helper_e80c(28);    // $A3C1
+        drain_amount = hire_stat_drain_rng(arg1->loyalty, unit_count);    // $A3CE
+        if ((arg1->loyalty >= drain_amount)) {    // $A3D4
+        } else {
+        }
 L_A3DE:
-    drain_amount = arg1->loyalty;    // $A3DE
-    if (!(drain_amount)) goto L_A3F1;    // $A3E0
-    arg1->loyalty = (arg1->loyalty - drain_amount);    // $A3EA
+        drain_amount = arg1->loyalty;    // $A3DE
+        if (drain_amount) {    // $A3E0
+        arg1->loyalty = (arg1->loyalty - drain_amount);    // $A3EA
+        }
 L_A3F1:
-    report_fief_stat_decline(12, drain_amount);    // $A3ED
-    drain_amount = hire_stat_drain_rng(arg1->wealth, unit_count);    // $A3FA
-    if (!((arg1->wealth >= drain_amount))) goto L_A407;    // $A400
-    goto L_A40A;    // $A404
-L_A407:
+        report_fief_stat_decline(12, drain_amount);    // $A3ED
+        drain_amount = hire_stat_drain_rng(arg1->wealth, unit_count);    // $A3FA
+        if ((arg1->wealth >= drain_amount)) {    // $A400
+        } else {
+        }
 L_A40A:
-    drain_amount = arg1->wealth;    // $A40A
-    if (!(drain_amount)) goto L_A41D;    // $A40C
-    arg1->wealth = (arg1->wealth - drain_amount);    // $A416
+        drain_amount = arg1->wealth;    // $A40A
+        if (drain_amount) {    // $A40C
+        arg1->wealth = (arg1->wealth - drain_amount);    // $A416
 L_A419:
+        }
+    default:
 L_A41D:
-    report_fief_stat_decline(13, drain_amount);    // $A419
-    cap_fief_stats(selected_province_idx);    // $A420
-    if ((mission == 4)) goto L_A43B;    // $A427
-    if (!(mission)) goto L_A43B;    // $A42B
-    confirm_prompt();    // $A42E
-    message_display(msg_enemy_morale_is_falling_to_pie);    // $A434
+        report_fief_stat_decline(13, drain_amount);    // $A419
+        cap_fief_stats(selected_province_idx);    // $A420
+        if ((mission == 4)) goto L_A43B;    // $A427
+        if (mission) {    // $A42B
+        confirm_prompt();    // $A42E
+        message_display(msg_enemy_morale_is_falling_to_pie);    // $A434
+        }
 L_A43B:
-    confirm_prompt();    // $A438
-    *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - math32_muladddiv(hire_gold_rate, unit_count));    // $A452
-    helper_8A4E(5);    // $A454
-    return 1;    // $A459
-L_A45A:
-    drain_amount = hire_stat_drain_rng(arg1->morale, unit_count);    // $A464
-    if (!((arg1->morale >= drain_amount))) goto L_A472;    // $A46B
-    goto L_A476;    // $A46F
-L_A472:
+        confirm_prompt();    // $A438
+        *(word*)(((selected_province_idx * 26) + 0x7001)) = (*(word*)(((selected_province_idx * 26) + 0x7001)) - math32_muladddiv(hire_gold_rate, unit_count));    // $A452
+        helper_8A4E(5);    // $A454
+        return 1;    // $A459
+    case 65536:
+        drain_amount = hire_stat_drain_rng(arg1->morale, unit_count);    // $A464
+        if ((arg1->morale >= drain_amount)) {    // $A46B
+        } else {
+        }
 L_A476:
-    drain_amount = arg1->morale;    // $A476
-    if (drain_amount) goto L_A483;    // $A478
-    effect_hire_pay_gold(local8, unit_count);    // $A47D
-    return 1;    // $A482
+        drain_amount = arg1->morale;    // $A476
+        if (drain_amount) goto L_A483;    // $A478
+        effect_hire_pay_gold(local8, unit_count);    // $A47D
+        return 1;    // $A482
 L_A483:
-    ui_helper_e80c(27);    // $A485
-    arg1->morale = (arg1->morale - drain_amount);    // $A491
-    goto L_A419;    // $A494
-L_A497:
-    if (arg1->dams) goto L_A4AB;    // $A49A
-    if (arg1->rice) goto L_A4AB;    // $A4A0
-    effect_hire_pay_gold(local8, unit_count);    // $A4A5
-    return 1;    // $A4AA
+        ui_helper_e80c(27);    // $A485
+        arg1->morale = (arg1->morale - drain_amount);    // $A491
+        goto L_A419;    // $A494
+    case 65537:
+        if (arg1->dams) goto L_A4AB;    // $A49A
+        if (arg1->rice) goto L_A4AB;    // $A4A0
+        effect_hire_pay_gold(local8, unit_count);    // $A4A5
+        return 1;    // $A4AA
 L_A4AB:
-    ui_helper_e80c(30);    // $A4AD
-    drain_amount = hire_stat_drain_rng(arg1->dams, unit_count);    // $A4BA
-    if (!((arg1->dams >= drain_amount))) goto L_A4C7;    // $A4C0
-    goto L_A4CA;    // $A4C4
-L_A4C7:
+        ui_helper_e80c(30);    // $A4AD
+        drain_amount = hire_stat_drain_rng(arg1->dams, unit_count);    // $A4BA
+        if ((arg1->dams >= drain_amount)) {    // $A4C0
+        } else {
+        }
 L_A4CA:
-    drain_amount = arg1->dams;    // $A4CA
-    if (!(drain_amount)) goto L_A4DD;    // $A4CC
-    arg1->dams = (arg1->dams - drain_amount);    // $A4D6
+        drain_amount = arg1->dams;    // $A4CA
+        if (drain_amount) {    // $A4CC
+        arg1->dams = (arg1->dams - drain_amount);    // $A4D6
+        }
 L_A4DD:
-    report_fief_stat_decline(11, drain_amount);    // $A4D9
-    drain_amount = hire_stat_drain_rng(arg1->rice, unit_count);    // $A4E6
-    if (!((arg1->rice >= drain_amount))) goto L_A4F3;    // $A4EC
-    goto L_A4F6;    // $A4F0
-L_A4F3:
+        report_fief_stat_decline(11, drain_amount);    // $A4D9
+        drain_amount = hire_stat_drain_rng(arg1->rice, unit_count);    // $A4E6
+        if ((arg1->rice >= drain_amount)) {    // $A4EC
+        } else {
+        }
 L_A4F6:
-    drain_amount = arg1->rice;    // $A4F6
-    if (!(drain_amount)) goto L_A41D;    // $A4F8
-    arg1->rice = (arg1->rice - drain_amount);    // $A502
-    goto L_A419;    // $A505
-L_A508:
-    ninja_mission_resolve_vs_defender(unit_count);    // $A509
-    goto L_A41D;    // $A50D
-L_A510:
-    drain_amount = hire_stat_drain_rng(arg1->town, unit_count);    // $A519
-    if (!((arg1->town >= drain_amount))) goto L_A526;    // $A51F
-    goto L_A529;    // $A523
-L_A526:
+        drain_amount = arg1->rice;    // $A4F6
+        if (!(drain_amount)) goto L_A41D;    // $A4F8
+        arg1->rice = (arg1->rice - drain_amount);    // $A502
+        goto L_A419;    // $A505
+    case 65538:
+        ninja_mission_resolve_vs_defender(unit_count);    // $A509
+        goto L_A41D;    // $A50D
+    case 65539:
+        drain_amount = hire_stat_drain_rng(arg1->town, unit_count);    // $A519
+        if ((arg1->town >= drain_amount)) {    // $A51F
+        } else {
+        }
 L_A529:
-    drain_amount = arg1->town;    // $A529
-    if (drain_amount) goto L_A536;    // $A52B
-    effect_hire_pay_gold(local8, unit_count);    // $A530
-    return 1;    // $A535
+        drain_amount = arg1->town;    // $A529
+        if (drain_amount) goto L_A536;    // $A52B
+        effect_hire_pay_gold(local8, unit_count);    // $A530
+        return 1;    // $A535
 L_A536:
-    ui_helper_e80c(29);    // $A538
-    arg1->town = (arg1->town - drain_amount);    // $A543
-    goto L_A419;    // $A546
+        ui_helper_e80c(29);    // $A538
+        arg1->town = (arg1->town - drain_amount);    // $A543
+        goto L_A419;    // $A546
+    }
 L_A549:
     effect_hire_pay_gold(local8, unit_count);    // $A54B
     return 1;    // $A550
 L_A551:
     return 0;    // $A552
+    }
+    }
+    }
+    }
+    }
+    }
 }
 
 // $A553 effect_hire_variant_pay

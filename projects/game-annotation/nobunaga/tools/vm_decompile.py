@@ -1198,8 +1198,11 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
         # case bodies on clean goto lines BEFORE the case labels exist — else its if/else span
         # can cross a `case:` boundary and swallow the next case (lexically wrong C the
         # address-based gate would still accept).
+        import vm_cfg as _vc
+        _case_barriers = frozenset(t for d in _vc.switch_dispatches(instructions)
+                                   for _k, t in d['key_targets'])
         looped = structure_loops(state.lines, instructions)
-        ifelse = structure_lines(looped)
+        ifelse = structure_lines(looped, _case_barriers)
         structured = structure_switches(ifelse, instructions)
     else:
         structured = state.lines
@@ -1824,10 +1827,15 @@ def structure_switches(lines, instructions):
     return pruned
 
 
-def structure_lines(lines):
+def structure_lines(lines, case_barriers=frozenset()):
     """Recognize simple if-then-else patterns and convert goto → structured C.
 
     lines: list of (addr, indent, text) tuples.
+    case_barriers: switch case-target addresses (Phase 3). A braced if/if-else fold whose
+      body would ENCLOSE one is suppressed — a case entry nested inside an if-block is
+      legal-but-ugly Duff's-device C and, worse, blocks structure_switches from inlining the
+      switch (its lexical-foldability guard needs case targets at brace-depth 0). Keeping the
+      goto there lets the switch fold cleanly instead; the local if just stays a goto.
     Returns: same shape, with if/else/closing-brace inserted where applicable.
     """
     # Index lines by what label they emit (e.g., "L_87FD:") and by address.
@@ -1914,6 +1922,12 @@ def structure_lines(lines):
                             # Backward goto → loop or complex flow
                             escapes = True
                             break
+                # Phase 3: don't let the (if/if-else) body ENCLOSE a switch case entry — the
+                # fold region is [i+1, fold_end); a case target inside it would nest the case.
+                if not escapes and case_barriers:
+                    fold_end = label_to_pos[else_target] if else_target else tgt_pos
+                    if any(lines[k][0] in case_barriers for k in range(i + 1, fold_end)):
+                        escapes = True
                 if not escapes:
                     out.append((addr, ind, f"if ({cond}) {{"))
                     indent_stack.append(ind + 1)

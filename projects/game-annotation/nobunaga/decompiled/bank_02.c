@@ -1459,31 +1459,26 @@ L_95BA:
 word draw_tactical_cursor_region_arg0(word arg1) {
     draw_tactical_cursor_region(0);    // $95C4
     switch (tactical_battle_phase) {    // $95CB
-        case 0: goto L_95DC;    // $95CB
-        case 1: goto L_95FB;    // $95CB
-        case 2: goto L_9605;    // $95CB
-        default: goto L_95E6;    // $95CB
-    }    // $95CB
-L_95DC:
-    if (((unsigned)arg1 >= (unsigned)8)) {    // $95DF
+    case 0:
+        if (!(((unsigned)arg1 >= (unsigned)8))) goto L_95F7;    // $95DF
 L_95E2:
 L_95E3:
-    tactical_battle_phase = 2;    // $95E3
-L_95E6:
-    marry_helper_cc35(1);    // $95E7
-    map_render_driver();    // $95EB
-    marry_helper_cc35(0);    // $95EF
-    return draw_valid_unit_field_cells();    // $95F6
-    }
+        tactical_battle_phase = 2;    // $95E3
+    default:
+        marry_helper_cc35(1);    // $95E7
+        map_render_driver();    // $95EB
+        marry_helper_cc35(0);    // $95EF
+        return draw_valid_unit_field_cells();    // $95F6
 L_95F7:
-    goto L_95E3;    // $95F8
-L_95FB:
-    if (((unsigned)arg1 > (unsigned)5)) goto L_95E2;    // $95FE
+        goto L_95E3;    // $95F8
+    case 1:
+        if (((unsigned)arg1 > (unsigned)5)) goto L_95E2;    // $95FE
 L_9601:
-    goto L_95E3;    // $9602
-L_9605:
-    if (!(((unsigned)arg1 <= (unsigned)2))) goto L_95F7;    // $9608
-    goto L_9601;    // $960B
+        goto L_95E3;    // $9602
+    case 2:
+        if (!(((unsigned)arg1 <= (unsigned)2))) goto L_95F7;    // $9608
+        goto L_9601;    // $960B
+    }
 }
 
 // $960E is_cell_valid_for_phase
