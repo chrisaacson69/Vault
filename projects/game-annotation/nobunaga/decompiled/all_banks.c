@@ -6275,44 +6275,45 @@ word submenu_prompt(word arg1) {
     wait_button_edge();    // PRG $071B7 -> bank15 $D287
     local10 = 0;    // PRG $071BB
     local11 = 0;    // PRG $071BD
-L_p071BE:
-    if (!(!(local11))) return local10;    // PRG $071BF
-    switch (poll_input()) {    // PRG $071C7 -> bank15 $D14E
-        case 1: goto L_p071DF;    // PRG $071C7
-        case 2: goto L_p071DC;    // PRG $071C7
-        case 16: goto L_p071EC;    // PRG $071C7
-        case 32: goto L_p0721A;    // PRG $071C7
-        default: goto L_p071BE;    // PRG $071C7
-    }    // PRG $071C7
+    while (!(local11)) {    // PRG $071BE
+        switch (poll_input()) {    // PRG $071C7 -> bank15 $D14E
+            case 1: goto L_p071DF;    // PRG $071C7
+            case 2: goto L_p071DC;    // PRG $071C7
+            case 16: goto L_p071EC;    // PRG $071C7
+            case 32: goto L_p0721A;    // PRG $071C7
+            default: goto L_p071BE;    // PRG $071C7
+        }    // PRG $071C7
 L_p071DC:
-    local10 = (arg1 - 1);    // PRG $071DE
+        local10 = (arg1 - 1);    // PRG $071DE
 L_p071DF:
-    read_frame_timer(0);    // PRG $071E0 -> bank15 $D29D
-    local11 = 1;    // PRG $071E5
-    ui_helper_cc89();    // PRG $071E6 -> bank15 $CC89
-    goto L_p071BE;    // PRG $071E9
+        read_frame_timer(0);    // PRG $071E0 -> bank15 $D29D
+        local11 = 1;    // PRG $071E5
+        ui_helper_cc89();    // PRG $071E6 -> bank15 $CC89
+        continue;    // PRG $071E9
 L_p071EC:
-    read_frame_timer(0);    // PRG $071ED -> bank15 $D29D
-    ui_cursor_row = (ui_cursor_row - 1);    // PRG $071F5
-    if (((ui_cursor_row - 1) == 6)) {    // PRG $071FA
-    ui_helper_cc7b(21, (arg1 + 6));    // PRG $07202 -> bank15 $CC7B
-    } else {
-    }
+        read_frame_timer(0);    // PRG $071ED -> bank15 $D29D
+        ui_cursor_row = (ui_cursor_row - 1);    // PRG $071F5
+        if (((ui_cursor_row - 1) == 6)) {    // PRG $071FA
+        ui_helper_cc7b(21, (arg1 + 6));    // PRG $07202 -> bank15 $CC7B
+        } else {
+        }
 L_p0720B:
 L_p0720C:
-    local10 = (local10 - 1);    // PRG $0720C
-    read_frame_timer(2);    // PRG $0720E -> bank15 $D29D
-    delay_loop(2);    // PRG $07213 -> bank15 $D73E
-    goto L_p071BE;    // PRG $07217
+        local10 = (local10 - 1);    // PRG $0720C
+        read_frame_timer(2);    // PRG $0720E -> bank15 $D29D
+        delay_loop(2);    // PRG $07213 -> bank15 $D73E
+        continue;    // PRG $07217
 L_p0721A:
-    read_frame_timer(0);    // PRG $0721B -> bank15 $D29D
-    ui_cursor_row = (ui_cursor_row + 1);    // PRG $07223
-    if (!(((arg1 + 7) == (ui_cursor_row + 1)))) goto L_p07239;    // PRG $0722B
-    ui_helper_cc7b(21, 7);    // PRG $07231 -> bank15 $CC7B
-    goto L_p0720C;    // PRG $07236
+        read_frame_timer(0);    // PRG $0721B -> bank15 $D29D
+        ui_cursor_row = (ui_cursor_row + 1);    // PRG $07223
+        if (!(((arg1 + 7) == (ui_cursor_row + 1)))) goto L_p07239;    // PRG $0722B
+        ui_helper_cc7b(21, 7);    // PRG $07231 -> bank15 $CC7B
+        goto L_p0720C;    // PRG $07236
 L_p07239:
-    goto L_p0720C;    // PRG $0723B
+        goto L_p0720C;    // PRG $0723B
     }
+    return local10;    // PRG $071C3
+        }
 }
 
 // ===== bank1 $B23E  (PRG $0723E) =====

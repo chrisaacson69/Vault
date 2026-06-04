@@ -3136,44 +3136,45 @@ word submenu_prompt(word arg1) {
     wait_button_edge();    // $B1B7
     local10 = 0;    // $B1BB
     local11 = 0;    // $B1BD
-L_B1BE:
-    if (!(!(local11))) return local10;    // $B1BF
-    switch (poll_input()) {    // $B1C7
-        case 1: goto L_B1DF;    // $B1C7
-        case 2: goto L_B1DC;    // $B1C7
-        case 16: goto L_B1EC;    // $B1C7
-        case 32: goto L_B21A;    // $B1C7
-        default: goto L_B1BE;    // $B1C7
-    }    // $B1C7
+    while (!(local11)) {    // $B1BE
+        switch (poll_input()) {    // $B1C7
+            case 1: goto L_B1DF;    // $B1C7
+            case 2: goto L_B1DC;    // $B1C7
+            case 16: goto L_B1EC;    // $B1C7
+            case 32: goto L_B21A;    // $B1C7
+            default: goto L_B1BE;    // $B1C7
+        }    // $B1C7
 L_B1DC:
-    local10 = (arg1 - 1);    // $B1DE
+        local10 = (arg1 - 1);    // $B1DE
 L_B1DF:
-    read_frame_timer(0);    // $B1E0
-    local11 = 1;    // $B1E5
-    ui_helper_cc89();    // $B1E6
-    goto L_B1BE;    // $B1E9
+        read_frame_timer(0);    // $B1E0
+        local11 = 1;    // $B1E5
+        ui_helper_cc89();    // $B1E6
+        continue;    // $B1E9
 L_B1EC:
-    read_frame_timer(0);    // $B1ED
-    ui_cursor_row = (ui_cursor_row - 1);    // $B1F5
-    if (((ui_cursor_row - 1) == 6)) {    // $B1FA
-    ui_helper_cc7b(21, (arg1 + 6));    // $B202
-    } else {
-    }
+        read_frame_timer(0);    // $B1ED
+        ui_cursor_row = (ui_cursor_row - 1);    // $B1F5
+        if (((ui_cursor_row - 1) == 6)) {    // $B1FA
+        ui_helper_cc7b(21, (arg1 + 6));    // $B202
+        } else {
+        }
 L_B20B:
 L_B20C:
-    local10 = (local10 - 1);    // $B20C
-    read_frame_timer(2);    // $B20E
-    delay_loop(2);    // $B213
-    goto L_B1BE;    // $B217
+        local10 = (local10 - 1);    // $B20C
+        read_frame_timer(2);    // $B20E
+        delay_loop(2);    // $B213
+        continue;    // $B217
 L_B21A:
-    read_frame_timer(0);    // $B21B
-    ui_cursor_row = (ui_cursor_row + 1);    // $B223
-    if (!(((arg1 + 7) == (ui_cursor_row + 1)))) goto L_B239;    // $B22B
-    ui_helper_cc7b(21, 7);    // $B231
-    goto L_B20C;    // $B236
+        read_frame_timer(0);    // $B21B
+        ui_cursor_row = (ui_cursor_row + 1);    // $B223
+        if (!(((arg1 + 7) == (ui_cursor_row + 1)))) goto L_B239;    // $B22B
+        ui_helper_cc7b(21, 7);    // $B231
+        goto L_B20C;    // $B236
 L_B239:
-    goto L_B20C;    // $B23B
+        goto L_B20C;    // $B23B
     }
+    return local10;    // $B1C3
+        }
 }
 
 // $B23E driver_other

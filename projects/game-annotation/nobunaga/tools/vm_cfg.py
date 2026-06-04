@@ -428,11 +428,17 @@ def _occupies_block(t):
     return (not _is_scaffold(t)) or _opens_block(t)
 
 
-def _loop_body_leaders(lines, open_idx, close_idx, block_of):
+def _loop_body_leaders(lines, open_idx, close_idx, block_of, leaders=None):
     """The basic-block leaders touched by a loop's body (the lines strictly between its
     opener `open_idx` and closer `close_idx`), counting label-only lines (whose addr IS
     a leader) and folded openers. Used to map each body block to its enclosing loop so a
-    `break`/`continue` inside it resolves to that loop's exit/header."""
+    `break`/`continue` inside it resolves to that loop's exit/header.
+
+    Line-LESS interior blocks are filled in: a basic block inside the body's address
+    span that emits NO C line (e.g. a folded then-body tail with all instructions
+    absorbed into an expression) is still part of the loop. Omitting it makes the
+    rotated-while body-redirect misread it as an OUTSIDE block falling into the loop and
+    wrongly route it through the header. `leaders` must be passed to enable the fill."""
     bls = set()
     for k in range(open_idx + 1, close_idx):
         t = lines[k][2].strip()
@@ -441,6 +447,9 @@ def _loop_body_leaders(lines, open_idx, close_idx, block_of):
             bls.add(int(t[2:6], 16))
         elif _occupies_block(t):
             bls.add(block_of(lines[k][0]))
+    if leaders and bls:
+        lo, hi = min(bls), max(bls)
+        bls.update(L for L in leaders if lo < L < hi)
     return bls
 
 
@@ -611,7 +620,7 @@ def lower_struct_cfg(lines, leaders, orient=None):
         # leader lands INSIDE the body must instead enter via the header (the dropped
         # entry-guard `goto L_h` used to make that explicit). Recorded for the
         # fall-through fix below — keeps the address-based lowering otherwise intact.
-        bls = _loop_body_leaders(lines, h_idx, close_idx, block_of)
+        bls = _loop_body_leaders(lines, h_idx, close_idx, block_of, leaders)
         bls.discard(hb)
         while_bodies.append((hb, frozenset(bls)))
         loop_meta.append((close_idx - h_idx, hb, exit_blk, frozenset(bls)))
@@ -628,7 +637,7 @@ def lower_struct_cfg(lines, leaders, orient=None):
         dowhile_edges[ub] = {hb, exit_blk}
         _dcond = _RE_DOWHILE_CLOSE.match(lines[close_idx][2].strip())
         _record_orient(orient, ub, _dcond.group(1) if _dcond else '', hb, exit_blk)
-        dbls = _loop_body_leaders(lines, _do_idx, close_idx, block_of)
+        dbls = _loop_body_leaders(lines, _do_idx, close_idx, block_of, leaders)
         dbls.discard(hb)
         loop_meta.append((close_idx - _do_idx, hb, exit_blk, frozenset(dbls)))
 

@@ -168,7 +168,11 @@ def main():
     # reject a continue turned into break (header->exit, which would leave the loop early
     # instead of re-dispatching) — exercises the loop-context lowering + the
     # tail-falls-off back-edge rule together.
-    for bank, sub in [(2, 0x8669), (2, 0x86F9)]:
+    # $B1A6 (submenu_prompt) additionally exercises the line-LESS interior block fix:
+    # its empty-`else` then-body has a folded tail block that emits no C line, which must
+    # still be counted as a loop-body leader (else the body-redirect routes it through
+    # the header, fabricating a spurious back edge — the bug this sub caught).
+    for bank, sub in [(2, 0x8669), (2, 0x86F9), (1, 0xB1A6)]:
         cap = _grab(bank, sub)
         _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
         raw, struct = cap['raw'], cap['structured']
