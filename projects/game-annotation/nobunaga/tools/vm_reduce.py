@@ -35,13 +35,21 @@ builder over that CFG + a tree -> (addr, indent, text) pretty-printer whose line
 format matches what `structured_equivalent` consumes (so the gate reads it unchanged).
 
 BUILD LADDER (each rung lands gate-green + measured on tools/v2-corpus.py):
-    0. harness + passthrough (THIS) — reduce() returns lines unchanged; corpus wired.
-    1. block model + trivial emit — partition lines into blocks; emit seq-of-blocks
+    0. [DONE] harness + passthrough — reduce() returns lines unchanged; corpus wired.
+    1. [DONE] block model + trivial emit — partition lines into blocks; emit seq-of-blocks
        with gotos (reproduce the raw form FROM the tree) -> proves block<->line round-trip.
-    2. sequence + if-then + if-then-else (acyclic diamonds via dom/post-dom).
-    3. short-circuit (&&/||) — reuse boolean_regions / recover_bool_formula.
-    4. while / do-while (natural loops via back_edges / natural_loop).
+    2. [DONE] sequence + if-then + if-then-else (acyclic diamonds via dom/post-dom).
+    4. [DONE] while / do-while / while(1) (natural loops via back_edges / natural_loop) +
+       early-return INLINING (bare-return targets become `if(C) return X;`, not a shared
+       merge). 171 subs fold / 0 gate-reject. break/continue/return are loop-terminal arms;
+       in-body merges use a body-LOCAL post-dom; rotated for-loops lift only the test expr.
+       Conservative bails (all detected STRUCTURALLY, never gate-reject): nested loops (4d),
+       compound multi-exit-test loops (need rung 3), a loop whose exit is non-adjacent or a
+       pure-routing block (tail-of-if-arm), an empty then-arm with a goto-side body.
+    3. short-circuit (&&/||) — reuse boolean_regions / recover_bool_formula. Unblocks the
+       remaining acyclic bails AND the compound-exit loops (`while (a && b)`).
     5. switch — reuse switch_dispatches; nested-in-if/while switches fall out for free.
+    4d. nested loops — drop the `any header inside loop -> bail` guard once 3/5 reduce noise.
     6. irreducible fallback — break one retreating/cross edge, honest goto, continue.
     7. cutover — V2 folds >= templates across all 495, every gate green -> flip default
        on, regen decompiled/*.c, DELETE the template structure_* functions.
@@ -95,20 +103,34 @@ def _flat_emit(buckets, leaders):
     return out
 
 
-# === Rung 2: sequence + if-then + if-then-else =================================
-# The first reduction rule. Over an ACYCLIC sub (no back edges — loops are rung 4),
-# recursively structure the single-entry/single-exit region from the entry to EXIT
-# into a tree of Seq / IfThen / IfThenElse, using the post-dominator as each 2-way
-# branch's merge point. Branch polarity mirrors the decompiler exactly: a header's
-# raw line is `if (RAWC) goto L_T` (goto = TRUE arm, fall-through = the body), so the
-# structured then-body is the FALL-THROUGH arm with condition `_neg(RAWC)` — the same
-# Pattern-A/B inversion, and the print loop's simplify_expression cleans `!((a<b))` ->
-# `(a>=b)`. CONSERVATIVE by design: any shape this rung doesn't cleanly own (a block
-# reached twice = cross/shared edge, a forward goto skipping the merge, a switch, a
-# body that lives on the goto side and would force a reorder) raises NotReducible and
-# the whole sub falls back to the rung-1 flat emit. The CFG-equivalence gate
-# (structured_equivalent, applied in vm_decompile.decompile) is the backstop: a tree
-# that builds but mis-routes is rejected there and the sub reverts to honest goto.
+# === Rungs 2 + 4: sequence / if-then / if-then-else / while / do-while / while(1) =
+# The single recursive structurer. `_structure` walks a single-entry region into a tree of
+# Seq / IfThen / IfThenElse, using the post-dominator as each 2-way branch's merge point.
+# Branch polarity mirrors the decompiler exactly: a header's raw line is `if (RAWC) goto L_T`
+# (goto = TRUE arm, fall-through = the body), so the structured then-body is the FALL-THROUGH
+# arm with condition `_neg(RAWC)` — the same Pattern-A/B inversion, and the print loop's
+# simplify_expression cleans `!((a<b))` -> `(a>=b)`.
+#
+# RUNG 4 — loops compose into the SAME recursion. A natural loop (back edge u->h, h dom u)
+# collapses to ONE AST node (`_structure_loop`), consumed by the surrounding walk exactly
+# like a basic block — so acyclic if/then/else (rung 2) nests inside loop bodies AND wraps
+# around loops for free. Form is read from the CFG (reuse the analysis):
+#   * pre-test  while(C){body}      header h is the 2-way test: one succ in loop, one = exit
+#   * post-test do{body}while(C)    a single latch's 2-way test gates the back edge
+#   * endless   while(1){body}      no governing 2-way test; control leaves via break/return
+# A pre-test header that ALSO carries statements before its test renders faithfully as
+# while(1){ stmts; if(!C) break; body } (no statement reorder — the honest form). Inside a
+# loop body an edge to the header is `continue`, an edge to the exit is `break`; the if/then
+# builder treats those as terminal arms. In-body merges use a body-LOCAL post-dominator (the
+# global pdom is wrong — a breaking arm skips the merge), computed over the loop nodes with
+# the header/exit/outside edges dropped so non-breaking paths' reconvergence is what shows.
+#
+# CONSERVATIVE by design: any shape a rung doesn't cleanly own (a block reached twice = cross
+# edge, a forward goto skipping the merge, a switch, a multi-exit loop, nested loops [4d],
+# a body that would force a statement reorder) raises NotReducible and the whole sub falls
+# back to the rung-1 flat emit. The CFG-equivalence gate (structured_equivalent, applied in
+# vm_decompile.decompile) is the backstop: a tree that builds but mis-routes is rejected
+# there and the sub reverts to honest goto — never corrupted output.
 
 # A statement line to emit verbatim, vs control scaffolding the structure consumes.
 _RE_IFGOTO = re.compile(r'if \((.+)\) goto L_([0-9A-Fa-f]{4});$')
@@ -142,64 +164,158 @@ def _parse_block(block_lines):
     return stmts, rawcond, branch_addr, goto_target, is_switch
 
 
-def _structure(entry, stop, cfg, info, block_of, pdom, nxt, visited):
-    """Structure the single-entry region from `entry` until control reaches `stop`
-    (a merge/exit block outside this region) or EXIT. Returns (seq, used) where seq is
-    a list of AST items and used is the set of block leaders the region consumed:
-      ('block', leader, [(addr, text)…])                      — a basic block's body
-      ('if',    branch_addr, [(addr,text)…], cond, then, else) — then/else are item lists;
-                                                                 else is [] for an if-then.
-    Raises _NotReducible on any shape rung 2 doesn't cleanly own."""
+_STOP = object()          # "no merge stop" sentinel: a loop body walk ends only on h / exit
+
+
+class _Ctx:
+    """Per-sub invariants shared across the whole structuring recursion.
+      full_cfg : the sub's block CFG (real successors, never remapped)
+      info     : {leader: _parse_block(...)} — stmts / rawcond / branch_addr / goto_target
+      block_of : addr -> its block leader;  nxt : leader -> address-next leader (or EXIT)
+      loops    : {header: frozenset(loop nodes)} ;  latches : {header: set(latch blocks)}
+      visited  : cross-edge guard (a block reached twice = irreducible)"""
+    __slots__ = ("full_cfg", "info", "block_of", "nxt", "loops", "latches", "visited")
+
+    def __init__(self, full_cfg, info, block_of, nxt, loops, latches):
+        self.full_cfg, self.info, self.block_of, self.nxt = full_cfg, info, block_of, nxt
+        self.loops, self.latches, self.visited = loops, latches, set()
+
+
+def _is_return_block(L, ctx):
+    """A leaf that is just `return …;` (-> EXIT). Such a block is INLINED at each jump to it
+    (the early-return idiom: `if (C) return X;`) instead of being a shared merge — which is
+    both how the C reads and CFG-neutral (contract() bypasses bare-return blocks anyway), so
+    several branches converging on one `return` don't force an irreducible shared tail."""
+    stmts, rawcond, _b, _g, sw = ctx.info[L]
+    return (rawcond is None and not sw and len(stmts) == 1
+            and stmts[0][1].startswith('return')
+            and ctx.full_cfg[L] == frozenset({vm_cfg.EXIT}))
+
+
+def _has_effect(seq):
+    """True if `seq` emits any observable line — a non-empty basic block or any construct
+    (if / guard / term / loop). An effect-LESS sequence is pure routing (empty blocks a value
+    -diamond left behind), which the address-based gate can't place as an if-arm."""
+    for it in seq:
+        if it[0] == 'block':
+            if it[2]:
+                return True
+        else:
+            return True
+    return False
+
+
+def _terminal(b, loop, ctx):
+    """If a control edge to block `b` should render as a one-line terminator rather than a
+    walk INTO b, return that statement (no trailing `;`): `continue`/`break` for the
+    enclosing loop's header/exit, or the inlined `return …` of a bare-return target. Else
+    None (b is ordinary region code to keep structuring)."""
+    if loop is not None:
+        h, e = loop
+        if b == h:
+            return 'continue'
+        if e is not None and b == e:
+            return 'break'
+    if b is not vm_cfg.EXIT and _is_return_block(b, ctx):
+        return ctx.info[b][0][0][1].rstrip(';')
+    return None
+
+
+def _structure(entry, stop, pdom, ctx, loop):
+    """Structure the single-entry region from `entry` until control reaches `stop` (a merge
+    block), EXIT, or — inside a loop — the header (continue/loop-back) or the exit (break).
+    `pdom` is the CURRENT region's post-dominators (the sub's at top level, a body-local one
+    inside a loop). `loop` = (header, exit) or None. Returns (seq, used): seq is a list of
+    AST items, used the set of block leaders consumed.
+      ('block', leader, [(addr,text)…])                       — a basic block's body
+      ('if', branch_addr, [(addr,text)…], cond, then, else)   — else=[] for an if-then
+      ('guard', branch_addr, cond, kind)                      — `if (cond) break;/continue;`
+      ('term', kind)                                          — bare `break;`/`continue;`
+      ('loop', form, header_addr, cond, body, latch_addr, latch_stmts)  — a folded loop
+    Raises _NotReducible on any shape no rung cleanly owns."""
     seq, used = [], set()
     n = entry
     while n is not vm_cfg.EXIT and n != stop:
-        if n in visited:
+        # a loop header reached from outside -> reduce the whole loop to one node
+        if n in ctx.loops and (loop is None or n != loop[0]):
+            node, consumed, after = _structure_loop(n, ctx, loop)
+            seq.append(node)
+            used |= consumed
+            n = after
+            continue
+        if n in ctx.visited:
             raise _NotReducible                      # cross / shared edge
-        visited.add(n)
+        ctx.visited.add(n)
         used.add(n)
-        stmts, rawcond, baddr, gtgt, _sw = info[n]
-        succ = cfg[n]
+        stmts, rawcond, baddr, gtgt, _sw = ctx.info[n]
+        succ = ctx.full_cfg[n]
         if len(succ) == 1:
             (s,) = tuple(succ)
             seq.append(('block', n, stmts))
+            st = _terminal(s, loop, ctx)             # continue / break / inlined return
+            if st is not None:
+                seq.append(('term', st, n))          # addr = this block (gate keys by addr)
+                break
             n = s
         elif len(succ) == 2 and rawcond is not None and gtgt is not None:
-            goto_block = block_of(gtgt)
+            goto_block = ctx.block_of(gtgt)
             if goto_block not in succ:
                 raise _NotReducible
             fall = next((x for x in succ if x != goto_block), None)
-            if fall is vm_cfg.EXIT or fall is None:
+            if fall is None:
+                raise _NotReducible
+            gt, ft = _terminal(goto_block, loop, ctx), _terminal(fall, loop, ctx)
+            # --- single-sided guard: `if (cond) break;/continue;/return X;` ---------------
+            if gt is not None and ft is None:
+                seq.append(('block', n, stmts))
+                seq.append(('guard', baddr, rawcond, gt))        # taken (rawcond) -> terminal
+                n = fall
+                continue
+            if ft is not None and gt is None:
+                seq.append(('block', n, stmts))
+                seq.append(('guard', baddr, vm_cfg._neg(rawcond), ft))   # !rawcond -> terminal
+                n = goto_block
+                continue
+            if gt is not None and ft is not None:
+                # both arms leave the region: `if (rawcond) <gt>; <ft>;` (guard + tail term,
+                # so the guard keeps the real branch addr and the fall term its block addr).
+                seq.append(('block', n, stmts))
+                seq.append(('guard', baddr, rawcond, gt))
+                seq.append(('term', ft, fall))
+                break
+            # --- both arms are regions: if-then / if-then-else (rung 2) -------------------
+            if fall is vm_cfg.EXIT:
                 raise _NotReducible                  # header falls off the end — rare
             merge = vm_cfg._imm_post_dom(pdom, n)
-            # The goto target must stay within the region (<= merge by address); a goto
-            # PAST the merge is a forward skip (break-like) -> irreducible at rung 2.
+            # The goto target must stay within the region (<= merge by address); a goto PAST
+            # the merge is a forward skip (break-like) -> irreducible here.
             if merge is not vm_cfg.EXIT and goto_block > merge:
                 raise _NotReducible
             then_seq, then_used = ([], set()) if fall == merge else \
-                _structure(fall, merge, cfg, info, block_of, pdom, nxt, visited)
+                _structure(fall, merge, pdom, ctx, loop)
             else_seq, else_used = ([], set()) if goto_block == merge else \
-                _structure(goto_block, merge, cfg, info, block_of, pdom, nxt, visited)
-            if not then_seq:
-                # empty/degenerate then, or body lives only on the goto side (would reorder
-                # above the fall) -> bail.
+                _structure(goto_block, merge, pdom, ctx, loop)
+            if not _has_effect(then_seq) and _has_effect(else_seq):
+                # The then-arm is empty but the else-arm has a real body: the body lives on the
+                # GOTO side (`if(C) goto body; goto merge`), often with a routing block laid out
+                # BETWEEN the header and that body. The gate finds the else boundary by address
+                # (next leader after the then span), which an empty then-arm makes ambiguous ->
+                # bail (reorder). (Both arms empty = a value-diamond shell — harmless, fold it.)
                 raise _NotReducible
             if else_seq:
                 if not (fall < goto_block):
                     raise _NotReducible              # if-else needs then(fall) before else(goto)
-                # The ENTIRE then-region must precede the ENTIRE else-region by address —
-                # else emitting then-then-else reverses address order and the address-based
-                # gate mis-routes (e.g. $A853: a nested if whose arm sits at a HIGHER addr
-                # than the outer else-body, so the spans interleave). Lexical order == address
-                # order is the invariant the gate (and readable C) rely on.
-                if max(then_used) >= min(else_used):
+                # The ENTIRE then-region must precede the ENTIRE else-region by address — else
+                # emitting then-then-else reverses address order and the address-based gate
+                # mis-routes. Lexical order == address order is the invariant the gate relies
+                # on. (then_used/else_used can be empty when an arm is a pure terminal.)
+                if then_used and else_used and max(then_used) >= min(else_used):
                     raise _NotReducible
             # LEXICAL-ADJACENCY of the merge: the gate lowers a construct's merge as the
             # address-next leader after its last block, so the merge MUST be that block.
-            # When an outer arm is laid out between this construct and its (shared) merge,
-            # next_leader(last) != merge -> the nesting interleaves; bail (the gate would
-            # otherwise mis-route, e.g. $8F0A's twin nested if/else sharing one merge).
+            # Skipped when the merge is EXIT (the whole region ends after this if).
             consumed = {n} | then_used | else_used
-            if nxt[max(consumed)] != merge:
+            if merge is not vm_cfg.EXIT and ctx.nxt[max(consumed)] != merge:
                 raise _NotReducible
             cond = vm_cfg._neg(rawcond)
             seq.append(('if', baddr if baddr is not None else n, stmts, cond, then_seq, else_seq))
@@ -210,13 +326,113 @@ def _structure(entry, stop, cfg, info, block_of, pdom, nxt, visited):
     return seq, used
 
 
+def _strip_trailing_continue(seq):
+    """A loop body's natural tail loop-back is implicit (the closing `}` re-enters the
+    header), so a trailing top-level `continue;` is redundant — drop it for readability.
+    CFG-neutral: continue -> header is the same edge the fall-off back-edge supplies."""
+    if seq and seq[-1][0] == 'term' and seq[-1][1] == 'continue':
+        return seq[:-1]
+    return seq
+
+
+def _structure_loop(h, ctx, outer_loop):
+    """Reduce the natural loop headed at `h` to one ('loop', …) node. Returns
+    (node, consumed_leaders, after) where `after` is the block to continue the surrounding
+    walk from (the loop's single exit, or EXIT if it only leaves via return)."""
+    loop = ctx.loops[h]
+    # Nested loop (another header strictly inside this one) -> defer to rung 4d.
+    if any(h2 != h and h2 in loop for h2 in ctx.loops):
+        raise _NotReducible
+    # Exit target(s): a single clean exit, else not ours yet.
+    exit_targets = {s for nn in loop for s in ctx.full_cfg[nn]
+                    if s is not vm_cfg.EXIT and s not in loop}
+    if len(exit_targets) > 1:
+        raise _NotReducible
+    e = next(iter(exit_targets)) if exit_targets else None
+    # LEXICAL ADJACENCY of the exit: the gate reads a loop's exit as the first REAL block AFTER
+    # the closing brace by address. So the exit must (a) be the leader right after the loop's
+    # last block, and (b) emit a line the gate can anchor on. A pure-routing exit (a 1-succ
+    # `goto merge` block with no statement, as when the loop is the tail of an if-arm) emits
+    # nothing, so the gate skips PAST it to the next arm -> mis-routes the exit. Bail on both.
+    if e is not None and (ctx.nxt[max(loop)] != e
+                          or (len(ctx.full_cfg[e]) == 1 and not ctx.info[e][0])):
+        raise _NotReducible
+    lp = (h, e)
+    # Body-local post-dominator: an edge that LEAVES the body (to the header = continue, to
+    # the exit / outside = break, to EXIT = return) is TERMINAL — it must not pull the merge
+    # toward itself, so it is DROPPED from the merge graph. A block whose every edge was
+    # dropped (a latch, an unconditional break) becomes a sink -> {EXIT} so post_dominators
+    # stays well-defined (an edge-LESS node would wrongly post-dominate to ALL nodes). The
+    # merge of an in-body if is then where its NON-terminal paths reconverge, e.g. the latch.
+    merge_src = {}
+    for nn in loop:
+        keep = frozenset(s for s in ctx.full_cfg[nn]
+                         if s is not vm_cfg.EXIT and s in loop and s != h)
+        merge_src[nn] = keep if keep else frozenset({vm_cfg.EXIT})
+    body_pdom = vm_cfg.post_dominators(merge_src)
+
+    hsucc = ctx.full_cfg[h]
+    h_stmts, h_rawcond, h_baddr, h_gtgt, _h_sw = ctx.info[h]
+
+    # ---- pre-test while: the header itself is the 2-way exit test ----------------------
+    if (e is not None and len(hsucc) == 2 and h_rawcond is not None
+            and e in hsucc and any(s in loop for s in hsucc)):
+        body_entry = next(s for s in hsucc if s in loop)
+        cond = h_rawcond if ctx.block_of(h_gtgt) in loop else vm_cfg._neg(h_rawcond)
+        ctx.visited.add(h)
+        body, _u = _structure(body_entry, _STOP, body_pdom, ctx, lp)
+        body = _strip_trailing_continue(body)
+        # Only the test EXPRESSION lifts to `while (cond)`. Any statements the header block
+        # carries before the test (the ROTATED for-loop's update, e.g. `i += 2`) keep their
+        # address and sit at the body BOTTOM — where the listing already places them (body is
+        # laid out before the bottom test), so this is a lift, not a side-effect reorder. This
+        # is sound only for a SINGLE-exit loop (a clean for-loop): with a COMPOUND exit
+        # (>1 edge to e, e.g. `while (i<6 && p<n)` split across two test blocks), deferring
+        # the update past the second test changes first-iteration semantics -> bail.
+        if h_stmts:
+            exit_edge_blocks = {nn for nn in loop if e in ctx.full_cfg[nn]}
+            if len(exit_edge_blocks) > 1:
+                raise _NotReducible
+            body = body + [('block', h, h_stmts)]
+        node = ('loop', 'while', h, cond, body, None, [])
+        ctx.visited |= set(loop)
+        return node, set(loop), e
+
+    # ---- post-test do-while: a single latch's 2-way test gates the back edge -----------
+    latches2 = [u for u in ctx.latches[h]
+                if len(ctx.full_cfg[u]) == 2 and h in ctx.full_cfg[u]
+                and e is not None and e in ctx.full_cfg[u]]
+    if e is not None and len(ctx.latches[h]) == 1 and latches2:
+        u = latches2[0]
+        u_stmts, u_rawcond, _u_baddr, u_gtgt, _u_sw = ctx.info[u]
+        cond = u_rawcond if ctx.block_of(u_gtgt) == h else vm_cfg._neg(u_rawcond)
+        body, _u = _structure(h, u, body_pdom, ctx, lp)
+        ctx.visited.add(u)
+        ctx.visited |= set(loop)
+        node = ('loop', 'dowhile', h, cond, body, u, u_stmts)
+        return node, set(loop), e
+
+    # ---- endless: while(1) { body }  (exits via break / return inside) -----------------
+    ctx.visited.add(h)
+    body, _u = _structure(h, _STOP, body_pdom, ctx, lp)
+    body = _strip_trailing_continue(body)
+    ctx.visited |= set(loop)
+    return ('loop', 'while1', h, None, body, None, []), set(loop), (e if e is not None else vm_cfg.EXIT)
+
+
 def _emit(seq, indent, out):
     for item in seq:
-        if item[0] == 'block':
+        kind = item[0]
+        if kind == 'block':
             _, _L, stmts = item
             for addr, text in stmts:
                 out.append((addr, indent, text))
-        else:  # 'if'
+        elif kind == 'term':
+            out.append((item[2], indent, f"{item[1]};"))
+        elif kind == 'guard':
+            _, baddr, cond, gkind = item
+            out.append((baddr, indent, f"if ({cond}) {gkind};"))
+        elif kind == 'if':
             _, baddr, stmts, cond, then_seq, else_seq = item
             for addr, text in stmts:
                 out.append((addr, indent, text))
@@ -226,21 +442,32 @@ def _emit(seq, indent, out):
                 out.append((0, indent, "} else {"))
                 _emit(else_seq, indent + 1, out)
             out.append((0, indent, "}"))
+        else:  # 'loop'
+            _, form, haddr, cond, body, latch_addr, latch_stmts = item
+            if form == 'while':
+                out.append((haddr, indent, f"while ({cond}) {{"))
+            elif form == 'while1':
+                out.append((haddr, indent, "while (1) {"))
+            else:  # dowhile
+                out.append((haddr, indent, "do {"))
+            _emit(body, indent + 1, out)
+            if form == 'dowhile':
+                for addr, text in latch_stmts:
+                    out.append((addr, indent + 1, text))
+                out.append((latch_addr, indent, f"}} while ({cond});"))
+            else:
+                out.append((0, indent, "}"))
 
 
 def reduce(lines, instructions):
-    """Region reducer (CFG epic V2). Rungs 0-1 = block partition + flat emit; rung 2 adds
-    sequence/if-then/if-then-else over acyclic subs (loops -> flat, handled at rung 4).
+    """Region reducer (CFG epic V2). Rungs 0-1 = block partition + flat emit; rungs 2+4 add
+    sequence / if-then / if-then-else / while / do-while / while(1) over the whole sub.
     Falls back to the rung-1 flat emit whenever the structure can't be cleanly recovered;
     the CFG-equivalence gate in vm_decompile.decompile is the final backstop."""
     cfg, leaders = vm_cfg.bytecode_cfg(instructions)
     if not leaders:
         return list(lines)
     buckets = _partition(lines, leaders)
-    # Rung 2 only structures acyclic subs; a back edge means a loop (rung 4).
-    edges, _dom = vm_cfg.back_edges(cfg, leaders[0])
-    if edges:
-        return _flat_emit(buckets, leaders)
     try:
         block_of = vm_cfg._block_of_fn(leaders)
         info = {L: _parse_block(buckets[L]) for L in leaders}
@@ -248,8 +475,15 @@ def reduce(lines, instructions):
             return _flat_emit(buckets, leaders)
         nxt = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else vm_cfg.EXIT)
                for i in range(len(leaders))}
-        seq, _used = _structure(leaders[0], vm_cfg.EXIT, cfg, info,
-                                block_of, vm_cfg.post_dominators(cfg), nxt, set())
+        edges, _dom = vm_cfg.back_edges(cfg, leaders[0])
+        from collections import defaultdict
+        loops, latches = {}, defaultdict(set)
+        for u, hh in edges:
+            loops.setdefault(hh, set()).update(vm_cfg.natural_loop(u, hh, cfg))
+            latches[hh].add(u)
+        loops = {hh: frozenset(s) for hh, s in loops.items()}
+        ctx = _Ctx(cfg, info, block_of, nxt, loops, latches)
+        seq, _used = _structure(leaders[0], vm_cfg.EXIT, vm_cfg.post_dominators(cfg), ctx, None)
     except _NotReducible:
         return _flat_emit(buckets, leaders)
     out = []

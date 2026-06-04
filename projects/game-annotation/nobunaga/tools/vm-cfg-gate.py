@@ -33,6 +33,7 @@ HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE))
 
 import vm_cfg
+import vm_decompile
 _da_spec = importlib.util.spec_from_file_location("decompile_all", HERE / "decompile-all.py")
 decompile_all = importlib.util.module_from_spec(_da_spec)
 _da_spec.loader.exec_module(decompile_all)
@@ -127,8 +128,11 @@ def main():
     ap.add_argument("--verbose", action="store_true", help="dump each raw-gate failure")
     ap.add_argument("--show-structured", action="store_true",
                     help="dump each gated-structured/raw difference (a gating regression)")
+    ap.add_argument("--v2", action="store_true",
+                    help="validate the V2 region reducer (vm_reduce) instead of the templates")
     args = ap.parse_args()
     banks = [int(b, 0) for b in args.banks.split(",") if b.strip()]
+    vm_decompile.STRUCTURE_V2 = args.v2
     sys.exit(run(banks, args.verbose, args.show_structured))
 
 
