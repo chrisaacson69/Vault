@@ -1237,26 +1237,22 @@ word paged_flee_fief_list_display(void) {
     message_display(msg_fief_b5f6);    // $9135
     local10 = 0;    // $913A
     local9 = 0x6F4F;    // $913E
-    goto L_9188;    // $913F
-L_9142:
-    local10 = 1;    // $9143
-    local9 = (local9 + 1);    // $9146
-    ui_helper_d134(msg_fmt__2d_b5fd, (*(byte*)(((local9 + 1) - 1)) + 1));    // $914E
-    local11 = (local11 + 1);    // $9154
-    if (((unsigned)local11 % (unsigned)3)) goto L_915F;    // $9158
-    goto L_9161;    // $915C
+    while ((*(byte*)(local9) != 255)) {    // $9188
+        local10 = 1;    // $9143
+        local9 = (local9 + 1);    // $9146
+        ui_helper_d134(msg_fmt__2d_b5fd, (*(byte*)(((local9 + 1) - 1)) + 1));    // $914E
+        local11 = (local11 + 1);    // $9154
+        if (((unsigned)local11 % (unsigned)3)) goto L_915F;    // $9158
+        goto L_9161;    // $915C
 L_915F:
 L_9161:
-    char_advance_width(32);    // $9162
-    if ((local11 == 6)) {    // $9169
-    if ((*(byte*)(local9) != 255)) {    // $9172
-    if ((!((prompt_hit_any_key_return_button() != 2)))) return 0;    // $917A
-    message_display(msg_fief_b601);    // $9182
-    local11 = 0;    // $9187
+        char_advance_width(32);    // $9162
+        if ((local11 != 6)) continue;    // $9169
+        if (!((*(byte*)(local9) != 255))) continue;    // $9172
+        if ((!((prompt_hit_any_key_return_button() != 2)))) return 0;    // $917A
+        message_display(msg_fief_b601);    // $9182
+        local11 = 0;    // $9187
     }
-    }
-L_9188:
-    if ((*(byte*)(local9) != 255)) goto L_9142;    // $918E
     if (local10) goto L_919F;    // $9192
     redraw_window(msg_there_is_no_fief_to_flee_to);    // $9198
 L_919F:
@@ -1272,12 +1268,10 @@ word prompt_select_province_from_list(void) {
     local11 = select_province_by_cursor(1, scenario_fief_count);    // $91B2
     if (select_province_by_cursor(1, scenario_fief_count)) {    // $91B3
     local11 = (local11 - 1);    // $91B8
-    goto L_91C8;    // $91B9
-L_91BC:
-    if ((!((*(byte*)(local10) != local11)))) return local11;    // $91C0
-    local10 = (local10 + 1);    // $91C7
-L_91C8:
-    if ((*(byte*)(local10) != 255)) goto L_91BC;    // $91CE
+    while ((*(byte*)(local10) != 255)) {    // $91C8
+        if ((!((*(byte*)(local10) != local11)))) return local11;    // $91C0
+        local10 = (local10 + 1);    // $91C7
+    }
     }
 L_91D1:
     return 255;    // $91D4

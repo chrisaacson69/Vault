@@ -187,6 +187,34 @@ def main():
         bad, _, _ = vm_cfg.structured_equivalent(raw, swapped, leaders)
         check(f"b{bank}/${sub:04X}: continue->break (header->exit) REJECTED", not bad)
 
+    # Phase 2 (multi-exit loops): a loop with >1 pure-exit target -- one structural exit
+    # (the while-condition false branch) PLUS mid-body `return`s that stay in the body.
+    # The relation must accept the fold; and a mid-body return moved OUT of the loop
+    # (deleted from the body) must be REJECTED, proving the return's EXIT edge is checked.
+    for bank, sub in [(2, 0x912B), (0, 0x8FF8)]:
+        cap = _grab(bank, sub)
+        _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
+        raw, struct = cap['raw'], cap['structured']
+        # locate a `return` line strictly inside the while braces (depth > 0)
+        depth, inner_ret = 0, None
+        for j, (a, ind, t) in enumerate(struct):
+            ts = t.strip()
+            if ts.endswith('{'):
+                depth += 1
+            elif ts == '}' or vm_cfg._RE_DOWHILE_CLOSE.match(ts):
+                depth -= 1
+            elif depth > 0 and re.match(r'(if \(.+\) )?return\b', ts):
+                inner_ret = j
+        check(f"b{bank}/${sub:04X}: has a mid-loop return", inner_ret is not None)
+
+        ok, _, _ = vm_cfg.structured_equivalent(raw, struct, leaders)
+        check(f"b{bank}/${sub:04X}: multi-exit fold ~= raw", ok)
+
+        if inner_ret is not None:                 # delete the mid-loop return -> CFG changes
+            dropped = [ln for k, ln in enumerate(struct) if k != inner_ret]
+            bad, _, _ = vm_cfg.structured_equivalent(raw, dropped, leaders)
+            check(f"b{bank}/${sub:04X}: mid-loop return deletion REJECTED", not bad)
+
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)
 

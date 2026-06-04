@@ -1221,14 +1221,20 @@ def _is_pure_exit_block(b, cfg, loop):
     return all(s is vm_cfg.EXIT or s not in loop for s in cfg.get(b, ()))
 
 
-def _loop_single_exit_entry(cfg, loop, h, exit_e):
-    """Shared loop validation: the only way OUT of the loop is `exit_e` (no break to
-    elsewhere; an in-body `return`/EXIT is fine), and the only way IN is the header h
-    (reducible single-entry). Both folders require this — anything else is Phase 2."""
+def _loop_single_entry(cfg, loop, h, exit_e):
+    """Shared loop validation: the only way IN is the header h (reducible single-entry),
+    and every way OUT is either the structural exit `exit_e` (the while-condition's
+    false branch) or a PURE-EXIT block — a mid-body `return`/`break` that just leaves
+    (incl. one routing to exit_e). Multiple such pure exits are fine: each stays an
+    honest `return`/`break`/`goto` and the gate validates the edges. A non-loop
+    successor that is NOT exit_e and NOT pure-exit (i.e. it re-enters live code) is a
+    genuine second structural exit we don't structure yet -> reject."""
     import vm_cfg
     for n in loop:
         for s in cfg[n]:
-            if s is not vm_cfg.EXIT and s not in loop and s != exit_e:
+            if s is vm_cfg.EXIT or s in loop or s == exit_e:
+                continue
+            if not _is_pure_exit_block(s, cfg, loop):
                 return False
     for n in loop:
         if n != h and any(n in cfg[p] and p not in loop for p in cfg):
@@ -1328,7 +1334,7 @@ def _fold_while(lines, cfg, leaders, loop, u, h, multi=False):
     body_entry, exit_e = body_in[0], exit_out[0]
     if body_entry == h:                     # header is its own body entry: skip
         return lines
-    if not _loop_single_exit_entry(cfg, loop, h, exit_e):
+    if not _loop_single_entry(cfg, loop, h, exit_e):
         return lines
 
     block_of = vm_cfg._block_of_fn(leaders)
@@ -1351,16 +1357,22 @@ def _fold_while(lines, cfg, leaders, loop, u, h, multi=False):
         idx_backedge = None    # keep every in-body `goto L_h` -> `continue` (post-pass)
     lo, hi = min(loop_idxs), max(loop_idxs)
     # Foreign lines inside the loop's listing span are OK only if they form pure-exit
-    # blocks (the classic case: a TOP-test header's fall-through `return` emitted between
-    # the test and the body). Those get RELOCATED to after the loop — address-keyed
-    # lowering makes the move CFG-neutral. Any non-exit foreign code = a genuinely
-    # interleaved body -> bail (revert to honest goto; the gate is the backstop anyway).
+    # blocks (a `return`/`break`). Any non-exit foreign code = a genuinely interleaved
+    # body -> bail (the gate is the backstop anyway). Two kinds of pure-exit interleave,
+    # handled differently:
+    #   * BEFORE the body entry — the classic TOP-test header's fall-through `return`
+    #     emitted between the test and the body. This is the loop's EXIT, so it must be
+    #     RELOCATED past the `}` (leaving it in the body would run it first iteration).
+    #   * mid-body (>= body entry) — an early `return`/`break`. It STAYS in place (a
+    #     mid-loop exit reads correctly there; structure_lines folds it to early-return).
+    # Address-keyed lowering makes either choice CFG-neutral; this is purely readability.
     interleaved = [i for i in range(lo, hi + 1)
                    if block_of(lines[i][0]) not in loop]
     if any(not _is_pure_exit_block(block_of(lines[i][0]), cfg, loop)
            for i in interleaved):
         return lines
-    relocate = set(interleaved)
+    be_idx = next((i for i in range(lo, hi + 1) if block_of(lines[i][0]) == body_entry), lo)
+    relocate = {i for i in interleaved if i < be_idx}
 
     _k, tgt, cond = _parse_branch_line(lines[idx_h_test][2])
     cont = cond if block_of(tgt) in loop else _negate_cond(cond)
@@ -1412,7 +1424,7 @@ def _fold_dowhile(lines, cfg, leaders, loop, u, h):
     if h not in succ_u or len(succ_u) != 2:
         return lines
     exit_e = next(s for s in succ_u if s != h)
-    if not _loop_single_exit_entry(cfg, loop, h, exit_e):
+    if not _loop_single_entry(cfg, loop, h, exit_e):
         return lines
 
     block_of = vm_cfg._block_of_fn(leaders)
