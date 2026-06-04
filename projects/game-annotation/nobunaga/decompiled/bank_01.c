@@ -10,18 +10,13 @@
 
 word prompt_message_and_redraw(word prompt_id, word message_ptr) {
     message_display(prompt_message_and_redra_data_ba10);    // $800B
-    if ((prompt_id == 255)) {    // $8014
+    if ((prompt_id != 255)) goto L_8021;    // $8014
     redraw_window(msg_attack);    // $801A
-    } else {
-    if ((message_ptr != msg_no_fiefs)) goto L_8030;    // $8027
-    goto L_8033;    // $802D
-L_8030:
-L_8033:
-    }
+    goto L_8044;    // $801E
+L_8021:
 L_8044:
-    ui_helper_d134(msg_s_s_s, *(word*)((((prompt_id - 1) << 1) + prompt_message_and_redra_data_f816)), msg_fiefs, message_ptr);    // $8040
+    ui_helper_d134(msg_s_s_s, *(word*)((((prompt_id - 1) << 1) + prompt_message_and_redra_data_f816)), ((message_ptr == msg_no_fiefs) ? prompt_message_and_redra_data_ba11 : msg_fiefs), message_ptr);    // $8040
     return redraw_window(prompt_message_and_redra_data_ba12);    // $804B
-    }
 }
 
 // $804C province_select_prompt
@@ -104,34 +99,30 @@ L_8166:
 word count_eligible_targets(word arg1, word arg2, word arg3) {
     local10 = 0;    // $8178
     local11 = 0;    // $817A
-    while ((*(byte*)(((arg2 + 1) - 1)) != 255)) {    // $81EE
-        if (!(target_eligible_by_cmd(arg1, *(byte*)((arg2 - 1))))) continue;    // $8187
-        if (!((*(byte*)((*(byte*)((arg2 - 1)) + 0x6CF7)) != 255))) continue;    // $8196
-        local11 = (local11 + 1);    // $819B
-        if (!(arg3)) continue;    // $819D
-        ui_helper_d134(msg_fmt__2d_ba65, (*(byte*)((arg2 - 1)) + 1));    // $81A8
-        local10 = (local10 + 1);    // $81AE
-        if ((local10 != 18)) {    // $81B3
-        if (((unsigned)local10 % (unsigned)6)) goto L_81C0;    // $81B9
-        goto L_81C2;    // $81BD
-L_81C0:
-L_81C2:
-        }
+    goto L_81EE;    // $817B
+L_817E:
+    if (!(target_eligible_by_cmd(arg1, *(byte*)((arg2 - 1))))) goto L_81EE;    // $8187
+    if (!((*(byte*)((*(byte*)((arg2 - 1)) + 0x6CF7)) != 255))) goto L_81EE;    // $8196
+    local11 = (local11 + 1);    // $819B
+    if (!(arg3)) goto L_81EE;    // $819D
+    ui_helper_d134(msg_fmt__2d_ba65, (*(byte*)((arg2 - 1)) + 1));    // $81A8
+    local10 = (local10 + 1);    // $81AE
+    if ((local10 == 18)) goto L_81C7;    // $81B3
 L_81C7:
-        char_advance_width(32);    // $81C3
-        if ((local10 != 18)) continue;    // $81CB
-        if (!((*(byte*)(arg2) != 255))) continue;    // $81D4
-        if ((ui_prompt_redraw() == 2)) {    // $81DC
-        local11 = 0;    // $81E0
-        } else {
-        prompt_message_and_redraw(arg1, count_eligible_targets_data_ba69);    // $81E8
-        local10 = 0;    // $81ED
-        arg2 = (arg2 + 1);    // $81F0
-    }
-        }
+    char_advance_width((((unsigned)local10 % (unsigned)6) ? 32 : 10));    // $81C3
+    if ((local10 != 18)) goto L_81EE;    // $81CB
+    if (!((*(byte*)(arg2) != 255))) goto L_81EE;    // $81D4
+    if (!((ui_prompt_redraw() == 2))) goto L_81E4;    // $81DC
+    local11 = 0;    // $81E0
+    goto L_81FA;    // $81E1
+L_81E4:
+    prompt_message_and_redraw(arg1, count_eligible_targets_data_ba69);    // $81E8
+    local10 = 0;    // $81ED
+L_81EE:
+    arg2 = (arg2 + 1);    // $81F0
+    if ((*(byte*)(((arg2 + 1) - 1)) != 255)) goto L_817E;    // $81F7
 L_81FA:
     return local11;    // $81FB
-        }
 }
 
 // $81FC effect_war_a
@@ -687,23 +678,13 @@ L_8A0A:
 // (body @ $8A1A)
 
 word effect_trade(void) {
-    if ((scenario_fief_count == 50)) {    // $8A20
-    } else {
-    }
-L_8A29:
-    if ((13 == selected_province_idx)) goto L_8A46;    // $8A2D
-    if ((scenario_fief_count == 50)) {    // $8A36
-    } else {
-    }
-L_8A3F:
-    if ((14 == selected_province_idx)) {    // $8A43
+    if ((((scenario_fief_count == 50) ? 30 : 13) == selected_province_idx)) goto L_8A46;    // $8A2D
+    if ((((scenario_fief_count == 50) ? 32 : 14) == selected_province_idx)) {    // $8A43
 L_8A46:
     return 1;    // $8A47
     }
 L_8A48:
     return (ai_turn_flags & 1);    // $8A4D
-    }
-    }
 }
 
 // $8A4E helper_8A4E
@@ -2284,16 +2265,11 @@ word effect_hire_variant_pay(word fief) {
     confirm_prompt();    // $A5D8
     return 1;    // $A5DC
 L_A5DD:
-    if (headroom) {    // $A5DE
-    } else {
+    message_display((headroom ? msg_you_have_no_gold : msg_we_re_at_our_limit));    // $A5EB
     }
-L_A5EA:
-    message_display(msg_we_re_at_our_limit);    // $A5EB
 L_A5F2:
     confirm_prompt();    // $A5EF
     return 0;    // $A5F3
-    }
-    }
 }
 
 // $A5F4 driver_hire
@@ -2797,11 +2773,7 @@ L_ACE8:
         read_frame_timer(2);    // $ACF3
         continue;    // $ACF7
 L_ACFA:
-        if (field_idx) goto L_AD02;    // $ACFB
-        goto L_AD03;    // $ACFF
-L_AD02:
-L_AD03:
-        if (!((*(word*)(((field_idx << 1) + &edit_buffer)) > 0))) continue;    // $AD0F
+        if (!((*(word*)(((field_idx << 1) + &edit_buffer)) > (field_idx ? 0 : 1)))) continue;    // $AD0F
         units_delta = (units_delta + 1);    // $AD14
         *(word*)(((field_idx << 1) + &edit_buffer)) = (*(word*)(((field_idx << 1) + &edit_buffer)) - 1);    // $AD20
         read_frame_timer(0);    // $AD22

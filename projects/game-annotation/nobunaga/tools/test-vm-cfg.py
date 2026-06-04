@@ -130,7 +130,7 @@ def main():
     # the orientation labels catch it. These subs have a non-empty if-header (an
     # `if (C) {} else {}` with both arms empty IS a genuine no-op under inversion, so the
     # relation correctly accepts that — excluded here).
-    for bank, sub in [(0, 0x862B), (0, 0x8C45), (1, 0x8003)]:
+    for bank, sub in [(0, 0x862B), (0, 0x8C45), (1, 0x87F0)]:
         cap = _grab(bank, sub)
         _bc, leaders = vm_cfg.bytecode_cfg(cap['instructions'])
         raw, struct = cap['raw'], cap['structured']
@@ -307,6 +307,30 @@ def main():
         swapped = [(a, i, re.sub(r'\bbreak;', 'continue;', t)) for a, i, t in struct]
         bad, _, _ = vm_cfg.structured_equivalent(raw, swapped, leaders)
         check(f"b{bank}/${sub:04X}: header break->continue (exit->header) REJECTED", not bad)
+
+    # Value-diamond TERNARY folding: a 2-way head whose arms each just load a value and
+    # converge folds to `cond ? a : b`; vm_cfg.bytecode_cfg CONTRACTS the same diamond so
+    # the witness gate stays green. The relation must (a) find the diamond, (b) emit a `?:`,
+    # (c) pass the witness with the CONTRACTED cfg, and (d) — the non-vacuousness — FAIL the
+    # witness against the UNcontracted cfg, proving the contraction is load-bearing (the
+    # diamond really is a branch in the bytecode that the fold legitimately collapses; the
+    # ternary's VALUE/polarity is checked separately by the oracle probe-ternary-folds.py,
+    # since the symmetric contraction makes it invisible to this structural gate).
+    for bank, sub in [(15, 0xCB5E), (15, 0xCB6F), (0, 0xA778)]:   # min_word, max_word, vm_bootstrap
+        cap = _grab(bank, sub)
+        ins = cap['instructions']
+        diamonds = vm_cfg.value_diamonds(ins)
+        check(f"b{bank}/${sub:04X}: value_diamond detected", len(diamonds) >= 1)
+        has_tern = any(re.search(r'\? .+ : .+', t) for _a, _i, t in cap['structured'])
+        check(f"b{bank}/${sub:04X}: emitted a ?: ternary", has_tern)
+
+        cfg_c, leaders_c = vm_cfg.bytecode_cfg(ins)            # contracted
+        cfg_raw, _lr = vm_cfg._bytecode_cfg_raw(ins)           # un-contracted
+        ok_c = vm_cfg.lower_goto_cfg(cap['raw'], leaders_c) == cfg_c
+        check(f"b{bank}/${sub:04X}: witness ~= CONTRACTED bytecode cfg", ok_c)
+        # Same folded witness must NOT match the un-contracted cfg -> contraction is needed.
+        bad = vm_cfg.lower_goto_cfg(cap['raw'], sorted(cfg_raw)) == cfg_raw
+        check(f"b{bank}/${sub:04X}: witness != UNcontracted cfg (contraction load-bearing)", not bad)
 
     print(f"\n{passed} passed, {failed} failed")
     sys.exit(1 if failed else 0)

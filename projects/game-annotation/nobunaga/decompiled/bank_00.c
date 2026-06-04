@@ -340,11 +340,7 @@ word display_prompt_message_b900(word arg1) {
 // (body @ $8699)
 
 word prompt_select_player_daimyo(word arg1) {
-    if ((scenario_fief_count != 50)) goto L_86A6;    // $869F
-    goto L_86A7;    // $86A3
-L_86A6:
-L_86A7:
-    map_helper_e5f2(0);    // $86A8
+    map_helper_e5f2(((scenario_fief_count == 50) ? 2 : 0));    // $86A8
     ui_input_prompt_active_flag = 1;    // $86AD
     local11 = 2;    // $86B1
 L_86B2:
@@ -598,12 +594,9 @@ L_8B44:
 word select_msg_by_state_7b79(word arg1) {
     if ((*(byte*)((arg1 + 0x7B79)) == 6)) {    // $8B7D
     } else {
-    if (!((*(byte*)((arg1 + 0x7B79)) == 7))) goto L_8B97;    // $8B8E
-    goto L_8B9A;    // $8B94
-L_8B97:
     }
 L_8B9A:
-    local11 = msg_rioters;    // $8B9A
+    local11 = ((*(byte*)((arg1 + 0x7B79)) == 7) ? msg_christns : msg_rioters);    // $8B9A
     return local11;    // $8B9C
     }
 }
@@ -2314,11 +2307,7 @@ L_A6AB:
     }
 L_A6B8:
     war_attacker_gold = 0;    // $A6B9
-    if (is_uprising) {    // $A6BD
-    } else {
-    }
-L_A6C7:
-    ai_turn_flags = (ai_turn_flags | 32);    // $A6CC
+    ai_turn_flags = (ai_turn_flags | (is_uprising ? 64 : 32));    // $A6CC
     war_side_state_flag = 0;    // $A6D0
     staging_ptr = 0x7515;    // $A6D6
     src_ptr = fief;    // $A6D8
@@ -2339,7 +2328,6 @@ L_A6C7:
     mem_7521 = (*(word*)((fief + 24)) - *(word*)((fief + 12)));    // $A739
     selected_province_idx = 50;    // $A73E
     return 50;    // $A741
-    }
     }
 }
 
@@ -2380,11 +2368,7 @@ L_A7B0:
     message_display(msg_disloyal_troops_have_revolted);    // $A7D2
 L_A7D9:
     confirm_prompt();    // $A7D6
-    if (!(battle_staging_entry_flag_array)) goto L_A7E3;    // $A7DC
-    goto L_A7E4;    // $A7E0
-L_A7E3:
-L_A7E4:
-    spawn_zealot_uprising_force_from_province(1);    // $A7E5
+    spawn_zealot_uprising_force_from_province((battle_staging_entry_flag_array ? 0 : 1));    // $A7E5
     call_bank_wrap(2);    // $A7EA
     if ((ai_turn_flags & 128)) goto L_A7FD;    // $A7F5
 L_A7FD:

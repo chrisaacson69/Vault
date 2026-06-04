@@ -737,6 +737,14 @@ _UNARY_A = {
 }
 
 
+def _ternary_expr(cond, vt, vf, polarity):
+    """Build `cond ? true_value : false_value` for a value-diamond. The TRUE-path value is
+    the fall-through arm for a branch_z (JUMPF jumps when cond is FALSE, so fall = true),
+    and the taken arm for a branch_nz. vt = fall-arm value, vf = taken-arm value."""
+    tval, fval = (vt, vf) if polarity == 'z' else (vf, vt)
+    return f"({cond} ? {tval} : {fval})"
+
+
 def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     body_addr, instructions = parse_listing(filepath, sub_addr)
     if not instructions:
@@ -765,9 +773,29 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
     params = apply_var_names(params, var_names)   # var-walk: rename args in the signature
     print(f"word {fn_name}({params}) {{")
 
-    # First pass: find branch targets (need labels)
+    # Value-diamond ternaries: a 2-way conditional whose arms each just LOAD a value and
+    # converge — `regA = cond ? vA : vB`. The decode loop folds these to a ternary (else
+    # both loads are dropped and only one value survives). The diamond's head branch + the
+    # fall-arm jump emit NO line; the bytecode CFG side contracts the same diamonds
+    # (vm_cfg.bytecode_cfg) so the gate's `lower(raw) == bytecode_cfg` stays valid.
+    import vm_cfg as _vmcfg
+    diamonds = _vmcfg.value_diamonds(instructions)
+    dia_by_head = {d['head']: d for d in diamonds}
+    dia_fall_jump = {d['fall_jump_addr'] for d in diamonds if d['fall_jump_addr'] is not None}
+    dia_taken_start = {d['taken_block']: d for d in diamonds}
+    dia_merge = {}
+    for d in diamonds:
+        dia_merge.setdefault(d['merge'], []).append(d)
+    # A label is dead once its only branch source is a suppressed diamond branch.
+    suppressed_src = set(dia_by_head) | dia_fall_jump
+
+    # First pass: find branch targets (need labels) — EXCLUDING suppressed diamond branches,
+    # so a taken-arm label (solely the head's target) and a merge label (solely the fall
+    # jump's target) are not emitted as dead labels after the fold.
     branch_targets = set()
     for ins in instructions:
+        if ins['addr'] in suppressed_src:
+            continue
         if 'branch' in ins['mnemonic'] or 'jump' in ins['mnemonic']:
             m = re.search(r'\$([0-9A-Fa-f]{4})', ins['operand'])
             if m:
@@ -778,6 +806,8 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
                 branch_targets.add(int(t, 16))
 
     # Second pass: decompile
+    dia_active = None          # the value-diamond currently being folded (None = not in one)
+    dia_cond = dia_vt = None   # its captured condition expr + the fall-arm (true-path) value
     for ins in instructions:
         state.cur_addr = ins['addr']
         mnem = ins['mnemonic']
@@ -795,6 +825,26 @@ def decompile(filepath, sub_addr, labels=None, var_names=None, collect=None):
         # Label for branch targets
         if ins['addr'] in branch_targets:
             state.lines.append((ins['addr'], 0, f"L_{ins['addr']:04X}:"))
+
+        # === Value-diamond ternary folding ===
+        # Order matters: capture the fall-arm value when we ENTER the taken arm (before its
+        # load overwrites regA), and build the ternary when we REACH the merge (regA now
+        # holds the taken-arm value). Both run BEFORE the elif chain processes this instr.
+        if dia_active is not None:
+            if ins['addr'] == dia_active['taken_block']:
+                dia_vt = state.regA                       # fall-arm (entered first) value
+            if ins['addr'] == dia_active['merge']:
+                _vf = state.regA                          # taken-arm value
+                state.regA = _ternary_expr(dia_cond, dia_vt, _vf, dia_active['polarity'])
+                dia_active = None                         # merge instr now consumes the ternary
+        # Head conditional: capture the cond (regA), start folding, emit NO branch line.
+        if ins['addr'] in dia_by_head:
+            dia_active = dia_by_head[ins['addr']]
+            dia_cond = state.regA
+            continue
+        # Fall-arm terminating jump: emit NO goto (the arms are folded into the ternary).
+        if dia_active is not None and ins['addr'] == dia_active['fall_jump_addr']:
+            continue
 
         # === Frame local loads ===
         if mnem == 'loadA_local_pos':

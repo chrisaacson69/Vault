@@ -136,8 +136,8 @@ def _block_of_fn(leaders_sorted):
     return block_of
 
 
-def bytecode_cfg(instructions):
-    """Ground-truth basic-block CFG. Returns (cfg, leaders) where
+def _bytecode_cfg_raw(instructions):
+    """Ground-truth basic-block CFG, UN-contracted. Returns (cfg, leaders) where
     cfg = {leader: frozenset(succ leaders / EXIT)} and leaders is sorted."""
     if not instructions:
         return {}, []
@@ -159,6 +159,112 @@ def bytecode_cfg(instructions):
         out = succ[term] if term is not None else {EXIT}
         cfg[L] = frozenset(EXIT if s is EXIT else block_of(s) for s in out)
     return cfg, leaders
+
+
+def bytecode_cfg(instructions):
+    """Ground-truth basic-block CFG with VALUE-DIAMONDS contracted (a value-diamond is an
+    EXPRESSION — `cond ? a : b` — not control flow, exactly as C `?:` compiles to a branch
+    yet is an expression). The decompiler folds these to a ternary, so the C carries no
+    branch there; contracting the bytecode side keeps `lower(raw) == bytecode_cfg` valid.
+    Both sides use the SAME detector (`value_diamonds`), so they can't disagree."""
+    cfg, leaders = _bytecode_cfg_raw(instructions)
+    diamonds = value_diamonds(instructions)
+    if not diamonds:
+        return cfg, leaders
+    block_of = _block_of_fn(leaders)
+    cfg = dict(cfg)
+    removed = set()
+    for d in diamonds:
+        H = block_of(d['head'])
+        cfg[H] = frozenset({d['merge']})     # head flows straight to the merge (expression)
+        removed.add(d['taken_block'])
+        removed.add(d['fall_block'])
+    for r in removed:
+        cfg.pop(r, None)
+    return cfg, [L for L in leaders if L not in removed]
+
+
+def _predecessors(cfg):
+    preds = {}
+    for L, succ in cfg.items():
+        for s in succ:
+            if s is not EXIT:
+                preds.setdefault(s, set()).add(L)
+    return preds
+
+
+def _value_arm(instrs):
+    """A diamond ARM block: all instructions LOAD regA (a value) with no side effect, plus
+    an optional trailing unconditional `jump_abs`. Returns (is_arm, jump_addr_or_None)."""
+    if not instrs:
+        return False, None
+    jump_addr = None
+    body = instrs
+    if instrs[-1]['mnemonic'] == 'jump_abs':
+        jump_addr, body = instrs[-1]['addr'], instrs[:-1]
+    if not body or not all(i['mnemonic'].startswith('loadA_') for i in body):
+        return False, None
+    return True, jump_addr
+
+
+def value_diamonds(instructions):
+    """Find value-producing conditional diamonds: a 2-way head whose two arms each just
+    LOAD a value into regA and converge at a single merge — i.e. `regA = cond ? vA : vB`.
+    The decompiler renders these as empty `if(){}else{}` / gotos-to-empty-labels and DROPS
+    the selected value (keeping only one arm). Returns a list of dicts:
+      {head, polarity('z'|'nz'), taken_block, fall_block, merge, fall_jump_addr, taken_jump_addr}
+    Conservative guards keep the fold sound: abs conditional head only; each arm's SOLE
+    predecessor is the head (so removing it strands nothing); both arms converge on one
+    non-EXIT merge; and the head block contains NO call (a call-valued cond would be
+    double-rendered by the pending-call flush, so leave those as honest gotos)."""
+    cfg, leaders = _bytecode_cfg_raw(instructions)
+    block_of = _block_of_fn(leaders)
+    bmap = {L: [] for L in leaders}
+    for ins in instructions:
+        bmap[block_of(ins['addr'])].append(ins)
+    preds = _predecessors(cfg)
+    out = []
+    for H in leaders:
+        succ = cfg[H]
+        if len(succ) != 2 or EXIT in succ:
+            continue
+        hblock = bmap[H]
+        if not hblock:
+            continue
+        branch = hblock[-1]
+        if branch['mnemonic'] not in ('branch_z_abs', 'branch_nz_abs'):
+            continue
+        if any('call' in i['mnemonic'] for i in hblock):     # call-valued cond -> skip
+            continue
+        tgt = _target(branch)
+        if tgt is None:
+            continue
+        taken = block_of(tgt)
+        fall = next((s for s in succ if s != taken), None)
+        if fall is None or taken == fall or taken not in succ:
+            continue
+        ok_t, jmp_t = _value_arm(bmap.get(taken, []))
+        ok_f, jmp_f = _value_arm(bmap.get(fall, []))
+        if not (ok_t and ok_f):
+            continue
+        if preds.get(taken) != {H} or preds.get(fall) != {H}:
+            continue
+        ct, cf = cfg.get(taken, frozenset()), cfg.get(fall, frozenset())
+        if len(ct) != 1 or ct != cf or EXIT in ct:
+            continue
+        merge = next(iter(ct))
+        # FORWARD layout only: head < fall-arm < taken-arm < merge. The decode loop folds
+        # in address order (capture the fall value on entering the taken arm, build the
+        # ternary at the merge), so a backward branch / rotated layout would mis-capture.
+        if not (fall < taken < merge):
+            continue
+        out.append({
+            'head': branch['addr'],
+            'polarity': 'z' if branch['mnemonic'] == 'branch_z_abs' else 'nz',
+            'taken_block': taken, 'fall_block': fall, 'merge': merge,
+            'fall_jump_addr': jmp_f, 'taken_jump_addr': jmp_t,
+        })
+    return out
 
 
 def unknown_control_mnemonics(instructions):
