@@ -48,7 +48,18 @@ BUILD LADDER (each rung lands gate-green + measured on tools/v2-corpus.py):
        pure-routing block (tail-of-if-arm), an empty then-arm with a goto-side body.
     3. short-circuit (&&/||) — reuse boolean_regions / recover_bool_formula. Unblocks the
        remaining acyclic bails AND the compound-exit loops (`while (a && b)`).
-    5. switch — reuse switch_dispatches; nested-in-if/while switches fall out for free.
+    5. [DONE 2026-06-04] switch — block-level port of structure_switches as a composable region
+       node (_structure_switch): keep the `switch(E){` opener, drop the `case N: goto` dispatch
+       + closer, inline each case-target block's RAW lines (gotos verbatim — no break-conversion
+       / no intra-case folding yet) in address order with `case N:`/`default:` labels, close
+       after the last enclosed block. Folds the switch AND its enclosing loop/if (the closure
+       payoff — e.g. $8D5D switch-in-while, $9BB4 fall-through ladder, both 0 gotos). +12 subs
+       (171->183), V2 gotos 1624->1541, behind 142->130, 0 gate-rejects. An UN-foldable switch
+       (not single-entry) still bails the sub (reason 'switch_unfoldable', 9 subs). The bigger
+       switch potential (e.g. $A2D2) is gated behind a co-occurring cross_edge bail (whole-sub
+       fallback hides the fold) — see the bail histogram. Follow-ups: break-conversion to the
+       merge, and intra-case structuring (recurse _structure inside a case body) to match V1
+       on switch subs whose cases carry ifs.
     4d. nested loops — drop the `any header inside loop -> bail` guard once 3/5 reduce noise.
     6. irreducible fallback — break one retreating/cross edge, honest goto, continue.
     7. cutover — V2 folds >= templates across all 495, every gate green -> flip default
@@ -138,7 +149,19 @@ _RE_GOTO = re.compile(r'goto L_([0-9A-Fa-f]{4});$')
 
 
 class _NotReducible(Exception):
-    pass
+    """Raised by a structuring rung when it can't cleanly own a shape (the whole sub then
+    falls back to the rung-1 flat emit). `reason` is a short category tag for the bail
+    histogram (`v2-corpus.py --bails`) — diagnostic only, never alters behaviour."""
+    def __init__(self, reason=None):
+        super().__init__(reason)
+        self.reason = reason
+
+
+# Bail attribution: the reason the LAST reduce() call fell back to flat emit (None if it
+# folded cleanly). Single-threaded, set synchronously inside reduce() — read it right after.
+# Drives `v2-corpus.py --bails`, which ranks the residue so the next rung targets the biggest
+# lever. Purely diagnostic; does NOT affect emitted lines.
+LAST_BAIL = None
 
 
 def _parse_block(block_lines):
@@ -173,12 +196,17 @@ class _Ctx:
       info     : {leader: _parse_block(...)} — stmts / rawcond / branch_addr / goto_target
       block_of : addr -> its block leader;  nxt : leader -> address-next leader (or EXIT)
       loops    : {header: frozenset(loop nodes)} ;  latches : {header: set(latch blocks)}
+      buckets  : {leader: [(addr,indent,text)]} — the RAW partitioned lines (rung 5 reads
+                 the verbatim case-body lines from here, gotos/labels intact)
+      switches : {switch_block: dispatch dict} — foldable switches (vm_cfg.switch_dispatches)
       visited  : cross-edge guard (a block reached twice = irreducible)"""
-    __slots__ = ("full_cfg", "info", "block_of", "nxt", "loops", "latches", "visited")
+    __slots__ = ("full_cfg", "info", "block_of", "nxt", "loops", "latches",
+                 "buckets", "switches", "visited")
 
-    def __init__(self, full_cfg, info, block_of, nxt, loops, latches):
+    def __init__(self, full_cfg, info, block_of, nxt, loops, latches, buckets, switches):
         self.full_cfg, self.info, self.block_of, self.nxt = full_cfg, info, block_of, nxt
-        self.loops, self.latches, self.visited = loops, latches, set()
+        self.loops, self.latches = loops, latches
+        self.buckets, self.switches, self.visited = buckets, switches, set()
 
 
 def _is_return_block(L, ctx):
@@ -243,8 +271,16 @@ def _structure(entry, stop, pdom, ctx, loop):
             used |= consumed
             n = after
             continue
+        # a foldable switch dispatch head -> fold the whole switch territory to one node (rung 5)
+        if n in ctx.switches and n not in ctx.visited:
+            node, consumed, after = _structure_switch(n, ctx, loop)
+            seq.append(node)
+            used |= consumed
+            ctx.visited |= consumed
+            n = after
+            continue
         if n in ctx.visited:
-            raise _NotReducible                      # cross / shared edge
+            raise _NotReducible('cross_edge')        # cross / shared edge
         ctx.visited.add(n)
         used.add(n)
         stmts, rawcond, baddr, gtgt, _sw = ctx.info[n]
@@ -260,10 +296,10 @@ def _structure(entry, stop, pdom, ctx, loop):
         elif len(succ) == 2 and rawcond is not None and gtgt is not None:
             goto_block = ctx.block_of(gtgt)
             if goto_block not in succ:
-                raise _NotReducible
+                raise _NotReducible('goto_not_succ')
             fall = next((x for x in succ if x != goto_block), None)
             if fall is None:
-                raise _NotReducible
+                raise _NotReducible('no_fall')
             gt, ft = _terminal(goto_block, loop, ctx), _terminal(fall, loop, ctx)
             # --- single-sided guard: `if (cond) break;/continue;/return X;` ---------------
             if gt is not None and ft is None:
@@ -285,12 +321,12 @@ def _structure(entry, stop, pdom, ctx, loop):
                 break
             # --- both arms are regions: if-then / if-then-else (rung 2) -------------------
             if fall is vm_cfg.EXIT:
-                raise _NotReducible                  # header falls off the end — rare
+                raise _NotReducible('header_falls_off')  # header falls off the end — rare
             merge = vm_cfg._imm_post_dom(pdom, n)
             # The goto target must stay within the region (<= merge by address); a goto PAST
             # the merge is a forward skip (break-like) -> irreducible here.
             if merge is not vm_cfg.EXIT and goto_block > merge:
-                raise _NotReducible
+                raise _NotReducible('goto_past_merge')
             then_seq, then_used = ([], set()) if fall == merge else \
                 _structure(fall, merge, pdom, ctx, loop)
             else_seq, else_used = ([], set()) if goto_block == merge else \
@@ -301,28 +337,28 @@ def _structure(entry, stop, pdom, ctx, loop):
                 # BETWEEN the header and that body. The gate finds the else boundary by address
                 # (next leader after the then span), which an empty then-arm makes ambiguous ->
                 # bail (reorder). (Both arms empty = a value-diamond shell — harmless, fold it.)
-                raise _NotReducible
+                raise _NotReducible('empty_then')
             if else_seq:
                 if not (fall < goto_block):
-                    raise _NotReducible              # if-else needs then(fall) before else(goto)
+                    raise _NotReducible('else_before_then')  # if-else needs then(fall) before else(goto)
                 # The ENTIRE then-region must precede the ENTIRE else-region by address — else
                 # emitting then-then-else reverses address order and the address-based gate
                 # mis-routes. Lexical order == address order is the invariant the gate relies
                 # on. (then_used/else_used can be empty when an arm is a pure terminal.)
                 if then_used and else_used and max(then_used) >= min(else_used):
-                    raise _NotReducible
+                    raise _NotReducible('arm_order')
             # LEXICAL-ADJACENCY of the merge: the gate lowers a construct's merge as the
             # address-next leader after its last block, so the merge MUST be that block.
             # Skipped when the merge is EXIT (the whole region ends after this if).
             consumed = {n} | then_used | else_used
             if merge is not vm_cfg.EXIT and ctx.nxt[max(consumed)] != merge:
-                raise _NotReducible
+                raise _NotReducible('merge_not_adjacent')
             cond = vm_cfg._neg(rawcond)
             seq.append(('if', baddr if baddr is not None else n, stmts, cond, then_seq, else_seq))
             used |= consumed
             n = merge
         else:
-            raise _NotReducible                      # switch / >2-way / cond-less 2-way
+            raise _NotReducible('multiway')          # switch / >2-way / cond-less 2-way
     return seq, used
 
 
@@ -342,12 +378,12 @@ def _structure_loop(h, ctx, outer_loop):
     loop = ctx.loops[h]
     # Nested loop (another header strictly inside this one) -> defer to rung 4d.
     if any(h2 != h and h2 in loop for h2 in ctx.loops):
-        raise _NotReducible
+        raise _NotReducible('nested_loop')
     # Exit target(s): a single clean exit, else not ours yet.
     exit_targets = {s for nn in loop for s in ctx.full_cfg[nn]
                     if s is not vm_cfg.EXIT and s not in loop}
     if len(exit_targets) > 1:
-        raise _NotReducible
+        raise _NotReducible('multi_exit_loop')
     e = next(iter(exit_targets)) if exit_targets else None
     # LEXICAL ADJACENCY of the exit: the gate reads a loop's exit as the first REAL block AFTER
     # the closing brace by address. So the exit must (a) be the leader right after the loop's
@@ -356,7 +392,7 @@ def _structure_loop(h, ctx, outer_loop):
     # nothing, so the gate skips PAST it to the next arm -> mis-routes the exit. Bail on both.
     if e is not None and (ctx.nxt[max(loop)] != e
                           or (len(ctx.full_cfg[e]) == 1 and not ctx.info[e][0])):
-        raise _NotReducible
+        raise _NotReducible('exit_not_adjacent')
     lp = (h, e)
     # Body-local post-dominator: an edge that LEAVES the body (to the header = continue, to
     # the exit / outside = break, to EXIT = return) is TERMINAL — it must not pull the merge
@@ -392,7 +428,7 @@ def _structure_loop(h, ctx, outer_loop):
         if h_stmts:
             exit_edge_blocks = {nn for nn in loop if e in ctx.full_cfg[nn]}
             if len(exit_edge_blocks) > 1:
-                raise _NotReducible
+                raise _NotReducible('compound_pretest')
             body = body + [('block', h, h_stmts)]
         node = ('loop', 'while', h, cond, body, None, [])
         ctx.visited |= set(loop)
@@ -420,6 +456,72 @@ def _structure_loop(h, ctx, outer_loop):
     return ('loop', 'while1', h, None, body, None, []), set(loop), (e if e is not None else vm_cfg.EXIT)
 
 
+def _structure_switch(S, ctx, loop):
+    """Rung 5: fold the foldable switch dispatched at block `S` to ONE composable node so the
+    walk consumes it like a block (and any enclosing loop/if folds around it). Block-level
+    port of vm_decompile.structure_switches: keep the `switch (E) {` opener, DROP the
+    `case N: goto L_T;` dispatch lines + the closer, then inline each case-target block's raw
+    lines (verbatim — internal gotos/returns stay honest, exactly as V1) in ADDRESS order with
+    `case N:` / `default:` labels injected, +1 indent, closing `}` after the last enclosed
+    block. Returns ('switchspan', rel_lines), consumed_leaders, after. `rel_lines` is a list of
+    (addr, rel_indent, text); _emit adds the base indent so it nests under loops/ifs.
+    Faithful (no break-conversion, no intra-case structuring yet — those are follow-ups); its
+    CFG matches the raw witness the same way V1's inline does, so the gate accepts it."""
+    d = ctx.switches[S]
+    body_end = d['body_end']
+    after = ctx.block_of(body_end) if body_end is not None else vm_cfg.EXIT
+    # target block -> the case-label lines to emit before it, in key-declaration order.
+    by_target = {}
+    for key, tgt in d['key_targets']:
+        by_target.setdefault(tgt, []).append('default:' if key is None else f'case {key}:')
+
+    rel = []                                   # (addr, rel_indent, text)
+    # --- S's block: leading selector stmts + the `switch (E) {` opener; skip dispatch+closer.
+    opener_seen = False
+    for addr, _i, text in ctx.buckets[S]:
+        t = text.strip()
+        if vm_cfg._RE_LABEL.match(t):
+            continue
+        if opener_seen:
+            continue                           # dispatch `case: goto` lines + the `}` closer
+        rel.append((addr, 0, t))
+        if vm_cfg._RE_SWITCH_OPEN.match(t):
+            opener_seen = True
+    # --- enclosed case bodies: every leader strictly between S and body_end, address order.
+    enclosed = [L for L in d['enclosed'] if L != S
+                and (body_end is None or L < body_end)]
+    consumed = {S} | set(enclosed)
+    labeled = set()
+    for L in sorted(enclosed):
+        if L in by_target:
+            for lab in by_target[L]:
+                rel.append((L, 1, lab))           # case label aligns one in from `switch`
+            labeled.add(L)
+        for addr, _i, text in ctx.buckets[L]:
+            t = text.strip()
+            rel.append((addr, 2, t))              # case body one deeper than its label
+    # --- empty trailing cases: a key pointing at the merge (== body_end) has no enclosed
+    #     block; emit it as an empty case that falls off the `}` (== break / fall-to-merge).
+    for tgt in sorted(t for t in by_target if t not in labeled):
+        if tgt == after and after is not vm_cfg.EXIT:
+            for lab in by_target[tgt]:
+                rel.append((tgt, 1, lab))
+            labeled.add(tgt)
+    rel.append((0, 0, "}"))
+    # --- prune case-target leader labels whose only refs were the dropped dispatch lines.
+    referenced = set()
+    for _a, _ri, txt in rel:
+        for m in re.finditer(r'goto L_([0-9A-Fa-f]{4})', txt):
+            referenced.add(int(m.group(1), 16))
+    pruned = []
+    for a, ri, txt in rel:
+        lm = re.match(r'L_([0-9A-Fa-f]{4}):$', txt.strip())
+        if lm and a in labeled and int(lm.group(1), 16) not in referenced:
+            continue
+        pruned.append((a, ri, txt))
+    return ('switchspan', pruned), consumed, after
+
+
 def _emit(seq, indent, out):
     for item in seq:
         kind = item[0]
@@ -432,6 +534,9 @@ def _emit(seq, indent, out):
         elif kind == 'guard':
             _, baddr, cond, gkind = item
             out.append((baddr, indent, f"if ({cond}) {gkind};"))
+        elif kind == 'switchspan':
+            for addr, rel_indent, text in item[1]:
+                out.append((addr, indent + rel_indent, text))
         elif kind == 'if':
             _, baddr, stmts, cond, then_seq, else_seq = item
             for addr, text in stmts:
@@ -464,6 +569,8 @@ def reduce(lines, instructions):
     sequence / if-then / if-then-else / while / do-while / while(1) over the whole sub.
     Falls back to the rung-1 flat emit whenever the structure can't be cleanly recovered;
     the CFG-equivalence gate in vm_decompile.decompile is the final backstop."""
+    global LAST_BAIL
+    LAST_BAIL = None
     cfg, leaders = vm_cfg.bytecode_cfg(instructions)
     if not leaders:
         return list(lines)
@@ -471,7 +578,12 @@ def reduce(lines, instructions):
     try:
         block_of = vm_cfg._block_of_fn(leaders)
         info = {L: _parse_block(buckets[L]) for L in leaders}
-        if any(i[4] for i in info.values()):            # a switch -> rung 5
+        # Rung 5: foldable switches (single-entry dispatch) become composable region nodes.
+        # An UN-foldable switch (a block with case-dispatch lines but no entry in the detector)
+        # has no rung that owns it -> bail the whole sub to honest goto (as before rung 5).
+        switches = {d['S']: d for d in vm_cfg.switch_dispatches(instructions)}
+        if any(i[4] and L not in switches for L, i in info.items()):
+            LAST_BAIL = 'switch_unfoldable'
             return _flat_emit(buckets, leaders)
         nxt = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else vm_cfg.EXIT)
                for i in range(len(leaders))}
@@ -482,9 +594,10 @@ def reduce(lines, instructions):
             loops.setdefault(hh, set()).update(vm_cfg.natural_loop(u, hh, cfg))
             latches[hh].add(u)
         loops = {hh: frozenset(s) for hh, s in loops.items()}
-        ctx = _Ctx(cfg, info, block_of, nxt, loops, latches)
+        ctx = _Ctx(cfg, info, block_of, nxt, loops, latches, buckets, switches)
         seq, _used = _structure(leaders[0], vm_cfg.EXIT, vm_cfg.post_dominators(cfg), ctx, None)
-    except _NotReducible:
+    except _NotReducible as e:
+        LAST_BAIL = e.reason or 'unknown'
         return _flat_emit(buckets, leaders)
     out = []
     _emit(seq, 1, out)

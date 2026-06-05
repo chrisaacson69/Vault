@@ -22,7 +22,12 @@ HARD gate is tools/vm-cfg-gate.py (run it with STRUCTURE_V2 set to validate V2).
 Usage:
   py -3 tools/v2-corpus.py [--banks 0,1,2,15]      # corpus summary + per-bank table
   py -3 tools/v2-corpus.py --behind                 # list the subs V2 is still behind V1 on
+  py -3 tools/v2-corpus.py --bails                   # histogram the bail CAUSE over behind subs
   py -3 tools/v2-corpus.py --sub 0xE76F [--bank 15] # side-by-side V1 vs V2 for one sub
+
+--bails attributes each behind-V1 sub to the rung that bailed it (every behind sub fell back
+to flat emit — a clean _structure emits zero gotos), so the histogram ranks the next rung by
+recoverable gotos. Reads vm_reduce.LAST_BAIL after re-running reduce() per sub.
 """
 import argparse
 import importlib.util
@@ -38,6 +43,7 @@ sys.path.insert(0, str(HERE))
 
 import vm_cfg
 import vm_decompile
+import vm_reduce
 _da_spec = importlib.util.spec_from_file_location("decompile_all", HERE / "decompile-all.py")
 decompile_all = importlib.util.module_from_spec(_da_spec)
 _da_spec.loader.exec_module(decompile_all)
@@ -135,6 +141,36 @@ def show_behind(rows, behind):
         print(f"  b{bank} ${stub:04X}   raw {raw_g:>3}  V1 {v1_g:>3}  V2 {v2_g:>3}   ({state})")
 
 
+def show_bails(rows, behind, v2):
+    """Attribute each behind-V1 sub to the rung that bailed it. Every behind sub fell back to
+    the rung-1 flat emit (a clean _structure emits ZERO gotos), so re-running reduce() and
+    reading vm_reduce.LAST_BAIL pins the exact cause — the histogram ranks the next rung."""
+    from collections import defaultdict
+    by_reason = defaultdict(list)
+    for bank, stub, raw_g, v1_g, v2_g, _state, _b in behind:
+        c2 = v2[(bank, stub)]
+        vm_reduce.reduce(c2['raw'], c2['instructions'])
+        gain = v2_g - v1_g                       # gotos V2 leaves that V1 folds = the prize
+        by_reason[vm_reduce.LAST_BAIL or 'none'].append((bank, stub, raw_g, v1_g, v2_g, gain))
+
+    print(f"\nBail-reason histogram over {len(behind)} behind-V1 subs "
+          f"(gain = V2_gotos - V1_gotos recoverable by owning this shape):\n")
+    print(f"  {'reason':<20} {'subs':>4} {'goto_gain':>9}")
+    ranked = sorted(by_reason.items(), key=lambda kv: -sum(s[5] for s in kv[1]))
+    total_gain = sum(s[5] for subs in by_reason.values() for s in subs)
+    for reason, subs in ranked:
+        print(f"  {reason:<20} {len(subs):>4} {sum(s[5] for s in subs):>9}")
+    print(f"  {'TOTAL':<20} {len(behind):>4} {total_gain:>9}")
+
+    for reason, subs in ranked:
+        print(f"\n  --- {reason}  ({len(subs)} subs, "
+              f"{sum(s[5] for s in subs)} recoverable gotos) ---")
+        for bank, stub, raw_g, v1_g, v2_g, gain in sorted(subs, key=lambda s: -s[5])[:12]:
+            print(f"    b{bank} ${stub:04X}   raw {raw_g:>3}  V1 {v1_g:>3}  V2 {v2_g:>3}  (+{gain})")
+        if len(subs) > 12:
+            print(f"    … +{len(subs) - 12} more")
+
+
 def show_sub(banks, target, bank_hint):
     bset = [bank_hint] if bank_hint is not None else banks
     v1 = _collect(bset, v2=False)
@@ -158,6 +194,7 @@ def main():
     ap = argparse.ArgumentParser(description="V2 region-reducer regression oracle")
     ap.add_argument("--banks", default=",".join(map(str, CODE_BANKS)))
     ap.add_argument("--behind", action="store_true", help="list the subs V2 is still behind V1 on")
+    ap.add_argument("--bails", action="store_true", help="histogram the bail cause over behind-V1 subs")
     ap.add_argument("--sub", help="side-by-side V1 vs V2 for one sub (hex addr, e.g. 0xE76F)")
     ap.add_argument("--bank", type=int, help="restrict --sub lookup to this bank")
     args = ap.parse_args()
@@ -168,6 +205,8 @@ def main():
     rows, behind = run(banks)
     if args.behind:
         show_behind(rows, behind)
+    if args.bails:
+        show_bails(rows, behind, _collect(banks, v2=True))
 
 
 if __name__ == "__main__":
