@@ -453,15 +453,28 @@ def _structure_loop(h, ctx, outer_loop):
     (node, consumed_leaders, after) where `after` is the block to continue the surrounding
     walk from (the loop's single exit, or EXIT if it only leaves via return)."""
     loop = ctx.loops[h]
-    # Nested loop (another header strictly inside this one) -> defer to rung 4d.
-    if any(h2 != h and h2 in loop for h2 in ctx.loops):
-        raise _NotReducible('nested_loop')
+    # RUNG 4d: nested loops compose for free — the body walk recurses into _structure_loop for
+    # an inner header, collapsing it to one node the outer walk consumes like a block. But an
+    # IRREGULAR inner loop doesn't fold cleanly and would gate-reject, so bail those
+    # structurally (the gate stays a pure backstop). Irregular = more than one latch (multi
+    # back-edge inner).
+    for h2 in ctx.loops:
+        if h2 != h and h2 in loop and len(ctx.latches[h2]) > 1:
+            raise _NotReducible('nested_loop')
     # Exit target(s): a single clean exit, else not ours yet.
     exit_targets = {s for nn in loop for s in ctx.full_cfg[nn]
                     if s is not vm_cfg.EXIT and s not in loop}
     if len(exit_targets) > 1:
         raise _NotReducible('multi_exit_loop')
     e = next(iter(exit_targets)) if exit_targets else None
+    # GATE ANCHORING: if the exit block is itself a do-while LATCH (a 2-way post-test rendered as
+    # the `} while (C);` scaffold line), the gate's first_real_block skips PAST it to the block
+    # after the do-while and mis-reads THIS loop's exit. The reducer's output is correct C, but
+    # the verifier can't anchor an exit on a scaffold line -> bail (sound). Hits an inner while
+    # that is the last statement of a do-while body (e.g. $DB97: while(...) ending a do-while).
+    if outer_loop is not None and e is not None and len(ctx.full_cfg[e]) == 2 \
+            and e in ctx.latches.get(outer_loop[0], ()) and not ctx.info[e][0]:
+        raise _NotReducible('exit_is_dowhile_latch')
     # LEXICAL ADJACENCY of the exit: the gate reads a loop's exit as the first REAL block AFTER
     # the closing brace by address. So the exit must (a) be the leader right after the loop's
     # last block, and (b) emit a line the gate can anchor on. A pure-routing exit (a 1-succ
