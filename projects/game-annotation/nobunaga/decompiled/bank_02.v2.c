@@ -35,34 +35,30 @@ word build_blit_fief_tile_block(word dst_col, word dst_row) {
         palette_write_wrap(i, *(word*)(((i << 1) + build_blit_fief_tile_blo_data_b51e)));    // $814F
         i = (i + 1);    // $8156
     } while (((unsigned)i < (unsigned)4));    // $8144
-    if (*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6))) goto L_81E8;    // $8168
-    descriptor_ptr = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + build_blit_fief_tile_blo_data_bbd0);    // $8178
-    syscall16_sram_wrap(8, descriptor_ptr, &tile_descriptor, 4);    // $8182
-    descriptor_ptr = &tile_descriptor;    // $8189
-    ppu_upload_block_wrap(*(byte*)(descriptor_ptr), *(word*)((descriptor_ptr + 2)), 0x17F0, *(byte*)((descriptor_ptr + 1)));    // $819C
-    i = 0;    // $81A1
-    src_ptr = ((fief_to_mapid(active_province_idx_copy) * 36) + build_blit_fief_tile_blo_data_b144);    // $81B1
-    goto L_81DD;    // $81B3
-L_81B6:
-    syscall16_sram_wrap(8, src_ptr, &tile_byte, 1);    // $81BE
-    *(byte*)((i + &tile_buf)) = (tile_byte + 36);    // $81D0
-    i = (i + 1);    // $81D4
-    src_ptr = (src_ptr + 1);    // $81DA
-L_81DD:
-    if (((unsigned)i < (unsigned)36)) goto L_81B6;    // $81E2
-    goto L_8218;    // $81E5
-L_81E8:
-    compose_upload_daimyo_portrait(&tile_buf);    // $81EC
-    i = 0;    // $81F1
-    src_ptr = &tile_buf;    // $81F6
-    goto L_8210;    // $81F8
-L_81FB:
-    *(byte*)(src_ptr) = (*(byte*)(src_ptr) + 36);    // $8203
-    i = (i + 1);    // $8207
-    src_ptr = (src_ptr + 1);    // $820D
-L_8210:
-    if (((unsigned)i < (unsigned)36)) goto L_81FB;    // $8215
-L_8218:
+    if (!(*(byte*)((daimyo_record_addr(active_province_idx_copy) + 6)))) {    // $8168
+        descriptor_ptr = (((fief_to_mapid(active_province_idx_copy) << 1) << 1) + build_blit_fief_tile_blo_data_bbd0);    // $8178
+        syscall16_sram_wrap(8, descriptor_ptr, &tile_descriptor, 4);    // $8182
+        descriptor_ptr = &tile_descriptor;    // $8189
+        ppu_upload_block_wrap(*(byte*)(descriptor_ptr), *(word*)((descriptor_ptr + 2)), 0x17F0, *(byte*)((descriptor_ptr + 1)));    // $819C
+        i = 0;    // $81A1
+        src_ptr = ((fief_to_mapid(active_province_idx_copy) * 36) + build_blit_fief_tile_blo_data_b144);    // $81B1
+        while (((unsigned)i < (unsigned)36)) {    // $81DD
+            syscall16_sram_wrap(8, src_ptr, &tile_byte, 1);    // $81BE
+            *(byte*)((i + &tile_buf)) = (tile_byte + 36);    // $81D0
+            i = (i + 1);    // $81D4
+            src_ptr = (src_ptr + 1);    // $81DA
+        }
+        return ppu_blit_from_bank_wrap(dst_col, dst_row, (dst_col + 5), (dst_row + 5), &tile_buf, 8);    // $81E5
+    } else {
+        compose_upload_daimyo_portrait(&tile_buf);    // $81EC
+        i = 0;    // $81F1
+        src_ptr = &tile_buf;    // $81F6
+        while (((unsigned)i < (unsigned)36)) {    // $8210
+            *(byte*)(src_ptr) = (*(byte*)(src_ptr) + 36);    // $8203
+            i = (i + 1);    // $8207
+            src_ptr = (src_ptr + 1);    // $820D
+        }
+    }
     return ppu_blit_from_bank_wrap(dst_col, dst_row, (dst_col + 5), (dst_row + 5), &tile_buf, 8);    // $8229
 }
 
@@ -237,15 +233,15 @@ word draw_tactical_cursor_region(word arg1) {
         local9 = tactical_cursor_row_7bf7;    // $8428
         calc_tactical_cell_coords(&local10, &local9);    // $8431
         local11 = 1;    // $8436
-L_8437:
-        syscall_set_sprite(local11, (local10 << 3), ((local9 << 3) - 1), 0, 0);    // $8444
-        local10 = (local10 + 1);    // $844A
-        if (!((((local10 + 1) & 3) == 2))) goto L_845A;    // $844F
-        local10 = (local10 - 4);    // $8456
-        local9 = (local9 + 1);    // $8459
-L_845A:
-        local11 = (local11 + 1);    // $845C
-        if ((local11 <= 16)) goto L_8437;    // $8461
+        do {    // $8437
+            syscall_set_sprite(local11, (local10 << 3), ((local9 << 3) - 1), 0, 0);    // $8444
+            local10 = (local10 + 1);    // $844A
+            if ((((local10 + 1) & 3) == 2)) {    // $844F
+                local10 = (local10 - 4);    // $8456
+                local9 = (local9 + 1);    // $8459
+            }
+            local11 = (local11 + 1);    // $845C
+        } while ((local11 <= 16));    // $845A
         return syscall_wait_for_nmi();    // $8464
     } else {
         local11 = 1;    // $8468

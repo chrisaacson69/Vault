@@ -271,19 +271,18 @@ L_8593:
 L_85B4:
     if (((unsigned)local11 < (unsigned)scenario_fief_count)) goto L_83F7;    // $85B9
     goto L_85F4;    // $85BD
-L_85C0:
-    goto L_85EB;    // $85C1
-L_85C4:
-    selected_province_idx = *(word*)(((local11 << 1) + &boosted_fief_list));    // $85CD
-    battle_defending_province = *(word*)(((local10 << 1) + &boosted_fief_list));    // $85D9
-    if ((selected_province_idx == battle_defending_province)) goto L_85E9;    // $85E3
-    diplomacy_helper3();    // $85E6
-L_85EB:
-    local10 = (local10 + 1);    // $85EB
-    if (((unsigned)local10 < (unsigned)local9)) goto L_85C4;    // $85EF
 L_85F4:
-    local11 = (local11 + 1);    // $85F4
-    if (((unsigned)local11 < (unsigned)local9)) goto L_85C0;    // $85F8
+    while (((unsigned)local11 < (unsigned)local9)) {    // $85F4
+        while (((unsigned)local10 < (unsigned)local9)) {    // $85EB
+            selected_province_idx = *(word*)(((local11 << 1) + &boosted_fief_list));    // $85CD
+            battle_defending_province = *(word*)(((local10 << 1) + &boosted_fief_list));    // $85D9
+            if ((selected_province_idx != battle_defending_province)) {    // $85E3
+                diplomacy_helper3();    // $85E6
+            }
+            local10 = (local10 + 1);    // $85EB
+        }
+        local11 = (local11 + 1);    // $85F4
+    }
     return ((unsigned)local11 < (unsigned)local9);    // $85FB
 }
 
@@ -489,82 +488,75 @@ word init_new_game_state(void) {
     ui_timer_gate_flag_7fe7 = 0;    // $89B5
     delay_loop_count = 50;    // $89BA
     ui_pending_flag_7fc7 = 0;    // $89BE
-L_89C1:
-    ui_input_mode = 0;    // $89C2
-    ui_msg_col_shift_flag = 0;    // $89C6
-    if (!(verify_sram_save_integrity())) goto L_89D7;    // $89CC
-    return syscall_audio_control(0, 0);    // $89D6
-L_89D7:
-    i = 0;    // $89D8
-L_89D9:
-    *(byte*)((i + 0x7FD5)) = -1;    // $89E1
-    i = (i + 1);    // $89E4
-    if (((unsigned)i < (unsigned)8)) goto L_89D9;    // $89E8
-    prompt_select_scenario_size();    // $89EB
-    goto L_89FC;    // $89EF
-L_89F2:
-    daimyo_turn_order[i] = i;    // $89F9
-L_89FC:
-    i = (i + 1);    // $89FC
-    if (((unsigned)i < (unsigned)scenario_fief_count)) goto L_89F2;    // $8A02
-    goto L_8A13;    // $8A06
-L_8A09:
-    province_ai_state[i] = 0;    // $8A10
-L_8A13:
-    i = (i + 1);    // $8A13
-    if (((unsigned)i < (unsigned)(scenario_fief_count + 4))) goto L_8A09;    // $8A1C
-L_8A1F:
-    message_display(msg_how_many_players);    // $8A22
-    newgame_player_count = number_input(1, 8);    // $8A2C
-    if (!(number_input(1, 8))) goto L_8A1F;    // $8A2F
-    i = 0;    // $8A33
-L_8A34:
-    *(word*)(((i << 1) + 0x6E0B)) = (rng_mod(10) + 8);    // $8A41
-    i = (i + 1);    // $8A44
-    if (((unsigned)i < (unsigned)5)) goto L_8A34;    // $8A48
-    ui_helper_cd20();    // $8A4B
-    ui_msg_col_shift_flag = 1;    // $8A4F
-    marry_helper_cc35(1);    // $8A53
-    ppu_upload_block_wrap(0, verify_sram_save_integri_data_b78a, 0x14D0, 4);    // $8A5F
-    ppu_upload_block_wrap(4, 0x83BC, 0x1510, 154);    // $8A6D
-    i = 0;    // $8A72
-L_8A73:
-    palette_write_wrap(i, verify_sram_save_integri_data_b852[i]);    // $8A7B
-    i = (i + 1);    // $8A81
-    if (((unsigned)i < (unsigned)8)) goto L_8A73;    // $8A85
-    marry_helper_cc35(0);    // $8A89
-    goto L_8ABC;    // $8A8E
-L_8A91:
-    ui_helper_cd20();    // $8A91
-    palette_write_wrap(7, 33);    // $8A97
-    palette_write_wrap(11, 48);    // $8A9E
-    ui_input_mode = (((i & 1) == 1) ? 0 : 4);    // $8AAF
-    prompt_select_player_daimyo(i);    // $8AB3
-    daimyo_creation_stat_roll_screen();    // $8AB7
-L_8ABC:
-    i = (i + 1);    // $8ABC
-    if (((unsigned)i <= (unsigned)newgame_player_count)) goto L_8A91;    // $8AC2
-    ui_input_mode = 0;    // $8AC6
-L_8AC9:
-    message_display(msg_please_select_skill_level);    // $8ACC
-    const_two = number_input(1, 5);    // $8AD6
-    if (!(number_input(1, 5))) goto L_8AC9;    // $8AD9
-    message_display(msg_is_everything_ok_so_far);    // $8ADF
-    if (ui_helper_d3a7()) goto L_8B44;    // $8AE6
-    ui_helper_cd20();    // $8AE9
-    marry_helper_cc35(1);    // $8AED
-    ppu_upload_block_wrap(6, render_boot_title_screen_data_8264, 0x14D0, 177);    // $8AFB
-    ppu_blit_from_bank_wrap(0, 3, 31, 21, prompt_select_scenario_s_data_8004, 6);    // $8B09
-    ppu_render_rect_wrap(0, 3, 17, 7, 1);    // $8B13
-    i = 0;    // $8B18
-L_8B19:
-    if (!(((unsigned)i < (unsigned)8))) goto L_8B26;    // $8B1C
-    palette_write_wrap(i, msg_new_game_b862[i]);    // $8B2E
-    i = (i + 1);    // $8B34
-    if (((unsigned)i < (unsigned)32)) goto L_8B19;    // $8B39
-    marry_helper_cc35(0);    // $8B3D
-    goto L_89C1;    // $8B41
-L_8B44:
+    while (1) {    // $89C1
+        ui_input_mode = 0;    // $89C2
+        ui_msg_col_shift_flag = 0;    // $89C6
+        if (verify_sram_save_integrity()) return syscall_audio_control(0, 0);    // $89CC
+        i = 0;    // $89D8
+        do {    // $89D9
+            *(byte*)((i + 0x7FD5)) = -1;    // $89E1
+            i = (i + 1);    // $89E4
+        } while (((unsigned)i < (unsigned)8));    // $89D9
+        prompt_select_scenario_size();    // $89EB
+        while (((unsigned)i < (unsigned)scenario_fief_count)) {    // $89FC
+            daimyo_turn_order[i] = i;    // $89F9
+            i = (i + 1);    // $89FC
+        }
+        while (((unsigned)i < (unsigned)(scenario_fief_count + 4))) {    // $8A13
+            province_ai_state[i] = 0;    // $8A10
+            i = (i + 1);    // $8A13
+        }
+        do {    // $8A1F
+            message_display(msg_how_many_players);    // $8A22
+            newgame_player_count = number_input(1, 8);    // $8A2C
+        } while (!(number_input(1, 8)));    // $8A1F
+        i = 0;    // $8A33
+        do {    // $8A34
+            *(word*)(((i << 1) + 0x6E0B)) = (rng_mod(10) + 8);    // $8A41
+            i = (i + 1);    // $8A44
+        } while (((unsigned)i < (unsigned)5));    // $8A34
+        ui_helper_cd20();    // $8A4B
+        ui_msg_col_shift_flag = 1;    // $8A4F
+        marry_helper_cc35(1);    // $8A53
+        ppu_upload_block_wrap(0, verify_sram_save_integri_data_b78a, 0x14D0, 4);    // $8A5F
+        ppu_upload_block_wrap(4, 0x83BC, 0x1510, 154);    // $8A6D
+        i = 0;    // $8A72
+        do {    // $8A73
+            palette_write_wrap(i, verify_sram_save_integri_data_b852[i]);    // $8A7B
+            i = (i + 1);    // $8A81
+        } while (((unsigned)i < (unsigned)8));    // $8A73
+        marry_helper_cc35(0);    // $8A89
+        while (((unsigned)i <= (unsigned)newgame_player_count)) {    // $8ABC
+            ui_helper_cd20();    // $8A91
+            palette_write_wrap(7, 33);    // $8A97
+            palette_write_wrap(11, 48);    // $8A9E
+            ui_input_mode = (((i & 1) == 1) ? 0 : 4);    // $8AAF
+            prompt_select_player_daimyo(i);    // $8AB3
+            daimyo_creation_stat_roll_screen();    // $8AB7
+            i = (i + 1);    // $8ABC
+        }
+        ui_input_mode = 0;    // $8AC6
+        do {    // $8AC9
+            message_display(msg_please_select_skill_level);    // $8ACC
+            const_two = number_input(1, 5);    // $8AD6
+        } while (!(number_input(1, 5)));    // $8AC9
+        message_display(msg_is_everything_ok_so_far);    // $8ADF
+        if (ui_helper_d3a7()) break;    // $8AE6
+        ui_helper_cd20();    // $8AE9
+        marry_helper_cc35(1);    // $8AED
+        ppu_upload_block_wrap(6, render_boot_title_screen_data_8264, 0x14D0, 177);    // $8AFB
+        ppu_blit_from_bank_wrap(0, 3, 31, 21, prompt_select_scenario_s_data_8004, 6);    // $8B09
+        ppu_render_rect_wrap(0, 3, 17, 7, 1);    // $8B13
+        i = 0;    // $8B18
+        do {    // $8B19
+            if (((unsigned)i < (unsigned)8)) {    // $8B1C
+            } else {
+            }
+            palette_write_wrap(i, msg_new_game_b862[i]);    // $8B2E
+            i = (i + 1);    // $8B34
+        } while (((unsigned)i < (unsigned)32));    // $8B2A
+        marry_helper_cc35(0);    // $8B3D
+    }
     message_display(msg_then_on_with_the_game);    // $8B47
     ai_player_count = (8 - newgame_player_count);    // $8B50
     apply_scenario_starting_stat_boosts();    // $8B53
@@ -908,17 +900,16 @@ word saturating_sub_byte_then_reset_if_ge_100(word arg1, word arg2) {
 
 word normalize_relations_matrix_lower(word decay_amount) {
     goto L_9114;    // $90EE
-L_90F1:
-    goto L_9109;    // $90F2
-L_90F5:
-    if (!(((unsigned)row < (unsigned)col))) goto L_9107;    // $90F8
-    saturating_sub_byte_then_reset_if_ge_100(relations_matrix_cell_addr(row, col), decay_amount);    // $9103
-L_9109:
-    col = (col + 1);    // $9109
-    if (((unsigned)col < (unsigned)scenario_fief_count)) goto L_90F5;    // $910F
 L_9114:
-    row = (row + 1);    // $9114
-    if (((unsigned)row < (unsigned)scenario_fief_count)) goto L_90F1;    // $911A
+    while (((unsigned)row < (unsigned)scenario_fief_count)) {    // $9114
+        while (((unsigned)col < (unsigned)scenario_fief_count)) {    // $9109
+            if (((unsigned)row < (unsigned)col)) {    // $90F8
+                saturating_sub_byte_then_reset_if_ge_100(relations_matrix_cell_addr(row, col), decay_amount);    // $9103
+            }
+            col = (col + 1);    // $9109
+        }
+        row = (row + 1);    // $9114
+    }
     return ((unsigned)row < (unsigned)scenario_fief_count);    // $911D
 }
 
@@ -927,17 +918,16 @@ L_9114:
 
 word normalize_relations_matrix_upper(word decay) {
     goto L_914A;    // $9124
-L_9127:
-    goto L_913F;    // $9128
-L_912B:
-    if (!(((unsigned)row < (unsigned)col))) goto L_913D;    // $912E
-    saturating_sub_byte_then_reset_if_ge_100(relations_matrix_cell_addr(col, row), decay);    // $9139
-L_913F:
-    col = (col + 1);    // $913F
-    if (((unsigned)col < (unsigned)scenario_fief_count)) goto L_912B;    // $9145
 L_914A:
-    row = (row + 1);    // $914A
-    if (((unsigned)row < (unsigned)scenario_fief_count)) goto L_9127;    // $9150
+    while (((unsigned)row < (unsigned)scenario_fief_count)) {    // $914A
+        while (((unsigned)col < (unsigned)scenario_fief_count)) {    // $913F
+            if (((unsigned)row < (unsigned)col)) {    // $912E
+                saturating_sub_byte_then_reset_if_ge_100(relations_matrix_cell_addr(col, row), decay);    // $9139
+            }
+            col = (col + 1);    // $913F
+        }
+        row = (row + 1);    // $914A
+    }
     return ((unsigned)row < (unsigned)scenario_fief_count);    // $9153
 }
 
@@ -1835,12 +1825,12 @@ word init_province_highwater_from_records(void) {
         local9 = ((local11 << 3) + 0x6003);    // $A07B
         local8 = ((local11 * 26) + 0x7009);    // $A084
         local10 = 0;    // $A086
-L_A087:
-        local9 = (local9 + 2);    // $A089
-        local8 = (local8 + 2);    // $A08F
-        *(word*)(((local9 + 2) + -2)) = *(word*)(((local8 + 2) + -2));    // $A093
-        local10 = (local10 + 1);    // $A096
-        if (((unsigned)local10 < (unsigned)4)) goto L_A087;    // $A09A
+        do {    // $A087
+            local9 = (local9 + 2);    // $A089
+            local8 = (local8 + 2);    // $A08F
+            *(word*)(((local9 + 2) + -2)) = *(word*)(((local8 + 2) + -2));    // $A093
+            local10 = (local10 + 1);    // $A096
+        } while (((unsigned)local10 < (unsigned)4));    // $A087
         local11 = (local11 + 1);    // $A09F
     }
     return ((unsigned)local11 < (unsigned)scenario_fief_count);    // $A0A8

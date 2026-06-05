@@ -340,14 +340,9 @@ def _structure(entry, stop, pdom, ctx, loop):
     seq, used = [], set()
     n = entry
     while n is not vm_cfg.EXIT and n != stop:
-        # a loop header reached from outside -> reduce the whole loop to one node. `bounded`
-        # tells _structure_loop it sits in a region whose end is NOT the sub's EXIT (an if-arm,
-        # `stop != EXIT`, or a loop body) — there a pure-routing exit is unsafe (the gate's
-        # first_real_block would scan PAST the region boundary). At top level contract() absorbs
-        # a routing exit, so it's fine.
+        # a loop header reached from outside -> reduce the whole loop to one node.
         if n in ctx.loops and (loop is None or n != loop[0]):
-            bounded = stop is not vm_cfg.EXIT or loop is not None
-            node, consumed, after = _structure_loop(n, ctx, loop, bounded)
+            node, consumed, after = _structure_loop(n, ctx, loop)
             seq.append(node)
             used |= consumed
             n = after
@@ -555,12 +550,10 @@ def _strip_trailing_continue(seq):
     return seq
 
 
-def _structure_loop(h, ctx, outer_loop, bounded=False):
+def _structure_loop(h, ctx, outer_loop):
     """Reduce the natural loop headed at `h` to one ('loop', …) node. Returns
     (node, consumed_leaders, after) where `after` is the block to continue the surrounding
-    walk from (the loop's single exit, or EXIT if it only leaves via return). `bounded` = the
-    loop sits inside a region that ends before the sub's EXIT (an if-arm or a loop body), where
-    a pure-routing exit can't be folded (the gate would scan past the region boundary)."""
+    walk from (the loop's single exit, or EXIT if it only leaves via return)."""
     loop = ctx.loops[h]
     # RUNG 4d: nested loops compose for free — the body walk recurses into _structure_loop for
     # an inner header, collapsing it to one node the outer walk consumes like a block. A
@@ -634,17 +627,17 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
             and e in ctx.latches.get(outer_loop[0], ()) and not ctx.info[e][0]:
         raise _NotReducible('exit_is_dowhile_latch')
     # LEXICAL ADJACENCY of the exit: the gate reads a loop's exit as the first REAL block AFTER
-    # the closing brace by address. So the exit must (a) be the leader right after the loop's
-    # last block, and (b) emit a line the gate can anchor on. A pure-routing exit (a 1-succ
-    # `goto merge` block with no statement, as when the loop is the tail of an if-arm) emits
-    # nothing, so the gate skips PAST it to the next arm -> mis-routes the exit. Bail on both.
-    if e is not None and (ctx.nxt[max(region)] != e
-                          or (bounded
-                              and len(ctx.full_cfg[e]) == 1 and not ctx.info[e][0])):
-        # The loop's exit isn't the address-next block (or is a pure-routing block the gate
-        # can't anchor on). Keep the LOOP as a flat honest-goto span and structure around it
-        # (rung-6 region-local fallback); continue at the address-next block so the walk picks
-        # up the between-blocks and the real exit.
+    # the closing brace by address, so the exit must be the leader right after the loop's last
+    # block. (ROUTING-BLOCK ABSORPTION, atom #3: a pure-routing exit — a 1-succ `goto L_t` block
+    # with no statement, the compiler's fall-through-forwarding stub between chained loops — is
+    # NO LONGER bailed here. It emits as an empty block, so the gate's first_real_block scans
+    # PAST it to the real target `t`, and contract() drops the stub on BOTH sides (raw + struct),
+    # so they match. This folds loops chained via `goto NEXT` entries, e.g. init_new_game_state's
+    # for-loop sequence. reduce()'s self-validation is the backstop for any mis-route.)
+    if e is not None and ctx.nxt[max(region)] != e:
+        # The loop's exit isn't the address-next block. Keep the LOOP as a flat honest-goto span
+        # and structure around it (rung-6 region-local fallback); continue at the address-next
+        # block so the walk picks up the between-blocks and the real exit.
         return _flat_span(region, ctx, ctx.nxt[max(region)])
     lp = (h, e)
     # Body-local post-dominator: an edge that LEAVES the body (to the header = continue, to
