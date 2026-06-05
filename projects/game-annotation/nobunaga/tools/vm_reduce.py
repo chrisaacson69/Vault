@@ -395,7 +395,19 @@ def _structure(entry, stop, pdom, ctx, loop):
                 seq.append(('term', st, n))          # addr = this block (gate keys by addr)
                 break
             if s is not vm_cfg.EXIT and s != stop and s in ctx.visited:
-                raise _NotReducible('cross_edge_fall')   # INSTRUMENT: fall-into-visited
+                # RUNG 6 — cross-edge local cut. This strand falls into an already-EMITTED
+                # block s (a shared continuation reached by 2+ paths — the classic multiple
+                # `goto cleanup` / `goto done` idiom). Keep THIS edge as an honest `goto L_s`
+                # (block n's terminator, tagged with n's addr so the gate attributes the n->s
+                # edge to block n) and stop the strand — s and its forward cone were already
+                # structured on the path that first visited it. FORWARD ONLY (s > n): a forward
+                # goto to a later shared block never reverses lexical-vs-address order; a
+                # BACKWARD cross-edge (into an earlier block) would, so it still bails (the
+                # orphan / gate backstop stays clean). CFG-faithful by construction.
+                if s > n:
+                    seq.append(('goto', n, s))
+                    break
+                raise _NotReducible('cross_edge_fall')   # backward cross-edge: bail
             n = s
         elif len(succ) == 2 and rawcond is not None and gtgt is not None:
             goto_block = ctx.block_of(gtgt)
@@ -503,7 +515,7 @@ def _structure(entry, stop, pdom, ctx, loop):
                 # first (the failed arm probes marked blocks visited that must be re-walked).
                 ctx.visited.clear()
                 ctx.visited.update(saved_visited)
-                if goto_block is vm_cfg.EXIT or not _reaches(fall, goto_block, n, ctx):
+                if goto_block is vm_cfg.EXIT:
                     raise
                 ctx.visited.add(n)
                 used.add(n)
@@ -882,19 +894,21 @@ def reduce(lines, instructions):
         return _flat_emit(buckets, leaders)
     out = []
     _emit(seq, 1, out)
-    # STRUCTURAL self-check (not the gate): a sound structuring preserves every real STATEMENT
-    # (assignment / call / return — `_parse_block` already separates these from control, which
-    # folds DO rewrite). Only scaffolding (gotos/labels/braces) and conditions change; content
-    # lines are emitted verbatim (a return may be wrapped as `if(c) return X`, so check
-    # substring). If a content statement vanished, a block was ORPHANED -> the CFG diverges and
-    # the gate would reject; bail to flat here instead, keeping the gate a pure backstop and the
-    # 0-reject invariant. (Orphans arise in pathologically-tangled subs like $D14E: two
-    # un-foldable switches sharing a continuation that feeds the cross-edge structurer.)
-    out_text = "\n".join(t for _a, _i, t in out)
-    if any(stmt not in out_text for L in leaders for _a, stmt in info[L][0]):
-        LAST_BAIL = 'orphan'
+    out = _insert_labels(out, block_of)
+    # SELF-VALIDATE against the CFG-equivalence gate (the design's verifier) and bail to flat on
+    # failure. The reducer's STRUCTURAL bails (_NotReducible) catch the shapes it knows it can't
+    # own, but composed local fallbacks (honest-goto cuts, flat spans, convergent exits) can
+    # still emit a CFG-divergent layout — e.g. a forward honest-goto cut that leaves blocks
+    # lexically out of address order, or an orphaned shared continuation. Rather than enumerate
+    # every such hazard with bespoke guards, prove the result induces the same CFG as the raw
+    # witness; if not, revert to the faithful flat emit. This makes "0 gate-rejects downstream"
+    # automatic — the gate stays a pure backstop, here applied as the reducer's own acceptance
+    # test (exactly the safety model the epic is built on).
+    ok, _nr, _ns = vm_cfg.structured_equivalent(lines, out, leaders)
+    if not ok:
+        LAST_BAIL = 'self_gate'
         return _flat_emit(buckets, leaders)
-    return _insert_labels(out, block_of)
+    return out
 
 
 _RE_GOTO_TGT = re.compile(r'goto L_([0-9A-Fa-f]{4})')
