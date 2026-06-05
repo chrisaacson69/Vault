@@ -26,6 +26,7 @@ whose goto-count dropped because of THIS atom — the generalization signal.
 | 1 | multi-latch `while(1)`-with-`continue`s | each `continue` → jump-to-header (extra back-edge) | `vm_bootstrap $A778` | 2 (`$88AC`, `$D59D`) + enables #2 | part of −20 | ✅ landed `3c10cf6` |
 | 2 | multi-level break = honest goto | nested-loop break to a far target → goto (C has only 1-level break) | `vm_bootstrap $A778` | 1 (`$A778` 14→1) | part of −20 | ✅ landed `3c10cf6` |
 | 3 | routing-block absorption (adjacent) | a fall-through between regions → a standalone `goto L_X` forwarding block | `init_new_game_state $89A3` | **7** (`$89A3` 16→0, `$83E2` 34→30, `$813C` 6→0, `$90E8`/`$911E` 5→1, `$A066` 1→0, `$840B` 2→0) | **−37** (1025→988) | ✅ generalized |
+| 4 | switch convergence/shared-merge folding | the VM's `switch` (`$D5`/`$D9`) with fall-through cases + a SHARED merge/exit | `$A30D`, `$9C84`, … (36 switch subs) | TBD — **multi-shape, hard** | up to ~**365** | 🔬 deep-dive done, not implemented |
 
 Corpus: atom-3 start **V2 1025** → end **988** vs V1 1151; behind-V1 59 → **57**. `none` bucket is the target (41 subs); this cleared a slice, the rest are NON-adjacent routing (still bailed).
 
@@ -83,6 +84,41 @@ predecessors", the address-ordered-emitter work). A candidate atom #4 — but th
 the obvious "routing-skip the adjacency check" refinement does NOT work (it re-breaks atom 3).
 
 ---
+
+## Atom 4 candidate — switch convergence / shared-merge folding  🔬 (deep-dive 2026-06-05)
+**The lever.** 36 subs have a `switch`; together they carry **365 gotos — >⅓ of the whole 988-goto
+corpus.** Switches are the single biggest remaining target. The user's read (switches are first-class
+in this VM but mis-folded) is correct.
+
+**VM switch format (confirmed from `vm-disasm.py`):**
+- **`$D5` contiguous:** bytecode `[offs(2), limit(2), default(2), target_0 … target_{limit-1}]` — the
+  **`default` target is stored BEFORE the case targets** (the user's "switch{ default; case0; … }").
+  Keys are `offs..offs+limit-1` (signed; the disasm renders `offs=0xFFFF` as `65535,65536,…` instead
+  of `-1,0,1,…` — a cosmetic key-wrap bug, structure is fine).
+- **`$D9` noncontiguous:** `[count(1)+1, (key,target)×count, default(2)]` — default LAST.
+- Cases **fall through** (C-style) and converge on a merge.
+
+**Two failure modes, BOTH rooted in the merge being a SHARED block:**
+- **(A) detection — 11 subs not foldable.** `switch_dispatches` requires every case target to be
+  single-entry-dominated by the switch block S, and the enclosed span to be S-dominated. But the
+  switch's exit `M = post-dom(S)` is routinely a SHARED block — a shared `return` (`$9C84`: all 3
+  cases converge on `9CA6 return marry()`, which the early `if(!rng) return marry()` guard ALSO
+  jumps to) or a pre-switch block (`$9ED9`: `default => M=9F10`, also reached from `9F0D`). So M
+  isn't S-dominated and the check rejects. Same shared-continuation theme as the cross-edge atoms.
+  **Excluding M from the checks recovers only 2/11** — the rest have shared CASE targets, interleaved
+  merges (`$9C84`'s M sits BETWEEN case addresses), or empty regions. Multi-shape, not one fix.
+- **(B) in-context — 8 of the 25 DETECTED switches still render dispatch+goto** (incl. the corpus's
+  single biggest sub `$A2D2` = **42 gotos**, plus `$D14E` 23, `$D3ED` 21, `$B6B4` 20, `$AC11` 17,
+  `$9954` 15, `$94B1`/`$A30D` 10). `_structure_switch` CAN inline them (the test suite proves it),
+  but the whole-sub self-validation fails (other improper regions in the sub), so tier-2 region-
+  fallback FLAT-SPANS the switch region instead of switch-folding it. The fold capability exists;
+  the region fallback just doesn't reach for it.
+
+**Assessment.** Switches are a focused mini-epic, not a one-line atom: model `M=post-dom(S)` as the
+(possibly shared) switch EXIT — excluded from the case-target + enclosed checks — and teach the
+region fallback to switch-fold a region, not just flat-span it. Highest-leverage tractable start is
+likely (B) (the 8 detected subs ≈ 158 gotos: the fold already works in isolation). DEFERRED pending a
+plan decision — logged so the diagnosis isn't re-derived.
 
 ## Guard audit (2026-06-05) — globalizing the atom-3 lesson
 > Atom 3's bailed guard was an untested "the gate can't anchor this" GUESS. Are the OTHER bails the
