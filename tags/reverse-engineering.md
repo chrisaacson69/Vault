@@ -8,3 +8,5 @@
 - [TIA Reference](../research/atari-2600/tia-reference.md) — Atari 2600 chip docs distilled for source-reading
 - [NES Research](../research/nes/README.md) — PPU/APU/Mappers references distilled for source-reading
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — the RE payoff: bytecode→C transpile (Nobunaga's Sea-16 VM) as the general technique, COBOL modernization as the application
+- [pygone teardown](../projects/pygone/teardown.md) — the inverse of decompilation: readable Python compressed to a 4 KB blob; annotated search/eval stack
+- [Decompiler is a Reverse Compiler — bottom-up atom inversion](../projects/game-annotation/nobunaga/decompiler-bottom-up-thesis.md) — census proves NA1's engine is 100% reducible (no irreducible control flow); the V2 "irreducible residue" was a top-down phantom; invert a finite compiler-lowering table instead
