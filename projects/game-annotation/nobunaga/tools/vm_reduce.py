@@ -291,9 +291,14 @@ def _structure(entry, stop, pdom, ctx, loop):
     seq, used = [], set()
     n = entry
     while n is not vm_cfg.EXIT and n != stop:
-        # a loop header reached from outside -> reduce the whole loop to one node
+        # a loop header reached from outside -> reduce the whole loop to one node. `bounded`
+        # tells _structure_loop it sits in a region whose end is NOT the sub's EXIT (an if-arm,
+        # `stop != EXIT`, or a loop body) — there a pure-routing exit is unsafe (the gate's
+        # first_real_block would scan PAST the region boundary). At top level contract() absorbs
+        # a routing exit, so it's fine.
         if n in ctx.loops and (loop is None or n != loop[0]):
-            node, consumed, after = _structure_loop(n, ctx, loop)
+            bounded = stop is not vm_cfg.EXIT or loop is not None
+            node, consumed, after = _structure_loop(n, ctx, loop, bounded)
             seq.append(node)
             used |= consumed
             n = after
@@ -448,10 +453,12 @@ def _strip_trailing_continue(seq):
     return seq
 
 
-def _structure_loop(h, ctx, outer_loop):
+def _structure_loop(h, ctx, outer_loop, bounded=False):
     """Reduce the natural loop headed at `h` to one ('loop', …) node. Returns
     (node, consumed_leaders, after) where `after` is the block to continue the surrounding
-    walk from (the loop's single exit, or EXIT if it only leaves via return)."""
+    walk from (the loop's single exit, or EXIT if it only leaves via return). `bounded` = the
+    loop sits inside a region that ends before the sub's EXIT (an if-arm or a loop body), where
+    a pure-routing exit can't be folded (the gate would scan past the region boundary)."""
     loop = ctx.loops[h]
     # RUNG 4d: nested loops compose for free — the body walk recurses into _structure_loop for
     # an inner header, collapsing it to one node the outer walk consumes like a block. But an
@@ -500,7 +507,8 @@ def _structure_loop(h, ctx, outer_loop):
     # `goto merge` block with no statement, as when the loop is the tail of an if-arm) emits
     # nothing, so the gate skips PAST it to the next arm -> mis-routes the exit. Bail on both.
     if e is not None and (ctx.nxt[max(loop)] != e
-                          or (len(ctx.full_cfg[e]) == 1 and not ctx.info[e][0])):
+                          or (bounded
+                              and len(ctx.full_cfg[e]) == 1 and not ctx.info[e][0])):
         raise _NotReducible('exit_not_adjacent')
     lp = (h, e)
     # Body-local post-dominator: an edge that LEAVES the body (to the header = continue, to
