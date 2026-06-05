@@ -120,6 +120,17 @@ region fallback to switch-fold a region, not just flat-span it. Highest-leverage
 likely (B) (the 8 detected subs ≈ 158 gotos: the fold already works in isolation). DEFERRED pending a
 plan decision — logged so the diagnosis isn't re-derived.
 
+**B exploration (2026-06-05) — B IS A.** Traced why the 8 detected switches flat-span in context.
+`$A30D`: `merge=A381` is the `default` target AND a post-dom spine articulation point AND
+**interleaved** (sits between case 0 `A37E` and case 1 `A385` by address). `_structure_switch`
+consumes the territory `{A352..A391}` and returns `after=A399` — PAST the merge — but tier-2's
+post-dom spine cuts the region boundary exactly AT `A381`, so the switch territory STRADDLES the cut
+→ the region walk runs past its `stop` → `cross_edge_top` (3 of 4 traced subs bail this way; `$A2D2`
+inlines but with 31 internal gotos that gate-fail). So the in-context failure is the SAME
+shared/interleaved-merge problem: the merge is simultaneously the switch exit and a spine point, and
+tier-2's decomposition fights the switch's territory. **You cannot fix B without modeling the shared
+merge (A).** Confirms A is the principled root; B was a symptom. → defer to the principled A plan.
+
 ## Guard audit (2026-06-05) — globalizing the atom-3 lesson
 > Atom 3's bailed guard was an untested "the gate can't anchor this" GUESS. Are the OTHER bails the
 > same? Because `reduce()` self-validates against the CFG gate, suppressing a guard is safe (a wrong
