@@ -415,3 +415,41 @@ now; only its address-inverted remainder stays. recoverable-sink 44→**39** (`p
 gotos — `$AD38`, `$93BF`'s `$9453`, …) needs the narrow re-tag gate change (duplicate the sink, tag the
 copy to the predecessor's address range). The 77% non-sink majority (Track B) is the per-region if-node
 trial. Atom 6 took the slice that needed neither — the honest reducer-only win.
+
+## Track B PROTOTYPE (2026-06-05) — −49 gotos / 11 subs potential; ONE regression isolates the next fix. REVERTED.
+> Prototyped the per-region if-node trial = the guard audit's `merge_not_adjacent` lever, made safe.
+> The audit found suppressing `merge_not_adjacent` is net −21 but regressed 5 subs WITHOUT goto-aware
+> acceptance; the prototype pairs the suppression with atom 6's acceptance machinery so a worse fold
+> can't win. Built, MEASURED, reverted (the map below is the deliverable — re-apply next session).
+
+**The change (5 small edits, all reducer-only, gate UNCHANGED):**
+1. `_Ctx`: add a `merge_nonadj` flag (slot + init `False`), alongside `sink_merge`.
+2. The bail: `if merge is not EXIT and nxt[max(consumed)] != merge and not ctx.merge_nonadj:
+   _audit_bail('merge_not_adjacent')` — i.e. under the flag, build the if-node even when the merge
+   isn't address-adjacent. (Orphaned gap blocks → gate-reject → fall back; self-validation backstops.)
+3. `_fresh_ctx(sink_merge=False, merge_nonadj=False)` + `_structure_region(..., merge_nonadj=False)`.
+4. A combo list `_COMBOS = [(F,F),(T,F),(F,T),(T,T)]` (sink_merge × merge_nonadj).
+5. The whole-sub trial AND the region-fallback per-region loop iterate `_COMBOS`, keeping the
+   fewest-goto VALIDATING result (extends atom 6's two-pass to four).
+
+**Measured: V2 980 → 933 (−49); behind-V1 53 → 51; folded 351; 0 gate-rejects; hard gate
+495/495 + 495/495.** 11 subs better. The −49 is large vs the −2 behind because most of it is
+EMIT-QUALITY on subs already ahead of V1 (a non-adjacent forward merge that was an honest goto becomes
+a folded `if`), not just behind-sub recovery — i.e. Track B improves the whole corpus, not only the
+work-list. (Confirms the 77%-non-sink-is-the-majority finding: this is the lever.)
+
+**The ONE regression — `$8694` 9 → 11 — pins the next fix precisely (root cause CONFIRMED).** With
+`merge_nonadj` on, `$8694`'s WHOLE-SUB structuring now VALIDATES (LAST_BAIL=None) at 11 gotos, so
+`reduce()` returns it — **short-circuiting the region-fallback that yields 9** (at atom-6 no whole-sub
+combo validated, so it fell to the leaner region-fallback). The acceptance is **LOCAL** (the whole-sub
+trial returns as soon as any combo validates) instead of **GLOBAL** (whole-sub-best should compete with
+region-fallback-best on goto-count). This is the only thing between the prototype and a clean −49/0-worse
+landing.
+
+**▶ NEXT SESSION (Track B, the plan):** (1) make `reduce()` acceptance GLOBAL — compute the best
+validating whole-sub result AND the region-fallback result, return whichever has FEWER gotos (don't let
+whole-sub short-circuit a leaner region-fallback). (2) Re-apply the 5-edit `merge_nonadj` prototype
+above. (3) Re-measure — expect ≈ −49, behind ≤51, **0 worse** (the `$8694` regression dissolves once
+acceptance is global). (4) Full discipline (hard gate 495/495, 114/114, dispatcher, deterministic,
+default `*.c` byte-identical) then land as atom 7. Then revisit the ~70 BACKWARD non-sink gotos (the
+address-inverted remainder) — those still need emit-order gate work, the harder tail of B.
