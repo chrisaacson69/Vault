@@ -46,8 +46,17 @@ BUILD LADDER (each rung lands gate-green + measured on tools/v2-corpus.py):
        Conservative bails (all detected STRUCTURALLY, never gate-reject): nested loops (4d),
        compound multi-exit-test loops (need rung 3), a loop whose exit is non-adjacent or a
        pure-routing block (tail-of-if-arm), an empty then-arm with a goto-side body.
-    3. short-circuit (&&/||) — reuse boolean_regions / recover_bool_formula. Unblocks the
-       remaining acyclic bails AND the compound-exit loops (`while (a && b)`).
+    3. short-circuit (&&/||) — DROPPED as a rung: the gate compares per-conditional-block
+       orientation and contract() never removes a 2-succ block, so a merged `if(a&&b) goto`
+       loses a node and is REJECTED; V1 itself emits NESTED ifs, not `&&`. No short_circuit
+       bail exists in --bails. (Those cases surface as compound_pretest / multi_exit_loop.)
+    cross_edge fold (DONE 2026-06-04, part of the acyclic walk, not a numbered rung): a forward
+       branch to a SHARED continuation where the fall arm also reaches it but post-dom is EXIT
+       (an early return on one path). `_reaches(fall, goto, n)` detects it -> use the goto-target
+       as the merge so the tail is structured ONCE (the early returns become terminal guards).
+       Inlined return blocks count for merge-ADJACENCY (added to `used`) but are EXCLUDED from
+       the arm-ORDER disjointness check (a shared tail return floats). $9850/$A553 -> 0 gotos,
+       beating V1 (which left honest gotos). behind 130->127, gotos 1541->1498, 0 gate-rejects.
     5. [DONE 2026-06-04] switch — block-level port of structure_switches as a composable region
        node (_structure_switch): keep the `switch(E){` opener, drop the `case N: goto` dispatch
        + closer, inline each case-target block's RAW lines (gotos verbatim — no break-conversion
@@ -233,6 +242,24 @@ def _has_effect(seq):
     return False
 
 
+def _reaches(start, target, avoid, ctx):
+    """True if `target` is reachable from `start` in the block CFG without passing back through
+    `avoid` (the branch header). Pure — never touches ctx.visited. Used to tell a forward
+    branch to a SHARED continuation (the fall arm reaches the goto-target too) from a true
+    if-then-else (the goto-target is an else-region the fall arm never reaches)."""
+    seen = {avoid}
+    stack = [start]
+    while stack:
+        b = stack.pop()
+        if b is vm_cfg.EXIT or b in seen:
+            continue
+        if b == target:
+            return True
+        seen.add(b)
+        stack.extend(ctx.full_cfg[b])
+    return False
+
+
 def _terminal(b, loop, ctx):
     """If a control edge to block `b` should render as a one-line terminator rather than a
     walk INTO b, return that statement (no trailing `;`): `continue`/`break` for the
@@ -305,11 +332,15 @@ def _structure(entry, stop, pdom, ctx, loop):
             if gt is not None and ft is None:
                 seq.append(('block', n, stmts))
                 seq.append(('guard', baddr, rawcond, gt))        # taken (rawcond) -> terminal
+                if goto_block is not vm_cfg.EXIT and _is_return_block(goto_block, ctx):
+                    used.add(goto_block)         # inlined return occupies its address span
                 n = fall
                 continue
             if ft is not None and gt is None:
                 seq.append(('block', n, stmts))
                 seq.append(('guard', baddr, vm_cfg._neg(rawcond), ft))   # !rawcond -> terminal
+                if fall is not vm_cfg.EXIT and _is_return_block(fall, ctx):
+                    used.add(fall)               # inlined return occupies its address span
                 n = goto_block
                 continue
             if gt is not None and ft is not None:
@@ -323,6 +354,14 @@ def _structure(entry, stop, pdom, ctx, loop):
             if fall is vm_cfg.EXIT:
                 raise _NotReducible('header_falls_off')  # header falls off the end — rare
             merge = vm_cfg._imm_post_dom(pdom, n)
+            # Early-return shared continuation: no clean post-dom merge (EXIT) because the fall
+            # arm RETURNS on some path, yet the branch's goto-target is itself reached BY the
+            # fall arm -> that target is the real reconvergence. Use it as the merge so the
+            # early returns fold to terminal guards inside the then-arm and the tail is
+            # structured ONCE after the if (else it is walked in BOTH arms -> a cross_edge bail).
+            if merge is vm_cfg.EXIT and goto_block is not vm_cfg.EXIT \
+                    and _reaches(fall, goto_block, n, ctx):
+                merge = goto_block
             # The goto target must stay within the region (<= merge by address); a goto PAST
             # the merge is a forward skip (break-like) -> irreducible here.
             if merge is not vm_cfg.EXIT and goto_block > merge:
@@ -344,8 +383,13 @@ def _structure(entry, stop, pdom, ctx, loop):
                 # The ENTIRE then-region must precede the ENTIRE else-region by address — else
                 # emitting then-then-else reverses address order and the address-based gate
                 # mis-routes. Lexical order == address order is the invariant the gate relies
-                # on. (then_used/else_used can be empty when an arm is a pure terminal.)
-                if then_used and else_used and max(then_used) >= min(else_used):
+                # on. (then_used/else_used can be empty when an arm is a pure terminal.) Exclude
+                # inlined RETURN blocks: a shared tail return (the early-return idiom inlines the
+                # SAME return at multiple jump sites, contract() bypasses it) is not part of an
+                # arm's exclusive address span — it floats, so it must not gate disjointness.
+                then_excl = [b for b in then_used if not _is_return_block(b, ctx)]
+                else_excl = [b for b in else_used if not _is_return_block(b, ctx)]
+                if then_excl and else_excl and max(then_excl) >= min(else_excl):
                     raise _NotReducible('arm_order')
             # LEXICAL-ADJACENCY of the merge: the gate lowers a construct's merge as the
             # address-next leader after its last block, so the merge MUST be that block.
