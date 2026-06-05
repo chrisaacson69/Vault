@@ -351,56 +351,89 @@ def _structure(entry, stop, pdom, ctx, loop):
                 seq.append(('term', ft, fall))
                 break
             # --- both arms are regions: if-then / if-then-else (rung 2) -------------------
-            if fall is vm_cfg.EXIT:
-                raise _NotReducible('header_falls_off')  # header falls off the end — rare
-            merge = vm_cfg._imm_post_dom(pdom, n)
-            # Early-return shared continuation: no clean post-dom merge (EXIT) because the fall
-            # arm RETURNS on some path, yet the branch's goto-target is itself reached BY the
-            # fall arm -> that target is the real reconvergence. Use it as the merge so the
-            # early returns fold to terminal guards inside the then-arm and the tail is
-            # structured ONCE after the if (else it is walked in BOTH arms -> a cross_edge bail).
-            if merge is vm_cfg.EXIT and goto_block is not vm_cfg.EXIT \
-                    and _reaches(fall, goto_block, n, ctx):
-                merge = goto_block
-            # The goto target must stay within the region (<= merge by address); a goto PAST
-            # the merge is a forward skip (break-like) -> irreducible here.
-            if merge is not vm_cfg.EXIT and goto_block > merge:
-                raise _NotReducible('goto_past_merge')
-            then_seq, then_used = ([], set()) if fall == merge else \
-                _structure(fall, merge, pdom, ctx, loop)
-            else_seq, else_used = ([], set()) if goto_block == merge else \
-                _structure(goto_block, merge, pdom, ctx, loop)
-            if not _has_effect(then_seq) and _has_effect(else_seq):
-                # The then-arm is empty but the else-arm has a real body: the body lives on the
-                # GOTO side (`if(C) goto body; goto merge`), often with a routing block laid out
-                # BETWEEN the header and that body. The gate finds the else boundary by address
-                # (next leader after the then span), which an empty then-arm makes ambiguous ->
-                # bail (reorder). (Both arms empty = a value-diamond shell — harmless, fold it.)
-                raise _NotReducible('empty_then')
-            if else_seq:
-                if not (fall < goto_block):
-                    raise _NotReducible('else_before_then')  # if-else needs then(fall) before else(goto)
-                # The ENTIRE then-region must precede the ENTIRE else-region by address — else
-                # emitting then-then-else reverses address order and the address-based gate
-                # mis-routes. Lexical order == address order is the invariant the gate relies
-                # on. (then_used/else_used can be empty when an arm is a pure terminal.) Exclude
-                # inlined RETURN blocks: a shared tail return (the early-return idiom inlines the
-                # SAME return at multiple jump sites, contract() bypasses it) is not part of an
-                # arm's exclusive address span — it floats, so it must not gate disjointness.
-                then_excl = [b for b in then_used if not _is_return_block(b, ctx)]
-                else_excl = [b for b in else_used if not _is_return_block(b, ctx)]
-                if then_excl and else_excl and max(then_excl) >= min(else_excl):
-                    raise _NotReducible('arm_order')
-            # LEXICAL-ADJACENCY of the merge: the gate lowers a construct's merge as the
-            # address-next leader after its last block, so the merge MUST be that block.
-            # Skipped when the merge is EXIT (the whole region ends after this if).
-            consumed = {n} | then_used | else_used
-            if merge is not vm_cfg.EXIT and ctx.nxt[max(consumed)] != merge:
-                raise _NotReducible('merge_not_adjacent')
-            cond = vm_cfg._neg(rawcond)
-            seq.append(('if', baddr if baddr is not None else n, stmts, cond, then_seq, else_seq))
-            used |= consumed
-            n = merge
+            # RUNG 6 — local honest-goto fallback. The clean if/then/else recovery below
+            # raises _NotReducible on any shape it can't own (a shared continuation reached by
+            # both arms = cross_edge, a non-adjacent merge, a goto past the merge, an empty
+            # then-arm, reversed arm order…). Instead of flattening the WHOLE sub, catch it
+            # here and emit the branch as an honest `if (rawcond) goto L_t;` — exactly the raw
+            # conditional, so its CFG edge {goto_block, fall} is reproduced verbatim (sound by
+            # construction, never a gate-reject) — then continue the linear walk at `fall`. The
+            # surrounding region keeps all the structure it can; only this one edge stays a
+            # goto, matching what V1's templates leave (e.g. $999A's tax-cap shared join). The
+            # arm walks mutate ctx.visited as they probe; snapshot + restore it so the blocks
+            # they touched are re-walked (and properly emitted) on the linear continuation.
+            saved_visited = set(ctx.visited)
+            try:
+                if fall is vm_cfg.EXIT:
+                    raise _NotReducible('header_falls_off')  # header falls off the end — rare
+                merge = vm_cfg._imm_post_dom(pdom, n)
+                # Early-return shared continuation: no clean post-dom merge (EXIT) because the
+                # fall arm RETURNS on some path, yet the branch's goto-target is itself reached
+                # BY the fall arm -> that target is the real reconvergence. Use it as the merge
+                # so the early returns fold to terminal guards inside the then-arm and the tail
+                # is structured ONCE after the if (else it is walked in BOTH arms -> cross_edge).
+                if merge is vm_cfg.EXIT and goto_block is not vm_cfg.EXIT \
+                        and _reaches(fall, goto_block, n, ctx):
+                    merge = goto_block
+                # The goto target must stay within the region (<= merge by address); a goto PAST
+                # the merge is a forward skip (break-like) -> irreducible here.
+                if merge is not vm_cfg.EXIT and goto_block > merge:
+                    raise _NotReducible('goto_past_merge')
+                then_seq, then_used = ([], set()) if fall == merge else \
+                    _structure(fall, merge, pdom, ctx, loop)
+                else_seq, else_used = ([], set()) if goto_block == merge else \
+                    _structure(goto_block, merge, pdom, ctx, loop)
+                if not _has_effect(then_seq) and _has_effect(else_seq):
+                    # The then-arm is empty but the else-arm has a real body: the body lives on
+                    # the GOTO side (`if(C) goto body; goto merge`), often with a routing block
+                    # laid out BETWEEN the header and that body. The gate finds the else boundary
+                    # by address (next leader after the then span), which an empty then-arm makes
+                    # ambiguous -> bail. (Both arms empty = a value-diamond shell — fold it.)
+                    raise _NotReducible('empty_then')
+                if else_seq:
+                    if not (fall < goto_block):
+                        raise _NotReducible('else_before_then')  # then(fall) must precede else(goto)
+                    # The ENTIRE then-region must precede the ENTIRE else-region by address —
+                    # else emitting then-then-else reverses address order and the address-based
+                    # gate mis-routes. Lexical order == address order is the invariant the gate
+                    # relies on. (then_used/else_used can be empty when an arm is a pure
+                    # terminal.) Exclude inlined RETURN blocks: a shared tail return (the
+                    # early-return idiom inlines the SAME return at multiple jump sites,
+                    # contract() bypasses it) is not part of an arm's exclusive address span —
+                    # it floats, so it must not gate disjointness.
+                    then_excl = [b for b in then_used if not _is_return_block(b, ctx)]
+                    else_excl = [b for b in else_used if not _is_return_block(b, ctx)]
+                    if then_excl and else_excl and max(then_excl) >= min(else_excl):
+                        raise _NotReducible('arm_order')
+                # LEXICAL-ADJACENCY of the merge: the gate lowers a construct's merge as the
+                # address-next leader after its last block, so the merge MUST be that block.
+                # Skipped when the merge is EXIT (the whole region ends after this if).
+                consumed = {n} | then_used | else_used
+                if merge is not vm_cfg.EXIT and ctx.nxt[max(consumed)] != merge:
+                    raise _NotReducible('merge_not_adjacent')
+                cond = vm_cfg._neg(rawcond)
+                seq.append(('if', baddr if baddr is not None else n, stmts, cond, then_seq, else_seq))
+                used |= consumed
+                n = merge
+            except _NotReducible as _ce:
+                # Rung-6 fallback: keep this ONE branch as an honest `if (rawcond) goto L_t;` and
+                # continue linearly at `fall`. SOUNDNESS GUARD: only valid when goto_block is
+                # reachable FROM fall — then the linear continuation will actually walk + emit it
+                # (a forward join). If it's reachable ONLY via this goto (a shared tail the fall
+                # path returns/exits before hitting), the continuation would ORPHAN it (its
+                # statements never emitted -> CFG divergence -> gate-reject). In that case
+                # re-raise so the whole sub bails to flat (still sound). Restore ctx.visited
+                # first (the failed arm probes marked blocks visited that must be re-walked).
+                ctx.visited.clear()
+                ctx.visited.update(saved_visited)
+                if goto_block is vm_cfg.EXIT or not _reaches(fall, goto_block, n, ctx):
+                    raise
+                ctx.visited.add(n)
+                used.add(n)
+                seq.append(('block', n, stmts))
+                seq.append(('ifgoto', baddr if baddr is not None else n, rawcond, gtgt))
+                n = fall
+                continue
         else:
             raise _NotReducible('multiway')          # switch / >2-way / cond-less 2-way
     return seq, used
@@ -605,6 +638,11 @@ def _emit(seq, indent, out):
             # the rest of the sub still structures. The label is supplied by _insert_labels.
             h = item[1]
             out.append((h, indent, f"goto L_{h:04X};"))
+        elif kind == 'ifgoto':
+            # Rung-6 honest conditional goto: a 2-way branch the structurer couldn't cleanly
+            # own, kept verbatim as `if (rawcond) goto L_t;` (target label via _insert_labels).
+            _, baddr, rawcond, tgt = item
+            out.append((baddr, indent, f"if ({rawcond}) goto L_{tgt:04X};"))
         elif kind == 'switchspan':
             for addr, rel_indent, text in item[1]:
                 out.append((addr, indent + rel_indent, text))
