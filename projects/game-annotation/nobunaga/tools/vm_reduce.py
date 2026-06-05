@@ -312,7 +312,7 @@ def _structure(entry, stop, pdom, ctx, loop):
             n = after
             continue
         if n in ctx.visited:
-            raise _NotReducible('cross_edge')        # cross / shared edge
+            raise _NotReducible('cross_edge_top')    # cross / shared edge (top-of-walk)
         ctx.visited.add(n)
         used.add(n)
         stmts, rawcond, baddr, gtgt, _sw = ctx.info[n]
@@ -324,6 +324,8 @@ def _structure(entry, stop, pdom, ctx, loop):
             if st is not None:
                 seq.append(('term', st, n))          # addr = this block (gate keys by addr)
                 break
+            if s is not vm_cfg.EXIT and s != stop and s in ctx.visited:
+                raise _NotReducible('cross_edge_fall')   # INSTRUMENT: fall-into-visited
             n = s
         elif len(succ) == 2 and rawcond is not None and gtgt is not None:
             goto_block = ctx.block_of(gtgt)
@@ -527,13 +529,25 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
     hsucc = ctx.full_cfg[h]
     h_stmts, h_rawcond, h_baddr, h_gtgt, _h_sw = ctx.info[h]
 
+    # A clean post-test latch: a SINGLE 2-way latch whose two edges are (back-to-header, exit).
+    # Such a loop is a do-while — even when the header ALSO 2-way-tests the exit (so it would
+    # ALSO match the pre-test shape). Prefer do-while there: the pre-test rendering would put the
+    # latch's body block as a while-body tail that EXITS via fall (a `break`), and a body-tail
+    # break is unrepresentable for the gate (its per-block lowering keeps one terminator/block,
+    # so the `continue` edge is lost). V1 renders these as do-while too. (Computed before the
+    # pre-test so it can gate it; a 1-way for-loop update latch is NOT 2-way -> doesn't divert.)
+    latches2 = [u for u in ctx.latches[h]
+                if len(ctx.full_cfg[u]) == 2 and h in ctx.full_cfg[u]
+                and e is not None and e in ctx.full_cfg[u]]
+    clean_dowhile = e is not None and len(ctx.latches[h]) == 1 and bool(latches2)
+
     # ---- pre-test while: the header itself is the 2-way exit test ----------------------
     # The in-loop successor must be a DISTINCT body block, not the header itself: a self-loop
     # (header == latch, the test at the bottom of its single block) is a do-while, not a
     # pre-test while — treating it as pre-test sets body_entry = h, which is already visited
     # and raises a spurious cross_edge. So require a non-self in-loop successor here and let a
     # self-loop fall through to the do-while detection below (which carries the body in latch_stmts).
-    if (e is not None and len(hsucc) == 2 and h_rawcond is not None
+    if (not clean_dowhile and e is not None and len(hsucc) == 2 and h_rawcond is not None
             and e in hsucc and any(s in loop and s != h for s in hsucc)):
         body_entry = next(s for s in hsucc if s in loop and s != h)
         cond = h_rawcond if ctx.block_of(h_gtgt) in loop else vm_cfg._neg(h_rawcond)
@@ -557,10 +571,7 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
         return node, set(loop), e
 
     # ---- post-test do-while: a single latch's 2-way test gates the back edge -----------
-    latches2 = [u for u in ctx.latches[h]
-                if len(ctx.full_cfg[u]) == 2 and h in ctx.full_cfg[u]
-                and e is not None and e in ctx.full_cfg[u]]
-    if e is not None and len(ctx.latches[h]) == 1 and latches2:
+    if clean_dowhile:
         u = latches2[0]
         u_stmts, u_rawcond, _u_baddr, u_gtgt, _u_sw = ctx.info[u]
         cond = u_rawcond if ctx.block_of(u_gtgt) == h else vm_cfg._neg(u_rawcond)
@@ -587,8 +598,24 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
             node = ('selfgoto', h)
         return node, {h}, (e if e is not None else vm_cfg.EXIT)
 
+    # ---- multi-latch loop -> keep as a flat honest-goto span (rung-6 local fallback) -------
+    # A loop with >1 latch (multiple back-edges to the header) that fell through pre-test /
+    # do-while / self-loop has no SOUND single-construct form: rendered as while(1), its body
+    # tail exits via fall-through, but a tail `if(C) continue;` makes that fall ambiguous with
+    # the loop-back (the gate reads it as a back-edge, losing the exit). V1 leaves these as
+    # honest gotos too. Keep the loop's RAW lines as a flat span and structure everything
+    # around it — the surrounding loops/ifs still fold. (Single-latch endless loops fall
+    # through to the sound while(1) below.)
+    if len(ctx.latches[h]) > 1:
+        return _flat_span(loop, ctx, e if e is not None else vm_cfg.EXIT)
+
     # ---- endless: while(1) { body }  (exits via break / return inside) -----------------
-    ctx.visited.add(h)
+    # The header h IS the first body block of a while(1) (no governing pre-test), so the body
+    # walk must START at h and EMIT it. Do NOT pre-mark h visited: _structure(h) checks
+    # `n in visited` on its first step and would raise a spurious cross_edge (the multi-latch
+    # bug — e.g. $88AC's {8908,8911}). Edges back to h are already resolved as `continue` by
+    # _terminal (keyed on b == h, not on visited), so no pre-add is needed for correctness;
+    # the whole loop is marked visited AFTER the walk.
     body, _u = _structure(h, _STOP, body_pdom, ctx, lp)
     body = _strip_trailing_continue(body)
     ctx.visited |= set(loop)
@@ -661,6 +688,24 @@ def _structure_switch(S, ctx, loop):
     return ('switchspan', pruned), consumed, after
 
 
+def _flat_span(blocks, ctx, after):
+    """RUNG 6 — region-local honest-goto fallback (the audit's `_flat_span`). A region the
+    grammar can't fold to a SOUND construct (here: a multi-latch loop whose `while(1)`
+    exit-via-fall is ambiguous to the gate — e.g. $88AC's {8908,8911}) is kept as its RAW
+    lines (gotos/labels verbatim, address order) and the surrounding walk structures
+    everything AROUND it — exactly as V1 leaves such loops as honest gotos. CFG-faithful by
+    construction (the raw lines ARE the witness), so it never gate-rejects; only this one
+    region stays flat. Returns ('flatspan', rel_lines), consumed, after — rel_lines =
+    (addr, 0, text) the emitter places at the base indent (labels kept for the goto targets)."""
+    # Strip the raw `L_xxxx:` labels (like the structured emit does); _insert_labels re-adds
+    # exactly the ones an emitted goto targets, so a label isn't duplicated when the span's
+    # entry/targets are also goto destinations (e.g. $88AC's L_8908).
+    rel = [(addr, 0, text.strip()) for L in sorted(blocks) for addr, _i, text in ctx.buckets[L]
+           if not vm_cfg._RE_LABEL.match(text.strip())]
+    ctx.visited |= set(blocks)
+    return ('flatspan', rel), set(blocks), after
+
+
 def _emit(seq, indent, out):
     for item in seq:
         kind = item[0]
@@ -683,7 +728,13 @@ def _emit(seq, indent, out):
             # own, kept verbatim as `if (rawcond) goto L_t;` (target label via _insert_labels).
             _, baddr, rawcond, tgt = item
             out.append((baddr, indent, f"if ({rawcond}) goto L_{tgt:04X};"))
-        elif kind == 'switchspan':
+        elif kind == 'goto':
+            # Rung-6 unconditional cross-edge cut: block `src` falls into an already-emitted
+            # shared continuation `tgt`; kept as an honest `goto L_tgt;` (tagged with src's
+            # addr so the gate attributes the edge to that block; label via _insert_labels).
+            _, src, tgt = item
+            out.append((src, indent, f"goto L_{tgt:04X};"))
+        elif kind in ('switchspan', 'flatspan'):
             for addr, rel_indent, text in item[1]:
                 out.append((addr, indent + rel_indent, text))
         elif kind == 'if':
