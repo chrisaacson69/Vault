@@ -1778,9 +1778,9 @@ word diplomacy_helper(void) {
         ui_input_mode = local9;    // $E3D9
         return local11;    // $E3DD
     } else {
-        if (!(war_helper_d972(selected_province_idx))) goto L_E3F0;    // $E3E5
-        if (rng_mod(3)) return 0;    // $E3ED
-L_E3F0:
+        if (war_helper_d972(selected_province_idx)) {    // $E3E5
+            if (rng_mod(3)) return 0;    // $E3ED
+        }
         local10 = *(word*)(((selected_province_idx * 26) + 0x7001));    // $E3FB
         if (!(rng_mod(const_two))) {    // $E403
             return 0;    // $E406

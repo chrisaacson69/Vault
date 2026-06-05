@@ -983,9 +983,9 @@ word is_tile_in_bounds(word arg1, word arg2) {
 // (body @ $8F2D)
 
 word validate_dir_code_and_dispatch(word arg1, word arg2, word arg3) {
-    if (((unsigned)arg3 <= (unsigned)51)) goto L_8F3B;    // $8F31
-    if (!(((unsigned)arg3 >= (unsigned)55))) return 0;    // $8F38
-L_8F3B:
+    if (!(((unsigned)arg3 <= (unsigned)51))) {    // $8F31
+        if (!(((unsigned)arg3 >= (unsigned)55))) return 0;    // $8F38
+    }
     arg3 = (arg3 - 49);    // $8F40
     if (!(((unsigned)(arg3 - 49) >= (unsigned)6))) return sub_8003(arg1, arg2, arg3);    // $8F43
     arg3 = (arg3 - 3);    // $8F4A
@@ -2123,11 +2123,12 @@ L_A1E5:
 
 word ai_engage_present_enemy_if_favorable(word unit_idx) {
     if (!(enemy_unit_type_present_at_unit_tile(unit_idx))) return 0;    // $A1F9
-    if (!(unit_idx)) goto L_A218;    // $A1FD
-    if (!(ai_battle_strength_ratio_below_50(unit_idx))) goto L_A218;    // $A205
-    if (!(cur_combat_unit_slot)) return 0;    // $A20B
-    if (unit_damage_within_strength(cur_combat_side)) return 0;    // $A215
-L_A218:
+    if (unit_idx) {    // $A1FD
+        if (ai_battle_strength_ratio_below_50(unit_idx)) {    // $A205
+            if (!(cur_combat_unit_slot)) return 0;    // $A20B
+            if (unit_damage_within_strength(cur_combat_side)) return 0;    // $A215
+        }
+    }
     eval_and_announce_battle_strength_parity_if_enemy_present(unit_idx);    // $A219
     return 1;    // $A21E
 }
@@ -2471,11 +2472,12 @@ word ai_clear_province_state_when_strong_enough(word fief) {
     if (cur_combat_unit_slot) return 0;    // $A855
     if (!(test_6f65_bit7(cur_combat_side))) return 0;    // $A85F
     if (is_no_province_selected()) return 0;    // $A865
-    if (ai_test_own_double_ge_enemy_total_strength()) goto L_A887;    // $A86D
-    if (!(unit_damage_within_strength(cur_combat_side))) goto L_A887;    // $A877
-    if (cur_combat_side) return 0;    // $A87D
-    if (!(((unsigned)fief > (unsigned)29))) return 0;    // $A884
-L_A887:
+    if (!(ai_test_own_double_ge_enemy_total_strength())) {    // $A86D
+        if (unit_damage_within_strength(cur_combat_side)) {    // $A877
+            if (cur_combat_side) return 0;    // $A87D
+            if (!(((unsigned)fief > (unsigned)29))) return 0;    // $A884
+        }
+    }
     relation_base_6f4f(battle_defending_province);    // $A88A
     side_fief = get_battle_side_province(cur_combat_side);    // $A895
     build_daimyo_province_list(get_battle_side_province(cur_combat_side));    // $A897
@@ -2919,28 +2921,29 @@ word dispatch_battle_resolution(word outcome) {
             outcome = (outcome + 1);    // $AF69
         }
     }
-    if ((ai_turn_planner_resume_flag == 1)) goto L_AFA2;    // $AF6F
-    if (is_no_province_selected()) goto L_AF80;    // $AF75
-    announce_battle_outcome_retreat_or_won(selected_province_idx, outcome);    // $AF7C
-L_AF80:
-    announce_battle_outcome_retreat_or_won(battle_defending_province, outcome);    // $AF84
-    transfer_owned_fiefs_and_announce_succession();    // $AF88
-    apply_conquest_outcome();    // $AF8B
-    if ((ai_turn_flags & 128)) goto L_AFE0;    // $AF95
-    map_helper_e5f2(latched_selected_record_idx);    // $AF9B
-    goto L_AFE0;    // $AF9F
-L_AFA2:
-    ui_helper_cd20();    // $AFA2
-    marry_helper_cc35(1);    // $AFA6
-    i = 0;    // $AFAB
-L_AFAC:
-    palette_write_wrap(i, battle_setup_select_prov_data_ba7f[i]);    // $AFB4
-    i = (i + 1);    // $AFBA
-    if (((unsigned)i < (unsigned)16)) goto L_AFAC;    // $AFBF
-    ppu_upload_block_wrap(4, 0x83BC, 0x1510, 154);    // $AFCC
-    marry_helper_cc35(0);    // $AFD1
-    post_elim_owner_sentinel_id = 50;    // $AFD7
-L_AFE0:
+    if ((ai_turn_planner_resume_flag != 1)) {    // $AF6F
+        if (!(is_no_province_selected())) {    // $AF75
+            announce_battle_outcome_retreat_or_won(selected_province_idx, outcome);    // $AF7C
+        }
+        announce_battle_outcome_retreat_or_won(battle_defending_province, outcome);    // $AF84
+        transfer_owned_fiefs_and_announce_succession();    // $AF88
+        apply_conquest_outcome();    // $AF8B
+        if ((ai_turn_flags & 128)) return find_record_9e3c(30);    // $AF95
+        map_helper_e5f2(latched_selected_record_idx);    // $AF9B
+        return find_record_9e3c(30);    // $AF98
+    } else {
+        ui_helper_cd20();    // $AFA2
+        marry_helper_cc35(1);    // $AFA6
+        i = 0;    // $AFAB
+        do {    // $AFAC
+            palette_write_wrap(i, battle_setup_select_prov_data_ba7f[i]);    // $AFB4
+            i = (i + 1);    // $AFBA
+        } while (((unsigned)i < (unsigned)16));    // $AFAC
+        ppu_upload_block_wrap(4, 0x83BC, 0x1510, 154);    // $AFCC
+        marry_helper_cc35(0);    // $AFD1
+        post_elim_owner_sentinel_id = 50;    // $AFD7
+        return find_record_9e3c(30);    // $AFC2
+    }
     return find_record_9e3c(30);    // $AFE0
 }
 

@@ -29,8 +29,10 @@ whose goto-count dropped because of THIS atom — the generalization signal.
 | 4 | switch convergence/shared-merge folding | the VM's `switch` (`$D5`/`$D9`) with fall-through cases + a SHARED merge/exit | `$A30D`, `$9C84`, … (36 switch subs) | TBD — **multi-shape, hard** | ~365 in all switch subs, but **only ~59 / 8 subs are BEHIND V1** (probe below) | 🔬 deep-dive done, not implemented |
 | 5 | multi-statement terminal-block duplication | N branches to a shared block that ENDS in `return`/`break` → duplicate it into each arm (`$AD38`). 1-statement case already inlines; ≥2-statement needs gate change | `$AD38`, `$8FF8`, `$918D` … | ~54 / 14 subs (probe below) | blocked by address-based gate | 🔬 not implemented |
 | 6 | **forward-sink as merge (Track A, family-1)** | a branch to a SHARED TERMINAL sink (`→EXIT`, incl. multi-statement) emitted ONCE as the address-tail fall-through — invert the base lowering where guards converge on a trailing `return` | `$9F04` | **4** (`$9F04` 1→0, `$A003` 4→2, `$A068` 4→2, `$A113` 5→2) | **−8** (988→980) | ✅ landed |
+| 7 | **incremental peephole** (emit-quality, not an inverse-lowering) | a real bytecode `goto L_h; // $a` whose header is the emit-next line (pre-test loop entry-jump, routing stub) — clip it when the gate agrees | `$A30D` | clips the head-goto/stub on any sub where a SOUND goto-to-next was batched with an unsound one | **−2** (980→978) | ✅ landed |
+| 8 | **non-adjacent forward merge (Track B)** + global acceptance | a forward shared-merge that is NOT the address-next leader, lowered as an honest `goto L_merge` — build the `if` anyway (suppress `merge_not_adjacent`) when the whole-sub self-validates leaner | corpus-wide (the 77%-non-sink majority) | **11** (`per_turn_age…` 13→0, `issue_province_command` 11→0, `dispatch_battle_resolution` 5→0, `ai_resolve_province_takeover_attempt` 4→0, …) | **−49** (978→929) | ✅ landed |
 
-Corpus: atom-3 start **V2 1025** → 988; **atom-6 988 → 980** vs V1 1151; behind-V1 59 → 57 → **53**. Atom 6 is the FORWARD slice of the sink family (address-ordered, reducer-only); the address-INVERTED sink slice (family-2, 9 back-jmp gotos) + the 77% non-sink majority remain.
+Corpus: atom-3 start **V2 1025** → 988; **atom-6 988 → 980**; **atom-7 980 → 978**; **atom-8 978 → 929** vs V1 1151; behind-V1 59 → 57 → 53 → **51**. Atom 6 is the FORWARD slice of the sink family; atom 7 the per-clip-validated peephole; atom 8 the Track-B non-adjacent-merge fold (`merge_nonadj`) in the WHOLE-SUB trial, gated by global goto-count acceptance. V2 is now **222 gotos ahead of V1** overall; the 51 still-behind subs (208 excess gotos) are the BACKWARD non-sink remainder + the switch shared-merge mini-epic (atom 4).
 
 ---
 
@@ -453,3 +455,75 @@ above. (3) Re-measure — expect ≈ −49, behind ≤51, **0 worse** (the `$869
 acceptance is global). (4) Full discipline (hard gate 495/495, 114/114, dispatcher, deterministic,
 default `*.c` byte-identical) then land as atom 7. Then revisit the ~70 BACKWARD non-sink gotos (the
 address-inverted remainder) — those still need emit-order gate work, the harder tail of B.
+> NOTE: the Track B `merge_nonadj` + global-acceptance work above is now **atom 8** — the
+> incremental-peephole fix below landed first and took the atom-7 slot.
+
+## Atom 7 LANDED (2026-06-05) — incremental peephole: real goto-to-next jumps now clip. V2 980→978, all-green.
+> Surfaced from `$A30D` (`per_period_fief_daimyo_update_driver`): the function opened with a redundant
+> `goto L_A349;` immediately before `L_A349:` (the pre-test loop's entry jump-to-condition), and a
+> `L_A381: goto L_A3A0;` routing stub — both goto-to-emit-NEXT, both surviving the cleanup. V1 emits
+> neither; they were a V2-reducer artifact. Two compounding root causes, both in `_peephole`:
+
+**(1) the matcher.** `_RE_GOTO_ONLY = r'^goto L_(....);$'` is anchored at the `;`, so it matched only
+the reducer's SYNTHETIC (comment-less) honest-goto cuts. A REAL bytecode jump carried verbatim from a
+block node keeps its `// $addr` provenance comment (`goto L_A349;    // $A313`) → never matched → never
+clipped. **Fix:** tolerate a trailing comment — `r'^goto L_(....);\s*(//.*)?$'`.
+
+**(2) the all-or-nothing batch (the real bug).** `_peephole` dropped ALL candidates, then `_validates`
+re-checked the batch ONCE and reverted EVERYTHING on any single failure. On `$A30D` three clips were
+candidates; dropping each INDIVIDUALLY: head `goto L_A349` ✓ valid, `goto L_A381` ✓ valid, but the
+`goto L_A3A0` stub ✗ INVALID — because the switch flat-span emits its territory OUT of address order, so
+that stub's emit-NEXT label is NOT its address-next leader, and the gate's address-order re-lowering
+rejects the drop. The one unsound clip poisoned the batch → all three reverted → the head goto survived.
+**Fix:** `_peephole(out, validate=…)` now applies each goto-drop INCREMENTALLY, keeping only those that
+still pass the equivalence gate; unsound reordered stubs stay as honest gotos. (Without a validator —
+the test path — it drops all, caller re-checks; behaviour preserved.)
+
+**Result.** `$A30D` 10→**8** gotos (head goto + `L_A381` clip land; `L_A3A0` stub correctly kept); V2
+**980→978** (−2 corpus-wide, the gate-validated sound-clip total the old batch suppressed). 114/114
+tests; hard gate 495/495 + 495/495 clean; deterministic; default `*.c` (V1 path) byte-identical (the
+change is V2-only). The lever is small as predicted, but it's principled (per-clip gate validation, not a
+heuristic) and makes the canonical switch-sub read cleanly down to its real residue.
+
+**Still open (unchanged by this).** `$A30D`'s switch itself is still flat-spanned — that's the atom-4
+**switch shared-merge** mini-epic (merge `$A381` is the `default` target + a post-dom spine articulation
+point + interleaved between case 0 `$A37E` and case 1 `$A385`; "B is A"). Separate from atom 8 (Track B
+`merge_nonadj`, the non-switch forward-merge majority).
+
+## Atom 8 LANDED (2026-06-05) — Track B non-adjacent forward merge + global acceptance. V2 978→929 (−49), 0 worse.
+> The 77%-non-sink majority: a forward shared-merge that is NOT the address-next leader was lowered as an
+> honest `goto L_merge` because the `merge_not_adjacent` guard bailed the if-node. Atom 8 builds the if
+> anyway (under a `merge_nonadj` flag) in the WHOLE-SUB trial, kept only when the whole sub self-validates
+> with fewer gotos. Matches the prototype prediction (V2 980→933 then; from atom-7's 978 → **929**), 11
+> subs better, **0 worse**, behind-V1 53→**51**.
+
+**The 5-edit prototype, re-applied (all reducer-only, gate UNCHANGED):** (1) `_Ctx.merge_nonadj` slot+init.
+(2) `merge_not_adjacent` bail suppressed under `not ctx.merge_nonadj`. (3) `_fresh_ctx` /
+`_structure_region` take `merge_nonadj`. (4) `_COMBOS = (F,F),(T,F),(F,T),(T,T)` (sink_merge × merge_nonadj).
+(5) the whole-sub trial iterates `_COMBOS`, keeping the fewest-goto validating result. **Plus global
+acceptance:** `reduce()` now computes whole-sub-best AND region-fallback-best and returns the fewer-goto one
+(whole-sub wins ties), with a 0-goto whole-sub early-out so the common case skips the now-always-run region
+decomposition.
+
+**The predicted root cause was WRONG — and the data corrected it.** The prototype log predicted `$8694`'s
+regression (9→11) was "whole-sub validates at 11, short-circuiting the 9 region-fallback," to be dissolved
+by global acceptance. Instrumented reality: `whole_best=None` (the whole sub never validates) and the
+**region-fallback ITSELF regressed 9→11**. Cause: the region-fallback's per-region acceptance is GREEDY
+(commit region i's leanest validating structuring, then region j); a `merge_nonadj` fold leaner for region i
+greedily commits and BLOCKS a later region from structuring → more gotos than leaving i flat. Global
+acceptance alone did NOT fix it (region_best was the 11). **Fix:** keep `merge_nonadj` OUT of the
+region-fallback — it pays off only in the WHOLE-SUB trial (one global structuring, no greedy seam). Added
+`_REGION_COMBOS = (F,F),(T,F)` (sink-only) for the fallback; the full grid stays in the whole-sub trial.
+That recovered `$8694` to 9 AND kept every gain (−47 → −49). Lesson: a greedy local optimizer can regress
+when you hand it more options; the safe place for an aggressive fold is the global (whole-sub) pass.
+
+**Result.** V2 **978→929** (−49); 11 subs better (`per_turn_age_daimyo_decay_health_and_province_stats`
+13→0, `issue_province_command` 11→0, `dispatch_battle_resolution`/`effect_give_c`/`ai_resolve_province_takeover_attempt`
+…), **0 worse**; behind-V1 **51** / 208 excess gotos; V2 now **222 gotos ahead of V1**. 114/114 tests; hard
+gate 495/495 + 495/495 clean; dispatcher green; deterministic; default `*.c` (V1) byte-identical.
+
+**Still open (the harder tail of B).** The ~70 BACKWARD non-sink gotos (address-inverted merges) still need
+emit-order gate work — `merge_nonadj` only reaches the FORWARD slice (a backward merge re-orders the emit,
+which the address-based gate rejects). And the greedy region-fallback could become a GLOBAL region
+assignment (try all per-region combos jointly) to let `merge_nonadj` help there too — deferred, low marginal
+value vs the switch mini-epic (atom 4).

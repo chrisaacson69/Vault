@@ -1180,12 +1180,12 @@ word ai_try_war_attack(void) {
             target_idx = alt_target_idx;    // $9546
         }
     }
-    if ((target_idx != 30)) goto L_9561;    // $954B
-    if ((*(byte*)((selected_province_daimyo_record() + 2)) < (rng_mod(80) + 90))) return 0;    // $955E
-L_9561:
-    if (get_province_ai_state(target_idx)) goto L_9571;    // $9566
-    if (!(rng_mod(2))) return 0;    // $956E
-L_9571:
+    if ((target_idx == 30)) {    // $954B
+        if ((*(byte*)((selected_province_daimyo_record() + 2)) < (rng_mod(80) + 90))) return 0;    // $955E
+    }
+    if (!(get_province_ai_state(target_idx))) {    // $9566
+        if (!(rng_mod(2))) return 0;    // $956E
+    }
     if (!(do_attack)) return 0;    // $9572
     battle_defending_province = target_idx;    // $9576
     if (!(ai_commit_attack_deduct_resources())) return 0;    // $957C
@@ -1689,30 +1689,28 @@ word subhandler_9F04(word arg1) {
         confirm_prompt();    // $9F2A
         return 0;    // $9F2E
     } else {
-        if ((arg1->town <= arg1->debt)) goto L_9FA3;    // $9F38
-        local10 = helper_8357((arg1->town - arg1->debt), (loan_rate + 10), (arg1->header - *(word*)(arg1)));    // $9F58
-        if (helper_8357((arg1->town - arg1->debt), (loan_rate + 10), (arg1->header - *(word*)(arg1)))) {    // $9F59
-            ui_helper_d134(msg_s_would_you_like_to_borrow, msg_how_much_f99d);    // $9F62
-            local11 = number_input(1, local10);    // $9F6C
-            if (number_input(1, local10)) {    // $9F6D
-                effect_subhandler_9F04(local11);    // $9F71
-                helper_82AC(arg1);    // $9F76
-                helper_8A4E(0);    // $9F7B
-                ui_helper_cc7b(16, 7);    // $9F82
-                helper_83C7(*(word*)(arg1));    // $9F89
-                ui_helper_cc7b(16, 8);    // $9F90
-                helper_83C7(arg1->debt);    // $9F98
-                return 1;    // $9F9D
-            } else {
+        if ((arg1->town > arg1->debt)) {    // $9F38
+            local10 = helper_8357((arg1->town - arg1->debt), (loan_rate + 10), (arg1->header - *(word*)(arg1)));    // $9F58
+            if (helper_8357((arg1->town - arg1->debt), (loan_rate + 10), (arg1->header - *(word*)(arg1)))) {    // $9F59
+                ui_helper_d134(msg_s_would_you_like_to_borrow, msg_how_much_f99d);    // $9F62
+                local11 = number_input(1, local10);    // $9F6C
+                if (number_input(1, local10)) {    // $9F6D
+                    effect_subhandler_9F04(local11);    // $9F71
+                    helper_82AC(arg1);    // $9F76
+                    helper_8A4E(0);    // $9F7B
+                    ui_helper_cc7b(16, 7);    // $9F82
+                    helper_83C7(*(word*)(arg1));    // $9F89
+                    ui_helper_cc7b(16, 8);    // $9F90
+                    helper_83C7(arg1->debt);    // $9F98
+                    return 1;    // $9F9D
+                }
                 ui_helper_cc89();    // $9F9E
                 return 0;    // $9FA2
             }
-        } else {
-L_9FA3:
-            redraw_window(msg_you_can_t_borrow);    // $9FA6
-            confirm_prompt();    // $9FAA
-            return 0;    // $9FAE
         }
+        redraw_window(msg_you_can_t_borrow);    // $9FA6
+        confirm_prompt();    // $9FAA
+        return 0;    // $9FAE
     }
 }
 
@@ -1746,23 +1744,21 @@ word subhandler_A003(word arg1) {
     message_display(subhandler_A003_data_bc75);    // $A00B
     if (!(arg1->rice)) goto L_A059;    // $A012
     local10 = helper_8357((arg1->header - *(word*)(arg1)), gold_rice_exchange_rate, arg1->rice);    // $A02A
-    if (!(helper_8357((arg1->header - *(word*)(arg1)), gold_rice_exchange_rate, arg1->rice))) goto L_A053;    // $A02B
-    ui_helper_d134(msg_s_rice_will_you_sell, msg_how_much_f99d);    // $A034
-    local11 = number_input(1, local10);    // $A03E
-    if (!(number_input(1, local10))) goto L_A063;    // $A03F
-    effect_subhandler_A003(local11);    // $A043
-    helper_82AC(arg1);    // $A048
-    helper_8A4E(1);    // $A04D
-    return 1;    // $A052
-L_A053:
-    goto L_A05C;    // $A056
-L_A059:
-L_A05C:
-    redraw_window(msg_no_rice);    // $A05C
-    ui_helper_d759();    // $A060
+    if (helper_8357((arg1->header - *(word*)(arg1)), gold_rice_exchange_rate, arg1->rice)) {    // $A02B
+        ui_helper_d134(msg_s_rice_will_you_sell, msg_how_much_f99d);    // $A034
+        local11 = number_input(1, local10);    // $A03E
+        if (!(number_input(1, local10))) goto L_A063;    // $A03F
+        effect_subhandler_A003(local11);    // $A043
+        helper_82AC(arg1);    // $A048
+        helper_8A4E(1);    // $A04D
+        return 1;    // $A052
+    } else {
+        redraw_window(msg_no_rice);    // $A05C
+        ui_helper_d759();    // $A060
 L_A063:
-    ui_helper_cc89();    // $A063
-    return 0;    // $A067
+        ui_helper_cc89();    // $A063
+        return 0;    // $A067
+    }
 }
 
 // $A068 subhandler_A068
@@ -1772,25 +1768,23 @@ word subhandler_A068(word arg1) {
     message_display(subhandler_A068_data_bca2);    // $A070
     if (!(*(word*)(((selected_province_idx * 26) + 0x7001)))) goto L_A0DE;    // $A07F
     local11 = helper_8357(*(word*)(arg1), gold_rice_exchange_rate, (arg1->header - arg1->rice));    // $A097
-    if (!(helper_8357(*(word*)(arg1), gold_rice_exchange_rate, (arg1->header - arg1->rice)))) goto L_A0D8;    // $A098
-    redraw_window(msg_how_much_f99d);    // $A09E
-    redraw_window(msg_rice_will_you_buy);    // $A0A5
-    local10 = number_input(1, local11);    // $A0AF
-    if (!(number_input(1, local11))) goto L_A0E8;    // $A0B0
-    *(word*)(arg1) = (*(word*)(arg1) - math32_muladddiv(gold_rice_exchange_rate, local10));    // $A0C1
-    arg1->rice = (arg1->rice + local10);    // $A0C9
-    helper_82AC((arg1 + 6));    // $A0CD
-    helper_8A4E(2);    // $A0D2
-    return 1;    // $A0D7
-L_A0D8:
-    goto L_A0E1;    // $A0DB
-L_A0DE:
-L_A0E1:
-    redraw_window(msg_sorry_no_credit);    // $A0E1
-    ui_helper_d759();    // $A0E5
+    if (helper_8357(*(word*)(arg1), gold_rice_exchange_rate, (arg1->header - arg1->rice))) {    // $A098
+        redraw_window(msg_how_much_f99d);    // $A09E
+        redraw_window(msg_rice_will_you_buy);    // $A0A5
+        local10 = number_input(1, local11);    // $A0AF
+        if (!(number_input(1, local11))) goto L_A0E8;    // $A0B0
+        *(word*)(arg1) = (*(word*)(arg1) - math32_muladddiv(gold_rice_exchange_rate, local10));    // $A0C1
+        arg1->rice = (arg1->rice + local10);    // $A0C9
+        helper_82AC((arg1 + 6));    // $A0CD
+        helper_8A4E(2);    // $A0D2
+        return 1;    // $A0D7
+    } else {
+        redraw_window(msg_sorry_no_credit);    // $A0E1
+        ui_helper_d759();    // $A0E5
 L_A0E8:
-    ui_helper_cc89();    // $A0E8
-    return 0;    // $A0EC
+        ui_helper_cc89();    // $A0E8
+        return 0;    // $A0EC
+    }
 }
 
 // $A0ED effect_subhandler_A113
@@ -1807,33 +1801,32 @@ word effect_subhandler_A113(word fief, word amount) {
 // (body @ $A118)
 
 word subhandler_A113(word arg1) {
-    if (!((arg1->men <= 0))) goto L_A12D;    // $A11E
-    message_display(msg_weapons_for_who);    // $A124
-    confirm_prompt();    // $A128
-    return 0;    // $A12C
-L_A12D:
-    message_display(subhandler_A113_data_bce9);    // $A130
-    local11 = ((arms_buy_price_rate + 9) / 10);    // $A13A
-    if (!((*(word*)(arg1) >= local11))) goto L_A1A0;    // $A13F
-    local11 = helper_8357(*(word*)(arg1), arms_buy_price_rate, (arg1->header - arg1->arms));    // $A158
-    if (!(helper_8357(*(word*)(arg1), arms_buy_price_rate, (arg1->header - arg1->arms)))) goto L_A19A;    // $A159
-    redraw_window(msg_how_many);    // $A15F
-    local10 = number_input(1, local11);    // $A169
-    if (!(number_input(1, local11))) goto L_A1AA;    // $A16A
-    *(word*)(arg1) = (*(word*)(arg1) - math32_muladddiv(arms_buy_price_rate, local10));    // $A17B
-    arg1->arms = (arg1->arms + effect_subhandler_A113(arg1, local10));    // $A18A
-    helper_82AC((arg1 + 22));    // $A18F
-    helper_8A4E(3);    // $A194
-    return 1;    // $A199
-L_A19A:
-    goto L_A1A3;    // $A19D
-L_A1A0:
-L_A1A3:
-    redraw_window(msg_we_merchants_deal_only_in_cash);    // $A1A3
-    ui_helper_d759();    // $A1A7
+    if ((arg1->men <= 0)) {    // $A11E
+        message_display(msg_weapons_for_who);    // $A124
+        confirm_prompt();    // $A128
+        return 0;    // $A12C
+    } else {
+        message_display(subhandler_A113_data_bce9);    // $A130
+        local11 = ((arms_buy_price_rate + 9) / 10);    // $A13A
+        if (!((*(word*)(arg1) >= local11))) goto L_A1A0;    // $A13F
+        local11 = helper_8357(*(word*)(arg1), arms_buy_price_rate, (arg1->header - arg1->arms));    // $A158
+        if (helper_8357(*(word*)(arg1), arms_buy_price_rate, (arg1->header - arg1->arms))) {    // $A159
+            redraw_window(msg_how_many);    // $A15F
+            local10 = number_input(1, local11);    // $A169
+            if (!(number_input(1, local11))) goto L_A1AA;    // $A16A
+            *(word*)(arg1) = (*(word*)(arg1) - math32_muladddiv(arms_buy_price_rate, local10));    // $A17B
+            arg1->arms = (arg1->arms + effect_subhandler_A113(arg1, local10));    // $A18A
+            helper_82AC((arg1 + 22));    // $A18F
+            helper_8A4E(3);    // $A194
+            return 1;    // $A199
+        } else {
+            redraw_window(msg_we_merchants_deal_only_in_cash);    // $A1A3
+            ui_helper_d759();    // $A1A7
 L_A1AA:
-    ui_helper_cc89();    // $A1AA
-    return 0;    // $A1AE
+            ui_helper_cc89();    // $A1AA
+            return 0;    // $A1AE
+        }
+    }
 }
 
 // $A1AF subhandler_A1AF
@@ -2351,22 +2344,24 @@ L_A9D3:
 
 word effect_give_c(word fief) {
     local11 = effect_give_a(fief);    // $A9DF
-    if (!(effect_give_a(fief))) goto L_AA05;    // $A9E0
-    message_display(effect_give_c_data_be30);    // $A9E6
-    local11 = ui_helper_d351(msg_peasnts_men);    // $A9F1
-    if (local11) goto L_A9FB;    // $A9F3
+    if (effect_give_a(fief)) {    // $A9E0
+        message_display(effect_give_c_data_be30);    // $A9E6
+        local11 = ui_helper_d351(msg_peasnts_men);    // $A9F1
+        if (!(local11)) {    // $A9F3
 L_A9F7:
-    local11 = 2;    // $A9F7
-    goto L_AA1D;    // $A9F8
-L_A9FB:
-    if ((local11 != 2)) goto L_AA1D;    // $A9FE
-    goto L_A9F7;    // $AA02
-L_AA05:
-    message_display(msg_you_have_no_soldiers);    // $AA08
-    redraw_window(effect_give_c_data_be41);    // $AA0F
-    redraw_window(msg_you_have_no_peasants);    // $AA16
-    confirm_prompt();    // $AA1A
-L_AA1D:
+            local11 = 2;    // $A9F7
+            return local11;    // $A9F7
+        } else {
+            if ((local11 != 2)) return local11;    // $A9FE
+            goto L_A9F7;    // $AA01
+        }
+    } else {
+        message_display(msg_you_have_no_soldiers);    // $AA08
+        redraw_window(effect_give_c_data_be41);    // $AA0F
+        redraw_window(msg_you_have_no_peasants);    // $AA16
+        confirm_prompt();    // $AA1A
+        return local11;    // $AA05
+    }
     return local11;    // $AA1E
 }
 
@@ -2981,20 +2976,19 @@ word rng_threshold_10_29(void) {
 // (body @ $B33D)
 
 word ai_province_gold_to_rice_convert(word gold_surplus_ptr, word rice_surplus_ptr) {
-    if (rng_mod(4)) goto L_B346;    // $B342
-    return rng_mod(4);    // $B345
-L_B346:
+    if (!(rng_mod(4))) return rng_mod(4);    // $B342
     fief = ((selected_province_idx * 26) + 0x7001);    // $B350
-    if (!(((unsigned)rng_threshold_10_29() < (unsigned)gold_rice_exchange_rate))) goto L_B367;    // $B358
-    effect_subhandler_A003((*(word*)(rice_surplus_ptr) / 2));    // $B360
-    goto L_B3A3;    // $B364
-L_B367:
-    if (!(((unsigned)rng_threshold_10_29() > (unsigned)gold_rice_exchange_rate))) goto L_B3A3;    // $B36E
-    rice_gain = helper_8357(*(word*)(gold_surplus_ptr), gold_rice_exchange_rate, (*(word*)((fief + 24)) - *(word*)((fief + 6))));    // $B386
-    *(word*)(fief) = (*(word*)(fief) - math32_muladddiv(gold_rice_exchange_rate, rice_gain));    // $B395
-    *(word*)((fief + 6)) = (*(word*)((fief + 6)) + rice_gain);    // $B39D
-    helper_8A4E(2);    // $B39F
-L_B3A3:
+    if (((unsigned)rng_threshold_10_29() < (unsigned)gold_rice_exchange_rate)) {    // $B358
+        effect_subhandler_A003((*(word*)(rice_surplus_ptr) / 2));    // $B360
+        return ai_calc_men_surplus_over_gold_and_rice(gold_surplus_ptr, rice_surplus_ptr);    // $B35B
+    } else {
+        if (!(((unsigned)rng_threshold_10_29() > (unsigned)gold_rice_exchange_rate))) return ai_calc_men_surplus_over_gold_and_rice(gold_surplus_ptr, rice_surplus_ptr);    // $B36E
+        rice_gain = helper_8357(*(word*)(gold_surplus_ptr), gold_rice_exchange_rate, (*(word*)((fief + 24)) - *(word*)((fief + 6))));    // $B386
+        *(word*)(fief) = (*(word*)(fief) - math32_muladddiv(gold_rice_exchange_rate, rice_gain));    // $B395
+        *(word*)((fief + 6)) = (*(word*)((fief + 6)) + rice_gain);    // $B39D
+        helper_8A4E(2);    // $B39F
+        return ai_calc_men_surplus_over_gold_and_rice(gold_surplus_ptr, rice_surplus_ptr);    // $B371
+    }
     return ai_calc_men_surplus_over_gold_and_rice(gold_surplus_ptr, rice_surplus_ptr);    // $B3A9
 }
 
@@ -3190,51 +3184,48 @@ L_B703:
 word issue_province_command(word fief) {
     selected_province_idx_latch_7fdd = selected_province_idx;    // $B7A3
     rest_turns_ptr = (ui_helper_d772(fief) + 0x6D67);    // $B7AF
-    if (!(*(byte*)(rest_turns_ptr))) goto L_B7DA;    // $B7B2
-    if (!(fief_is_daimyo_capital[fief])) goto L_B874;    // $B7BB
-    effect_view_a(fief);    // $B7BF
-    ui_helper_d759();    // $B7C3
-    *(byte*)(rest_turns_ptr) = (*(byte*)(rest_turns_ptr) - 1);    // $B7CA
-    *(byte*)((fief_to_daimyo_record_addr(fief) + 1)) = (*(byte*)((fief_to_daimyo_record_addr(fief) + 1)) + 4);    // $B7D6
-    goto L_B874;    // $B7D7
-L_B7DA:
-    effect_view_c();    // $B7DA
-    call_bank10_entry(27);    // $B7DF
-    command = 0;    // $B7E4
-    goto L_B810;    // $B7E5
-L_B7E8:
-    if ((command != 17)) goto L_B7F2;    // $B7EC
-    effect_view_c();    // $B7EF
-L_B7F2:
-    ui_helper_cc89();    // $B7F2
-    daimyo_name_width(selected_province_idx);    // $B7F8
-    redraw_window(msg_your_orders);    // $B7FF
-    command = command_menu_select_loop();    // $B806
-    cmd_handler = *(word*)(((command_menu_select_loop() << 1) + command_driver_table));    // $B80D
-L_B810:
-    result = (*(cmd_handler))();    // $B810
-    if (!(result)) goto L_B7E8;    // $B812
-    if ((command == 1)) goto L_B874;    // $B818
-    if ((command == 20)) goto L_B874;    // $B81F
-    cap_fief_stats(fief);    // $B823
-    daimyo_byte_ptr = fief_to_daimyo_record_addr(fief);    // $B82C
-    fief_record = ((fief * 26) + 0x7001);    // $B835
-    fief_word_ptr = ((fief * 26) + 0x7001);    // $B836
-    i = 0;    // $B838
-L_B839:
-    if (!(((unsigned)i < (unsigned)6))) goto L_B855;    // $B83C
-    ui_helper_cc7b(6, (i + 13));    // $B843
-    daimyo_byte_ptr = (daimyo_byte_ptr + 1);    // $B849
-    province_window_redraw_ba78(fief, *(byte*)(((daimyo_byte_ptr + 1) - 1)));    // $B84E
-    goto L_B86A;    // $B852
-L_B855:
-    ui_helper_cc7b(16, (i + 1));    // $B85A
-    fief_word_ptr = (fief_word_ptr + 2);    // $B860
-    province_window_redraw_ba6f(fief, *(word*)(((fief_word_ptr + 2) + -2)));    // $B866
-L_B86A:
-    i = (i + 1);    // $B86C
-    if (((unsigned)i < (unsigned)18)) goto L_B839;    // $B871
-L_B874:
+    if (*(byte*)(rest_turns_ptr)) {    // $B7B2
+        if (!(fief_is_daimyo_capital[fief])) return ((unsigned)i < (unsigned)18);    // $B7BB
+        effect_view_a(fief);    // $B7BF
+        ui_helper_d759();    // $B7C3
+        *(byte*)(rest_turns_ptr) = (*(byte*)(rest_turns_ptr) - 1);    // $B7CA
+        *(byte*)((fief_to_daimyo_record_addr(fief) + 1)) = (*(byte*)((fief_to_daimyo_record_addr(fief) + 1)) + 4);    // $B7D6
+        return ((unsigned)i < (unsigned)18);    // $B7BE
+    } else {
+        effect_view_c();    // $B7DA
+        call_bank10_entry(27);    // $B7DF
+        command = 0;    // $B7E4
+        while (!(result)) {    // $B810
+            if ((command == 17)) {    // $B7EC
+                effect_view_c();    // $B7EF
+            }
+            ui_helper_cc89();    // $B7F2
+            daimyo_name_width(selected_province_idx);    // $B7F8
+            redraw_window(msg_your_orders);    // $B7FF
+            command = command_menu_select_loop();    // $B806
+            cmd_handler = *(word*)(((command_menu_select_loop() << 1) + command_driver_table));    // $B80D
+            result = (*(cmd_handler))();    // $B810
+        }
+        if ((command == 1)) return ((unsigned)i < (unsigned)18);    // $B818
+        if ((command == 20)) return ((unsigned)i < (unsigned)18);    // $B81F
+        cap_fief_stats(fief);    // $B823
+        daimyo_byte_ptr = fief_to_daimyo_record_addr(fief);    // $B82C
+        fief_record = ((fief * 26) + 0x7001);    // $B835
+        fief_word_ptr = ((fief * 26) + 0x7001);    // $B836
+        i = 0;    // $B838
+        do {    // $B839
+            if (((unsigned)i < (unsigned)6)) {    // $B83C
+                ui_helper_cc7b(6, (i + 13));    // $B843
+                daimyo_byte_ptr = (daimyo_byte_ptr + 1);    // $B849
+                province_window_redraw_ba78(fief, *(byte*)(((daimyo_byte_ptr + 1) - 1)));    // $B84E
+            } else {
+                ui_helper_cc7b(16, (i + 1));    // $B85A
+                fief_word_ptr = (fief_word_ptr + 2);    // $B860
+                province_window_redraw_ba6f(fief, *(word*)(((fief_word_ptr + 2) + -2)));    // $B866
+            }
+            i = (i + 1);    // $B86C
+        } while (((unsigned)i < (unsigned)18));    // $B86A
+    }
     return ((unsigned)i < (unsigned)18);    // $B874
 }
 

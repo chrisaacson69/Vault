@@ -229,7 +229,7 @@ class _Ctx:
                  so the edge is kept as an honest `goto L_t` inside the body instead of a
                  structured break, and excluded from the loop's exit set (_structure_loop)."""
     __slots__ = ("full_cfg", "info", "block_of", "nxt", "loops", "latches",
-                 "buckets", "switches", "visited", "far_by_loop", "sink_merge")
+                 "buckets", "switches", "visited", "far_by_loop", "sink_merge", "merge_nonadj")
 
     def __init__(self, full_cfg, info, block_of, nxt, loops, latches, buckets, switches):
         self.full_cfg, self.info, self.block_of, self.nxt = full_cfg, info, block_of, nxt
@@ -240,6 +240,11 @@ class _Ctx:
         # both ways and keeps whichever validates with FEWER gotos (goto-count-aware acceptance),
         # so the atom never regresses a sub that folds better without it (e.g. $A853).
         self.sink_merge = False
+        # Track B (atom 8) non-adjacent-merge fold; OFF by default. Under the flag, an if-node is
+        # built even when its merge is NOT the address-next leader (the merge_not_adjacent bail is
+        # suppressed) — recovering the 77%-majority forward shared-merge gotos. Same goto-count-
+        # aware acceptance over the _COMBOS grid guards it; the gate rejects any bad layout.
+        self.merge_nonadj = False
 
 
 def _is_return_block(L, ctx):
@@ -542,9 +547,14 @@ def _structure(entry, stop, pdom, ctx, loop):
                         _audit_bail('arm_order')
                 # LEXICAL-ADJACENCY of the merge: the gate lowers a construct's merge as the
                 # address-next leader after its last block, so the merge MUST be that block.
-                # Skipped when the merge is EXIT (the whole region ends after this if).
+                # Skipped when the merge is EXIT (the whole region ends after this if). Under the
+                # Track B merge_nonadj flag (atom 8) this bail is suppressed: the if-node is built
+                # even for a non-adjacent forward merge (the 77%-majority shared-merge fold). An
+                # orphaned gap block left between the arm tail and the merge surfaces as a gate-
+                # reject -> fall back; reduce()'s self-validation + _COMBOS acceptance backstop it.
                 consumed = {n} | then_used | else_used
-                if merge is not vm_cfg.EXIT and ctx.nxt[max(consumed)] != merge:
+                if merge is not vm_cfg.EXIT and ctx.nxt[max(consumed)] != merge \
+                        and not ctx.merge_nonadj:
                     _audit_bail('merge_not_adjacent')
                 cond = vm_cfg._neg(rawcond)
                 seq.append(('if', baddr if baddr is not None else n, stmts, cond, then_seq, else_seq))
@@ -934,6 +944,22 @@ def _emit(seq, indent, out):
                 out.append((0, indent, "}"))
 
 
+# atom 8: the structuring trial grid — (sink_merge, merge_nonadj). Track A's forward-sink atom
+# crossed with Track B's non-adjacent-merge fold. reduce() runs the whole-sub trial AND each
+# region-fallback region over this grid and keeps the fewest-goto VALIDATING result per pass
+# (goto-count-aware acceptance; the gate proves only equivalence, not minimality). Order is
+# deterministic; on a goto-count tie the earliest combo wins (plain off < +A < +B < +A+B).
+_COMBOS = ((False, False), (True, False), (False, True), (True, True))
+# The region-fallback uses a NARROWER grid (no merge_nonadj): the per-region acceptance is GREEDY
+# (commit region i's leanest validating structuring, then region j), and a merge_nonadj fold that
+# is leaner for region i can BLOCK a later region from structuring — netting MORE gotos than
+# leaving i flat ($8694: full grid 11 vs sink-only 9). merge_nonadj pays off in the WHOLE-SUB
+# trial (one global structuring, no greedy seam); in the fallback it's a regression risk for no
+# measured gain, so the fallback stays sink-only. (Revisit if a global region assignment replaces
+# the greedy one.)
+_REGION_COMBOS = ((False, False), (True, False))
+
+
 def reduce(lines, instructions):
     """Region reducer (CFG epic V2). Rungs 0-1 = block partition + flat emit; rungs 2+4 add
     sequence / if-then / if-then-else / while / do-while / while(1) over the whole sub.
@@ -962,16 +988,17 @@ def reduce(lines, instructions):
     loops = {hh: frozenset(s) for hh, s in loops.items()}
     pdom = vm_cfg.post_dominators(cfg)
 
-    def _fresh_ctx(sink_merge=False):
+    def _fresh_ctx(sink_merge=False, merge_nonadj=False):
         c = _Ctx(cfg, info, block_of, nxt, loops, latches, buckets, switches)
         c.sink_merge = sink_merge
+        c.merge_nonadj = merge_nonadj
         return c
 
-    def _structure_region(entry, stop, sink_merge=False):
+    def _structure_region(entry, stop, sink_merge=False, merge_nonadj=False):
         """Structure the single-entry/single-exit region [entry, stop) into a seq (AST items),
         or None on a structural bail. Fresh visited per call (regions are disjoint)."""
         try:
-            seq, _u = _structure(entry, stop, pdom, _fresh_ctx(sink_merge), None)
+            seq, _u = _structure(entry, stop, pdom, _fresh_ctx(sink_merge, merge_nonadj), None)
             return seq
         except _NotReducible:
             return None
@@ -986,30 +1013,40 @@ def reduce(lines, instructions):
         out = _insert_labels(out, block_of)
         if not vm_cfg.structured_equivalent(lines, out, leaders)[0]:
             return None
-        # CFG-neutral peephole (drop redundant goto-to-fall-through + dead labels), kept only if
-        # it still proves equivalent — the gate is the backstop for the rare emit-order divergence.
-        peeled = _peephole(out)
+        # CFG-neutral peephole (drop redundant goto-to-fall-through + dead labels). Each goto-drop
+        # is validated on its own (emit-order adjacency can disagree with the gate at a reordered
+        # flat-span boundary — a per-clip check keeps every sound drop and reverts only the unsound
+        # ones). The final wholesale re-check is the backstop (dead-label removal is gate-neutral).
+        peeled = _peephole(out, validate=lambda s: vm_cfg.structured_equivalent(lines, s, leaders)[0])
         return peeled if vm_cfg.structured_equivalent(lines, peeled, leaders)[0] else out
+
+    # GLOBAL goto-count acceptance (atom 8). The whole-sub structuring and the region-level
+    # fallback are BOTH computed and the fewest-goto VALIDATING one wins. A whole-sub fold that
+    # merely validates must NOT short-circuit a leaner region-fallback — the $8694 trap: with
+    # merge_nonadj on, the whole sub validates at 11 gotos, but the region fallback yields 9;
+    # local "first whole-sub that validates wins" returned 11. Each pass runs over the _COMBOS
+    # grid (sink_merge × merge_nonadj) keeping its own fewest-goto validating result.
 
     # 1) WHOLE-SUB structuring, self-validated against the CFG-equivalence gate (the design's
     #    verifier). Composed local fallbacks (honest-goto cuts / flat spans / convergent exits)
     #    can emit a CFG-divergent LAYOUT no structural guard caught; rather than enumerate every
     #    hazard, prove equivalence or fall through. Keeps "0 gate-rejects downstream" automatic.
-    # Run the whole-sub structuring BOTH without and with the sink-merge atom (Track A); keep
-    # whichever VALIDATES with the fewest gotos. Goto-count-aware acceptance: the atom helps the
-    # forward-sink subs ($9F04, $A003, $A068, $A113) but a few subs fold better without it
-    # ($A853) — first-valid-wins would lock in the worse fold (the gate proves only equivalence,
-    # not goto-count), so compare and pick the leaner one.
-    best = None
-    for _sm in (False, True):
-        whole = _structure_region(leaders[0], vm_cfg.EXIT, sink_merge=_sm)
+    #    Track A (sink_merge) helps the forward-sink subs ($9F04, …); Track B (merge_nonadj) the
+    #    non-adjacent forward shared-merge majority; a few subs fold leaner under neither ($A853).
+    #    First-valid-wins would lock in a worse fold (the gate proves equivalence, not goto-count).
+    whole_best = None
+    for _sm, _mn in _COMBOS:
+        whole = _structure_region(leaders[0], vm_cfg.EXIT, sink_merge=_sm, merge_nonadj=_mn)
         if whole is None:
             continue
         out = _validates(whole)
-        if out is not None and (best is None or _seq_gotos(out) < _seq_gotos(best)):
-            best = out
-    if best is not None:
-        return best
+        if out is not None and (whole_best is None or _seq_gotos(out) < _seq_gotos(whole_best)):
+            whole_best = out
+    # A clean 0-goto whole-sub fold is optimal — no region-fallback can beat it, so skip the
+    # (now always-run) region decomposition for the common case (keeps the cost increase to subs
+    # that still carry residual gotos).
+    if whole_best is not None and _seq_gotos(whole_best) == 0:
+        return whole_best
 
     # 2) REGION-LEVEL PARTIAL FALLBACK. Decompose the sub at its post-dominator SPINE (the
     #    immediate-post-dom chain entry -> … -> EXIT — the blocks ALL paths pass through) into a
@@ -1018,6 +1055,7 @@ def reduce(lines, instructions):
     #    just that region. Regions are disjoint and joined linearly at the articulation points, so
     #    a divergence in one improper region no longer flattens the WHOLE sub — the reducible
     #    regions around it keep their structure. Every kept piece is CFG-proven.
+    region_best, region_has_structure = None, False
     spine, p, seen = [leaders[0]], leaders[0], {leaders[0]}
     while p is not vm_cfg.EXIT:
         p = vm_cfg._imm_post_dom(pdom, p)
@@ -1049,9 +1087,9 @@ def reduce(lines, instructions):
 
         flat_g = [_gotos_of(seq) for seq in flat]
         for i, (Pi, Pj) in enumerate(regions):
-            # Try both without and with the sink-merge atom; take the leaner valid structuring.
-            cands = [r for r in (_structure_region(Pi, Pj, sink_merge=sm) for sm in (False, True))
-                     if r is not None]
+            # Try the whole _COMBOS grid (sink_merge × merge_nonadj); take the leaner valid one.
+            cands = [r for r in (_structure_region(Pi, Pj, sink_merge=sm, merge_nonadj=mn)
+                                 for (sm, mn) in _REGION_COMBOS) if r is not None]
             s = min(cands, key=_gotos_of) if cands else None
             # Keep the region structured only if it BOTH validates AND emits no more gotos than
             # the flat span — an honest-goto cut can turn a raw fall-through into an explicit
@@ -1064,9 +1102,20 @@ def reduce(lines, instructions):
                 chosen[i] = s
         out = _validates([it for sub in chosen for it in sub])
         if out is not None:
-            LAST_BAIL = None if any(chosen[i] is not flat[i] for i in range(len(regions))) \
-                else 'self_gate'
-            return out
+            region_best = out
+            region_has_structure = any(chosen[i] is not flat[i] for i in range(len(regions)))
+
+    # 3) GLOBAL pick — fewest-goto of whole-sub vs region-fallback. On a tie the whole-sub form
+    #    wins: it is the cleaner single construct (no artificial region seams). LAST_BAIL records
+    #    the disposition for the bail audit: None = a structured fold landed; 'self_gate' = nothing
+    #    structured validated, so the result is the honest flat layout.
+    if whole_best is not None and (region_best is None
+                                   or _seq_gotos(whole_best) <= _seq_gotos(region_best)):
+        LAST_BAIL = None
+        return whole_best
+    if region_best is not None:
+        LAST_BAIL = None if region_has_structure else 'self_gate'
+        return region_best
     LAST_BAIL = 'self_gate'
     return _flat_emit(buckets, leaders)
 
@@ -1096,10 +1145,10 @@ def _insert_labels(out, block_of):
     return result
 
 
-_RE_GOTO_ONLY = re.compile(r'^goto L_([0-9A-Fa-f]{4});$')
+_RE_GOTO_ONLY = re.compile(r'^goto L_([0-9A-Fa-f]{4});\s*(//.*)?$')
 
 
-def _peephole(out):
+def _peephole(out, validate=None):
     """CFG-neutral cleanup of the emitted lines — the caller RE-VALIDATES the result against
     the equivalence gate, so this only ever PROPOSES; an unsound proposal is rejected wholesale.
 
@@ -1108,16 +1157,33 @@ def _peephole(out):
         honest-goto cuts / flat-span joins routinely emit `goto L_next; L_next:` at a boundary).
         Drop the goto. Emit-order adjacency (not address order) is the trigger, because the
         structured C is read in emit order; the gate's address-based re-check is the backstop.
+        The matcher tolerates a trailing `// $addr` comment: a REAL bytecode jump carried verbatim
+        from a block node (e.g. a loop-entry jump-to-condition `goto L_h; // $a` whose header `L_h`
+        is the very next line, or a routing stub) keeps its provenance comment, so an anchored
+        `;$` matcher would clip only the synthetic (comment-less) cuts and leave the real ones.
+
+        Applied INCREMENTALLY when `validate(seq)->bool` is supplied: emit-order adjacency can
+        disagree with the gate's re-lowering at a flat-span boundary where a block's emit-NEXT
+        label is NOT its address-next leader (a REORDERED routing stub) — there the drop is
+        unsound. A batch drop + one wholesale re-check reverts the WHOLE batch when any single
+        clip is unsound, losing the sound ones too (e.g. a loop-entry `goto L_h; L_h:` the gate
+        accepts because it understands the `while`, dropped alongside a bad stub in the same sub).
+        So each candidate is validated on its own and kept only if it still passes; the unsound
+        ones stay as honest gotos. Without a validator (tests), every candidate is dropped and the
+        caller re-checks the batch.
     (2) then drop any `L_X:` label no surviving goto still targets (cosmetic; the gate ignores
         labels, so this is always safe)."""
-    pruned = []
-    for i, (addr, ind, text) in enumerate(out):
-        m = _RE_GOTO_ONLY.match(text.strip())
-        if m and i + 1 < len(out):
-            tgt = int(m.group(1), 16)
-            if out[i + 1][2].strip() == f"L_{tgt:04X}:":
-                continue                       # redundant goto-to-next — drop it
-        pruned.append((addr, ind, text))
+    pruned = list(out)
+    i = 0
+    while i < len(pruned):
+        m = _RE_GOTO_ONLY.match(pruned[i][2].strip())
+        if m and i + 1 < len(pruned) \
+                and pruned[i + 1][2].strip() == f"L_{int(m.group(1), 16):04X}:":
+            trial = pruned[:i] + pruned[i + 1:]   # drop this redundant goto-to-next
+            if validate is None or validate(trial):
+                pruned = trial
+                continue                       # re-examine the line now at index i
+        i += 1
     refs = set()
     for _a, _i, t in pruned:
         for m in _RE_GOTO_TGT.finditer(t):
