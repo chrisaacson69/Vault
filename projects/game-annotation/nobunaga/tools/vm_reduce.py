@@ -208,14 +208,19 @@ class _Ctx:
       buckets  : {leader: [(addr,indent,text)]} — the RAW partitioned lines (rung 5 reads
                  the verbatim case-body lines from here, gotos/labels intact)
       switches : {switch_block: dispatch dict} — foldable switches (vm_cfg.switch_dispatches)
-      visited  : cross-edge guard (a block reached twice = irreducible)"""
+      visited  : cross-edge guard (a block reached twice = irreducible)
+      far_by_loop : {header: frozenset(blocks)} — multi-LEVEL break targets for that loop: an
+                 exit that escapes the PARENT loop too (C's single-level break can't reach it),
+                 so the edge is kept as an honest `goto L_t` inside the body instead of a
+                 structured break, and excluded from the loop's exit set (_structure_loop)."""
     __slots__ = ("full_cfg", "info", "block_of", "nxt", "loops", "latches",
-                 "buckets", "switches", "visited")
+                 "buckets", "switches", "visited", "far_by_loop")
 
     def __init__(self, full_cfg, info, block_of, nxt, loops, latches, buckets, switches):
         self.full_cfg, self.info, self.block_of, self.nxt = full_cfg, info, block_of, nxt
         self.loops, self.latches = loops, latches
         self.buckets, self.switches, self.visited = buckets, switches, set()
+        self.far_by_loop = {}
 
 
 def _is_return_block(L, ctx):
@@ -309,6 +314,12 @@ def _terminal(b, loop, ctx):
             return 'continue'
         if e is not None and b == e:
             return 'break'
+        # Multi-LEVEL break: an edge out of this loop to a target that ALSO escapes the parent
+        # loop (C's break only leaves ONE loop) -> kept as an honest `goto L_t` (the `goto
+        # DISPLAY`/`goto done` abort idiom). The e-check above runs first, so the loop's OWN
+        # single-level exit still renders as a clean break; only the farther target gotos.
+        if b is not vm_cfg.EXIT and b in ctx.far_by_loop.get(h, ()):
+            return f'goto L_{b:04X}'
     if b is not vm_cfg.EXIT and _is_return_block(b, ctx):
         return ctx.info[b][0][0][1].rstrip(';')
     return None
@@ -431,11 +442,20 @@ def _structure(entry, stop, pdom, ctx, loop):
                 n = goto_block
                 continue
             if gt is not None and ft is not None:
-                # both arms leave the region: `if (rawcond) <gt>; <ft>;` (guard + tail term,
-                # so the guard keeps the real branch addr and the fall term its block addr).
+                # both arms leave the region. This is the body TAIL (we break the walk after),
+                # so an arm that `continue`s is just the implicit fall-off back to the header —
+                # collapse it into a SINGLE guard on the OTHER arm (`if(cond) <other>;`), avoiding
+                # a separate term tagged with the fall block's addr (which would COLLIDE when that
+                # block is also emitted elsewhere — e.g. a multi-level break target). Else emit
+                # the generic guard + tail term (guard keeps the branch addr, term its block addr).
                 seq.append(('block', n, stmts))
-                seq.append(('guard', baddr, rawcond, gt))
-                seq.append(('term', ft, fall))
+                if gt == 'continue':
+                    seq.append(('guard', baddr, vm_cfg._neg(rawcond), ft))   # !rawcond -> ft
+                elif ft == 'continue':
+                    seq.append(('guard', baddr, rawcond, gt))                # rawcond -> gt
+                else:
+                    seq.append(('guard', baddr, rawcond, gt))
+                    seq.append(('term', ft, fall))
                 break
             # --- both arms are regions: if-then / if-then-else (rung 2) -------------------
             # RUNG 6 — local honest-goto fallback. The clean if/then/else recovery below
@@ -543,13 +563,10 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
     a pure-routing exit can't be folded (the gate would scan past the region boundary)."""
     loop = ctx.loops[h]
     # RUNG 4d: nested loops compose for free — the body walk recurses into _structure_loop for
-    # an inner header, collapsing it to one node the outer walk consumes like a block. But an
-    # IRREGULAR inner loop doesn't fold cleanly and would gate-reject, so bail those
-    # structurally (the gate stays a pure backstop). Irregular = more than one latch (multi
-    # back-edge inner).
-    for h2 in ctx.loops:
-        if h2 != h and h2 in loop and len(ctx.latches[h2]) > 1:
-            raise _NotReducible('nested_loop')
+    # an inner header, collapsing it to one node the outer walk consumes like a block. A
+    # multi-latch inner loop is NO LONGER bailed here (the old `nested_loop` guard): the
+    # multi-latch handler below folds it to while(1)-with-continues and reduce() self-validates,
+    # so nested multi-latch loops compose like any other (e.g. vm_bootstrap's per-turn/per-fief).
     # Exit target(s): a single clean exit, else not ours yet. An exit to a bare-RETURN block is
     # an EARLY RETURN, not a competing loop exit — the body walk's _terminal already inlines it
     # as `if (C) return X;` (CFG-neutral; contract() bypasses bare returns). So when a real
@@ -562,6 +579,19 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
     # reject; multi-stmt returns aren't reliably clean early-return paths, so kept narrow.)
     all_exits = {s for nn in loop for s in ctx.full_cfg[nn]
                  if s is not vm_cfg.EXIT and s not in loop}
+    # MULTI-LEVEL break: an exit that escapes the PARENT loop too is unreachable by a single
+    # C `break` -> keep that edge as an honest `goto L_t` in the body (recorded in far_by_loop,
+    # consumed by _terminal) and DROP it from this loop's exit set, so the remaining single-level
+    # exit makes the loop foldable. Top-level loops (no parent) have nothing "far". This is what
+    # lets a `goto DISPLAY` abort gate firing from N nested loops fold: each inner loop keeps the
+    # goto; only the outermost loop that still CONTAINS the target breaks to it.
+    if outer_loop is not None:
+        parent_nodes = ctx.loops.get(outer_loop[0], frozenset())
+        far = frozenset(s for s in all_exits if s not in parent_nodes)
+    else:
+        far = frozenset()
+    ctx.far_by_loop[h] = far
+    all_exits -= far
     nonreturn = {s for s in all_exits if not _is_return_block(s, ctx)}
     if nonreturn:
         exit_targets = nonreturn
@@ -596,7 +626,11 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
     # after the do-while and mis-reads THIS loop's exit. The reducer's output is correct C, but
     # the verifier can't anchor an exit on a scaffold line -> bail (sound). Hits an inner while
     # that is the last statement of a do-while body (e.g. $DB97: while(...) ending a do-while).
+    # ONLY when the parent is a SINGLE-latch do-while (so e really renders as `} while(C);`): a
+    # MULTI-latch parent renders as while(1), where e (a back-edge block) is a normal `if(cond)
+    # continue; …` block the gate anchors on fine — bailing there blocks valid nested folds.
     if outer_loop is not None and e is not None and len(ctx.full_cfg[e]) == 2 \
+            and len(ctx.latches.get(outer_loop[0], ())) == 1 \
             and e in ctx.latches.get(outer_loop[0], ()) and not ctx.info[e][0]:
         raise _NotReducible('exit_is_dowhile_latch')
     # LEXICAL ADJACENCY of the exit: the gate reads a loop's exit as the first REAL block AFTER
@@ -698,16 +732,26 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
             node = ('selfgoto', h)
         return node, {h}, (e if e is not None else vm_cfg.EXIT)
 
-    # ---- multi-latch loop -> keep as a flat honest-goto span (rung-6 local fallback) -------
-    # A loop with >1 latch (multiple back-edges to the header) that fell through pre-test /
-    # do-while / self-loop has no SOUND single-construct form: rendered as while(1), its body
-    # tail exits via fall-through, but a tail `if(C) continue;` makes that fall ambiguous with
-    # the loop-back (the gate reads it as a back-edge, losing the exit). V1 leaves these as
-    # honest gotos too. Keep the loop's RAW lines as a flat span and structure everything
-    # around it — the surrounding loops/ifs still fold. (Single-latch endless loops fall
-    # through to the sound while(1) below.)
+    # ---- multi-latch loop -> while(1) with `continue` guards (else flat honest-goto span) ----
+    # A loop with >1 latch is a while(1) whose extra back-edges are `continue` statements (the
+    # inverse of the compiler lowering each `continue` to a jump-to-header). ATTEMPT that fold:
+    # walk the body (edges to the header render as `continue`, to the exit as `break`). The one
+    # UNSOUND shape is a body-TAIL `if(C) continue;` whose fall-through IS the loop-back — the
+    # gate then reads the fall as the back-edge and loses the exit; the both-terminal walk now
+    # collapses such a tail to a single `if(!C) break;` guard, and reduce()'s self-validation is
+    # the backstop. If the body walk can't own a shape, fall back to the flat honest-goto span
+    # (the surrounding loops/ifs still fold), restoring `visited` so the bailed blocks re-walk.
     if len(ctx.latches[h]) > 1:
-        return _flat_span(loop, ctx, e if e is not None else vm_cfg.EXIT)
+        saved = set(ctx.visited)
+        try:
+            body, _u = _structure(h, _STOP, body_pdom, ctx, lp)
+            body = _strip_trailing_continue(body)
+            ctx.visited |= set(loop)
+            return ('loop', 'while1', h, None, body, None, []), set(loop) | shims, (e if e is not None else vm_cfg.EXIT)
+        except _NotReducible:
+            ctx.visited.clear()
+            ctx.visited.update(saved)
+            return _flat_span(loop, ctx, e if e is not None else vm_cfg.EXIT)
 
     # ---- endless: while(1) { body }  (exits via break / return inside) -----------------
     # The header h IS the first body block of a while(1) (no governing pre-test), so the body
