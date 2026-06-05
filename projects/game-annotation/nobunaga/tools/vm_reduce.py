@@ -461,9 +461,28 @@ def _structure_loop(h, ctx, outer_loop):
     for h2 in ctx.loops:
         if h2 != h and h2 in loop and len(ctx.latches[h2]) > 1:
             raise _NotReducible('nested_loop')
-    # Exit target(s): a single clean exit, else not ours yet.
-    exit_targets = {s for nn in loop for s in ctx.full_cfg[nn]
-                    if s is not vm_cfg.EXIT and s not in loop}
+    # Exit target(s): a single clean exit, else not ours yet. An exit to a bare-RETURN block is
+    # an EARLY RETURN, not a competing loop exit — the body walk's _terminal already inlines it
+    # as `if (C) return X;` (CFG-neutral; contract() bypasses bare returns). So when a real
+    # (non-return) exit exists, drop the return-block exits from the count: a loop with one
+    # normal exit + N early returns collapses to the single-exit (pre/post-test) case and folds,
+    # the returns falling out inside the body (e.g. $91A1: while-search with `return idx`). Only
+    # when EVERY exit is a return block do we keep them (prior behaviour: one becomes the break
+    # exit) — excluding them there would force e=None/while(1) and mis-anchor.
+    all_exits = {s for nn in loop for s in ctx.full_cfg[nn]
+                 if s is not vm_cfg.EXIT and s not in loop}
+    nonreturn = {s for s in all_exits if not _is_return_block(s, ctx)}
+    if nonreturn:
+        exit_targets = nonreturn
+    elif all_exits:
+        # Every exit is a return block. The loop's NATURAL exit is the header's own non-body
+        # successor (the pre-test fall-out, e.g. $91A1's `return 255` tail); any OTHER return
+        # exit is a body early return the walk inlines. Use the header-exit as primary when it's
+        # unique; otherwise (post-test latch exit, or ambiguous) keep all so the count bails.
+        header_exit = all_exits & ctx.full_cfg[h]
+        exit_targets = header_exit if len(header_exit) == 1 else all_exits
+    else:
+        exit_targets = all_exits
     if len(exit_targets) > 1:
         raise _NotReducible('multi_exit_loop')
     e = next(iter(exit_targets)) if exit_targets else None
