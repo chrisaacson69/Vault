@@ -79,4 +79,46 @@ defensive guess ("the gate can't handle this") that was never tested against the
 *could* handle it. Worth auditing the other `bounded`/adjacency bails the same way.
 **Still open (NON-adjacent routing).** When the routing stub is NOT the address-next block
 (`nxt[max(region)] != e`), the loop still bails — that's the rest of the `none` bucket ("redirect
-predecessors", the address-ordered-emitter work). A candidate atom #4.
+predecessors", the address-ordered-emitter work). A candidate atom #4 — but the audit below shows
+the obvious "routing-skip the adjacency check" refinement does NOT work (it re-breaks atom 3).
+
+---
+
+## Guard audit (2026-06-05) — globalizing the atom-3 lesson
+> Atom 3's bailed guard was an untested "the gate can't anchor this" GUESS. Are the OTHER bails the
+> same? Because `reduce()` self-validates against the CFG gate, suppressing a guard is safe (a wrong
+> guess → gate-reject / worse fold; a correct removal → win). Audited every guard whose fall-through
+> builds a CFG-validatable node, via `tools/probe-bail-audit.py` (one-line per guard,
+> `vm_reduce._AUDIT_SKIP`). Semantic guards (`compound_pretest` — update-timing the CFG gate can't
+> police) and crash/loop-risk guards (`cross_edge_top`, `goto_not_succ`, `no_fall`) are NOT audited.
+
+| guard suppressed | Δgotos | subs worse | verdict |
+|---|---|---|---|
+| `goto_past_merge` | +0 | 0 | no-op (the case is caught by another bail) |
+| `empty_then` | −1 | 0 | trivial — leave it |
+| `else_before_then` | +0 | 0 | no-op |
+| **`arm_order`** | **+30** | 2 | **GENUINE — the gate really rejects** (`char_classify $CDCA` 2→29) |
+| **`merge_not_adjacent`** | **−21** | **5** | **over-broad but RIGHT sometimes** — see below |
+| `exit_is_dowhile_latch` | +0 | 0 | no-op (already tightened in session 8) |
+
+**Headline lesson: atom 3 was the EXCEPTION, not the rule.** 5 of 6 audited guards are well-calibrated
+(genuine soundness or no-ops). Do NOT assume a guard is a bad guess — the gate audit is the arbiter,
+and most of these guards are doing real work. `arm_order` in particular is load-bearing (suppressing
+it sends `char_classify` 2→29 gotos — the gate genuinely can't handle reversed arm order).
+
+**`merge_not_adjacent` — the one real lever, but no cheap refinement.** Suppressing it is net −21 yet
+breaks 5 subs (`$8C75` 3→14, `$AAA7` 1→7…), so it's right for those 5 and over-conservative for the
+rest. Two refinements TRIED and REVERTED:
+- **routing-skip the if-merge adjacency** (atom-3's idea on if-merges): DISASTER — +49 (1037), 32
+  subs worse, even `vm_bootstrap` 1→2. A routing block between an if-body and its merge is NOT
+  droppable the way a loop-exit stub is; skipping it makes the guard accept CFG-wrong if-nodes.
+- **routing-skip the non-adjacent LOOP-exit** (the atom-#4 candidate): also regressed (−0 net, 10
+  worse) AND re-broke atom 3 — when `e` IS the stub (atom-3's adjacent case) `_routing_skip` skips
+  PAST it, so the check wrongly bails. `$89A3` went 0→16.
+
+**So routing absorption (atom 3) is LOOP-EXIT-specific and does NOT generalize** to if-merges or
+non-adjacent exits. The latent −21 in `merge_not_adjacent` is real but needs a per-region TRIAL
+(build the if-node, keep it only if it self-validates AND beats the local honest-goto), not a
+condition tweak — deferred. **Net code change from the audit: none to the folds** (the harness
+`_audit_bail`/`_AUDIT_SKIP` stays as 0-cost instrumentation for future audits); the deliverable is
+the lessons above + `tools/probe-bail-audit.py` to re-run them.

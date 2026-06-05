@@ -173,6 +173,21 @@ class _NotReducible(Exception):
 LAST_BAIL = None
 
 
+# Audit harness (atom-log discipline): a set of bail reasons to SUPPRESS, so we can test whether
+# a guard is a genuine soundness invariant or an untested "the gate can't handle this" guess (the
+# atom-3 lesson). `_audit_bail(reason)` raises normally UNLESS the reason is suppressed, in which
+# case it falls through and the caller builds the node anyway — reduce()'s self-validation is the
+# backstop, so a wrong guess shows up as a gate-reject, a correct removal as a fold. Default empty
+# (production behaviour identical). Only used at guards whose fall-through builds a CFG-validatable
+# node (NOT semantic guards like compound_pretest, which the CFG gate can't police).
+_AUDIT_SKIP = set()
+
+
+def _audit_bail(reason):
+    if reason not in _AUDIT_SKIP:
+        raise _NotReducible(reason)
+
+
 def _parse_block(block_lines):
     """(stmts, rawcond, branch_addr, goto_target, is_switch) for one block's raw lines.
     stmts = [(addr, text)] to emit verbatim (the block body incl. any `return …;`); the
@@ -480,7 +495,7 @@ def _structure(entry, stop, pdom, ctx, loop):
                 # The goto target must stay within the region (<= merge by address); a goto PAST
                 # the merge is a forward skip (break-like) -> irreducible here.
                 if merge is not vm_cfg.EXIT and goto_block > merge:
-                    raise _NotReducible('goto_past_merge')
+                    _audit_bail('goto_past_merge')
                 then_seq, then_used = ([], set()) if fall == merge else \
                     _structure(fall, merge, pdom, ctx, loop)
                 else_seq, else_used = ([], set()) if goto_block == merge else \
@@ -491,10 +506,10 @@ def _structure(entry, stop, pdom, ctx, loop):
                     # laid out BETWEEN the header and that body. The gate finds the else boundary
                     # by address (next leader after the then span), which an empty then-arm makes
                     # ambiguous -> bail. (Both arms empty = a value-diamond shell — fold it.)
-                    raise _NotReducible('empty_then')
+                    _audit_bail('empty_then')
                 if else_seq:
                     if not (fall < goto_block):
-                        raise _NotReducible('else_before_then')  # then(fall) must precede else(goto)
+                        _audit_bail('else_before_then')  # then(fall) must precede else(goto)
                     # The ENTIRE then-region must precede the ENTIRE else-region by address —
                     # else emitting then-then-else reverses address order and the address-based
                     # gate mis-routes. Lexical order == address order is the invariant the gate
@@ -506,13 +521,13 @@ def _structure(entry, stop, pdom, ctx, loop):
                     then_excl = [b for b in then_used if not _is_return_block(b, ctx)]
                     else_excl = [b for b in else_used if not _is_return_block(b, ctx)]
                     if then_excl and else_excl and max(then_excl) >= min(else_excl):
-                        raise _NotReducible('arm_order')
+                        _audit_bail('arm_order')
                 # LEXICAL-ADJACENCY of the merge: the gate lowers a construct's merge as the
                 # address-next leader after its last block, so the merge MUST be that block.
                 # Skipped when the merge is EXIT (the whole region ends after this if).
                 consumed = {n} | then_used | else_used
                 if merge is not vm_cfg.EXIT and ctx.nxt[max(consumed)] != merge:
-                    raise _NotReducible('merge_not_adjacent')
+                    _audit_bail('merge_not_adjacent')
                 cond = vm_cfg._neg(rawcond)
                 seq.append(('if', baddr if baddr is not None else n, stmts, cond, then_seq, else_seq))
                 used |= consumed
@@ -625,7 +640,7 @@ def _structure_loop(h, ctx, outer_loop):
     if outer_loop is not None and e is not None and len(ctx.full_cfg[e]) == 2 \
             and len(ctx.latches.get(outer_loop[0], ())) == 1 \
             and e in ctx.latches.get(outer_loop[0], ()) and not ctx.info[e][0]:
-        raise _NotReducible('exit_is_dowhile_latch')
+        _audit_bail('exit_is_dowhile_latch')
     # LEXICAL ADJACENCY of the exit: the gate reads a loop's exit as the first REAL block AFTER
     # the closing brace by address, so the exit must be the leader right after the loop's last
     # block. (ROUTING-BLOCK ABSORPTION, atom #3: a pure-routing exit — a 1-succ `goto L_t` block
