@@ -497,6 +497,23 @@ def _structure_loop(h, ctx, outer_loop):
         node = ('loop', 'dowhile', h, cond, body, u, u_stmts)
         return node, set(loop), e
 
+    # ---- self-loop with no clean exit (header is its own only body, succ includes h) ----
+    # An infinite self-loop can't be walked as a body (the body IS the header, which is
+    # already visited -> a spurious cross_edge that flattened the whole sub). Fold to
+    # while(1){stmts} when the block carries statements (the gate's tail-falls-off rule
+    # rebuilds the self back-edge from the body tail); when it's a bare `goto self` with no
+    # statement, while(1){} would DROP the back-edge (empty body = no tail) so keep it as an
+    # honest self-goto. Either way the REST of the sub stays structured — the rung-6
+    # local-honest-goto idea applied to the one shape that needs it most. (A self-loop WITH
+    # an exit edge is a do-while, already handled above via latch_stmts.)
+    if loop == frozenset({h}):
+        ctx.visited.add(h)
+        if h_stmts:
+            node = ('loop', 'while1', h, None, [('block', h, h_stmts)], None, [])
+        else:
+            node = ('selfgoto', h)
+        return node, {h}, (e if e is not None else vm_cfg.EXIT)
+
     # ---- endless: while(1) { body }  (exits via break / return inside) -----------------
     ctx.visited.add(h)
     body, _u = _structure(h, _STOP, body_pdom, ctx, lp)
@@ -583,6 +600,11 @@ def _emit(seq, indent, out):
         elif kind == 'guard':
             _, baddr, cond, gkind = item
             out.append((baddr, indent, f"if ({cond}) {gkind};"))
+        elif kind == 'selfgoto':
+            # An irreducible bare self-loop (`L_h: goto L_h;`) — kept as an honest goto so
+            # the rest of the sub still structures. The label is supplied by _insert_labels.
+            h = item[1]
+            out.append((h, indent, f"goto L_{h:04X};"))
         elif kind == 'switchspan':
             for addr, rel_indent, text in item[1]:
                 out.append((addr, indent + rel_indent, text))
@@ -650,4 +672,29 @@ def reduce(lines, instructions):
         return _flat_emit(buckets, leaders)
     out = []
     _emit(seq, 1, out)
-    return out
+    return _insert_labels(out, block_of)
+
+
+_RE_GOTO_TGT = re.compile(r'goto L_([0-9A-Fa-f]{4})')
+
+
+def _insert_labels(out, block_of):
+    """Re-insert `L_xxxx:` labels for any honest goto the structured emit produced (rung-6
+    self-gotos / edge cuts). The structured tree strips labels — clean folds emit zero gotos
+    so this is a no-op for them — but a kept honest goto needs its target label back for valid
+    C. Insert each target's label (column 0, the existing convention) before the first emitted
+    line of that target's block. The gate ignores labels, so this is cosmetic-only."""
+    targets = set()
+    for _a, _ind, t in out:
+        for m in _RE_GOTO_TGT.finditer(t):
+            targets.add(int(m.group(1), 16))
+    if not targets:
+        return out
+    result, placed = [], set()
+    for addr, ind, text in out:
+        if targets and addr and block_of(addr) in targets and block_of(addr) not in placed:
+            T = block_of(addr)
+            result.append((T, 0, f"L_{T:04X}:"))
+            placed.add(T)
+        result.append((addr, ind, text))
+    return result
