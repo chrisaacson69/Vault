@@ -908,7 +908,12 @@ def reduce(lines, instructions):
         out = []
         _emit(seq, 1, out)
         out = _insert_labels(out, block_of)
-        return out if vm_cfg.structured_equivalent(lines, out, leaders)[0] else None
+        if not vm_cfg.structured_equivalent(lines, out, leaders)[0]:
+            return None
+        # CFG-neutral peephole (drop redundant goto-to-fall-through + dead labels), kept only if
+        # it still proves equivalent — the gate is the backstop for the rare emit-order divergence.
+        peeled = _peephole(out)
+        return peeled if vm_cfg.structured_equivalent(lines, peeled, leaders)[0] else out
 
     # 1) WHOLE-SUB structuring, self-validated against the CFG-equivalence gate (the design's
     #    verifier). Composed local fallbacks (honest-goto cuts / flat spans / convergent exits)
@@ -937,8 +942,16 @@ def reduce(lines, instructions):
         spine.append(p)
     if spine and len(spine) > 2:           # >1 region, else recovery == whole-sub (already failed)
         regions = list(zip(spine, spine[1:]))
-        rblocks = [{b for b in _reachable_avoiding(Pi, set() if Pj is vm_cfg.EXIT else {Pj},
-                                                   _fresh_ctx()) if b is not vm_cfg.EXIT}
+        # Each region (Pi, Pj) owns the blocks reachable from Pi walled off by EVERY OTHER spine
+        # point — not just Pj. Walling only Pj is unsound when the spine cuts through a loop: a
+        # back-edge from a LATER spine point (a loop latch) re-enters an EARLIER region's body, so
+        # that region's flat-span re-emits the whole loop body as unreachable dead code (CFG-
+        # equivalent, so the gate misses it, but it doubles the gotos). Spine points are
+        # articulation points, so nothing legitimately between Pi and Pj is itself a spine point —
+        # walling them all off makes the regions a true disjoint partition.
+        spine_walls = set(spine) - {vm_cfg.EXIT}
+        rblocks = [{b for b in _reachable_avoiding(Pi, spine_walls - {Pi}, _fresh_ctx())
+                    if b is not vm_cfg.EXIT}
                    for Pi, Pj in regions]
         flat = [[_flat_span(bl, _fresh_ctx(), None)[0]] for bl in rblocks]   # one flatspan node
         chosen = [seq[:] for seq in flat]                                    # default: all flat
@@ -990,5 +1003,40 @@ def _insert_labels(out, block_of):
             T = block_of(addr)
             result.append((T, 0, f"L_{T:04X}:"))
             placed.add(T)
+        result.append((addr, ind, text))
+    return result
+
+
+_RE_GOTO_ONLY = re.compile(r'^goto L_([0-9A-Fa-f]{4});$')
+
+
+def _peephole(out):
+    """CFG-neutral cleanup of the emitted lines — the caller RE-VALIDATES the result against
+    the equivalence gate, so this only ever PROPOSES; an unsound proposal is rejected wholesale.
+
+    (1) goto-to-fall-through: a standalone `goto L_X;` whose IMMEDIATELY-following emitted line
+        is `L_X:` is redundant — physical fall-through already reaches X (the region reducer's
+        honest-goto cuts / flat-span joins routinely emit `goto L_next; L_next:` at a boundary).
+        Drop the goto. Emit-order adjacency (not address order) is the trigger, because the
+        structured C is read in emit order; the gate's address-based re-check is the backstop.
+    (2) then drop any `L_X:` label no surviving goto still targets (cosmetic; the gate ignores
+        labels, so this is always safe)."""
+    pruned = []
+    for i, (addr, ind, text) in enumerate(out):
+        m = _RE_GOTO_ONLY.match(text.strip())
+        if m and i + 1 < len(out):
+            tgt = int(m.group(1), 16)
+            if out[i + 1][2].strip() == f"L_{tgt:04X}:":
+                continue                       # redundant goto-to-next — drop it
+        pruned.append((addr, ind, text))
+    refs = set()
+    for _a, _i, t in pruned:
+        for m in _RE_GOTO_TGT.finditer(t):
+            refs.add(int(m.group(1), 16))
+    result = []
+    for addr, ind, text in pruned:
+        lm = vm_cfg._RE_LABEL.match(text.strip())
+        if lm and int(text.strip()[2:6], 16) not in refs:
+            continue                           # dead label — no goto targets it anymore
         result.append((addr, ind, text))
     return result
