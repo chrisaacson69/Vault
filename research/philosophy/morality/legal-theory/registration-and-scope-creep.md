@@ -6,7 +6,7 @@ published: true
 # Registration, Rights, and Government Scope Creep
 > The vehicle/gun registration comparison reveals more about how government mechanisms expand than about either vehicles or guns.
 
-**Links:** [Legal Theory](./README.md), [Opposing Forces](../../dynamics/opposing-forces.md), [Government Formation](./government-formation.md), [Scope Confusion](../scope-confusion.md)
+**Links:** [Legal Theory](./README.md), [Opposing Forces](../../dynamics/opposing-forces.md), [Government Formation](./government-formation.md), [Scope Confusion](../scope-confusion.md), [Wickard v. Filburn](../../../wickard-v-filburn.md) (the doctrinal master key behind the federal side of the scope-creep table below)
 
 ## The Common Argument
 

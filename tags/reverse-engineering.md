@@ -10,3 +10,4 @@
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — the RE payoff: bytecode→C transpile (Nobunaga's Sea-16 VM) as the general technique, COBOL modernization as the application
 - [pygone teardown](../projects/pygone/teardown.md) — the inverse of decompilation: readable Python compressed to a 4 KB blob; annotated search/eval stack
 - [Decompiler is a Reverse Compiler — bottom-up atom inversion](../projects/game-annotation/nobunaga/decompiler-bottom-up-thesis.md) — census proves NA1's engine is 100% reducible (no irreducible control flow); the V2 "irreducible residue" was a top-down phantom; invert a finite compiler-lowering table instead
+- [Lowering Atlas](../projects/game-annotation/lowering-atlas/README.md) — the forward complement: compile known C constructs through GCC `-O0`, catalog the CFG signature each leaves, source the finite atom table without reverse-engineering each sub one at a time

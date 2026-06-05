@@ -78,5 +78,9 @@ Links to related research pages.
 - [The Coconut Island and the Manufactured Option Space](./coconut-island-and-manufactured-option-space.md) — Two related debate moves: (1) Vaush's coconut island stipulates away alternatives to force "exploitation" as the conclusion; (2) "bargain or fight" stipulates a false binary to force "structural conflict." Both are instances of one structural pattern — manufactured option space — and the Austrian/Misesian response handles both cleanly: action presupposes alternatives, self-production is the always-available baseline, walk-away is a real option that the framing tried to stipulate out of existence. "Learn to fish" / "build the log cabin" are the practical retorts.
 - [Lance Bush vs. Ryan Mullally — Moral Realism vs. Global Anti-Realism](./lance-bush-mullally-metaethics.md) — cordial 3.4-hr metaethics conversation; a hardline anti-realist concedes a deist's theistic metaethic is genuinely realist (no trilemma applied). The structural gold: **both wield the same constitutive/unintelligibility move toward opposite conclusions** — Bush to dissolve the realist's question, the vault's constitutive realism to ground it; the move relocates rather than settles. Anti-realism's best case is specifically vs *secular* realism (the motivation problem); theistic realism survives. Plus normative entanglement / pragmatic-cancellation as a reusable diagnostic.
 
+## Doctrinal spin-offs
+Not transcript reviews — original analysis a stream merely *sparked*, captured as standalone research:
+- [Trump v. Anderson — Who Enforces Presidential Eligibility?](../trump-v-anderson-eligibility.md) — the Destiny × Ryan stream was the prompt; the page accepts Destiny's "find a legal reason against Colorado" challenge and builds one from Article II rather than analyzing the stream.
+
 ## Tags
 [debates](../../tags/debates.md), [philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md)

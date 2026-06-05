@@ -9,3 +9,4 @@
 - [Press Freedom and Governance](../research/philosophy/dynamics/press-freedom-and-governance.md)
 - [The End of the End of History (Yarvin x Starkey)](../research/debates/yarvin-starkey-end-of-history.md)
 - [Business Cycles](../research/economics/business-cycles.md)
+- [History Repeats — The Small-Pain-Tolerance Variable](../notes/history-repeats-small-pain-tolerance.md) — the pain-avoidance ratchet as the *mechanism* under Khaldun's asabiyyah decay and Glubb's "loss of the hardy virtues"; prescription = recover small-pain-bearing cultural technology
