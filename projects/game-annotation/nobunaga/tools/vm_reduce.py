@@ -455,9 +455,14 @@ def _structure_loop(h, ctx, outer_loop):
     h_stmts, h_rawcond, h_baddr, h_gtgt, _h_sw = ctx.info[h]
 
     # ---- pre-test while: the header itself is the 2-way exit test ----------------------
+    # The in-loop successor must be a DISTINCT body block, not the header itself: a self-loop
+    # (header == latch, the test at the bottom of its single block) is a do-while, not a
+    # pre-test while — treating it as pre-test sets body_entry = h, which is already visited
+    # and raises a spurious cross_edge. So require a non-self in-loop successor here and let a
+    # self-loop fall through to the do-while detection below (which carries the body in latch_stmts).
     if (e is not None and len(hsucc) == 2 and h_rawcond is not None
-            and e in hsucc and any(s in loop for s in hsucc)):
-        body_entry = next(s for s in hsucc if s in loop)
+            and e in hsucc and any(s in loop and s != h for s in hsucc)):
+        body_entry = next(s for s in hsucc if s in loop and s != h)
         cond = h_rawcond if ctx.block_of(h_gtgt) in loop else vm_cfg._neg(h_rawcond)
         ctx.visited.add(h)
         body, _u = _structure(body_entry, _STOP, body_pdom, ctx, lp)
