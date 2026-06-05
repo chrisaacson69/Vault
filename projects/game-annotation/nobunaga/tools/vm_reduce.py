@@ -397,17 +397,15 @@ def _structure(entry, stop, pdom, ctx, loop):
             if s is not vm_cfg.EXIT and s != stop and s in ctx.visited:
                 # RUNG 6 — cross-edge local cut. This strand falls into an already-EMITTED
                 # block s (a shared continuation reached by 2+ paths — the classic multiple
-                # `goto cleanup` / `goto done` idiom). Keep THIS edge as an honest `goto L_s`
-                # (block n's terminator, tagged with n's addr so the gate attributes the n->s
-                # edge to block n) and stop the strand — s and its forward cone were already
-                # structured on the path that first visited it. FORWARD ONLY (s > n): a forward
-                # goto to a later shared block never reverses lexical-vs-address order; a
-                # BACKWARD cross-edge (into an earlier block) would, so it still bails (the
-                # orphan / gate backstop stays clean). CFG-faithful by construction.
-                if s > n:
-                    seq.append(('goto', n, s))
-                    break
-                raise _NotReducible('cross_edge_fall')   # backward cross-edge: bail
+                # `goto cleanup` / `goto done` idiom, or a shared `return` block like $AD38's
+                # $AD58). Keep THIS edge as an honest `goto L_s` (block n's terminator, tagged
+                # with n's addr so the gate attributes the n->s edge to block n) and stop the
+                # strand — s and its cone were already structured on the path that first visited
+                # it. Both FORWARD and BACKWARD cuts are allowed: reduce() self-validates, so a
+                # cut that reverses lexical-vs-address order self-gates cleanly (reverts to flat
+                # / region-fallback) while one that holds is kept. CFG-faithful by construction.
+                seq.append(('goto', n, s))
+                break
             n = s
         elif len(succ) == 2 and rawcond is not None and gtgt is not None:
             goto_block = ctx.block_of(gtgt)
