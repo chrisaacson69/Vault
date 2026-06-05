@@ -229,13 +229,17 @@ class _Ctx:
                  so the edge is kept as an honest `goto L_t` inside the body instead of a
                  structured break, and excluded from the loop's exit set (_structure_loop)."""
     __slots__ = ("full_cfg", "info", "block_of", "nxt", "loops", "latches",
-                 "buckets", "switches", "visited", "far_by_loop")
+                 "buckets", "switches", "visited", "far_by_loop", "sink_merge")
 
     def __init__(self, full_cfg, info, block_of, nxt, loops, latches, buckets, switches):
         self.full_cfg, self.info, self.block_of, self.nxt = full_cfg, info, block_of, nxt
         self.loops, self.latches = loops, latches
         self.buckets, self.switches, self.visited = buckets, switches, set()
         self.far_by_loop = {}
+        # Track A (family-1) sink-as-merge atom; OFF by default. reduce() runs the structuring
+        # both ways and keeps whichever validates with FEWER gotos (goto-count-aware acceptance),
+        # so the atom never regresses a sub that folds better without it (e.g. $A853).
+        self.sink_merge = False
 
 
 def _is_return_block(L, ctx):
@@ -491,6 +495,20 @@ def _structure(entry, stop, pdom, ctx, loop):
                 # is structured ONCE after the if (else it is walked in BOTH arms -> cross_edge).
                 if merge is vm_cfg.EXIT and goto_block is not vm_cfg.EXIT \
                         and _reaches(fall, goto_block, n, ctx):
+                    merge = goto_block
+                # ATOM (Track A, family-1) — branch to a SHARED TERMINAL sink. When no local
+                # post-dom was found (imm_post_dom = EXIT, because the fall arm RETURNS on some path
+                # before the join) but the goto-arm targets a sink block (-> EXIT, e.g. a multi-
+                # statement shared `return` tail), that sink IS the region's merge: the goto-arm is
+                # empty and the sink folds ONCE after the if. Without this the shared terminal gets
+                # CONSUMED as this branch's (or an inner branch's) else-arm, making max(consumed) ==
+                # the tail so `nxt[tail] != merge` trips merge_not_adjacent -> an honest `goto
+                # L_tail`. Sound + reducer-only when the sink is address-last (a FORWARD merge); when
+                # it is interleaved (an address-inverted predecessor, family-2) the adjacency check
+                # below still bails to goto. reduce()'s self-validation is the backstop either way.
+                # ($9F04, and the forward-sink slice of the residue.)
+                if ctx.sink_merge and merge is vm_cfg.EXIT and goto_block is not vm_cfg.EXIT \
+                        and ctx.full_cfg[goto_block] == frozenset({vm_cfg.EXIT}):
                     merge = goto_block
                 # The goto target must stay within the region (<= merge by address); a goto PAST
                 # the merge is a forward skip (break-like) -> irreducible here.
@@ -944,17 +962,23 @@ def reduce(lines, instructions):
     loops = {hh: frozenset(s) for hh, s in loops.items()}
     pdom = vm_cfg.post_dominators(cfg)
 
-    def _fresh_ctx():
-        return _Ctx(cfg, info, block_of, nxt, loops, latches, buckets, switches)
+    def _fresh_ctx(sink_merge=False):
+        c = _Ctx(cfg, info, block_of, nxt, loops, latches, buckets, switches)
+        c.sink_merge = sink_merge
+        return c
 
-    def _structure_region(entry, stop):
+    def _structure_region(entry, stop, sink_merge=False):
         """Structure the single-entry/single-exit region [entry, stop) into a seq (AST items),
         or None on a structural bail. Fresh visited per call (regions are disjoint)."""
         try:
-            seq, _u = _structure(entry, stop, pdom, _fresh_ctx(), None)
+            seq, _u = _structure(entry, stop, pdom, _fresh_ctx(sink_merge), None)
             return seq
         except _NotReducible:
             return None
+
+    def _seq_gotos(seq):
+        """goto count of an emitted (validated) line list — the goto-count-aware tie-breaker."""
+        return sum(1 for _a, _i, t in seq if _RE_GOTO_TGT.search(t))
 
     def _validates(seq):
         out = []
@@ -971,11 +995,21 @@ def reduce(lines, instructions):
     #    verifier). Composed local fallbacks (honest-goto cuts / flat spans / convergent exits)
     #    can emit a CFG-divergent LAYOUT no structural guard caught; rather than enumerate every
     #    hazard, prove equivalence or fall through. Keeps "0 gate-rejects downstream" automatic.
-    whole = _structure_region(leaders[0], vm_cfg.EXIT)
-    if whole is not None:
+    # Run the whole-sub structuring BOTH without and with the sink-merge atom (Track A); keep
+    # whichever VALIDATES with the fewest gotos. Goto-count-aware acceptance: the atom helps the
+    # forward-sink subs ($9F04, $A003, $A068, $A113) but a few subs fold better without it
+    # ($A853) — first-valid-wins would lock in the worse fold (the gate proves only equivalence,
+    # not goto-count), so compare and pick the leaner one.
+    best = None
+    for _sm in (False, True):
+        whole = _structure_region(leaders[0], vm_cfg.EXIT, sink_merge=_sm)
+        if whole is None:
+            continue
         out = _validates(whole)
-        if out is not None:
-            return out
+        if out is not None and (best is None or _seq_gotos(out) < _seq_gotos(best)):
+            best = out
+    if best is not None:
+        return best
 
     # 2) REGION-LEVEL PARTIAL FALLBACK. Decompose the sub at its post-dominator SPINE (the
     #    immediate-post-dom chain entry -> … -> EXIT — the blocks ALL paths pass through) into a
@@ -1015,7 +1049,10 @@ def reduce(lines, instructions):
 
         flat_g = [_gotos_of(seq) for seq in flat]
         for i, (Pi, Pj) in enumerate(regions):
-            s = _structure_region(Pi, Pj)
+            # Try both without and with the sink-merge atom; take the leaner valid structuring.
+            cands = [r for r in (_structure_region(Pi, Pj, sink_merge=sm) for sm in (False, True))
+                     if r is not None]
+            s = min(cands, key=_gotos_of) if cands else None
             # Keep the region structured only if it BOTH validates AND emits no more gotos than
             # the flat span — an honest-goto cut can turn a raw fall-through into an explicit
             # goto, so an over-aggressive structuring may carry MORE gotos than the leaner flat
