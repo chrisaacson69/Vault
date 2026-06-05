@@ -355,6 +355,38 @@ def _structure(entry, stop, pdom, ctx, loop):
         used.add(n)
         stmts, rawcond, baddr, gtgt, _sw = ctx.info[n]
         succ = ctx.full_cfg[n]
+        # RUNG 6 — un-foldable switch local fallback. A switch dispatch the detector can't fold
+        # to a single-entry region (not in ctx.switches) is kept as an honest flat span — but it
+        # must span the WHOLE switch TERRITORY (dispatch + every case body), not just the
+        # dispatch block: the case bodies are reached ONLY via the dispatch gotos, so a linear
+        # walk would ORPHAN every case except the first fall-through chain. Territory = all
+        # blocks reachable from the dispatch up to its post-dominator merge (where the cases
+        # reconverge); flat-span it (raw gotos verbatim) and continue at the merge. The sub's
+        # code AROUND the switch still folds — localizes the old whole-sub `switch_unfoldable`
+        # bail. (Matching V1's intra-case structuring is a separate rung-5 follow-up.)
+        if _sw and n not in ctx.switches:
+            merge = vm_cfg._imm_post_dom(pdom, n)
+            avoid = set() if merge is vm_cfg.EXIT else {merge}
+            territory = {b for b in _reachable_avoiding(n, avoid, ctx) if b is not vm_cfg.EXIT}
+            # Continue the walk AT the merge only when it cleanly follows the whole switch by
+            # address AND structuring the post-switch region is safe. Two unsafe shapes -> span
+            # the WHOLE forward cone instead (merge = EXIT, no continuation): (a) a case body
+            # WRAPS past the merge (a higher address — continuing there reverses address order
+            # and the gate mis-routes, e.g. $D14E's $D270 past merge $D269); (b) the merge has
+            # an out-of-territory predecessor (it's a shared continuation reached from elsewhere,
+            # e.g. $D14E's $D269 with 4 preds — feeding it to the linear walk hits the cross-edge
+            # structurer which mis-folds). Whole-cone keeps the switch territory honest-goto and
+            # still folds the code BEFORE the switch.
+            preds_of_merge = {b for b in ctx.full_cfg if merge in ctx.full_cfg[b]}
+            if merge is not vm_cfg.EXIT and (any(b >= merge for b in territory)
+                                             or not preds_of_merge <= territory):
+                merge = vm_cfg.EXIT
+                territory = {b for b in _reachable_avoiding(n, set(), ctx) if b is not vm_cfg.EXIT}
+            node, consumed, after = _flat_span(territory, ctx, merge)
+            seq.append(node)
+            used |= consumed
+            n = after
+            continue
         if len(succ) == 1:
             (s,) = tuple(succ)
             seq.append(('block', n, stmts))
@@ -831,11 +863,9 @@ def reduce(lines, instructions):
         info = {L: _parse_block(buckets[L]) for L in leaders}
         # Rung 5: foldable switches (single-entry dispatch) become composable region nodes.
         # An UN-foldable switch (a block with case-dispatch lines but no entry in the detector)
-        # has no rung that owns it -> bail the whole sub to honest goto (as before rung 5).
+        # is handled LOCALLY inside _structure now (flat-span its dispatch, structure the case
+        # bodies around it — rung 6), not by bailing the whole sub.
         switches = {d['S']: d for d in vm_cfg.switch_dispatches(instructions)}
-        if any(i[4] and L not in switches for L, i in info.items()):
-            LAST_BAIL = 'switch_unfoldable'
-            return _flat_emit(buckets, leaders)
         nxt = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else vm_cfg.EXIT)
                for i in range(len(leaders))}
         edges, _dom = vm_cfg.back_edges(cfg, leaders[0])
@@ -852,6 +882,18 @@ def reduce(lines, instructions):
         return _flat_emit(buckets, leaders)
     out = []
     _emit(seq, 1, out)
+    # STRUCTURAL self-check (not the gate): a sound structuring preserves every real STATEMENT
+    # (assignment / call / return — `_parse_block` already separates these from control, which
+    # folds DO rewrite). Only scaffolding (gotos/labels/braces) and conditions change; content
+    # lines are emitted verbatim (a return may be wrapped as `if(c) return X`, so check
+    # substring). If a content statement vanished, a block was ORPHANED -> the CFG diverges and
+    # the gate would reject; bail to flat here instead, keeping the gate a pure backstop and the
+    # 0-reject invariant. (Orphans arise in pathologically-tangled subs like $D14E: two
+    # un-foldable switches sharing a continuation that feeds the cross-edge structurer.)
+    out_text = "\n".join(t for _a, _i, t in out)
+    if any(stmt not in out_text for L in leaders for _a, stmt in info[L][0]):
+        LAST_BAIL = 'orphan'
+        return _flat_emit(buckets, leaders)
     return _insert_labels(out, block_of)
 
 
