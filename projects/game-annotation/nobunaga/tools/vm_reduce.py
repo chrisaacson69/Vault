@@ -260,6 +260,44 @@ def _reaches(start, target, avoid, ctx):
     return False
 
 
+def _reachable_avoiding(start, avoid_set, ctx):
+    """The set of blocks reachable from `start` WITHOUT entering any block in `avoid_set` (the
+    loop), `start` included. Used to find where several loop-exit targets CONVERGE."""
+    seen, stack = set(), [start]
+    while stack:
+        b = stack.pop()
+        if b is vm_cfg.EXIT or b in seen or b in avoid_set:
+            continue
+        seen.add(b)
+        stack.extend(ctx.full_cfg[b])
+    return seen
+
+
+def _convergent_exit(targets, loop, ctx):
+    """A loop with several immediate exit targets is still SINGLE-exit if they CONVERGE on one
+    block `c` (outside the loop) that EVERY target reaches without re-entering the loop — then
+    `c` is the true exit and the non-`c` targets are short 'exit shims' pulled into the loop
+    body as in-body break paths. `c` may be one of the targets (e.g. $8C45's `8C6D`, reached
+    directly and via the `local11=1` shim `8C61`) or a common successor of all of them (e.g.
+    $ADF6's `AE77`, where BOTH exits flow to it but neither IS it). Return `c`, else None
+    (exits genuinely diverge). SOUNDNESS: every shim (a target that isn't `c`) must be
+    loop-PRIVATE (no predecessor outside the loop), else folding it into the body would
+    relocate code reached from elsewhere. Prefer the closest convergence (lowest address)."""
+    preds = {}
+    for b, succs in ctx.full_cfg.items():
+        for s in succs:
+            preds.setdefault(s, set()).add(b)
+    reach = {t: _reachable_avoiding(t, loop, ctx) for t in targets}
+    common = set.intersection(*reach.values()) if reach else set()
+    # candidate exits: a target all others reach, or any common successor; closest first.
+    for c in sorted(common, key=lambda x: (x is vm_cfg.EXIT, x)):
+        if c in loop:
+            continue
+        if all(preds.get(t, set()) <= loop for t in targets if t != c):
+            return c
+    return None
+
+
 def _terminal(b, loop, ctx):
     """If a control edge to block `b` should render as a one-line terminator rather than a
     walk INTO b, return that statement (no trailing `;`): `continue`/`break` for the
@@ -477,7 +515,9 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
     # normal exit + N early returns collapses to the single-exit (pre/post-test) case and folds,
     # the returns falling out inside the body (e.g. $91A1: while-search with `return idx`). Only
     # when EVERY exit is a return block do we keep them (prior behaviour: one becomes the break
-    # exit) — excluding them there would force e=None/while(1) and mis-anchor.
+    # exit) — excluding them there would force e=None/while(1) and mis-anchor. (Tried widening
+    # this to ALL return-EXITING blocks incl. multi-stmt `…; return` — net regression + a gate-
+    # reject; multi-stmt returns aren't reliably clean early-return paths, so kept narrow.)
     all_exits = {s for nn in loop for s in ctx.full_cfg[nn]
                  if s is not vm_cfg.EXIT and s not in loop}
     nonreturn = {s for s in all_exits if not _is_return_block(s, ctx)}
@@ -492,9 +532,20 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
         exit_targets = header_exit if len(header_exit) == 1 else all_exits
     else:
         exit_targets = all_exits
+    shims = set()        # convergent-exit shim blocks pulled into the body (rung-6)
     if len(exit_targets) > 1:
-        raise _NotReducible('multi_exit_loop')
+        # CONVERGENT multi-exit: the targets may still funnel to one block (the others are
+        # loop-private exit shims that flow to it) -> that block is the real single exit and
+        # the shims become in-body break paths. Only genuinely-divergent exits bail.
+        c = _convergent_exit(exit_targets, loop, ctx)
+        if c is None:
+            raise _NotReducible('multi_exit_loop')
+        shims = exit_targets - {c}      # walked in the body; extend the loop's emitted region
+        exit_targets = {c}
     e = next(iter(exit_targets)) if exit_targets else None
+    # The shims are walked inside the body, so the loop's emitted address span runs up to the
+    # highest shim, not just max(loop) — the adjacency / consumed accounting below uses this.
+    region = loop | shims
     # GATE ANCHORING: if the exit block is itself a do-while LATCH (a 2-way post-test rendered as
     # the `} while (C);` scaffold line), the gate's first_real_block skips PAST it to the block
     # after the do-while and mis-reads THIS loop's exit. The reducer's output is correct C, but
@@ -508,7 +559,7 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
     # last block, and (b) emit a line the gate can anchor on. A pure-routing exit (a 1-succ
     # `goto merge` block with no statement, as when the loop is the tail of an if-arm) emits
     # nothing, so the gate skips PAST it to the next arm -> mis-routes the exit. Bail on both.
-    if e is not None and (ctx.nxt[max(loop)] != e
+    if e is not None and (ctx.nxt[max(region)] != e
                           or (bounded
                               and len(ctx.full_cfg[e]) == 1 and not ctx.info[e][0])):
         raise _NotReducible('exit_not_adjacent')
@@ -568,7 +619,7 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
             body = body + [('block', h, h_stmts)]
         node = ('loop', 'while', h, cond, body, None, [])
         ctx.visited |= set(loop)
-        return node, set(loop), e
+        return node, set(loop) | shims, e
 
     # ---- post-test do-while: a single latch's 2-way test gates the back edge -----------
     if clean_dowhile:
@@ -579,7 +630,7 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
         ctx.visited.add(u)
         ctx.visited |= set(loop)
         node = ('loop', 'dowhile', h, cond, body, u, u_stmts)
-        return node, set(loop), e
+        return node, set(loop) | shims, e
 
     # ---- self-loop with no clean exit (header is its own only body, succ includes h) ----
     # An infinite self-loop can't be walked as a body (the body IS the header, which is
@@ -619,7 +670,7 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
     body, _u = _structure(h, _STOP, body_pdom, ctx, lp)
     body = _strip_trailing_continue(body)
     ctx.visited |= set(loop)
-    return ('loop', 'while1', h, None, body, None, []), set(loop), (e if e is not None else vm_cfg.EXIT)
+    return ('loop', 'while1', h, None, body, None, []), set(loop) | shims, (e if e is not None else vm_cfg.EXIT)
 
 
 def _structure_switch(S, ctx, loop):
