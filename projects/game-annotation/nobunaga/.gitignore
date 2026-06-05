@@ -1,4 +1,0 @@
-# Regenerable build artifacts from tools/mesen-labels.py --asm (project the toml
-# onto the native disasm). Deterministic from mesen-labels.toml + disasm/bank_NN.asm,
-# so we don't version them. Regenerate: py tools/mesen-labels.py --asm
-disasm/*_named.asm
