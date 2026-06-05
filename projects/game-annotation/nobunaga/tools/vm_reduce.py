@@ -583,7 +583,10 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
         # the shims become in-body break paths. Only genuinely-divergent exits bail.
         c = _convergent_exit(exit_targets, loop, ctx)
         if c is None:
-            raise _NotReducible('multi_exit_loop')
+            # Genuinely-divergent multi-exit loop: no single construct owns it. Keep the LOOP as
+            # a flat honest-goto span (rung-6 region-local fallback) and structure everything
+            # around it — the surrounding regions still fold. Continue at the address-next block.
+            return _flat_span(loop, ctx, ctx.nxt[max(loop)])
         shims = exit_targets - {c}      # walked in the body; extend the loop's emitted region
         exit_targets = {c}
     e = next(iter(exit_targets)) if exit_targets else None
@@ -606,7 +609,11 @@ def _structure_loop(h, ctx, outer_loop, bounded=False):
     if e is not None and (ctx.nxt[max(region)] != e
                           or (bounded
                               and len(ctx.full_cfg[e]) == 1 and not ctx.info[e][0])):
-        raise _NotReducible('exit_not_adjacent')
+        # The loop's exit isn't the address-next block (or is a pure-routing block the gate
+        # can't anchor on). Keep the LOOP as a flat honest-goto span and structure around it
+        # (rung-6 region-local fallback); continue at the address-next block so the walk picks
+        # up the between-blocks and the real exit.
+        return _flat_span(region, ctx, ctx.nxt[max(region)])
     lp = (h, e)
     # Body-local post-dominator: an edge that LEAVES the body (to the header = continue, to
     # the exit / outside = break, to EXIT = return) is TERMINAL — it must not pull the merge
@@ -870,45 +877,98 @@ def reduce(lines, instructions):
     if not leaders:
         return list(lines)
     buckets = _partition(lines, leaders)
-    try:
-        block_of = vm_cfg._block_of_fn(leaders)
-        info = {L: _parse_block(buckets[L]) for L in leaders}
-        # Rung 5: foldable switches (single-entry dispatch) become composable region nodes.
-        # An UN-foldable switch (a block with case-dispatch lines but no entry in the detector)
-        # is handled LOCALLY inside _structure now (flat-span its dispatch, structure the case
-        # bodies around it — rung 6), not by bailing the whole sub.
-        switches = {d['S']: d for d in vm_cfg.switch_dispatches(instructions)}
-        nxt = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else vm_cfg.EXIT)
-               for i in range(len(leaders))}
-        edges, _dom = vm_cfg.back_edges(cfg, leaders[0])
-        from collections import defaultdict
-        loops, latches = {}, defaultdict(set)
-        for u, hh in edges:
-            loops.setdefault(hh, set()).update(vm_cfg.natural_loop(u, hh, cfg))
-            latches[hh].add(u)
-        loops = {hh: frozenset(s) for hh, s in loops.items()}
-        ctx = _Ctx(cfg, info, block_of, nxt, loops, latches, buckets, switches)
-        seq, _used = _structure(leaders[0], vm_cfg.EXIT, vm_cfg.post_dominators(cfg), ctx, None)
-    except _NotReducible as e:
-        LAST_BAIL = e.reason or 'unknown'
-        return _flat_emit(buckets, leaders)
-    out = []
-    _emit(seq, 1, out)
-    out = _insert_labels(out, block_of)
-    # SELF-VALIDATE against the CFG-equivalence gate (the design's verifier) and bail to flat on
-    # failure. The reducer's STRUCTURAL bails (_NotReducible) catch the shapes it knows it can't
-    # own, but composed local fallbacks (honest-goto cuts, flat spans, convergent exits) can
-    # still emit a CFG-divergent layout — e.g. a forward honest-goto cut that leaves blocks
-    # lexically out of address order, or an orphaned shared continuation. Rather than enumerate
-    # every such hazard with bespoke guards, prove the result induces the same CFG as the raw
-    # witness; if not, revert to the faithful flat emit. This makes "0 gate-rejects downstream"
-    # automatic — the gate stays a pure backstop, here applied as the reducer's own acceptance
-    # test (exactly the safety model the epic is built on).
-    ok, _nr, _ns = vm_cfg.structured_equivalent(lines, out, leaders)
-    if not ok:
-        LAST_BAIL = 'self_gate'
-        return _flat_emit(buckets, leaders)
-    return out
+    block_of = vm_cfg._block_of_fn(leaders)
+    info = {L: _parse_block(buckets[L]) for L in leaders}
+    # Rung 5: foldable switches (single-entry dispatch) become composable region nodes.
+    # An UN-foldable switch is handled LOCALLY inside _structure (flat-span its dispatch,
+    # structure the case bodies around it — rung 6), not by bailing the whole sub.
+    switches = {d['S']: d for d in vm_cfg.switch_dispatches(instructions)}
+    nxt = {leaders[i]: (leaders[i + 1] if i + 1 < len(leaders) else vm_cfg.EXIT)
+           for i in range(len(leaders))}
+    edges, _dom = vm_cfg.back_edges(cfg, leaders[0])
+    from collections import defaultdict
+    loops, latches = {}, defaultdict(set)
+    for u, hh in edges:
+        loops.setdefault(hh, set()).update(vm_cfg.natural_loop(u, hh, cfg))
+        latches[hh].add(u)
+    loops = {hh: frozenset(s) for hh, s in loops.items()}
+    pdom = vm_cfg.post_dominators(cfg)
+
+    def _fresh_ctx():
+        return _Ctx(cfg, info, block_of, nxt, loops, latches, buckets, switches)
+
+    def _structure_region(entry, stop):
+        """Structure the single-entry/single-exit region [entry, stop) into a seq (AST items),
+        or None on a structural bail. Fresh visited per call (regions are disjoint)."""
+        try:
+            seq, _u = _structure(entry, stop, pdom, _fresh_ctx(), None)
+            return seq
+        except _NotReducible:
+            return None
+
+    def _validates(seq):
+        out = []
+        _emit(seq, 1, out)
+        out = _insert_labels(out, block_of)
+        return out if vm_cfg.structured_equivalent(lines, out, leaders)[0] else None
+
+    # 1) WHOLE-SUB structuring, self-validated against the CFG-equivalence gate (the design's
+    #    verifier). Composed local fallbacks (honest-goto cuts / flat spans / convergent exits)
+    #    can emit a CFG-divergent LAYOUT no structural guard caught; rather than enumerate every
+    #    hazard, prove equivalence or fall through. Keeps "0 gate-rejects downstream" automatic.
+    whole = _structure_region(leaders[0], vm_cfg.EXIT)
+    if whole is not None:
+        out = _validates(whole)
+        if out is not None:
+            return out
+
+    # 2) REGION-LEVEL PARTIAL FALLBACK. Decompose the sub at its post-dominator SPINE (the
+    #    immediate-post-dom chain entry -> … -> EXIT — the blocks ALL paths pass through) into a
+    #    sequence of single-entry/single-exit regions. Structure each independently and keep it
+    #    only if (that region structured + every OTHER region flat) self-validates; else flat-span
+    #    just that region. Regions are disjoint and joined linearly at the articulation points, so
+    #    a divergence in one improper region no longer flattens the WHOLE sub — the reducible
+    #    regions around it keep their structure. Every kept piece is CFG-proven.
+    spine, p, seen = [leaders[0]], leaders[0], {leaders[0]}
+    while p is not vm_cfg.EXIT:
+        p = vm_cfg._imm_post_dom(pdom, p)
+        if p in seen:                      # malformed / cyclic spine — abandon recovery
+            spine = None
+            break
+        seen.add(p)
+        spine.append(p)
+    if spine and len(spine) > 2:           # >1 region, else recovery == whole-sub (already failed)
+        regions = list(zip(spine, spine[1:]))
+        rblocks = [{b for b in _reachable_avoiding(Pi, set() if Pj is vm_cfg.EXIT else {Pj},
+                                                   _fresh_ctx()) if b is not vm_cfg.EXIT}
+                   for Pi, Pj in regions]
+        flat = [[_flat_span(bl, _fresh_ctx(), None)[0]] for bl in rblocks]   # one flatspan node
+        chosen = [seq[:] for seq in flat]                                    # default: all flat
+
+        def _gotos_of(seq):
+            o = []
+            _emit(seq, 1, o)
+            return sum(1 for _a, _i, t in o if _RE_GOTO_TGT.search(t))
+
+        flat_g = [_gotos_of(seq) for seq in flat]
+        for i, (Pi, Pj) in enumerate(regions):
+            s = _structure_region(Pi, Pj)
+            # Keep the region structured only if it BOTH validates AND emits no more gotos than
+            # the flat span — an honest-goto cut can turn a raw fall-through into an explicit
+            # goto, so an over-aggressive structuring may carry MORE gotos than the leaner flat
+            # form; prefer flat there (fewer gotos, and the gate-faithful raw layout).
+            if s is None or _gotos_of(s) > flat_g[i]:
+                continue
+            trial = chosen[:i] + [s] + chosen[i + 1:]
+            if _validates([it for sub in trial for it in sub]) is not None:
+                chosen[i] = s
+        out = _validates([it for sub in chosen for it in sub])
+        if out is not None:
+            LAST_BAIL = None if any(chosen[i] is not flat[i] for i in range(len(regions))) \
+                else 'self_gate'
+            return out
+    LAST_BAIL = 'self_gate'
+    return _flat_emit(buckets, leaders)
 
 
 _RE_GOTO_TGT = re.compile(r'goto L_([0-9A-Fa-f]{4})')
