@@ -5,7 +5,7 @@ created: 2026-05-29
 # Transpilation as a Grounding Strategy
 > The LLM grounding problem is a gradient, not a switch: a model is fluent in C/Python, weak in 6502, barely there in a bespoke VM, poor in COBOL. The fix for a weakly-grounded formal language isn't "reason harder in it" — it's a deterministic transpiler to a strongly-grounded one. Meet the LLM in a language it already knows.
 
-**Links:** [The LLM Grounding Problem](./llm-grounding-problem.md), [AI History — A Personal Arc](./ai-history-personal.md), [Principled LLM Code](./principled-llm-code.md), [Planner-LM Composites](./planner-lm-composites.md), [Game Annotation Series](../projects/game-annotation/README.md), [Nobunaga's Ambition](../projects/game-annotation/nobunaga/README.md)
+**Links:** [The LLM Grounding Problem](./llm-grounding-problem.md), [AI History — A Personal Arc](./ai-history-personal.md), [Principled LLM Code](./principled-llm-code.md), [Planner-LM Composites](./planner-lm-composites.md), [The Anchor Method](../method/anchor-method.md), [Game Annotation Series](../projects/game-annotation/README.md), [Nobunaga's Ambition](../projects/game-annotation/nobunaga/README.md)
 
 ## The claim
 

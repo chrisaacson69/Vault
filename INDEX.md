@@ -192,6 +192,10 @@
   - [Tools Roadmap](./career/tools-roadmap.md) — 9 career tools to build; each one demonstrates the competency it showcases
   - [Active Postings](./career/active-postings.md) — director-level AI positions by lane; Nordstrom, Schwab, Experian, Comcast, and more
 
+## Method
+- [Method — a library of good procedure](./method/README.md) — how to run hard, agent-driven projects without drifting; living playbooks of warning signs and moves (career is one downstream consumer of this, not the parent)
+  - [The Anchor Method](./method/anchor-method.md) — drift is the enemy; the gate is the anti-drift anchor that *proves grounding*; install the strongest anchor your grounding allows and upgrade toward a hard gate as it crystallizes; the director owns recalibration via divergent-approach tournaments. Born from the NA1 decompiler.
+
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action
 - [The Limits of Utopia](./notes/limits-of-utopia.md) — defense of markets, risk, and human nature vs. AI-managed societies (Oct 2025, co-written with Copilot)
