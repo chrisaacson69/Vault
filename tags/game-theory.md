@@ -16,3 +16,4 @@
 - [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — empirical confirmation of bilateral trade valuation; Monopoly card as timing-conditional state-shock
 - [Catan 50-Game Validation](../research/gaming/catan-50-games-validation.md) — small-N empirical run; board-conditional theory refined
 - [Game Theory as Normative, Not Descriptive](../notes/game-theory-as-normative-not-descriptive.md) — meta-level critique: famous solution concepts work only by importing extra-game assumptions; norms guide behavior more than self-interest
+- [Force Doctrine — The Theory](../research/philosophy/morality/force-doctrine.md) — force selects each round, structure selects who *holds* the force across rounds (selection over ideologies); fit → durable might, not might → right; the historicism guard

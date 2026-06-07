@@ -2,6 +2,7 @@
 > Files related to historical analysis and civilizational patterns.
 
 - [Civilizational Cycles](../research/philosophy/dynamics/civilizational-cycles/README.md)
+- [Did Christian Societies Actually Outperform?](../research/philosophy/dynamics/christian-structural-advantage.md) — the Great Divergence is recent (Christendom a backwater vs. Islam/China until ~1500); Christianity constant across both eras so not the explanans; HRE success ran on fragmentation; modern fertility collapse hits all creeds
 - [Rudyard Lynch (Whatifalthist)](../research/philosophy/tangents/whatifalthist.md)
 - [Kashrut and the Food-Safety Hypothesis](../research/kashrut-food-safety.md)
 - [History of Philosophy — Peikoff](../research/philosophy/tangents/history-of-philosophy/README.md)

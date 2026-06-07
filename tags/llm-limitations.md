@@ -12,3 +12,4 @@
 - [LLM Game Benchmark — Outline](../research/gaming/llm-game-benchmark.md)
 - [Game Annotation Series](../projects/game-annotation/README.md) — assembly as a stress test for LLM mechanical-modeling without rhetorical contagion; per-chapter LLM-interpretation logs
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — LLMs are weakly grounded in obscure formal languages (6502, bespoke VMs, COBOL); transpile to a grounded one rather than reason in them
+- [Repairing LLM Code — The Two Oracles](../research/repairing-llm-code.md) — LLMs faithfully read *wrong* structure and report it with high confidence; confidence and reader-consensus both fail as signals

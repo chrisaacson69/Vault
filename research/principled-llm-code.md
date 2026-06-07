@@ -5,7 +5,7 @@ created: 2026-05-29
 # Practicality vs. Precision — Legacy Slop and Principled LLM Code
 > Software has always traded correctness for shippability, and the slop fossilizes. LLMs trained on that corpus inherit the median. But the LLM also collapses the cost of refactoring — which, for the first time in 35 years, threatens the economics that made "worse" win.
 
-**Links:** [AI History — A Personal Arc](./ai-history-personal.md), [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md), [Claude Code Skill Engineering](../notes/claude-code-skill-engineering.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Planner-LM Composites](./planner-lm-composites.md), [Conservation of Complexity](../notes/conservation-of-complexity.md)
+**Links:** [AI History — A Personal Arc](./ai-history-personal.md), [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md), [Claude Code Skill Engineering](../notes/claude-code-skill-engineering.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Planner-LM Composites](./planner-lm-composites.md), [Conservation of Complexity](../notes/conservation-of-complexity.md), [Repairing LLM Code — The Two Oracles](./repairing-llm-code.md) — the slop has two axes: correctness (groundable) and readability (the choice function over equivalent renderings)
 
 ## The thesis in one line
 

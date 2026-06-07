@@ -105,6 +105,8 @@ The boundary condition isn't a pragmatic compromise — it's the principle corre
 
 ## Vault Connections
 
+- [Force Doctrine — The Theory](../philosophy/morality/force-doctrine.md) — the doctrinal spin-off both this clip and the rights clip feed; the full sticks/breaks/corrects teardown (force-as-action vs coercion, rights/duties as the force boundary, the Euthyphro correction, Wilson-as-mislocated-constitutive-realist)
+- [Rights Don't Actually Exist, Only Force (Wilson vs 5)](./wilson-rights-dont-exist-only-force.md) — the sibling specimen: same descriptor-as-prescription error, but applied to *rights* and weaponized into a parity tu quoque; the enforcement≠justification split is the shared spine
 - [The Birthmark and the Search for Truth](../../research/philosophy/epistemology/the-birthmark.md) — "contact with reality" as one of five epistemic principles; theories untested against reality are ungrounded
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — "help others" without scope limits is the same structural error as "force is irrelevant to rights"
 - [Defensive Force and Collateral Damage](../../research/philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md) — the vault's existing framework for when force is justified; the gentleness principle; state monopoly problems
