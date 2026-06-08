@@ -11,6 +11,11 @@
 - [The Fake Science of Economics (Yarvin x McCormack)](../research/debates/yarvin-mccormack-fake-science-economics.md)
 - [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - [MoM Tier System and MIRR](../research/gaming/master-of-magic/tier-system-and-mirr.md)
+- [MIRR — 4X Strategy as Capital Allocation](../research/gaming/mirr-4x-framework.md) — the cross-game 4X capital-allocation thesis (MoO + MoM)
+- [Capability Without Leverage](../research/gaming/capability-without-leverage.md) — a paid capability is worthless without downstream leverage; cross-game (Monopoly/MoM/Catan)
+- [Randomness as Termination (N≥3)](../research/gaming/n3-termination-and-randomization.md) — randomness is the kill switch on the gang-up equilibrium; calibration = design quality
+- [The Dominance-Frontier Lens](../research/dominance-frontier-lens.md) — map cost vs effect, frontier curve, asymmetric counters; cross-domain (games + markets)
+- [NA1 — Game-Design Crucible](../research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the theses it sparked
 - [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
 - [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — empirical confirmation of bilateral trade valuation; Monopoly card as timing-conditional state-shock

@@ -418,6 +418,16 @@ This generalizes well beyond games:
 
 **The Catan and Monopoly trade-efficiency paradoxes are instances of acceptor-underpricing-the-externality, a recurring pattern wherever bilateral pricing happens with multi-party consequences.**
 
+## Downward ledger — specimens that consume this model
+
+The pages that apply the trajectory/bilateral framework, with what each contributes (reciprocating the up-links they already carry):
+
+- [Frontier Trade Theory](./monopoly/frontier-trade-theory.md) — uses bilateral as the per-trade NPV pricer the frontier filter feeds into; denial value, race condition, and knockout probability build on top.
+- [Subgraph Investment Optimization](./monopoly/subgraph-investment-optimization.md) — calls the bilateral trajectory sim for trade EV inside the build-vs-trade decision (BATNA = the build option).
+- [LLM Agents Across Strategic Games](./llm-agents-across-games.md) — the **live-agent validation layer**: real LLMs playing Monopoly are graded against this model, and it documents what the model still misses (third-party poisoning, opponent-side cash EPT).
+- [Catan — 47k](./catan-47k-empirical.md) & [Catan 50-game Validation](./catan-50-games-validation.md) — the N=47k / N=50 empirical confirmation of the trade-efficiency paradox this model predicts.
+- [Monopoly project](../../projects/monopoly/README.md) — the implementation (`simulateBilateralGrowth`, auction indifference pricing).
+
 ## Open Questions
 
 - ~~**Convergence-point Nash:**~~ **RESOLVED.** Implemented and confirmed. Marginal improvement (33.8% vs 33.6%) but theoretically correct. Kept as canonical approach for negotiation foundation.

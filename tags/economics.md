@@ -34,6 +34,7 @@
 - [Hayek vs Mises: The Calculation Problem](../notes/hayek-vs-mises-calculation.md)
 - [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - [MoM Tier System and MIRR](../research/gaming/master-of-magic/tier-system-and-mirr.md)
+- [MIRR — 4X Strategy as Capital Allocation](../research/gaming/mirr-4x-framework.md) — the cross-game 4X thesis: each turn is a capital-allocation decision ranked by MIRR; the entrepreneurial bet (colony) vs the safe investment (factory) made mechanical
 - [LLMs as Praxeological Actors](../research/economics/llm-praxeology.md)
 - [Measuring Growth — Net Worth vs Transactions](../research/economics/measuring-growth.md)
 - [Convergence Is a Process, Not a Destination](../notes/convergence-as-process.md) — indifference curves and PPFs as the framing for happiness/longevity tradeoffs; scale-matching; markets as the temporal extension of Hayek's dispersed-knowledge argument

@@ -6,7 +6,7 @@ published: true
 # MOO1 Opening Optimizer
 > Turn-level economic simulator for Master of Orion 1 opening theory. Answers: when should you build the 2nd colony ship?
 
-**Links:** [MOO1 Optimal Strategy](../../research/gaming/moo1/optimal-strategy.md), [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [BattleTech Simulator](../battletech-simulator/README.md)
+**Links:** [MIRR — 4X Framework](../../research/gaming/mirr-4x-framework.md) (the thesis this project tests), [MIRR Analysis](../../research/gaming/moo1/mirr-analysis.md) (this project's `mirr.py` write-up), [MOO1 Optimal Strategy](../../research/gaming/moo1/optimal-strategy.md), [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [Risk and Entrepreneurship](../../research/economics/risk-and-entrepreneurship.md), [BattleTech Simulator](../battletech-simulator/README.md)
 
 **Code:** https://github.com/chrisaacson69/moo1-opening-optimizer
 

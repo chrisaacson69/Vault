@@ -20,7 +20,7 @@ The gate is usually framed as "proves correctness." That undersells it. **The ga
 ## Drift is the real enemy (two directions)
 
 - **Within-project:** the agent takes a long diversion and returns with nothing (*sprawl*); hallucination; losing the thread. (monopoly, MOO1 — *even when you knew exactly what you wanted.* Knowing the goal is **not** enough; the anchor must be installed **and enforced**.)
-- **Across boundaries:** a spin-off forgets the tool you already built (the DJ tool not reusing the camelot tool); a project falls out of sync with the vault. → keep an explicit **registry of what's already built** and a **pointer discipline** at every project/vault seam ([[projects-are-pointers-norm]]).
+- **Across boundaries:** a spin-off forgets the tool you already built (the DJ tool not reusing the camelot tool); a project falls out of sync with the vault. → keep an explicit **registry of what's already built** and a **pointer discipline** at every project/vault seam ([[projects-are-pointers-norm]]). The developed form of this seam discipline is [Specimen & Thesis — The Two-Altitude Ledger](./specimen-and-thesis.md): the specimen↔thesis two-way ledger, and why its downward half rots.
 
 ## Grounding is a maturity axis, not a kickoff toggle
 

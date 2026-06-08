@@ -16,7 +16,7 @@ A streamer's stack of *invisible* Great Drakes was getting shredded by an enemy 
 
 ## Why the Drakes Lost
 
-The Colossus has **Illusion Immunity**, which in CoM also functions as see-invisible. The Drakes weren't actually hidden, so the Colossus opened with its boulders (4 ammo × 25 strength) and then ate the survivors with melee 25 + First Strike. The plan was structural: the Drakes' edge was supposed to be "Colossus can't shoot what it can't see." Without that, it was naked stat-on-stat.
+The Colossus has **Illusion Immunity**, which in CoM also functions as see-invisible. The Drakes weren't actually hidden, so the Colossus opened with its boulders (4 ammo × 25 strength) and then ate the survivors with melee 25 + First Strike. The plan was structural: the Drakes' edge was supposed to be "Colossus can't shoot what it can't see." Without that, it was naked stat-on-stat — the [Capability Without Leverage](../capability-without-leverage.md) thesis at its most vivid: the *leverage* (invisibility), not the *capability* (the Drakes), was the asset, and a single counter removed it.
 
 ## MoM vs CoM — Why the Streamer's Strategy Made Sense
 

@@ -5,7 +5,7 @@ created: 2026-04-03
 # Master of Magic — Tier System and MIRR
 > The "broken" strategies are entrepreneurial bets with exceptionally high MIRR at specific time windows. Games are won at turn 15 when one player has T3 and everyone else has T1.
 
-**Links:** [MoM Economic Analysis](./README.md), [BattleValue](../battle-value.md), [MOO1 MIRR Analysis](../moo1/mirr-analysis.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md), [Value and Profit](../../economics/value-and-profit.md)
+**Links:** [MIRR — 4X Framework](../mirr-4x-framework.md) (the portable thesis; this page contributes the option-value, stacking, and time-window refinements), [MoM Economic Analysis](./README.md), [BattleValue](../battle-value.md), [MOO1 MIRR Analysis](../moo1/mirr-analysis.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md), [Value and Profit](../../economics/value-and-profit.md)
 
 ---
 

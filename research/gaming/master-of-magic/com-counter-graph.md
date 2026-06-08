@@ -5,7 +5,7 @@ created: 2026-05-03
 # Caster of Magic — Spell Counter-Graph
 > CoM counters form a directed graph where each tier's standard answer ages out and demands a more expensive successor. Same structural pattern as Monopoly's efficient-frontier dominance map, applied to spell economy.
 
-**Links:** [Master of Magic — Economic Analysis](./README.md), [CoM Anti-Colossus Counter Analysis](./com-anti-colossus.md), [Efficient Frontier Trade Theory](../monopoly/frontier-trade-theory.md), [BattleValue](../battle-value.md)
+**Links:** [Master of Magic — Economic Analysis](./README.md), [CoM Anti-Colossus Counter Analysis](./com-anti-colossus.md), [Efficient Frontier Trade Theory](../monopoly/frontier-trade-theory.md), [BattleValue](../battle-value.md), [The Dominance-Frontier Lens](../../dominance-frontier-lens.md) (the general lens this counter-graph instantiates)
 **Project:** [masterofmagic](https://github.com/chrisaacson69/masterofmagic) — `data/com/spells.json` is the source
 
 ---

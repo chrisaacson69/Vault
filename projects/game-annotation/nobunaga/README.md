@@ -8,3 +8,5 @@ The NA1 bytecode-VM decompiler — and its sibling [`lowering-atlas`](../lowerin
 were extracted from this vault on **2026-06-05** with full git history preserved (236 commits).
 Active work continues in the new repo, not here. The ROM and big/generated artifacts are
 gitignored there and kept locally.
+
+**Design & strategy theses** the project sparked (it became a game-design crucible) live in the vault: [NA1 — A Game-Design Crucible](../../../research/gaming/nobunaga-crucible.md) — the index tying this repo to the in-vault theses (e.g. [Randomness as Termination (N≥3)](../../../research/gaming/n3-termination-and-randomization.md)).

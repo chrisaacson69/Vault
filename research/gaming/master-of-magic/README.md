@@ -100,7 +100,7 @@ Base BV assumes all damage is fungible — 10 melee damage is the same as 10 ran
 - **First Strike** — attacks before the opponent in melee. High-damage first strikers can kill before taking any damage.
 - **Poison/Life Steal/Stoning** — bypass HP entirely, attacking resistance or causing instant death.
 
-This means the correct model isn't a single BV number but a **matchup matrix**: unit A's effective BV against unit B, considering both units' abilities and the damage type rules. A unit might have BV 50 against normal units but BV 0 against anything with Weapon Immunity.
+This means the correct model isn't a single BV number but a **matchup matrix**: unit A's effective BV against unit B, considering both units' abilities and the damage type rules. A unit might have BV 50 against normal units but BV 0 against anything with Weapon Immunity. This is the [Capability Without Leverage](../capability-without-leverage.md) pattern in combat (failure mode B: a capability gated on a condition the opponent can negate).
 
 The community gravitates to strategies that exploit the *most* hard counters (or that are immune to the most counters). The "broken" units are likely the ones with the highest *average* effective BV across all matchups — or the ones that counter the most common threats.
 

@@ -5,7 +5,7 @@ created: 2026-03-15
 # Efficient Frontier Trade Theory
 > Using EPT frontier curves to solve the 3+ player trade valuation problem — reducing the permutation space through structural truths about development velocity and game horizon.
 
-**Links:** [Monopoly](../../../projects/monopoly/README.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Nash Bargaining Problem](../nash-bargaining-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Subgraph Investment Optimization](./subgraph-investment-optimization.md), [CoM Spell Counter-Graph](../master-of-magic/com-counter-graph.md) — same dominance-graph methodology applied to MoM spell economy
+**Links:** [Monopoly](../../../projects/monopoly/README.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Nash Bargaining Problem](../nash-bargaining-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Subgraph Investment Optimization](./subgraph-investment-optimization.md), [CoM Spell Counter-Graph](../master-of-magic/com-counter-graph.md) — same dominance-graph methodology applied to MoM spell economy, [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md) (the economics parent — this page sits in its applications ledger), [The Dominance-Frontier Lens](../../dominance-frontier-lens.md) (the general method this EPT frontier is an instance of)
 
 ## The Problem
 
@@ -302,7 +302,7 @@ The Brown monopoly (Mediterranean + Baltic) is **cheap to acquire and cheap to d
 - Don't drain opponent reserves (no jail-rent terror)
 - Don't enable strategic blocks (Brown spaces aren't on high-traffic paths)
 
-So a player who spends 3 random properties + cash to acquire Browns from the global frontier looks like they moved up the EPT curve — but they spent their available trade capital on a monopoly that **doesn't translate into wins**. The 50-game Catan analog is the [unleveraged-port finding](../catan-50-games-validation.md#port-leverage-finding): 2:1 ports with low matching production yielded *half-baseline* win rates. Same pattern: capability-with-no-leverage is worse than no capability, because you've spent the acquisition cost on something that doesn't pay back.
+So a player who spends 3 random properties + cash to acquire Browns from the global frontier looks like they moved up the EPT curve — but they spent their available trade capital on a monopoly that **doesn't translate into wins**. The 50-game Catan analog is the [unleveraged-port finding](../catan-50-games-validation.md#port-leverage-finding): 2:1 ports with low matching production yielded *half-baseline* win rates. Same pattern: capability-with-no-leverage is worse than no capability, because you've spent the acquisition cost on something that doesn't pay back. **The portable thesis is now [Capability Without Leverage](../capability-without-leverage.md)** — this brown trap is its Monopoly specimen (failure mode A: intrinsically low-impact).
 
 **The right metric isn't EPT-per-dollar; it's game-impact-share** — how much does this acquisition shift the leaderboard? Browns are EPT-efficient and impact-inefficient. The frontier construction is *correct* in identifying them as Pareto-improvements; the **counterparty-modeling layer** and the **game-impact filter** are the missing pieces that would tell you to skip them in favor of higher-impact monopolies that are also reachable.
 
@@ -336,6 +336,8 @@ The information cascade is a real cost. A trade sequence that looks frontier-opt
 This is a Monopoly-specific manifestation of a general principle in negotiation theory: **your moves are signals, and signal cost is part of the trade cost.** Vault has the related [Keynesian-beauty-contest framing](./catan-47k-empirical.md#common-knowledge-competition--the-counter-positioning-move) on the Catan page — same dynamic, different game. Worth naming on this page so it's discoverable from the Monopoly-trade thread.
 
 **Engineering implication:** trade evaluation can't be per-trade only. The AI needs to evaluate **trade sequences** with information-leakage costs across the sequence. Currently the vault's [subgraph-trade-engine-spec](./subgraph-investment-optimization.md) handles 3-way cycles but doesn't explicitly model information cost. That's another open layer of the transfer problem.
+
+**Live-agent validation:** the whole frontier/bilateral stack is empirically tested against real LLM play in [LLM Agents Across Strategic Games](../llm-agents-across-games.md) — which documents where the models' actual mistakes (action bias, no mechanical model) line up with the gaps named here. (Previously this page was linked *from* there one-way; this is the reciprocal.)
 
 ## Tags
 [game-ai](../../../tags/game-ai.md), [economics](../../../tags/economics.md), [game-theory](../../../tags/game-theory.md), [strategy](../../../tags/strategy.md)

@@ -5,7 +5,7 @@ created: 2026-02-20
 # The Multiplayer Coalition Problem
 > Why multiplayer games resist solution, and what the self-balancing dynamics tell us about tractable approximations.
 
-**Links:** [Gaming](./README.md), [Monopoly](../../projects/monopoly/README.md), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Cyborg Model](../cyborg-model.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Opposing Forces](../philosophy/dynamics/opposing-forces.md)
+**Links:** [Gaming](./README.md), [Monopoly](../../projects/monopoly/README.md), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Cyborg Model](../cyborg-model.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Opposing Forces](../philosophy/dynamics/opposing-forces.md), [Randomness as Termination (N≥3)](./n3-termination-and-randomization.md) (the design-side corollary: this gang-up equilibrium never terminates without a randomization layer)
 
 ## The Problem
 

@@ -5,7 +5,7 @@ created: 2026-02-26
 # BattleValue — A Universal Combat Comparison Metric
 > BV = sqrt(Attack × HP). One number to compare any two units across any game system.
 
-**Links:** [Gaming](./README.md), [Economics](../economics/README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [YouTube Migration](../../projects/youtube-migration/README.md)
+**Links:** [Gaming](./README.md), [Economics](../economics/README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [YouTube Migration](../../projects/youtube-migration/README.md), [The Dominance-Frontier Lens](../dominance-frontier-lens.md) (BV/Cost is this lens's cost-axis for combat units)
 
 ## The Problem
 
@@ -300,6 +300,18 @@ First strike (attacking before the enemy can respond) is a massive force multipl
 | Auto-battlers (TFT) | DPS | HP + shields | Team composition, item optimization |
 | Card games (MTG) | Power | Toughness | Creature evaluation, trade analysis |
 | Wargames | Combat Factor | Steps/strength | Force comparison, the original use case |
+
+## Downward ledger — vault specimens that apply BV
+
+The table above is *genres*; these are the in-vault pages that actually use BV, with what each contributes (the reciprocal of the up-links they already carry):
+
+- [Master of Magic — Economic Analysis](./master-of-magic/README.md) — adapts BV to `sqrt(Melee × Hits × Figures)`; the multi-figure/Lanchester extension; BV/Slot vs BV/Cost dual constraint; the hard-counter matchup-matrix where effective BV drops to 0.
+- [MoM — Anti-Colossus study](./master-of-magic/com-anti-colossus.md) — BV ranking via Markov sim (Hydra/Drake/Colossus); BV/Slot stack-cap as the binding constraint.
+- [MoM — Tier System and MIRR](./master-of-magic/tier-system-and-mirr.md) — BV *stacking curves* under multiplicative buffs (the Halfling Slinger).
+- [CoM Spell Counter-Graph](./master-of-magic/com-counter-graph.md) — counters as edges that drive a unit's effective BV.
+- [Capability Without Leverage](./capability-without-leverage.md) — BV→0 in a bad matchup is the combat instance of that thesis.
+- [MOO1 Optimal Strategy](./moo1/optimal-strategy.md) — BV for fleet comparison / ship design in the 4X setting.
+- [BattleTech Simulator](../../projects/battletech-simulator/README.md) — Monte-Carlo combat sim to derive empirical BV and find BV2 bargains.
 
 ## Connection to Economics
 

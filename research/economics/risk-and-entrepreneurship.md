@@ -134,6 +134,14 @@ The answer likely depends on the stakes. A vending machine pricing decision? Let
 
 **Unless** you give the AI enough businesses to run simultaneously that it *does* get fast feedback across a large sample — which is actually what the agent team architecture makes possible for the first time.
 
+## Where this shows up — applications (downward ledger)
+
+The specimens that instantiate "capital allocation under uncertainty" in a controllable setting — kept here so this hub points *down* to its evidence, not just receives links up:
+
+- [MIRR — 4X Strategy as Capital Allocation](../gaming/mirr-4x-framework.md) — the cross-game (MoO + MoM) application: each turn is an investment ranked by MIRR (reinvestment at the empire's own growth rate). The safe investment (factory) vs the entrepreneurial bet (colony), with a crossover, is *this page's* "reinvest vs expand" made mechanical and testable.
+- [Monopoly Frontier-Trade Theory](../gaming/monopoly/frontier-trade-theory.md) — the same root in a non-4X game, using a Markowitz/EPT frontier as the metric instead of MIRR.
+- The 4X opening is this framework with the noise removed (deterministic mechanics, no competitors in the opening) — a clean bench: if the risk / time-preference logic ranks correctly there, it earns trust for the messier real-world domains.
+
 ## Open Questions
 - At what dollar threshold should a CEO agent defer to a human?
 - Can running many businesses in parallel give an AI entrepreneur fast enough feedback to develop genuine judgment?

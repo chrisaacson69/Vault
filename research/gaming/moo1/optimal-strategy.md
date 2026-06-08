@@ -412,6 +412,8 @@ The hardest number to derive: **when should you abandon the expansion plan?** Th
 
 ## MIRR: The Generalized Decision Framework
 
+> **The portable framework is now canonical at [MIRR — 4X Strategy as Capital Allocation Under Uncertainty](../mirr-4x-framework.md)** (the cross-game hub: MoO + MoM + future 4X). This section is kept as the **MoO-specific application** — the worked investment menu, the research-portfolio layer, and the data-collection plan. Promoted out so games can share one hub rather than each re-deriving it; see [Specimen & Thesis](../../../method/specimen-and-thesis.md).
+
 ### The Thesis
 
 **Optimal play in a 4X is finding the highest-return investment each turn.** This is the same thesis that drives the Monopoly subgraph trade engine and the vault's economics framework — the player is an entrepreneur making investment decisions under uncertainty. Each turn's production is capital to allocate. The question is always: what gives the best risk-adjusted return?

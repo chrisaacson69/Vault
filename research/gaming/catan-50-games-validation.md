@@ -192,7 +192,7 @@ This **aligns with Chris's intuition that Catan is play-dominant, not dice-domin
 
 A leveraged 2:1 port (with high matching production) yields baseline win rate. An unleveraged 2:1 port yields *half* baseline. Reading: **ports don't help above baseline, but bad ports hurt.** A 2:1 port replaces what would otherwise be a third tile-adjacency. If the matching resource isn't strong, you've sacrificed a productive vertex for a useless trade option. The port is a *don't-waste-it* play, not a *win-condition* play — Roman's 47k analysis didn't surface this because she didn't decompose ports by matching production strength.
 
-This is a sharper version of the [capability-value-over-face-value lens](./catan-47k-empirical.md#toward-the-prescription--capability-value-over-face-value): the face value of a 2:1 port is "trade efficiency"; the capability value is "trade efficiency *conditional on producing enough of the resource to use it*." Holders with no matching production are paying for an unused capability.
+This is a sharper version of the [capability-value-over-face-value lens](./catan-47k-empirical.md#toward-the-prescription--capability-value-over-face-value): the face value of a 2:1 port is "trade efficiency"; the capability value is "trade efficiency *conditional on producing enough of the resource to use it*." Holders with no matching production are paying for an unused capability. This is the Catan specimen of [Capability Without Leverage](./capability-without-leverage.md) (failure mode B: leverage gated on matching production).
 
 ### Per-game scorecards as a reading tool
 

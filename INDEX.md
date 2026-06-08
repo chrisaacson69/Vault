@@ -113,6 +113,11 @@
   - [Bilateral Trade Valuation](./research/gaming/bilateral-trade-valuation.md) — trajectory-based trade evaluation; why isolated NPV misses the competitive feedback loop
   - [The Multiplayer Coalition Problem](./research/gaming/multiplayer-coalition-problem.md) — why multiplayer games resist solution; self-balancing dynamics, phase decomposition, interest rate framework, EPT as slope
   - [BattleValue](./research/gaming/battle-value.md) — BV = sqrt(Attack × HP): universal combat comparison metric; Lanchester's Square Law for individual units
+  - [MIRR — 4X Strategy as Capital Allocation](./research/gaming/mirr-4x-framework.md) — the central 4X thesis: each turn is an investment ranked by MIRR (reinvest at the empire's own growth rate); the cross-game hub MoO + MoM point up to; option-value, time-window "broken" strategies, research-as-portfolio
+  - [Capability Without Leverage](./research/gaming/capability-without-leverage.md) — a capability you paid for is worth zero (or negative) without downstream leverage; face efficiency (EPT/dollar, BV, trade-efficiency) is the trap, impact-conditional-on-use is the truth; Monopoly brown trap + MoM hard-counter-to-zero + Catan unleveraged port
+  - [Randomness as the Termination Mechanism (N≥3)](./research/gaming/n3-termination-and-randomization.md) — in N≥3 games with full interaction + public state the deterministic equilibrium is gang-up-on-leader → never ends; randomness is the kill switch that lets the game terminate while preserving strategic agency; NA1 canonical, Diplomacy the contrast case
+  - [The Dominance-Frontier Lens](./research/dominance-frontier-lens.md) — *cross-domain* analytical frame (games + markets): map cost vs effect, draw dominance edges, trace the frontier, flag asymmetric counters; random-start viability as the design verdict; the same construction as a Markowitz frontier
+  - [NA1 — A Game-Design Crucible](./research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the in-vault theses it sparked (n3-termination promoted; turn-economy + binding-constraint candidates); the external-repo specimen's in-vault anchor
   - [Diplomacy: 7 AI Models](./research/gaming/diplomacy-ai-analysis.md) — 7 LLMs play the ultimate coalition game; case study for Nash bargaining, physical grounding of strategy, AI personality differences, and why different agents CAN trade
   - [D&D Spell Damage Model](./research/gaming/dnd-spell-damage-model.md) — CLT + bimodal distributions for spell comparison; same instinct as BattleValue; structural realism case study
   - Monopoly Theory — [research/gaming/monopoly/](./research/gaming/monopoly/)
@@ -201,6 +206,7 @@
 ## Method
 - [Method — a library of good procedure](./method/README.md) — how to run hard, agent-driven projects without drifting; living playbooks of warning signs and moves (career is one downstream consumer of this, not the parent)
   - [The Anchor Method](./method/anchor-method.md) — drift is the enemy; the gate is the anti-drift anchor that *proves grounding*; install the strongest anchor your grounding allows and upgrade toward a hard gate as it crystallizes; the director owns recalibration via divergent-approach tournaments. Born from the NA1 decompiler.
+  - [Specimen & Thesis — The Two-Altitude Ledger](./method/specimen-and-thesis.md) — keep the specimen (dated, source-anchored review/project) separate from the thesis (portable idea it feeds), connected by a two-way ledger; the downward half (thesis→specimens) rots because hubs predate their evidence; promote portable ideas, don't trap them, and don't let auto-memory be the release valve. Debates pass; Monopoly/MoO/MoM fail.
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action
