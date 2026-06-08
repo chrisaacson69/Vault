@@ -207,6 +207,7 @@
 - [Method — a library of good procedure](./method/README.md) — how to run hard, agent-driven projects without drifting; living playbooks of warning signs and moves (career is one downstream consumer of this, not the parent)
   - [The Anchor Method](./method/anchor-method.md) — drift is the enemy; the gate is the anti-drift anchor that *proves grounding*; install the strongest anchor your grounding allows and upgrade toward a hard gate as it crystallizes; the director owns recalibration via divergent-approach tournaments. Born from the NA1 decompiler.
   - [Specimen & Thesis — The Two-Altitude Ledger](./method/specimen-and-thesis.md) — keep the specimen (dated, source-anchored review/project) separate from the thesis (portable idea it feeds), connected by a two-way ledger; the downward half (thesis→specimens) rots because hubs predate their evidence; promote portable ideas, don't trap them, and don't let auto-memory be the release valve. Debates pass; Monopoly/MoO/MoM fail.
+  - [Author Web, Derive Hierarchy](./method/author-web-derive-hierarchy.md) — the organizing law for generative work: exploration discovers structure you can't pre-file, so keep the substrate write-optimized (web) and *derive* the read-optimized hierarchy (indexes, ledgers, audit) with tooling; a tree severs lateral radiation, the web holds it; the difficulty of scope is the cost of compounding — pay it down by deriving, not suppressing. Specs the derive-the-ledger generator.
 
 ## Notes
 - [Words of Wisdom](./notes/words-of-wisdom.md) — hard-won tidbits and calls to action

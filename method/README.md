@@ -11,6 +11,7 @@ created: 2026-06-05
 
 - **[The Anchor Method](./anchor-method.md)** — the spine: drift is the enemy, the gate is the anti-drift anchor that *proves grounding*; install the strongest anchor your current grounding allows and upgrade it toward a hard gate as grounding crystallizes; the director owns recalibration (a convergence gate, via divergent-approach tournaments). Born from the NA1 decompiler; tested against the projects that drifted.
 - **[Specimen & Thesis — The Two-Altitude Ledger](./specimen-and-thesis.md)** — the developed form of the Anchor Method's "seam discipline": vault work lives at two altitudes (the dated, source-anchored **specimen** vs the portable **thesis** it feeds), kept in separate pages and joined by a **two-way ledger**. The downward half (thesis→its specimens) rots because hubs predate their evidence; the cures are *promote, don't trap* and *memory is not the artifact*. Discovered auditing the debate corpus; tested against Monopoly/MoO/MoM (all fail).
+- **[Author Web, Derive Hierarchy](./author-web-derive-hierarchy.md)** — the organizing law for *generative* work: exploration discovers structure you can't pre-file, so keep the substrate write-optimized (web) and *derive* the read-optimized hierarchy (indexes, ledgers, audit) with tooling, after the shape emerges. A tree severs the lateral edges a sprawling project radiates; the web holds them. The difficulty of a big vault is the cost of compounding, paid down by deriving — not by suppressing exploration. Specs the derive-the-ledger generator.
 
 ## Where this sits in the web
 
