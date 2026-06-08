@@ -41,3 +41,7 @@
 - [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md) — memory layers = CPU cache; drift = promotion with no eviction; the placement rule + a hygiene check
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — formal-language grounding gradient; deterministic transpile to a grounded language; 6502→C, COBOL payoff
 - [Repairing LLM Code — The Two Oracles](../research/repairing-llm-code.md) — Spiro's vibe-coded-mess video assessed; the two-oracle model; blind-reader experiment on the NA1 decompiler
+- [CaptainMeme vs. 6 Cicero — The Human/AI Split in Press Diplomacy](../research/gaming/cicero-press-diplomacy-captain-meme.md) — An expert human diplomacy player plays full-press blitz Diplomacy against six Cicero AIs and narrates the game.
+- [Demolition Man (1993) — A Case Study in Managed Utopia](../research/demolition-man-analysis.md) — A 30-year-old sci-fi film that predicted the exact failure modes of AI-managed societies.
+- [DJ Set 1 — Progressive/Trance Mix](../projects/dj-set-1/README.md) — 11-track set built around texture-over-harmony philosophy, with a BPM staircase from 120→129.
+- [Gunboat Diplomacy and Diplodocus — The Planner Without the Mouth](../research/gaming/gunboat-diplomacy-diplodocus.md) — Meta AI's Diplodocus plays Gunboat Diplomacy — the variant with no text communication — and beat every human in Meta's 2022 Speedboat Tournament.

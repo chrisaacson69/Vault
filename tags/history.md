@@ -18,3 +18,5 @@
 - [Wickard v. Filburn — The Decision That Ate the Enumerated Powers](../research/wickard-v-filburn.md) — the New Deal Commerce-Clause lineage: pre-1937 limits → the switch in time → Wickard → Lopez/Raich/NFIB
 - [Chiafalo v. Washington — Binding the Electors](../research/chiafalo-and-the-deliberative-elector.md) — the founding-era elector debate (Hamilton's Federalist 68 vs. Mason/Anti-Fed 72), Ray v. Blair (1952) + Jackson's dissent, and the pre-17th-Amendment doctrine of instruction
 - [Originalism and the Limiting Document](../research/originalism-and-the-limiting-document.md) — Marbury's oath argument, Federalist 84 + the 9th/10th Amendments, Spooner on consent, and Justice Jackson across Wickard/Ray/Youngstown
+- [Cyclical Historians](../research/philosophy/dynamics/civilizational-cycles/cyclical-historians.md) — Ibn Khaldun, Spengler, Toynbee, Strauss & Howe, Glubb — those who see civilizations following predictable patterns of rise and fall.
+- [Eastern Logical Traditions](../research/philosophy/logic-and-math/eastern-logic.md) — The convergence proof: independent civilizations, no contact, same structural insights — centuries before the West caught up.

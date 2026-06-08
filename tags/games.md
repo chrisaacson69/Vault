@@ -20,11 +20,14 @@
 - [NA1 — Game-Design Crucible](../research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the theses it sparked
 - [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
-- [Utopia (Intellivision)](../projects/game-annotation/utopia/README.md) — Don Daglow 1981 RTS; opens the mechanical-complexity arc of the Game Annotation Series
-- [M.U.L.E. (Atari 800)](../projects/game-annotation/mule/README.md) — Dani Bunten Berry 1983 economic-strategy with auction layer; the Utopia comparison piece
 - [LLM Agents Across Strategic Games](../research/gaming/llm-agents-across-games.md) — seven-game cross-study including Catan (Phase 5)
 - [LLM Game Benchmark](../research/gaming/llm-game-benchmark.md) — benchmark outline for new LLMs across the seven-game framework
 - [Gunboat Diplomacy and Diplodocus](../research/gaming/gunboat-diplomacy-diplodocus.md) — Meta's Gunboat AI wins via costly-signaling moves, no language model
 - [CaptainMeme vs. 6 Cicero (Press Diplomacy)](../research/gaming/cicero-press-diplomacy-captain-meme.md) — expert player's human/AI split observations; no-grudge signature
 - [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — Ioana Roman analyzes 47k recorded games; trade-efficiency paradox, city engine over road engine, Monopoly cards as timing weapons
 - [Catan 50-Game Validation](../research/gaming/catan-50-games-validation.md) — proof-of-method on the public Kaggle dataset; aggregate replication of city-engine bias, theory refinement, methodological findings
+- [BattleTech Simulator](../projects/battletech-simulator/README.md) — Monte Carlo combat simulator to derive empirical BattleValue for BattleTech mechs and find bargains in the official BV2 system.
+- [BattleValue — A Universal Combat Comparison Metric](../research/gaming/battle-value.md) — BV = sqrt(Attack × HP).
+- [Bilateral Trade Valuation](../research/gaming/bilateral-trade-valuation.md) — A trade's value isn't what you get — it's where both players end up 20 turns later.
+- [Game Annotation Series — moved to standalone repos](../projects/game-annotation/README.md)
+- [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md) — Given the portion of the investment graph you actually own, find the tractable paths forward.

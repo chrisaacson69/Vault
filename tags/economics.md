@@ -45,3 +45,35 @@
 - [Lyn Alden on Long-Term Trade Deficit Unsustainability](../research/economics/lyn-alden-trade-deficit-analysis.md) — careful multi-level engagement with Alden's argument; framework refines rather than refutes; r-vs-g arithmetic + exorbitant privilege + geopolitical Level 5 as the time-horizon variable
 - [Wickard v. Filburn — The Decision That Ate the Enumerated Powers](../research/wickard-v-filburn.md) — the AAA's price-support-via-supply-restriction scheme as the intervention whose leak (self-supply) demanded the next intervention; constitutional doctrine in service of a government cartel
 - [History Repeats — The Small-Pain-Tolerance Variable](../notes/history-repeats-small-pain-tolerance.md) — the deferred-reckoning ratchet (avoidance converts a correction-option into an obligation); healthcare "suicidal empathy" via Bastiat + Mises calculation; deficit/inflation as the macro face; prevented liquidation as amplifier
+- [BattleValue — A Universal Combat Comparison Metric](../research/gaming/battle-value.md) — BV = sqrt(Attack × HP).
+- [Bilateral Trade Valuation](../research/gaming/bilateral-trade-valuation.md) — A trade's value isn't what you get — it's where both players end up 20 turns later.
+- [Computation and Information Theory](../research/computation-and-information.md) — What can be computed, what can be known, and what emerges from the limits of both.
+- [Demolition Man (1993) — A Case Study in Managed Utopia](../research/demolition-man-analysis.md) — A 30-year-old sci-fi film that predicted the exact failure modes of AI-managed societies.
+- [Economic Theorists](../research/philosophy/dynamics/civilizational-cycles/economic-theorists.md) — Hayek, Sowell, Schumpeter, Kondratiev — those whose work on markets, knowledge, and incentives illuminates why the cycle mechanisms operate.
+- [Efficient Frontier Trade Theory](../research/gaming/monopoly/frontier-trade-theory.md) — Using EPT frontier curves to solve the 3+ player trade valuation problem — reducing the permutation space through structural truths about development velocity and game horizon.
+- [Game Theory as Normative, Not Descriptive](../notes/game-theory-as-normative-not-descriptive.md) — Game theory is a normative theory of optimal play given a stated game structure.
+- [Government Formation and Structure](../research/philosophy/morality/legal-theory/government-formation.md) — Government is an inevitable product of division of labor — not a social contract, not Hobbes's fear, but economic specialization applied to the coordination problem.
+- [Insurance](../research/economics/insurance.md) — Insurance has exactly one legitimate function — hedging catastrophic, low-probability events.
+- [Is Art Purely Objective?](../research/debates/art-objectivity-noerr-strange.md) — A 6-hour no-prep debate that's really about epistemology, value theory, Agrippa's trilemma, and the is-ought gap — wearing an art costume.
+- [Level 6: Direct Execution — Beyond Software](../research/level-6-direct-execution.md) — Software was always an intermediate representation.
+- [MOO1 Opening Optimizer](../projects/moo1-opening-optimizer/README.md) — Turn-level economic simulator for Master of Orion 1 opening theory.
+- [Morality — First Principles Exploration](../research/philosophy/morality/README.md) — Naturalistic moral framework built from bedrock concepts upward.
+- [New Cycle — Philosophy as Fiction](../projects/new-cycle/README.md) — A post-apocalyptic narrative following humanity rebuilding civilization through parallel covenant communities, dramatizing the vault's philosophical frameworks.
+- [Online Debates](../research/debates/README.md) — Analysis of online "bloodsports" debates — extracting signal from spectacle.
+- [Opposing Forces — Why Every Action Generates a Reaction](../research/philosophy/dynamics/opposing-forces.md) — A metaphysical exploration of why concentrated power always produces counter-forces, and whether this is a fundamental feature of reality.
+- [Property, Rights, and the God Question: Wilson Reviews Pool vs Dyer](../research/debates/pool-dyer-review-wilson.md) — When you strip away the labels, what actually grounds property rights — and does anyone in the room have a coherent answer?
+- [Structural-Institutional Analysts](../research/philosophy/dynamics/civilizational-cycles/structural-institutional.md) — Turchin, Tainter, Olson, Dalio — those who identify specific mechanisms (complexity, institutions, elites, debt) that cause civilizational decay.
+- [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md) — Given the portion of the investment graph you actually own, find the tractable paths forward.
+- [Subgraph Trade Engine — Implementation Spec](../research/gaming/monopoly/subgraph-trade-engine-spec.md) — Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.
+- [Suffrage, Stakeholdership, and the Scope Problem](../research/debates/pool-kyla-suffrage-taxation.md) — The problem isn't who votes.
+- [Taxation and Unrealized Gains](../research/economics/taxation-and-unrealized-gains.md) — You can't tax what doesn't exist yet.
+- [The Coconut Island and the Manufactured Option Space](../research/debates/coconut-island-and-manufactured-option-space.md) — Two related debate moves used to force "exploitation under capitalism" or "structural conflict" conclusions.
+- [The Cyborg Model — Human/AI Collaboration](../research/cyborg-model.md) — Neither side is complete alone.
+- [The Dominance-Frontier Lens](../research/dominance-frontier-lens.md) — A recurring analytical frame for **any competitive system with counter dynamics** — games, but also markets and portfolios.
+- [The Fiscal Pressure Must Leak Somehow — All of the Above](../notes/fiscal-pressure-must-leak-somehow.md) — Sketch-tier musing.
+- [The Godel Governance Problem](../research/philosophy/dynamics/the-godel-governance-problem.md) — Can a system be powerful enough to prevent monopoly without becoming one?
+- [The Scope Confusion Thesis](../research/philosophy/morality/scope-confusion.md) — Most political and legal disagreements are not about values — they're about which enforcement mechanism is appropriate for a given norm.
+- [The Technology-Governance Gap](../research/philosophy/dynamics/technology-governance-gap.md) — When the systems we build exceed our ability to understand them, who governs?
+- [The Weighting Problem](../research/philosophy/epistemology/weighting-problem.md) — Objective measurements do not produce objective composite judgments.
+- [Triangular Arbitrage — Currency & Crypto Market Differentials](../projects/triangular-arbitrage/README.md) — Can we exploit differentials in cross-rates for profit? Math says yes.
+- [Vault Gap Audit — 2026-02-28](../notes/vault-gap-audit-2026-02-28.md) — Comprehensive audit of holes, stubs, underdeveloped arguments, missing cross-links, and implied-but-unwritten topics across the vault.

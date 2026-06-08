@@ -16,7 +16,7 @@
 - [NA1 — Game-Design Crucible](../research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the theses it sparked
 - [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
-- [Utopia (Intellivision)](../projects/game-annotation/utopia/README.md)
-- [M.U.L.E. (Atari 800)](../projects/game-annotation/mule/README.md)
 - [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — city-engine vs road-engine preference, Monopoly timing, trajectory-trades
 - [Catan 50-Game Validation](../research/gaming/catan-50-games-validation.md) — small-N proof-of-method; refined theory of "universal city-engine bias + layered archetype effect"
+- [Efficient Frontier Trade Theory](../research/gaming/monopoly/frontier-trade-theory.md) — Using EPT frontier curves to solve the 3+ player trade valuation problem — reducing the permutation space through structural truths about development velocity and game horizon.
+- [Subgraph Trade Engine — Implementation Spec](../research/gaming/monopoly/subgraph-trade-engine-spec.md) — Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.

@@ -12,3 +12,4 @@
 - [Programmatic DJ Mixing Tools](../research/programmatic-dj-mixing-tools.md)
 - [MOO1 Opening Optimizer](../projects/moo1-opening-optimizer/README.md)
 - [OOP Neurons](../projects/oop-neurons/README.md)
+- [CyborgDJ](../projects/cyborgdj/README.md) — Human writes the score, machine executes the mix — a programmatic DJ mixing engine.

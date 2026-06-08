@@ -6,3 +6,5 @@
 - [Working With Claude](../notes/working-with-claude.md)
 - [Level 6 — Direct Execution](../research/level-6-direct-execution.md)
 - [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md) — managing the human/AI shared memory layers; eviction policy as the anti-drift mechanism
+- [CyborgDJ](../projects/cyborgdj/README.md) — Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
+- [DJ EQ Blending Technique](../research/dj-eq-blending.md) — How pro DJs use EQ — not the crossfader — as the primary transition tool.

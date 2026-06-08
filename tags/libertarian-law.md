@@ -19,3 +19,13 @@
 - [Representatives Should Pass Competence Tests to Vote on Legislation (prep)](../research/debates/rep-competence-tests-prep.md)
 - [Peacecraft's Libertarian Syllogism — A Hoppe Inversion](../research/debates/peacecraft-libertarian-syllogism.md)
 - [Force Doctrine — The Theory](../research/philosophy/morality/force-doctrine.md) — "might makes reality ≠ might makes right"; the NAP-libertarians' "the alternative is monstrous" is the wrong *kind* of grounding (constitutive/argumentation-ethics is the right shape); force-as-action vs coercion; structure selects who holds the force
+- [Can Liberalism Be Used to Destroy Itself?](../research/debates/liberalism-self-defeat-wilson-whatever.md) — If the democratic process allows constitutional amendments, what stops Christian nationalists from legally dismantling liberal values?
+- [Defensive Force, Collateral Damage, and the Defense/Retribution Distinction](../research/philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md) — When is collateral damage justified, and who bears responsibility?
+- [Government Formation and Structure](../research/philosophy/morality/legal-theory/government-formation.md) — Government is an inevitable product of division of labor — not a social contract, not Hobbes's fear, but economic specialization applied to the coordination problem.
+- [Registration, Rights, and Government Scope Creep](../research/philosophy/morality/legal-theory/registration-and-scope-creep.md) — The vehicle/gun registration comparison reveals more about how government mechanisms expand than about either vehicles or guns.
+- [Self-Ownership and the Property Rights Derivation](../research/philosophy/morality/legal-theory/self-ownership-and-property-rights.md) — You don't need self-ownership to ground property rights — and the standard chain that tries to is the weak link in libertarian theory.
+- [Suffrage, Stakeholdership, and the Scope Problem](../research/debates/pool-kyla-suffrage-taxation.md) — The problem isn't who votes.
+- [Taxation and Unrealized Gains](../research/economics/taxation-and-unrealized-gains.md) — You can't tax what doesn't exist yet.
+- [The Action/Inaction Asymmetry](../research/philosophy/morality/action-inaction-asymmetry.md) — Action is singular and defined.
+- [The Godel Governance Problem](../research/philosophy/dynamics/the-godel-governance-problem.md) — Can a system be powerful enough to prevent monopoly without becoming one?
+- [The Scope Confusion Thesis](../research/philosophy/morality/scope-confusion.md) — Most political and legal disagreements are not about values — they're about which enforcement mechanism is appropriate for a given norm.
