@@ -45,6 +45,7 @@ A vault hard to manage because it covered so much is doing its job. The compound
 - This session's vault reorg — ~35 files of *mechanical* reciprocal-link/ledger/index wiring done by hand. That hand-work is exactly what this principle says to generate.
 - [NA1 crucible](../research/gaming/nobunaga-crucible.md) and pygone — projects that radiated theses across domains; the lived case for web-over-tree.
 - **The build:** a derive-the-ledger generator + audit gate — reads forward-links/frontmatter, emits backlinks + the two-way ledger, regenerates INDEX/tag indexes, and flags orphans / one-way edges (turning the agent-audits run this session into a deterministic check, Anchor-Method-style).
+- **Built 2026-06-08:** [`tools/vault-graph.py`](../tools/vault-graph.py) — the *audit* half (broken-link + ledger-reciprocity + orphan gate). Its first run returned **ledger reciprocity CLEAN**, validating this session's two-way wiring by machine, and surfaced **178 pre-existing broken links** — mostly the `game-annotation`/`pygone` repo-extraction casualties in tag files + INDEX (this principle's seam-breaker, quantified). The *generate* half (auto-emit backlinks + regenerate indexes) is the next increment.
 
 ## Tags
 [methodology](../tags/methodology.md)
