@@ -176,4 +176,4 @@ This is the structural equivalent of the government outsourcing classification t
 5. **The relationship between press freedom and federalism.** Local press has collapsed economically. National press covers national politics. Who observes local government? The observation mechanism may have a geographic gap that no amount of press freedom can fix without an economic model for local journalism.
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [free-markets](../../../tags/free-markets.md), [civilizational-cycles](../../../tags/civilizational-cycles/README.md), [libertarian-law](../../../tags/libertarian-law.md)
+[philosophy](../../../tags/philosophy.md), [free-markets](../../../tags/free-markets.md), [civilizational-cycles](../../../tags/civilizational-cycles.md), [libertarian-law](../../../tags/libertarian-law.md)

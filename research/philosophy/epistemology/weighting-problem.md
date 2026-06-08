@@ -39,7 +39,7 @@ Legal standards routinely require weighing multiple factors:
 - **Reasonable person standard** — what would a reasonable person do? Requires weighting competing considerations (caution vs. autonomy, cost vs. safety).
 - **Constitutional balancing** — strict scrutiny weighs government interest against individual rights. Both are "objective" in some sense; the balance is not.
 
-This connects to [Legal Theory](../legal-theory/README.md): if legal determinations require subjective weighting, then the aspiration to "objective law" has a ceiling. Restitution (making the victim whole) may be the legal domain most resistant to the weighting problem — the metric is singular (restore what was lost). Retribution and deterrence are where weighting enters.
+This connects to [Legal Theory](../morality/legal-theory/README.md): if legal determinations require subjective weighting, then the aspiration to "objective law" has a ceiling. Restitution (making the victim whole) may be the legal domain most resistant to the weighting problem — the metric is singular (restore what was lost). Retribution and deterrence are where weighting enters.
 
 ### Morality — Competing Values
 The moral framework faces the weighting problem when values conflict:

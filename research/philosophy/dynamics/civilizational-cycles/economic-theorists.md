@@ -34,7 +34,7 @@ published: true
 - *The Fatal Conceit* (1988)
 - *Law, Legislation and Liberty* (3 volumes, 1973-1979) -- spontaneous order in law
 
-**Vault Connection:** Hayek is the economic backbone of the vault's entire framework. The knowledge problem explains *why* central planning fails (connecting to the CEO automation problem in [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md) -- the same "slow feedback, open feature space" problem). Spontaneous order is *why* "you're fixing 1 problem while breaking 99" -- the existing order encodes solutions to problems you don't even see. The Road to Serfdom is the *mechanism* of the voluntary-to-forced drift: each intervention requires a further intervention, ratcheting toward total control. Hayek would say the cycle is not inevitable -- it can be broken by constitutional constraints on government power -- but the political incentives run against it.
+**Vault Connection:** Hayek is the economic backbone of the vault's entire framework. The knowledge problem explains *why* central planning fails (connecting to the CEO automation problem in [Risk and Entrepreneurship](../../../economics/risk-and-entrepreneurship.md) -- the same "slow feedback, open feature space" problem). Spontaneous order is *why* "you're fixing 1 problem while breaking 99" -- the existing order encodes solutions to problems you don't even see. The Road to Serfdom is the *mechanism* of the voluntary-to-forced drift: each intervention requires a further intervention, ratcheting toward total control. Hayek would say the cycle is not inevitable -- it can be broken by constitutional constraints on government power -- but the political incentives run against it.
 
 ---
 
@@ -86,7 +86,7 @@ published: true
 
 **Economic Connections:**
 - Creative destruction is foundational to modern growth economics and innovation theory.
-- Schumpeter's entrepreneur is the risk-bearing, innovation-driving figure that maps directly to the vault's [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md) framework.
+- Schumpeter's entrepreneur is the risk-bearing, innovation-driving figure that maps directly to the vault's [Risk and Entrepreneurship](../../../economics/risk-and-entrepreneurship.md) framework.
 - His prediction about capitalism's self-destruction parallels Olson's institutional sclerosis -- both describe how successful systems generate their own antibodies.
 - Schumpeter disagreed with Hayek on central planning -- he thought socialism could work *efficiently* but would still be inferior to capitalism's dynamism.
 

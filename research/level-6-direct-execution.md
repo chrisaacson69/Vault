@@ -116,7 +116,7 @@ But the boundary migrates **both directions** simultaneously:
 - **Push forward:** zero-code, dark factories, agents executing processes — the boundary advances
 - **Push back:** insisting on custom UX, demanding human intermediaries, regulatory requirements for human presence — the boundary retreats where humans assert value or the real world resists
 
-The buffer doesn't shrink monotonically. It oscillates. This is the [opposing forces](../philosophy/dynamics/opposing-forces.md) pattern applied to human-machine interaction. The cyborg model's core claim: the boundary migrates to wherever the current friction is, but it never disappears — and pushing too hard in either direction generates counter-pressure.
+The buffer doesn't shrink monotonically. It oscillates. This is the [opposing forces](philosophy/dynamics/opposing-forces.md) pattern applied to human-machine interaction. The cyborg model's core claim: the boundary migrates to wherever the current friction is, but it never disappears — and pushing too hard in either direction generates counter-pressure.
 
 ## The L5/L6 Boundary as a First-Class Object
 
@@ -126,9 +126,9 @@ Five design properties follow from that reframe:
 
 1. **Authority gate rule-based, decision substance judgment-based.** *Who* is allowed to decide (role, credential, tenure) is cheap to articulate and easy to enforce. *What* they decide, given they have authority, is judgment. Clean separation avoids fighting the wrong abstraction.
 2. **Decision-level logging with stated reason.** Every judgment call captures input state, stated rationale, outcome. Without this, the L5 phase generates no evidence; future rules have no empirical ground.
-3. **Convergence and divergence as metrics.** When human decisions converge on similar outcomes given similar inputs, the pattern is a rule candidate. When decisions diverge, the case is genuine judgment territory. This is [Trunk 2 convergence diagnostic](../philosophy/epistemology/relational-objectivity.md) applied to organizational behavior — convergence as evidence that the structure is rule-tractable; divergence as evidence that judgment is actually doing work.
+3. **Convergence and divergence as metrics.** When human decisions converge on similar outcomes given similar inputs, the pattern is a rule candidate. When decisions diverge, the case is genuine judgment territory. This is [Trunk 2 convergence diagnostic](philosophy/epistemology/relational-objectivity.md) applied to organizational behavior — convergence as evidence that the structure is rule-tractable; divergence as evidence that judgment is actually doing work.
 4. **Bidirectional promotion/demotion.** Rules can be promoted from observed patterns. They can also be demoted back to judgment when override rates climb. Most systems have the first path and miss the second, which is why rule systems ossify.
-5. **Condition metadata on rules.** Rules carry metadata about the conditions they were derived under (when added, from what data, current override rate, confidence). When underlying conditions shift, rules flag for review rather than silently misfiring. This is the [constitutive-given-conditions](../philosophy/morality/constitutive-elective.md) stance applied to rule durability — rules are real and non-arbitrary, but they're not fixed; they track conditions that move.
+5. **Condition metadata on rules.** Rules carry metadata about the conditions they were derived under (when added, from what data, current override rate, confidence). When underlying conditions shift, rules flag for review rather than silently misfiring. This is the [constitutive-given-conditions](philosophy/morality/constitutive-elective.md) stance applied to rule durability — rules are real and non-arbitrary, but they're not fixed; they track conditions that move.
 
 ### Real-world case: CSR manual orders
 

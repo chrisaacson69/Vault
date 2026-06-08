@@ -135,4 +135,4 @@ Peikoff devotes substantial time to attacking mechanistic materialism:
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [free-will](../../../tags/free-will.md), [epistemology](../../../tags/epistemology.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [free-will](../../../../tags/free-will.md), [epistemology](../../../../tags/epistemology.md)

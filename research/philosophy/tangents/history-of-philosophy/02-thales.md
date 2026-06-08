@@ -101,4 +101,4 @@ The Milesian successors (one proposed air, another earth, another something else
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md)

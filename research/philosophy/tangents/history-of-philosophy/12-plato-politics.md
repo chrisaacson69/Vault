@@ -129,4 +129,4 @@ The Platonist objects: the Sophist is a selfish tyrant; the philosopher-king dic
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [politics](../../../tags/politics.md), [collectivism](../../../tags/collectivism.md), [history](../../../tags/history.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [politics](../../../../tags/politics.md), [collectivism](../../../../tags/collectivism.md), [history](../../../../tags/history.md)

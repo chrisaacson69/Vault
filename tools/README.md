@@ -29,6 +29,25 @@ deep-links to `game-annotation/*` and `pygone/*` subpages that were extracted to
 repos (the repo-extraction seam-breaker at scale) — the baseline to clean before wiring
 this as a *blocking* gate.
 
+## vault-fix-links.py — repair broken links by unique-basename match
+
+Most broken links are path-depth bugs or moved files where the target still exists under the
+same filename. For each broken link, if exactly ONE vault `.md` file has that basename, rewrite
+to the correct relative path (preserving `#anchors`); no-match or ambiguous (e.g. `README.md`)
+targets are reported, never guessed.
+
+```
+py -3 tools/vault-fix-links.py            # dry-run
+py -3 tools/vault-fix-links.py --write    # apply
+```
+
+First run (2026-06-08): auto-fixed **96** of the baseline's broken links (the whole
+`history-of-philosophy` `../../../tags/` depth bug + moved-file paths). The ~20 it left were
+genuine decisions — extracted-repo deep-links (redirected to the `game-annotation` stub),
+missing tag files (created), and intentional doc placeholders. Combined with manual mop-up,
+the baseline went **178 → 0 broken links**. (A greedy manual substring edit during mop-up
+re-broke 5 valid links — and `vault-graph.py` caught it immediately. The gate works.)
+
 ## vault-tagindex.py — regenerate the tag reverse-indexes (the "derive indexes" half)
 
 Source of truth = each page's `## Tags` section (which links to `../tags/<tag>.md`); this

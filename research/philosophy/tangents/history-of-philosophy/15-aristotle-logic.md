@@ -160,4 +160,4 @@ Peikoff's summation of Aristotle's firsts:
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [epistemology](../../../tags/epistemology.md), [logic](../../../tags/logic.md), [history](../../../tags/history.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [epistemology](../../../../tags/epistemology.md), [logic](../../../../tags/logic.md), [history](../../../../tags/history.md)

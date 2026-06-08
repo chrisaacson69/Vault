@@ -129,4 +129,4 @@ Yarvin's "no valve in the pipe" image perfectly captures the [technology-governa
 Neither Yarvin nor Starkey addresses the vault's central question: **can a system prevent monopoly without becoming one?** Yarvin's monarchy IS a monopoly (accountable or not). Starkey's little platoons resist monopoly but can't defend against a state that decides to absorb them (as it did, starting 1916). The Gödel problem persists.
 
 ## Tags
-[philosophy](../../tags/philosophy.md), [civilizational-cycles](../../tags/civilizational-cycles/README.md), [libertarian-law](../../tags/libertarian-law.md), [economics](../../tags/economics.md)
+[philosophy](../../tags/philosophy.md), [civilizational-cycles](../../tags/civilizational-cycles.md), [libertarian-law](../../tags/libertarian-law.md), [economics](../../tags/economics.md)

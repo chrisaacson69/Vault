@@ -95,4 +95,4 @@ This is the introduction, so there's no specific philosophical claim to test aga
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [epistemology](../../../tags/epistemology.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [epistemology](../../../../tags/epistemology.md)

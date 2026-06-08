@@ -170,4 +170,4 @@ The corrected view says: remove the government and the cycle becomes *manageable
 - [Opposing Forces](../philosophy/dynamics/opposing-forces.md) — the boom generates its own bust, the bust generates its own boom; this is the economic instance of the structural principle
 
 ## Tags
-[economics](../../tags/economics.md), [free-markets](../../tags/free-markets.md), [civilizational-cycles](../../tags/civilizational-cycles/README.md), [risk](../../tags/risk.md)
+[economics](../../tags/economics.md), [free-markets](../../tags/free-markets.md), [civilizational-cycles](../../tags/civilizational-cycles.md), [risk](../../tags/risk.md)

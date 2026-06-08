@@ -162,4 +162,4 @@ Peikoff notes: "In this sense his epistemology is deficient." The basic view —
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [epistemology](../../../tags/epistemology.md), [history](../../../tags/history.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [epistemology](../../../../tags/epistemology.md), [history](../../../../tags/history.md)

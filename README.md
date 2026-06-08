@@ -22,7 +22,7 @@ The [INDEX](./INDEX.md) is the master map — start there.
 ## Conventions
 
 - Files start with a `# Title`, a `> one-line summary`, and optional metadata (`Status`, `Created`, `Links`)
-- Cross-links use relative markdown paths: `[Topic](./research/topic.md)`
+- Cross-links use relative markdown paths: `[Topic](./research/gaming/README.md)`
 - Tags are listed at the bottom of files and point to index files in `/tags/`
 - Tag files collect reverse-links to everything with that tag
 

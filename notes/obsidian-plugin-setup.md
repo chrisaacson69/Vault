@@ -66,7 +66,7 @@ for (let folder of ["projects", "research", "notes", "tasks", "logs"]) {
 ```
 ````
 
-**Key detail:** Our `## Tags` section uses markdown links like `[philosophy](../../tags/philosophy.md)`. Dataview's `FROM [[tags/philosophy]]` finds all pages containing a link to that tag file — so our existing tag system works with Dataview out of the box. No need for `#hashtag` syntax.
+**Key detail:** Our `## Tags` section uses markdown links like `[philosophy](../tags/philosophy.md)`. Dataview's `FROM [[tags/philosophy]]` finds all pages containing a link to that tag file — so our existing tag system works with Dataview out of the box. No need for `#hashtag` syntax.
 
 ---
 

@@ -159,4 +159,4 @@ The pattern through history: skeptics destroy everything, then a new rationalist
 [To be added in a separate pass]
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [epistemology](../../../tags/epistemology.md), [ethics](../../../tags/ethics.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [epistemology](../../../../tags/epistemology.md), [ethics](../../../../tags/ethics.md)

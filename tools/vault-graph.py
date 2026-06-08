@@ -27,7 +27,7 @@ from pathlib import Path
 VAULT = Path(__file__).resolve().parent.parent
 EXCLUDE = {".git", "node_modules", ".obsidian", ".claude", "raw"}
 # Meta/template files carry illustrative placeholder links by design, not real edges.
-EXCLUDE_FILES = {"CLAUDE.md"}
+EXCLUDE_FILES = {"CLAUDE.md", "INSTRUCTIONS.md"}
 ROOTS = {"INDEX.md", "README.md", "MEMORY.md", "index.md"}
 
 LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")

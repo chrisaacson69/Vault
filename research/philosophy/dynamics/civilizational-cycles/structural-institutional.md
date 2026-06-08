@@ -88,7 +88,7 @@ Ronald Coase's "The Nature of the Firm" (1937) is Tainter applied to organizatio
 | Optimal point | Internal cost = market cost | Marginal return on complexity = 0 |
 | Past optimal | Bloated, loses to nimble competitors | Fragile, collapses to simpler state |
 
-This bridges directly to the vault's economics framework: the COO/CEO split (see [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)). The COO manages internal coordination (Coase's firm boundary). The CEO reads external signals (market prices, competitive pressure). A firm that loses its CEO function keeps adding internal complexity without reading the signals that say "stop growing." That's Tainter's civilization without a feedback mechanism — and it's the Demolition Man scenario at organizational scale.
+This bridges directly to the vault's economics framework: the COO/CEO split (see [Risk and Entrepreneurship](../../../economics/risk-and-entrepreneurship.md)). The COO manages internal coordination (Coase's firm boundary). The CEO reads external signals (market prices, competitive pressure). A firm that loses its CEO function keeps adding internal complexity without reading the signals that say "stop growing." That's Tainter's civilization without a feedback mechanism — and it's the Demolition Man scenario at organizational scale.
 
 Hayek's knowledge problem explains *why* the costs rise: as organizations (or civilizations) grow, the knowledge needed to coordinate internally becomes impossible to centralize. Coase and Hayek are describing the same phenomenon from different angles — one through transaction costs, the other through information theory.
 

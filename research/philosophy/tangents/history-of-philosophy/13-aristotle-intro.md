@@ -147,4 +147,4 @@ Peikoff identifies the deepest principle implicit in Aristotle's metaphysics —
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [metaphysics](../../../tags/metaphysics.md), [epistemology](../../../tags/epistemology.md), [history](../../../tags/history.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [metaphysics](../../../../tags/metaphysics.md), [epistemology](../../../../tags/epistemology.md), [history](../../../../tags/history.md)

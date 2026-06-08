@@ -118,4 +118,4 @@ Peikoff identifies the doctrine everywhere in modern culture:
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [epistemology](../../../tags/epistemology.md), [logic](../../../tags/logic.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [epistemology](../../../../tags/epistemology.md), [logic](../../../../tags/logic.md)

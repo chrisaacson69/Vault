@@ -80,4 +80,4 @@ These pages are not primarily about cross-linking into the vault's existing fram
 | 50 | Objectivism on Certainty and Cartesian Doubt | 47:41 | |
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [history](../../../tags/history.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md)
+[philosophy](../../../../tags/philosophy.md), [history](../../../../tags/history.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md)

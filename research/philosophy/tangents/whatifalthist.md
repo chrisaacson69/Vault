@@ -311,4 +311,4 @@ His coverage of the "voluntary to forced" drift is implicit rather than explicit
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [history](../../../tags/history.md), [civilizational-cycles](../../../tags/civilizational-cycles/README.md)
+[philosophy](../../../tags/philosophy.md), [history](../../../tags/history.md), [civilizational-cycles](../../../tags/civilizational-cycles.md)

@@ -116,4 +116,4 @@ The Pythagoreans bequeathed the view that **only mathematics qualifies as true k
 ---
 
 ## Tags
-[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [peikoff](../../../tags/peikoff.md), [religion](../../../tags/religion.md), [mathematics](../../../tags/mathematics.md)
+[philosophy](../../../../tags/philosophy.md), [objectivism](../../../../tags/objectivism.md), [peikoff](../../../../tags/peikoff.md), [religion](../../../../tags/religion.md), [mathematics](../../../../tags/mathematics.md)

@@ -492,7 +492,7 @@ This case study starts with Wilson's foundationalism (first conversation of the 
 - **Progressive anti-realism** (the opponents Wilson is critiquing) fails because it denies the verification layer exists at all, which makes any position indistinguishable from any other.
 - **Grok's postmodernism** fails because even granting claims, it has no persistence across turns to check new claims against old ones.
 
-The position that survives in all three cases is the same one: **accumulated state is the verification layer**. In morality that's the [constitutive-elective distinction](../../philosophy/morality/constitutive-elective.md) — morality is constitutive of agency, so the constraints are real even though the facts are mind-dependent. In AI systems that's state-awareness — accumulated history is the verification layer, even though each token is generated fresh. In epistemology it's realism — reality constrains claims, even though language is conventional.
+The position that survives in all three cases is the same one: **accumulated state is the verification layer**. In morality that's the [constitutive-elective distinction](../philosophy/morality/constitutive-elective.md) — morality is constitutive of agency, so the constraints are real even though the facts are mind-dependent. In AI systems that's state-awareness — accumulated history is the verification layer, even though each token is generated fresh. In epistemology it's realism — reality constrains claims, even though language is conventional.
 
 Same architecture, three domains. The vault is Chris's working commitment to this pattern across all of them.
 

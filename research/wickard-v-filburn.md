@@ -5,7 +5,7 @@ created: 2026-05-31
 # Wickard v. Filburn — The Decision That Ate the Enumerated Powers
 > A man was fined for growing wheat to feed his own animals. To get there, a unanimous Court read "commerce... among the several States" to mean "anything that, summed across everyone, affects the national economy." It is the high-water mark of atextual outcome-engineering — and the methodological sibling of *Trump v. Anderson*.
 
-**Links:** [Originalism and the Limiting Document](./originalism-and-the-limiting-document.md) (the keystone — this is the textbook *interpretation* failure), [Trump v. Anderson](./trump-v-anderson-eligibility.md) (the same method, opposite direction), [Registration, Rights, and Government Scope Creep](./philosophy/morality/legal-theory/registration-and-scope-creep.md) (Wickard is the master key that unlocked that whole table), [Opposing Forces](./philosophy/dynamics/opposing-forces.md), [The Gödel Governance Problem](./philosophy/dynamics/the-godel-governance-problem.md), [Hayek vs Mises: The Calculation Problem](./notes/hayek-vs-mises-calculation.md)
+**Links:** [Originalism and the Limiting Document](./originalism-and-the-limiting-document.md) (the keystone — this is the textbook *interpretation* failure), [Trump v. Anderson](./trump-v-anderson-eligibility.md) (the same method, opposite direction), [Registration, Rights, and Government Scope Creep](./philosophy/morality/legal-theory/registration-and-scope-creep.md) (Wickard is the master key that unlocked that whole table), [Opposing Forces](./philosophy/dynamics/opposing-forces.md), [The Gödel Governance Problem](./philosophy/dynamics/the-godel-governance-problem.md), [Hayek vs Mises: The Calculation Problem](../notes/hayek-vs-mises-calculation.md)
 
 ## The facts (and why they're absurd on their face)
 
@@ -78,7 +78,7 @@ The lesson is that **outcome-engineering is direction-agnostic.** It can grow fe
 - [Opposing Forces](./philosophy/dynamics/opposing-forces.md) — the regulatory mechanism's self-expanding momentum.
 - [The Gödel Governance Problem](./philosophy/dynamics/the-godel-governance-problem.md) — a system whose internal limit (enumerated powers) fails to bind itself; the constitution-as-both-inconsistent-and-incomplete horn.
 - [Scope Confusion](./philosophy/morality/scope-confusion.md) — Wickard as a federalism scope-assignment error frozen into doctrine.
-- [Hayek vs Mises: The Calculation Problem](./notes/hayek-vs-mises-calculation.md) — the AAA as the intervention whose failure demands the next intervention.
+- [Hayek vs Mises: The Calculation Problem](../notes/hayek-vs-mises-calculation.md) — the AAA as the intervention whose failure demands the next intervention.
 
 ## Tags
 [constitutional-law](../tags/constitutional-law.md), [economics](../tags/economics.md), [free-markets](../tags/free-markets.md), [history](../tags/history.md)

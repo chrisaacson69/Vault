@@ -158,13 +158,13 @@ Together: one shows the argument doesn't work even if you accept the premises, t
 - A theist can accept this and still believe in God for other reasons
 
 ### Cross-links
-- [Performative Grounding — Lineage](../morality/performative-grounding-lineage.md)
-- [History of Logic](../logic-and-math/history-of-logic.md)
-- [Counting Requires Agents](../logic-and-math/counting-requires-agents.md) (Page 1)
-- [Emergence and Convergence](../logic-and-math/emergence-and-convergence.md)
-- [Deontology vs Consequentialism](../morality/deontology-consequentialism.md)
-- [Measurement, Causality, and Free Will](../measurement-causality.md)
-- [The Fallacy Fallacy](../the-fallacy-fallacy.md)
+- [Performative Grounding — Lineage](../research/philosophy/morality/performative-grounding-lineage.md)
+- [History of Logic](../research/philosophy/logic-and-math/history-of-logic.md)
+- Counting Requires Agents (Page 1) — *planned page, not yet written*
+- [Emergence and Convergence](../research/philosophy/logic-and-math/emergence-and-convergence.md)
+- [Deontology vs Consequentialism](../research/philosophy/morality/deontology-consequentialism.md)
+- [Measurement, Causality, and Free Will](../research/philosophy/metaphysics/measurement-causality.md)
+- [The Fallacy Fallacy](../research/philosophy/tangents/the-fallacy-fallacy.md)
 
 ### Discord Source Material
 - TAG debate thread (2026-03-24): Peacecraft, Austrian Eleutheria, Blackpiller/Shrekeyes, Rowland1

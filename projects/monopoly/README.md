@@ -43,4 +43,4 @@ Full Monopoly implementation in JavaScript with a deep AI stack. The engine mode
 - Genetic algorithm optimization explored for parameter tuning
 
 ## Tags
-[gaming](../../tags/gaming.md), [projects](../../tags/projects.md)
+[gaming](../../tags/games.md), [projects](../../tags/projects.md)

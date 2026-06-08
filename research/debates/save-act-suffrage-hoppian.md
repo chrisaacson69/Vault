@@ -137,4 +137,4 @@ This remains an open problem.
 ---
 
 ## Tags
-[philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md), [libertarian-law](../../tags/libertarian-law.md), [civilizational-cycles](../../tags/civilizational-cycles/README.md)
+[philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md), [libertarian-law](../../tags/libertarian-law.md), [civilizational-cycles](../../tags/civilizational-cycles.md)
