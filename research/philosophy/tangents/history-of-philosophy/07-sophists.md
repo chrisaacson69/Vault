@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-26
+published: true
+layout: layouts/page.njk
+title: "Episode 7: The Skepticism of the Greek Sophists"
 ---
 # Episode 7: The Skepticism of the Greek Sophists
 > The first avowed skeptics — they identify a real problem with the senses, draw the wrong conclusion, and build an ethics of whim-worship and brute force on top of it.

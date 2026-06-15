@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-09
+published: true
+layout: layouts/page.njk
+title: "ELIZA — The Pattern Match That Won't Die"
 ---
 # ELIZA — The Pattern Match That Won't Die
 > A 1966 keyword-lookup chatbot that people keep comparing to LLMs. The comparison tells you more about the person making it than about either system.

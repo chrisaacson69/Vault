@@ -2,6 +2,8 @@
 status: active
 created: 2026-02-17
 published: true
+layout: layouts/page.njk
+title: "Structural-Institutional Analysts"
 ---
 # Structural-Institutional Analysts
 > Turchin, Tainter, Olson, Dalio — those who identify specific mechanisms (complexity, institutions, elites, debt) that cause civilizational decay.

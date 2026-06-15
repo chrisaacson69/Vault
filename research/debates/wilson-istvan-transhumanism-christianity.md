@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Transhumanism vs Christianity: Which Is Better for America?"
+---
 # Transhumanism vs Christianity: Which Is Better for America?
 > Transhumanism has no normative foundation — it borrows 80% of Christian ethics and can't justify the 20% it wants to discard.
 

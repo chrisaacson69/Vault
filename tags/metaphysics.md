@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: metaphysics"
+permalink: /tags/metaphysics/
+---
 # metaphysics
 > Files exploring the nature of reality, existence, universals, and fundamental ontology.
 

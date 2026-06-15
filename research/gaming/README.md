@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-02-20
+published: true
+layout: layouts/page.njk
+title: "Gaming"
+permalink: /research/gaming/
 ---
 # Gaming
 > Games as interactive laboratories for systems thinking — strategy, economics, simulation, and AI.

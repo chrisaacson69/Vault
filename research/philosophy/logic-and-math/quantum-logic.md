@@ -2,6 +2,8 @@
 status: active
 created: 2026-03-23
 published: true
+layout: layouts/page.njk
+title: "Quantum Logic"
 ---
 # Quantum Logic
 > The other non-classical logics were invented by philosophers. This one was demanded by nature.

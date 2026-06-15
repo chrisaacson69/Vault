@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-15
+published: true
+layout: layouts/page.njk
+title: "Eric Weinstein on Gauge Theory Applied to Economics (w/ Bob Murphy)"
 ---
 # Eric Weinstein on Gauge Theory Applied to Economics (w/ Bob Murphy)
 > The "price level" is a fiction. Economics already lives on a principal fiber bundle — it just doesn't know it. The correct derivative operator makes all index numbers agree and handles changing preferences.

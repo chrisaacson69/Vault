@@ -2,6 +2,8 @@
 status: active — reference / reading list
 created: 2026-02-28
 published: true
+layout: layouts/page.njk
+title: "Performative Grounding — Philosophical Lineage"
 ---
 # Performative Grounding — Philosophical Lineage
 > The idea that the is-ought gap dissolves because the actor questioning value is already demonstrating it. Who else has made this move, and what can we learn from them?

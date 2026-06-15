@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-05-03
+published: true
+layout: layouts/page.njk
+title: "Caster of Magic — Anti-Colossus Counter Analysis"
 ---
 # Caster of Magic — Anti-Colossus Counter Analysis
 > Streamer-inspired matchup study: which CoM fantastic creature reliably beats the Colossus, and what the simulator runs revealed about the broader fantastic-creature meta.

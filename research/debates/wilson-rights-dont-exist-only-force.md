@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-06
+published: true
+layout: layouts/page.njk
+title: "Rights Don't Actually Exist, Only Force (Wilson vs 5)"
 ---
 # Rights Don't Actually Exist, Only Force (Wilson vs 5)
 > Wilson's purest specimen: one apologetic move — "all rights reduce to force, so we're symmetric and you can't criticize me" — run five times against unprepared opponents who concede the load-bearing premises before the clock starts.

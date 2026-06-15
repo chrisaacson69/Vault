@@ -1,6 +1,9 @@
 ---
 status: active — initial analysis; further refinement planned
 created: 2026-05-18
+published: true
+layout: layouts/page.njk
+title: "Lyn Alden on Long-Term Trade Deficit Unsustainability — A Vault Framework Engagement"
 ---
 # Lyn Alden on Long-Term Trade Deficit Unsustainability — A Vault Framework Engagement
 > Lyn Alden's [trade deficit analysis](https://www.lynalden.com/trade-deficit/) makes a careful, multi-level argument for the unsustainability of long-term trade deficits — operating at six or seven distinct mechanism layers, not just one. Unlike popular doomsday accounts, she avoids the GDP-identity fallacy at Level 1, acknowledges multi-decade timescales, and frames the conclusion as actionable for long-term investors rather than predicting imminent collapse. **The framework engages with her by refining, not refuting.** Each level holds structurally; the open empirical question is whether US growth and productivity are actually outpacing accumulation in practice — the "I over C" composition test combined with the r-vs-g math. Chris's initial intuition is that the answer is "probably not" but the question is empirically open and worth tracking carefully. The framework also flags one major piece Alden's summary doesn't centrally feature: the **exorbitant privilege** that makes the US sustainable in ways smaller deficit countries aren't, and the geopolitical erosion of that privilege as the central time-horizon-determining variable.

@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-08
+published: true
+layout: layouts/page.njk
+title: "H-Neurons: The Neural Basis of Hallucination"
 ---
 # H-Neurons: The Neural Basis of Hallucination
 > Less than 0.01% of neurons drive LLM hallucinations — and their mechanism isn't knowledge corruption but over-compliance. Hallucination is people-pleasing, baked into pre-training.

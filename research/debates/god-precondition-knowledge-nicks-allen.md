@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Is God the Necessary Precondition for Knowledge?"
+---
 # Is God the Necessary Precondition for Knowledge?
 > Presuppositional apologetics meets embodied epistemology — the Transcendental Argument for God, dissected.
 

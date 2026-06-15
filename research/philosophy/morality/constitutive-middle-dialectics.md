@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-30
+published: true
+layout: layouts/page.njk
+title: "The Constitutive Middle — Two Dialectics (Anti-Realist & Theistic Realist)"
 ---
 # The Constitutive Middle — Two Dialectics (Anti-Realist & Theistic Realist)
 > The vault's grounding is the *middle* the whole metaethics fight keeps missing: the truth-maker of a moral fact is the **structure of the relata** — not stance-independence (what the anti-realist demands and rightly rejects) and not divine command (what the theist reaches for). Two opponents, two routes to the same middle. This is the operational playbook for each.

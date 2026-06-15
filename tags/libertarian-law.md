@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: libertarian-law"
+permalink: /tags/libertarian-law/
+---
 # libertarian-law
 > Files exploring legal theory within a NAP / natural law / Hoppean framework.
 

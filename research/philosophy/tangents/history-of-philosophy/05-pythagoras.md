@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-17
+published: true
+layout: layouts/page.njk
+title: "Episode 5: Pythagoras — Mathematics and Mysticism"
 ---
 # Episode 5: Pythagoras — Mathematics and Mysticism
 > The Orphic mystery religion meets mathematical discovery: the soul/body split enters Western philosophy, and two-world metaphysics is born.

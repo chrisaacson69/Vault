@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Debate Prep: \"You Cannot Be Moral If You Are Not Religious\""
+---
 # Debate Prep: "You Cannot Be Moral If You Are Not Religious"
 > Negative position — you CAN be moral without religion.
 

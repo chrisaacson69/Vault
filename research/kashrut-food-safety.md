@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-26
+published: true
+layout: layouts/page.njk
+title: "Kashrut and the Food-Safety Hypothesis"
 ---
 # Kashrut and the Food-Safety Hypothesis
 > A thorough, balanced survey of whether the kosher laws of the Hebrew Bible were practical food-safety warnings, including evidence for, against, and alternative explanations.

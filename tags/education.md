@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: education"
+permalink: /tags/education/
+---
 # education
 > Files related to education policy, spending, and outcomes.
 

@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-09
+published: true
+layout: layouts/page.njk
+title: "iPad + Claude + Vault Setup"
 ---
 # iPad + Claude + Vault Setup
 > Getting the vault accessible from iPad. May delete this once everything is configured.

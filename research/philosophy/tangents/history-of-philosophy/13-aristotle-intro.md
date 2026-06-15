@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-04-15
+published: true
+layout: layouts/page.njk
+title: "Episode 13: Aristotle — A Philosopher for Living on Earth"
 ---
 # Episode 13: Aristotle — A Philosopher for Living on Earth
 > Aristotle rejects both Sophistic subjectivism and Platonic supernaturalism, establishing the third alternative: one reality, this one, knowable through senses and reason — making him "the philosopher" and the father of the primacy of existence.

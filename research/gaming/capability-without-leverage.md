@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-08
+published: true
+layout: layouts/page.njk
+title: "Capability Without Leverage"
 ---
 # Capability Without Leverage
 > A capability you paid to acquire is worth **zero — or negative — unless something downstream lets it actually shift the outcome.** Face efficiency (EPT-per-dollar, BattleValue, trade-efficiency) is the trap; the right metric is **impact conditional on use.** Because you *paid* the acquisition cost, an unleveraged capability is *worse* than none — you're down the cost and the opportunity. A cross-game invariant: Monopoly, Master of Magic, and Catan all independently coin it.

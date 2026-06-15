@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: praxis"
+permalink: /tags/praxis/
+---
 # praxis
 > Files where theory meets practice — testing frameworks against real-world evidence.
 

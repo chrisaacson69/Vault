@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: collectivism"
+permalink: /tags/collectivism/
+---
 # collectivism
 > Files analyzing collectivism, the organic theory of the state, and group-vs-individual frameworks.
 

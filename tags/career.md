@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: career"
+permalink: /tags/career/
+---
 # career
 > Files related to career development and professional application of vault knowledge.
 

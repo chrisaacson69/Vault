@@ -1,6 +1,9 @@
 ---
 status: sketch
 created: 2026-03-26
+published: true
+layout: layouts/page.njk
+title: "Gödel Against Himself"
 ---
 # Gödel Against Himself
 > The man whose theorems break Platonism was a Platonist. Understanding why he's wrong about his own work is the key to the Vault's interpretation of incompleteness.

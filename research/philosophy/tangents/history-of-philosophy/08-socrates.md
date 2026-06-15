@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-26
+published: true
+layout: layouts/page.njk
+title: "Episode 8: The Life and Teachings of Socrates"
 ---
 # Episode 8: The Life and Teachings of Socrates
 > The first philosophical martyr: definitions, universals, and the discovery that conceptual knowledge is the answer to skepticism.

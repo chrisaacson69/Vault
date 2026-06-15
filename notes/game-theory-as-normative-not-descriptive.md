@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-18
+published: true
+layout: layouts/page.njk
+title: "Game Theory as Normative, Not Descriptive"
 ---
 # Game Theory as Normative, Not Descriptive
 > Game theory is a normative theory of optimal play given a stated game structure. It is not, and was not designed to be, a descriptive theory of actual human strategic behavior. The famous solution concepts (Nash bargaining, Rubinstein, iterated-PD cooperation, etc.) require importing assumptions — BATNA stability, discount factor, unknown end, axiomatic restrictions — that aren't derived from the strategic situation. Those imports are behavioral, institutional, or psychological facts the model imports to make the math close. Where the imports don't hold, the predictions don't hold. Where the predictions don't match observation (one-shot cooperation, real bargaining, the Axelrod TFT result), the imports are doing the work — and what actually drives behavior is **norms guiding action**, not utility maximization. The implication for the vault's [trade-theory work](../research/gaming/bilateral-trade-valuation.md) is that the transfer problem is hard not because we lack a clever algorithm, but because the bargaining situation has no game-theoretic answer without psychology-level imports.

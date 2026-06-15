@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-06
+published: true
+layout: layouts/page.njk
+title: "Christians Have as Much Right to Rule as Secularists (Wilson vs 5)"
 ---
 # Christians Have as Much Right to Rule as Secularists (Wilson vs 5)
 > The same parity move from [rights-don't-exist](./wilson-rights-dont-exist-only-force.md), fired five times — but this time the headline claim is *true*, and the debate becomes a natural experiment on exactly the open question that specimen left: how much of the move's success is parasitic on unpreparedness. Answer: most of it. Four opponents wield the asymmetric standard and get it revoked; the fifth refuses the asymmetry, concedes the parity, and relocates the fight to procedure — the only one Wilson can't sweep.

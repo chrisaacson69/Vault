@@ -2,6 +2,9 @@
 status: active
 created: 2026-02-17
 published: true
+layout: layouts/page.njk
+title: "Libertarian Legal Theory"
+permalink: /research/philosophy/morality/legal-theory/
 ---
 # Libertarian Legal Theory
 > Applied legal philosophy from a big-L Libertarian framework. Applied Trunk 1.

@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-08
+published: true
+layout: layouts/page.njk
+title: "Diplomacy: 7 AI Models Play the Ultimate Coalition Game"
 ---
 # Diplomacy: 7 AI Models Play the Ultimate Coalition Game
 > Analysis of a 10-year Diplomacy game between 7 LLMs — a near-perfect laboratory for the vault's game theory, negotiation, and grounding frameworks.

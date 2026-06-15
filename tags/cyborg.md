@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: cyborg"
+permalink: /tags/cyborg/
+---
 # cyborg
 > Files about human/AI integration and collaboration models.
 

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: risk"
+permalink: /tags/risk/
+---
 # risk
 > Files related to risk, uncertainty, and decision-making under incomplete information.
 

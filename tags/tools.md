@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: tools"
+permalink: /tags/tools/
+---
 # tools
 > Pages about software tools and CLI utilities.
 

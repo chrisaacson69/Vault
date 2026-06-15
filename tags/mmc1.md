@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: mmc1"
+permalink: /tags/mmc1/
+---
 # mmc1
 > Files about Nintendo's MMC1 mapper (and its board variants: SNROM/SOROM/SUROM/SXROM) — the most common bank-switching ASIC on NES cartridges, with serial-write configuration and 5 registers selected by address range.
 

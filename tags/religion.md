@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: religion"
+permalink: /tags/religion/
+---
 # religion
 > Files exploring religious texts, traditions, and their intersection with history, philosophy, and science.
 

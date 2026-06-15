@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-06
+published: true
+layout: layouts/page.njk
+title: "Restitution for Death — The Framework's Hardest Case"
 ---
 # Restitution for Death — The Framework's Hardest Case
 > When the victim is dead, "making whole" is impossible. Every option is a workaround. The question is which workaround best serves justice — and whether execution is ever one of them.

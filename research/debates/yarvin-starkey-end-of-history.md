@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-15
+published: true
+layout: layouts/page.njk
+title: "The End of the End of History — Curtis Yarvin (Oakeshott Lectures, Oxford)"
 ---
 # The End of the End of History — Curtis Yarvin (Oakeshott Lectures, Oxford)
 > Both oligarchy (meritocracy) and democracy (populism) have failed. The third Aristotelian form — monarchy — is what everything functional already uses. But Starkey's "little platoons" rebuttal points toward a better answer.

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: agent-teams"
+permalink: /tags/agent-teams/
+---
 # agent-teams
 > Files about orchestrating multi-agent work — director/worker/QA structure, context management, and the discipline that keeps it on track.
 

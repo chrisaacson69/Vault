@@ -1,6 +1,9 @@
 ---
 status: living document
 created: 2026-02-12
+published: true
+layout: layouts/page.njk
+title: "Words of Wisdom"
 ---
 # Words of Wisdom
 > Hard-won tidbits accumulated over the years. Not platitudes — calls to action.

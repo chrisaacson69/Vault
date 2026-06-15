@@ -1,6 +1,9 @@
 ---
 status: active — frontier mapping in progress
 created: 2026-05-03
+published: true
+layout: layouts/page.njk
+title: "Caster of Magic — Spell Counter-Graph"
 ---
 # Caster of Magic — Spell Counter-Graph
 > CoM counters form a directed graph where each tier's standard answer ages out and demands a more expensive successor. Same structural pattern as Monopoly's efficient-frontier dominance map, applied to spell economy.

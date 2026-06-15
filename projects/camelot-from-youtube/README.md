@@ -2,6 +2,9 @@
 status: active
 created: 2026-02
 published: true
+layout: layouts/page.njk
+title: "Camelot From YouTube"
+permalink: /projects/camelot-from-youtube/
 ---
 # Camelot From YouTube
 > Music analysis tool for detecting key, BPM, structure, and energy at the phrase level.

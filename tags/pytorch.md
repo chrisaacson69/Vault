@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: pytorch"
+permalink: /tags/pytorch/
+---
 # pytorch
 > Files related to PyTorch and deep learning.
 

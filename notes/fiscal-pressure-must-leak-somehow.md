@@ -1,6 +1,9 @@
 ---
 status: sketch — musings
 created: 2026-05-18
+published: true
+layout: layouts/page.njk
+title: "The Fiscal Pressure Must Leak Somehow — All of the Above"
 ---
 # The Fiscal Pressure Must Leak Somehow — All of the Above
 > Sketch-tier musing. The US has been running structural federal deficits dwarfing its trade deficit for decades; the conservation-of-imbalance principle from the [trade-deficit page](../research/economics/lyn-alden-trade-deficit-analysis.md) says the pressure must route somewhere. Chris's working hypothesis: **we are likely to see ALL of the conventional pressure-release modes simultaneously** — foreclosures (household debt), forgiveness (political defaults like student loans), inflation (monetary debasement), and outright defaults (corporate, possibly sovereign in distant edge cases) — because no political coalition wants to admit the spending problem exists, so the pressure releases through whichever channel can absorb each piece. The structural argument is that this is the predictable consequence of a fiscal imbalance much larger than the political system can plausibly close through any single mechanism. Not a forecast of timing or magnitude; a structural prediction about *what the release looks like* if/when the fiscal trajectory continues unaltered.

@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-10
+published: true
+layout: layouts/page.njk
+title: "Measuring Growth — Net Worth vs Transactions"
 ---
 # Measuring Growth — Net Worth vs Transactions
 > Economics is about increasing assets over liabilities. But we mostly measure total activity, not whether anyone is better off. GDP counts the transactions, not the improvement.

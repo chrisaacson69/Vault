@@ -2,6 +2,8 @@
 status: active
 created: 2026-03-23
 published: true
+layout: layouts/page.njk
+title: "Aristotelian Logic"
 ---
 # Aristotelian Logic
 > The first formal system of reasoning — and the default assumption in almost every philosophy debate today.

@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Agrippa's Trilemma: Does Unjustifiable Mean Useless?"
+---
 # Agrippa's Trilemma: Does Unjustifiable Mean Useless?
 > If all foundations are dogmatic, does that license imposing any system you want?
 

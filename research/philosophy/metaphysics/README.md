@@ -2,6 +2,9 @@
 status: active
 created: 2026-04-21
 published: true
+layout: layouts/page.njk
+title: "Metaphysics"
+permalink: /research/philosophy/metaphysics/
 ---
 # Metaphysics
 > How real immaterial patterns arise from organized material substrate. Trunk 3 of the vault's philosophy.

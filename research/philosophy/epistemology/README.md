@@ -2,6 +2,9 @@
 status: "active — foundation laid, threads to explore"
 created: 2026-02-16
 published: true
+layout: layouts/page.njk
+title: "Epistemology"
+permalink: /research/philosophy/epistemology/
 ---
 # Epistemology
 > How we know what we know. Anchor for Trunk 2.

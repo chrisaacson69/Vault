@@ -1,6 +1,9 @@
 ---
 tags: [tools, workflow, transcription]
 created: 2026-04-02
+published: true
+layout: layouts/page.njk
+title: "yt-dlp Transcript Workflow"
 ---
 
 # yt-dlp Transcript Workflow

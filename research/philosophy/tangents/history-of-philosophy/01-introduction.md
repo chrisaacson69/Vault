@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-16
+published: true
+layout: layouts/page.njk
+title: "Episode 1: Introduction to the History of Western Philosophy"
 ---
 # Episode 1: Introduction to the History of Western Philosophy
 > Peikoff lays out why the history of philosophy matters, defines the discipline, and maps the 2,400-year arc from Thales to Kant.

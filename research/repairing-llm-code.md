@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-07
+published: true
+layout: layouts/page.njk
+title: "Repairing LLM Code — The Two Oracles"
 ---
 # Repairing LLM Code — The Two Oracles
 > Correctness can be grounded *downward* — drop to a lower artifact and diff. Readability cannot: it's the choice among equivalent renderings, and its only floor is a reader recovering the meaning. The 1968 case for structured programming turns out to be the 2026 case for LLM-legible code. We are metaing the meta.

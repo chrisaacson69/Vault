@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: utility"
+permalink: /tags/utility/
+---
 # utility
 > Files related to utility theory and subjective value.
 

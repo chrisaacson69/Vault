@@ -1,6 +1,9 @@
 ---
 status: complete — video analysis
 created: 2026-03-11
+published: true
+layout: layouts/page.njk
+title: "D&D Spell Damage Model — Math as Game Design Tool"
 ---
 # D&D Spell Damage Model — Math as Game Design Tool
 > Using the central limit theorem, proof by induction, and bimodal distributions to build a spell comparison metric. Same instinct as BattleValue, different game.

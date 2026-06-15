@@ -1,6 +1,9 @@
 ---
 status: reference
 created: 2026-02-28
+published: true
+layout: layouts/page.njk
+title: "Vault Gap Audit — 2026-02-28"
 ---
 # Vault Gap Audit — 2026-02-28
 > Comprehensive audit of holes, stubs, underdeveloped arguments, missing cross-links, and implied-but-unwritten topics across the vault.

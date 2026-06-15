@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Property, Rights, and the God Question: Wilson Reviews Pool vs Dyer"
+---
 # Property, Rights, and the God Question: Wilson Reviews Pool vs Dyer
 > When you strip away the labels, what actually grounds property rights — and does anyone in the room have a coherent answer?
 

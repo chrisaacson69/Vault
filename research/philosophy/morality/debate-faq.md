@@ -1,6 +1,9 @@
 ---
 status: active — grows over time
 created: 2026-04-02
+published: true
+layout: layouts/page.njk
+title: "Morality — Debate FAQ"
 ---
 # Morality — Debate FAQ
 > Common objections to the vault's moral framework, with responses. A living document — grows as new arguments are encountered.

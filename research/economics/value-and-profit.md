@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-12
+published: true
+layout: layouts/page.njk
+title: "Value and Profit"
 ---
 # Value and Profit
 > Profit is mutual. It emerges from differences in utility between two parties. No profit, no trade. No trade, no reason to engage.

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: agents"
+permalink: /tags/agents/
+---
 # agents
 > Files related to AI agents and autonomous systems.
 

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: music"
+permalink: /tags/music/
+---
 # music
 > Files related to DJing, mixing, harmonic analysis, and music production.
 

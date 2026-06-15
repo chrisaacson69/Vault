@@ -1,6 +1,9 @@
 ---
 status: reference
 created: 2026-04-26
+published: true
+layout: layouts/page.njk
+title: "APU Reference (NES)"
 ---
 # APU Reference (NES)
 > Load-bearing facts about the Audio Processing Unit (integrated into the Ricoh 2A03) for reading NES sound code. Curated from nesdev.org/wiki.

@@ -1,6 +1,9 @@
 ---
 status: active — theory phase
 created: 2026-03-15
+published: true
+layout: layouts/page.njk
+title: "Efficient Frontier Trade Theory"
 ---
 # Efficient Frontier Trade Theory
 > Using EPT frontier curves to solve the 3+ player trade valuation problem — reducing the permutation space through structural truths about development velocity and game horizon.

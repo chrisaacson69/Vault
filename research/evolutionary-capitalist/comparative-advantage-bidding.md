@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-13
+published: true
+layout: layouts/page.njk
+title: "Property Allocation as an Evolutionary Equilibrium: A Comparative Advantage Bidding System"
 ---
 # Property Allocation as an Evolutionary Equilibrium: A Comparative Advantage Bidding System
 > He reinvents the price system, calls it something new, and doesn't notice the central planner hiding behind the curtain.

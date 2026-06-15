@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-17
+published: true
+layout: layouts/page.njk
+title: "Episode 6: The Pluralists, the Atomists, and the Birth of Determinism"
 ---
 # Episode 6: The Pluralists, the Atomists, and the Birth of Determinism
 > Materialism, skepticism, and idealism as the three enduring approaches — with the atomists launching mechanistic determinism and the primary/secondary quality distinction.

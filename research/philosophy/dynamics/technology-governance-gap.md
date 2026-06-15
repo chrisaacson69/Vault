@@ -2,6 +2,8 @@
 status: stub — research needed
 created: 2026-03-04
 published: true
+layout: layouts/page.njk
+title: "The Technology-Governance Gap"
 ---
 # The Technology-Governance Gap
 > When the systems we build exceed our ability to understand them, who governs?

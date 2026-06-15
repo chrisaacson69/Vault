@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-15
+published: true
+layout: layouts/page.njk
+title: "Career Tools Roadmap"
 ---
 # Career Tools Roadmap
 > Each tool demonstrates the thesis it's designed to sell. The process of building them IS the portfolio.

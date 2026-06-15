@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: code-golf"
+permalink: /tags/code-golf/
+---
 # code-golf
 > Files about extreme size/space optimization of programs as a design constraint.
 

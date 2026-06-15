@@ -2,6 +2,8 @@
 status: active
 created: 2026-03-23
 published: true
+layout: layouts/page.njk
+title: "Eastern Logical Traditions"
 ---
 # Eastern Logical Traditions
 > The convergence proof: independent civilizations, no contact, same structural insights — centuries before the West caught up.

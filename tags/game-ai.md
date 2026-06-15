@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: game-ai"
+permalink: /tags/game-ai/
+---
 # game-ai
 > Files related to game-playing artificial intelligence.
 

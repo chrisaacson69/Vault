@@ -2,6 +2,9 @@
 status: "active — core framework established, open questions remain"
 created: 2026-02-16
 published: true
+layout: layouts/page.njk
+title: "Morality — First Principles Exploration"
+permalink: /research/philosophy/morality/
 ---
 # Morality — First Principles Exploration
 > Naturalistic moral framework built from bedrock concepts upward. Anchor page for Trunk 1.

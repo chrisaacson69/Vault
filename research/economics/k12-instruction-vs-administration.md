@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-24
+published: true
+layout: layouts/page.njk
+title: "K-12 Instruction vs. Administration Spending"
 ---
 # K-12 Instruction vs. Administration Spending
 > Comprehensive breakdown of how US public school dollars are split between instruction, administration, and support services — with staffing trends, ratio analysis, and an assessment of the "administrative bloat" claim.

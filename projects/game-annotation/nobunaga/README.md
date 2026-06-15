@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Nobunaga's Ambition (NES) — moved to its own repo"
+permalink: /projects/game-annotation/nobunaga/
+---
 # Nobunaga's Ambition (NES) — moved to its own repo
 
 This project now lives in a standalone repository:

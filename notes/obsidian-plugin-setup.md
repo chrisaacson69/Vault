@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-04-07
+published: true
+layout: layouts/page.njk
+title: "Obsidian Plugin Setup"
+templateEngineOverride: md
 ---
 # Obsidian Plugin Setup
 > Setup instructions for Dataview, Marp Slides, and Web Clipper — the three plugins that complete the Karpathy-style LLM wiki pattern.

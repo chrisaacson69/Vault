@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-20
+published: true
+layout: layouts/page.njk
+title: "The Multiplayer Coalition Problem"
 ---
 # The Multiplayer Coalition Problem
 > Why multiplayer games resist solution, and what the self-balancing dynamics tell us about tractable approximations.

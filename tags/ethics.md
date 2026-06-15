@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: ethics"
+permalink: /tags/ethics/
+---
 # ethics
 > Files exploring ethical theory — moral frameworks, virtue, consequences, rights, and the foundations of right action.
 

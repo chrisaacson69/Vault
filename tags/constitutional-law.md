@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: constitutional-law"
+permalink: /tags/constitutional-law/
+---
 # constitutional-law
 > Positive U.S. constitutional doctrine — text, structure, and case analysis (distinct from the normative [libertarian-law](./libertarian-law.md) work).
 

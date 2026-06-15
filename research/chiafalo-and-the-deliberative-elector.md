@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-31
+published: true
+layout: layouts/page.njk
+title: "Chiafalo v. Washington — Binding the Electors"
 ---
 # Chiafalo v. Washington — Binding the Electors
 > A unanimous Court let a state *fine* an elector for how he cast a vote in a federal proceeding. Put on the same two-axis rack as *Trump v. Anderson*, Chiafalo fails **both**: it's directionally wrong (it crosses the manner/substance line that vindicates Anderson, and kills the institution's only reason to exist) and its reasoning is unreasonable (liquidation borrowed from the wrong practice). The keystone of the trilogy — the case that *created* the orphaned-elector problem Anderson tripped over.

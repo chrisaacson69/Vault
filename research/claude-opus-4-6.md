@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-12
+published: true
+layout: layouts/page.njk
+title: "Claude Opus 4.6 — Research"
 ---
 # Claude Opus 4.6 — Research
 > Tracking what's known about Claude Opus 4.6 capabilities, benchmarks, and real-world results.

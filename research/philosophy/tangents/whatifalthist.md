@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-17
+published: true
+layout: layouts/page.njk
+title: "Rudyard Lynch (Whatifalthist)"
 ---
 # Rudyard Lynch (Whatifalthist)
 > YouTube historian and podcast host who synthesizes macro-historical pattern recognition with evolutionary biology, political economy, and cultural analysis. A popularizer of civilizational cycle theory for a mass online audience.

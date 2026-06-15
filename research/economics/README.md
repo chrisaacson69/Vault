@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-02-12
+published: true
+layout: layouts/page.njk
+title: "Economics"
+permalink: /research/economics/
 ---
 # Economics
 > A major area of interest — understanding how value, trade, and systems of exchange work.

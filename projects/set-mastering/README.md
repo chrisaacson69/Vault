@@ -2,6 +2,9 @@
 status: active
 created: 2026-02-20
 published: true
+layout: layouts/page.njk
+title: "Set Mastering Pipeline — \"Cyborg DJ\""
+permalink: /projects/set-mastering/
 ---
 # Set Mastering Pipeline — "Cyborg DJ"
 > Human writes the score, machine executes the mix, light mastering pass finishes it.

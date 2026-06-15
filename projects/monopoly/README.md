@@ -2,6 +2,9 @@
 status: active
 created: 2026-02
 published: true
+layout: layouts/page.njk
+title: "Monopoly"
+permalink: /projects/monopoly/
 ---
 # Monopoly
 > Monopoly game engine with mathematically rigorous AI — Markov chains, property valuation, and strategic trading.

@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Andrew Wilson vs Objectivism: Stance Dependence and the Grounding of Rights"
+---
 # Andrew Wilson vs Objectivism: Stance Dependence and the Grounding of Rights
 > Can moral facts be "stance dependent" and still be facts? The Objectivist says yes; Wilson says no. Both miss the structural issue.
 

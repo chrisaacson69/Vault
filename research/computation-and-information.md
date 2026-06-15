@@ -2,6 +2,8 @@
 status: "stub — connections mapped, detail to follow"
 created: 2026-02-19
 published: true
+layout: layouts/page.njk
+title: "Computation and Information Theory"
 ---
 # Computation and Information Theory
 > What can be computed, what can be known, and what emerges from the limits of both.

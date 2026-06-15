@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "1984 — Capitalism vs Socialism: Which Is the Moral System?"
+---
 # 1984 — Capitalism vs Socialism: Which Is the Moral System?
 > The legendary University of Toronto debate where Objectivist foundationalism (Peikoff/Ridpath) and pragmatic-historical socialism (Vickers/Caplan) talked past each other on the most fundamental ground in political philosophy: what counts as moral evidence.
 

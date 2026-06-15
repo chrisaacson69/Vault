@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: meta-musing"
+permalink: /tags/meta-musing/
+---
 # meta-musing
 > Ideas that seem real but aren't flushed out yet — cross-domain patterns, structural observations, and dichotomies that the vault keeps running into without resolving. The tag is the organizing move: once a phenomenon is named and has a bin, future examples can accrete against it, and the accumulation itself eventually forces the shape of the idea.
 

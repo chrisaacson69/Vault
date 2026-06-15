@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: ai"
+permalink: /tags/ai/
+---
 # ai
 > Files tagged with AI topics.
 

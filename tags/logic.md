@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: logic"
+permalink: /tags/logic/
+---
 # logic
 > Files exploring the philosophy and foundations of logic.
 

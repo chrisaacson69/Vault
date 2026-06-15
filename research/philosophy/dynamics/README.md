@@ -2,6 +2,9 @@
 status: active
 created: 2026-04-21
 published: true
+layout: layouts/page.njk
+title: "Structural Dynamics"
+permalink: /research/philosophy/dynamics/
 ---
 # Structural Dynamics
 > How real structured systems behave over time. Trunk 4 of the vault's philosophy.

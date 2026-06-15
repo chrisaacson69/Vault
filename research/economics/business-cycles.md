@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-18
+published: true
+layout: layouts/page.njk
+title: "Business Cycles"
 ---
 # Business Cycles
 > Boom-bust cycles are natural market phenomena — the cost of decentralized learning under uncertainty. Government doesn't cause them. Government makes them catastrophic.

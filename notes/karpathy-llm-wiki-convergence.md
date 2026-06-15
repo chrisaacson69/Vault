@@ -1,6 +1,9 @@
 ---
 status: reference
 created: 2026-04-07
+published: true
+layout: layouts/page.njk
+title: "Karpathy LLM Wiki — Independent Convergence"
 ---
 # Karpathy LLM Wiki — Independent Convergence
 > This vault and Karpathy's "LLM Wiki" pattern arrived at the same architecture independently. When two systems converge from different starting points, the shared structure is likely load-bearing.

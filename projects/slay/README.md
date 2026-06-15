@@ -2,6 +2,9 @@
 status: active
 created: 2026-02-12
 published: true
+layout: layouts/page.njk
+title: "Slay"
+permalink: /projects/slay/
 ---
 # Slay
 > Hex-based strategy game recreation with AI player development.

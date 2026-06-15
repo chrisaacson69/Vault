@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Is Art Purely Objective?"
+---
 # Is Art Purely Objective?
 > A 6-hour no-prep debate that's really about epistemology, value theory, Agrippa's trilemma, and the is-ought gap — wearing an art costume.
 

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: economics"
+permalink: /tags/economics/
+---
 # economics
 > Files related to economic theory, trade, and business.
 

@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-08
+published: true
+layout: layouts/page.njk
+title: "Randomness as the Termination Mechanism for N≥3 Strategy Games"
 ---
 # Randomness as the Termination Mechanism for N≥3 Strategy Games
 > In a strategy game with **N ≥ 3 players, full attack interaction, and public state**, the deterministic equilibrium is *gang-up-on-the-leader* — coalitions form to suppress whoever's ahead, compressing everyone back to parity, forever. The game theoretically **never ends**. **Randomness is what lets it terminate at all** — the kill switch on the dogpile equilibrium, not a flaw. So "random elements ruined the strategy" usually misreads what the randomness is *for*.

@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-27
+published: true
+layout: layouts/page.njk
+title: "The Nash Bargaining Problem"
 ---
 # The Nash Bargaining Problem
 > Two people, $100, and a simple rule: agree or get nothing. The simplest game that reveals the structure of negotiation.

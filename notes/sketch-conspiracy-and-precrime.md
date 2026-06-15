@@ -1,6 +1,9 @@
 ---
 status: sketch
 created: 2026-03-27
+published: true
+layout: layouts/page.njk
+title: "Conspiracy, Pre-Crime, and the Breakable Chain"
 ---
 # Conspiracy, Pre-Crime, and the Breakable Chain
 > "Conspiracy" isn't a crime — it's speech. The boundary between preparation and action is defined by whether the causal chain to harm can still be broken by someone's agency.

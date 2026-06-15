@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-28
+published: true
+layout: layouts/page.njk
+title: "Market Efficiency and Human Limits"
 ---
 # Market Efficiency and Human Limits
 > The market always gives society exactly what they want within the constraints of what is possible — but humans may not be smart enough to live in a free market.

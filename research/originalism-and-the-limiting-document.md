@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-31
+published: true
+layout: layouts/page.njk
+title: "Originalism and the Limiting Document"
 ---
 # Originalism and the Limiting Document
 > Justices swear to support *this* Constitution — not what they think it says or feel it should do. Read it like a contract: fixed meaning at adoption, change it by amendment. The analogy holds for the clear text (most of the document) and breaks only in the deliberately-broad *construction zone* — and conflating the two is how the smuggling happens. The keystone the Wickard/Anderson/Chiafalo trilogy points up to.

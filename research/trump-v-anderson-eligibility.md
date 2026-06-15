@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-31
+published: true
+layout: layouts/page.njk
+title: "Trump v. Anderson — Who Enforces Presidential Eligibility?"
 ---
 # Trump v. Anderson — Who Enforces Presidential Eligibility?
 > A 9-0 *judgment* masked a 5-4 *reasoning* split. Working from Article II's Electors Clause, there's a cleaner road to the same result than the one the Court took — and it exposes the majority's reasoning as Wickard-shaped outcome-engineering.

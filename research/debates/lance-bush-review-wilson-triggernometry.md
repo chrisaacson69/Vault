@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-23
+published: true
+layout: layouts/page.njk
+title: "Lance Bush Reviews Wilson on Triggernometry — Stance-Dependence and Its Limits"
 ---
 # Lance Bush Reviews Wilson on Triggernometry — Stance-Dependence and Its Limits
 > A professional meta-ethicist reviews Wilson's metaethics moments on Triggernometry. Catches real conflations in Wilson's framework, gets caught by real conflations in his own, and — like both Wilson and the standard Shafer-Landau taxonomy — never reaches the vault's constitutive-elective axis. The page treats Lance as the anti-realist steelman and maps what does and doesn't survive the audit.

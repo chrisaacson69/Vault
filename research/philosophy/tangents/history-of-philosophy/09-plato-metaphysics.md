@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-27
+published: true
+layout: layouts/page.njk
+title: "Episode 9: Plato's Metaphysics — The World of Ideal Forms"
 ---
 # Episode 9: Plato's Metaphysics — The World of Ideal Forms
 > Universals must be knowable, therefore they must exist — in a separate, perfect, unchanging realm. The physical world is a derivative shadow.

@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-04-15
+published: true
+layout: layouts/page.njk
+title: "Episode 12: Plato's Political Philosophy — Collectivism & the Philosopher-King"
 ---
 # Episode 12: Plato's Political Philosophy — Collectivism & the Philosopher-King
 > The tripartite soul scales up to a tripartite state: philosopher-kings rule absolutely, the military enforces, and the masses obey — producing a totalitarian collectivism that Plato himself admitted wouldn't work in practice, yet insisted was the only rational option.

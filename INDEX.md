@@ -1,7 +1,13 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Vault Index"
+permalink: /INDEX/
+---
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-05-18 (Catan 47k empirical analysis ingested + board-frontier theory sketched + 50-game validation run on public dataset; aggregate direction replicated, theory refined to "universal city-engine bias + layered archetype effect.")
+**Last updated:** 2026-06-15 (landing-page refresh: homepage `index.html` + `README.md` reconciled to this index and to `CLAUDE.md` — dead philosophy nav-links repaired after the `dynamics/`/`tangents/`/`metaphysics/` reorg, Gaming/Method/Career sections added, NA1/Game-Annotation surfaced as a project. Prior: Catan 47k empirical + 50-game validation; theory refined to "universal city-engine bias + layered archetype effect.")
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -248,7 +254,7 @@
 - `./raw/assets/` — locally saved images
 
 ## Logs
-- Session logs stored in `./logs/` (transcripts moved to `raw/`)
+- No separate `logs/` folder — session transcripts live under `raw/`, and significant sessions are written up as `notes/` pages.
 
 ## Tags
 - [Tag Index](./tags/_index.md) — master list of all tags

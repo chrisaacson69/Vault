@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Can Liberalism Be Used to Destroy Itself?"
+---
 # Can Liberalism Be Used to Destroy Itself?
 > If the democratic process allows constitutional amendments, what stops Christian nationalists from legally dismantling liberal values?
 

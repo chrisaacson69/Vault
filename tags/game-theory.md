@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: game-theory"
+permalink: /tags/game-theory/
+---
 # game-theory
 
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)

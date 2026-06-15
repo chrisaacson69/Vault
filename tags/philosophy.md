@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: philosophy"
+permalink: /tags/philosophy/
+---
 # philosophy
 > Files exploring philosophical questions — human nature, freedom, morality, the role of technology in society.
 

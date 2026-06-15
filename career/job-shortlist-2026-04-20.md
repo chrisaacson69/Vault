@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-20
+published: true
+layout: layouts/page.njk
+title: "Job Shortlist — 2026-04-20"
 ---
 # Job Shortlist — 2026-04-20
 > Five current openings: remote or hybrid/onsite in AZ/IL, $150k+, matching AI Engineer / Agentic AI / Director-level strategy from [role-landscape.md](./role-landscape.md).

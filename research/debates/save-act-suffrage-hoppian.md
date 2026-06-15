@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "The SAVE Act and the Suffrage Question"
+---
 # The SAVE Act and the Suffrage Question
 > Voter ID is the easy part. The hard part is whether universal suffrage is structurally compatible with limited government.
 

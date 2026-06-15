@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-13
+published: true
+layout: layouts/page.njk
+title: "The Fake Science of Economics — Curtis Yarvin x Peter McCormack"
 ---
 # The Fake Science of Economics — Curtis Yarvin x Peter McCormack
 > Austrian + mercantilist synthesis, personal net worth as the real inflation metric, and the Nash equilibrium argument for Bitcoin over gold.

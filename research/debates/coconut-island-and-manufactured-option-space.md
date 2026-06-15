@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-18
+published: true
+layout: layouts/page.njk
+title: "The Coconut Island and the Manufactured Option Space"
 ---
 # The Coconut Island and the Manufactured Option Space
 > Two related debate moves used to force "exploitation under capitalism" or "structural conflict" conclusions. **Vaush's coconut island:** stipulate away the newcomer's alternatives until the only options are "accept the resident's terms" or "die" — then label the resulting trade *exploitation*. **The "bargain or fight" binary:** stipulate that distribution has only two pathways — agreement or coercion — then label any refusal of the offered terms as *conflict*. Both are instances of one structural pattern — **manufactured option space**: artificially constrain the alternatives so the desired conclusion follows from the manufactured constraint. The Austrian/Misesian response is precisely on this axis: action presupposes alternatives; self-production is the always-available baseline; "walk away" is a real option that the framing tried to stipulate out of existence.

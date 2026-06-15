@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-05
+published: true
+layout: layouts/page.njk
+title: "The Anchor Method"
 ---
 # The Anchor Method
 > The enemy of agent-driven work is **drift**. The cure is an **anchor** — a fixed reference the work must keep satisfying so it can't wander — installed as strong as your current grounding allows, and upgraded toward a hard gate as grounding crystallizes. The process *is* the skill; the transpiler, the gate, NNUE, the jira board are tools inside it.

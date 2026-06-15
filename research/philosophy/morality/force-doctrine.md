@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-06
+published: true
+layout: layouts/page.njk
+title: "Force Doctrine — The Theory"
 ---
 # Force Doctrine — The Theory
 > Andrew Wilson's "rights don't exist, only force" is a constitutive realism that took two wrong exits. Walk its own path honestly and it lands on structure, not God-by-the-gun. The man is more right than his framework.

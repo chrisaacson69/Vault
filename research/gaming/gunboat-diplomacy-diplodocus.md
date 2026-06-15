@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-23
+published: true
+layout: layouts/page.njk
+title: "Gunboat Diplomacy and Diplodocus — The Planner Without the Mouth"
 ---
 # Gunboat Diplomacy and Diplodocus — The Planner Without the Mouth
 > Meta AI's Diplodocus plays Gunboat Diplomacy — the variant with no text communication — and beat every human in Meta's 2022 Speedboat Tournament. Because Gunboat strips the language layer entirely, Diplodocus's win is the cleanest available demonstration that strategic and social reasoning can live fully in a planner with no language model at all. Moves become costly signals; the planner learns the signaling grammar; the AI coordinates, allies, and stabs without saying a word.

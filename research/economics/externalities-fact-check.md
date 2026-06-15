@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-28
+published: true
+layout: layouts/page.njk
+title: "Externalities: Fact-Check of the Decomposition Thesis"
 ---
 # Externalities: Fact-Check of the Decomposition Thesis
 > Do externalities decompose into information problems and coercion problems, or are they a genuine third category? A sourced review.

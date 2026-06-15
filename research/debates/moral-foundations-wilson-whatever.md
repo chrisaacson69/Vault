@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Moral Foundations: Are All Worldviews Equally Unjustified?"
+---
 # Moral Foundations: Are All Worldviews Equally Unjustified?
 > Can secular morality ground itself, or does Agrippa's trilemma reduce everything to arbitrary axioms?
 

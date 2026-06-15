@@ -1,6 +1,9 @@
 ---
 status: "active — updated 2026-04-05"
 created: 2026-04-05
+published: true
+layout: layouts/page.njk
+title: "Morality — Open Problems"
 ---
 # Morality — Open Problems
 > Where the framework is incomplete or under pressure. These are genuine unresolved tensions, not just items on a to-do list.

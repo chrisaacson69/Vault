@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-08
+published: true
+layout: layouts/page.njk
+title: "The Dominance-Frontier Lens"
 ---
 # The Dominance-Frontier Lens
 > A recurring analytical frame for **any competitive system with counter dynamics** — games, but also markets and portfolios. Map **cost** against **effect**, draw the **edges** where X dominates or counters Y, trace the **frontier curve** of non-dominated choices, and flag the **asymmetric edges** where a counter costs more than the threat it answers. Then ask the design-quality question: **does every starting endowment have at least one viable path along the frontier?** It's the same construction as a Markowitz efficient frontier in finance — which is why this lens reaches past games.

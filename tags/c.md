@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: c"
+permalink: /tags/c/
+---
 # c
 > Files using the C programming language.
 

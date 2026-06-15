@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-08
+published: true
+layout: layouts/page.njk
+title: "Specimen & Thesis — The Two-Altitude Ledger"
 ---
 # Specimen & Thesis — The Two-Altitude Ledger
 > Vault work lives at **two altitudes**: a **specimen** (a bounded, dated, source-anchored artifact — a debate review, a game project, a transcript study) and a **thesis** (a portable, source-independent idea the specimen feeds or tests). Keep them in **separate pages** — the separation is correct, not a leak. Connect them with a **two-way ledger**. The downward half of that ledger (thesis → its specimens) is the half that rots, and three failure-clusters prove it.

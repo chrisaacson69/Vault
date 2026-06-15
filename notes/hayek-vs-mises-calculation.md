@@ -1,6 +1,9 @@
 ---
 status: reference note
 created: 2026-03-30
+published: true
+layout: layouts/page.njk
+title: "Hayek vs Mises: The Calculation Problem Distinction"
 ---
 # Hayek vs Mises: The Calculation Problem Distinction
 > Two different critiques of central planning that most people conflate. AI addresses Hayek's problem but not Mises's.

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: history"
+permalink: /tags/history/
+---
 # history
 > Files related to historical analysis and civilizational patterns.
 

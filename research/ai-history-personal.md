@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-09
+published: true
+layout: layouts/page.njk
+title: "AI History — A Personal Arc"
 ---
 # AI History — A Personal Arc
 > From ELIZA to OOP neurons to LLMs. Each step got something right and something wrong. The trajectory reveals what the current moment actually is.

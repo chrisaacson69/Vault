@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-09
+published: true
+layout: layouts/page.njk
+title: "The Fallacy Fallacy"
 ---
 # The Fallacy Fallacy
 > Identifying a fallacy in an argument does not prove the conclusion wrong — and treating it as though it does is itself a fallacy.

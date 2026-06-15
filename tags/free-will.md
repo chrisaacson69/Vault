@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: free-will"
+permalink: /tags/free-will/
+---
 # free-will
 > Tag index for free will, determinism, and agency.
 

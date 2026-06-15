@@ -2,6 +2,9 @@
 status: active
 created: 2026-02-26
 published: true
+layout: layouts/page.njk
+title: "YouTube Migration"
+permalink: /projects/youtube-migration/
 ---
 # YouTube Migration
 > Turning vault research into YouTube scripts — putting ideas into the ether and letting them fall where they do.

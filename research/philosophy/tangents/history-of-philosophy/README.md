@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-03-16
+published: true
+layout: layouts/page.njk
+title: "History of Philosophy — Leonard Peikoff"
+permalink: /research/philosophy/tangents/history-of-philosophy/
 ---
 # History of Philosophy — Leonard Peikoff
 > Lecture-by-lecture analysis of Peikoff's 50-part survey of Western philosophy, from Thales to Kant.

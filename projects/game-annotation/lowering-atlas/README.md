@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Lowering Atlas — moved to its own repo"
+permalink: /projects/game-annotation/lowering-atlas/
+---
 # Lowering Atlas — moved to its own repo
 
 This project now lives alongside the NA1 decompiler in a standalone repository:

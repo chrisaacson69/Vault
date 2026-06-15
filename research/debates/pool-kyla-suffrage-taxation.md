@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Suffrage, Stakeholdership, and the Scope Problem"
+---
 # Suffrage, Stakeholdership, and the Scope Problem
 > The problem isn't who votes. It's what the vote controls.
 

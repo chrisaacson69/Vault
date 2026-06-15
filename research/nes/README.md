@@ -1,6 +1,10 @@
 ---
 status: reference
 created: 2026-04-26
+published: true
+layout: layouts/page.njk
+title: "NES — Reference Material"
+permalink: /research/nes/
 ---
 # NES — Reference Material
 > Chip-level facts about the Nintendo Entertainment System / Famicom (Ricoh 2A03 + 2C02 + cartridge mapper). Curated from nesdev.org/wiki for use across the [Game Annotation Series](../../projects/game-annotation/README.md).

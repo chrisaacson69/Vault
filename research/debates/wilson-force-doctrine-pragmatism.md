@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Force Doctrine and the Rehabilitation of Pragmatism"
+---
 # Force Doctrine and the Rehabilitation of Pragmatism
 > Wilson's descriptor is true. His conclusion doesn't follow. But the real lesson is that pragmatism is a legitimate philosophical tool — and theories that can't survive contact with reality are wrong.
 

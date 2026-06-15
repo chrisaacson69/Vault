@@ -2,6 +2,9 @@
 status: active
 created: 2026-02-20
 published: true
+layout: layouts/page.njk
+title: "CyborgDJ"
+permalink: /projects/cyborgdj/
 ---
 # CyborgDJ
 > Human writes the score, machine executes the mix — a programmatic DJ mixing engine.

@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-20
+published: true
+layout: layouts/page.njk
+title: "Programmatic DJ Mixing Tools"
 ---
 # Programmatic DJ Mixing Tools
 > Research into tools and libraries that can execute a DJ mix from written instructions — loading tracks, time-stretching, beat-matching, applying EQ crossfades, and rendering a continuous output file.

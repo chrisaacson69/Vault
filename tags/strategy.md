@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: strategy"
+permalink: /tags/strategy/
+---
 # strategy
 
 - [MOO1 Optimal Strategy](../research/gaming/moo1/optimal-strategy.md)

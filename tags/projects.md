@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: projects"
+permalink: /tags/projects/
+---
 # projects
 
 - [Monopoly](../projects/monopoly/README.md) — Monopoly game engine with mathematically rigorous AI — Markov chains, property valuation, and strategic trading.

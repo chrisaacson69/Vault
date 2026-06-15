@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: python"
+permalink: /tags/python/
+---
 # python
 > Projects and files using Python.
 

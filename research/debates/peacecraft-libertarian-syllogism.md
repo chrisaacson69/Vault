@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-21
+published: true
+layout: layouts/page.njk
+title: "Peacecraft's Libertarian Syllogism — A Hoppe Inversion"
 ---
 # Peacecraft's Libertarian Syllogism — A Hoppe Inversion
 > A formal-notation attack on libertarian property theory that tries to turn Hoppe's argumentation ethics against its own tradition. Structurally sophisticated, but its validity rests on equivocating "institutional framework" with "state-monopolized institutional framework." Once the equivocation is named, the argument unwinds.

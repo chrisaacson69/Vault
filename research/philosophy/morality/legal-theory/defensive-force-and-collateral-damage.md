@@ -2,6 +2,8 @@
 status: active
 created: 2026-03-05
 published: true
+layout: layouts/page.njk
+title: "Defensive Force, Collateral Damage, and the Defense/Retribution Distinction"
 ---
 # Defensive Force, Collateral Damage, and the Defense/Retribution Distinction
 > When is collateral damage justified, and who bears responsibility?

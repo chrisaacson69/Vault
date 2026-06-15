@@ -1,6 +1,9 @@
 ---
 status: sketch
 created: 2026-04-23
+published: true
+layout: layouts/page.njk
+title: "Individual vs. Collective — A Dichotomy That Resists Clean Resolution"
 ---
 # Individual vs. Collective — A Dichotomy That Resists Clean Resolution
 > One of the oldest and most persistent dichotomies in political and moral thought. Neither pure individualism nor pure collectivism survives contact with reality; the interesting position is mutual constitution — the individual is partly constituted by the collective and the collective by the individuals, with neither reducible to the other. Aristotle's polis/citizen relationship is the template; most modern political debates would benefit from his move.

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: machine-learning"
+permalink: /tags/machine-learning/
+---
 # machine-learning
 > Files related to machine learning and neural networks.
 

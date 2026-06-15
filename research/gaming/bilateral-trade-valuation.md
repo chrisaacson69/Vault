@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-23
+published: true
+layout: layouts/page.njk
+title: "Bilateral Trade Valuation"
 ---
 # Bilateral Trade Valuation
 > A trade's value isn't what you get — it's where both players end up 20 turns later.

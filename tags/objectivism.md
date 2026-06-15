@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: objectivism"
+permalink: /tags/objectivism/
+---
 # objectivism
 > Files engaging with Objectivist philosophy — Rand, Peikoff, and related frameworks.
 

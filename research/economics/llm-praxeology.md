@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-09
+published: true
+layout: layouts/page.njk
+title: "LLMs as Praxeological Actors"
 ---
 # LLMs as Praxeological Actors
 > Aligned LLMs satisfy Mises's formal criteria for "action." This isn't a metaphor — it's a structural claim about means, ends, ordinal preference, time, and opportunity cost. Praxeology may be the missing economic framework for understanding AI agents.

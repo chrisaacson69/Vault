@@ -1,6 +1,9 @@
 ---
 status: reference
 created: 2026-04-26
+published: true
+layout: layouts/page.njk
+title: "PPU Reference (NES)"
 ---
 # PPU Reference (NES)
 > Load-bearing facts about the Picture Processing Unit (Ricoh 2C02) for reading NES source code. Curated from nesdev.org/wiki.

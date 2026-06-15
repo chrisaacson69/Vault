@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-06-05
+published: true
+layout: layouts/page.njk
+title: "Method — a library of good procedure"
+permalink: /method/
 ---
 # Method — a library of good procedure
 > How to run hard, agent-driven projects without drifting. Process is craft, not science — these pages are **living playbooks of warning signs and moves**, accreting one hard-won lesson at a time. Distinct from `career/` (job-search is one downstream consumer of this, not the parent) and `research/` (topic exploration, not how-we-work).

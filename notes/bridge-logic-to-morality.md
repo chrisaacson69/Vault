@@ -1,6 +1,9 @@
 ---
 status: sketch — waiting on logic series completion
 created: 2026-03-25
+published: true
+layout: layouts/page.njk
+title: "Bridge: Logic Series → Morality Series"
 ---
 # Bridge: Logic Series → Morality Series
 > Two planned vault pages that connect the YouTube logic grounding to the morality framework. Write after the logic series is grounded.

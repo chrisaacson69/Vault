@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-29
+published: true
+layout: layouts/page.njk
+title: "Transpilation as a Grounding Strategy"
 ---
 # Transpilation as a Grounding Strategy
 > The LLM grounding problem is a gradient, not a switch: a model is fluent in C/Python, weak in 6502, barely there in a bespoke VM, poor in COBOL. The fix for a weakly-grounded formal language isn't "reason harder in it" — it's a deterministic transpiler to a strongly-grounded one. Meet the LLM in a language it already knows.

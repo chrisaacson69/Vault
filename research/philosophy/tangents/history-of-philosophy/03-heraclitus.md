@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-16
+published: true
+layout: layouts/page.njk
+title: "Episode 3: Heraclitus of Ephesus — A World of Change and Contradiction"
 ---
 # Episode 3: Heraclitus of Ephesus — A World of Change and Contradiction
 > The first "villain" of Western philosophy: change requires contradiction, entities don't exist, the senses are invalid, and everything flows.

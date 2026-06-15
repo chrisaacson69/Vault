@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-18
+published: true
+layout: layouts/page.njk
+title: "Catan — 47,000 Games of Empirical Findings"
 ---
 # Catan — 47,000 Games of Empirical Findings
 > Ioana Roman analyzed 47,000 recorded Catan games from twosheep.io and turned the board game into a stochastic dynamic system with real numbers attached. Headline findings: turn order is essentially balanced, opening placement predicts the winner barely above random (27% vs 25% baseline), Longest Road and Largest Army are *symptoms* not *causes* of victory, missing a resource barely matters because the market corrects, Monopoly cards are gigantic timing weapons (one played → 40% win rate; two played → 55%), and **winners systematically overpay on trades**. The last one is the empirical confirmation, across 47k games, of the [bilateral trade valuation thesis](./bilateral-trade-valuation.md): trade evaluation must be trajectory-based, not isolated NPV. **Important caveat:** despite the title, the video delivers descriptive statistics about how games tend to play out, not a strategic prescription for how to win. The empirical landmarks are real and useful as constraints, but the prescription layer — state-conditional opening policies, timing policies, trajectory valuation — is the work the [Monopoly project](../../projects/monopoly/README.md) does and Roman doesn't.

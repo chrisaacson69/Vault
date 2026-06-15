@@ -1,6 +1,10 @@
 ---
 status: active — data gathering phase
 created: 2026-04-03
+published: true
+layout: layouts/page.njk
+title: "Master of Magic — Economic Analysis"
+permalink: /research/gaming/master-of-magic/
 ---
 # Master of Magic — Economic Analysis
 > Apply BV and MIRR frameworks to the original 1994 4X classic. Everything is broken — but is it equally broken?

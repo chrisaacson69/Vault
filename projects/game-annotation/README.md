@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-04-26
+published: true
+layout: layouts/page.njk
+title: "Game Annotation Series — moved to standalone repos"
+permalink: /projects/game-annotation/
 ---
 # Game Annotation Series — moved to standalone repos
 

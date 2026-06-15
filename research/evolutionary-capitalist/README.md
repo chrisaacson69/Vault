@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-03-13
+published: true
+layout: layouts/page.njk
+title: "Evolutionary Capitalist (YouTube Channel)"
+permalink: /research/evolutionary-capitalist/
 ---
 # Evolutionary Capitalist (YouTube Channel)
 > Small YouTube streamer building a systematic critique of libertarianism/anarcho-capitalism and proposing an alternative framework he calls "Evolutionary Capitalism."

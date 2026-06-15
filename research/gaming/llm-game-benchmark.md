@@ -1,6 +1,9 @@
 ---
 status: outline
 created: 2026-04-23
+published: true
+layout: layouts/page.njk
+title: "LLM Game Benchmark — Outline"
 ---
 # LLM Game Benchmark — Outline
 > Framework for evaluating a new LLM against the vault's seven-game cross-study. Turns ad-hoc observation of Quinn-Henry-style videos into a reproducible characterization so the obvious question — "how does model X compare?" — has a structured answer.

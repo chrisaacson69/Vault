@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-17
+published: true
+layout: layouts/page.njk
+title: "Episode 4: Parmenides of Elea — Logic Demands a Changeless Universe"
 ---
 # Episode 4: Parmenides of Elea — Logic Demands a Changeless Universe
 > The opposite pole from Heraclitus: what is, is; what is not, is not. Therefore no change, no multiplicity, no vacuum — just the One.

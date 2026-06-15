@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Would a Perfectly Logical Society Be Less Humane?"
+---
 # Would a Perfectly Logical Society Be Less Humane?
 > Definitional control as debate strategy — and why "less, not zero" is a nearly unbeatable frame.
 

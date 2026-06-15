@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-22
+published: true
+layout: layouts/page.njk
+title: "DJ EQ Blending Technique"
 ---
 # DJ EQ Blending Technique
 > How pro DJs use EQ — not the crossfader — as the primary transition tool.

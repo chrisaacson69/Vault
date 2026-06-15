@@ -1,6 +1,9 @@
 ---
 status: sketch
 created: 2026-04-28
+published: true
+layout: layouts/page.njk
+title: "Left and Right Are Positional, Not Substantive"
 ---
 # Left and Right Are Positional, Not Substantive
 > The labels "left" and "right" have no stable substantive content. They're indexed to whatever the current status quo is: *left = wants change from current; right = wants to preserve current.* When a radical-left idea wins and becomes the new status quo, defending it becomes the new conservative position. Most political theories that look for fixed substantive content on one side or the other are over-fitting noise — the only stable property is direction relative to the current order.

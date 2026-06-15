@@ -1,6 +1,9 @@
 ---
 status: reference
 created: 2026-04-26
+published: true
+layout: layouts/page.njk
+title: "NES Mappers Reference"
 ---
 # NES Mappers Reference
 > The cartridge logic that extends the NES beyond its base 32 KiB PRG / 8 KiB CHR address space. Curated from nesdev.org/wiki — currently covering NROM (Mappy's mapper). Will grow as we cover more games.

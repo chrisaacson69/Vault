@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: audio-processing"
+permalink: /tags/audio-processing/
+---
 # audio-processing
 > Files related to audio analysis and signal processing.
 

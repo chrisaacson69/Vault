@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: scope-confusion"
+permalink: /tags/scope-confusion/
+---
 # scope-confusion
 > Files exploring scope assignment errors — applying the right principle to the wrong domain, or conflating levels of analysis.
 

@@ -1,6 +1,9 @@
 ---
 status: reference
 created: 2026-04-26
+published: true
+layout: layouts/page.njk
+title: "TIA Reference (Atari 2600)"
 ---
 # TIA Reference (Atari 2600)
 > Load-bearing facts about the Television Interface Adaptor for reading 2600 source code. Curated from Stella Programmer's Guide and TIA hardware notes.

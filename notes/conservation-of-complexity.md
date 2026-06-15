@@ -1,6 +1,9 @@
 ---
 status: sketch — intended as a bridge between the Vault's observations and George Montañez's conservation of information research
 created: 2026-03-31
+published: true
+layout: layouts/page.njk
+title: "Conservation of Complexity — A Cross-Domain Pattern"
 ---
 # Conservation of Complexity — A Cross-Domain Pattern
 > Computational work is conserved across transformations. You can move the cost, but you can't destroy it. This pattern appears in information theory, physics, economics, mathematics, and philosophy.

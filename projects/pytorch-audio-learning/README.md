@@ -2,6 +2,9 @@
 status: reference
 created: 2026-02-02
 published: true
+layout: layouts/page.njk
+title: "PyTorch Audio Learning"
+permalink: /projects/pytorch-audio-learning/
 ---
 # PyTorch Audio Learning
 > Tutorial series on audio processing with TorchAudio — spectrograms, MFCC, pitch, speech recognition.

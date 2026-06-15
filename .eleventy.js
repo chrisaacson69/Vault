@@ -1,4 +1,25 @@
+const path = require("path");
+
 module.exports = function(eleventyConfig) {
+
+  // Resolve relative .md links in rendered HTML to the correct pretty URL.
+  // Obsidian links are relative to the SOURCE file; pretty URLs shift each page
+  // down one dir, so we resolve against the source dir then emit an absolute
+  // (pathPrefix-aware) URL. README.md -> the dir's index; foo.md -> foo/.
+  eleventyConfig.addTransform("resolveMdLinks", function(content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    const inp = (this.page.inputPath || "").replace(/^\.\//, "").replace(/\\/g, "/");
+    const srcDir = inp.split("/").slice(0, -1).join("/");
+    const prefix = (process.env.PATH_PREFIX || "/").replace(/\/+$/, ""); // "" or "/Vault"
+    return content.replace(/href="([^"]+?\.md)(#[^"]*)?"/g, (m, link, hash) => {
+      if (/^(https?:|\/\/|\/|#|mailto:)/i.test(link)) return m;
+      let abs = path.posix.normalize((srcDir ? srcDir + "/" : "") + link);
+      abs = abs.replace(/(^|\/)README\.md$/i, "$1").replace(/\.md$/i, "/");
+      if (!abs.endsWith("/")) abs += "/";
+      abs = abs.replace(/^\.?\//, "").replace(/^\/+/, "");
+      return `href="${prefix}/${abs}${hash || ""}"`;
+    });
+  });
 
   // Only process files with `published: true` in frontmatter
   // Plus specific directories/files we explicitly include
@@ -43,8 +64,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.ignores.add("raw/**");
   eleventyConfig.ignores.add("logs/**");
   eleventyConfig.ignores.add("tasks/**");
-  eleventyConfig.ignores.add("tags/**");
-  eleventyConfig.ignores.add("notes/**");
   eleventyConfig.ignores.add("projects/_template.md");
   eleventyConfig.ignores.add("node_modules/**");
   eleventyConfig.ignores.add(".claude/**");
@@ -55,7 +74,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.ignores.add("career/demo-slides.md");
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("CLAUDE.md");
-  eleventyConfig.ignores.add("INDEX.md");
   eleventyConfig.ignores.add("2026-04-07.md");
 
   // Only build markdown files that have `published: true`

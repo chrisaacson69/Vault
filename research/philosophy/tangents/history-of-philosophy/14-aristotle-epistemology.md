@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-04-15
+published: true
+layout: layouts/page.njk
+title: "Episode 14: Aristotle's Epistemology — Concepts, Explanation & the Nature of Science"
 ---
 # Episode 14: Aristotle's Epistemology — Concepts, Explanation & the Nature of Science
 > We are born tabula rasa; knowledge begins with the senses and ascends through abstraction to concepts, definitions, and general laws — understanding comes from seeing particular events as instances of principles that relate the nature of things to their behavior.

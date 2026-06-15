@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: debates"
+permalink: /tags/debates/
+---
 # debates
 > Online debate analysis — extracting signal from spectacle.
 

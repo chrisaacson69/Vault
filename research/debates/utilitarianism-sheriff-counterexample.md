@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "The Sheriff Problem: Why Utilitarianism Fails"
+---
 # The Sheriff Problem: Why Utilitarianism Fails
 > The math doesn't say "frame an innocent man" — the math is meaningless, because there is no group utility to calculate.
 

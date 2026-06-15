@@ -2,6 +2,9 @@
 status: complete
 created: 2026
 published: true
+layout: layouts/page.njk
+title: "Order Playlist"
+permalink: /projects/order-playlist/
 ---
 # Order Playlist
 > DJ playlist optimizer using Camelot harmonic mixing, BPM smoothness, and energy arcs.

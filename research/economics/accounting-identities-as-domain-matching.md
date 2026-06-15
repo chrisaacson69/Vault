@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-18
+published: true
+layout: layouts/page.njk
+title: "Accounting Identities as Domain-Matching, Not Behavioral Models"
 ---
 # Accounting Identities as Domain-Matching, Not Behavioral Models
 > Macroeconomic identities like GDP = C+I+G+X−M and MV = PT *look* like equations with independent terms that can be moved around to predict policy outcomes. They're not. They're **domain-matching tricks** — each term has implicit domain restrictions that the notation hides, and the identity holds only when the restrictions are consistent on both sides. Each level of relaxation reveals different things about the economy. Treating any single restriction as canonical is a category error that produces a recurring class of policy confusions: the GDP-identity tariff fallacy, the "QE will cause runaway inflation" debate that played out over a decade, the velocity puzzle, the Wall-Street-vs-Main-Street decoupling. The disputes look substantive but are often actually disputes about which restriction to privilege. The substantive question — "which restriction matches the question you're actually asking?" — usually goes unasked. **A specific recurring case worth pinning explicitly**: using aggregate GDP as the welfare metric when per-capita or distributional measures would tell a different story. "Tariffs raise GDP" and "immigration raises GDP" are different symptoms of the same identity-misreading; the symmetric form across both policy debates is named in this page.

@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-12
+published: true
+layout: layouts/page.njk
+title: "Demolition Man (1993) — A Case Study in Managed Utopia"
 ---
 # Demolition Man (1993) — A Case Study in Managed Utopia
 > A 30-year-old sci-fi film that predicted the exact failure modes of AI-managed societies. Cocteau isn't an AI, but his vision is indistinguishable from one.

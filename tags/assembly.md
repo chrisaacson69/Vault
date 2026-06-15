@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: assembly"
+permalink: /tags/assembly/
+---
 # assembly
 > Files about assembly-language programming and reading low-level code.
 

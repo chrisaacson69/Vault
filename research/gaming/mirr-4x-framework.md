@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-08
+published: true
+layout: layouts/page.njk
+title: "MIRR — 4X Strategy as Capital Allocation Under Uncertainty"
 ---
 # MIRR — 4X Strategy as Capital Allocation Under Uncertainty
 > The central thesis of 4X strategy: **each turn is an investment decision.** Your production is capital; the available actions (economy, expansion, research, defense, offense) are competing investments; the right comparison metric is **MIRR** — return that is time-adjusted, risk-adjusted, and reinvested at *your empire's own growth rate*. Rank the options by MIRR, fund the top, reassess as the state changes. This is not a metaphor — the mathematical structure is identical to a firm allocating capital, which is why it is [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md) applied to a game.

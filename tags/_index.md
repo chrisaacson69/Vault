@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: Tag Index"
+permalink: /tags/_index/
+---
 # Tag Index
 > Master list of all tags used across the vault.
 

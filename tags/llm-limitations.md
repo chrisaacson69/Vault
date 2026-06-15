@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: llm-limitations"
+permalink: /tags/llm-limitations/
+---
 # llm-limitations
 > Files about structural limitations of large language models.
 

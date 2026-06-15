@@ -2,6 +2,9 @@
 status: active
 created: 2026-02-16
 published: true
+layout: layouts/page.njk
+title: "Philosophy"
+permalink: /research/philosophy/
 ---
 # Philosophy
 > First-principles exploration of foundational philosophical questions. Organized as four interlocking trunks.

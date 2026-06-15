@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: morality"
+permalink: /tags/morality/
+---
 # morality
 > Files exploring morality, ethics, and the foundations of right and wrong.
 

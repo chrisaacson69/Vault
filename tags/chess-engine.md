@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: chess-engine"
+permalink: /tags/chess-engine/
+---
 # chess-engine
 > Files about chess-playing programs — search, evaluation, and engine architecture.
 

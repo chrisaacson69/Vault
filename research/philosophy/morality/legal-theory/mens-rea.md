@@ -2,6 +2,8 @@
 status: active (literature review added)
 created: 2026-02-17
 published: true
+layout: layouts/page.njk
+title: "Mens Rea in Libertarian Law"
 ---
 # Mens Rea in Libertarian Law
 > Debate: does criminal intent (mens rea) have a place in a legal system built on the NAP and natural law?

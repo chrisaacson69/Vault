@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-01
+published: true
+layout: layouts/page.njk
+title: "New Machine Migration"
 ---
 # New Machine Migration
 

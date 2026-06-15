@@ -1,6 +1,9 @@
 ---
 status: open-question
 created: 2026-06-06
+published: true
+layout: layouts/page.njk
+title: "Did Christian Societies Actually Outperform? — The Comparative-Outcomes Question"
 ---
 # Did Christian Societies Actually Outperform? — The Comparative-Outcomes Question
 > The one un-defused claim left by the [Wilson force-doctrine cluster](../../debates/wilson-atheists-benefit-christian-society.md): "Christian ethics produces the best outcomes even for non-Christians — even when corrupted." This page does *not* answer it. It frames it so the eventual empirics are clean — naming the metric, the confounds, and the mechanisms that would have to be isolated before any "Christianity → flourishing" story is more than just-so history.

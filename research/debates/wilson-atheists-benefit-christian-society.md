@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-06
+published: true
+layout: layouts/page.njk
+title: "Do Atheists Benefit from Living in a Christian Society? (Wilson vs 5)"
 ---
 # Do Atheists Benefit from Living in a Christian Society? (Wilson vs 5)
 > The outcomes flank the whole cluster kept deferring to — finally the *main* claim, not the dodge. And pressing it does the opposite of what Wilson wants: it forces him to admit the justification is *empirical* ("the ethics inform the empirical reason we'd make the law") and that the benefit survives *corruption of the theology* ("even corrupted, Christian ethics do better"). Both concessions relocate the truth-maker from God to **structure**. The headline is largely true and widely conceded; what it licenses is **norm-adoption, not confessional rule** — and the atheists keep dropping the one move (outcomes-are-not-preferences) that turns the justification gap from a loss into a win.

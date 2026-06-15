@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: simulation"
+permalink: /tags/simulation/
+---
 # simulation
 > Files related to simulation games, emergent systems, and computational modeling.
 

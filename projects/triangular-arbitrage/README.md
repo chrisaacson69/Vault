@@ -2,6 +2,9 @@
 status: active — DeFi/Solana path under investigation
 created: 2026-02-12
 published: true
+layout: layouts/page.njk
+title: "Triangular Arbitrage — Currency & Crypto Market Differentials"
+permalink: /projects/triangular-arbitrage/
 ---
 # Triangular Arbitrage — Currency & Crypto Market Differentials
 > Can we exploit differentials in cross-rates for profit? Math says yes. The question is infrastructure.

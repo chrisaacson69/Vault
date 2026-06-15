@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-09
+published: true
+layout: layouts/page.njk
+title: "Claude Code on a Persistent Cloud VM"
 ---
 # Claude Code on a Persistent Cloud VM
 > Running Claude Code CLI on an always-on Linux VM so Remote Control works from iPad anytime.

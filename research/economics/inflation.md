@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-18
+published: true
+layout: layouts/page.njk
+title: "Inflation"
 ---
 # Inflation
 > Inflation has many causes. Only one is permanent. The Austrian error is treating the permanent cause as the only cause.

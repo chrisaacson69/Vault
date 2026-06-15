@@ -2,6 +2,8 @@
 status: active
 created: 2026-03-23
 published: true
+layout: layouts/page.njk
+title: "The Formal Revolution (1847–1931)"
 ---
 # The Formal Revolution (1847–1931)
 > In 84 years, logic went from a philosophical discipline to the foundation of mathematics, computing, and the limits of knowledge itself.

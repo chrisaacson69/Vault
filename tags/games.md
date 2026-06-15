@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: games"
+permalink: /tags/games/
+---
 # games
 
 - [Monopoly](../projects/monopoly/README.md) — Monopoly engine with Markov-chain AI

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: nes"
+permalink: /tags/nes/
+---
 # nes
 > Files about the Nintendo Entertainment System / Famicom — 2A03, PPU (2C02), APU, mappers, and the games written for them.
 

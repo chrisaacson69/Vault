@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-13
+published: true
+layout: layouts/page.njk
+title: "The Hierarchy of Ownership: Rothbard's Contradiction Between the Body and the Land"
 ---
 # The Hierarchy of Ownership: Rothbard's Contradiction Between the Body and the Land
 > If self-ownership and land ownership are both absolute, they negate each other when all land is claimed. Who wins? The landlord.

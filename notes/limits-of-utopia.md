@@ -1,6 +1,9 @@
 ---
 status: reference
 created: 2025-10-XX (added to vault 2026-02-12)
+published: true
+layout: layouts/page.njk
+title: "The Limits of Utopia: A Defense of Human Nature, Markets, and Freedom"
 ---
 # The Limits of Utopia: A Defense of Human Nature, Markets, and Freedom
 > Co-written with Copilot, October 2025. A critique of AI-managed societies and a defense of markets, risk, and human imperfection.

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: epistemology"
+permalink: /tags/epistemology/
+---
 # epistemology
 > Files exploring how we know what we know — foundations of knowledge, justification, and belief.
 

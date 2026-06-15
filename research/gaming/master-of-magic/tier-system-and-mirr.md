@@ -1,6 +1,9 @@
 ---
 status: active — theory phase
 created: 2026-04-03
+published: true
+layout: layouts/page.njk
+title: "Master of Magic — Tier System and MIRR"
 ---
 # Master of Magic — Tier System and MIRR
 > The "broken" strategies are entrepreneurial bets with exceptionally high MIRR at specific time windows. Games are won at turn 15 when one player has T3 and everyone else has T1.

@@ -1,6 +1,9 @@
 ---
 status: active — theory phase
 created: 2026-04-01
+published: true
+layout: layouts/page.njk
+title: "MOO1: MIRR-Based Investment Decision"
 ---
 # MOO1: MIRR-Based Investment Decision
 > Applying Modified Internal Rate of Return to the factory-vs-colonizer decision. Instead of brute-force search, use a financial metric to determine which investment has a better return at each decision point.

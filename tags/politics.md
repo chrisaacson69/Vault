@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: politics"
+permalink: /tags/politics/
+---
 # politics
 > Files exploring political philosophy, governance, and the state.
 

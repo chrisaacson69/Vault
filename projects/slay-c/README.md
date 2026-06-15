@@ -2,6 +2,9 @@
 status: active
 created: 2026-02
 published: true
+layout: layouts/page.njk
+title: "Slay-C"
+permalink: /projects/slay-c/
 ---
 # Slay-C
 > C port of the Slay hex strategy engine — performance-focused, headless, with alpha-beta search and AI arena.

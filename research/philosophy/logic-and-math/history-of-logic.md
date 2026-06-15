@@ -2,6 +2,8 @@
 status: active
 created: 2026-03-23
 published: true
+layout: layouts/page.njk
+title: "A History of Logic"
 ---
 # A History of Logic
 > Logic is not a single, settled, God-given system. It's a 2,400-year research program — still active, still contested, still evolving.

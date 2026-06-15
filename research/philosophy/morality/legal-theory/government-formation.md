@@ -2,6 +2,8 @@
 status: active
 created: 2026-02-20
 published: true
+layout: layouts/page.njk
+title: "Government Formation and Structure"
 ---
 # Government Formation and Structure
 > Government is an inevitable product of division of labor — not a social contract, not Hobbes's fear, but economic specialization applied to the coordination problem.

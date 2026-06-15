@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-23
+published: true
+layout: layouts/page.njk
+title: "Planner-LM Composites — Where the Agent Actually Lives"
 ---
 # Planner-LM Composites — Where the Agent Actually Lives
 > Bare LLMs don't act in any rigorous sense. They generate fluently but don't maintain preferred states, model current position, or verify via simulation. Planner-LM composites (Cicero, Diplodocus, the Monopoly project architecture) do. LLMs are closer in role to the brain's language centers than to general cognition — they're the mouth, not the executive. This refines the vault's LLM-praxeology claim, sets an auditable bar for what counts as an AI agent, and points at a specific architecture: small language models scoped to language I/O, a dedicated reasoning engine, and connectors between them.

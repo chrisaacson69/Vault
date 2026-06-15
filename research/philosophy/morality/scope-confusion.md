@@ -2,6 +2,8 @@
 status: active — formalizing
 created: 2026-02-22
 published: true
+layout: layouts/page.njk
+title: "The Scope Confusion Thesis"
 ---
 # The Scope Confusion Thesis
 > Most political and legal disagreements are not about values — they're about which enforcement mechanism is appropriate for a given norm.

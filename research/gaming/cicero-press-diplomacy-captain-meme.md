@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-23
+published: true
+layout: layouts/page.njk
+title: "CaptainMeme vs. 6 Cicero — The Human/AI Split in Press Diplomacy"
 ---
 # CaptainMeme vs. 6 Cicero — The Human/AI Split in Press Diplomacy
 > An expert human diplomacy player plays full-press blitz Diplomacy against six Cicero AIs and narrates the game. The surface observation is that Cicero's press is indistinguishable from human press; the deeper observation is that the bots' *strategic behavior* still reveals the planner underneath. CaptainMeme repeatedly names specific human/AI behavioral differences — most notably, the absence of grudge motivation — and uses them as exploitation targets. What he documents is the planner-LM composite architecture showing through even when the language layer is fully operational.

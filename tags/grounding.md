@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: grounding"
+permalink: /tags/grounding/
+---
 # grounding
 > Files about grounding language in physical reality, sensory data, and hard constraints.
 

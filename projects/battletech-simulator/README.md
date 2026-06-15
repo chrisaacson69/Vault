@@ -2,6 +2,9 @@
 status: planning
 created: 2026-02-26
 published: true
+layout: layouts/page.njk
+title: "BattleTech Simulator"
+permalink: /projects/battletech-simulator/
 ---
 # BattleTech Simulator
 > Monte Carlo combat simulator to derive empirical BattleValue for BattleTech mechs and find bargains in the official BV2 system.

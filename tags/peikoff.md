@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: peikoff"
+permalink: /tags/peikoff/
+---
 # peikoff
 > Files analyzing or referencing Leonard Peikoff's lectures and writings.
 

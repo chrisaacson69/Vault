@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: software-engineering"
+permalink: /tags/software-engineering/
+---
 # software-engineering
 > Files about software design, architecture, code quality, and engineering practice.
 

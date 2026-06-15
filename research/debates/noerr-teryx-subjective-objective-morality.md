@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-04-08
+published: true
+layout: layouts/page.njk
+title: "Noerr vs Terry X — Subjective vs Objective Morality"
 ---
 # Noerr vs Terry X — Subjective vs Objective Morality
 > Both debaters accept "objective = mind-independent" and then fight over the consequences. The definition is broken. Morality requires minds. The vault's agent-relative category (category 3) resolves what neither side can.

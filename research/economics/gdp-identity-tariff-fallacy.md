@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-18
+published: true
+layout: layouts/page.njk
+title: "The GDP-Identity Tariff Fallacy"
 ---
 # The GDP-Identity Tariff Fallacy
 > The popular argument "tariffs raise GDP because they close the trade gap (GDP = C+I+G+X−M, so reducing M raises GDP)" treats an accounting identity as a behavioral model. The flaw: **imports are already inside C, I, and G** — the −M term is a correction that strips them back out to get *domestic* production. Reducing M via tariffs also reduces the C/I/G terms it was inside; net effect on the identity is approximately zero. The "trade gap subtracts from GDP" framing is one of the most recurring fallacies in popular economic commentary, and the pedagogy actively encourages it by presenting C, I, G, X, and M as if they were independent flows. The reductio is in the name itself: *gross **domestic** product* shouldn't include foreign goods, and the −M is performing exactly that exclusion.

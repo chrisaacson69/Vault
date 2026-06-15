@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: reverse-engineering"
+permalink: /tags/reverse-engineering/
+---
 # reverse-engineering
 > Files about reading, annotating, and explaining existing code at a system level.
 

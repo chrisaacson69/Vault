@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-12
+published: true
+layout: layouts/page.njk
+title: "Praxis: Agent Teams vs. the Theory"
 ---
 # Praxis: Agent Teams vs. the Theory
 > Testing our economic framework against real-world agent team results from Opus 4.6 deployments.

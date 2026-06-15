@@ -1,6 +1,9 @@
 ---
 status: reference
 created: 2026-05-17
+published: true
+layout: layouts/page.njk
+title: "Claude Code Skill Engineering — Principles & Vault Audit"
 ---
 # Claude Code Skill Engineering — Principles & Vault Audit
 > The best use of Claude is **tools-layer tools and pointers**. Three independent sources converge on this: Anthropic's EBM/JEPA architectural prescription (LM → constraint engine → verifier), Anthropic engineers' published skill patterns (description → instructions → tools, with most leverage in tools), and Pocock's 68k-star repo executing the pattern in practice. Same architecture at three scales — between models, within a skill, across a catalog. The LLM is the language organ; the real work is deterministic tools that the LLM coordinates through pointer-based markdown. This page is the unified thesis, the reference card, the audit of the 9 current vault skills, and the borrowables list from Pocock.

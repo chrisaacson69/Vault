@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-15
+published: true
+layout: layouts/page.njk
+title: "Active Postings — Director-Level AI Roles"
 ---
 # Active Postings — Director-Level AI Roles
 > Living reference of director-level AI positions. Organized by lane. Updated as the search progresses.

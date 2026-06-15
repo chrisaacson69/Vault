@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-23
+published: true
+layout: layouts/page.njk
+title: "Taxation and Unrealized Gains"
 ---
 # Taxation and Unrealized Gains
 > You can't tax what doesn't exist yet. Governments tax models, not reality — and homeowners get hit twice.

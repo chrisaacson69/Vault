@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-08
+published: true
+layout: layouts/page.njk
+title: "Author Web, Derive Hierarchy"
 ---
 # Author Web, Derive Hierarchy
 > Exploratory work **discovers** its structure — you cannot file a shape you don't yet know. So keep the substrate **write-optimized** (a web: forward links, flat-ish folders, cheap to add in unknown directions) and **derive** the read-optimized hierarchy — indexes, two-way ledgers, the orphan audit — with tooling, *after* the shape emerges. Never tax the exploration to pay for the tidiness. A sprawling vault that's hard to manage *because it has covered so much* is succeeding: the difficulty is the **cost of compounding generativity**, paid down by deriving, not by suppressing.

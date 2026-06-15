@@ -2,6 +2,9 @@
 status: planning
 created: 2026-02-17
 published: true
+layout: layouts/page.njk
+title: "DJ Set 1 — Progressive/Trance Mix"
+permalink: /projects/dj-set-1/
 ---
 # DJ Set 1 — Progressive/Trance Mix
 > 11-track set built around texture-over-harmony philosophy, with a BPM staircase from 120→129.

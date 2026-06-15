@@ -2,6 +2,9 @@
 status: active
 created: 2026-02-17
 published: true
+layout: layouts/page.njk
+title: "Civilizational Cycles"
+permalink: /research/philosophy/dynamics/civilizational-cycles/
 ---
 # Civilizational Cycles
 > Thirteen thinkers across three camps describing the same meta-pattern. Applied Trunk 4 at civilizational timescales.

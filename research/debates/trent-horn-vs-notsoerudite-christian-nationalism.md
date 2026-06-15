@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-08
+published: true
+layout: layouts/page.njk
+title: "Trent Horn vs NotSoErudite: Christian Nationalism"
 ---
 # Trent Horn vs NotSoErudite: Christian Nationalism
 > A sophisticated Christian nationalist meets a bloodsports debater — Trent quietly dismantles the asymmetric "Christians must justify, seculars need not" standard, then declines to keep pressing. No positions changed; the apparent convergence is procedural cosmetics over substantive deadlock. The deeper takeaway: "because religion says so" is best read not as fatigue but as Chesterton's Fence at civilizational scale — compressed time-tested wisdom the individual lifetime can't reconstruct from first principles in a debate exchange.

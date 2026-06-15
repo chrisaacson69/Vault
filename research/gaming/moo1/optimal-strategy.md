@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-07
+published: true
+layout: layouts/page.njk
+title: "Master of Orion — Optimal Play Strategy"
 ---
 # Master of Orion — Optimal Play Strategy
 > Derived strategy for the original 1993 4X. Race selection, opening theory, tech priorities, ship design through the BattleValue lens, diplomacy, and endgame paths.

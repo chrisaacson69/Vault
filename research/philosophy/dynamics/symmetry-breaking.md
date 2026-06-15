@@ -2,6 +2,8 @@
 status: active
 created: 2026-05-01
 published: true
+layout: layouts/page.njk
+title: "Symmetry Breaking — How Constitutive Features Emerge From Balanced Forces"
 ---
 # Symmetry Breaking — How Constitutive Features Emerge From Balanced Forces
 > If every action has an equal and opposite reaction, why isn't reality stuck at zero? The answer isn't a mysterious origin event — it's that perfect balance is unstable, asymmetric outcomes follow from symmetric forces on asymmetric substrates, and tiny fluctuations get frozen by path-dependence into the load-bearing features later structure builds on. Constitutive features are the crystallized residue of asymmetries that didn't get neutralized in time.

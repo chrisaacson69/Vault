@@ -1,6 +1,9 @@
 ---
 status: spec — not yet implemented
 created: 2026-03-19
+published: true
+layout: layouts/page.njk
+title: "Subgraph Trade Engine — Implementation Spec"
 ---
 # Subgraph Trade Engine — Implementation Spec
 > Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.

@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Debate Prep: \"Free Access of the Press Is Critical to a Healthy, Functioning Democracy\""
+---
 # Debate Prep: "Free Access of the Press Is Critical to a Healthy, Functioning Democracy"
 > Affirmative position — yes, and the principle is deeper than democracy.
 

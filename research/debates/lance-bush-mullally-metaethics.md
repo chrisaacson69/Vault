@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-29
+published: true
+layout: layouts/page.njk
+title: "Lance Bush vs. Ryan Mullally — Moral Realism vs. Global Anti-Realism"
 ---
 # Lance Bush vs. Ryan Mullally — Moral Realism vs. Global Anti-Realism
 > A cordial 3.4-hour metaethics conversation in which a hardline anti-realist concedes a deist's theistic metaethic is genuinely realist — and the real action is that *both men wield the same constitutive/unintelligibility move toward opposite conclusions.*

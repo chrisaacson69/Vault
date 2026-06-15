@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: methodology"
+permalink: /tags/methodology/
+---
 # methodology
 > Files about *how we work* — reusable procedure, process discipline, the craft of running hard projects. Process is craft, not science; these are living playbooks that accrete.
 

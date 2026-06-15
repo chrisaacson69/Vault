@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-18
+published: true
+layout: layouts/page.njk
+title: "The Equation of Exchange and the Transaction Multiplier"
 ---
 # The Equation of Exchange and the Transaction Multiplier
 > MV = PT looks simple. Decompose T through the GDP expenditure identity and the entire monetary transmission mechanism falls out.

@@ -2,6 +2,9 @@
 status: complete
 created: 2026
 published: true
+layout: layouts/page.njk
+title: "Batch Resize"
+permalink: /projects/batch-resize/
 ---
 # Batch Resize
 > CLI tool for batch resizing images with configurable size/scaling modes.

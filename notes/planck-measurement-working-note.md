@@ -1,6 +1,9 @@
 ---
 status: working note — limits of current understanding reached
 created: 2026-03-30
+published: true
+layout: layouts/page.njk
+title: "Planck Measurement — Working Note"
 ---
 # Planck Measurement — Working Note
 > Can you fully measure an object? Explored and partially answered. Needs a physicist to close the loop.

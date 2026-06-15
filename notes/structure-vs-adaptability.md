@@ -1,6 +1,9 @@
 ---
 status: sketch
 created: 2026-04-28
+published: true
+layout: layouts/page.njk
+title: "Structure vs Adaptability"
 ---
 # Structure vs Adaptability
 > Maximum structure (rigid order, total state) and maximum adaptability (anarchy, ancap, no rules) both fail. They fail in opposite ways but at the same point — the elimination of the other pole. "Liberty and justice for all" reveals the tension precisely: the "for all" phrase universalizes both poles simultaneously, which is impossible. Same shape as individual-vs-collective, tradition-vs-progress, universal-vs-particular — all instances of [Opposing Forces](../research/philosophy/dynamics/opposing-forces.md).

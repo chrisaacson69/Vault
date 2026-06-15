@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-06-05
+published: true
+layout: layouts/page.njk
+title: "pygone — moved to its own repo"
+permalink: /projects/pygone/
 ---
 # pygone — moved to its own repo
 

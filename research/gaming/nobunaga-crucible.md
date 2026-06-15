@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-06-08
+published: true
+layout: layouts/page.njk
+title: "Nobunaga's Ambition (NA1) — A Game-Design Crucible"
 ---
 # Nobunaga's Ambition (NA1) — A Game-Design Crucible
 > Reverse-engineering NA1's bytecode VM down to the actual formulas turned a 1980s strategy game into a **ground-truth source** for game-design theses: claims you can *verify against the machine* rather than infer from play. Several generalize well beyond NA1. This page is the index that ties the crucible together — the repo (the RE work), the vault theses it sparked, and the candidates still in the notes.

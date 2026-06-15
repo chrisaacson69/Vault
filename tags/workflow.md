@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: workflow"
+permalink: /tags/workflow/
+---
 # workflow
 > Pages about repeatable processes and pipelines.
 

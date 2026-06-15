@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: compilers"
+permalink: /tags/compilers/
+---
 # compilers
 > Files about how compilers lower source to code, and the inverse (decompilation / structuring).
 

@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "TAG Debunks Atheism — Eli Nicks vs Planet Peterson"
+---
 # TAG Debunks Atheism — Eli Nicks vs Planet Peterson
 > The same TAG argument meets a less-prepared opponent — a case study in what happens without the right counter-tools.
 

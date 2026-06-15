@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-18
+published: true
+layout: layouts/page.njk
+title: "Catan 50-Game Validation — What N=50 Can and Can't Tell Us"
 ---
 # Catan 50-Game Validation — What N=50 Can and Can't Tell Us
 > Proof-of-method run of the [board-frontier theory](./catan-47k-empirical.md#board-as-efficient-frontier--a-prescription-theory-sketch) against the public `lumins/settlers-of-catan-games` dataset (50 four-player games on Kaggle, mirrored on GitHub). Three rounds of analysis. **Round 1 (board archetypes):** aggregate winner-vs-loser bias toward the city engine confirmed; conditional refinement only partially supported. **Round 2 (scorecard correlations):** the trade-efficiency paradox replicates cleanly — tradeNet vs. VP r = −0.31 at N=200, matching Roman's 47k finding; port leverage shows bad-ports-hurt-good-ports-don't-help (12.5% vs. 25% baseline). **Round 3 (production-luck decomposition):** the metric I called "production luck" turns out to be ~80% expansion success and only ~20% RNG. Same board, same dice — players diverge by 2-3× in actual production based on how they expand. Catan is "expansion success on top of position," not "dice variance on top of position." Confirms Roman's "play matters more than the start" qualitatively *and* mechanistically.

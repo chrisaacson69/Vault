@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-23
+published: true
+layout: layouts/page.njk
+title: "Insurance"
 ---
 # Insurance
 > Insurance has exactly one legitimate function — hedging catastrophic, low-probability events. Everything else it does makes things worse.

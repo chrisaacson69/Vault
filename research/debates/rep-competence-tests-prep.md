@@ -1,6 +1,9 @@
 ---
 status: active — live debate prep
 created: 2026-04-20
+published: true
+layout: layouts/page.njk
+title: "Representatives Should Pass Competence Tests to Vote on Legislation"
 ---
 # Representatives Should Pass Competence Tests to Vote on Legislation
 > Prep doc: Chris is arguing **con** in a live debate. Thesis — a competence filter just relocates the power to whoever designs the filter, without fixing the real problem (scope).

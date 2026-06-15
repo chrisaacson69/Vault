@@ -1,3 +1,8 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Debate Prep: The 1st Amendment Should Be Changed to Exclude Hate Speech"
+---
 # Debate Prep: The 1st Amendment Should Be Changed to Exclude Hate Speech
 > Position: NEGATIVE — The 1st amendment should NOT be changed.
 

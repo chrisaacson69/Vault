@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: externalities"
+permalink: /tags/externalities/
+---
 # externalities
 > Files exploring externalities, market failure, and the debate over whether externalities are a distinct category.
 

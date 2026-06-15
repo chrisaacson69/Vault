@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-19
+published: true
+layout: layouts/page.njk
+title: "Wilson on Triggernometry — Christian Nationalism, Force, and \"Because I Said So\""
 ---
 # Wilson on Triggernometry — Christian Nationalism, Force, and "Because I Said So"
 > Wilson packages his full program into one interview. The hosts steelman the center-left and press for grounding. Wilson runs a disciplined internal critique of anti-realism, but the move "your framework can't stop me" does critique work, not positive work — the real pressure belongs on the outcomes claim, which is the only checkable part of his case.

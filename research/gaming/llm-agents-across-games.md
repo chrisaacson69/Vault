@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-19
+published: true
+layout: layouts/page.njk
+title: "LLM Agents Across Strategic Games — A State-Awareness Case Study"
 ---
 # LLM Agents Across Strategic Games — A State-Awareness Case Study
 > Seven multi-LLM games (Monopoly, Diplomacy, Among Us, Mafia ×2, Coup, Catan) + a clones control group. Finds that architectural signatures are stable, verification is a spectrum (hidden pockets concentrate decisive value), state-awareness is the architectural parallel to constitutive realism, and — when language fit is maximal (Catan) — LLMs still exhibit action bias, absent mechanical modeling, and rhetorical contagion that no amount of prose fluency fixes.

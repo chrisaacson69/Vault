@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: civilizational-cycles"
+permalink: /tags/civilizational-cycles/
+---
 # civilizational-cycles
 > Files related to theories of civilizational rise and fall.
 

@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: natural-law"
+permalink: /tags/natural-law/
+---
 # natural-law
 > Files exploring natural law philosophy — morality grounded in human nature and the structure of reality.
 

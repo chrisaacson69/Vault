@@ -1,6 +1,9 @@
 ---
 status: sketch
 created: 2026-04-23
+published: true
+layout: layouts/page.njk
+title: "Directional Truth and the Discrete Trap"
 ---
 # Directional Truth and the Discrete Trap
 > We want discrete destinations ("no government") when reality only supports directional vectors ("less government"). The discrete framing overshoots the actual truth AND triggers the opposing force. Movements need a banner to rally around, so directional insights get packaged as destinations; the destinations are almost always false even when the directions are right.

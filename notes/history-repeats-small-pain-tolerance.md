@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-31
+published: true
+layout: layouts/page.njk
+title: "History Repeats — The Small-Pain-Tolerance Variable"
 ---
 # History Repeats — The Small-Pain-Tolerance Variable
 > One variable sits under the legal ratchet, the fiscal ratchet, medical triage, and the civilizational cycle: **a culture's tolerance for small, present, chosen loss.** Avoiding small pains doesn't cancel them — it converts a cheap *option* into an expensive *obligation*, deferred onto people who get no vote. (sketch, meta-musing — the parent of [Originalism and the Limiting Document](../research/originalism-and-the-limiting-document.md))

@@ -1,6 +1,9 @@
 ---
 status: sketch
 created: 2026-04-28
+published: true
+layout: layouts/page.njk
+title: "Convergence Is a Process, Not a Destination"
 ---
 # Convergence Is a Process, Not a Destination
 > Two-axis tradeoffs (happiness vs longevity, consumption vs investment) don't have a stance-independent optimum — only viable distributions of preferences whose holders don't destroy themselves over time. The Platonic move is to find THE answer; the Aristotelian move is to find a *process* that keeps multiple answers viable. Markets fit the second move; democracy bets on the first. Adaptability is the meta-metric that picks among candidate processes — and it picks differently than the substantive metric does.

@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-13
+published: true
+layout: layouts/page.njk
+title: "Optimal Money Supply Growth Through Profit and Loss Amplification"
 ---
 # Optimal Money Supply Growth Through Profit and Loss Amplification
 > He correctly identifies the Cantillon effect, then proposes to fix it by building a central planner that hands new money to whoever it deems productive.

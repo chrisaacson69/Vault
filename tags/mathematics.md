@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: mathematics"
+permalink: /tags/mathematics/
+---
 # mathematics
 > Files exploring the philosophy and foundations of mathematics.
 

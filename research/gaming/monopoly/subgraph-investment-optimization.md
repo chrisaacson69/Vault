@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-03-17
+published: true
+layout: layouts/page.njk
+title: "Subgraph Investment Optimization"
 ---
 # Subgraph Investment Optimization
 > Given the portion of the investment graph you actually own, find the tractable paths forward.

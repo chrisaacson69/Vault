@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-02-25
+published: true
+layout: layouts/page.njk
+title: "Online Debates"
+permalink: /research/debates/
 ---
 # Online Debates
 > Analysis of online "bloodsports" debates — extracting signal from spectacle.

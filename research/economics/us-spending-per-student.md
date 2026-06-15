@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-24
+published: true
+layout: layouts/page.njk
+title: "US Real Spending Per Student Over Time"
 ---
 # US Real Spending Per Student Over Time
 > Inflation-adjusted K-12 per-pupil expenditure in the United States, verified across multiple federal and independent sources.

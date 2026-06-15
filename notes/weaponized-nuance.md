@@ -1,6 +1,9 @@
 ---
 status: sketch
 created: 2026-04-23
+published: true
+layout: layouts/page.njk
+title: "Weaponized Nuance — \"It's Nuance, Bro\""
 ---
 # Weaponized Nuance — "It's Nuance, Bro"
 > The rhetorical move of invoking context-dependence to refuse any specific commitment. Exploits a legitimate feature of truth claims — that some are genuinely scope- or circumstance-dependent — to prevent any claim from being affirmed at all. The move is not technically invalid; it weaponizes a limitation of logic (no two instances are perfectly identical) to defeat generalization. In practice, the speaker comes across as dishonest because their outputs have no informational content anyone can act on. The internet shorthand for this is *"it's nuance, bro"* — used to dismiss evidence-based claims by gesturing at unspecified complications.

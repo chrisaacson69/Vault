@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-03-13
+published: true
+layout: layouts/page.njk
+title: "Understanding Value/Utility Using General Evolutionary Game Theory"
 ---
 # Understanding Value/Utility Using General Evolutionary Game Theory
 > He hides subjectivity inside the game definition, declares the payoffs objective, and invents a god called the Perfect Evolutionary Being.

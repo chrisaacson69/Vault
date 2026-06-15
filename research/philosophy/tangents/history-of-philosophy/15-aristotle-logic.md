@@ -1,6 +1,9 @@
 ---
 status: complete
 created: 2026-04-15
+published: true
+layout: layouts/page.njk
+title: "Episode 15: Aristotle — The Father of Logic"
 ---
 # Episode 15: Aristotle — The Father of Logic
 > Aristotle discovers the syllogism, establishes that knowledge requires axioms (no infinite regress), enunciates the laws of logic as laws of "being qua being," and devises the technique of reaffirmation through denial to silence the skeptic who denies them.

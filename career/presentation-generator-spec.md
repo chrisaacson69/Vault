@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-04-15
+published: true
+layout: layouts/page.njk
+title: "Live Presentation Generator — Technical Spec"
 ---
 # Live Presentation Generator — Technical Spec
 > Type a prompt during a live interview, watch the slideshow appear. The generation IS the presentation.

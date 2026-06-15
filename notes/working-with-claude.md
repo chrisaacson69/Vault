@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-20
+published: true
+layout: layouts/page.njk
+title: "Working With Claude — Setup, Tools, and Workflow"
 ---
 # Working With Claude — Setup, Tools, and Workflow
 > Accumulated tips for working with Claude across devices and interfaces. Read this at the start of each session for context.

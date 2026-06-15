@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-29
+published: true
+layout: layouts/page.njk
+title: "The Context Cache Hierarchy — Memory Layers, Eviction, and Drift"
 ---
 # The Context Cache Hierarchy — Memory Layers, Eviction, and Drift
 > Claude Code's memory layers map cleanly onto a CPU cache hierarchy. A cache works because it has an eviction policy. This memory system has a promotion path and no eviction path — which is exactly where the drift comes from.

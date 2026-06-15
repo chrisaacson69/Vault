@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-17
+published: true
+layout: layouts/page.njk
+title: "Energy-Based Models — The Named Middle Layer"
 ---
 # Energy-Based Models — The Named Middle Layer
 > Energy-based models (EBMs) score whole *states* by how well they satisfy a set of constraints — low energy means the state fits, high energy means something is wrong. That makes reasoning into constraint optimization over a landscape rather than next-token prediction over a sequence. Logical Intelligence's Aleph generated Lean-checked proofs for **668/672 PutnamBench problems (99.4%)** and hits 100% on Verina. Combined with a formal verifier, EBMs supply the *general-purpose validation layer* the planner-LM composite architecture had been treating as a generic "planner." The vault's three-layer prescription — LM for communication, planner/EBM for constraint-heavy reasoning, formal verifier for ground truth — is now a named architecture with public benchmarks, and Yann LeCun's JEPA program is arriving at the same place from a different direction.

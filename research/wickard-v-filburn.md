@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-31
+published: true
+layout: layouts/page.njk
+title: "Wickard v. Filburn — The Decision That Ate the Enumerated Powers"
 ---
 # Wickard v. Filburn — The Decision That Ate the Enumerated Powers
 > A man was fined for growing wheat to feed his own animals. To get there, a unanimous Court read "commerce... among the several States" to mean "anything that, summed across everyone, affects the national economy." It is the high-water mark of atextual outcome-engineering — and the methodological sibling of *Trump v. Anderson*.

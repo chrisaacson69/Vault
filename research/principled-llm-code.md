@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-05-29
+published: true
+layout: layouts/page.njk
+title: "Practicality vs. Precision — Legacy Slop and Principled LLM Code"
 ---
 # Practicality vs. Precision — Legacy Slop and Principled LLM Code
 > Software has always traded correctness for shippability, and the slop fossilizes. LLMs trained on that corpus inherit the median. But the LLM also collapses the cost of refactoring — which, for the first time in 35 years, threatens the economics that made "worse" win.

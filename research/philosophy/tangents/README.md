@@ -1,6 +1,10 @@
 ---
 status: active
 created: 2026-04-21
+published: true
+layout: layouts/page.njk
+title: "Philosophy — Tangents"
+permalink: /research/philosophy/tangents/
 ---
 # Philosophy — Tangents
 > Pages that don't fit any single trunk of the vault's philosophy but are worth keeping: surveys, author-specific analyses, and meta-rhetoric.

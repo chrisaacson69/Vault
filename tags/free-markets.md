@@ -1,3 +1,9 @@
+---
+published: true
+layout: layouts/page.njk
+title: "Tag: free-markets"
+permalink: /tags/free-markets/
+---
 # free-markets
 > Files related to free market theory, market efficiency, and the price mechanism.
 

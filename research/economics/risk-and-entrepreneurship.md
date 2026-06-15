@@ -1,6 +1,9 @@
 ---
 status: active
 created: 2026-02-12
+published: true
+layout: layouts/page.njk
+title: "Risk and Entrepreneurship"
 ---
 # Risk and Entrepreneurship
 > A business is a repeatable value engine — but every engine runs on bets. Profit is the reward for bearing risk correctly. Loss is the cost of guessing wrong.

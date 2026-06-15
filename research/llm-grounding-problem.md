@@ -2,6 +2,8 @@
 status: active
 created: 2026-02-12
 published: true
+layout: layouts/page.njk
+title: "The LLM Grounding Problem"
 ---
 # The LLM Grounding Problem
 > LLMs live in the text world. Everything — physical presence, spatial relationships, direct experience — gets flattened into tokens. A well-constructed argument can outweigh a lived reality.

@@ -2,6 +2,9 @@
 status: reference
 created: 2026-02-02
 published: true
+layout: layouts/page.njk
+title: "PyTorch Learning"
+permalink: /projects/pytorch-learning/
 ---
 # PyTorch Learning
 > Structured tutorial series through PyTorch fundamentals — tensors to trained models.
