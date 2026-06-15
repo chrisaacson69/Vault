@@ -65,8 +65,8 @@ The principles aren't new news — they're external validation of choices alread
 **The vault's tell:** `shared/video-extract.md` described SRT cleaning as a 5-step procedure that Claude executed ad-hoc, regenerating inline Node code every ingest. In the 2026-05-17 session this happened *three times* across three video ingests — same logic, three stochastic regenerations.
 
 **The fix (applied 2026-05-17):**
-- [`.claude/shared/scripts/clean-srt.js`](../.claude/shared/scripts/clean-srt.js) — strips sequence numbers, timestamps, consecutive duplicates; emits flat transcript
-- [`.claude/shared/scripts/yt-meta.js`](../.claude/shared/scripts/yt-meta.js) — extracts the fields actually used from yt-dlp's `info.json` (title, channel, duration, upload_date, view_count, truncated description)
+- `.claude/shared/scripts/clean-srt.js` — strips sequence numbers, timestamps, consecutive duplicates; emits flat transcript
+- `.claude/shared/scripts/yt-meta.js` — extracts the fields actually used from yt-dlp's `info.json` (title, channel, duration, upload_date, view_count, truncated description)
 - `shared/video-extract.md` updated to point at both scripts instead of describing the procedure
 
 Invocation is now `node .claude/shared/scripts/clean-srt.js <in> <out>` and `node .claude/shared/scripts/yt-meta.js <info.json>`. Deterministic, cheap, repeatable. **This is the unified thesis applied to itself** — the skill's tool layer is now actual saved tools, not regenerated prompt fragments.
@@ -128,7 +128,7 @@ The reason these patterns work is the same reason the vault works at the *knowle
 
 The two architectures rhyme because they're solving the same problem: *how does a generative system maintain a body of competence that grows monotonically across sessions instead of resetting each time?* Both answer with structured markdown and pointer-based composition. The skill architecture is the vault architecture applied to procedure instead of knowledge.
 
-This page completes the symmetry: the vault has explicit guidance for creating pages ([vault-page.md](../.claude/shared/vault-page.md), [vault-sync](../.claude/skills/vault-sync/SKILL.md)). Now it has the symmetric guidance for creating skills.
+This page completes the symmetry: the vault has explicit guidance for creating pages (vault-page.md, vault-sync). Now it has the symmetric guidance for creating skills.
 
 ### The deeper unification — drift is re-derivation
 
@@ -157,7 +157,7 @@ Pocock organizes his catalog around four failure modes of AI coding agents. They
 | **Misalignment** — "no one knows exactly what they want; communication gap between user and agent" → fix with `/grill-me` (friction applied to *you*) | [LLM grounding](../research/llm-grounding-problem.md) at the requirements layer — the agent renders fluent code against an unverified spec; grilling forces the spec to be grounded before code generation. |
 | **Verbosity** — "agent uses 20 words where 1 will do; no shared language" → fix with `CONTEXT.md` per project (domain glossary) | The vault is this pattern at the Chris↔Claude relationship scale. CONTEXT.md is per-repo; the vault is per-collaborator. Same architectural move at different scales — see [CONTEXT.md ↔ vault parallel](#contextmd-↔-vault-parallel-same-pattern-two-scales) below. |
 | **Code doesn't work** — "no feedback loop; agent flying blind" → fix with `/tdd` (red-green-refactor, vertical slices) and `/diagnose` (six-phase debugging) | Direct application of the [planner-LM composite](../research/planner-lm-composites.md) principle: proposer separated from verifier. Tests are the verifier; the LLM is the proposer; the *vertical slice* forces them to alternate per iteration instead of fusing. |
-| **Ball of mud** — "agents accelerate software entropy" → fix with `/improve-codebase-architecture`, `/zoom-out` | This is the [vault-heartbeat](../.claude/skills/vault-heartbeat/SKILL.md) pattern at the codebase layer — periodic structural review against drift. The vault has this for knowledge; Pocock has it for code. |
+| **Ball of mud** — "agents accelerate software entropy" → fix with `/improve-codebase-architecture`, `/zoom-out` | This is the vault-heartbeat pattern at the codebase layer — periodic structural review against drift. The vault has this for knowledge; Pocock has it for code. |
 
 The convergence is the takeaway: failure modes of AI-assisted work are *the same failure modes* whether the work is code or knowledge management. The fixes have the same shape — separate proposer from verifier, accumulate shared language, build feedback loops, audit structure periodically. The architecture is the answer in both domains.
 

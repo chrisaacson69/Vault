@@ -247,7 +247,7 @@ Three directions, ordered by ROI:
 
 - **[Catan 47k page](./catan-47k-empirical.md)** — the framing this exercise was meant to validate. Updated cross-reference: the theory's strong form (clean archetype-conditional split) is **not** supported at N=50; a refined form (universal city-engine bias + layered archetype effect) is consistent with the data and is the working hypothesis.
 - **[Frontier Trade Theory (Monopoly)](./monopoly/frontier-trade-theory.md)** — the right place for further validation; full data access.
-- **[Catan data landscape (memory)](../../../.claude/projects/C--Users-Chris-Isaacson-Vault/memory/reference_catan_data_landscape.md)** — the public-data audit that motivated this proof-of-method.
+- **Catan data landscape (memory)** — the public-data audit that motivated this proof-of-method.
 
 ## Tags
 

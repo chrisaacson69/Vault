@@ -244,7 +244,7 @@ permalink: /INDEX/
 - [History Repeats — The Small-Pain-Tolerance Variable](./notes/history-repeats-small-pain-tolerance.md) — one variable under the legal ratchet, the fiscal ratchet, medical triage, and civ-decline: a culture's tolerance for small, present, chosen loss. Avoidance converts a cheap *correction-option* into an expensive *obligation* deferred onto people with no vote; behaves like addiction (tolerance / withdrawal-dread feedback / enabler incentive); never self-tames because the loop never closes on the actor (Bastiat's unseen across time; Burke's contract of living/dead/unborn). Worked examples: healthcare "suicidal empathy" (Bastiat + Mises calculation + voluntary-not-forced) and deficit/inflation/affordability. Prescription: recover pain-bearing *cultural technology* (Stoic/religious/memento-mori) — mechanisms are the savings account, pain-tolerance is the income. Sketch parent of the originalism/ratchet keystone (sketch, meta-musing)
 
 ## Tasks & Goals
-- [Active Tasks](./tasks/active.md)
+- Active Tasks
 
 ## Raw Sources
 - `./raw/debates/` — debate and panel transcripts (19 files)

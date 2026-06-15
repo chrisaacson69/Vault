@@ -137,7 +137,7 @@ This remains an open problem.
 1. **Is the ratchet stoppable or only delayable?** If the Gödel governance problem is structural, then all governance systems decay — the only variable is rate. Does the vault accept this, and if so, what follows?
 2. **Can constitutional friction be made self-reinforcing?** The amendment process was supposed to be nearly impossible. It was bypassed through judicial interpretation and regulatory expansion instead. Is there a friction structure that resists *all* modes of erosion, not just the formal one?
 3. **Is the 5% → 40% GDP ratchet primarily a suffrage problem, a constitutional erosion problem, or an economic complexity problem?** The speaker attributes it to suffrage. The vault leans toward constitutional erosion. But increasing economic complexity (requiring more coordination infrastructure) may be a third independent factor.
-4. **What does "small government" actually mean?** The vault uses the term without defining it. It probably means: *government whose scope is constrained to what passes the principled gate*. But the principled gate itself needs formal criteria — and those criteria are the [scope legitimacy criteria](../../tasks/active.md) still on the todo list.
+4. **What does "small government" actually mean?** The vault uses the term without defining it. It probably means: *government whose scope is constrained to what passes the principled gate*. But the principled gate itself needs formal criteria — and those criteria are the scope legitimacy criteria still on the todo list.
 
 ---
 

@@ -249,7 +249,7 @@ The workarounds are always the same family of strategies:
 
 **The key insight:** None of these solve the problem. They manage it. The hacker will always beat the system — and yet we still need locks. Tests can never cover all inputs — and yet we still have to test. The constitution will always contain the tools for its own subversion — and yet we still write constitutions. The "and yet" is the entire point. The value of an incomplete system is not that it's complete — it's that it's better than nothing, and it compounds over time.
 
-This is the vault's position on morality ([probabilistic heuristics](../morality/README.md)), on governance ([friction structures](../morality/legal-theory/government-formation.md)), on security ([Claude Mythos](../../claude-opus-4-6.md) finding 27-year-old bugs proves the incompleteness is permanent), and on the vault itself ([`/vault-heartbeat`](../../../.claude/skills/vault-heartbeat/SKILL.md) can never find all broken links — and yet we still run it).
+This is the vault's position on morality ([probabilistic heuristics](../morality/README.md)), on governance ([friction structures](../morality/legal-theory/government-formation.md)), on security ([Claude Mythos](../../claude-opus-4-6.md) finding 27-year-old bugs proves the incompleteness is permanent), and on the vault itself (`/vault-heartbeat` can never find all broken links — and yet we still run it).
 
 ## Tags
 [philosophy](../../../tags/philosophy.md), [libertarian-law](../../../tags/libertarian-law.md), [morality](../../../tags/morality.md), [mathematics](../../../tags/mathematics.md), [economics](../../../tags/economics.md)

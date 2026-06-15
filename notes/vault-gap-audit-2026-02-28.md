@@ -8,7 +8,7 @@ title: "Vault Gap Audit — 2026-02-28"
 # Vault Gap Audit — 2026-02-28
 > Comprehensive audit of holes, stubs, underdeveloped arguments, missing cross-links, and implied-but-unwritten topics across the vault.
 
-**Links:** [INDEX](../INDEX.md), [Active Tasks](../tasks/active.md)
+**Links:** [INDEX](../INDEX.md), Active Tasks
 
 ## Summary
 
@@ -126,7 +126,7 @@ These are topics the vault's own files explicitly call for but that haven't been
 | [computation-and-information.md](../research/computation-and-information.md) | [opposing-forces.md](../research/philosophy/dynamics/opposing-forces.md) | Computational irreducibility is one of the candidate explanations for opposing forces |
 
 ### 4.2 Empty Tasks File
-- **File:** [tasks/active.md](../tasks/active.md)
+- **File:** tasks/active.md
 - **Problem:** In-progress and up-next sections are empty despite 20+ open questions and planned topics across the vault. The task file should reflect the vault's actual research agenda.
 
 ### 4.3 Empty Logs Directory
