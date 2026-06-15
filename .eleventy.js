@@ -91,7 +91,12 @@ module.exports = function(eleventyConfig) {
       includes: "_includes",
       data: "_data"
     },
-    markdownTemplateEngine: "njk",
+    // Markdown bodies are NOT run through Nunjucks: Obsidian/Dataview syntax
+    // ({{ }} / {% %}, literal braces, code examples) renders literally instead
+    // of breaking the build. Layouts (njk) and the resolveMdLinks transform are
+    // unaffected. (Was "njk" — see the per-file templateEngineOverride hack we
+    // could then drop.)
+    markdownTemplateEngine: false,
     htmlTemplateEngine: "njk",
     templateFormats: ["md", "njk", "html"],
     // Root locally; /Vault/ on GitHub Pages (set via PATH_PREFIX env var in the deploy workflow).
