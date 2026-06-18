@@ -8,7 +8,7 @@ title: "Randomness as the Termination Mechanism for N≥3 Strategy Games"
 # Randomness as the Termination Mechanism for N≥3 Strategy Games
 > In a strategy game with **N ≥ 3 players, full attack interaction, and public state**, the deterministic equilibrium is *gang-up-on-the-leader* — coalitions form to suppress whoever's ahead, compressing everyone back to parity, forever. The game theoretically **never ends**. **Randomness is what lets it terminate at all** — the kill switch on the dogpile equilibrium, not a flaw. So "random elements ruined the strategy" usually misreads what the randomness is *for*.
 
-**Links:** [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) (the gang-up equilibrium this terminates), [Bilateral Trade Valuation](./bilateral-trade-valuation.md), [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md)
+**Links:** [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) (the gang-up equilibrium this terminates), [Bilateral Trade Valuation](./bilateral-trade-valuation.md), [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md), [Battleship — 30 Billion Boards](./battleship-board-analysis.md) (the **N=2 contrast case** — zero-sum, so a clean computable minimax equilibrium *does* exist, exactly the regime that breaks once N≥3)
 
 > A **thesis page** (portable, source-independent), promoted from a working note. NA1 is its canonical worked specimen; Catan and Diplomacy are its confirming/contrasting cases.
 

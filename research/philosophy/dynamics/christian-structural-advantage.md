@@ -8,7 +8,7 @@ title: "Did Christian Societies Actually Outperform? — The Comparative-Outcome
 # Did Christian Societies Actually Outperform? — The Comparative-Outcomes Question
 > The one un-defused claim left by the [Wilson force-doctrine cluster](../../debates/wilson-atheists-benefit-christian-society.md): "Christian ethics produces the best outcomes even for non-Christians — even when corrupted." This page does *not* answer it. It frames it so the eventual empirics are clean — naming the metric, the confounds, and the mechanisms that would have to be isolated before any "Christianity → flourishing" story is more than just-so history.
 
-**Links:** [Do Atheists Benefit from a Christian Society?](../../debates/wilson-atheists-benefit-christian-society.md) (the debate this residue falls out of), [Force Doctrine — The Theory](../morality/force-doctrine.md), [Wilson on Triggernometry](../../debates/wilson-triggernometry-christian-nationalism.md), [religion as wisdom-compression](../../../notes/words-of-wisdom.md)
+**Links:** [Do Atheists Benefit from a Christian Society?](../../debates/wilson-atheists-benefit-christian-society.md) (the debate this residue falls out of), [Force Doctrine — The Theory](../morality/force-doctrine.md), [Wilson on Triggernometry](../../debates/wilson-triggernometry-christian-nationalism.md), [religion as wisdom-compression](../../../notes/words-of-wisdom.md), [The Theory of the Firm and the Optimal Scale of Collectives](../../economics/theory-of-the-firm.md) (the foundation under this page's decentralization verdict — *why* fragmentation beat unified empire), [The Unreplaced Event](./unreplaced-event.md) (reuses this page's confound wall to drain the "negative myth → civilizational decline" claim)
 
 ---
 

@@ -40,6 +40,7 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 - [Gunboat Diplomacy and Diplodocus](./gunboat-diplomacy-diplodocus.md) — Meta's Gunboat-only AI won a tournament against expert humans with no language model; moves as costly signals; the Denmark disband; the sharpest available confirmation of the planner-LM composite thesis
 - [CaptainMeme vs. 6 Cicero (Press Diplomacy)](./cicero-press-diplomacy-captain-meme.md) — expert human ties Cicero for board top; the human/AI split observations (no grudge, forward-looking pure, intent-appeals fail); the N≥3 self-balancing advantage of forward-looking-pure agents
 - [D&D Spell Damage Model](./dnd-spell-damage-model.md) — using CLT, proof by induction, and bimodal distributions to build a spell comparison metric; same instinct as BattleValue, different game
+- [Battleship — 30 Billion Boards](./battleship-board-analysis.md) — *(specimen)* a closed-form proof that **structure creates norms** ([symmetry-breaking](../philosophy/dynamics/symmetry-breaking.md) with the substrate fully enumerated): uniform randomness on the asymmetric grid → forced optimal play; the minimax placement result is the sharpest *conditional ≠ arbitrary* case; NA1 is the epistemic twin; game-theory mechanism = deep best-response half vs flat minimax half
 
 ### Monopoly Theory — [monopoly/](./monopoly/)
 - [Subgraph Investment Optimization](./monopoly/subgraph-investment-optimization.md) — build-vs-trade decision via Pareto dominance, graph matching, dynamic programming on reachable states

@@ -83,3 +83,4 @@ permalink: /tags/economics/
 - [The Weighting Problem](../research/philosophy/epistemology/weighting-problem.md) — Objective measurements do not produce objective composite judgments.
 - [Triangular Arbitrage — Currency & Crypto Market Differentials](../projects/triangular-arbitrage/README.md) — Can we exploit differentials in cross-rates for profit? Math says yes.
 - [Vault Gap Audit — 2026-02-28](../notes/vault-gap-audit-2026-02-28.md) — Comprehensive audit of holes, stubs, underdeveloped arguments, missing cross-links, and implied-but-unwritten topics across the vault.
+- [The Theory of the Firm and the Optimal Scale of Collectives](../research/economics/theory-of-the-firm.md) — Coase's firm boundary generalized to all collectives (firm→nation→empire); optimal scale not maximal; the inward/outward pressures = the doctrine-of-the-mean basin; decentralization as the validated verdict; pre-political (no scale is terminal)

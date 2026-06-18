@@ -26,6 +26,7 @@ Every concentration of power generates counter-forces. Every governing system fa
 - [Press Freedom and Governance](./press-freedom-and-governance.md) — pre-commitment enforcement and the observation problem
 - [Newcomb's Paradox](./newcombs-paradox.md) — pre-commitment, decision theory, agent type
 - [Civilizational Cycles](./civilizational-cycles/README.md) — trunk 4 at civilizational timescales; Ibn Khaldun, Spengler, Toynbee, Turchin, Tainter, Hayek
+- [The Unreplaced Event — Why the West Still Runs on World War II](./unreplaced-event.md) — WWII as the post-war West's foundational frame; why it persists 80 years (load-bearing substrate, no successor, thick carrier, the equilibrium-sacred of a plural polity); the mis-encoding (total state stored as nationalism); why it underlies the political divide; the apocalyptic "myth → decline" layer drained on the confound wall
 
 ## Neighboring trunks
 

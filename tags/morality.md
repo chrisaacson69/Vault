@@ -60,3 +60,4 @@ permalink: /tags/morality/
 - [The Technology-Governance Gap](../research/philosophy/dynamics/technology-governance-gap.md) — When the systems we build exceed our ability to understand them, who governs?
 - [The Weighting Problem](../research/philosophy/epistemology/weighting-problem.md) — Objective measurements do not produce objective composite judgments.
 - [Vault Gap Audit — 2026-02-28](../notes/vault-gap-audit-2026-02-28.md) — Comprehensive audit of holes, stubs, underdeveloped arguments, missing cross-links, and implied-but-unwritten topics across the vault.
+- [Battleship — 30 Billion Boards](../research/gaming/battleship-board-analysis.md) — constitutive/elective falls out exactly (be max-entropy = constitutive; which board = elective); structure→norms proof with the telos boundary kept honest (selection supplies the goal the game stipulates)

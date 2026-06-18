@@ -26,3 +26,4 @@ permalink: /tags/strategy/
 - [Catan 50-Game Validation](../research/gaming/catan-50-games-validation.md) — small-N proof-of-method; refined theory of "universal city-engine bias + layered archetype effect"
 - [Efficient Frontier Trade Theory](../research/gaming/monopoly/frontier-trade-theory.md) — Using EPT frontier curves to solve the 3+ player trade valuation problem — reducing the permutation space through structural truths about development velocity and game horizon.
 - [Subgraph Trade Engine — Implementation Spec](../research/gaming/monopoly/subgraph-trade-engine-spec.md) — Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.
+- [Battleship — 30 Billion Boards](../research/gaming/battleship-board-analysis.md) — greedy guessing (center-out, spread, post-hit direction heuristic) beats a typical human 86%; placement barely beats random

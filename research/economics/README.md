@@ -54,6 +54,7 @@ The price system's advantages are structural, not incidental: massive parallelis
 - [K-12 Instruction vs. Administration Spending](./k12-instruction-vs-administration.md) — breakdown of where school dollars go: instruction, administration, support services, staffing trends, and what actually drives cost growth
 
 ### Theory
+- [The Theory of the Firm and the Optimal Scale of Collectives](./theory-of-the-firm.md) — Coase's firm boundary (internal vs market transaction cost) generalized to every collective: firm → nation (Alesina-Spolaore) → empire. Optimal scale, not maximal; the inward/outward pressures are the doctrine-of-the-mean basin (symmetry-breaking); validated by christian-advantage's decentralization verdict. Pre-political: no scale is terminal, subsidiarity, the optimum moves with transaction-cost technology
 - [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md) — the market gives society what it wants, but humans may not be smart enough to be good market participants; supply-and-demand analysis failures; GDP per capita as the real measure
 - [Externalities: Fact-Check of the Decomposition Thesis](./externalities-fact-check.md) — do externalities decompose into information and coercion problems, or are they a genuine third category? Sourced review of Coase, Dahlman, Rothbard, Block, Winston
 

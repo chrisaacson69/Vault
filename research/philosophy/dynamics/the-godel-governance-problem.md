@@ -8,7 +8,7 @@ title: "The Godel Governance Problem"
 # The Godel Governance Problem
 > Can a system be powerful enough to prevent monopoly without becoming one?
 
-**Links:** [Gödel's Incompleteness Theorems](../logic-and-math/godel-incompleteness.md), [Opposing Forces](./opposing-forces.md), [Government Formation](../morality/legal-theory/government-formation.md), [Scope Confusion](../morality/scope-confusion.md), [Civilizational Cycles](./civilizational-cycles/README.md), [Registration and Scope Creep](../morality/legal-theory/registration-and-scope-creep.md), [Morality](../morality/README.md), [Computation and Information Theory](../../computation-and-information.md), [New Cycle (fiction project)](../../../projects/new-cycle/README.md), [The End of the End of History (Yarvin x Starkey)](../../debates/yarvin-starkey-end-of-history.md)
+**Links:** [Gödel's Incompleteness Theorems](../logic-and-math/godel-incompleteness.md), [Opposing Forces](./opposing-forces.md), [Government Formation](../morality/legal-theory/government-formation.md), [Scope Confusion](../morality/scope-confusion.md), [Civilizational Cycles](./civilizational-cycles/README.md), [Registration and Scope Creep](../morality/legal-theory/registration-and-scope-creep.md), [Morality](../morality/README.md), [Computation and Information Theory](../../computation-and-information.md), [New Cycle (fiction project)](../../../projects/new-cycle/README.md), [The End of the End of History (Yarvin x Starkey)](../../debates/yarvin-starkey-end-of-history.md), [The Theory of the Firm and the Optimal Scale of Collectives](../../economics/theory-of-the-firm.md) (a monopoly is a collective past its optimal size whose outward pressure has been suppressed)
 
 ## The Problem
 

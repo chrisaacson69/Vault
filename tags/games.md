@@ -37,3 +37,4 @@ permalink: /tags/games/
 - [Bilateral Trade Valuation](../research/gaming/bilateral-trade-valuation.md) — A trade's value isn't what you get — it's where both players end up 20 turns later.
 - [Game Annotation Series — moved to standalone repos](../projects/game-annotation/README.md)
 - [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md) — Given the portion of the investment graph you actually own, find the tractable paths forward.
+- [Battleship — 30 Billion Boards](../research/gaming/battleship-board-analysis.md) — the best-response-vs-minimax split: guessing is deep (exploit a fixed prior, 86% win), placement is flat (minimax → random ≈ optimal)
