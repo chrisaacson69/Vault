@@ -245,6 +245,7 @@ The Agrippa impasse isn't just an academic puzzle. It shows up practically:
 The [constitutive/elective framework](../philosophy/morality/constitutive-elective.md) is the vocabulary that makes the performative escape communicable. Without it, you end up like Kylie — right intuition, can't land it.
 
 ## Vault Connections
+- [The Regress Problem](../../research/philosophy/epistemology/the-regress-problem.md) — **canonical statement** of the trilemma and the two exits; this debate page is its specimen / deployment guide
 - [Logic and Mathematics](../../research/philosophy/logic-and-math/README.md) — structural realism, axioms as maps not territory
 - [Morality Framework](../../research/philosophy/morality/README.md) — probabilistic heuristics, building from assumed foundations
 - [Scope Confusion](../../research/philosophy/morality/scope-confusion.md) — conflating foundational justification with practical evaluation

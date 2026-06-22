@@ -2,6 +2,21 @@
 
 This is Chris's personal vault for tracking projects, research, notes, tasks, goals, and logs.
 
+## Grounding Discipline — Read First (non-negotiable)
+
+Chris's #1 standing rule: **never fabricate, and never rebuild what already exists. When grounding is missing, go find it or ask — do not fill the gap with an assumption.** Fabrication has two masks; both are forbidden:
+
+1. **Inventing a fact** instead of asking for clarity. If you're uncertain, the goal is ambiguous, or you're missing context — *ask*, or surface the gap explicitly. Do not paper over it with a confident guess. (A failed or empty tool result is not data — verify with a second tool before acting on it.)
+2. **Building from scratch** instead of reusing/converting a grounded artifact that already exists. Before writing anything new (a sim, a parser, a table, a generator), check whether decompiled source, an existing tool, or a prior artifact already answers the question or can be *converted* into the answer. Reuse/convert beats rebuild — a rebuild is an *unverified* new artifact; a conversion is *cross-checked* against its source.
+
+**Why this matters (the payoff, not just the prohibition):** every grounded artifact you reuse or mint is simultaneously a verifier (Layer 2) and a piece of the environment (Layer 3). Converting NA1's decompiled source instead of rebuilding a sim gave output that was *both* bytecode-verified and sim-verified — mutually-confirming oracles — and left behind a new standing source of truth that answers future questions by reading, not just by running. Each artifact is another way to triangulate truth, so drift has fewer places to hide.
+
+Most of this rule cannot be enforced by a hook (there's no enforcement point for "felt uncertain"), so it lives here as a hard request — and the structural cure is to keep grounded context reachable so reuse is always the cheap, obvious path. See [The Three-Layer Method](./research/karpathy-three-layer-method.md). **The one mechanically-enforceable sub-rule IS now enforced:** a `PreToolUse` hook (`.claude/hooks/protect-raw.js`) blocks any Edit/overwrite of an existing file under `raw/` (creating new captures is still allowed). raw-immutability is a *rule*, not a request.
+
+**Reuse requires findability — protect the meta-tool.** The cure above only works if you can *find* the existing artifact, so the routing layer (the index/hierarchy) is the precondition for everything else. The discipline: keep the index in context (INDEX.md for pages, MEMORY.md for facts, project READMEs/CONTEXT for tools), and dig for specifics on demand — don't load everything. Adding capability is not "append a file": it is *integrate* — register it in the index (rules 1, 4, 5 below) and evict or supersede what it replaces, so nothing gets silently shadowed. Append-without-eviction rots the tool bank exactly the way it rots memory: the old becomes unfindable, then forgotten, then rebuilt. **Before creating or testing new tools, verify the meta-tool model still routes cleanly to what already exists.**
+
+**External repos — resolve by logical name, never hardcode paths.** The vault is portable (committed, syncs across machines); absolute local paths are not. So committed pages refer to external repos by **logical name + GitHub URL** (portable identity) and by the **relative sibling convention** `../<name>` (works when repos are cloned side-by-side). The **absolute local path on this machine** is resolved via [`.claude/local-paths.md`](./.claude/local-paths.md) — a per-machine, gitignored resolver table. When you need an external repo's files, look its logical name up there; if it's missing, *ask* — don't guess a path. Never commit an absolute `C:\…` path into a vault page (several are `published: true` and go to the public site).
+
 ## System Design
 
 This vault uses a folder structure with **cross-linking** to function as a knowledge network rather than a strict hierarchy. Every file can link to any other file using relative markdown links.
@@ -47,7 +62,7 @@ The `raw/` folder holds unprocessed source material — Web Clipper articles, PD
 5. **Update tag indexes** — ensure tag files have back-links for any new pages.
 6. **Log the ingest** — note what was processed and what pages were created/updated.
 
-A single raw source may touch 5-15 wiki pages. The raw file itself is never modified — it's the source of truth.
+A single raw source may touch 5-15 wiki pages. The raw file itself is never modified — it's the source of truth. **This is enforced**, not just convention: a `PreToolUse` hook blocks edits/overwrites to existing files under `raw/` (new files are allowed — that's capture). See the Grounding Discipline section above.
 
 ### How Claude Should Work With This Vault
 
@@ -55,7 +70,7 @@ A single raw source may touch 5-15 wiki pages. The raw file itself is never modi
 2. **Cross-link aggressively** — when creating or updating a file, link it to related files and update their link sections too.
 3. **Maintain tag indexes** — when tagging a file, ensure the corresponding tag file in `/tags/` has a back-link.
 4. **Keep INDEX.md current** — add new files to the index when they're created.
-5. **Prefer updating over duplicating** — search for existing notes on a topic before creating new ones.
+5. **Prefer updating over duplicating** — search for existing notes, *and existing tools/skills/artifacts*, before creating new ones. This is the vault-page-and-tooling instance of the Grounding Discipline above (reuse/convert beats rebuild). An addition that doesn't update the index (rule 4) is net-negative: it adds search cost without adding *findable* capability.
 6. **Use consistent formatting** — follow the front matter and conventions above.
 7. **Log sessions when significant** — if a conversation covers substantial ground, offer to create a log entry.
 8. **Keep pages lean** — overview/README pages should be ~60-80 lines of summaries and pointers. Full arguments, reading lists, and detailed analysis go in sub-pages. Point, don't dump.

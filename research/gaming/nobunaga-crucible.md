@@ -21,6 +21,7 @@ Most game-design claims are inferred from play and stay arguable. NA1's claims a
 
 **Promoted (in-vault):**
 - **[Randomness as the Termination Mechanism (N≥3)](./n3-termination-and-randomization.md)** — the broadest finding: NA1's six independent randomization sources are what let an N≥3 game terminate against the gang-up equilibrium. NA1 is that thesis's canonical worked specimen.
+- **[The Hollow Opponent — Where Game Depth Actually Lives](./hollow-opponent-perceived-depth.md)** — decoding the daimyo AI to ground truth (argmin-weakest + threshold, one-ply, no dominance frontier) exposed that NA1's perceived depth lived in the player's *ignorance of the rule*; once decoded, the depth migrated to the **board** (adjacency graph + turn-economy). The capstone of the AI epic, and the "you don't meet your heroes" lesson generalized.
 
 **Candidates still in the notes (repo + memory), worth promoting:**
 - **Turn-economy — action slots are the binding constraint** (4 decisions/year; the frontier is 4-D: terrain × count × quality × runway). A portable strategy-design thesis, currently memory-only.

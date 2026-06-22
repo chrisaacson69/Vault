@@ -40,3 +40,4 @@ permalink: /tags/debates/
 - [Property, Rights, and the God Question: Wilson Reviews Pool vs Dyer](../research/debates/pool-dyer-review-wilson.md) — When you strip away the labels, what actually grounds property rights — and does anyone in the room have a coherent answer?
 - [Suffrage, Stakeholdership, and the Scope Problem](../research/debates/pool-kyla-suffrage-taxation.md) — The problem isn't who votes.
 - [The Sheriff Problem: Why Utilitarianism Fails](../research/debates/utilitarianism-sheriff-counterexample.md) — The math doesn't say "frame an innocent man" — the math is meaningless, because there is no group utility to calculate.
+- [Objectivism vs. Libertarian Voluntarism (Leibowitz vs Lloyd)](../research/debates/objectivism-libertarianism-leibowitz-lloyd.md) — a libertarian defends capitalism through moral anti-realism while grounding rights on performative contradiction; double self-refutation; both sides miss the agent-relative middle.

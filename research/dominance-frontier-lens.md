@@ -47,7 +47,7 @@ These four already describe themselves as "the same methodology"; this page is t
 
 ## Open questions
 
-- Can "random-start viability" be made a computable test (search every seed for a non-dominated path) rather than a judgment call?
+- Can "random-start viability" be made a computable test (search every seed for a non-dominated path) rather than a judgment call? — **[NA1 supplies a tractable instance](./gaming/hollow-opponent-perceived-depth.md):** with the AI decoded to argmin-weakest, "can fief X escape the bottom trap?" becomes a simulation against the verified econ engine, not a judgment call.
 - Where exactly does the games↔finance correspondence break — is there a frontier construction with no game analogue, or vice-versa?
 
 ## Tags

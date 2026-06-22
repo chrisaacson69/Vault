@@ -51,3 +51,4 @@ permalink: /tags/ai/
 - [Demolition Man (1993) — A Case Study in Managed Utopia](../research/demolition-man-analysis.md) — A 30-year-old sci-fi film that predicted the exact failure modes of AI-managed societies.
 - [DJ Set 1 — Progressive/Trance Mix](../projects/dj-set-1/README.md) — 11-track set built around texture-over-harmony philosophy, with a BPM staircase from 120→129.
 - [Gunboat Diplomacy and Diplodocus — The Planner Without the Mouth](../research/gaming/gunboat-diplomacy-diplodocus.md) — Meta AI's Diplodocus plays Gunboat Diplomacy — the variant with no text communication — and beat every human in Meta's 2022 Speedboat Tournament.
+- [The Three-Layer Method — Spec, Verifier, Environment](../research/karpathy-three-layer-method.md) — Karpathy's Spec/Verifier/Environment stack; gap-first audit (request-vs-rule, the missing `PreToolUse` guardrail)

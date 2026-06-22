@@ -71,3 +71,7 @@ permalink: /tags/epistemology/
 - [The Is-Ought Problem and Performative Grounding](../research/philosophy/morality/is-ought-and-performative-grounding.md) — The is-ought gap dissolves — not through logical bridging, but because the questioner is already standing on the other side.
 - [The Translation Problem](../research/philosophy/logic-and-math/the-translation-problem.md) — Formal logic is only as good as the translation from reality into symbols.
 - [The Weighting Problem](../research/philosophy/epistemology/weighting-problem.md) — Objective measurements do not produce objective composite judgments.
+- [The Regress Problem](../research/philosophy/epistemology/the-regress-problem.md) — Agrippa's trilemma: every justification bottoms out in brute fact, regress, or loop — all unjustified first principles — and the two ways past it.
+- [The Map of Philosophy](../research/philosophy/the-map-of-philosophy.md) — the textbook map of the four domains bridged to the vault's Four Trunks.
+- [Objectivism vs. Libertarian Voluntarism (Leibowitz vs Lloyd)](../research/debates/objectivism-libertarianism-leibowitz-lloyd.md) — the objective/subjective deadlock as a missing-Category-3 specimen; Lloyd's omniscience bar as the Agrippa over-reach.
+- [The Three-Layer Method — Spec, Verifier, Environment](../research/karpathy-three-layer-method.md) — the robot-librarian model (doesn't know which book it's missing); verification as the only real lever; "outsource thinking, not understanding"

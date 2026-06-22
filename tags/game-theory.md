@@ -22,6 +22,7 @@ permalink: /tags/game-theory/
 - [Randomness as Termination (N≥3)](../research/gaming/n3-termination-and-randomization.md) — randomness is the kill switch on the gang-up equilibrium; calibration = design quality
 - [The Dominance-Frontier Lens](../research/dominance-frontier-lens.md) — map cost vs effect, frontier curve, asymmetric counters; cross-domain (games + markets)
 - [NA1 — Game-Design Crucible](../research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the theses it sparked
+- [The Hollow Opponent](../research/gaming/hollow-opponent-perceived-depth.md) — NA1's AI = argmin-weakest + threshold; perceived depth lived in ignorance, migrated to the board once decoded
 - [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
 - [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — empirical confirmation of bilateral trade valuation; Monopoly card as timing-conditional state-shock

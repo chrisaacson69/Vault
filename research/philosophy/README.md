@@ -15,6 +15,8 @@ permalink: /research/philosophy/
 
 **[The Four Trunks](./the-four-trunks.md)** — canonical statement of how the vault's philosophy fits together. Normative ontology (*constitutive realism*), verification epistemology (*constitutive convergence*), emergence metaphysics (unnamed), structural dynamics (unnamed). Read this first.
 
+**[The Map of Philosophy](./the-map-of-philosophy.md)** — the accessible entry-point: the textbook three-questions-plus-logic map, bridged to the Four Trunks. Good orientation if the trunks feel abstract; shows what the standard map collapses (emergence folded into ontology, dynamics dropped).
+
 ## Branches by trunk
 
 ### Trunk 1 — Normative Ontology
@@ -22,7 +24,7 @@ permalink: /research/philosophy/
 - [Legal Theory](./morality/legal-theory/README.md) — applied Trunk 1 to legal norms (nested under morality)
 
 ### Trunk 2 — Verification Epistemology
-- [Epistemology](./epistemology/README.md) — convergence under reality-pressure; relational objectivity; the birthmark
+- [Epistemology](./epistemology/README.md) — convergence under reality-pressure; relational objectivity; the birthmark; [the regress problem](./epistemology/the-regress-problem.md) (Agrippa + the way out)
 
 ### Trunk 3 — Emergence Metaphysics
 - [Metaphysics](./metaphysics/README.md) — emergence of real immaterial patterns from organized matter; measurement-causality

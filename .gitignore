@@ -9,8 +9,16 @@ youtubeuploader.exe
 *.nes
 *.mss
 
-# External tools live in ~/source/repos/ and are pointed at from project
-# READMEs / tool-pointer files — see projects/game-annotation/nobunaga/tools/EXTERNAL.md
+# External repos are referenced by logical name in the committed vault; their absolute
+# local paths are resolved per-machine via .claude/local-paths.md (gitignored, below).
+.claude/local-paths.md
+
+# Per-machine launcher for the scheduled heartbeat (holds absolute paths) + its run log.
+.claude/run-heartbeat.cmd
+logs/heartbeat-cron.log
+
+# Runtime hook log — the index-drift gate's firing record (machine-local signal, not history).
+logs/index-drift.log
 
 # Obsidian plugins — installed per-clone via Community Plugins
 .obsidian/plugins/

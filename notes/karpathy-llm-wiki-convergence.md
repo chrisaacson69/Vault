@@ -8,12 +8,13 @@ title: "Karpathy LLM Wiki — Independent Convergence"
 # Karpathy LLM Wiki — Independent Convergence
 > This vault and Karpathy's "LLM Wiki" pattern arrived at the same architecture independently. When two systems converge from different starting points, the shared structure is likely load-bearing.
 
-**Links:** [Obsidian Plugin Setup](./obsidian-plugin-setup.md), [Working With Claude](./working-with-claude.md), [Cyborg Model](../research/cyborg-model.md), [The Context Cache Hierarchy](./context-cache-hierarchy.md)
+**Links:** [Obsidian Plugin Setup](./obsidian-plugin-setup.md), [Working With Claude](./working-with-claude.md), [Cyborg Model](../research/cyborg-model.md), [The Context Cache Hierarchy](./context-cache-hierarchy.md), [The Three-Layer Method](../research/karpathy-three-layer-method.md)
 
 ## Source
 
 - **Gist:** [karpathy/LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) (2026-04-02)
 - **Video walkthrough:** [Nate Herk — "Andrej Karpathy Just 10x'd Everyone's Claude Code"](https://www.youtube.com/watch?v=sboNwYmH3AY) (2026-04-05)
+- **Three-layer framing:** [Austin Marchese — "Stop Prompting Claude. Use Karpathy's Method Instead." (2026-06-09)](../raw/videos/2026-06-09%20karpathy-method-stop-prompting.md) — distills Karpathy at AISN 2026 into Spec → Verifier → Environment. The LLM-Wiki described on this page **is** the Environment layer; that video brackets it with the Spec and Verifier layers. See [The Three-Layer Method](../research/karpathy-three-layer-method.md).
 
 ## The Shared Architecture
 

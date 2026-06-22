@@ -8,7 +8,7 @@ title: "The Is-Ought Problem and Performative Grounding"
 # The Is-Ought Problem and Performative Grounding
 > The is-ought gap dissolves — not through logical bridging, but because the questioner is already standing on the other side.
 
-**Links:** [Morality](./README.md), [Performative Grounding — Lineage](./performative-grounding-lineage.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Scope Confusion](./scope-confusion.md)
+**Links:** [Morality](./README.md), [Performative Grounding — Lineage](./performative-grounding-lineage.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Scope Confusion](./scope-confusion.md), [The Regress Problem](../epistemology/the-regress-problem.md)
 
 ---
 
@@ -66,6 +66,12 @@ This resolves the is-ought gap at the **core** but not at the **margins**. It gr
 It does *not* ground the margins: lifestyle choices, art preferences, risk tolerance. Different weightings of objective measurements remain genuinely subjective at this level (see [The Weighting Problem](../epistemology/weighting-problem.md)). The norms that approach universal convergence are precisely the ones where performative grounding is strongest, which is exactly where law-scope enforcement is legitimate.
 
 **Connection to the weighting problem:** Convergence of weightings at the core tracks real patterns in survival and flourishing (grounded by performative contradiction), while subjectivity persists at the margins where multiple weightings are compatible with continued existence.
+
+## The Prescribing Anti-Realist Self-Refutes
+
+The performative move is usually aimed at the *skeptic* ("try to deny you value existence"). It also bites the *advocate*. **To prescribe a norm is to performatively presuppose that the norm is correct to adopt — not merely preferred.** Anyone who argues "you *ought* to accept X" while holding "there are no objective oughts" is in a performative contradiction one level deeper than the familiar epistemic one (making truth-claims while denying truth is knowable). The contradiction here is *normative*: moral anti-realism denied in the very act of moral prescription.
+
+This is the cleanest catch on the common "I prefer the NAP, but morality is subjective" libertarian. Advocacy is not preference-reporting; it is a claim on the listener that presupposes a correctness the speaker is simultaneously disclaiming. The specimen is the [Leibowitz vs. Lloyd debate](../../debates/objectivism-libertarianism-leibowitz-lloyd.md): Lloyd grounds rights on performative contradiction, adopts anti-realism, and then spends the debate arguing people *should* adopt the consent ethic — using the performative move while denying its realist payload. (See also the [under-claiming mirror](./performative-grounding-lineage.md#the-under-claiming-mirror-lloyd) to Hoppe's over-derivation.)
 
 ## Philosophical Lineage
 

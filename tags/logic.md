@@ -27,3 +27,4 @@ permalink: /tags/logic/
 - [Quantum Logic](../research/philosophy/logic-and-math/quantum-logic.md) — The other non-classical logics were invented by philosophers.
 - [The Formal Revolution (1847–1931)](../research/philosophy/logic-and-math/formal-revolution.md) — In 84 years, logic went from a philosophical discipline to the foundation of mathematics, computing, and the limits of knowledge itself.
 - [The Translation Problem](../research/philosophy/logic-and-math/the-translation-problem.md) — Formal logic is only as good as the translation from reality into symbols.
+- [The Regress Problem](../research/philosophy/epistemology/the-regress-problem.md) — Agrippa's trilemma and the performative escape; logic's axioms aren't assumed, they're constitutive of reasoning.

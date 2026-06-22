@@ -9,7 +9,7 @@ permalink: /research/philosophy/epistemology/
 # Epistemology
 > How we know what we know. Anchor for Trunk 2.
 
-**Links:** [The Four Trunks](../the-four-trunks.md), [Philosophy](../README.md), [Morality](../morality/README.md), [Logic and Mathematics](../logic-and-math/README.md), [Relational Objectivity](./relational-objectivity.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Philosophy](../README.md), [Morality](../morality/README.md), [Logic and Mathematics](../logic-and-math/README.md), [Relational Objectivity](./relational-objectivity.md), [The Regress Problem](./the-regress-problem.md)
 
 **Trunk:** [Trunk 2 — Verification Epistemology](../the-four-trunks.md#trunk-2--verification-epistemology). Working name: *constitutive convergence*.
 
@@ -23,12 +23,13 @@ Real structures are identified by **independent convergence under reality-pressu
 - [The Weighting Problem](./weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is always subjective
 - [The Birthmark and the Search for Truth](./the-birthmark.md) — every knowledge system has imperfections; five principles for approaching truth; realist correction to postmodernism
 - [The Stance-Independence Retreat](./stance-independence-retreat.md) — diagnoses the retreat from "mind-independent" to "stance-independent" as a rename; attack set for the reframing
+- [The Regress Problem](./the-regress-problem.md) — Agrippa's trilemma stated canonically (brute fact / regress / loop → all unjustified first principles), plus the two exits: the performative escape and structure-evaluation. The floor that makes the convergence method necessary
 
 ## Open threads
 
 - **Verification-layer thesis page** — accumulated state as the thing being verified against. Currently only in memory; deserves its own page.
 - **Convergence limits** — every culture developed rain dances too. When does convergence indicate truth vs shared cognitive bias? Needs a principled answer.
-- **Self-reference** — to argue logic is constructed, you use logic. Fatal circularity or normal feature of foundational inquiry?
+- **Self-reference** — to argue logic is constructed, you use logic. Fatal circularity or normal feature of foundational inquiry? (Partly answered by [The Regress Problem](./the-regress-problem.md): it's the performative escape — denial presupposes what it denies — not circularity.)
 
 ## Objectivist engagement
 

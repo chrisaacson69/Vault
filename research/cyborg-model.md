@@ -9,7 +9,7 @@ layout: layouts/page.njk
 # The Cyborg Model — Human/AI Collaboration
 > Neither side is complete alone. The point is to distribute labor so each side does what they do best.
 
-**Links:** [Economics](./economics/README.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Praxis](./economics/praxis-agent-teams.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Gaming](./gaming/README.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Karpathy LLM Wiki Convergence](../notes/karpathy-llm-wiki-convergence.md), [Level 6 — Direct Execution](./level-6-direct-execution.md), [Career](../career/README.md)
+**Links:** [Economics](./economics/README.md), [Risk and Entrepreneurship](./economics/risk-and-entrepreneurship.md), [Praxis](./economics/praxis-agent-teams.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Claude Opus 4.6 Research](./claude-opus-4-6.md), [Gaming](./gaming/README.md), [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Karpathy LLM Wiki Convergence](../notes/karpathy-llm-wiki-convergence.md), [The Three-Layer Method](./karpathy-three-layer-method.md), [Level 6 — Direct Execution](./level-6-direct-execution.md), [Career](../career/README.md)
 
 ## What "Cyborg" Means
 
@@ -164,6 +164,8 @@ One of the most significant shifts: the distinction between "technical" and "non
 - "Vibe working" — describe outcomes, not process
 
 The new divide isn't technical vs non-technical. It's **people who can clearly articulate intent and evaluate output** vs **people who can't.** Domain expertise and judgment matter more than the ability to write a for-loop.
+
+Karpathy's compression of the human role: *"You can outsource your thinking, but you can't outsource your understanding."* The operational form of that — how the human's understanding gets encoded (Spec), defended (Verifier), and persisted (Environment) — is laid out in [The Three-Layer Method](./karpathy-three-layer-method.md). The articulate-intent-and-evaluate side of the divide above is precisely the Spec + Verifier work; the side that can't is the side that never built the Environment to hold it.
 
 ## Worked Example: Cyborg DJ
 

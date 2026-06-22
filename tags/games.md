@@ -24,6 +24,7 @@ permalink: /tags/games/
 - [Randomness as Termination (N≥3)](../research/gaming/n3-termination-and-randomization.md) — randomness is the kill switch on the gang-up equilibrium; calibration = design quality
 - [The Dominance-Frontier Lens](../research/dominance-frontier-lens.md) — map cost vs effect, frontier curve, asymmetric counters; cross-domain (games + markets)
 - [NA1 — Game-Design Crucible](../research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the theses it sparked
+- [The Hollow Opponent](../research/gaming/hollow-opponent-perceived-depth.md) — decoding the opponent collapses the depth that lived in player ignorance; it migrates to the board
 - [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
 - [LLM Agents Across Strategic Games](../research/gaming/llm-agents-across-games.md) — seven-game cross-study including Catan (Phase 5)

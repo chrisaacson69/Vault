@@ -22,3 +22,4 @@ permalink: /tags/agents/
 - [CaptainMeme vs. 6 Cicero — The Human/AI Split in Press Diplomacy](../research/gaming/cicero-press-diplomacy-captain-meme.md) — An expert human diplomacy player plays full-press blitz Diplomacy against six Cicero AIs and narrates the game.
 - [Gunboat Diplomacy and Diplodocus — The Planner Without the Mouth](../research/gaming/gunboat-diplomacy-diplodocus.md) — Meta AI's Diplodocus plays Gunboat Diplomacy — the variant with no text communication — and beat every human in Meta's 2022 Speedboat Tournament.
 - [Triangular Arbitrage — Currency & Crypto Market Differentials](../projects/triangular-arbitrage/README.md) — Can we exploit differentials in cross-rates for profit? Math says yes.
+- [The Three-Layer Method — Spec, Verifier, Environment](../research/karpathy-three-layer-method.md) — Spec/Verifier/Environment; guardrails bucketed always/ask/never; hooks enforce rules the prompt can only request

@@ -8,8 +8,8 @@ permalink: /tags/_index/
 > Master list of all tags used across the vault.
 
 - [6502](./6502.md) — 10 files
-- [ai](./ai.md) — 35 files
-- [agents](./agents.md) — 11 files
+- [ai](./ai.md) — 36 files
+- [agents](./agents.md) — 12 files
 - [assembly](./assembly.md) — 3 files
 - [atari-2600](./atari-2600.md) — 10 files
 - [audio-processing](./audio-processing.md) — 2 files
@@ -31,7 +31,7 @@ permalink: /tags/_index/
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 11 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
-- [epistemology](./epistemology.md) — 35 files
+- [epistemology](./epistemology.md) — 36 files
 - [ethics](./ethics.md) — 6 files
 - [externalities](./externalities.md) — 3 files
 - [food-safety](./food-safety.md) — 1 file
