@@ -34,7 +34,7 @@ multi-axis value. v2 axes, from observed play:
    (the face-efficiency trap, see research/gaming/capability-without-leverage.md). *Needs a unit
    tactical-role model (siege / naval / map-control), not just A/D/M.*
 3. **Placement/control context** — Free Walls auto-lands on the "best-developed" city, not where
-   you need it → value below face. *Hard to model without the placement rule (measure on CivRev2).*
+   you need it → value below face. *Hard to model without the placement rule (needs a measurement oracle).*
 4. **Inter-tech dominance** — Navigation *looks* great but is dominated by Steam Power (Galleon
    2/2/3 ⪯ Cruiser 6/6/5 for +10 cost, and Steam Power is on the path you walk anyway). **GROUNDED
    and buildable now** from the units table: flag any tech whose unlocked unit is Pareto-dominated by
@@ -43,14 +43,25 @@ multi-axis value. v2 axes, from observed play:
    **→ BUILT: `trap-detector.py`.** Criterion = *dead-end leaf tech + dominated unit* (not raw
    domination, which is the tree's default). Flags Navigation/Galleon as the lone tech-trap; refuses
    to flag the on-path progression line; also surfaces negative-window unit-traps (Legion ⪯ the
-   *cheaper* Horseman). Remaining caveat = A/D/M only, ignores special abilities (Submarine stealth,
-   siege-through-walls) → that's the v2 **capability** axis (#2), still open.
+   *cheaper* Horseman).
+   **SCOPE OF THE VERDICT (don't misread "trap" as "never correct").** The flag means *dominated in
+   expectation, for a default CIV-AGNOSTIC build, on A/D/M alone*. Three dimensions live outside it:
+   - **Civ start** — Spain *begins* with Navigation (+doubled exploration cash, +1 naval combat,
+     Conquistador): free Galleons make it her core line, not a trap. The frontier is relative to the
+     starting hand; a civ-start modifier would flip the verdict. *(v2 dimension.)*
+   - **Option value** — the Galleon's worth is the *option* to race Atlantis first (info-conditional,
+     legit hidden-but-trackable) or snipe a city in the pre-Cruiser window, not its 2/2/3 floor.
+     Option-value rent the stat-check can't see. *(ties to research/gaming/capability-without-leverage.md.)*
+   - **Variance** — it's a low-floor/fat-ceiling *gamble*, not a value pick: dominated in expectation,
+     game-sealing in the right hands/map. "Not dominated, not Cannon."
+   - A/D/M also ignores special abilities (Submarine stealth, siege-through-walls) → the v2
+     **capability** axis (#2), still open.
 
 ## Shared data
 `civrev_data.py` is the single source of truth (tech table w/ cost+prereq+bonus, unit stats, prod
 costs), grounded to `raw/civrev-*.md`. Both `tech-frontier.py` and `trap-detector.py` import it so the
 tables can't drift between tools. **Built so far:** `tech-frontier.py`, `trap-detector.py`. Blocked on
-the CivRev2 measurement session: `wide-vs-tall.py`, `opening-rush.py`.
+the parked measurement gaps (no usable oracle — see the project README): `wide-vs-tall.py`, `opening-rush.py`.
 
 ## Principle
 Deterministic generators over validated data beat hand-analysis (the vault's *mechanical → generator*

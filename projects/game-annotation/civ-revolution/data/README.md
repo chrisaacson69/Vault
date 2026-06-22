@@ -15,10 +15,11 @@ raw-immutability rule:
 ## Planned (when tools need it)
 - `techs.json`, `wonders.json`, `units.json`, `buildings.json`, `civs.json`, `great-people.json`,
   `terrain.json`, `resources.json` — structured from the captures above, with a `confidence` field per
-  value (confirmed-from-table vs inferred vs measured-on-CivRev2).
+  value (confirmed-from-table vs inferred vs measured).
 - Keep provenance: every value cites its `raw/` source so the data stays grounded, not re-keyed by hand.
 
 ## Caveats
 All current data is **Tier-1 community** (CivFanatics/StrategyWiki/Fandom), treated as *base* values; the
 live game may scale costs by era/difficulty. Hidden formulas (city growth, governments, combat win-%) are
-gaps to be measured on CivRev2 — see the [project README](../README.md).
+gaps **parked** pending a usable measurement oracle (not CivRev2 — a reskin with a too-weak tablet UI;
+a handheld ROM is the better-but-deferred path) — see the [project README](../README.md).

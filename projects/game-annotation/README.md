@@ -19,8 +19,8 @@ repositories (extracted **2026-06-05** with git history preserved):
   **[game-annotation](https://github.com/chrisaacson69/game-annotation)** *(private)*
 - **Civilization Revolution** — the next title, but a **different method**. CivRev can't be
   cheaply decompiled (no source; the original purged by the iOS 32-bit cull), so it's a
-  **strategy/game-design analysis** grounded in community tables + live CivRev2 measurement +
-  small exploratory models, not an assembly deep-read. It stays **in-vault** for now →
+  **strategy/game-design analysis** grounded in community tables + small exploratory models,
+  not an assembly deep-read. It stays **in-vault** for now →
   **[projects/game-annotation/civ-revolution/](./civ-revolution/README.md)** (thesis:
   [The City-Builder That Plays as a Rush](../../research/gaming/civ-revolution-wide-rush.md)).
 
