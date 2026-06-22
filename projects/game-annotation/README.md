@@ -17,6 +17,12 @@ repositories (extracted **2026-06-05** with git history preserved):
   **[na1-decompiler](https://github.com/chrisaacson69/na1-decompiler)** *(private)*
 - **Adventure / Mappy / Utopia / M.U.L.E.** + shared RE tools →
   **[game-annotation](https://github.com/chrisaacson69/game-annotation)** *(private)*
+- **Civilization Revolution** — the next title, but a **different method**. CivRev can't be
+  cheaply decompiled (no source; the original purged by the iOS 32-bit cull), so it's a
+  **strategy/game-design analysis** grounded in community tables + live CivRev2 measurement +
+  small exploratory models, not an assembly deep-read. It stays **in-vault** for now →
+  **[projects/game-annotation/civ-revolution/](./civ-revolution/README.md)** (thesis:
+  [The City-Builder That Plays as a Rush](../../research/gaming/civ-revolution-wide-rush.md)).
 
 The meta-question the series chased — *how well can an LLM interpret vintage assembly
 from a cold read?* — produced the thesis that when the source is a weakly-grounded formal

@@ -23,6 +23,8 @@ permalink: /tags/game-theory/
 - [The Dominance-Frontier Lens](../research/dominance-frontier-lens.md) — map cost vs effect, frontier curve, asymmetric counters; cross-domain (games + markets)
 - [NA1 — Game-Design Crucible](../research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the theses it sparked
 - [The Hollow Opponent](../research/gaming/hollow-opponent-perceived-depth.md) — NA1's AI = argmin-weakest + threshold; perceived depth lived in ignorance, migrated to the board once decoded
+- [The Dead-Verb Test](../research/gaming/dead-verbs-mechanism-viability.md) — a verb is viable only if some state makes it the *uniquely best response*; the empty-home-state anti-pattern (Pact's cost/value anti-correlate + it's redundant with the dominant policy)
+- [Civilization Revolution — The City-Builder That Plays as a Rush](../research/gaming/civ-revolution-wide-rush.md) — MIRR hurdle-rate dominance (wide > tall); a thin tech spine with backfill that breaks the DAG; N=2 map-RNG as randomness in the wrong place (instant death, not agency); the viable-strategy frontier collapses
 - [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
 - [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md) — empirical confirmation of bilateral trade valuation; Monopoly card as timing-conditional state-shock
