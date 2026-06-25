@@ -25,7 +25,7 @@ permalink: /tags/_index/
 - [constitutional-law](./constitutional-law.md) — 4 files
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 7 files
-- [debates](./debates.md) — 34 files
+- [debates](./debates.md) — 35 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 77 files
 - [education](./education.md) — 3 files
@@ -37,7 +37,7 @@ permalink: /tags/_index/
 - [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 7 files
 - [game-ai](./game-ai.md) — 22 files
-- [game-theory](./game-theory.md) — 33 files
+- [game-theory](./game-theory.md) — 34 files
 - [games](./games.md) — 35 files
 - [grounding](./grounding.md) — 6 files
 - [history](./history.md) — 21 files
@@ -60,13 +60,13 @@ permalink: /tags/_index/
 - [objectivism](./objectivism.md) — 17 files
 - [peikoff](./peikoff.md) — 17 files
 - [philosophy](./philosophy.md) — 124 files
-- [politics](./politics.md) — 6 files
+- [politics](./politics.md) — 7 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 12 files
 - [religion](./religion.md) — 14 files
 - [reverse-engineering](./reverse-engineering.md) — 8 files
-- [scope-confusion](./scope-confusion.md) — 8 files
+- [scope-confusion](./scope-confusion.md) — 9 files
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 6 files
 - [simulation](./simulation.md) — 8 files

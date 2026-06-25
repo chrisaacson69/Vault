@@ -41,3 +41,4 @@ permalink: /tags/debates/
 - [Suffrage, Stakeholdership, and the Scope Problem](../research/debates/pool-kyla-suffrage-taxation.md) — The problem isn't who votes.
 - [The Sheriff Problem: Why Utilitarianism Fails](../research/debates/utilitarianism-sheriff-counterexample.md) — The math doesn't say "frame an innocent man" — the math is meaningless, because there is no group utility to calculate.
 - [Objectivism vs. Libertarian Voluntarism (Leibowitz vs Lloyd)](../research/debates/objectivism-libertarianism-leibowitz-lloyd.md) — a libertarian defends capitalism through moral anti-realism while grounding rights on performative contradiction; double self-refutation; both sides miss the agent-relative middle.
+- [CGP Grey — "Too Good for Politicians to Allow" (STV)](../research/debates/cgp-grey-stv-too-good.md) — adversarial review of an STV advocacy cartoon; the impossibility floor it never mentions; proportionality isn't scale-invariant (the California at-large case).

@@ -267,6 +267,19 @@ Multi-party systems (ranked choice, proportional representation) require a diffe
 
 **The deeper point:** changing the voting system doesn't solve the governance problem. Multi-party systems (Germany, Israel, Italy) produce coalition governments that horse-trade their way to the same scope creep. More parties, same ratchet. The issue isn't how many parties capture the state — it's that the state is capturable. Better voting systems rearrange who holds the monopoly; they don't dissolve it. The exit problem remains: voice, however many parties it's distributed across, is still dramatically weaker than exit as a feedback mechanism.
 
+## The Impossibility Floor and the Scope of Proportionality
+
+Below the Duverger argument sits a harder floor: **no voting system is "fair" or "optimal" in the absolute** — every one is a compromise that sacrifices some reasonable property. This is the **Gödel of voting**:
+
+- **Arrow's Impossibility Theorem (1951):** no ordinal aggregation rule satisfies all the reasonable fairness axioms at once (unanimity, non-dictatorship, independence of irrelevant alternatives). There is no global "voter happiness" to maximize.
+- **Gibbard–Satterthwaite (1973):** no non-dictatorial ranked system over 3+ options is strategy-proof. Sincere ranking is *never* universally optimal.
+
+So advocacy that promises a corner these theorems forbid — "maximizes happiness," "no point in strategizing" (CGP Grey's STV pitch) — is laundering a **value choice as a theorem**. RCV/STV is just a sequential-elimination + surplus-transfer engine; it inherits RCV's strategy-dependence (**non-monotonicity** — ranking a favorite higher can make them lose, e.g. Burlington VT 2009; **center-squeeze** — which revives the favorite-betrayal it claims to abolish). It is a *real but scope-bounded* improvement on FPTP, not an escape from the floor.
+
+**Proportionality is not scale-invariant.** "Make the legislature proportional" is ill-posed in a nested federation, because it's defined *relative to a reference population* — district, state, or nation — and those proportionalities **cannot be jointly satisfied** (a delegation proportional to each state's internal split does not compose into a nationally-proportional body). Districts are the **decomposition device** that makes representation tractable at a *locally knowable* level. The at-large alternative (e.g. California electing all its U.S. House seats in one ~100-candidate vote) fails three separate ways: mechanically (a 51% bloc can sweep every seat), **epistemically** (no voter can evaluate 100 candidates across the whole state), and by **geographic skew** (dense population centers impose representatives on rural regions they aren't part of — the exact domination districts exist to prevent). Asking *"proportional with respect to which body?"* usually dissolves the pitch ([scope confusion](../scope-confusion.md); the political instance of the [accounting-identities domain-matching](../../../economics/accounting-identities-as-domain-matching.md) move).
+
+The upshot is [normative, not technical](../../../../notes/game-theory-as-normative-not-descriptive.md): choosing a voting system means choosing *which* fairness property to sacrifice — a value judgment, not an optimization. *Specimen:* [CGP Grey — "Too Good for Politicians to Allow" (STV)](../../../debates/cgp-grey-stv-too-good.md).
+
 ## Open Questions
 
 - **Can the constitutional experiment survive the cycle?** The US is at 250 years — Glubb's average empire lifespan. Constitutional checks have eroded but still function. Is the institutional innovation sufficient, or is it just slowing the inevitable?

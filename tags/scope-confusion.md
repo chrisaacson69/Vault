@@ -15,3 +15,4 @@ permalink: /tags/scope-confusion/
 - [The Coconut Island and the Manufactured Option Space](../research/debates/coconut-island-and-manufactured-option-space.md) — Two related debate moves used to force "exploitation under capitalism" or "structural conflict" conclusions.
 - [The Fiscal Pressure Must Leak Somehow — All of the Above](../notes/fiscal-pressure-must-leak-somehow.md) — Sketch-tier musing.
 - [The GDP-Identity Tariff Fallacy](../research/economics/gdp-identity-tariff-fallacy.md) — The popular argument "tariffs raise GDP because they close the trade gap (GDP = C+I+G+X−M, so reducing M raises GDP)" treats an accounting identity as a behavioral model.
+- [CGP Grey — "Too Good for Politicians to Allow" (STV)](../research/debates/cgp-grey-stv-too-good.md) — "proportional representation" is scale-relative: proportional to *which* body (district/state/nation)? Grey collapses the levels; the "which reference population?" question dissolves the pitch.
