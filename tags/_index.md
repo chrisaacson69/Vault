@@ -59,7 +59,7 @@ permalink: /tags/_index/
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 17 files
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 125 files
+- [philosophy](./philosophy.md) — 126 files
 - [politics](./politics.md) — 9 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file

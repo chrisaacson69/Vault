@@ -10,7 +10,7 @@ title: "Agrippa's Trilemma: Does Unjustifiable Mean Useless?"
 **Source:** [whatever Clips — YouTube](https://www.youtube.com/watch?v=SKwK4SLsgAc)
 **Participants:** Andrew Wilson, Kyla (3-part clip series, part 1 chronologically)
 **Duration:** ~27 min (part 1 of 3)
-**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [logic and mathematics](../../research/philosophy/logic-and-math/README.md), [legal theory](../../research/philosophy/morality/legal-theory/README.md)
+**Vault relevance:** [morality](../../research/philosophy/morality/README.md), [logic and mathematics](../../research/philosophy/logic-and-math/README.md), [legal theory](../../research/philosophy/morality/legal-theory/README.md), [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md) (the trilemma's regress horn fired *unilaterally* as a debate tactic — and how to make it symmetric)
 
 ## Context
 

@@ -9,6 +9,7 @@ permalink: /tags/philosophy/
 
 - [Philosophy Research](../research/philosophy/README.md)
 - [Technology → Culture → Politics](../research/philosophy/dynamics/technology-culture-politics.md) — Trunk-4 causal-ordering thesis: material conditions → culture → politics; not crude determinism because culture is an explicit lagging transducer with path-dependence
+- [The Negative's Easy Burden](../research/philosophy/tangents/the-negatives-easy-burden.md) — debate method: why negating is cheaper, the first-and-last compensation, weaponized-Agrippa + freezing exploits, and the concede-relocate counter
 - [Morality — First Principles Exploration](../research/philosophy/morality/README.md)
 - [Philosophy of Logic and Mathematics](../research/philosophy/logic-and-math/README.md)
 - [Epistemology — Parking Lot](../research/philosophy/epistemology/README.md)
