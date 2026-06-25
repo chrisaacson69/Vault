@@ -8,6 +8,7 @@ permalink: /tags/economics/
 > Files related to economic theory, trade, and business.
 
 - [Economics (overview)](../research/economics/README.md)
+- [Technology → Culture → Politics](../research/philosophy/dynamics/technology-culture-politics.md) — material/economic conditions as the deepest causal layer driving culture and then politics (NAFTA/China/automation → single-industry-town collapse → realignment)
 - [Do Atheists Benefit from Living in a Christian Society? (Wilson vs 5)](../research/debates/wilson-atheists-benefit-christian-society.md) — Christian ethics as a structural/behavioral input to flourishing (monogamy→reproduction, charity, restraint, low time-preference); the benefit survives corrupted theology → it's the institutions, not the metaphysics; the missing comparative-outcomes study (Nordics/Japan/Singapore)
 - [Did Christian Societies Actually Outperform?](../research/philosophy/dynamics/christian-structural-advantage.md) — the Great-Divergence confound wall (geography/fragmentation, coal & colonies, period-sensitivity, GDP/capita vs aggregate); development-controlled fertility regressions; demographic×techno-economic trichotomy and whether the both-at-once config is a stable attractor
 - [Value and Profit](../research/economics/value-and-profit.md)

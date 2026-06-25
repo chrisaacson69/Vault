@@ -8,6 +8,7 @@ permalink: /tags/philosophy/
 > Files exploring philosophical questions — human nature, freedom, morality, the role of technology in society.
 
 - [Philosophy Research](../research/philosophy/README.md)
+- [Technology → Culture → Politics](../research/philosophy/dynamics/technology-culture-politics.md) — Trunk-4 causal-ordering thesis: material conditions → culture → politics; not crude determinism because culture is an explicit lagging transducer with path-dependence
 - [Morality — First Principles Exploration](../research/philosophy/morality/README.md)
 - [Philosophy of Logic and Mathematics](../research/philosophy/logic-and-math/README.md)
 - [Epistemology — Parking Lot](../research/philosophy/epistemology/README.md)

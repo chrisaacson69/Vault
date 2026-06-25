@@ -27,7 +27,7 @@ permalink: /tags/_index/
 - [cyborg](./cyborg.md) — 7 files
 - [debates](./debates.md) — 35 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 77 files
+- [economics](./economics.md) — 78 files
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 18 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
@@ -59,8 +59,8 @@ permalink: /tags/_index/
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 17 files
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 124 files
-- [politics](./politics.md) — 7 files
+- [philosophy](./philosophy.md) — 125 files
+- [politics](./politics.md) — 9 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 12 files

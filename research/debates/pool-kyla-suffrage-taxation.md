@@ -10,7 +10,7 @@ title: "Suffrage, Stakeholdership, and the Scope Problem"
 **Source:** [RattlesnakeTV — YouTube](https://www.youtube.com/watch?v=V4a9t9Y47Wc) — [Transcript](../../raw/debates/transcript-V4a9t9Y47Wc.txt)
 **Participants:** Tim Pool vs. Kyla (Not So Eerite), reviewed by Jake (RattlesnakeTV)
 **Duration:** ~24 minutes
-**Vault relevance:** [The SAVE Act and Suffrage](./save-act-suffrage-hoppian.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [The Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Taxation and Unrealized Gains](../economics/taxation-and-unrealized-gains.md), [Defensive Force and Collateral Damage](../philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md)
+**Vault relevance:** [The SAVE Act and Suffrage](./save-act-suffrage-hoppian.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [The Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Taxation and Unrealized Gains](../economics/taxation-and-unrealized-gains.md), [Defensive Force and Collateral Damage](../philosophy/morality/legal-theory/defensive-force-and-collateral-damage.md), [LaCorte — Urban-Rural Divide](./lacorte-urban-rural-divide.md) (a fresh specimen: "land doesn't vote" is a counting-fight move, load-bearing only because scope is unconstrained)
 
 ---
 
