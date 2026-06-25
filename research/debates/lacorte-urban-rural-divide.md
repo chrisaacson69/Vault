@@ -136,6 +136,30 @@ clean version: **democratic power without scope limits converts every preference
 rights-language launders the extraction.** That is the single thread running through the suffrage debates,
 the force-doctrine cluster, and — at satellite altitude — this video's urban/rural map.
 
+### The rights equivocation — the *conflation* is the attack (Chris)
+Chris's objection to "rights" inflation ("healthcare is a right," "abortion is a right") names the exact
+mechanism. Two different things wear the same word:
+- **Enumerated / negative rights** (1A speech & religion, 2A arms, 4A against unreasonable search, 5A/14A due
+  process) are **immunities — restraints on government**, claims *against power*, not claims *on others'
+  stuff*. They cost others only **forbearance**, and they **do carry responsibility** (you answer for what
+  you say, how you bear arms, etc.). **They are not entitlements.**
+- **Positive "rights"** (healthcare, funded abortion, housing) are **entitlements** — claims *on others'*
+  labor/resources that require someone be **compelled to provide**. This is rights-as-extraction.
+
+The attack is the **conflation**: by calling both "rights," the moral and constitutional legitimacy of the
+enumerated negative rights gets **transferred** to the positive entitlement-claims, laundering the
+extraction. **That is why the defense goes after the *terms*** — disputing the word "right" itself — because
+once you concede the label you've conceded the category-transfer that does all the work. (The split is
+grounded in the [action/inaction asymmetry](../philosophy/morality/action-inaction-asymmetry.md): refraining
+is finite and feasible; providing is selection from the infinite set and reintroduces the weighting problem.)
+
+**This corrects the Wilson capture above.** Wilson's blanket *"a right is an entitlement absent a duty"*
+**over-applies** — true of the positive rights, false of the enumerated negative ones. So it's the same
+*"universal solvent applied selectively"* [force-doctrine](../philosophy/morality/force-doctrine.md) already
+pins on him: dissolve "rights" wholesale and you throw out the legitimate immunity-category with the
+illegitimate entitlement-category. The fix isn't to abandon "rights" — it's to **de-conflate** them, which is
+precisely the terminological fight the defense is forced into.
+
 ---
 *Original seeds (kept for the record — 2, 3, 5, 6 still live):*
 
@@ -170,6 +194,7 @@ the force-doctrine cluster, and — at satellite altitude — this video's urban
 - [Pool vs Kyla — Suffrage, Stakeholdership, and Scope](./pool-kyla-suffrage-taxation.md) — the canonical "scope, not the franchise" statement that makes "land doesn't vote" a counting-fight move, load-bearing only because scope is unconstrained.
 - [The SAVE Act and the Suffrage Question](./save-act-suffrage-hoppian.md) — same theme: restricting scope beats restricting the vote.
 - [Force Doctrine — The Theory](../philosophy/morality/force-doctrine.md) — rights-as-extraction ("entitlement absent a duty"; rights-hypertrophy → force-hypertrophy); the conscripted-individualist dynamic is duty-atrophy seen from the taxpayer's side.
+- [The Action/Inaction Asymmetry](../philosophy/morality/action-inaction-asymmetry.md) — the grounding for negative (forbearance, finite) vs positive (provision, infinite-set) rights; home of the "conflation is the attack" corollary this discussion produced.
 - [The Unreplaced Event](../philosophy/dynamics/unreplaced-event.md) — the WWII-frame instance of conditions→culture→politics; "both sides argue from inside the frame about its calibration."
 - [Symmetry Breaking](../philosophy/dynamics/symmetry-breaking.md) — the mechanism for the self-locking sort (fluctuations frozen by path-dependence; no restoring force).
 
