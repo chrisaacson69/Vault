@@ -89,6 +89,22 @@ A single raw source may touch 5-15 wiki pages. The raw file itself is never modi
 7. **Log sessions when significant** — if a conversation covers substantial ground, offer to create a log entry.
 8. **Keep pages lean** — overview/README pages should be ~60-80 lines of summaries and pointers. Full arguments, reading lists, and detailed analysis go in sub-pages. Point, don't dump.
 
+### Memory subsystem — how to derive & maintain it (the OS scheduler)
+
+The memory system routes a session to the right knowledge. **Three tiers**, in `~/.claude/projects/<vault>/memory/`:
+1. **`MEMORY.md` — the GLOBAL router**, loaded every session regardless of cwd → **pointers only.** Never put content or rules here; it routes to areas + the few always-hot facts. It is over budget the moment it carries detail (the ~24 KB load cap truncates it silently).
+2. **`area_*.md` — per-area indexes**, surfaced by *recall* (their `description:` frontmatter is what makes them findable). Each lists its area's findings.
+3. **topic files** (`<slug>.md`) — one fact each. Their deep stores are this/other `CLAUDE.md` (rules), vault pages (knowledge), or repos (code).
+
+**Maintenance discipline — eviction is half the job:**
+- A **new finding** → a topic file + a one-line pointer in its **area index** (never in `MEMORY.md`); keep the pointer ≤ ~200 chars, with a recall-able `description`.
+- A **new standing rule** → graduates UP to a `CLAUDE.md` (the user-global kernel if universal; this file or `projects/CLAUDE.md` if scoped). Rules are law, not memory.
+- When detail is **promoted** to a long-term store (a repo/page), **evict** the now-redundant memory pointers and replace them with one pointer to the store (the Nobunaga collapse: 58 lines → 1). *Promotion without eviction is the drift that bloats the router.*
+- When an **area index overgrows** → split it; when a **`CLAUDE.md` overgrows** → graduate sections to referenced `.md` (`@import`).
+- **Placement = frequency × stability:** hot+stable → `CLAUDE.md`; warm → area index; cold/specific → topic file or vault page.
+- The flow is **spawn ↓ / harvest ↑ / crystallize ↑**, each *registering its bidirectional link* (thesis ↔ dated specimen) so the down-link doesn't rot.
+- `/vault-heartbeat` audits for rot, an over-cap `MEMORY.md`, and orphaned pointers.
+
 ### Presentations (Marp)
 
 Slide decks use [Marp](https://marp.app/) — markdown-to-slides. Files with `marp: true` in YAML frontmatter are slide decks.
