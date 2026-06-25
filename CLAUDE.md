@@ -12,6 +12,8 @@ base"; the knowledge base (`research/`) is one **partition** of it, alongside th
 - **Syscalls** → the skills (`vault-sync`, `vault-ingest`, `vault-heartbeat`, `label-walk`, …).
 - **Device manager** → logical-name pointers (in `projects/`) resolved to physical mounts via per-machine `.claude/local-paths.md`.
 
+**Self-bootstrapping invariant:** everything needed to *use and maintain* the OS is committed internally (this manual, the partition rules, the memory schema). Every piece that *necessarily* lives outside the repo — the user-global kernel, the `~/.claude/.../memory/` scheduler state, the per-machine resolver — ships with **committed instructions to recreate it from zero**: the [memory cold-start bootstrap](./notes/memory-bootstrap.md) (schema + seed templates) and the [new-machine migration runbook](./notes/new-machine-migration.md) (transfer + clone). A fresh clone is never stranded.
+
 ## Grounding Discipline — Read First (non-negotiable)
 
 Chris's #1 standing rule: **never fabricate, and never rebuild what already exists. When grounding is missing, go find it or ask — do not fill the gap with an assumption.** Fabrication has two masks; both are forbidden:
@@ -104,6 +106,7 @@ The memory system routes a session to the right knowledge. **Three tiers**, in `
 - **Placement = frequency × stability:** hot+stable → `CLAUDE.md`; warm → area index; cold/specific → topic file or vault page.
 - The flow is **spawn ↓ / harvest ↑ / crystallize ↑**, each *registering its bidirectional link* (thesis ↔ dated specimen) so the down-link doesn't rot.
 - `/vault-heartbeat` audits for rot, an over-cap `MEMORY.md`, and orphaned pointers.
+- **Cold-start** (fresh instance, empty `~/.claude`): the on-disk location, file schema, and seed templates to author a memory subsystem from zero live in [notes/memory-bootstrap.md](./notes/memory-bootstrap.md). The discipline above is *how to maintain* it; that page is *how to first create* it.
 
 ### Presentations (Marp)
 

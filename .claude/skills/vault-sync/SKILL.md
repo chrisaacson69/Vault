@@ -33,10 +33,10 @@ For each tag on the page:
 - Format: `- [Page Title](../relative/path/to/page.md)`
 - If the tag file doesn't exist, create it with a one-line description and the back-link.
 
-### 5. Update Tag Index Counts
+### 5. Update Tag Index Counts (CALCULATE, don't maintain)
 
-- Update `Vault/tags/_index.md` — increment the file count for each affected tag.
-- If a new tag was created, add it to the index in alphabetical order.
+- The `— N files` count is a derived report variable: never hand-increment it (that is what let it drift). After updating the tag files in step 4, run `py -3 tools/tag-counts.py --write` — it recomputes every count from the actual back-link entries in `tags/<tag>.md` and rewrites `_index.md`. Run with no flag for a dry-run report.
+- If a *new* tag was created, add its `- [tag](./tag.md) — 0 files` line to the index in alphabetical order first, then run the tool to fill in the real count.
 
 ### 6. Add Cross-Links
 
@@ -46,7 +46,7 @@ For each tag on the page:
 ### 7. Verify
 
 - Confirm all relative paths resolve correctly.
-- Confirm tag counts match actual back-link entries.
+- Tag counts are verified by the tool in step 5 (re-run it with no flag; exit 0 = clean) — no manual checking.
 
 ### Notes
 

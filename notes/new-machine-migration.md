@@ -205,7 +205,7 @@ python -m <entrypoint>
 ## Recovery Notes
 
 - If `gh repo clone` fails, fall back to `git clone https://github.com/chrisaacson69/<repo>.git`.
-- If memory doesn't transfer, the vault itself contains a lot of the same context — Claude can rebuild memory by reading INDEX.md and recent files. Slower, but recoverable.
+- If memory doesn't transfer, the vault itself contains a lot of the same context — Claude can rebuild memory by reading INDEX.md and recent files. Slower, but recoverable. For the cold-start case (no memory file at all), follow [Memory Subsystem — Cold-Start Bootstrap](./memory-bootstrap.md): it gives the on-disk location, file schema, and `MEMORY.md` seed needed to author a valid subsystem from zero.
 - If a project's deps don't install, check the matching vault stub at `projects/<name>/README.md` — many list specific tooling notes.
 
 ## Tags

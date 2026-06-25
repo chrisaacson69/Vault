@@ -23,6 +23,7 @@ makes the specimen<->thesis edge machine-derivable rather than guessed.
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote
 
 VAULT = Path(__file__).resolve().parent.parent
 EXCLUDE = {".git", "node_modules", ".obsidian", ".claude", "raw"}
@@ -50,7 +51,10 @@ def clean_target(t):
     t = t.split("#")[0].split("?")[0].strip()
     if not t or "://" in t or t.startswith("mailto:"):
         return None
-    return t
+    # URL-decode (%20 -> space): a percent-encoded space is a VALID link that resolves
+    # in Obsidian and the browser; only a naive filesystem lookup would miss it. Decode
+    # so the audit reflects real navigability instead of false-positiving on encoded paths.
+    return unquote(t)
 
 
 def md_dest(src, target):
