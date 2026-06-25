@@ -1,6 +1,16 @@
-# Vault — Personal Knowledge & Project System
+# The Vault — an OS for ideas, projects, and the discipline that ties them together
 
-This is Chris's personal vault for tracking projects, research, notes, tasks, goals, and logs.
+**Mental model: the vault is an OS; the tasks/projects are the apps.** This file is the OS manual —
+how the vault is organized, how to navigate it, and how to use it. The vault is *not* "a knowledge
+base"; the knowledge base (`research/`) is one **partition** of it, alongside the project process-table
+(`projects/`), the I/O subsystem (`raw/`), and the rest. Rules live at the altitude they apply:
+
+- **Kernel** (universal law, loads in *every* repo) → user-global `~/.claude/CLAUDE.md`: grounding + how-Chris-works. The one thing always resident.
+- **Shell / OS manual** (navigate + use the vault) → *this file*. Loads when working in the vault.
+- **Per-partition rules** → each section's own header / `CLAUDE.md` (e.g. `projects/CLAUDE.md` = the project SDK). Loads when working in that partition.
+- **Router** → `memory/MEMORY.md` (pointers) → area indexes (recalled on relevance) → vault pages / repos (deep stores).
+- **Syscalls** → the skills (`vault-sync`, `vault-ingest`, `vault-heartbeat`, `label-walk`, …).
+- **Device manager** → logical-name pointers (in `projects/`) resolved to physical mounts via per-machine `.claude/local-paths.md`.
 
 ## Grounding Discipline — Read First (non-negotiable)
 
@@ -16,6 +26,10 @@ Most of this rule cannot be enforced by a hook (there's no enforcement point for
 **Reuse requires findability — protect the meta-tool.** The cure above only works if you can *find* the existing artifact, so the routing layer (the index/hierarchy) is the precondition for everything else. The discipline: keep the index in context (INDEX.md for pages, MEMORY.md for facts, project READMEs/CONTEXT for tools), and dig for specifics on demand — don't load everything. Adding capability is not "append a file": it is *integrate* — register it in the index (rules 1, 4, 5 below) and evict or supersede what it replaces, so nothing gets silently shadowed. Append-without-eviction rots the tool bank exactly the way it rots memory: the old becomes unfindable, then forgotten, then rebuilt. **Before creating or testing new tools, verify the meta-tool model still routes cleanly to what already exists.**
 
 **External repos — resolve by logical name, never hardcode paths.** The vault is portable (committed, syncs across machines); absolute local paths are not. So committed pages refer to external repos by **logical name + GitHub URL** (portable identity) and by the **relative sibling convention** `../<name>` (works when repos are cloned side-by-side). The **absolute local path on this machine** is resolved via [`.claude/local-paths.md`](./.claude/local-paths.md) — a per-machine, gitignored resolver table. When you need an external repo's files, look its logical name up there; if it's missing, *ask* — don't guess a path. Never commit an absolute `C:\…` path into a vault page (several are `published: true` and go to the public site).
+
+## Operating Context & universal grounding → user-global
+
+The universal behavioral law — **how Chris works** (structure-over-demos, quality-not-volume, reuse>rebuild, verification-independence, classify-architecture-first, symmetric-grounding, explicit-mode) and the **grounding core** — lives one tier up, in the user-global `~/.claude/CLAUDE.md`, so it loads in *every* repo (the sibling code projects, not just the vault). Provenance for each rule is in the memory area indexes (`area_user_career`, `area_re_method`, `area_vault_system`, `area_politics`). **Everything below this point is vault-*specific*** — the structure, usage, and maintenance rules that only apply when working inside the vault.
 
 ## System Design
 
@@ -38,18 +52,18 @@ This vault uses a folder structure with **cross-linking** to function as a knowl
   ```
   Status and Created live in YAML (queryable by Dataview). Links stay as markdown in the body (clickable, graph-visible). Tags stay in the `## Tags` section at the bottom as links to tag index files (graph-visible, queryable via `FROM [[tags/tagname]]`).
 
-### Folder Purposes
+### Partitions (folders) — what each is, and where its rules live
 
-| Folder       | What goes here                                      |
-|-------------|-----------------------------------------------------|
-| `projects/` | Active and past projects (code, personal, creative) |
-| `research/` | Topics being explored, learning notes, references   |
-| `career/`   | AI lessons learned, career development, what works and what doesn't |
-| `notes/`    | Quick captures, ideas, standalone thoughts          |
-| `tasks/`    | Goals, to-do tracking, milestones                   |
-| `logs/`     | Session logs, journals, progress entries            |
-| `tags/`     | Auto-maintained tag index files for cross-referencing|
-| `raw/`      | Unprocessed source material for ingestion (Web Clipper drops, PDFs, transcripts) |
+| Partition   | Role in the OS | What goes here | Its rules |
+|-------------|----------------|----------------|-----------|
+| `research/` | **idea partition** — `/home` | Topics explored: spawn a hypothesis, later crystallize it. *This is the "knowledge base" — one partition, not the whole vault.* | conventions below |
+| `projects/` | **process table** | Pointers to the running apps (external repos), modeled as a **package library with dependencies**. | **`projects/CLAUDE.md` — the project SDK** (how to do a project) |
+| `raw/`      | **I/O subsystem** | Unprocessed source material (Web Clipper drops, PDFs, transcripts) consumed by ingestion. *Immutable — enforced by a `PreToolUse` hook.* | "Raw Ingestion Workflow" below |
+| `career/`   | partition | Career development, what works/doesn't with AI at the *career* level (≠ the project-execution SDK, which lives in `projects/`). | conventions below |
+| `notes/`    | partition | Quick captures, standalone thoughts | conventions below |
+| `tasks/`    | partition | Goals, to-do tracking, milestones | conventions below |
+| `logs/`     | partition | Session logs, journals, progress entries | conventions below |
+| `tags/`     | index | Auto-maintained tag index files (cross-referencing) | maintained by `vault-sync` |
 
 ### Raw Ingestion Workflow
 
