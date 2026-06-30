@@ -15,3 +15,4 @@ permalink: /tags/reverse-engineering/
 - [APU Reference (NES)](../research/nes/apu-reference.md) — Load-bearing facts about the Audio Processing Unit (integrated into the Ricoh 2A03) for reading NES sound code.
 - [NES Mappers Reference](../research/nes/mappers-reference.md) — The cartridge logic that extends the NES beyond its base 32 KiB PRG / 8 KiB CHR address space.
 - [PPU Reference (NES)](../research/nes/ppu-reference.md) — Load-bearing facts about the Picture Processing Unit (Ricoh 2C02) for reading NES source code.
+- [KOEI AI & combat evolution (5-decompiler study)](../research/gaming/koei-ai-combat-evolution.md)

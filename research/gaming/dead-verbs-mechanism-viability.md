@@ -44,3 +44,5 @@ If KOEI learns, later titles show fewer dead verbs and more states with a unique
 
 ## Tags
 [games](../../tags/games.md), [strategy](../../tags/strategy.md), [game-theory](../../tags/game-theory.md), [game-ai](../../tags/game-ai.md)
+
+**See also:** [KOEI AI & combat evolution](./koei-ai-combat-evolution.md) — the combat-resolution + AI-fairness arc across five decompilers; the empirical answer to "does KOEI learn?" on the combat axis (yes: one-shot compare → cheap round-sim; combat handicap → symmetric).
