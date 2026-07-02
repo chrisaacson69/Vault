@@ -114,6 +114,45 @@ travel* (same formulas as the player; hide the handicap in the economy; make the
 like a fight). That is exactly the ROTK2-walk hunch, refined: a design *disposition* pursued by trial,
 not a clean upgrade curve.
 
+## Extension (2026-07-02) — games 6–7 move the experiment to the *tactical* layer
+The study above is the five historical-sim titles. Two more of the family have since been decompiled —
+**BK** (Bandit Kings, game 6, the NA2 MMC5 twin) and **Gemfire** (game 7, 1992, KOEI's first *fantasy*
+title) — and Gemfire is where the experimentation visibly shifts from the *off-screen resolver* to the
+**tactical battle design itself**.
+
+**Off-screen model (a Gemfire row for Finding 1): round-sim — and it's the *same code* as the tactical
+fight.** `resolve_strategic_round $8234` is a squared-ratio Lanchester `p²/(p²+q²) × rng(80–120%)`; the
+tactical `resolve_melee_attack` is the *same* `p²/(p²+q²) × rng(90–110%)`, and both feed on
+`side_strength $8AF5 = soldiers/10 + 1` with **no per-type term**. So Gemfire doesn't *alternate* the
+speed↔fidelity knob — it **collapses** it: the "off-screen" battle is literally the tactical resolver run
+headless (bank 8 picks the full tactical fight if a human is on either side, else the round-sim). The
+round-sim wins outright, and the two combat surfaces become **one model wearing two presentations**.
+
+**New axis — variance without stat-bloat.** With combat power held flat (soldier count only), Gemfire
+puts all the *interest* into **geometry + one exotic slot**, never a stat table:
+- **Role is fixed by formation slot, not stats** — `is_ranged_unit` switches on `unit_idx % 5` (slots 1,3
+  ranged, 0,2 melee); the four standard units differ only in reach (adjacent vs a few-cell raycast in
+  `can_reach_target`) and move budget.
+- **Slot 4 is the only *typed* slot** — the **Fifth Unit** is the sole place a real `unit_type` enters,
+  carrying the exotic range (`unit_type_table +16`: Dragon 14, Fachan 15), flight (`move_unit_along_path`
+  special-cases types 7/12 = Gargoyles/Wyvern to bypass obstacle cells), and spell reach. It's "powerful
+  if you control the right things, otherwise just more — but with style."
+- **The battle got shorter and positional** — `run_battle_rounds` is a **5-round × 4-turn** box won by
+  side-wipe or leader-kill (`check_side_wiped` / `check_leader_defeated`): a capture-the-flag scenario,
+  not BK's 30-turn attrition grind.
+
+On a *proven* engine (RoT3K2's ROM-shape twin, VM transferred with zero code changes) KOEI kept the
+balanced attrition core and the one-ply strategic AI untouched, and spent the whole design budget on
+**one new variance axis (the Fifth Unit) + a shorter, position-driven fight** — the low-risk way to make
+a fantasy reskin feel new. The principle: **decouple *interest* (geometry + one exotic slot) from *power*
+(flat soldier count).** It's the same disposition as Finding 1 — experiment on the *presentation* of
+combat while leaving the symmetric math alone — just aimed at the tactical layer instead of the off-screen one.
+
+*Next thread:* go title-by-title to catalog what **distinguishes** each game (not only the shared
+evolution) — Gemfire's "variance in geometry + one Fifth-Unit slot / capture-the-flag battle" is the
+first such per-game signature. Grounded in [`GemFire-decompiler`](https://github.com/chrisaacson69/GemFire-decompiler)
+`docs/06-combat-overview` · `docs/07-tactical-engine` · `docs/08-battle-fx` · `docs/schema`.
+
 ## Method
 Grounded by reading each repo's decompiled C + `docs/` chapters (one focused agent per game, citing
 named functions); ROTK2's numbers verified directly in `simulate_field_battle`/`calc_province_military_
