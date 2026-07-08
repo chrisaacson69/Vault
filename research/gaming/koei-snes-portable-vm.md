@@ -13,7 +13,9 @@ created: 2026-07-08
 **Links:** [How KOEI's NES AI & combat evolved](./koei-ai-combat-evolution.md) (the five-decompiler NES
 study this extends to the SNES line) · [SNES cartridge teardown](./snes-cartridge-teardown.md) (the
 method entry point) · [L'Empereur — the two-tier turn](./lempereur-two-tier-turn.md) · [DREAM goto-free
-structuring](../reverse-engineering/dream-goto-free-structuring.md) (the decompiler-output experiment).
+structuring](../reverse-engineering/dream-goto-free-structuring.md) (the decompiler-output experiment) ·
+[The Rosetta Stone Method](../../method/rosetta-stone-method.md) (the meta-lesson: this corpus is a
+hardware-learning stone).
 Code: sibling repos `koei-snes` (shared SNES engine, the SNES sibling of `koei-nes`), `snes-decompiler`
 (65C816/hardware substrate), `rot3k2-snes-decompiler` (the title).
 
