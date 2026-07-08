@@ -16,3 +16,8 @@ permalink: /tags/reverse-engineering/
 - [NES Mappers Reference](../research/nes/mappers-reference.md) — The cartridge logic that extends the NES beyond its base 32 KiB PRG / 8 KiB CHR address space.
 - [PPU Reference (NES)](../research/nes/ppu-reference.md) — Load-bearing facts about the Picture Processing Unit (Ricoh 2C02) for reading NES source code.
 - [KOEI AI & combat evolution (5-decompiler study)](../research/gaming/koei-ai-combat-evolution.md)
+- [L'Empereur — the two-tier turn (NES→SNES design hinge)](../research/gaming/lempereur-two-tier-turn.md)
+- [Breaking Down an SNES Cart — the teardown method](../research/gaming/snes-cartridge-teardown.md) — the SNES analog of the NES chip references: header/mapping/memory-map/subsystems, grounded in the SNESdev wiki
+- [SNES teardown — `snes-decompiler`](../projects/game-annotation/snes/README.md) — process-table pointer for the target-agnostic SNES teardown substrate (verified header/mapper tools)
+- [KOEI's portable VM (SNES ROTK2 reversal)](../research/gaming/koei-snes-portable-vm.md) — first KOEI SNES title reversed; byte-for-byte portable bytecode VM, faithful port + facelift (NES↔SNES comparison)
+- [DREAM — goto-free control-flow structuring](../research/reverse-engineering/dream-goto-free-structuring.md) — reaching-conditions (not node splitting) resolve shared tails; the decompiler-output experiment

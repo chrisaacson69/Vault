@@ -14,6 +14,8 @@ created: 2026-06-30
 **Links:** [The Dead-Verb Test — does KOEI learn?](./dead-verbs-mechanism-viability.md) (this is the
 combat-side answer to its cross-series scorecard) · [The Hollow Opponent](./hollow-opponent-perceived-depth.md)
 (NA1's strategic AI decoded as shallow — complements the combat layer here) · [NA1 crucible](./nobunaga-crucible.md)
+· [L'Empereur — the two-tier turn](./lempereur-two-tier-turn.md) (the structural sequel: game 8's country→province turn architecture)
+· [KOEI's portable VM — the SNES port](./koei-snes-portable-vm.md) (the same engine family carried to 16-bit; ROTK2 reversed on both consoles)
 · grounded in named functions per game (the five `*-decompiler` repos' `docs/04`+`docs/06` + source).
 
 ## The corpus + the dating (read first)

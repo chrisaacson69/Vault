@@ -41,3 +41,5 @@ permalink: /tags/games/
 - [Game Annotation Series — moved to standalone repos](../projects/game-annotation/README.md)
 - [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md) — Given the portion of the investment graph you actually own, find the tractable paths forward.
 - [Battleship — 30 Billion Boards](../research/gaming/battleship-board-analysis.md) — the best-response-vs-minimax split: guessing is deep (exploit a fixed prior, 86% win), placement is flat (minimax → random ≈ optimal)
+- [Breaking Down an SNES Cart — the teardown method](../research/gaming/snes-cartridge-teardown.md) — how to look under the hood of any SNES ROM; the 65C816/LoROM-HiROM architecture break vs. the NES work
+- [SNES teardown — `snes-decompiler`](../projects/game-annotation/snes/README.md) — process-table pointer for the SNES teardown substrate

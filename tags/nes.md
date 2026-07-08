@@ -14,3 +14,4 @@ permalink: /tags/nes/
 - [Nobunaga's Ambition (NES)](../projects/game-annotation/nobunaga/README.md) — Koei, 1989; MMC1/SOROM 256 KB; solo deep-dive
 - [Game Annotation Series — moved to standalone repos](../projects/game-annotation/README.md)
 - [KOEI AI & combat evolution (5-decompiler study)](../research/gaming/koei-ai-combat-evolution.md)
+- [L'Empereur — the two-tier turn (NES→SNES design hinge)](../research/gaming/lempereur-two-tier-turn.md)
