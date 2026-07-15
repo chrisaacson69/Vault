@@ -34,6 +34,28 @@ Full reversal of the KOEI SNES engine + game: **512 named bytecode routines acro
   globals; code = overlays call **resident root as a shared library** (do_syscall/memcpy/…).
 - `cbmdata1`/`sdata` are DATA resources (combat tables, sound), not code.
 
+## The WRAM memory map — inverted from the NES 6502
+A WRAM-global **data-walk** (naming the RAM variables the way the routine walk named the code —
+`data/root/globals.toml`, auto-merged into every overlay) exposed the VM's memory layout, and it
+**inverts the NES/6502 convention**. On the NES the reset vector sits at the top (`$FFFC`) and the
+**zero page (`$00xx`) is the primary fast-variable store**. The KOEI SNES VM flips it (a Z80-like
+"grow up from the bottom"):
+
+| WRAM region (bank `$7E`) | Role |
+|---|---|
+| `$2000–$6FFF` (**bottom**) | **code** — overlay modules relocated here, `root` resident at `$2000`, growing up |
+| `$00xx` (direct page) | **secondary** scratch-register file, reused per routine (same address = grid-col in one routine, syscall-id in another) |
+| `$C0xx` / `$F2xx–$F4xx` (**top**) | **record tables** — Gemfire `$C0xx`, ROTK2 packs them higher (`province_table $F424`, `officer_table $F204`) |
+| `$F8xx–$FExx` | **dedicated game state** (`cur_province_ptr`, `cur_sel`, `cursor_cell`, `hdma_write_ptr`) |
+| **`$FFF7–$FFFF`** (**very top**) | the VM's **32-bit accumulator / working-register file** — hotter than anything else (`g_FFFF`: 878 rd / 580 wr / 293 fns in ROTK2) |
+
+The split is the point: a **small set of dedicated semantic variables** (record bases, turn/AI/battle
+state — nameable, ~15–20) versus a **reusable scratch-register file** (`$00xx` + `$FFFx`) that must stay
+`g_XXXX` because a single name would misdescribe it. Naming the dedicated ~15–20 resolved 500–1100
+references per title and made the record accessors read as source (`idx*36 + lord_table`). It also
+surfaced incidental structure — the HDMA table is built over the `$FF00` battle-grid region, and the
+battle-grid cell address is `(row*10 + col) + battle_grid`, low nibble = the occupying troop slot.
+
 ## Did the mechanics change? No — faithful port + facelift
 Cross-checked against the NES `rot3k2-decompiler`:
 1. **VM opcodes are byte-for-byte identical** — `$E9` hostcall, `$AC` call, `$DD/$EA` call.ind, `$CF`
