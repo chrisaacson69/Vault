@@ -61,7 +61,9 @@ schema, not ROTK2). The `koei-snes` toolchain is profile-driven and transferred 
 zero changes — the compounding-through-reuse thesis, now demonstrated across an architecture boundary.
 
 ## Roadmap
-Next cross-gen twins: **Gemfire** (NES side already done & public — a direct repeat of this experiment)
+Next cross-gen twins: **Gemfire** (**now fully decompiled — all 591 bytecode routines named across 11
+overlay modules; see [Gemfire (SNES) fully decompiled](./gemfire-snes-decompiled.md)**, which also
+caught a systematic offset-0 bug in *this* ROTK2-SNES walk)
 and **Uncharted Waters** (the genre swerve — trade/exploration, the real test of whether the VM is a
 *general* game engine, not strategy-specific). After: **pure SNES titles** — do they finally spend the
 kernel's teeth (Mode 7, SPC700) once they're not porting? The portable VM is the fixed baseline against

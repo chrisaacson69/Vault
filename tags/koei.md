@@ -9,3 +9,4 @@ Genghis Khan) as decompilation + game-design specimens.
 - [NA1 crucible](../research/gaming/nobunaga-crucible.md)
 - [L'Empereur — the two-tier turn (NES→SNES design hinge)](../research/gaming/lempereur-two-tier-turn.md)
 - [KOEI's portable VM (SNES ROTK2 reversal)](../research/gaming/koei-snes-portable-vm.md) — first KOEI SNES title reversed; byte-for-byte portable bytecode VM, faithful port + facelift (NES↔SNES comparison)
+- [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
