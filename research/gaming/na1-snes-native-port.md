@@ -12,7 +12,8 @@ created: 2026-07-15
 
 **Links:** the rule this is the exception to → [KOEI's portable VM (ROTK2 SNES)](./koei-snes-portable-vm.md) ·
 the method entry → [SNES cartridge teardown](./snes-cartridge-teardown.md) · the NES original (the oracle
-for *difference*, not answers) → the `na1-decompiler` repo · [DREAM goto-free structuring](../reverse-engineering/dream-goto-free-structuring.md)
+for *difference*, not answers) → the `na1-decompiler` repo · the full NES↔SNES grade →
+[grading two blind reverse-engineerings](./na1-nes-snes-blind-regrade.md) · [DREAM goto-free structuring](../reverse-engineering/dream-goto-free-structuring.md)
 (reused to structure the native decompiler's output).
 Code: sibling repos `na1-snes-decompiler` (the title), `snes-decompiler` (65C816 substrate — extended
 to HiROM + a new native→C decompiler here), `koei-snes` (consulted for the syscall/ABI model).

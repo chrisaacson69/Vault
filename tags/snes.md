@@ -12,3 +12,4 @@ permalink: /tags/snes/
 - [KOEI's portable VM (SNES ROTK2 reversal)](../research/gaming/koei-snes-portable-vm.md) — first KOEI SNES title reversed; byte-for-byte portable bytecode VM, faithful port + facelift (NES↔SNES comparison)
 - [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
 - [The one that isn't a VM — Nobunaga's Ambition (SNES) compiled native](../research/gaming/na1-snes-native-port.md) — first HiROM KOEI SNES title; the exception that compiled straight to native 65C816 (no bytecode VM); drove a native 65816→C decompiler
+- [NA1 NES↔SNES — grading two blind reverse-engineerings](../research/gaming/na1-nes-snes-blind-regrade.md) — SNES-derived vs NES-derived, all 5 sections converge (record bytes, Grow formula, event cadence, weakest-neighbour AI, 8-stat combat table); create-then-check method

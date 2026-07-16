@@ -24,3 +24,4 @@ permalink: /tags/reverse-engineering/
 - [The Rosetta Stone Method](../method/rosetta-stone-method.md) — learn new hardware by anchoring the unknown machine against a portable program you already understand (KOEI's cross-platform VM as the exemplar)
 - [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
 - [Nobunaga's Ambition (SNES) compiled native — no VM](../research/gaming/na1-snes-native-port.md) — native-65816 exception proven 3 ways (no fetch loop / no dispatch table / native `main`); reachability walk 0 conflicts; built a native 65816→C decompiler reusing the DREAM structurer
+- [NA1 NES↔SNES — grading two blind reverse-engineerings](../research/gaming/na1-nes-snes-blind-regrade.md) — SNES-derived vs NES-derived, all 5 sections converge (record bytes, Grow formula, event cadence, weakest-neighbour AI, 8-stat combat table); create-then-check method

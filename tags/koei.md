@@ -11,3 +11,4 @@ Genghis Khan) as decompilation + game-design specimens.
 - [KOEI's portable VM (SNES ROTK2 reversal)](../research/gaming/koei-snes-portable-vm.md) — first KOEI SNES title reversed; byte-for-byte portable bytecode VM, faithful port + facelift (NES↔SNES comparison)
 - [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
 - [Nobunaga's Ambition (SNES) — the VM exception, compiled native](../research/gaming/na1-snes-native-port.md) — the one KOEI SNES port with no bytecode VM (native 65C816); first HiROM title; hypothesis: NA1 = oldest game, predates the VM
+- [NA1 NES↔SNES — grading two blind reverse-engineerings](../research/gaming/na1-nes-snes-blind-regrade.md) — SNES-derived vs NES-derived, all 5 sections converge (record bytes, Grow formula, event cadence, weakest-neighbour AI, 8-stat combat table); create-then-check method

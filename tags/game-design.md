@@ -8,3 +8,4 @@ verb viability, capital allocation) read as design specimens.
 - [KOEI's portable VM (SNES ROTK2 reversal)](../research/gaming/koei-snes-portable-vm.md) — first KOEI SNES title reversed; byte-for-byte portable bytecode VM, faithful port + facelift (NES↔SNES comparison)
 - [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
 - [Nobunaga's Ambition (SNES) — the VM exception](../research/gaming/na1-snes-native-port.md) — same game, two compile targets (NES bytecode VM vs SNES native); the execution layer got *simpler* on the later console
+- [NA1 NES↔SNES — grading two blind reverse-engineerings](../research/gaming/na1-nes-snes-blind-regrade.md) — SNES-derived vs NES-derived, all 5 sections converge (record bytes, Grow formula, event cadence, weakest-neighbour AI, 8-stat combat table); create-then-check method
