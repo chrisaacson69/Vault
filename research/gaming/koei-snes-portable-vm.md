@@ -11,7 +11,7 @@ created: 2026-07-08
 > of a port makes each reconstruction the other's oracle.
 
 **Links:** [How KOEI's NES AI & combat evolved](./koei-ai-combat-evolution.md) (the five-decompiler NES
-study this extends to the SNES line) · [SNES cartridge teardown](./snes-cartridge-teardown.md) (the
+study this extends to the SNES line) · **[the exception — Nobunaga's Ambition SNES compiled to *native*, no VM](./na1-snes-native-port.md)** (the one KOEI SNES port that does *not* carry this portable VM) · [SNES cartridge teardown](./snes-cartridge-teardown.md) (the
 method entry point) · [L'Empereur — the two-tier turn](./lempereur-two-tier-turn.md) · [DREAM goto-free
 structuring](../reverse-engineering/dream-goto-free-structuring.md) (the decompiler-output experiment) ·
 [The Rosetta Stone Method](../../method/rosetta-stone-method.md) (the meta-lesson: this corpus is a

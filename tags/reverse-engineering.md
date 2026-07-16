@@ -23,3 +23,4 @@ permalink: /tags/reverse-engineering/
 - [DREAM — goto-free control-flow structuring](../research/reverse-engineering/dream-goto-free-structuring.md) — reaching-conditions (not node splitting) resolve shared tails; the decompiler-output experiment
 - [The Rosetta Stone Method](../method/rosetta-stone-method.md) — learn new hardware by anchoring the unknown machine against a portable program you already understand (KOEI's cross-platform VM as the exemplar)
 - [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
+- [Nobunaga's Ambition (SNES) compiled native — no VM](../research/gaming/na1-snes-native-port.md) — native-65816 exception proven 3 ways (no fetch loop / no dispatch table / native `main`); reachability walk 0 conflicts; built a native 65816→C decompiler reusing the DREAM structurer

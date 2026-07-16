@@ -10,3 +10,4 @@ Genghis Khan) as decompilation + game-design specimens.
 - [L'Empereur — the two-tier turn (NES→SNES design hinge)](../research/gaming/lempereur-two-tier-turn.md)
 - [KOEI's portable VM (SNES ROTK2 reversal)](../research/gaming/koei-snes-portable-vm.md) — first KOEI SNES title reversed; byte-for-byte portable bytecode VM, faithful port + facelift (NES↔SNES comparison)
 - [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
+- [Nobunaga's Ambition (SNES) — the VM exception, compiled native](../research/gaming/na1-snes-native-port.md) — the one KOEI SNES port with no bytecode VM (native 65C816); first HiROM title; hypothesis: NA1 = oldest game, predates the VM

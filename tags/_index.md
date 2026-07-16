@@ -8,7 +8,7 @@ permalink: /tags/_index/
 > Master list of all tags used across the vault.
 
 - [6502](./6502.md) — 6 files
-- [65816](./65816.md) — 2 files
+- [65816](./65816.md) — 3 files
 - [ai](./ai.md) — 45 files
 - [agents](./agents.md) — 16 files
 - [assembly](./assembly.md) — 7 files
@@ -39,7 +39,7 @@ permalink: /tags/_index/
 - [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 7 files
 - [game-ai](./game-ai.md) — 23 files
-- [game-design](./game-design.md) — 4 files
+- [game-design](./game-design.md) — 5 files
 - [game-theory](./game-theory.md) — 35 files
 - [games](./games.md) — 37 files
 - [grounding](./grounding.md) — 6 files
@@ -69,12 +69,12 @@ permalink: /tags/_index/
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 12 files
 - [religion](./religion.md) — 14 files
-- [reverse-engineering](./reverse-engineering.md) — 16 files
+- [reverse-engineering](./reverse-engineering.md) — 17 files
 - [scope-confusion](./scope-confusion.md) — 9 files
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 6 files
 - [simulation](./simulation.md) — 8 files
-- [snes](./snes.md) — 4 files
+- [snes](./snes.md) — 5 files
 - [software-engineering](./software-engineering.md) — 4 files
 - [strategy](./strategy.md) — 24 files
 - [tools](./tools.md) — 2 files
