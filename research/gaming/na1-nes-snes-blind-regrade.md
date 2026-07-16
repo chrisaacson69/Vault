@@ -53,6 +53,24 @@ weakest-neighbour AI. The **AI got no smarter across the hardware leap** — a 1
 search or lookahead still runs the 1986 weighted-coin-flip cascade. KOEI *chose* the shallow opponent;
 it was a design philosophy, not a compute limit. "Not fair, but a challenge" — subsidy over skill.
 
+**The one real architectural change — the combat resolver was unified.** The NES ran *two* battle
+resolvers: the tactical sim, plus a cheaper **simplified auto-resolve** for off-screen AI-vs-AI battles
+(bytecode-confirmed). The SNES has **one** — `run_turn`'s tactical sim is the only resolver;
+`try_attack`/`execute_attack` are tactical-only (per-unit-contact), reachable solely via `run_battle`,
+with no strategic aggregate shortcut (`$2E6B` queues nothing here). So SNES auto-resolve is the *same*
+deterministic sim run **headless** — `anim_attack` + cursor boxes + VBlank waits skipped, math untouched.
+Hardware-driven: the 6502 couldn't afford full tactical AI for every off-screen skirmish (hence the NES
+approximation); the 65816 could, so the approximation was dropped. It's the lone place the hardware leap
+changed the *engine* rather than the *presentation* — while leaving the AI and every formula frozen.
+
+*Strategic consequence.* On the NES the two resolvers churned **different casualties** — the tactical
+fight ground the loser down "to the man," auto-resolve was lax — so watching enemy battles was a near-
+mandatory *weapon* (you watched to maximize a rival's losses; auto let them off easy). The SNES
+unification removes that lever: identical casualties drawn or not, so `[Don't View]` is a pure time-save
+at zero strategic cost. A player's sense that watching "does nothing" is independent behavioral
+corroboration of the one-resolver callgraph. *Precise clincher (open):* an emulator RAM-diff — watch vs
+`[Don't View]` from the same seed, casualties compared to the soldier.
+
 ## The combat "tarnish"
 
 Combat strength is a many-term additive aggregate — `men + terrain(defensive) + lord-military-compare
