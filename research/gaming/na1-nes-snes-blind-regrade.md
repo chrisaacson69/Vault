@@ -62,6 +62,35 @@ IQ (20) dominate the contest. Casualties are then a deterministic `pct_op(men, p
 dice (`rng(0..5−skill)+morale+Charisma` — a defection contest that flips men, *not* melee attrition).
 The result is combat math too tangled to intuit at the table — legible only once fully enumerated.
 
+## The play isn't in the engine — positional strategy
+
+The graded mechanics collapse to one strategic truth: **the combat engine is a red herring.** The AI
+decides one fief at a time, opportunistically (`is_favorable = calc_combat_odds < 50`, adjacency-gated),
+and the `(115−15·skill)` handicap it applies *only to human fiefs* deflates your apparent strength in its
+own odds math — a **targeting magnet**, not merely softer attacks: an equally-statted AI fief is "safe,"
+your identical fief wears a soft-target sign. So the winning game is entirely positional, and the elaborate
+combat math almost never gets to matter:
+
+- **Don't be the weakest among your neighbors, and don't become it** — the literal negation of the AI's
+  one-ply decision function. You never need *global* strength, only local, and only enough to fail each
+  neighbour's favorability gate *given your handicap*. "Attack only when you can hold" is the same rule
+  forward: an ungarrisoned conquest just mints a new weakest-border-fief for the next AI turn to pile onto.
+- **Front-load before the subsidy compounds.** Your daimyo stats are frozen at the character roll; the AI's
+  **drift upward every turn** and its economy is subsidized (`6−skill`, `init_ai_budget`, Fall boost). Your
+  edge is *maximal on turn 1 and decays monotonically* — so the speedrun rushes: max-reroll all 5 stats
+  (winning the daimyo half of the 8-stat table outright), exploit that **assassination has no AI counter**
+  (unreachable from the AI turn; it never retaliates diplomatically), seed the `$2E17` turn order to chain
+  decapitations, then buy the leaderless lands and pack the new men into chokepoints before the AI catches up.
+
+**Placement beats lord class** — the sharpest statement of the thesis. Speedruns start **Miyoshi in Settsu**,
+only a *B-class* lord, because he is ringed by weak, easily-assassinated neighbours — a soft opportunity
+field. One of the *hardest* starts is **Uesugi in Echigo**, an **A-class** lord, precisely because he sits
+among other A/S daimyo and must grind wins out of the best defensive fief in the game. A strong lord among
+titans is worse-placed than a middling lord among weaklings — exactly what an adjacency-local, opportunistic
+engine predicts. The engine's complexity is nearly a magic trick: it hides how little the engine actually
+decides. See [The Hollow Opponent](./hollow-opponent-perceived-depth.md) and
+[The Dead-Verb Test](./dead-verbs-mechanism-viability.md).
+
 ## What the exercise demonstrated about method
 
 Every discrepancy across five sections was a **CREATE-phase over-read from the lossy C decompiler**
