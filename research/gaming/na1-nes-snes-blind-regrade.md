@@ -111,6 +111,13 @@ decides. See [The Hollow Opponent](./hollow-opponent-perceived-depth.md) and
 
 ## What the exercise demonstrated about method
 
+And a coverage lesson the *questions* surfaced: the "100% label-walk (715/715)" was 100% of the
+**direct-call + syscall** routines — but the **player command verbs are a 4th indirect-dispatch island**
+(~94 routines behind the command jump tables, `mul32_a`→table→indirect `JSR`), invisible to a DFS from
+`main`, exactly like the syscall island. Asking "what are the non-economy verbs?" is what exposed it;
+enumerating the tables and walking their targets brought the total to **821 routines, ~809 named**.
+*"100% of the walk" ≠ "100% of the program" when dispatch is indirect — census every jump table.*
+
 Every discrepancy across five sections was a **CREATE-phase over-read from the lossy C decompiler**
 (record-field offsets; "seeding is generated" — it's a fixed ROM copy; "SNES added a 2nd loyalty stat"
 — it's morale relabeled; "daimyo folded into the fief record" — they're separate, the fief outlives its
