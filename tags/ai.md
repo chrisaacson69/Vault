@@ -8,6 +8,7 @@ permalink: /tags/ai/
 > Files tagged with AI topics.
 
 - [Claude Opus 4.6](../research/claude-opus-4-6.md)
+- [Slay — Evaluation & Search (the 1v1 case)](../research/gaming/slay-evaluation.md) — eval-beats-depth in wide-branching search; handcrafted terms as the eventual NNUE's features
 - [Economics](../research/economics/README.md)
 - [The LLM Grounding Problem](../research/llm-grounding-problem.md)
 - [The Cyborg Model](../research/cyborg-model.md)

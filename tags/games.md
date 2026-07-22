@@ -11,6 +11,7 @@ permalink: /tags/games/
 - [Slay-C](../projects/slay-c/README.md) — C port of Slay engine for performance
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
+- [Slay — Evaluation & Search (the 1v1 case)](../research/gaming/slay-evaluation.md) — the tractable 1v1 base case; eval model, transposition-first search, and three generalizing theses
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [MOO1 Optimal Strategy](../research/gaming/moo1/optimal-strategy.md)
 - [MOO1 Opening Optimizer](../projects/moo1-opening-optimizer/README.md)
@@ -41,5 +42,8 @@ permalink: /tags/games/
 - [Game Annotation Series — moved to standalone repos](../projects/game-annotation/README.md)
 - [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md) — Given the portion of the investment graph you actually own, find the tractable paths forward.
 - [Battleship — 30 Billion Boards](../research/gaming/battleship-board-analysis.md) — the best-response-vs-minimax split: guessing is deep (exploit a fixed prior, 86% win), placement is flat (minimax → random ≈ optimal)
+- [Yahtzee — 259 Trillion → 405 Million](../research/gaming/yahtzee-solved.md) — the Battleship sequel: a ~640,000× state collapse solved by backward induction (EV ≈ 255); verdict = folk strategy formally confirmed, not new strategy discovered
 - [Breaking Down an SNES Cart — the teardown method](../research/gaming/snes-cartridge-teardown.md) — how to look under the hood of any SNES ROM; the 65C816/LoROM-HiROM architecture break vs. the NES work
 - [SNES teardown — `snes-decompiler`](../projects/game-annotation/snes/README.md) — process-table pointer for the SNES teardown substrate
+- [D&D Monster Tournament — Exact Markov Chains](../research/gaming/dnd-monster-tournament-markov.md) — a dice-rolled monster elimination tournament re-solved exactly as an absorbing Markov chain; the videos' fixed "cast when available" policy is what makes exactness possible
+- [Trolligarch — Virtual Democracy Experiments](../research/debates/trolligarch-habbo-roman-empire.md) — Habbo/Minecraft/Discord/Reddit polities as governance laboratories; room rights and admin powers as the real sovereignty beneath the constitution

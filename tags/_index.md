@@ -9,7 +9,7 @@ permalink: /tags/_index/
 
 - [6502](./6502.md) — 6 files
 - [65816](./65816.md) — 4 files
-- [ai](./ai.md) — 45 files
+- [ai](./ai.md) — 46 files
 - [agents](./agents.md) — 16 files
 - [assembly](./assembly.md) — 7 files
 - [atari-2600](./atari-2600.md) — 1 file
@@ -26,10 +26,10 @@ permalink: /tags/_index/
 - [constitutional-law](./constitutional-law.md) — 4 files
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 7 files
-- [debates](./debates.md) — 35 files
+- [debates](./debates.md) — 38 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 78 files
+- [economics](./economics.md) — 80 files
 - [education](./education.md) — 3 files
 - [free-markets](./free-markets.md) — 18 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
@@ -38,10 +38,10 @@ permalink: /tags/_index/
 - [externalities](./externalities.md) — 3 files
 - [food-safety](./food-safety.md) — 1 file
 - [free-will](./free-will.md) — 7 files
-- [game-ai](./game-ai.md) — 23 files
+- [game-ai](./game-ai.md) — 24 files
 - [game-design](./game-design.md) — 6 files
-- [game-theory](./game-theory.md) — 35 files
-- [games](./games.md) — 37 files
+- [game-theory](./game-theory.md) — 38 files
+- [games](./games.md) — 41 files
 - [grounding](./grounding.md) — 6 files
 - [history](./history.md) — 21 files
 - [insurance](./insurance.md) — 1 file
@@ -55,7 +55,7 @@ permalink: /tags/_index/
 - [meta-musing](./meta-musing.md) — 17 files
 - [metaphysics](./metaphysics.md) — 2 files
 - [mmc1](./mmc1.md) — 2 files
-- [morality](./morality.md) — 56 files
+- [morality](./morality.md) — 57 files
 - [music](./music.md) — 7 files
 - [natural-law](./natural-law.md) — 6 files
 - [nes](./nes.md) — 8 files
@@ -63,8 +63,8 @@ permalink: /tags/_index/
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 17 files
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 126 files
-- [politics](./politics.md) — 10 files
+- [philosophy](./philosophy.md) — 130 files
+- [politics](./politics.md) — 13 files
 - [praxis](./praxis.md) — 2 files
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 12 files
@@ -76,7 +76,7 @@ permalink: /tags/_index/
 - [simulation](./simulation.md) — 8 files
 - [snes](./snes.md) — 6 files
 - [software-engineering](./software-engineering.md) — 4 files
-- [strategy](./strategy.md) — 24 files
+- [strategy](./strategy.md) — 26 files
 - [tools](./tools.md) — 2 files
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files

@@ -8,6 +8,7 @@ permalink: /tags/economics/
 > Files related to economic theory, trade, and business.
 
 - [Economics (overview)](../research/economics/README.md)
+- [Slay — Evaluation & Search (the 1v1 case)](../research/gaming/slay-evaluation.md) — realizable-treasury as the Slay instance of "cash is intercept, not slope"; territory economy, upkeep drag, connectivity as the unit-tier unlock
 - [Technology → Culture → Politics](../research/philosophy/dynamics/technology-culture-politics.md) — material/economic conditions as the deepest causal layer driving culture and then politics (NAFTA/China/automation → single-industry-town collapse → realignment)
 - [Do Atheists Benefit from Living in a Christian Society? (Wilson vs 5)](../research/debates/wilson-atheists-benefit-christian-society.md) — Christian ethics as a structural/behavioral input to flourishing (monogamy→reproduction, charity, restraint, low time-preference); the benefit survives corrupted theology → it's the institutions, not the metaphysics; the missing comparative-outcomes study (Nordics/Japan/Singapore)
 - [Did Christian Societies Actually Outperform?](../research/philosophy/dynamics/christian-structural-advantage.md) — the Great-Divergence confound wall (geography/fragmentation, coal & colonies, period-sensitivity, GDP/capita vs aggregate); development-controlled fertility regressions; demographic×techno-economic trichotomy and whether the both-at-once config is a stable attractor
@@ -85,3 +86,4 @@ permalink: /tags/economics/
 - [Triangular Arbitrage — Currency & Crypto Market Differentials](../projects/triangular-arbitrage/README.md) — Can we exploit differentials in cross-rates for profit? Math says yes.
 - [Vault Gap Audit — 2026-02-28](../notes/vault-gap-audit-2026-02-28.md) — Comprehensive audit of holes, stubs, underdeveloped arguments, missing cross-links, and implied-but-unwritten topics across the vault.
 - [The Theory of the Firm and the Optimal Scale of Collectives](../research/economics/theory-of-the-firm.md) — Coase's firm boundary generalized to all collectives (firm→nation→empire); optimal scale not maximal; the inward/outward pressures = the doctrine-of-the-mean basin; decentralization as the validated verdict; pre-political (no scale is terminal)
+- [Aggregation vs. Sorting](../research/philosophy/morality/legal-theory/aggregation-vs-sorting.md) — exit vs voice (Hirschman) and Tiebout sorting applied to governance; **law as a network good** with increasing returns to adoption, hence consolidation despite free entry

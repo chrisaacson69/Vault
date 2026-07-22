@@ -51,3 +51,32 @@ projects/ → game-annotation → nes → koei → <game>      (taxonomy of apps
 A `projects/<name>.md` (or subfolder) page is the **pointer** (logical name + GitHub URL + `../sibling` +
 one-line status). The repo itself carries its own `CLAUDE.md`/`CONTEXT.md` (its app-local rules) and should
 reference this SDK + the kernel. Register new projects in `INDEX.md` (run `/vault-sync`).
+
+### Where project content goes — the three-way split (decided 2026-07-20)
+
+Project work generates three kinds of text, and each has exactly **one** home. Sending any of them to
+`INDEX.md` is the failure mode, because the index is a **router**, not a store.
+
+| Kind of content | Test | Home |
+|---|---|---|
+| **ROM/app specifics** — addresses, table layouts, per-chapter walkthroughs, formulas | *Only meaningful for this title* | **The repo** (`docs/`, `CONTEXT.md`, `ROADMAP.md`) |
+| **Theses it sparked** — findings that hold beyond this title | *Would a reader of another game care?* | **`research/`**, with the project as a dated specimen |
+| **Identity + status** — logical name, URL, sibling path, one-line state | *How do I find the thing?* | **The `projects/` pointer page**, and one line in `INDEX.md` |
+
+**Chris's rule:** *"promote it to research and let the project entries just be pointers."* If content is
+**just about the game**, it belongs in the repo; if it **applies more broadly**, it is research. The
+pointer page never becomes a third store.
+
+**The diagnostic that catches a violation** (found live on the NA1 entry, 2026-07-20): an INDEX entry
+had grown to **6,743 bytes — four times the size of the page it pointed to** — and had gone *stale*,
+listing 12 chapters while the repo had reached 17. Two smells, either of which means the router is
+being used as a store:
+
+- the **index entry is longer than its target page**, or
+- the **index entry lags the canonical store**.
+
+**Fix by eviction, not by trimming.** Before deleting anything, confirm the content exists in its
+proper home (resolve the repo via `.claude/local-paths.md` and *look*), confirm the generalisable
+findings were already promoted to `research/`, then replace the entry with a one-line pointer.
+Trimming without that check destroys the only copy — which is exactly what a blind sweep would have
+done here. *Promotion without eviction* is what created the drift in the first place.

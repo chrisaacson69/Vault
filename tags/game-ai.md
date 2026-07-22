@@ -12,6 +12,7 @@ permalink: /tags/game-ai/
 - [Slay-C](../projects/slay-c/README.md)
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
+- [Slay — Evaluation & Search (the 1v1 case)](../research/gaming/slay-evaluation.md) — eval-term surgery + transposition-first search; cut/join duality, realizable treasury, eval-beats-depth (early-NNUE lesson)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md)
 - [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)
