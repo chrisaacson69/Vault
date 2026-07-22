@@ -1,6 +1,6 @@
 ---
 name: label-walk
-description: Name the anonymous decompiled subs in a Nobunaga RE code bank via the proven multi-pass pipeline (propose@C → independent-verify@bytecode → root writes toml → regen-guard). Use when working in projects/game-annotation/nes/na1 and the ask is "label-walk bank N", "name the anon subs in bank_00/02", "run the label walk", "name bank N's functions", or finishing a bank's symbol table. Drives a Workflow — explicit multi-agent opt-in.
+description: Name the anonymous decompiled subs in a code bank of ANY disassembly target via the proven multi-pass pipeline (propose@C → independent-verify@bytecode → root writes toml → regen-guard). Target-agnostic — pass the repo's logical name, resolved via .claude/local-paths.md. Use when the ask is "label-walk <target> bank N", "name the anon subs in bank_00/02", "run the label walk", "name bank N's functions", or finishing a bank's symbol table. Drives a Workflow — explicit multi-agent opt-in.
 user-invocable: true
 allowed-tools: Bash, Read, Edit, Write, Workflow, Grep
 ---
@@ -12,10 +12,41 @@ defs become functional names through **decompiler stages — scan → symbol-tab
 typecheck**. See [[project_nobunaga_bank01_complete]], [[feedback_re_is_multipass_compilation]],
 [[feedback_verification_independence_is_altitude]].
 
+## Target — resolve, never hardcode
+
+This pipeline is disassembly **method**, not a project. It applies to any target satisfying the
+contract below — the NA1 provenance above is where it was *proven*, not what it's limited to.
+
+Resolve `PROJ` in this order:
+
+1. **Explicit argument** — `/label-walk <target> <bank>`, where `<target>` is the repo's **logical
+   name** (`na1-decompiler`, `rot3k2-decompiler`, `Gemfire-snes-decompiler`, …).
+2. **Ambient** — if the cwd is inside a qualifying repo, that repo is the target.
+3. **Logical name → absolute path** via the vault's per-machine resolver
+   [`.claude/local-paths.md`](../../local-paths.md). A missing entry, or one marked *not cloned*,
+   means **ASK — do not guess a path.**
+
+### Qualifying contract (what a target must provide)
+
+Qualification is by **artifacts present**, never by publisher or console — a same-publisher title can
+ship a different engine, so "it's a KOEI game" proves nothing.
+
+| Requirement | Convention in the KOEI repos |
+|---|---|
+| symbol table — single source of truth | `mesen-labels.toml` |
+| readable layer (the proposer reads this) | `decompiled/bank_NN.c` |
+| **lower-altitude ground truth** (the verifier reads this) | `disasm/bank_NN_vm.asm` + ext-op table + `native-call-index` |
+| deterministic prep / apply / regen / guard | `tools/label-walk-{prep,apply}.py` |
+| entry docs | `CONTEXT.md`, `tools/README.md` |
+
+Different filenames are fine — the **shape** is the contract. **If the target has no
+lower-altitude oracle, STOP.** The pipeline's correctness rests entirely on the verifier reading a
+*different, lower* artifact than the proposer; without one there is no independent check and the run
+would only rubber-stamp ([[feedback_verification_independence_is_altitude]]).
+
 **Rule 0 — anti-drift (read first, every run):** `PROJ/CONTEXT.md` then `PROJ/tools/README.md`.
-`PROJ` = `C:\Users\Chris.Isaacson\Vault\projects\game-annotation\nobunaga`. Launcher is **`py -3`**
-(not `python` — silent failure). The single source of truth for names is `mesen-labels.toml`;
-everything else is projected from it. Verify every toml edit against a clean re-read
+Launcher is **`py -3`** (not `python` — silent failure). The single source of truth for names is the
+symbol table; everything else is projected from it. Verify every toml edit against a clean re-read
 ([[feedback_silent_tool_failure_hallucination]]).
 
 ## Where verification lives (the non-negotiable shape)

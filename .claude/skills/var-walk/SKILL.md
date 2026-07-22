@@ -1,6 +1,6 @@
 ---
 name: var-walk
-description: Name the positional frame slots (arg1..arg4 / local0..local11) of the decompiled Nobunaga subs by role-inference + caller-propagation — the 3rd sibling to /label-walk (names subs) and /data-walk (names data). Use when working in projects/game-annotation/nes/na1 and the ask is "var-walk bank N", "name the args/locals", "name the frame variables", "rename the localN in <sub>", or finishing a bank's variable names. Drives a Workflow — explicit multi-agent opt-in.
+description: Name the positional frame slots (arg1..arg4 / local0..local11) of any decompiled subs by role-inference + caller-propagation — the 3rd sibling to /label-walk (names subs) and /data-walk (names data). Target-agnostic — pass the repo's logical name, resolved via .claude/local-paths.md. Use when the ask is "var-walk <target> bank N", "name the args/locals", "name the frame variables", "rename the localN in <sub>", or finishing a bank's variable names. Drives a Workflow — explicit multi-agent opt-in.
 user-invocable: true
 allowed-tools: Bash, Read, Edit, Write, Workflow, Grep
 ---
@@ -15,10 +15,27 @@ decompiler prints positionally — `effect_grow(arg1, arg2)` / `local11` → `ef
 [[project_nobunaga_data_walk_skill]], [[feedback_re_is_multipass_compilation]],
 [[feedback_verification_independence_is_altitude]].
 
+## Target — resolve, never hardcode
+
+This is disassembly **method**, not a project; the `effect_grow` pilot above is where it was *proven*,
+not what it's limited to. Resolve `PROJ`:
+
+1. **Explicit argument** — `/var-walk <target> <bank>`, `<target>` = the repo's **logical name**
+   (`na1-decompiler`, `rot3k2-decompiler`, `Gemfire-snes-decompiler`, …).
+2. **Ambient** — cwd inside a qualifying repo.
+3. **Logical name → absolute path** via [`.claude/local-paths.md`](../../local-paths.md). Missing, or
+   marked *not cloned* → **ASK. Do not guess a path.**
+
+**Qualifying contract** — by **artifacts present**, never by publisher or console (a same-publisher
+title can ship a different engine): a symbol table with per-sub slot sections, a decompiler that
+prints frame slots positionally, callers to propagate from, a **lower-altitude ground truth** for the
+verifier, the deterministic prep/apply tooling, and `CONTEXT.md` + `tools/README.md`. Different
+filenames are fine — the *shape* is the contract. **No lower-altitude oracle → STOP**
+([[feedback_verification_independence_is_altitude]]).
+
 **Rule 0 — anti-drift (read first, every run):** `PROJ/CONTEXT.md` then `PROJ/tools/README.md`.
-`PROJ` = `C:\Users\Chris.Isaacson\Vault\projects\game-annotation\nobunaga`. Launcher is **`py -3`**.
-The single source of truth for names is `mesen-labels.toml`; the slot names live in
-`[vars.bankN."0xADDR"]` sections (ADDR = the sub's stub). Verify every toml edit against a clean
+Launcher is **`py -3`**. The single source of truth for names is the symbol table; the slot names live
+in `[vars.bankN."0xADDR"]` sections (ADDR = the sub's stub). Verify every toml edit against a clean
 re-read ([[feedback_silent_tool_failure_hallucination]]).
 
 ## What makes a slot nameable (the one rule that matters)

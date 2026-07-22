@@ -1,13 +1,23 @@
 ---
 name: nobunaga
-description: Run the Nobunaga's Ambition (NES) reverse-engineering tools — render fief/strategic maps, test command effects, decompile VM bytecode to C, query labels, run the verified econ sim, decode combat traces. Use when working in projects/game-annotation/nes/na1 so a tool gets INVOKED instead of rebuilt. Triggers — "run the nobunaga <X> tool", "render <fief>", "test the <command> effect", "decompile bytecode at <addr>", "where's the label for <addr>".
+description: Run the Nobunaga's Ambition (NES) reverse-engineering tools — render fief/strategic maps, test command effects, decompile VM bytecode to C, query labels, run the verified econ sim, decode combat traces. Instance-scoped to the na1-decompiler repo (resolved via .claude/local-paths.md) — use it so an NA1 tool gets INVOKED instead of rebuilt. Triggers — "run the nobunaga <X> tool", "render <fief>", "test the <command> effect", "decompile bytecode at <addr>", "where's the label for <addr>".
 user-invocable: true
 allowed-tools: Bash, Read, Grep, Edit
 ---
 
 ## Nobunaga tool dispatcher
 
-Project root: `C:\Users\Chris.Isaacson\Vault\projects\game-annotation\nobunaga` (`PROJ` below).
+**This one is deliberately instance-scoped.** Unlike `/label-walk`, `/data-walk` and `/var-walk` —
+which are disassembly *method* and take a target argument — this skill dispatches NA1's **specific
+tool surface** (fief renderers, the econ sim, the combat-trace decoder). It is correctly bound to one
+project; do not generalize it. If a tool here proves useful on another target, that's the signal to
+**promote the tool** into a shared home, not to widen this dispatcher.
+
+**Project root (`PROJ`) — resolve, never hardcode.** Logical name **`na1-decompiler`**; the code lives
+under `na1-decompiler/nobunaga/`. Resolve the absolute path for this machine via the vault's
+per-machine resolver [`.claude/local-paths.md`](../../local-paths.md). If the entry is missing or
+marked *not cloned*, **ASK — do not guess a path.** (Vault pointer page:
+[projects/game-annotation/nes/na1](../../../projects/game-annotation/nes/na1/README.md).)
 
 **Rule 0 — anti-drift (this is why the skill exists):** before running OR building anything, the source of truth is the registries, not your memory:
 1. Read `PROJ/CONTEXT.md` (vocabulary + canonical artifacts + quick-routes).
