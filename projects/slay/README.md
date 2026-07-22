@@ -10,7 +10,7 @@ permalink: /projects/slay/
 > Hex-based strategy game recreation with AI player development.
 
 **Repo:** `https://github.com/chrisaacson69/slay`
-**Links:** [Slay-C (C port)](../slay-c/README.md), [The Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md) (the N≥3 coalition wall Slay's AI hits), [Gaming](../../research/gaming/README.md), [Vault Index](../../INDEX.md)
+**Links:** [Slay-C (C port)](../slay-c/README.md), [Slay — Evaluation & Search](../../research/gaming/slay-evaluation.md) (the 1v1 eval + search theory), [The Multiplayer Coalition Problem](../../research/gaming/multiplayer-coalition-problem.md) (the N≥3 coalition wall Slay's AI hits), [Gaming](../../research/gaming/README.md), [Vault Index](../../INDEX.md)
 
 ## Overview
 

@@ -8,7 +8,7 @@ title: "BattleValue — A Universal Combat Comparison Metric"
 # BattleValue — A Universal Combat Comparison Metric
 > BV = sqrt(Attack × HP). One number to compare any two units across any game system.
 
-**Links:** [Gaming](./README.md), [Economics](../economics/README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [YouTube Migration](../../projects/youtube-migration/README.md), [The Dominance-Frontier Lens](../dominance-frontier-lens.md) (BV/Cost is this lens's cost-axis for combat units)
+**Links:** [Gaming](./README.md), [Economics](../economics/README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [YouTube Migration](../../projects/youtube-migration/README.md), [The Dominance-Frontier Lens](../dominance-frontier-lens.md) (BV/Cost is this lens's cost-axis for combat units), [D&D Monster Tournament — Exact Markov Chains](./dnd-monster-tournament-markov.md) (**the proposed ground-truth oracle for BV** — an exact pairwise win matrix is the test this metric has never faced; where √(Attack × HP) fails should be predictable from the MoM complications list. **Carries the Hercules warning:** Chris's earlier HeroClix Markov study crowned Hercules on BV/cost purely because range and non-combat abilities were unmodelled — so a combat model and BV that *share* a melee blind spot will agree with each other for bad reasons, and any BV validation needs a mobility-enabled control run)
 
 ## The Problem
 

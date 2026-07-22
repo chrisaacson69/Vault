@@ -76,6 +76,50 @@ So the **theoretical prediction in any fixed-end iterated PD is universal defect
 
 More recent: Press-Dyson 2012 introduced **zero-determinant strategies** — provably-extracting strategies that can force any linear combination of payoffs from an *adapting* opponent. ZD strategies are the "AlphaGo of iterated PD." But against other ZD strategies, they break down. The race-to-the-top of strategic sophistication doesn't converge on always-defect; it converges on cleverer cooperation/exploitation balances. **Sophistication doesn't validate the backward-induction prediction; it complicates it further.**
 
+## Where the "hole" actually is — solution concept, not representation
+
+A natural first guess at *why* theory mispredicts the tournament: the extensive form can't represent memory / history-dependent play, so it can't "see" the winning strategies. **That guess is wrong, and locating the error precisely is the whole payoff.**
+
+The extensive form represents memory *perfectly well*. A strategy in the repeated game is by definition a function from *history* to *action* — Tit-for-Tat ("cooperate, then copy the opponent's last move"), Grim, and Pavlov are all completely well-defined extensive-form strategies. They live in the strategy space the entire time. Backward induction doesn't *fail to see* TFT; it sees it and *rejects* it. So the gap is **not representational** — it is in the **solution concept** (backward induction / subgame perfection), one level up from the model of the game.
+
+**The combinatorics, exactly** (the counts are the argument). For a fixed 10-round game:
+- **Paths** (outcome sequences of one contest): 4 joint outcomes/round × 10 rounds = 4¹⁰ ≈ **10⁶**. (One player's move-sequence along a fixed path is 2¹⁰ ≈ 10³.)
+- **Strategies** (complete contingent plans — the real object): a strategy fixes an action at *every* decision point; there are Σₜ₌₁¹⁰ 4ᵗ⁻¹ = (4¹⁰−1)/3 ≈ 349,525 of them, so **2^349,525** pure strategies — doubly-exponential, but **finite**.
+
+A memory strategy isn't a *path*; it's the *rule that selects* which path you land on, and which path that is depends on the opponent (hence field-dependence). The key consequence: in the fixed-horizon game the strategy space, though astronomically large, is **finite, and every history-dependent heuristic is already one of its points** — TFT/Grim/Pavlov are specific elements. The extensive form is descriptively *complete* here; it isn't missing the winners.
+
+**Unboundedness enters only when the horizon does.** Drop the known end and a strategy becomes a function on *arbitrarily-long* histories — genuinely infinite (uncountable for arbitrary functions; countable for computable ones). That is the same unknown-horizon regime where cooperation becomes sustainable (Folk Theorem), so the unboundedness and the interesting cooperation are the *same* far side of the finite-horizon assumption. The extensive form can *represent* this case but cannot *select* within it — the failure is selection, not representation.
+
+**The hardness is real and P=NP-flavored** (not literally P=NP): verification is cheap (simulate a match, O(rounds)), search is hard. Computing a Nash equilibrium is **PPAD-complete** (Daskalakis–Goldberg–Papadimitriou 2009); equilibrium *refinements* are NP-hard (Gilboa–Zemel 1989). If the equilibrium is intractable to compute, real agents aren't computing it either — the computational hardness and the empirical failure are one fact seen twice, and both point at heuristics.
+
+### Two different questions, conflated under one word "optimal"
+
+The deeper resolution: backward induction and the tournament are answering **different optimization problems.**
+
+- **Question A — equilibrium:** *what profile is stable when every player is a perfect reasoner who knows everyone else is too?* For the finite, known-horizon PD: all-defect, the unique subgame-perfect equilibrium. The math is correct.
+- **Question B — tournament:** *what strategy accumulates the most points against this particular fixed zoo of opponents?* This is **best-response-to-a-population** — decision theory against a known distribution, not equilibrium among mutual optimizers.
+
+All-defect wins A and *loses* B. It is a best response *to itself*, but **not** to a field containing forgiving cooperators — against TFT it eats the sucker's payoff once and then forgoes the entire cooperation surplus forever. So "rational" (equilibrium sense) and "winning" (ecological sense) are genuinely different objects. Classical game theory answers A and then gets blamed for failing B — but it was never the same question. Minmax is the same story: it optimizes against a *worst-case* adversary (so it picks defect), but the tournament field is fixed and non-adversarial, not worst-case.
+
+### The clean diagnostic test: field-dependence
+
+The signature that separates A from B: **change the field and the B-winner changes; the A-answer never moves.** TFT wins Axelrod only because the zoo contains enough cooperators to reward it — drop it alone into an all-defect population and it can't invade (it needs to arrive in a *cluster*). Equilibrium is field-independent *by construction*; an evolutionary answer is field-dependent *by construction*. That field-dependence is precisely what an equilibrium concept cannot express — and the cleanest proof that the tournament is a Question-B object.
+
+### Two struts hold up "always defect" — knock out either and it falls
+
+1. **Known, fixed, finite horizon.** Backward induction needs a *last round* to anchor the recursion. Make the end probabilistic or infinite-with-discounting and there is no last round — the **Folk Theorem** kicks in and history-dependent cooperation becomes genuinely subgame-perfect. (Axelrod's second tournament used a probabilistic end for exactly this reason.) Real interactions rarely announce "this is the last one," so the assumption that *produces* all-defect is the unrealistic case.
+2. **Common knowledge of rationality.** The whole induction tower assumes the opponent is also backward-inducting. In a tournament you face a zoo of programs, not perfect reasoners — and the best response to "an opponent who rewards cooperation" is to cooperate. Memory only *helps* under strut 1: with a known last round there is no future to shape, so memory is useless; without one, memory is everything, because it lets a strategy create incentives over the opponent's *future* moves.
+
+### Open thread (to resolve later)
+
+This relocates — but does not yet dissolve — the two original cracks: **equilibrium as a pointer, not a result** (a flashlight over the stable set, with selection imported from outside), and **the dynamic player** (identity/strategy formed *in* the play, the "memory" intuition). The field that bridges A and B is **evolutionary game theory** — replicator dynamics, best-response-to-distribution — where TFT's victory is a *theorem*, not an anomaly. That EGT is where this should go (cf. the [evolutionary-capitalist critique](../research/evolutionary-capitalist/value-utility-evolutionary-game-theory.md), which gets the population-dynamics point but inflates it into objective-value teleology — right tool, wrong metaphysics).
+
+**Why EGT dodges the enumeration wall:** it never optimizes over the (unbounded) strategy space. It asks the *local* question "can a mutant invade this population?" — a stability check, not a global search — so it sidesteps the intractability above. **ESS** is a filter on a *given* population, and it genuinely prunes (not every Nash equilibrium is an ESS).
+
+**The most promising selection lever — bounded complexity.** Model strategies as finite automata with ≤ k states (Rubinstein 1986; Abreu–Rubinstein 1988): now the space is finite and parameterized by k (TFT = 2 states, always-defect = 1), and you *can* enumerate. Crucially, adding even a tiny lexicographic **cost for complexity collapses the equilibrium set toward cooperation** — a real selection principle, and a partial answer to crack (3). It selects *within* a population rather than depending on which population you started from, which is exactly EGT's weak spot: replicator outcomes depend on initial conditions, and ESS prunes but does not *uniquely* select. So the standing guess: EGT **refines** (3) (and complexity-cost is the sharpest known lever); whether it **closes** (3) or just relocates the indeterminacy into "which initial population" is the open test. Parked here 2026-06-27 as deferred future work.
+
+**Moral application (2026-07-05).** This same finite-horizon → default-defect result is the formal core of the **Ring of Gyges / "might makes reality"** problem in ethics: at the 1-person level always-defect is correct and *default*, so cooperative morality is the *constructed structure that escapes it*, and its grounding must be population/durability (EGT), never single-agent rationality. Worked through in [Morality — Open Problems #4](../research/philosophy/morality/open-problems.md) and the [Sitch/Mullally debate review](../research/debates/sitch-mullally-birthright-citizenship.md) (incl. God-as-infinite-iterator as the shadow-extension device, and the self-reprogramming defector as the residual edge).
+
 ## The cooperation puzzle in one-shot games
 
 Even in **one-shot** Prisoner's Dilemma — no iteration, no future — humans cooperate at 30-50% rates in lab experiments. Theory predicts 0%.

@@ -30,6 +30,8 @@ Slay is essentially Risk with cleaner mechanics — hex territory control, incom
 
 The two-player simplification in the current [Slay](../../projects/slay/README.md) project was a deliberate choice to make the AI tractable. Restoring six players is an open problem.
 
+The tractable 1v1 base case — the evaluation model and search design, plus three theses that generalize (the **cut/join graph duality**, **realizable-treasury / use-it-or-lose-it**, and **eval-beats-depth in wide-branching games**) — is worked out in [Slay — Evaluation & Search](./slay-evaluation.md).
+
 ### Risk
 
 Risk adds explicit growth mechanics that change the coalition dynamics:

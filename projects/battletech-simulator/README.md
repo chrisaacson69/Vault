@@ -9,7 +9,7 @@ permalink: /projects/battletech-simulator/
 # BattleTech Simulator
 > Monte Carlo combat simulator to derive empirical BattleValue for BattleTech mechs and find bargains in the official BV2 system.
 
-**Links:** [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [YouTube Migration](../youtube-migration/README.md)
+**Links:** [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [YouTube Migration](../youtube-migration/README.md), [D&D Monster Tournament — Exact Markov Chains](../../research/gaming/dnd-monster-tournament-markov.md) (**the tractable sibling** — same "derive empirical BV from combat" motivation, but D&D 1v1's state space is small enough to solve *exactly* as an absorbing Markov chain instead of sampling. Worth building first: it validates the BV-testing methodology against exact truth, which this sim can then inherit)
 
 **Code:** https://github.com/chrisaacson69/battletech-sim
 
