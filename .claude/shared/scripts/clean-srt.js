@@ -1,12 +1,16 @@
 #!/usr/bin/env node
-// clean-srt.js — convert a YouTube auto-caption SRT into a flat, deduplicated transcript.
+// clean-srt.js — convert a YouTube auto-caption SRT or VTT into a flat, deduplicated transcript.
 //
 // Usage:
-//   node clean-srt.js <input.srt> <output.txt>
+//   node clean-srt.js <input.srt|input.vtt> <output.txt>
 //
 // Strips:
 //   - SRT sequence numbers (lines that are only digits)
-//   - SRT timestamp lines (matching "HH:MM:SS,mmm --> HH:MM:SS,mmm")
+//   - SRT/VTT timestamp lines (matching "HH:MM:SS,mmm --> HH:MM:SS,mmm")
+//   - WEBVTT header lines ("WEBVTT", "Kind: ...", "Language: ...")
+//   - Inline markup tags (<c>, </c>, <00:00:01.680>, <i>, <font ...>) — YouTube's
+//     auto-VTT carries per-word timing tags that must go BEFORE dedup, or the
+//     rolling-caption repeats never compare equal and dedup silently no-ops.
 //   - Consecutive duplicate lines (auto-captions repeat phrases across segments)
 //
 // Joins the remainder into a single flat paragraph with collapsed whitespace.
@@ -27,7 +31,22 @@ for (const l of lines) {
   if (!l) continue;
   if (/^\d+$/.test(l)) continue;
   if (/-->/.test(l)) continue;
-  kept.push(l);
+  if (/^(WEBVTT|Kind:|Language:)/.test(l)) continue;
+  // Strip inline markup before the dedup pass below — per-word <00:00:01.680><c>word</c>
+  // timing tags differ on every repeat of the same rolling caption line.
+  let stripped = l.replace(/<[^>]*>/g, '');
+  // Decode HTML entities AFTER tag-stripping (so &lt;i&gt; text isn't re-read as a tag).
+  // Matters for speaker-change markers: YouTube renders them as "&gt;&gt;" -> ">>".
+  stripped = stripped
+    .replace(/&gt;/g, '>')
+    .replace(/&lt;/g, '<')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&');
+  stripped = stripped.replace(/\s+/g, ' ').trim();
+  if (!stripped) continue;
+  kept.push(stripped);
 }
 
 const deduped = [];

@@ -209,7 +209,13 @@
       "PowerShell(py *)",
       "Bash(py -3 tools/tag-counts.py --write)",
       "Bash(py -3 tools/tag-counts.py)",
-      "Bash(echo \"exit=$?\")"
+      "Bash(echo \"exit=$?\")",
+      "Bash(git -C /c/Users/Chris.Isaacson/bk-decompiler log --oneline -15)",
+      "Bash(git -C /c/Users/Chris.Isaacson/bk-decompiler status -s)",
+      "Bash(git -C \"/c/Users/Chris.Isaacson/GemFire-decompiler\" log --oneline -5)",
+      "Bash(mkdir -p raw/debates)",
+      "Bash(command -v yt-dlp)",
+      "WebFetch(domain:snes.nesdev.org)"
     ]
   }
 }
