@@ -1,6 +1,6 @@
 ---
 name: nobunaga
-description: Run the Nobunaga's Ambition (NES) reverse-engineering tools — render fief/strategic maps, test command effects, decompile VM bytecode to C, query labels, run the verified econ sim, decode combat traces. Use when working in projects/game-annotation/nobunaga so a tool gets INVOKED instead of rebuilt. Triggers — "run the nobunaga <X> tool", "render <fief>", "test the <command> effect", "decompile bytecode at <addr>", "where's the label for <addr>".
+description: Run the Nobunaga's Ambition (NES) reverse-engineering tools — render fief/strategic maps, test command effects, decompile VM bytecode to C, query labels, run the verified econ sim, decode combat traces. Use when working in projects/game-annotation/nes/na1 so a tool gets INVOKED instead of rebuilt. Triggers — "run the nobunaga <X> tool", "render <fief>", "test the <command> effect", "decompile bytecode at <addr>", "where's the label for <addr>".
 user-invocable: true
 allowed-tools: Bash, Read, Grep, Edit
 ---

@@ -7,11 +7,11 @@ permalink: /tags/_index/
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [6502](./6502.md) — 6 files
+- [6502](./6502.md) — 11 files
 - [65816](./65816.md) — 2 files
 - [ai](./ai.md) — 45 files
 - [agents](./agents.md) — 16 files
-- [assembly](./assembly.md) — 7 files
+- [assembly](./assembly.md) — 13 files
 - [atari-2600](./atari-2600.md) — 1 file
 - [audio-processing](./audio-processing.md) — 5 files
 - [civilizational-cycles](./civilizational-cycles.md) — 14 files
@@ -41,7 +41,7 @@ permalink: /tags/_index/
 - [game-ai](./game-ai.md) — 23 files
 - [game-design](./game-design.md) — 4 files
 - [game-theory](./game-theory.md) — 35 files
-- [games](./games.md) — 37 files
+- [games](./games.md) — 40 files
 - [grounding](./grounding.md) — 6 files
 - [history](./history.md) — 21 files
 - [insurance](./insurance.md) — 1 file
@@ -58,7 +58,7 @@ permalink: /tags/_index/
 - [morality](./morality.md) — 56 files
 - [music](./music.md) — 7 files
 - [natural-law](./natural-law.md) — 6 files
-- [nes](./nes.md) — 8 files
+- [nes](./nes.md) — 18 files
 - [nobunagas-ambition](./nobunagas-ambition.md) — 1 file
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [objectivism](./objectivism.md) — 17 files
@@ -69,12 +69,12 @@ permalink: /tags/_index/
 - [profit](./profit.md) — 1 file
 - [python](./python.md) — 12 files
 - [religion](./religion.md) — 14 files
-- [reverse-engineering](./reverse-engineering.md) — 16 files
+- [reverse-engineering](./reverse-engineering.md) — 22 files
 - [scope-confusion](./scope-confusion.md) — 9 files
 - [pytorch](./pytorch.md) — 2 files
 - [risk](./risk.md) — 6 files
 - [simulation](./simulation.md) — 8 files
-- [snes](./snes.md) — 4 files
+- [snes](./snes.md) — 8 files
 - [software-engineering](./software-engineering.md) — 4 files
 - [strategy](./strategy.md) — 24 files
 - [tools](./tools.md) — 2 files

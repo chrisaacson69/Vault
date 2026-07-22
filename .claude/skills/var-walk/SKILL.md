@@ -1,6 +1,6 @@
 ---
 name: var-walk
-description: Name the positional frame slots (arg1..arg4 / local0..local11) of the decompiled Nobunaga subs by role-inference + caller-propagation — the 3rd sibling to /label-walk (names subs) and /data-walk (names data). Use when working in projects/game-annotation/nobunaga and the ask is "var-walk bank N", "name the args/locals", "name the frame variables", "rename the localN in <sub>", or finishing a bank's variable names. Drives a Workflow — explicit multi-agent opt-in.
+description: Name the positional frame slots (arg1..arg4 / local0..local11) of the decompiled Nobunaga subs by role-inference + caller-propagation — the 3rd sibling to /label-walk (names subs) and /data-walk (names data). Use when working in projects/game-annotation/nes/na1 and the ask is "var-walk bank N", "name the args/locals", "name the frame variables", "rename the localN in <sub>", or finishing a bank's variable names. Drives a Workflow — explicit multi-agent opt-in.
 user-invocable: true
 allowed-tools: Bash, Read, Edit, Write, Workflow, Grep
 ---

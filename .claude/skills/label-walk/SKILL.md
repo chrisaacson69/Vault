@@ -1,6 +1,6 @@
 ---
 name: label-walk
-description: Name the anonymous decompiled subs in a Nobunaga RE code bank via the proven multi-pass pipeline (propose@C → independent-verify@bytecode → root writes toml → regen-guard). Use when working in projects/game-annotation/nobunaga and the ask is "label-walk bank N", "name the anon subs in bank_00/02", "run the label walk", "name bank N's functions", or finishing a bank's symbol table. Drives a Workflow — explicit multi-agent opt-in.
+description: Name the anonymous decompiled subs in a Nobunaga RE code bank via the proven multi-pass pipeline (propose@C → independent-verify@bytecode → root writes toml → regen-guard). Use when working in projects/game-annotation/nes/na1 and the ask is "label-walk bank N", "name the anon subs in bank_00/02", "run the label walk", "name bank N's functions", or finishing a bank's symbol table. Drives a Workflow — explicit multi-agent opt-in.
 user-invocable: true
 allowed-tools: Bash, Read, Edit, Write, Workflow, Grep
 ---

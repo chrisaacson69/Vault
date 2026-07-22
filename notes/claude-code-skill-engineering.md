@@ -188,7 +188,7 @@ Pocock's `CONTEXT.md` solves the verbosity failure mode by giving the agent a sh
 
 **The vault is the same pattern at one scale up.** Per-repo CONTEXT.md teaches the agent a project's jargon; the vault + memory teaches Claude *Chris's* jargon across all projects and sessions. "Constitutive realism," "planner-LM composite," "scope confusion," "the verification layer thesis" — these are vault-internal vocabulary that lets Claude reason concisely about Chris's positions without re-deriving them each session. The vault is `CONTEXT.md` for the Chris↔Claude relationship.
 
-**Concrete action this implies:** for any active vault project where there's repeatable Claude work, a per-project `CONTEXT.md` is a cheap win. The strongest candidate is `projects/game-annotation/nobunaga/` — the VM bytecode / syscall / SRAM / frame-pointer vocabulary has been hammered out across 13 chapters and is currently distributed across the chapter pages. A single CONTEXT.md extracting the canonical jargon would save tokens on every future chapter session and prevent vocabulary drift. *Not done this session — flagged as a follow-up.*
+**Concrete action this implies:** for any active vault project where there's repeatable Claude work, a per-project `CONTEXT.md` is a cheap win. The strongest candidate is `projects/game-annotation/nes/na1/` — the VM bytecode / syscall / SRAM / frame-pointer vocabulary has been hammered out across 13 chapters and is currently distributed across the chapter pages. A single CONTEXT.md extracting the canonical jargon would save tokens on every future chapter session and prevent vocabulary drift. *Not done this session — flagged as a follow-up.*
 
 ### Borrowables — what to grab from Pocock and where it fits
 
@@ -213,7 +213,7 @@ Most of the engineering-specific Pocock skills (`/triage`, `/to-prd`, `/to-issue
 1. ✅ **Gap #1 fixed 2026-05-17** — clean-srt.js and yt-meta.js saved into `.claude/shared/scripts/`, video-extract.md updated to point at them. *(Verified still in place 2026-05-29.)*
 2. **Add the flag-discipline table to `shared/README.md`** as the forward-looking rule for new skills. No code change to existing skills. ~5 minutes when convenient.
 3. ~~Fork `/grill-me`, `/diagnose`, `/handoff`, `/write-a-skill` from Pocock~~ — **OBSOLETE 2026-05-29: Claude Code now ships all four natively** as built-in skills, so no vault fork is needed. The platform absorbed the work item. (Canonical example of [drift is re-derivation](#the-deeper-unification--drift-is-re-derivation) at the roadmap layer — the plan drifted from reality until verified against ground truth.)
-4. **Write `projects/game-annotation/nobunaga/CONTEXT.md`** distilling the VM/bytecode/syscall vocabulary from the chapters into a single glossary file. Token savings start immediately on the next nobunaga session. *(Confirmed still missing 2026-05-29 — genuinely open.)*
+4. **Write `projects/game-annotation/nes/na1/CONTEXT.md`** distilling the VM/bytecode/syscall vocabulary from the chapters into a single glossary file. Token savings start immediately on the next nobunaga session. *(Confirmed still missing 2026-05-29 — genuinely open.)*
 5. **Optional, forward-looking:** sanitize-and-publish a public vault-skills repo as a portfolio artifact ([[user_career_priorities]] — architecture IS the portfolio). Lower urgency; high signal value when timed right.
 
 ## What changed in this audit pass (2026-05-17)

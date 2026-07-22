@@ -43,3 +43,6 @@ permalink: /tags/games/
 - [Battleship — 30 Billion Boards](../research/gaming/battleship-board-analysis.md) — the best-response-vs-minimax split: guessing is deep (exploit a fixed prior, 86% win), placement is flat (minimax → random ≈ optimal)
 - [Breaking Down an SNES Cart — the teardown method](../research/gaming/snes-cartridge-teardown.md) — how to look under the hood of any SNES ROM; the 65C816/LoROM-HiROM architecture break vs. the NES work
 - [SNES teardown — `snes-decompiler`](../projects/game-annotation/snes/README.md) — process-table pointer for the SNES teardown substrate
+- [KOEI tools — the shared engine toolchain](../projects/game-annotation/koei/README.md) — the toolchain shared by every KOEI target: `koei-nes` + `koei-snes`, the reversed engine, the portable-VM finding. A *peer* of the console nodes, since the engine spans both
+- [NES / Famicom — system node](../projects/game-annotation/nes/README.md) — the 6502+PPU substrate and its three-layer stack: `nes-render` (generic) → `koei-nes` (family engine) → per-title decompilers
+- [The comparison studies](../projects/game-annotation/comparisons/README.md) — the four paired deep-reads the series began as (Adventure · Mappy · Utopia · M.U.L.E.), one monorepo; indexed by arc because both arcs are cross-system by design

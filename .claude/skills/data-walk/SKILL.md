@@ -1,6 +1,6 @@
 ---
 name: data-walk
-description: Name the anonymous DATA elements (ROM tables/strings/blobs, RAM/SRAM variables) in the Nobunaga RE project by back-inference from the now-named subs that reference them. The variable-side twin of /label-walk. Use when working in projects/game-annotation/nobunaga and the ask is "data-walk", "name the ROM tables", "label the hot RAM vars", "name the data at $ADDR", "what is this table/blob", or finishing a region's data symbols. Oracle/provenance lanes are deterministic (zero agents); the analytical residue drives a Workflow (explicit multi-agent opt-in).
+description: Name the anonymous DATA elements (ROM tables/strings/blobs, RAM/SRAM variables) in the Nobunaga RE project by back-inference from the now-named subs that reference them. The variable-side twin of /label-walk. Use when working in projects/game-annotation/nes/na1 and the ask is "data-walk", "name the ROM tables", "label the hot RAM vars", "name the data at $ADDR", "what is this table/blob", or finishing a region's data symbols. Oracle/provenance lanes are deterministic (zero agents); the analytical residue drives a Workflow (explicit multi-agent opt-in).
 user-invocable: true
 allowed-tools: Bash, Read, Edit, Write, Workflow, Grep
 ---
