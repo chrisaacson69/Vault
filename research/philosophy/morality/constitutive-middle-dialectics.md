@@ -16,6 +16,25 @@ title: "The Constitutive Middle — Two Dialectics (Anti-Realist & Theistic Real
 
 **The one move (both audiences):** A moral fact is **mind-dependent AND non-elective** — read off *what agents are*, the way "a good knife cuts" is read off what a knife is. Truth-maker = the structure of the relata. *Not* a stance-independent Platonic realm; *not* a divine decree.
 
+**⚠ The trap that keeps catching this argument in the wild — "so you admit it isn't objective":**
+You say *morality concerns how minds decide, so it can never be mind-independent* (the murder/unicorn
+move: no humans ⟹ no murder ⟹ nothing to be right or wrong about). The opponent pockets it —
+*"see, you even admit it can't be **objective**"* — and the exchange dissolves into arguing what
+"objective" means, which you lose by default because you conceded first.
+- **Do not defend the concession. Run parity instead** ([relational objectivity](../epistemology/relational-objectivity.md), the **cyanide test**):
+  *"'Cyanide is poisonous to humans' is also mind-dependent — remove all humans and it's poisonous to
+  no one. Does that make the LD50 a matter of opinion? Can toxicologists be wrong? Do independent
+  labs converge?"*
+- **Then charge the burden:** *"Your definition of 'objective' makes toxicology, nutrition,
+  medicine, economics and game theory subjective too. Either accept that, or tell me what makes
+  morality the special case."* **Now they owe the account of "objective," not you.**
+- **Name the equivocation:** they are sliding between *subject-matter* mind-dependence (the domain
+  concerns minds — true of psychology and medicine) and *truth-maker* stance-dependence (its truth
+  depends on someone's attitude — false here). Only the second bears on objectivity.
+- **Root error (same as the anti-realist rung below):** *not-stance-independent ⟹ elective ⟹
+  preference.* The parity cases are counterexamples with no moral baggage attached, which is exactly
+  why they're the cheapest way to break the inference.
+
 **Facing a GLOBAL anti-realist (Lance-type — denies even logical/epistemic norms):**
 - **Don't** show a moral fact (he'll correctly relativize it to a stance). **Show a logical one** — he's anti-realist about logic too, and *can't deny it without using it.*
 - **Open:** *"You can't argue there are no binding norms of argument without relying on binding norms of argument."*

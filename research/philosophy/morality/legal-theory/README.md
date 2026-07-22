@@ -36,6 +36,7 @@ Topics are explored through adversarial debate — Chris takes one position, Cla
 
 - [Mens Rea](./mens-rea.md) — does criminal intent have a place in libertarian law?
 - [Government Formation and Structure](./government-formation.md) — why government forms (division of labor); the ancap challenge; the Constitution as a distributed system protocol
+- [Aggregation vs. Sorting — Why Collective Choice Keeps Collapsing to Two](./aggregation-vs-sorting.md) — the two ways to reconcile many preferences: **aggregate** into one outcome (voting, provably defective and worse as *dimensionality* rises — median voter in 1-D, McKelvey chaos in ≥2) or **sort** people among many outcomes (markets/exit, which removes the theorems' target rather than beating them). **Parties are a dimensionality-reduction device**, so unrepresentation is quantization error; **increasing returns to coordination** (law as a network good) is the one force collapsing both voters onto two parties and legal orders onto one system — Nozick's dominant-agency argument in economic dress. Closes with: Duverger fixes the *cardinality* of parties, not their *identity*, so **realignment is a change of basis**
 
 ## Analysis
 
