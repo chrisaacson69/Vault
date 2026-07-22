@@ -14,7 +14,7 @@ title: "Lance Bush vs. Ryan Mullally — Moral Realism vs. Global Anti-Realism"
 **Format:** Long-form cordial conversation (not a scored debate); definitions → Lance's view → Ryan's positive case → audience Q&A
 **Duration:** ~3h22m
 **Result:** No decisive clash. Lance concedes Ryan's theistic metaethic is *structurally* realist on its own terms (while rejecting the theism). Both agree secular/naturalist realism and non-naturalist "external reasons" accounts are weak. Ryan's retrospective: Lance's position is a self-undermining "non-position."
-**Vault relevance:** [Lance Bush reviews Wilson](./lance-bush-review-wilson-triggernometry.md), [Wilson on Stance Dependence](./wilson-objectivism-stance-dependence.md), [Performative Grounding Lineage](../philosophy/morality/performative-grounding-lineage.md), [Game Theory as Normative](../../notes/game-theory-as-normative-not-descriptive.md)
+**Vault relevance:** [Lance Bush reviews Wilson](./lance-bush-review-wilson-triggernometry.md), [Wilson on Stance Dependence](./wilson-objectivism-stance-dependence.md), [Performative Grounding Lineage](../philosophy/morality/performative-grounding-lineage.md), [Game Theory as Normative](../../notes/game-theory-as-normative-not-descriptive.md), [Sitch vs. Mullally — Birthright & Natural Law](./sitch-mullally-birthright-citizenship.md) (Mullally again, same natural-law/deist toolkit, vs. a non-lawyer host)
 
 ---
 

@@ -10,7 +10,7 @@ discussion: folded-in
 **Source:** [YouTube — CGP Grey](https://www.youtube.com/watch?v=l8XOZJkozfI) — [Transcript](../../raw/debates/cgp-grey-voting-too-good.en.srt)
 **Participants:** CGP Grey (advocate for STV) vs — (no opponent; this is a one-sided explainer, so the "opposition" is the adversarial read)
 **Result:** n/a — advocacy piece, not a debate
-**Vault relevance:** [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md), [Convergence Is a Process, Not a Destination](../../notes/convergence-as-process.md), [Directional Truth and the Discrete Trap](../../notes/directional-truth-and-the-discrete-trap.md), [Scope Confusion](../philosophy/morality/scope-confusion.md)
+**Vault relevance:** [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md), [Convergence Is a Process, Not a Destination](../../notes/convergence-as-process.md), [Directional Truth and the Discrete Trap](../../notes/directional-truth-and-the-discrete-trap.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Aggregation vs. Sorting](../philosophy/morality/legal-theory/aggregation-vs-sorting.md) (**this review is one of that thesis's two specimens** — it contributes the impossibility floor (Arrow, Gibbard–Satterthwaite) and the proportionality-scope confusion showing "fair" has no single referent; the thesis adds the dimensionality variable and the sorting alternative)
 
 ---
 
