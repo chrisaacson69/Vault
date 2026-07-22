@@ -32,9 +32,9 @@ All work below lives on GitHub under `chrisaacson69/`. Cloning the vault + these
 - youtube-migration
 
 ### Third-party (re-clone fresh on new machine)
-- pytorch — was wrangled to work past machine policy + Python 3.14, may need re-wrangling
 - yt-dlp — only local diff was `.claude/` + `CLAUDE.md`, not worth a fork
 - monopyly upstream is a fork already, push goes to chrisaacson69 fork
+- pytorch source clone is NOT needed for the tutorial repos (pytorch-learning, pytorch-audio-learning) — they `import torch`, so pip wheels are sufficient. Only clone `pytorch/pytorch` if hacking on torch internals (and then `git config --global core.longpaths true` first to dodge Win 260-char path limit on test fixtures).
 
 ## Critical: The `.claude/` Folder
 
@@ -87,20 +87,20 @@ These were intentionally NOT migrated. Revisit when needed:
 
 ### 1. Install core tools
 
-Use `--exact` so winget doesn't fuzzy-match. IDs are case-sensitive:
+Use `--exact` so winget doesn't fuzzy-match (IDs are case-sensitive), and `--source winget` to skip the Microsoft Store source — on a fresh Win 11 box the msstore source can fail with `0x8a15005e` (server cert mismatch) and abort the whole install with exit `-1978335138`:
 
 ```powershell
-winget install --id Git.Git --exact
-winget install --id GitHub.cli --exact
-winget install --id Anthropic.ClaudeCode --exact   # the CLI, NOT Anthropic.Claude (that's the desktop chat app)
-winget install --id Python.Python.3.13 --exact
-winget install --id OpenJS.NodeJS --exact          # or OpenJS.NodeJS.LTS for the long-term-support build
-winget install --id yt-dlp.yt-dlp --exact
+winget install --id Git.Git --exact --source winget
+winget install --id GitHub.cli --exact --source winget
+winget install --id Anthropic.ClaudeCode --exact --source winget   # the CLI, NOT Anthropic.Claude (that's the desktop chat app)
+winget install --id Python.Python.3.14 --exact --source winget     # 3.14 has full PyTorch support as of torch 2.11 (Mar 2026)
+winget install --id OpenJS.NodeJS --exact --source winget          # or OpenJS.NodeJS.LTS for the long-term-support build
+winget install --id yt-dlp.yt-dlp --exact --source winget          # pulls Deno + ffmpeg as deps
 ```
 
 Optional / project-specific:
-- ffmpeg (camelot, cyborgdj): `winget install --id Gyan.FFmpeg --exact`
-- CUDA toolkit (RTX 5060): download from NVIDIA, match PyTorch's CUDA version
+- ffmpeg (camelot, cyborgdj): comes free as a yt-dlp dependency above; otherwise `winget install --id Gyan.FFmpeg --exact --source winget`
+- CUDA toolkit (RTX 5060): download from NVIDIA, match PyTorch's CUDA version (cu128 wheels work on RTX 5060)
 
 **Finding more package IDs:** `winget search <keyword>` lists matches with their IDs, or browse [winget.run](https://winget.run) for a searchable web catalog.
 
@@ -134,6 +134,8 @@ cd $HOME\Downloads
 
 After extracting, **delete the Drive copy** — it contains your settings + tokens.
 
+**Username slug rename — required if the user folder name changed:** Claude Code names per-project memory folders after the cwd, so old machine's `C:\Users\Chris.Isaacson\Vault` produces `projects\C--Users-Chris-Isaacson-Vault\` while new machine's `C:\Users\chris\Vault` expects `projects\C--Users-chris-Vault\`. Direct copies will NOT match new working directories — rename each `C--Users-<old>-<...>` slug to `C--Users-<new>-<...>` after the copy. The session UUID folders (e.g. `59019c89-2efa-...`) are old subagent transcripts; safe to skip those entirely. Also skip stale settings.local.json (paths reference old user) and .credentials.json (re-auth on the new machine instead of importing).
+
 Verify:
 ```powershell
 ls $HOME\.claude\projects
@@ -154,8 +156,7 @@ $repos = @(
 )
 foreach ($r in $repos) { gh repo clone "chrisaacson69/$r" }
 
-# Third-party
-gh repo clone pytorch/pytorch
+# Third-party (pytorch source clone NOT needed — see Third-party section above)
 gh repo clone yt-dlp/yt-dlp
 ```
 
@@ -174,7 +175,7 @@ Notes:
 - **camelot_from_youtube** — needs ffmpeg + librosa stack. Check `.env.example` and recreate `.env`.
 - **CyborgDJ** — needs rubberband binary; download fresh, extract to `rubberband-bin/`.
 - **animation-studio-pod** — Docker image for RunPod, no local install needed unless building.
-- **pytorch** — may need wrangling for Python 3.14 + machine policy again. The new machine has fewer policies, so this might just work.
+- **pytorch-learning / pytorch-audio-learning** — per-venv `pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128` (CUDA 12.8 wheels for RTX 5060). PyTorch 2.11+ supports Python 3.14 fully, so no source-build wrangling needed.
 
 ### 7. Smoke test
 
