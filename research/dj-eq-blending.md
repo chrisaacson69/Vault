@@ -213,11 +213,91 @@ Per-band automation lanes implemented in `cyborgdj/engine.py`. Tested on transit
 
 The `[[bar, value]]` format is the right interchange layer, but hand-authoring breakpoints is the wrong input method. The rendering engine is not the bottleneck — the authoring workflow is. This confirms the roadmap: real-time recording (Step 2) or spectral analysis tools are needed before per-band EQ can be practically used for production mixes.
 
-### Candidate Next Steps
+### Candidate Next Steps (status as of 2026-07-22)
 
-1. **Spectral analysis tool** — analyze both tracks during the overlap region, show where frequency content conflicts, suggest crossover frequencies and timing. Bridges the gap between "I can hear the problem" and "I know the values."
-2. **Real-time recording (Step 2)** — MIDI controller input recorded as timestamped events, quantized to bar grid, exported as automation lanes. The recording IS the spec.
-3. **Template library** — parameterized versions of tutorial techniques (slow blend, hard swap, drop swap) that adapt to overlap length. Starting points, not finished products.
+1. ~~**Spectral analysis tool**~~ — **SHIPPED, and this page failed to record it.** See below.
+2. **Real-time recording (Step 2)** — MIDI controller input recorded as timestamped events, quantized to bar grid, exported as automation lanes. The recording IS the spec. *Still open.*
+3. **Template library** — parameterized versions of tutorial techniques (slow blend, hard swap, drop swap) that adapt to overlap length. Starting points, not finished products. *Still open — and this is the "recipe generator" layer in the 2026-07 architecture.*
+
+## 2026-07-22 Revisit — what was already built, and what's actually missing
+
+### The spectral tool shipped; the page didn't say so
+
+Candidate Next Step #1 exists in two places and was never harvested back here:
+
+- `camelot_from_youtube/spectral_analysis.py` — per-bar energy across 31 ISO-266 third-octave bands,
+  producing an `(n_bars, 31)` dBFS matrix.
+- `camelot_from_youtube/collision.py` — two-track spectral collision over a transition zone; identifies
+  hotspots, **suggests EQ crossover frequencies**, emits JSON as EQ recommendations for CyborgDJ specs.
+  Docstring notes it was ported from `CyborgDJ/scripts/spectral_collision.py` — so the tool is *forked
+  across both repos*.
+
+**This is textbook index rot**: the artifact existed, the page still advertised it as unbuilt, and a fresh
+session nearly rebuilt it from scratch. The `(n_bars, 31)` matrix is also the right *representation* — a
+per-bar symbolic score, discrete and time-anchored — as opposed to a raw FFT dump, which is why the earlier
+"add an FFT engine" attempts didn't help: the problem was representation, not resolution.
+
+### Cross-repo duplication (the "had to keep reminding it to use camelot" problem, physically)
+
+| Capability | `camelot_from_youtube` | `CyborgDJ` |
+|---|---|---|
+| Spectral collision | `collision.py` | `scripts/spectral_collision.py` |
+| Rekordbox export | `rekordbox_export.py` | `scripts/export_rekordbox.py` |
+| Analysis output | `<track>/analysis_cache.json` | `camelot/<track>/key_analysis.json` — **copied, partial, stale** |
+
+CyborgDJ doesn't *depend* on camelot; it holds a partial copy of camelot's output. A dependency you have to
+remember is a habit, not a dependency. Repo root also carries `analyze_btb_bars{,_v2}.py` and
+`analyze_btb_vocal{,_v2,_v3,_v4}.py`, and `specs/` runs to 28 files with `v1`…`v7` and `-savepoint` —
+the human-in-the-loop guessing cycle, legible in filenames.
+
+### Rekordbox vs librosa — an empirical split (Chris, 2026-07)
+
+Comparing the two on the same catalog: **Rekordbox detects beats far better; librosa finds key far better.**
+Not luck — structural:
+
+- **Beats:** Rekordbox assumes a rigid constant-tempo grid and fits phase to it — a correct strong prior for
+  machine-sequenced dance music. `librosa.beat.beat_track` is deliberately genre-general (onset envelope +
+  DP) and is built to *follow* tempo variation; on a track locked to 128.00 BPM that flexibility is pure
+  downside. It also has **no downbeat concept at all**.
+- **Key:** Rekordbox reports one global key from a mediocre proprietary detector. The vault's own stack is
+  CQT chroma + Krumhansl with **consensus voting and bar-aligned timeline windows** — a better *method* for
+  tracks that change key. It beat a commercial tool because of the architecture around the primitive.
+
+**Two consequences.** (1) Stop recomputing the grid — read Rekordbox's back via `pyrekordbox` (MIT, active),
+which already ships as a dependency but is currently used write-only. (2) Rekordbox's grids are a **free,
+genre-matched labelled benchmark** for scoring neural beat trackers on *this* catalog rather than on
+Ballroom/GTZAN.
+
+### The actual gap
+
+| Layer | Status |
+|---|---|
+| Per-bar spectral score | ✅ `spectral_analysis.py` |
+| Stems (incl. 6-stem guitar/piano) | ✅ `separate_stems.py`; superseded by `audio-separator` |
+| Conflict detection + crossover suggestion | ✅ `collision.py` |
+| LUFS | ✅ `pyloudnorm` already wired into the UI |
+| Beat grid | ⚠️ librosa-based, no downbeat model |
+| **Critic on the rendered output** | ❌ |
+| **Closed loop / parameter search** | ❌ |
+| **A/B judgement log** | ❌ |
+
+`collision.py` predicts conflict from the **two source tracks before the mix** — the same analysis that
+proposes the crossover also vouches for it. That is self-consistency, not verification. Running the same
+third-octave measurement **on the rendered output** and comparing predicted-vs-actual is an independent
+oracle, and it reuses code that already exists.
+
+The 2026-02-22 conclusion — *"authoring method matters more than rendering"* — was right, and it points at
+a specific fix: the LLM should never author gain values. Picking a number that sounds right at bar 8 requires
+maintaining state, simulating, and verifying — none of which a language model does (see
+[Planner-LM Composites](./planner-lm-composites.md)). The LLM picks the **recipe and constraints**; a solver
+picks the **values**, scored by the critic. That converts "listen → adjust → re-render" from a human loop
+into a search, and the iteration table above is already a hand-derived objective function waiting to be
+converted into metrics.
+
+**Next-actionable:** start the **A/B judgement log** on the very next listening comparison — spec A, spec B,
+which won, one line of why. Every comparison made in February was discarded; those pairs are the training
+set for a learned mix-quality evaluator, and there is
+[no published metric to reuse](./programmatic-dj-mixing-tools.md#2026-07-22-revision--what-superseded-what).
 
 ## Tags
 [music](../tags/music.md), [audio-processing](../tags/audio-processing.md), [cyborg](../tags/cyborg.md)

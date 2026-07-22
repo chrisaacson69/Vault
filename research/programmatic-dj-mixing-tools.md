@@ -417,6 +417,82 @@ Stack: soundfile (I/O) + librosa (beat detection) + pyrubberband (time-stretch) 
 
 ---
 
+## 2026-07-22 Revision — what superseded what
+
+Deep-research pass (6 angles, 25 sources, adversarial verification: **10 of 25 claims confirmed, 15 refuted**).
+The low confirmation rate is the headline — treat this section's *unlisted* topics as open, not answered.
+
+### Separation — the Demucs line was superseded
+
+The band-split RoFormer family (BS-RoFormer / Mel-RoFormer, ByteDance SAMI) beats the Demucs line by
+**~2–3 dB average SDR on MUSDB18-HQ** (BS-RoFormer 9.80–10.02 no-extra-data, 11.99 with; HTDemucs 7.52
+no-extra-data, deployed `htdemucs_ft` ~9.00). But ByteDance released **neither code nor weights** — every
+usable implementation is a community reimplementation, and reproductions land materially below the paper
+figure. Budget for a gap between published SDR and what runs.
+
+**The binding constraint for this project:** everything outside drums/bass/vocals separates far worse.
+The catch-all "other" stem sits at **8.7–9.0 dB across every top model vs 14+ dB for bass and drums**;
+purpose-built guitar (~9.0) and piano (~7.8) models do no better. Prog/trance is *overwhelmingly* "other"
+content — pads, leads, arps. This confirms the pro-DJ intuition that melodic dance tracks separate badly,
+and it is a model-quality ceiling, not a stem-definition artifact.
+
+**Consequence:** use stems to *discover*, not to *render*. Bass and drum detection survives poor separation;
+soloed melodic stems do not.
+
+### Verified tooling (checked directly 2026-07-22, not via the research pass)
+
+| Tool | License | Last push | Role |
+|---|---|---|---|
+| [audio-separator](https://github.com/karaokenerds/python-audio-separator) `0.44.5` | MIT | 2026-07-20 | **The separation answer.** pip, Py≥3.10, MDX/VR/MDXC-RoFormer + `htdemucs_6s` (guitar/piano), chunked to avoid OOM |
+| [pyrekordbox](https://github.com/dylanljones/pyrekordbox) | MIT | 2026-07-20 | Reads Rekordbox `master.db` — grids *in*, not just XML out |
+| [Music-Source-Separation-Training](https://github.com/ZFTurbo/Music-Source-Separation-Training) | MIT | 2026-07-12 | RoFormer weights/training |
+| [beat_this](https://github.com/CPJKU/beat_this) | MIT | 2026-05-28 | Beats + downbeats; **preferred over All-In-One on maintenance** |
+| [madmom](https://github.com/CPJKU/madmom) | BSD code / **CC BY-NC-SA models** | 2026-03-20 | ⚠️ *models are NonCommercial* — see below |
+| [all-in-one](https://github.com/mir-aidj/all-in-one) | MIT | **2024-05-09** | Joint beats+downbeats+segments, but 2 yrs stale, NATTEN-from-source on Windows, pop song-form labels |
+
+**madmom licensing trap** (LICENSE read directly): source is 3-clause BSD, but *data/model files are
+CC BY-NC-SA 4.0* — "if you want to include any of these files … in a commercial product, please contact
+Gerhard Widmer." Fine for personal use; blocking for anything licensed or sold. GitHub reports `NOASSERTION`
+for exactly this reason. **`beat_this` is MIT and avoids it.**
+
+**madmom install reality:** `pip install git+https://github.com/CPJKU/madmom.git` only. PyPI's newest wheel
+is 0.16.1 from **2018**; the numpy/Py3.10+ fixes live on main and were never released. Zipball installs fail
+on a missing submodule.
+
+### Cue-point detection is NOT solved — and there is no mix-quality metric
+
+- Zehren et al. rule-based detector: **86% precision at 49% recall** (2020).
+- CUE-DETR (2024, learned): **best F1 = 0.38** on a 4,710-track / 21,461-cue EDM dataset.
+- Zehren's DJ-interview Rule 2: *"A switch point always occurs on the downbeat at the start of a period."*
+  Their **period is 4 bars**, not the 8/16/32 usually assumed. And phrase alignment is an *additional*
+  constraint **on top of** downbeat accuracy, not a replacement — 45% of their misses came from bad period
+  estimation.
+- **Zero verified claims exist for any objective "is this transition good?" metric.** Nothing to reuse.
+
+That last point is the strategic one: a rendered-output critic is **novel work, not a reinvention**. The
+field is immature, and the two assets needed to build one — genre-matched beat-grid ground truth and
+genre-matched preference labels — are things a working DJ has and researchers don't.
+
+### Does the 2026-02-20 decision still hold?
+
+**Yes, with one swap.** The custom Python stack remains right; the *analysis front-end* changes:
+`librosa` stays as the DSP/feature layer (load, STFT, CQT chroma, third-octave), and the eviction is
+surgical — **beat, downbeat and structure detection only**, plus `audio-separator` in place of raw `demucs`.
+DawDreamer remains an unexercised fallback.
+
+### Still open (do not read absence as absence)
+
+- Real SDR/VRAM for a 6-stem RoFormer on a consumer GPU (CUDA path unconfirmed; the ⚠️ in
+  audio-separator's GPU table is **DirectML**-specific, not CUDA).
+- Re-summation artifacts — SDR does not answer "does it sound fine recombined." Needs a listening test.
+- EDM section labelling (build/drop/breakdown). The one EDM-specific lead the research surfaced,
+  `arXiv:2603.08759` ("EDMFormer"), **could not be substantiated and should be treated as fabricated.**
+  Practical fallback: derive drops from energy/spectral-flux on the phrase grid.
+- Audio-understanding LLMs / MCP / scriptable DAW APIs — **zero surviving claims**; hypothesis untested.
+- Whether pyCrossfade, Automix/M-DJCUE, or any commercial DJ tool exposes a programmatic interface.
+
+---
+
 ## Tags
 - [music](../tags/music.md)
 - [python](../tags/python.md)
