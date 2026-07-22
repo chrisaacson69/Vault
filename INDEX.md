@@ -207,6 +207,7 @@ permalink: /INDEX/
   - [Value/Utility via Evolutionary Game Theory](./research/evolutionary-capitalist/value-utility-evolutionary-game-theory.md) — objective value as evolutionary payoff; Perfect Evolutionary Being; foundational video
   - [Optimal Money Supply Growth](./research/evolutionary-capitalist/optimal-money-supply.md) — reputation money via profit/loss amplification; Cantillon critique meets central planning
 - [DJ EQ Blending Technique](./research/dj-eq-blending.md) — how pro DJs use EQ as the primary transition tool; technique breakdowns mapped to automation lanes
+  - [Crossover Calibration](./research/dj-crossover-calibration.md) — measuring the EQ cutoff instead of guessing it; stem-derived crossover + a psychophysics harness whose trials double as the A/B training set
 - [Online Debates](./research/debates/README.md) — analysis of online "bloodsports" debates; extracting signal from spectacle
   - [Property, Rights, and the God Question](./research/debates/pool-dyer-review-wilson.md) — Wilson reviews Pool vs Dyer; company towns, communism labels, predatory lending, grounding of rights
   - [The Sheriff Problem](./research/debates/utilitarianism-sheriff-counterexample.md) — McCloskey's counterexample to utilitarianism; four independent vault arguments for why aggregation-based morality breaks

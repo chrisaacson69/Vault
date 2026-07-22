@@ -8,7 +8,7 @@ title: "DJ EQ Blending Technique"
 # DJ EQ Blending Technique
 > How pro DJs use EQ — not the crossfader — as the primary transition tool.
 
-**Links:** [CyborgDJ](../projects/cyborgdj/README.md), [DJ Set 1](../projects/dj-set-1/README.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md)
+**Links:** [CyborgDJ](../projects/cyborgdj/README.md), [DJ Set 1](../projects/dj-set-1/README.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md), [Crossover Calibration](./dj-crossover-calibration.md)
 
 ## Context
 
