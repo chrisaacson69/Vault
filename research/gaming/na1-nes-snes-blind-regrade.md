@@ -37,8 +37,14 @@ artifact — here the second binary — not asking a second agent.)
 | **AI turn** | weighted-coin-flip cascade; weakest-adjacent-by-men-ratio; state-5 = human; difficulty lives in the constants; subsidized not skilled | ✅ all match |
 | **Combat** | `(115−15·skill)` handicap (AI 100%, player scaled); casualties `pct_op(men,pct)+(pct≥50?1:0)`; **8-stat weight table `{5,5,10,10,10,15,20,25}` sum 100 → +40%**; 3 unit types (Rifles>Cav>Inf, +100% rank term) | ✅ identical |
 
-Field map (both, header-first in ROM): `header, gold, debt, town, rice, output, dams, loyalty(+12),
-wealth, men(+16), morale(+18), skill(+20), arms(+22)`.
+Field map — **two orders, confirmed against the ROM scenario block** (`$C3:903D`, all 17 records
+decode with `debt==0`, "noone starts in debt" as the alignment anchor). The **ROM scenario record is
+header-first**: `koku(+0), gold(+2), debt(+4), town(+6), rice(+8), output(+10), dams(+12),
+loyalty(+14), wealth(+16), men(+18), morale(+20), skill(+22), arms(+24)` — where the header field is
+the **koku range** (it sets a recruit/income *range*, not a literal). The **RAM runtime record is
+header-last**: `gold(+0), debt(+2), town(+4) … arms(+22), header(+24)` — the new-game loader rotates
+koku from front to back. `men/morale/skill/arms` are stored **literally** in both, so pristine turn-0
+troop counts *are* readable from ROM (they differ up to ~6× from any mid-game dump).
 
 ## What the port actually changed — and what it froze
 
