@@ -109,6 +109,16 @@ engine predicts. The engine's complexity is nearly a magic trick: it hides how l
 decides. See [The Hollow Opponent](./hollow-opponent-perceived-depth.md) and
 [The Dead-Verb Test](./dead-verbs-mechanism-viability.md).
 
+## The thesis, measured — the turn-1 attack matrix
+
+The positional argument above is qualitative; a **backend attack simulation** (`na1-snes-decompiler/tools/attack_sim.py`) turns it into a map. From the Spring-1560 initial state (a WRAM dump, date-confirmed), for every fief it computes its weakest adjacent enemy and whether the owner is *favored* — all inputs SNES-confirmed: `favored ⟺ atk_strength > def_strength` (the `odds<50` gate decoded via `percent(a,b)=a·100/(a+b)`), `strength = men·(1+0.40·W/100)·handicap`, W = the 8-stat weighted win-count, handicap `= 100` (AI) or `115−15·k` (human difficulty *k*). Adjacency is the NES-verified 17-fief border table (bank-4 `$8300`) — the SNES derives borders from map geometry at runtime, with no static table to read.
+
+Two results make the thesis concrete:
+- **The magnets are real and few.** *Iga* (26 men, the ninja province) is the weakest neighbour of **four** fiefs at once (Yamato, Omi, Iseshima, Yamashiro); *Shinano* (31) and *Suruga* (30) are the regional magnets. And the four fiefs that can't favourably attack even their *weakest* neighbour as the AI — Noto, Suruga, Iga, Shinano — are themselves three of those magnets. **Weakness both blocks striking out and invites being struck** — the NES "weakness, not a timer, summons the wars" rule, reproduced from SNES stats alone.
+- **The handicap squeeze, in numbers.** Of the 17 fiefs, **13** can favourably take their weakest neighbour as the AI (or as a human at difficulty 1 — `115−15·1 = 100%`, so *difficulty 1 applies no combat handicap at all*). Each level up strips ~15% strength: **13 → 13 → 13 → 12 → 11 → 4** across AI/h1…h5. At difficulty 5 (fighting at 40% strength) only the four fiefs that *massively* out-man a 26–30-man target still qualify. Over all 268 ordered enemy pairs the squeeze is starker: 134 → 113 → 87 → 57 → **28**. The handicap isn't a softer AI — it's a shrinking permission set on the *human's* own aggression.
+
+*NES↔SNES divergence surfaced here (a real one, not an over-read).* The **NES** strategic gate is a men-ratio bar with noise — `ratio−10−rng(skill·3) > 60`, target = weakest adjacent by **provisioned** men (a rice-starved fief counts as 0 men). The **SNES** gate is a plain 50% bar on a *strength composite* (`men × W × handicap`). So the port moved the selectivity out of a raw-men ratio and into the strength formula — the 8-stat W-scaling and the difficulty handicap now do the gating that an explicit `>60`+skill-noise term did on the NES. Same emergent behaviour (weakest-neighbour aggression, difficulty-as-handicap), re-expressed through the combat-strength model rather than a bespoke ratio test.
+
 ## What the exercise demonstrated about method
 
 And a coverage lesson the *questions* surfaced: the "100% label-walk (715/715)" was 100% of the
