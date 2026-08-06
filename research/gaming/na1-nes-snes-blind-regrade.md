@@ -44,7 +44,11 @@ loyalty(+14), wealth(+16), men(+18), morale(+20), skill(+22), arms(+24)` — whe
 the **koku range** (it sets a recruit/income *range*, not a literal). The **RAM runtime record is
 header-last**: `gold(+0), debt(+2), town(+4) … arms(+22), header(+24)` — the new-game loader rotates
 koku from front to back. `men/morale/skill/arms` are stored **literally** in both, so pristine turn-0
-troop counts *are* readable from ROM (they differ up to ~6× from any mid-game dump).
+troop counts *are* readable from ROM. (Care: comparing a live dump to this base
+must use the **province** index on both sides — the ROM table's clan storage
+order silently mis-pairs fiefs otherwise. Correctly aligned, a just-started
+dump sits mostly within ~30% of base, up to ~2× where a fief has recruited or
+lost — not the ~6× an *un*-aligned compare falsely shows.)
 
 ## What the port actually changed — and what it froze
 
@@ -124,7 +128,7 @@ The positional argument above is qualitative; a **backend attack simulation** tu
 So the deliverable is a **base matrix = the center of a distribution**, with three stable conclusions:
 - **Two structural magnets, and they are historically exact.** *Mino* (Saitō, base men **38**) is the weakest neighbour of **five** fiefs (Echizen, Hida, Mikawa, Shinano, Owari) — ringed by the strongest clans in the game (Oda, Takeda, Tokugawa, Asakura); this is the Mino everyone historically piled onto, reproduced from stats alone. *Iga* (Rokkaku, **21**) is the weakest neighbour of **four**. The fiefs that can't favourably attack even their weakest neighbour as the AI (Musashi, Kaga, Suruga, Mino, Iga) are themselves among the magnets — **weakness both blocks striking out and invites being struck**, the NES "weakness, not a timer, summons the wars" rule from SNES stats alone.
 - **The handicap squeeze.** Of 17 fiefs, **12** can favourably take their weakest neighbour as the AI (or a human at difficulty 1 — `115−15·1 = 100%`, so *difficulty 1 applies no combat handicap at all*). Each level strips ~15% strength: **12 → 12 → 12 → 11 → 10 → 6** (AI/h1…h5). The handicap isn't a softer AI — it's a shrinking permission set on the *human's* own aggression.
-- **Structure survives the jitter; exact flags don't.** The perturbed dump run gave different specifics (its Musashi men had grown 74→150, flipping Musashi to favoured) but surfaced *the same two magnets*. And the ~+50% random bonus is asymmetric exactly as designed: landing on **Mino (38→~57)** lifts it out of universal-victim status; landing on **Owari (78→~117)** is pure overkill on the strongest fief — "great if it's Noto, wasted on Oda." Good replayability lever, possibly tuned a touch strong.
+- **Structure survives the jitter; exact flags don't.** A just-started dump (human moved first) sits mostly within ~30% of this base — the player's own fief read *identical* — with a few movers (Musashi 70→150 flipped to favoured; Suruga/Shinano dropped ~0.4×), yet surfaced *the same two magnets*. And the ~+50% random bonus is asymmetric exactly as designed: landing on **Mino (38→~57)** lifts it out of universal-victim status; landing on **Owari (78→~117)** is pure overkill on the strongest fief — "great if it's Noto, wasted on Oda." Good replayability lever, possibly tuned a touch strong.
 
 *NES↔SNES divergence surfaced here (a real one, not an over-read).* The **NES** strategic gate is a men-ratio bar with noise — `ratio−10−rng(skill·3) > 60`, target = weakest adjacent by **provisioned** men (a rice-starved fief counts as 0 men). The **SNES** gate is a plain 50% bar on a *strength composite* (`men × W × handicap`). So the port moved the selectivity out of a raw-men ratio and into the strength formula — the 8-stat W-scaling and the difficulty handicap now do the gating that an explicit `>60`+skill-noise term did on the NES. Same emergent behaviour (weakest-neighbour aggression, difficulty-as-handicap), re-expressed through the combat-strength model rather than a bespoke ratio test.
 
