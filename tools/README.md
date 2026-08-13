@@ -5,6 +5,11 @@ Deterministic generators & audit gates for the vault — the **derive** half of
 keep the vault write-optimized (a web of forward links), and let tools derive the
 read-optimized checks instead of auditing by hand.
 
+Most of what follows maintains the vault itself. One exception is noted as such:
+**`risk-battle-odds.py`** is a *research* solver backing a specific page, kept here
+because it is the same kind of artifact — a deterministic generator whose output is
+checkable — and because a solver that lives next to its page cannot go unfindable.
+
 ## vault-graph.py — the derive-the-ledger audit gate
 
 Scans the markdown link graph and reports:
@@ -64,6 +69,27 @@ py -3 tools/vault-tagindex.py --write    # apply
 First apply (2026-06-08): 41 tag files reconciled — broken links **178 → 117**, ~200 missing
 memberships added (`+48 philosophy`, `+29 morality`, …, the hand-maintained index's rot). The
 remaining 117 broken links are non-tag (INDEX deep-links, a few wrong-path bugs) — a separate pass.
+
+## risk-battle-odds.py — exact Risk battle odds (research solver, not a vault gate)
+
+Backs [research/gaming/risk-attrition-odds.md](../research/gaming/risk-attrition-odds.md).
+Solves a Risk battle fought to the death as an **absorbing Markov chain** — exact, no
+simulation — returning P(win), the full survivor distribution, percentiles, and the
+closed-form mean/spread.
+
+```
+py -3 tools/risk-battle-odds.py 299 300 --stack --observed 54   # a real battle, scored
+py -3 tools/risk-battle-odds.py 298 300 --reduced               # show what the reduction trims
+py -3 tools/risk-battle-odds.py --selftest                      # exit 0 = clean
+```
+
+**Two engines, deliberately.** `solve()` is a forward sweep over the whole `(a,d)` grid;
+`reduced()` exploits the fact that a 3-vs-2 round kills *exactly* two armies (so `a+d`
+parity is invariant and the bulk is a 1-D IID walk) and solves the `a≤2 or d≤1` boundary
+shell separately. They are structurally independent, so `--selftest` **cross-checks them
+against each other on every run** — plus the per-round dice table against the published
+Risk odds, and the martingale identity behind the closed form. That mutual check is the
+point: the reduction is not faster (both are O(A·D)/2), it is a second oracle.
 
 ## vault-backlinks.py — materialize backlinks (the "emit backlinks" half) — BUILT, not applied
 

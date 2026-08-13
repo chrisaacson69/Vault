@@ -8,7 +8,7 @@ title: "D&D Monster Tournament — Exact Markov Chains Instead of Dice"
 # D&D Monster Tournament — Exact Markov Chains Instead of Dice
 > A YouTube series rolls real dice to run elimination tournaments among same-CR D&D monsters. The same tournament is exactly solvable as an absorbing Markov chain — **because** the videos' combat has no real decisions in it. Expected payoff, per the Master of Magic precedent: a good approximation plus the ability to diagnose *why* a monster over- or under-performs.
 
-**Links:** [BattleValue](./battle-value.md) (the metric this would give a ground-truth oracle for), [D&D Spell Damage Model](./dnd-spell-damage-model.md) (prior D&D math work), [Master of Magic — Economic Analysis](./master-of-magic/README.md) (the closest precedent — same complication classes), [Caster of Magic — Spell Counter-Graph](./master-of-magic/com-counter-graph.md) (the dominance-graph instrument to reuse), [The Dominance-Frontier Lens](../dominance-frontier-lens.md), [Yahtzee — 259 Trillion → 405 Million](./yahtzee-solved.md) (where the EV-vs-win-objective distinction was worked out), [BattleTech Simulator](../../projects/battletech-simulator/README.md) (**the sibling project** — same BV-validation motivation, but a state space that forces Monte Carlo; this one is its tractable proving ground), [Monopoly](../../projects/monopoly/README.md) (existing vault Markov-chain machinery)
+**Links:** [BattleValue](./battle-value.md) (the metric this would give a ground-truth oracle for), [Risk — The Attrition Constant](./risk-attrition-odds.md) (**the method's completed sibling** — the same absorbing-chain treatment carried all the way through on a much smaller game, including the state-space collapse this page will need; it also demonstrates the multi-oracle verification pattern, and its Lanchester-linear result is a live warning for the BV validation planned here), [D&D Spell Damage Model](./dnd-spell-damage-model.md) (prior D&D math work), [Master of Magic — Economic Analysis](./master-of-magic/README.md) (the closest precedent — same complication classes), [Caster of Magic — Spell Counter-Graph](./master-of-magic/com-counter-graph.md) (the dominance-graph instrument to reuse), [The Dominance-Frontier Lens](../dominance-frontier-lens.md), [Yahtzee — 259 Trillion → 405 Million](./yahtzee-solved.md) (where the EV-vs-win-objective distinction was worked out), [BattleTech Simulator](../../projects/battletech-simulator/README.md) (**the sibling project** — same BV-validation motivation, but a state space that forces Monte Carlo; this one is its tractable proving ground), [Monopoly](../../projects/monopoly/README.md) (existing vault Markov-chain machinery), [HeroClix](../../projects/heroclix/README.md) (**the prior art, revived** — the HeroClix study this page cites as precedent is now its own project; source recon 2026-07-29 found both the dial data and the official rules fetchable and joinable, so the Hercules confound can finally be attacked with range and per-click powers in the model)
 
 ---
 
@@ -23,9 +23,20 @@ If these monsters made genuine tactical choices, this would be a two-player stoc
 ## Prior art — Chris already did this, for HeroClix 1st edition
 
 **This is not an untried method for Chris.** He built the same thing for **HeroClix (1st ed.)**:
-Markov chains over combat, producing **exact** results, used to rank figures by **BV/cost**. Nothing
-about this existed in the vault before 2026-07-20 — it is recorded here because it changes the
-project's design, not as a war story.
+Markov chains over combat, producing **exact** results, used to rank figures by value against cost.
+Nothing about this existed in the vault before 2026-07-20 — it is recorded here because it changes
+the project's design, not as a war story.
+
+> **Correction (2026-07-30).** This page originally described the ranking as "BV/cost", which
+> implied *wins divided by own cost*. Chris clarified that the actual metric sorted units by cost
+> and scored each by the **point value of the opponents it defeated** — so a 40-point figure
+> killing 70-point figures ranks high, while a cheap figure that only beats other cheap figures
+> does not. That distinction matters: value-per-own-cost is **biased toward cheap units**
+> (measured Spearman −0.35 against cost, because a bounded numerator over a small denominator
+> inflates), whereas the cost-weighted numerator is near-neutral (**+0.19**). Re-implemented in
+> the `heroclix` repo and validated: it agrees with an independently-derived cost-curve residual
+> at **Spearman +0.858**. The original method did *not* have the flaw the earlier wording
+> suggested — see [HeroClix](../../projects/heroclix/README.md).
 
 **What HeroClix adds that D&D doesn't have — the dial.** Every HP step has a *different stat line*,
 so figures gain and lose abilities as they take damage. This is the perfect Markov feature and a
