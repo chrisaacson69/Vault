@@ -9,15 +9,15 @@ permalink: /projects/dj-set-1/
 # DJ Set 1 — Progressive/Trance Mix
 > 11-track set built around texture-over-harmony philosophy, with a BPM staircase from 120→129.
 
-**Links:** [Tag: music](../../tags/music.md), [Set Mastering Pipeline](../set-mastering/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md)
-**Repo:** `C:\Users\Chris.Isaacson\source\repos\camelot_from_youtube`
+**Links:** [Tag: music](../../tags/music.md), [Set Mastering Pipeline](../set-mastering/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md), [Multi-Genre & Wide-BPM Mixing](../../research/dj-multi-genre-mixing.md)
+**Repo:** `https://github.com/chrisaacson69/camelot_from_youtube` — see [Camelot From YouTube](../camelot-from-youtube/README.md)
 
 ---
 
 ## Set Philosophy
 
 - **Melody into beats, beats into new melody** — overlap rhythmic/percussive sections to bridge harmonic gaps
-- **Texture over harmony** in the back half — tracks 7-11 "break Camelot" intentionally, using shared rhythm and energy rather than key compatibility
+- **Texture over harmony** in the back half — tracks 7-11 "break Camelot" intentionally, using shared rhythm and energy rather than key compatibility. *Independently corroborated* by [Multi-Genre & Wide-BPM Mixing](../../research/dj-multi-genre-mixing.md): key matching is only non-negotiable when sustained pitched material (an acapella over an instrumental) is exposed during the overlap — which is exactly why the percussive 6→7 bridge survives a ~1/7-note clash
 - **BPM staircase**: 120 → 123 → 126 → 126 → 126 → 129 → 129 → 129 → 129 → 129, with three clean steps up
 - **32-bar overlaps** where possible; clean cuts where BPM gaps or style clashes make overlap risky
 
