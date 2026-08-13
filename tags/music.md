@@ -13,4 +13,5 @@ permalink: /tags/music/
 - [Set Mastering Pipeline](../projects/set-mastering/README.md)
 - [Programmatic DJ Mixing Tools](../research/programmatic-dj-mixing-tools.md)
 - [DJ EQ Blending Technique](../research/dj-eq-blending.md)
+- [Multi-Genre & Wide-BPM Mixing](../research/dj-multi-genre-mixing.md)
 - [CyborgDJ](../projects/cyborgdj/README.md)

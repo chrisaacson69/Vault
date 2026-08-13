@@ -8,7 +8,7 @@ title: "The Technology-Governance Gap"
 # The Technology-Governance Gap
 > When the systems we build exceed our ability to understand them, who governs?
 
-**Links:** [The Godel Governance Problem](./the-godel-governance-problem.md), [Opposing Forces](./opposing-forces.md), [Computation and Information Theory](../../computation-and-information.md), [The Cyborg Model](../../cyborg-model.md), [Civilizational Cycles](./civilizational-cycles/README.md), [New Cycle (fiction project)](../../../projects/new-cycle/README.md)
+**Links:** [The Godel Governance Problem](./the-godel-governance-problem.md), [Opposing Forces](./opposing-forces.md), [The Industrial Revolution and the Remaking of Political Order](./industrial-revolution-political-transformation.md) (the *first* shock in the accelerating series — IR → Information → AI, each forcing political restructuring via the double movement), [Computation and Information Theory](../../computation-and-information.md), [The Cyborg Model](../../cyborg-model.md), [Civilizational Cycles](./civilizational-cycles/README.md), [New Cycle (fiction project)](../../../projects/new-cycle/README.md)
 
 ## The Observation
 

@@ -7,6 +7,7 @@ permalink: /tags/mathematics/
 # mathematics
 > Files exploring the philosophy and foundations of mathematics.
 
+- [HeroClix](../projects/heroclix/README.md)
 - [Philosophy of Logic and Mathematics](../research/philosophy/logic-and-math/README.md)
 - [Computation and Information Theory](../research/computation-and-information.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
@@ -33,3 +34,7 @@ permalink: /tags/mathematics/
 - [The Formal Revolution (1847–1931)](../research/philosophy/logic-and-math/formal-revolution.md) — In 84 years, logic went from a philosophical discipline to the foundation of mathematics, computing, and the limits of knowledge itself.
 - [The Godel Governance Problem](../research/philosophy/dynamics/the-godel-governance-problem.md) — Can a system be powerful enough to prevent monopoly without becoming one?
 - [The Technology-Governance Gap](../research/philosophy/dynamics/technology-governance-gap.md) — When the systems we build exceed our ability to understand them, who governs?
+- [Battlezone (1980) — 3D Without a Multiply Instruction](../research/gaming/battlezone-mathbox.md) — fixed-point 1.15 trig without a multiply instruction: quarter-wave table folding, octant-folded arctangent via one division, and an octagonal-boundary distance approximation simplified to `0.375·min + 1.0·max` so it costs two shifts and an add
+- [Arithmetic Scarcity and the 3D Problem](../research/gaming/arithmetic-scarcity-3d.md) — what a 3D pipeline does when multiplication costs ~25 additions; the transform collapses available when geometry is constrained
+- [Stellar 7 (1983) — The Same Game Without the Coprocessor](../research/gaming/stellar7-software-3d.md) — changing coordinate systems to delete an operation: polar storage turns a 4-multiply Y-axis rotation into one addition plus a 2-multiply polar→Cartesian conversion
+- [Arithmetic as a Purchase — Sixty Years of Paying for Multiply](../research/arithmetic-as-a-purchase.md) — four ways of coping with unaffordable multiplication (buy / memoize / restructure / parallelize), all four already visible in commercial hardware by 1964

@@ -6,6 +6,7 @@ permalink: /tags/game-theory/
 ---
 # game-theory
 
+- [HeroClix](../projects/heroclix/README.md)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
 - [Bilateral Trade Valuation](../research/gaming/bilateral-trade-valuation.md)
@@ -44,3 +45,5 @@ permalink: /tags/game-theory/
 - [Sitch vs. Ryan Mullally — Birthright Citizenship & Natural Law](../research/debates/sitch-mullally-birthright-citizenship.md) — finite-horizon PD / default-defect as the formal Ring of Gyges; TFT loses pairwise but wins the tournament (individual vs population); God-as-infinite-iterator; EGT as the population-level answer to the brute
 - [D&D Monster Tournament — Exact Markov Chains](../research/gaming/dnd-monster-tournament-markov.md) — **fixed policy ⇒ MDP collapses to a plain Markov chain** (real tactical choice would make it a two-player stochastic game); hunts non-transitive cycles that would mean "same CR" is not a total order
 - [Aggregation vs. Sorting](../research/philosophy/morality/legal-theory/aggregation-vs-sorting.md) — median voter (1-D) vs McKelvey–Schofield chaos (≥2-D); **increasing returns to coordination** unifies Duverger's law with the monopolization of legal orders (Nozick's dominant protection agency in economic dress)
+- [Combinatorial vs Generative Design Space](../research/gaming/combinatorial-vs-generative-design-space.md)
+- [Risk — The Attrition Constant](../research/gaming/risk-attrition-odds.md) — a Risk battle solved exactly as an absorbing Markov chain; the 3-vs-2 dice cap fixes the engagement frontage regardless of stack size, so attrition is Lanchester-LINEAR and concentration of force buys nothing

@@ -8,7 +8,7 @@ title: "Structural-Institutional Analysts"
 # Structural-Institutional Analysts
 > Turchin, Tainter, Olson, Dalio — those who identify specific mechanisms (complexity, institutions, elites, debt) that cause civilizational decay.
 
-**Links:** [Civilizational Cycles](./README.md)
+**Links:** [Civilizational Cycles](./README.md), [The Industrial Revolution and the Remaking of Political Order](../industrial-revolution-political-transformation.md) (the IR as the modern structural/institutional shock — dual revolution, the double movement, the interwar breakdown record)
 
 ---
 

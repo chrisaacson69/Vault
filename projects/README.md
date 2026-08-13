@@ -23,6 +23,7 @@ permalink: /projects/
 ## Planning & Concept
 
 - [BattleTech Simulator](./battletech-simulator/README.md) — Monte Carlo combat sim → empirical BattleValue
+- [HeroClix](./heroclix/README.md) — dial data + official rules joined; exact Markov combat model
 - [MOO1 Opening Optimizer](./moo1-opening-optimizer/README.md) — colony-ship timing
 - [DJ Set 1](./dj-set-1/README.md) · [Set Mastering](./set-mastering/README.md) — mix planning + execution pipeline
 - [OOP Neurons](./oop-neurons/README.md) — neurons as objects on the GPU

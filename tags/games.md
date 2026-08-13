@@ -6,6 +6,7 @@ permalink: /tags/games/
 ---
 # games
 
+- [HeroClix](../projects/heroclix/README.md) — dial data + official rules joined; exact Markov combat model
 - [Monopoly](../projects/monopoly/README.md) — Monopoly engine with Markov-chain AI
 - [Slay](../projects/slay/README.md) — hex strategy game recreation with AI
 - [Slay-C](../projects/slay-c/README.md) — C port of Slay engine for performance
@@ -47,3 +48,8 @@ permalink: /tags/games/
 - [SNES teardown — `snes-decompiler`](../projects/game-annotation/snes/README.md) — process-table pointer for the SNES teardown substrate
 - [D&D Monster Tournament — Exact Markov Chains](../research/gaming/dnd-monster-tournament-markov.md) — a dice-rolled monster elimination tournament re-solved exactly as an absorbing Markov chain; the videos' fixed "cast when available" policy is what makes exactness possible
 - [Trolligarch — Virtual Democracy Experiments](../research/debates/trolligarch-habbo-roman-empire.md) — Habbo/Minecraft/Discord/Reddit polities as governance laboratories; room rights and admin powers as the real sovereignty beneath the constitution
+- [Combinatorial vs Generative Design Space](../research/gaming/combinatorial-vs-generative-design-space.md)
+- [Battlezone (1980) — 3D Without a Multiply Instruction](../research/gaming/battlezone-mathbox.md) — how the first-person tank game rendered a 3D battlefield on a 1.5 MHz 6502; the vector display gave rasterization away free, but the vertex transform is where the multiplies always were
+- [Arithmetic Scarcity and the 3D Problem](../research/gaming/arithmetic-scarcity-3d.md) — buy the math (Battlezone) / compute it anyway (Elite) / constrain the geometry (Doom, Wolf3D) / precompute at art time (Ultima dungeons, Wing Commander)
+- [Stellar 7 (1983) — The Same Game Without the Coprocessor](../research/gaming/stellar7-software-3d.md) — Damon Slye's Apple II Battlezone-alike; same genre and CPU family, no math box, frame budget within 7% — the closest thing to a controlled experiment on what a coprocessor was worth
+- [Risk — The Attrition Constant](../research/gaming/risk-attrition-odds.md) — a Risk battle solved exactly as an absorbing Markov chain; the 3-vs-2 dice cap fixes the engagement frontage regardless of stack size, so attrition is Lanchester-LINEAR and concentration of force buys nothing

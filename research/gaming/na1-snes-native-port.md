@@ -60,7 +60,7 @@ ports of KOEI's earliest titles.
 - **BIOS = 60 syscalls, a graphics/display + state API** — a draw-queue drained by NMI (sprite/tilemap
   blitters, `ScrollBG`, `PlotTile`), Mode-7, `ScreenOn/Off`, `SetBrightness`, `WaitVBlank`, memory/getters.
   No general-math syscall: the HW multiply is used *inside* blitters for row addressing.
-- **Native math library @ `$C1:F800`** — 32-bit signed mul/div (restoring division on zero-page regs,
+- **Native math library @ `$C1:F800`** — *(cited as a primary-source specimen by [Arithmetic as a Purchase](../arithmetic-as-a-purchase.md): a shipped game composing a 32-bit software layer over an 8-bit hardware primitive)* — 32-bit signed mul/div (restoring division on zero-page regs,
   wrapping the HW `$4202/$4204/$4214/$4216` units) + add32/sub32/neg. The 65816's math capability is
   exactly why no VM math layer was needed.
 - **Text engine = plain-ASCII `printf`** (same family as NES): 556 located strings, `%d:%s` = year:fief;

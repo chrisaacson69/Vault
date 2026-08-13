@@ -14,3 +14,4 @@ permalink: /tags/cyborg/
 - [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md) — managing the human/AI shared memory layers; eviction policy as the anti-drift mechanism
 - [CyborgDJ](../projects/cyborgdj/README.md) — Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
 - [DJ EQ Blending Technique](../research/dj-eq-blending.md) — How pro DJs use EQ — not the crossfader — as the primary transition tool.
+- [Multi-Genre & Wide-BPM Mixing](../research/dj-multi-genre-mixing.md) — Crossing genre and tempo boundaries on purpose; stems, tempo bridges, and key-shift as spec primitives.

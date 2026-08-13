@@ -53,6 +53,19 @@ Wilson is the type case: he takes the negative posture ("rights don't exist, onl
 - **Specimen (tactics on display, not reviewed here):** [Reparation & Systemic Racism Debate — Andrew Wilson vs Austin Offscript](https://www.youtube.com/watch?v=Cq9boZ4au8o) (RattlesnakeTV, 2026-06-19, 2:09:30).
 - **Where the counter is vindicated:** the force-doctrine cluster reviews show that when the *real* flank is pressed, Wilson states the structural thesis *against himself* — [Do Atheists Benefit…](../../debates/wilson-atheists-benefit-christian-society.md) (justification conceded as empirical/structural), the O3 exchange in [Christians' Right to Rule](../../debates/wilson-christians-right-to-rule.md), and [Trent vs Kyla](../../debates/trent-horn-vs-notsoerudite-christian-nationalism.md) (the asymmetric standard dismantled by parity). His praxis is sounder than his theory, so meeting the praxis and contesting only the label is the winning play.
 
+## The inverse specimen — surrendering the easy burden
+
+The page's whole subject is an advantage the negative *has*. A Word War round supplies the mirror case: a negative who **gives it away**.
+
+[Forrest Guptill](../../debates/wordwar-too-sensitive-guptill-tejada.md) draws the negative on *"we are too sensitive as a society."* He owed nothing but negation — *we are not too sensitive* — and would have had presumption, no surface area, and the whole burden sitting on his opponent. Instead he **counter-affirms the opposite extreme**: *"we are not sensitive **enough**."* That is a positive claim with its own mechanism to defend (empathy vs. compassion), its own evidence to supply, and its own attack surface — all volunteered.
+
+Two things make it worth logging:
+
+1. **The cost is invisible in the moment.** Counter-affirming *feels* stronger than negating; it reads as conviction rather than evasion. The asymmetry this page describes is exactly what makes that feeling wrong — building has surface area, picking has none, and he chose to build.
+2. **It converted the round into a [verbal dispute](../../debates/wordwar-too-sensitive-guptill-tejada.md).** Because his counter-affirmation required redefining "sensitive" as *discernment*, he ended up asserting his opponent's substantive view under an opposed label — and conceding the opponent's central evidence outright. A pure negation could not have produced that outcome.
+
+So the practical corollary to this page: **the easy burden is forfeitable, and the usual way of forfeiting it is redefining the contested term to say something stronger.** Take the presumption; resist the urge to be interesting.
+
 ## Where it's still hard
 
 The concede-relocate counter shrinks the fight to the right joint but does not *win* it for free. The "structure grounds rights" third door is a **promissory note** until you can specify the grounding structure for a given right *without* smuggling in an intuition — [force-doctrine's Open Q2](../morality/force-doctrine.md) ("how independently specifiable is structural fitness, really?"). Against the skeptic it's enough to *name* the third door and force symmetry; to carry the *positive* case you still have to walk through it.

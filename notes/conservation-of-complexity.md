@@ -8,7 +8,7 @@ title: "Conservation of Complexity — A Cross-Domain Pattern"
 # Conservation of Complexity — A Cross-Domain Pattern
 > Computational work is conserved across transformations. You can move the cost, but you can't destroy it. This pattern appears in information theory, physics, economics, mathematics, and philosophy.
 
-**Links:** [Hayek vs Mises](./hayek-vs-mises-calculation.md), [Gödel Against Himself](./godel-against-himself.md), [Planck Measurement](./planck-measurement-working-note.md), [Counting Requires Agents](./bridge-logic-to-morality.md)
+**Links:** [Hayek vs Mises](./hayek-vs-mises-calculation.md), [Gödel Against Himself](./godel-against-himself.md), [Planck Measurement](./planck-measurement-working-note.md), [Counting Requires Agents](./bridge-logic-to-morality.md), [Measuring Inflation](../research/economics/measuring-inflation.md) — supplies two rows: the price index (disaggregation moves the aggregation cost to n=1) and the soldier's load (freed carrying capacity is immediately reallocated, never banked)
 **Related research:** Montañez, "The Famine of Forte" (2017); Montañez et al., conservation of information in learning systems (2019); Shannon-Hartley theorem (1948); Gödel incompleteness (1931); Mises calculation problem (1920); Wolfram computational irreducibility
 
 ---
@@ -28,6 +28,8 @@ Across multiple domains, the same structure appears: a system hits a limit, an i
 | **Cantor** | Can't enumerate the reals | Construct a "complete" set theory | Continuum hypothesis is undecidable |
 | **Chaos theory** | Prediction diverges from reality | More precise initial measurements | Precision cost grows faster than prediction horizon |
 | **Deontology/Consequentialism** | Can't compute consequences of actions | Follow rules (cached consequences) | Rules are approximations that break in edge cases |
+| **The soldier's load** | A man can sustainably carry ~⅓ body weight | Lighter materials, better design (2,000+ yrs of them) | **Freed capacity is immediately reallocated** — the pack weight is unchanged from the legionary to the rifleman; only its *contents* changed |
+| **Price index** ([measuring-inflation](../research/economics/measuring-inflation.md)) | No canonical price level — baskets differ across households | Disaggregate: personal indices | **Aggregation across *goods* survives at n = 1**, plus the Laspeyres/Paasche choice against one's own past self |
 
 Every row is the same story: the limit is real, the workaround is clever, and the cost is conserved.
 

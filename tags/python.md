@@ -8,6 +8,7 @@ permalink: /tags/python/
 > Projects and files using Python.
 
 - [Batch Resize](../projects/batch-resize/README.md)
+- [HeroClix](../projects/heroclix/README.md)
 - [Camelot From YouTube](../projects/camelot-from-youtube/README.md)
 - [Order Playlist](../projects/order-playlist/README.md)
 - [PyTorch Learning](../projects/pytorch-learning/README.md)

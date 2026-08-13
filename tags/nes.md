@@ -15,3 +15,4 @@ permalink: /tags/nes/
 - [Game Annotation Series — moved to standalone repos](../projects/game-annotation/README.md)
 - [KOEI AI & combat evolution (5-decompiler study)](../research/gaming/koei-ai-combat-evolution.md)
 - [L'Empereur — the two-tier turn (NES→SNES design hinge)](../research/gaming/lempereur-two-tier-turn.md)
+- [Arithmetic as a Purchase — Sixty Years of Paying for Multiply](../research/arithmetic-as-a-purchase.md) — the MMC5 as math coprocessor (`$5205/$5206`), confirmed in use across the vault's decompiled KOEI ROMs; divide stayed in software

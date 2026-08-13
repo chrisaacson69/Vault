@@ -10,7 +10,7 @@ permalink: /projects/cyborgdj/
 > Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
 
 **Repo:** [cyborgdj](https://github.com/chrisaacson69/cyborgdj)
-**Links:** [DJ Set 1](../dj-set-1/README.md), [Set Mastering](../set-mastering/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md), [The Cyborg Model](../../research/cyborg-model.md), [DJ EQ Blending Technique](../../research/dj-eq-blending.md)
+**Links:** [DJ Set 1](../dj-set-1/README.md), [Set Mastering](../set-mastering/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md), [The Cyborg Model](../../research/cyborg-model.md), [DJ EQ Blending Technique](../../research/dj-eq-blending.md), [Multi-Genre & Wide-BPM Mixing](../../research/dj-multi-genre-mixing.md)
 
 ## Overview
 

@@ -37,6 +37,7 @@ This is a feature, not a failure. The trunks are **division of labor**, not comp
 
 **Core pages:**
 - [The Constitutive/Elective Distinction](./morality/constitutive-elective.md) — primary statement
+- [Constructed ≠ Arbitrary](./constructed-not-arbitrary.md) — the trunk generalized past the normative to constructions at large; adds *functional failure* as a third diagnostic beside convergence and collapse, and an operational definition of "crisis"
 - [The Stance-Independence Retreat](./epistemology/stance-independence-retreat.md) — counter-page naming the failed repair attempts
 - [Is-Ought and Performative Grounding](./morality/is-ought-and-performative-grounding.md) — the mechanism at the agency level
 - [Performative Grounding — Philosophical Lineage](./morality/performative-grounding-lineage.md) — 2,400-year precedent

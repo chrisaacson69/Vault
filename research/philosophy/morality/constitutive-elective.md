@@ -8,7 +8,7 @@ title: "The Constitutive/Elective Distinction — Replacing Objective vs Subject
 # The Constitutive/Elective Distinction — Replacing Objective vs Subjective
 > The objective/subjective debate is fought on a single axis that doesn't exist. There are two axes, not one. Morality is mind-dependent AND constrained — a combination the traditional vocabulary has no word for.
 
-**Links:** [The Four Trunks](../the-four-trunks.md), [Morality](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md), [Scope Confusion](./scope-confusion.md), [Is-Ought and Performative Grounding](./is-ought-and-performative-grounding.md), [The Constitutive Middle — Two Dialectics](./constitutive-middle-dialectics.md), [Open Problems](./open-problems.md), [Noerr vs Terry X](../../debates/noerr-teryx-subjective-objective-morality.md), [Logic and Mathematics](../logic-and-math/README.md), [The Regress Problem](../epistemology/the-regress-problem.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Morality](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md), [Scope Confusion](./scope-confusion.md), [Is-Ought and Performative Grounding](./is-ought-and-performative-grounding.md), [The Constitutive Middle — Two Dialectics](./constitutive-middle-dialectics.md), [Open Problems](./open-problems.md), [Noerr vs Terry X](../../debates/noerr-teryx-subjective-objective-morality.md), [Logic and Mathematics](../logic-and-math/README.md), [The Regress Problem](../epistemology/the-regress-problem.md), [Constructed ≠ Arbitrary](../constructed-not-arbitrary.md)
 
 **Trunk:** This page states [Trunk 1 — Normative Ontology](../the-four-trunks.md#trunk-1--normative-ontology) of the vault's philosophy. The working name for the trunk's position is *constitutive realism*.
 
@@ -189,6 +189,12 @@ The [scope model](./scope-confusion.md) maps cleanly onto the constitutive/elect
 | **Preferences** | Fully elective | Ice cream, music, fashion |
 
 The constitutive/elective axis IS the scope gradient, just named. The scope model was already tracking this — the new terminology makes it explicit.
+
+### Social Constructions Generally
+
+[Constructed ≠ Arbitrary](../constructed-not-arbitrary.md) runs this page's argument over **non-normative** constructions — masculinity, currency, marriage, borders, language. Same structure: mind-dependent, but constrained by the problem the construction was built to solve, therefore evaluable, therefore capable of being *wrong*. It exists because the "objective/subjective" collapse this page diagnoses has an exact twin outside morality — **"it's just a social construct" treats mind-dependent as automatically elective**, which is the bottom-right cell swallowing the bottom-left one.
+
+It also contributes a diagnostic this page lacks. Convergence and collapse are the two tests offered here for constitutiveness; collapse is terminal and retrospective (you learn the norm was load-bearing by watching the building fall). **Functional failure** — the construction no longer serving the purpose it was built for — is the continuous, present-tense version of the same signal, and yields an operational definition of *crisis*. First specimen: [Is Masculinity in Crisis?](../../debates/wordwar-masculinity-crisis-owlish-garcia.md).
 
 ### Relational Objectivity
 

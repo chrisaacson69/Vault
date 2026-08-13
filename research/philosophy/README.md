@@ -22,6 +22,7 @@ permalink: /research/philosophy/
 ### Trunk 1 — Normative Ontology
 - [Morality](./morality/README.md) — what's right and why; constitutive/elective distinction; performative grounding
 - [Legal Theory](./morality/legal-theory/README.md) — applied Trunk 1 to legal norms (nested under morality)
+- [Constructed ≠ Arbitrary](./constructed-not-arbitrary.md) — the trunk generalized past the normative to constructions at large (masculinity, currency, marriage, borders, language). Constructions solve real problems ⇒ constrained at design *and* run time ⇒ non-arbitrary ⇒ evaluable ⇒ **crisis := no longer functions for the purpose it was built**. Adds *functional failure* as a third diagnostic beside convergence and collapse. Runs **forward** too: the spec it yields supplies the mechanism a casualty-list argument always lacks, and defeats the stability defense (a machine can be reliably broken). Names **the severance** (defining a construction as "distinct from" its substrate installs arbitrariness by fiat), its twin **conflation** (one word for both ⇒ neither side can state its position), and the **three-layer stack** the dismissal exists to keep you stuck in
 
 ### Trunk 2 — Verification Epistemology
 - [Epistemology](./epistemology/README.md) — convergence under reality-pressure; relational objectivity; the birthmark; [the regress problem](./epistemology/the-regress-problem.md) (Agrippa + the way out)

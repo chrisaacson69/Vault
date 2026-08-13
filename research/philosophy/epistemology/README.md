@@ -21,6 +21,7 @@ Real structures are identified by **independent convergence under reality-pressu
 
 - [Relational Objectivity](./relational-objectivity.md) — four-category ontology of facts (intrinsic / relational mind-independent / agent-relative / mind-dependent); formalizes why relational ≠ subjective
 - [The Weighting Problem](./weighting-problem.md) — objective measurements don't produce objective composite judgments; the aggregation function is always subjective
+- [Reading Outcome Statistics](./reading-outcome-statistics.md) — one level below the Weighting Problem: the failures that occur *before* aggregation, in the reading of a single statistic. Four diagnostics — jurisdiction **and** date; specify the window (transition effects); stated reason ≠ cause (a survey category is not a mechanism); scope the beneficiary. They stack, so four accurate numbers can support a false conclusion
 - [The Birthmark and the Search for Truth](./the-birthmark.md) — every knowledge system has imperfections; five principles for approaching truth; realist correction to postmodernism
 - [The Stance-Independence Retreat](./stance-independence-retreat.md) — diagnoses the retreat from "mind-independent" to "stance-independent" as a rename; attack set for the reframing
 - [The Regress Problem](./the-regress-problem.md) — Agrippa's trilemma stated canonically (brute fact / regress / loop → all unjustified first principles), plus the two exits: the performative escape and structure-evaluation. The floor that makes the convergence method necessary

@@ -8,7 +8,7 @@ title: "Registration, Rights, and Government Scope Creep"
 # Registration, Rights, and Government Scope Creep
 > The vehicle/gun registration comparison reveals more about how government mechanisms expand than about either vehicles or guns.
 
-**Links:** [Legal Theory](./README.md), [Opposing Forces](../../dynamics/opposing-forces.md), [Government Formation](./government-formation.md), [Scope Confusion](../scope-confusion.md), [Wickard v. Filburn](../../../wickard-v-filburn.md) (the doctrinal master key behind the federal side of the scope-creep table below)
+**Links:** [Legal Theory](./README.md), [Opposing Forces](../../dynamics/opposing-forces.md), [Government Formation](./government-formation.md), [Scope Confusion](../scope-confusion.md), [Wickard v. Filburn](../../../wickard-v-filburn.md) (the doctrinal master key behind the federal side of the scope-creep table below), [The Represented Unit](./represented-unit.md) (the *may*-vs-*must* delegation firewall + the 17th as innocuous-threshold specimen), [The Gödel Governance Problem](../../dynamics/the-godel-governance-problem.md) (manufactured outrage as the active twin of the innocuousness filter)
 
 ## The Common Argument
 
@@ -85,6 +85,60 @@ This is [opposing forces](../../dynamics/opposing-forces.md) in action: the gove
 **This is why the vehicle/gun comparison matters even though the constitutional answer is technically correct.** The pattern is: every registration/regulatory mechanism expands beyond its original justification. The constitutional protection for firearms isn't just a legal technicality — it's a *structural firewall* against a pattern that has played out with every unprotected mechanism. The founders may not have anticipated cars, but they anticipated scope creep.
 
 The 2nd Amendment isn't primarily about hunting or even self-defense — it's a [preventive check](./README.md) against the structural tendency of regulatory mechanisms to expand until they consume the thing they regulate. The vehicle example proves the tendency. The constitutional protection is the countermeasure.
+
+## The entry mechanism: innocuousness is a *selection filter*, not a coincidence
+
+Why does scope creep always start small? Not by accident — **by selection.** A system defends itself by
+mobilizing against changes that *look* dangerous. So any change that looks dangerous triggers the defense
+and dies; the only changes that survive to the implementation stage are the ones that cleared the bar by
+seeming trivial. **Innocuousness isn't a property the lethal changes happen to have — it's the filter that
+selects which changes get through at all.** The mechanism that will eventually consume the system is,
+necessarily, the one that entered below the threshold of alarm.
+
+This reframes the camel's-nose cliché as a structural law rather than a warning. The rhetorical tell is
+constant across domains: *"it's not that big of a deal, why do you care so much?"* — which is precisely the
+line used to sell the 17th Amendment (see [The Represented Unit](./represented-unit.md)), and the same
+shape as a moderator who *"just wanted to stop the spam"* issuing the ban that collapsed an
+[observed virtual polity](../../../debates/trolligarch-habbo-roman-empire.md). In each case the fatal move
+*had* to look minor, or it never would have been permitted.
+
+Two consequences:
+
+- **The dangerous reforms are invisible by construction.** The ones with visible teeth get bitten back; the
+  survivors are camouflaged. So "it passed easily / nobody objected" is *weak* evidence of harmlessness and
+  can even be evidence of the opposite — a genuinely load-bearing change often provokes no defense precisely
+  because its function is structural and therefore not visible (state control of senators was invisible
+  *because* it operated through incentives, not through any single act).
+- **This is the entry stage; scope creep is the exploitation stage.** Innocuousness gets the mechanism
+  *inside* the perimeter; the revenue/institutional-momentum dynamic below is what expands it once there.
+  And **manufactured outrage** (see [Gödel governance §The Meta-Bypass](../../dynamics/the-godel-governance-problem.md))
+  is the active version of the same filter — instead of waiting for a change to look innocuous, you
+  manufacture the crisis that makes a large change *feel* justified. Passive (looks trivial) and active
+  (feels urgent) are two routes past the one immune response.
+
+## A prior firewall: *may* vs. *must* — revocable delegation vs. constitutionalized transfer
+
+Scope creep is the failure mode *once a power has been handed up*. But there is an earlier control point that
+determines whether creep is even survivable: **is the delegation revocable?** The same practice can be a
+check or a transfer depending only on whether the delegating party keeps the option to withdraw.
+
+The cleanest specimen is senator selection (see [The Represented Unit](./represented-unit.md) and the
+[17th-Amendment debate](../../../debates/jake-lawyer-17th-amendment.md)). Before 1913, ~29 states had
+voluntarily adopted popular selection of senators (the "Oregon system") — a *may*. The 17th Amendment made
+popular election a *must*. The observable practice is identical (a popular vote picks the senator); the
+structure is opposite:
+
+| | Revocable delegation (*may*) | Constitutionalized transfer (*must*) |
+|--|--|--|
+| Who holds the power | the delegating party (the state) | transferred away |
+| If it goes badly | unwind it unilaterally | recoverable only by a supermajority you don't control |
+| Status | a **check** (the option is the check) | a **transfer** (the option is gone) |
+
+**General rule: a delegation that can be withdrawn is a check; a delegation that is constitutionalized is a
+transfer.** This is why "the states did it voluntarily anyway" is not a defense of the 17th — what the
+amendment removed was not the *practice* but the *ability to stop*. It also sharpens the scope-creep table
+above: each row is worse to the exact degree that its mechanism is hard to revoke. Registration you can
+repeal by statute is a lesser danger than one welded into a constitution or an entrenched agency.
 
 ## Connection to the Gun Registration Question
 

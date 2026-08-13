@@ -22,6 +22,7 @@ permalink: /research/
 ## AI & Computation
 
 - [The Cyborg Model](./cyborg-model.md) — human/AI collaboration via comparative advantage
+- [AI as a Cognitive Tool](./ai-as-cognitive-tool.md) — **outsource computation, never verification** — but the rule is a **frontier, not a floor**: verification gets tooled and atrophies too, leaving *run the tool, replace the part*. What survives is the obligation to notice and **retool**. Plus the car reductio (atrophy is a *trade*, not a verdict), wheelchair-and-car (assistive vs. amplifying), productivity-not-intelligence, and fix-the-instrument bounded by installed-base resistance
 - [The LLM Grounding Problem](./llm-grounding-problem.md) — why LLMs can be talked out of physical reality
 - [Planner-LM Composites](./planner-lm-composites.md) — the LM as language-center, not executive
 - [Energy-Based Models](./energy-based-models.md) — the middle layer of the composite stack

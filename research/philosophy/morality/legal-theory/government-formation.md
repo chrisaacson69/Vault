@@ -8,7 +8,10 @@ title: "Government Formation and Structure"
 # Government Formation and Structure
 > Government is an inevitable product of division of labor — not a social contract, not Hobbes's fear, but economic specialization applied to the coordination problem.
 
-**Links:** [Legal Theory](./README.md), [Morality](../README.md), [Measurement, Causality, and Free Will](../../metaphysics/measurement-causality.md), [Opposing Forces](../../dynamics/opposing-forces.md), [Economics](../../../economics/README.md), [Computation and Information Theory](../../../computation-and-information.md), [Civilizational Cycles](../../dynamics/civilizational-cycles/README.md), [Risk and Entrepreneurship](../../../economics/risk-and-entrepreneurship.md)
+**Links:** [Legal Theory](./README.md), [Morality](../README.md), [Measurement, Causality, and Free Will](../../metaphysics/measurement-causality.md), [Opposing Forces](../../dynamics/opposing-forces.md), [Economics](../../../economics/README.md), [Computation and Information Theory](../../../computation-and-information.md), [Civilizational Cycles](../../dynamics/civilizational-cycles/README.md), [Risk and Entrepreneurship](../../../economics/risk-and-entrepreneurship.md), [Aggregation vs. Sorting](./aggregation-vs-sorting.md)
+
+**Specimens (evidence, dated):**
+- [Jake the Lawyer — Why We Should NOT Vote for U.S. Senators](../../../debates/jake-lawyer-17th-amendment.md) (2026-07-23) — *contributes to §Federalism Decay*: the **17th Amendment as a representation-removing vector** (distinct from the jurisdiction-creeping vectors already listed), the 16th+17th revenue/incentive pairing behind the administrative state, and the **capture-cost-scales-inversely-with-centralization** corollary (Chris's inversion of the Hearst story). Also the tense correction to §Distributed System Protocol — the Senate has not been a state-representing chamber since 1913.
 
 ## Why Government Forms — Division of Labor
 
@@ -138,7 +141,7 @@ The Constitution addresses the structural problems identified above by designing
 
 **Executive branch = fast execution node.** Dictator-like efficiency for time-sensitive decisions (commander in chief, executive orders, treaty negotiation). But scoped — the executive executes, doesn't legislate. A strong single decision-maker where speed matters, checked by the other branches where it doesn't.
 
-**Legislative branch = distributed deliberation.** Representative input aggregating knowledge from many nodes. The closest governance analogue to the price system — representatives "encode" their constituents' preferences into legislation the way prices encode supply and demand. Bicameral structure (House for population, Senate for states) adds redundancy and prevents either pure majority rule or pure state equality from dominating.
+**Legislative branch = distributed deliberation.** Representative input aggregating knowledge from many nodes. The closest governance analogue to the price system — representatives "encode" their constituents' preferences into legislation the way prices encode supply and demand. Bicameral structure (House for population, Senate for states) adds redundancy and prevents either pure majority rule or pure state equality from dominating. **Note the tense:** that is the *designed* protocol. Since the 17th Amendment (1913) the Senate is no longer a state-representing chamber — both chambers now answer to electorates, and the redundancy the design bought is largely gone (see [Federalism Decay](#1-federalism-decay-is-the-rea-problem-in-slow-motion) below).
 
 **Judicial branch = constraint enforcement.** Ensures the protocol is followed. Resolves jurisdictional disputes — exactly the meta-arbiter function that the REA system lacks. Constitutional review means the system can check itself against its own foundational rules. This is the error-correction mechanism.
 
@@ -218,6 +221,42 @@ Historical vectors of centralization in the US:
 - **14th Amendment incorporation** — applied the Bill of Rights against states, transferring enforcement authority upward
 - **New Deal expansion** — massively expanded federal regulatory scope under crisis conditions (Rahm Emanuel's "never let a crisis go to waste" is the operational version)
 - **Federal funding leverage** — states depend on federal money, which comes with conditions. Highway funding and the drinking age is the textbook example, but the pattern is everywhere
+- **The 17th Amendment (1913)** — **a different *kind* of vector, and the one that enables the rest.** Every other item above creeps *jurisdiction* — it moves what the federal government may decide. The 17th removed the states' **representation**: senators stopped being agents of state legislatures and became agents of a statewide electorate, so the states lost their principal-agent hold on the chamber that ratifies treaties, confirms officers, and writes the enabling statutes. Jurisdiction creep is far cheaper once the party being encroached upon has no seat at the table. Paired with the **16th** (unrestricted income taxation, also 1913), it supplies both the *incentive* and the *revenue* for permanent agency-building. See [Jake the Lawyer — 17th Amendment](../../../debates/jake-lawyer-17th-amendment.md).
+
+**Corollary — federalism is a capture-resistance mechanism, and the mechanism is ROI.**
+
+State-level offices are individually *cheap* to capture — low-information, low-turnout, small-dollar races —
+so the naive "decentralization raises the price of capture" claim is false, and stating it that way invites
+the obvious rebuttal that federalism just creates fifty bargain-bin targets. **The correct variable is
+return, not price.** Capture is an investment decision:
+
+- **Distributed power is scope-limited, therefore not worth capturing.** Each unit controls little, so the
+  return per capture is small; buying Ohio's legislature buys nothing in Indiana; and total capture means
+  buying all of them across fifty different political economies. Cheap per unit, terrible ROI.
+- **Consolidated power is highly leveraged, therefore profitable to capture.** One acquisition returns
+  control over the whole scope. Expensive per unit, excellent ROI.
+
+So federalism does not make capture *hard*. It makes capture **unprofitable** — which is the more robust
+protection, because it doesn't depend on anyone's vigilance.
+
+**The consequence worth stating plainly: cronyism and corporate capture are not primarily moral failures of
+particular actors. They are the predicted equilibrium once the prize becomes leveraged enough to be worth
+buying.** That relocates the cure. Ethical appeals (better people) and regulatory patches (anti-lobbying
+rules — themselves capturable by the same logic) address the symptom; only **de-leveraging the prize**
+addresses the cause. This is Tullock's rent-seeking result reached from the structural side, and it
+sharpens Olson's sclerosis above from a description into a mechanism.
+
+The Hearst case is the specimen: a media baron reaching one American in four is downstream of the Gilded
+Age's national economic and informational consolidation, and the 17th extends that consolidation to the
+political layer — making the *entire chain* targetable at once, and thereby worth targeting. Connects to
+[Press Freedom and Governance](../../dynamics/press-freedom-and-governance.md).
+
+**And this is only half of federalism's purpose.** The anti-capture surface-area argument is the defensive
+half; the other is **proximity** — governance close to the governed, so that heterogeneous polities may
+legitimately *differ* (an Alabamian can and should be governed differently from a New Yorker). That second
+half is the **sorting** case in [Aggregation vs. Sorting](./aggregation-vs-sorting.md): federalism is a
+partial sorting mechanism embedded inside an aggregating one. Centralization attacks both halves at once —
+it destroys the surface area *and* forces one outcome onto a heterogeneous population.
 
 This is the city-state → nation-state consolidation pattern playing out within a federal system. The "meta-arbiter" (federal government) absorbs the jurisdiction of the lower nodes (states) through the same structural logic that makes REAs converge into a state. The Constitution was designed to resist this, but the pressures are structural, not accidental.
 

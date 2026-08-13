@@ -13,3 +13,4 @@ permalink: /tags/snes/
 - [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
 - [The one that isn't a VM — Nobunaga's Ambition (SNES) compiled native](../research/gaming/na1-snes-native-port.md) — first HiROM KOEI SNES title; the exception that compiled straight to native 65C816 (no bytecode VM); drove a native 65816→C decompiler
 - [NA1 NES↔SNES — grading two blind reverse-engineerings](../research/gaming/na1-nes-snes-blind-regrade.md) — SNES-derived vs NES-derived, all 5 sections converge (record bytes, Grow formula, event cadence, weakest-neighbour AI, 8-stat combat table); create-then-check method
+- [Arithmetic as a Purchase — Sixty Years of Paying for Multiply](../research/arithmetic-as-a-purchase.md) — the SNES multiplier as a memory-mapped coprocessor, and the DSP-1 / Super FX cartridge chips as the Atari math box reborn — arithmetic priced *per game*

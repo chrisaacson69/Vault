@@ -126,14 +126,13 @@ The key insight: **every non-monetary source of inflation is either transient or
 
 ## The Measurement Problem
 
-From [Weinstein x Murphy — Gauge Theory Applied to Economics](../debates/weinstein-murphy-gauge-theory-economics.md): "the price level" is a fiction. CPI requires choosing a basket of goods and weighting them — and the weighting is subjective (see [The Weighting Problem](../philosophy/epistemology/weighting-problem.md)). Different baskets, different weights, different "inflation."
+→ **Full treatment: [Measuring Inflation — Why Disaggregation Doesn't Save You](./measuring-inflation.md).**
 
-This matters because:
-- **CPI understates asset inflation.** The Fed's money printing after 2008 didn't show up in CPI because it went into equities, real estate, and bonds — none of which are in the consumer basket. Yarvin's Z1 argument: real inflation is the Fed's Z1 personal net worth measure, not CPI.
-- **CPI overstates technology deflation.** Hedonic adjustment says your phone is "better" so the price increase "doesn't count." This is the Boskin Commission's trick — reverse-engineering the methodology to hit a political target.
-- **Sectoral inflation diverges wildly.** Healthcare and education inflate at 5–7% annually. Electronics deflate. Food and energy swing with supply shocks. There is no single "inflation rate" — there's a distribution, and where you sit in that distribution depends on what you buy.
+The short version: "the price level" is a fiction, because CPI requires choosing and weighting a basket and the weighting is subjective ([The Weighting Problem](../philosophy/epistemology/weighting-problem.md); [Weinstein × Murphy](../debates/weinstein-murphy-gauge-theory-economics.md)). Different baskets, different weights, different "inflation." Consequences: CPI **understates asset inflation** (post-2008 printing went into equities, real estate and bonds — Yarvin's Z1 argument), **overstates technology deflation** via hedonic adjustment (the Boskin manoeuvre), and **hides enormous sectoral and household-level divergence** — measured household inflation rates have an annual interquartile range of 6–9 percentage points.
 
-When Austrians say "inflation is only monetary," they're making a claim about a quantity — "the price level" — that doesn't have a unique, objective definition. Which is ironic for a school that prides itself on methodological rigor.
+When Austrians say "inflation is only monetary," they're making a claim about a quantity that has no unique objective definition — ironic for a school that prides itself on methodological rigor.
+
+**And the obvious fix fails:** personalizing the basket relocates the problem rather than solving it, because one person still buys many goods and their own basket still changes over time. The index-number problem reappears at n = 1. See the linked page for why the Weighting Problem is **scale-invariant**.
 
 ## The Corrected View
 
@@ -153,7 +152,7 @@ The corrected position says: controlling M eliminates the only *permanent* ratch
 ## Open Questions
 
 1. **Is deflation from productivity growth the natural state?** In a fixed-money-supply economy with rising productivity, prices should fall over time. This means consumers get richer automatically. Is this the baseline we should expect, with all "inflation" being deviation from it?
-2. **How should we measure inflation honestly?** If CPI is politically manipulated (Boskin) and "the price level" is a fiction (Weinstein), what's the right metric? Yarvin's Z1? A Divisia index? Sector-specific baskets?
+2. ~~**How should we measure inflation honestly?**~~ **Answered — promoted to [Measuring Inflation](./measuring-inflation.md).** There is no correct index, and disaggregating to personal baskets doesn't rescue one (the Weighting Problem is scale-invariant — it reappears at n = 1). What replaces "find the right metric" is three disciplines: **match the deflator to the question**, **report the distribution rather than the point estimate**, and **always state the basket and base period**. Remaining sub-questions (Divisia, the gauge-theoretic programme, hedonics' effect on the *distribution*) live on that page.
 3. **Does technology-driven demand create permanent inflation or temporary price spikes that stabilize?** Rare earths are expensive now, but will synthetic alternatives, asteroid mining, or recycling bring them back down? If so, even this category is transient on a long enough timescale.
 4. **Is the velocity collapse of 2008 the reason QE "didn't cause inflation"?** Or did it cause inflation — just in assets (Z1) rather than consumer goods (CPI)? If the latter, the Austrians were right about the mechanism but wrong about where to look for the evidence.
 
@@ -161,6 +160,7 @@ The corrected position says: controlling M eliminates the only *permanent* ratch
 
 - [Business Cycles](./business-cycles.md) — companion page; the political ratchet explains why monetary expansion is always the government's response to every other type of inflation
 - [Value and Profit](./value-and-profit.md) — subjective value theory underpins why "the price level" has no objective definition
+- [Measuring Inflation](./measuring-inflation.md) — the promoted measurement page: household-level heterogeneity (6–9pp IQR), the disaggregation ladder and why it bottoms out, and the three disciplines that replace "the right index"
 - [The Weighting Problem](../philosophy/epistemology/weighting-problem.md) — the formal reason CPI is subjective: objective measurements don't produce objective composite judgments
 - [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md) — Z1 as real inflation; inelastic money supply argument; maturity mismatching as spurious money creation
 - [Weinstein x Murphy — Gauge Theory Applied to Economics](../debates/weinstein-murphy-gauge-theory-economics.md) — "the price level" is a fiction; Divisia index; Boskin Commission as political operation; path dependence as Cantillon effect
