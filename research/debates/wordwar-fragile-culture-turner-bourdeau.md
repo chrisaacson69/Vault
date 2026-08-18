@@ -10,7 +10,7 @@ discussion: folded-in
 **Prompt as stated:** *"Modern western culture is installing fragility"*
 **Participants:** Nic Turner (**Aff**) vs. Rowan Bourdeau (**Neg** — university debate society VP, runs Void Productions)
 **Moderator:** **Sam Tripoli** — the fifth, and the first who is neither a contender nor a prior vault figure
-**Duration:** 1:11 · 64 views at capture · **Result:** pending
+**Duration:** 1:11 · 64 views at capture · **Result: BOURDEAU 73.7% – 26.3%** (+47.4) — [result card](../../raw/debates/wordwar-results-2026-08-17/bourdeau-vs-turner.png)
 **Vault relevance:** [Technology → Culture → Politics](../philosophy/dynamics/technology-culture-politics.md), [The Load-Bearing Word](./the-load-bearing-word.md), [Are We Too Sensitive?](./wordwar-too-sensitive-guptill-tejada.md) (the matched pair), [Word War series hub](./word-war-debate-series.md)
 
 ---
@@ -157,7 +157,9 @@ Three things in that, each worth keeping:
 1. **Does the matched pair hold up as evidence?** Sensitivity died at layer 1 unpinned; fragility produced a real debate once pinned. Two rounds is a suggestive contrast, not a controlled one — the contenders differ too (Bourdeau is a university debate society VP). Worth revisiting if the bracket produces a third round on this question.
 2. **Is Rowan's bullet actually bitable?** Is there evidence that modern attention-economy stressors produce *worse mental-health outcomes* than material deprivation and war did? He asserts it; nobody tested it; it is the load-bearing empirical claim of the Neg case.
 3. **Verify the citations** — Twenge, Zhang & Im (2004) on rising externality is real and correctly characterised from memory; the CDC YRBS 2023 figures and the "45% more time alone" statistic are cited from the debate only and unchecked.
-4. **Result pending.** Chris's read: **Aff wins.** Registered blind.
+4. ~~**Result pending.**~~ **Resolved — the Neg took it 73.7 – 26.3, and the loss is the useful outcome.** Chris's blind call was **Aff**, on execution: the Neg conceded the data, conceded that internal locus breeds resilience, and conceded *"they're going to be a product of whatever that environment is — that's like the culture we're talking about,"* and the Aff never cashed any of it. The [hub registration](./word-war-debate-series.md#predictions-ledger) said in advance that a Neg win *"would say the concessions were invisible to the audience."*
+
+   **It says exactly that, by 47 points** — which promotes a real lesson: **an audience scores what a debater does *with* an admission, not the admission itself.** A concession extracted and left on the table is, to a lay ballot, indistinguishable from a concession never made; the Neg's severance of *culture* from *circumstances* is what the room heard, because it was the last thing said about it. Pairs with the [therapy-culture round](./wordwar-therapy-culture-ouedrago-smith.md), where the Neg likewise failed to collect an outright causal concession. Two specimens now, both unpunished.
 
 ## Tags
 

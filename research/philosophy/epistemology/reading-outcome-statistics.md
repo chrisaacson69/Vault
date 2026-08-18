@@ -8,7 +8,7 @@ title: "Reading Outcome Statistics — Four Diagnostics"
 # Reading Outcome Statistics
 > Four ways a true number produces a false conclusion. Each has a one-line repair, and each is a question the person citing the statistic usually cannot answer.
 
-**Links:** [The Weighting Problem](./weighting-problem.md), [Relational Objectivity](./relational-objectivity.md), [Scope Confusion](../morality/scope-confusion.md), [Generational Attribution](../dynamics/generational-attribution.md), [Epistemology](./README.md)
+**Links:** [The Weighting Problem](./weighting-problem.md), [Absolutes and Differentials](./absolutes-and-differentials.md) — **§3 (*stated reason ≠ cause*) at civilizational scale**: war justifications as buckets-that-sound-like-mechanisms, plus the trigger-vs-cause and pattern-does-not-establish-intent guards, [Relational Objectivity](./relational-objectivity.md), [Scope Confusion](../morality/scope-confusion.md), [Generational Attribution](../dynamics/generational-attribution.md), [Epistemology](./README.md)
 
 **Trunk:** [Trunk 2 — Verification Epistemology](../the-four-trunks.md#trunk-2--verification-epistemology). The [Weighting Problem](./weighting-problem.md) covers why *aggregation* is subjective even when measurements are objective. This page sits one level down: the failures that occur **before** aggregation, in the reading of a single statistic.
 

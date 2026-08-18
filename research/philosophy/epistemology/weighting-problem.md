@@ -8,7 +8,7 @@ title: "The Weighting Problem"
 # The Weighting Problem
 > Objective measurements do not produce objective composite judgments. The aggregation function is always subjective.
 
-**Links:** [Epistemology](./README.md), [Reading Outcome Statistics](./reading-outcome-statistics.md), [Value and Profit](../../economics/value-and-profit.md), [Scope Confusion](../morality/scope-confusion.md), [Art Objectivity Debate](../../debates/art-objectivity-noerr-strange.md), [Is the Algorithm Fair?](../../debates/wordwar-algorithm-fair-cruz-hamm.md) — the compression case below, and its first dated specimen, [Value/Utility via Evolutionary Game Theory (Evo-Cap)](../../evolutionary-capitalist/value-utility-evolutionary-game-theory.md), [Gauge Theory Applied to Economics (Weinstein x Murphy)](../../debates/weinstein-murphy-gauge-theory-economics.md)
+**Links:** [Epistemology](./README.md), [Reading Outcome Statistics](./reading-outcome-statistics.md), [Value and Profit](../../economics/value-and-profit.md), [Scope Confusion](../morality/scope-confusion.md), [Absolutes and Differentials](./absolutes-and-differentials.md) — **child page: the selection step (2) weaponized in political rhetoric**, [Art Objectivity Debate](../../debates/art-objectivity-noerr-strange.md), [Is the Algorithm Fair?](../../debates/wordwar-algorithm-fair-cruz-hamm.md) — the compression case below, and its first dated specimen, [Value/Utility via Evolutionary Game Theory (Evo-Cap)](../../evolutionary-capitalist/value-utility-evolutionary-game-theory.md), [Gauge Theory Applied to Economics (Weinstein x Murphy)](../../debates/weinstein-murphy-gauge-theory-economics.md)
 
 ## The Principle
 

@@ -8,7 +8,7 @@ title: "The Negative's Easy Burden — Weaponized Regress and the Concede-Reloca
 # The Negative's Easy Burden
 > Negating is structurally cheaper than affirming. Formal systems *know* this and compensate for it; informal "bloodsports" debate doesn't — which hands the skeptic a free edge. The cure isn't to out-justify the regress (impossible), it's to concede the true core fast and force the regress symmetric on the one joint that's left.
 
-**Links:** [The Fallacy Fallacy](./the-fallacy-fallacy.md), [Agrippa's Trilemma](../../debates/agrippa-axioms-wilson-whatever.md), [Definitional Control (Noerr)](../../debates/noerr-logic-feelings-humane.md), [Force Doctrine — The Theory](../morality/force-doctrine.md), [Symmetry Breaking](../dynamics/symmetry-breaking.md)
+**Links:** [The Fallacy Fallacy](./the-fallacy-fallacy.md), [Agrippa's Trilemma](../../debates/agrippa-axioms-wilson-whatever.md), [Definitional Control (Noerr)](../../debates/noerr-logic-feelings-humane.md), [Force Doctrine — The Theory](../morality/force-doctrine.md), [Symmetry Breaking](../dynamics/symmetry-breaking.md), [The squirrel specimen — Word War feminism rerun](../../debates/wordwar-feminism-rerun-david-tareyak.md)
 
 ---
 
@@ -65,6 +65,31 @@ Two things make it worth logging:
 2. **It converted the round into a [verbal dispute](../../debates/wordwar-too-sensitive-guptill-tejada.md).** Because his counter-affirmation required redefining "sensitive" as *discernment*, he ended up asserting his opponent's substantive view under an opposed label — and conceding the opponent's central evidence outright. A pure negation could not have produced that outcome.
 
 So the practical corollary to this page: **the easy burden is forfeitable, and the usual way of forfeiting it is redefining the contested term to say something stronger.** Take the presumption; resist the urge to be interesting.
+
+## The mirror specimen — the affirmative who *annexes* the easy burden (the squirrel)
+
+If a negative can give the advantage away, an affirmative can take it. The move has a name in competitive debate that the vault was missing until Chris supplied it: a **squirrel** — an affirmative that satisfies the letter of the resolution while advocating something nobody would recognise as its subject. Technically inside the words, outside the debate everyone came to have.
+
+> **Chris:** "how the affirmative is framing the prompt — *'there are at least some ways feminism is helping a modern relationship'* — is a bit disingenuous, **choosing the particular over the general**… this is a 'squirrel' case."
+
+**Specimen:** [Word War — *Is Feminism Helping Modern Relationships?* (David S. vs. Tareyak)](../../debates/wordwar-feminism-rerun-david-tareyak.md). Only *feminism* was defined before the round; *helping* was left open by mutual consent. The affirmative then read the unquantified resolution as **existential** — one instance anywhere satisfies it — and assigned the negative the universal: prove there is *no way whatsoever* feminism helps anyone. Asked directly by the moderator to state his own understanding of the terms, he declined:
+
+> **David S.:** "I don't know that I provided any. I've just said it's open to interpretation and his burden is to prove that feminism helps **no possible interpretation**."
+
+That is an affirmative claiming the negative's presumption. Read against this page's thesis — *building has surface area, picking has none* — the mechanism is exact: **he refuses to build.** No thesis about feminism on balance, no definition of the terms that would fix a win condition, no chain to attack. He converts his own burden into a picking burden and hands the building job to his opponent, then spends the round auditing whether the opponent's instances are airtight. And because informal debate has none of the compensating machinery (§ *The institutional admission*) — no presumption rule, no burden allocation, nobody to rule the squirrel out of order — there is no procedural authority to stop him. **The uncompensated easy burden isn't reserved for the negative; it goes to whoever successfully claims it.**
+
+### The two counters — and the tactical one is the worse one
+
+1. **Tactical.** Accept the burden framing and pin the case to its constructive. In the specimen the opening contained **exactly one** real instance (a couple enjoying anti-feminist podcasts together); every study arrived later in rebuttal, where new arguments are illegitimate. Kill the one, refuse the rest as new.
+2. **Framing.** Decline the squirrel's terms entirely and argue the resolution the room came to hear. In the specimen the negative did this — apparently by instinct, since he never engaged the burden argument at all — simply by repeating the general question: *"can you name one single benefit that feminism has in terms of strengthening a relationship?"*
+
+Chris's grading, on a round where the second was actually run:
+
+> **Chris:** "I think **the Neg did a great job overcoming it** — though because it was paired with only 1 example my approach might have worked too.. tbh, **the neg's approach has broader appeal because mine is 'too tactical'**, and people wanted to hear the Neg's framing."
+
+The reason is structural rather than stylistic, and it is worth stating as a rule. **The tactical counter's win condition is *my opponent failed to discharge a burden*** — which requires the audience to have accepted a burden allocation that was never announced and that the squirrel exists to contest. **The framing counter's win condition is *my account of the subject is better than his*** — which is what an audience already believes it is voting on. A squirrel is an attempt to move the ballot question; the cheapest defence is to refuse to move with it.
+
+So the counters split by judge type: before a trained judge flowing arguments, take the tactical line and win on the flow; before a lay audience, take the framing line, and let the opponent's refusal to defend the general claim be the thing the room notices on its own. This is the same lesson the [Word War bracket](../../debates/word-war-debate-series.md) keeps producing from the other direction — that the more a winning move depends on the format's machinery, the less of it survives contact with an audience ballot.
 
 ## Where it's still hard
 

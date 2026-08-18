@@ -14,3 +14,4 @@ permalink: /tags/methodology/
 - [The Dominance-Frontier Lens](../research/dominance-frontier-lens.md) — dominance pruning as a reducer; the analytical frame for competitive systems (games + markets) — map cost vs effect, read the frontier off the graph
 - [Repairing LLM Code — The Two Oracles](../research/repairing-llm-code.md) — generator/judge independence; calibrate deterministic rewrite rules with a transfer-oracle instead of optimizing a goto-count proxy
 - [The Rosetta Stone Method](../method/rosetta-stone-method.md) — learn new hardware by anchoring the unknown machine against a portable program you already understand (KOEI's cross-platform VM as the exemplar)
+- [Absolutes and Differentials — Frame Selection as the Political Crux](../research/philosophy/epistemology/absolutes-and-differentials.md) — the 4-step diagnostic for arguments that will not resolve despite both sides citing accurate figures — check level-vs-gap first, argue the numbers last.

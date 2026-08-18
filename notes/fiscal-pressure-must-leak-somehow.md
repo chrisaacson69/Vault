@@ -115,6 +115,37 @@ The 2008 sequence (subprime defaults → MBS cascade → banking stress → TARP
 
 This is *why* "all of the above" is more likely than another single-channel response — the standard playbook can't absorb the full release alone, so pressure spreads across multiple channels. Foreclosures + forgiveness + inflation + defaults simultaneously, rather than the 2008 pattern of "cascade then bailout then recovery."
 
+## Specimens — arguments that select a horn
+
+Dated evidence that this note absorbs. The pattern to watch: a commentator presents a mechanism as a
+*rival* frame when it is actually a **horn-selection inside this one**. Cataloguing them is how the
+"all of the above" claim earns its keep — it should keep eating apparent rivals.
+
+- **[Freitas & Christian on the reserve currency](../research/debates/freitas-vance-reserve-currency.md)**
+  (2026-08-17) — contributes **two** horn-selections in one episode.
+  1. ***The people break before the system does.*** Christian argues the Cantillon effect, the K-shaped
+     economy, and hyper-financialization radicalize the electorate faster than the monetary arithmetic
+     forces a break — so enough Mamdani-types get elected and *they* shatter the system first.
+     **This is not a new frame; it picks the forgiveness/political-default horn and names the actor.**
+     Its real refinement is worth absorbing: **it makes the political ceiling endogenous.** This note
+     currently treats "no politically viable path to fiscal balance" as a *fixed constraint*; Christian's
+     claim is stronger — the unclosed gap **manufactures** the political actor who forces a horn. The
+     constraint is a product of the imbalance, not just a boundary condition on it. (Open thread 1
+     above asks what concentrates the slow burn into a crisis; this is a candidate answer that is
+     political rather than financial.)
+  2. ***Just stop using it.*** The **eurodollar** layer — offshore dollar credit created outside Fed
+     control — makes "the world stops using the dollar" a live resolution to Triffin's dilemma. In this
+     note's terms that **closes channel (2)**, *foreign savings absorb the debt*, forcing pressure into
+     monetary accommodation (3) and the inflation tax (4). Directly sharpens open thread 1's
+     "geopolitical disruption to dollar-system" candidate.
+
+  **Chris's framing caution from that page, which belongs here too:** the distributional pain is real
+  (see the last open thread below), but stating it as a **differential** — *who has more than me* —
+  licenses blame and produces an enemy, where stating it in **absolutes** — *is the problem being
+  fixed* — licenses policy and produces a task. Since this note predicts pain distributed across four
+  channels simultaneously, *how that pain gets framed* substantially determines which horn the
+  political system ends up choosing.
+
 ## Open threads for future musings
 
 - **Triggering events** — what concentrates the slow-burn into a crisis? Banking-system stress is the conventional candidate; geopolitical disruption to dollar-system (currency confidence shock, oil-pricing-in-non-USD acceleration, central-bank-coordination break) is the more interesting one

@@ -8,7 +8,7 @@ title: "The Scope Confusion Thesis"
 # The Scope Confusion Thesis
 > Most political and legal disagreements are not about values — they're about which enforcement mechanism is appropriate for a given norm.
 
-**Links:** [Morality](./README.md), [Legal Theory](./legal-theory/README.md), [Mens Rea](./legal-theory/mens-rea.md), [Opposing Forces](../dynamics/opposing-forces.md), [Civilizational Cycles](../dynamics/civilizational-cycles/README.md), [Demolition Man Analysis](../../demolition-man-analysis.md), [Insurance](../../economics/insurance.md), [The Weighting Problem](../epistemology/weighting-problem.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
+**Links:** [Morality](./README.md), [Legal Theory](./legal-theory/README.md), [Mens Rea](./legal-theory/mens-rea.md), [Opposing Forces](../dynamics/opposing-forces.md), [Civilizational Cycles](../dynamics/civilizational-cycles/README.md), [Demolition Man Analysis](../../demolition-man-analysis.md), [Insurance](../../economics/insurance.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Absolutes and Differentials](../epistemology/absolutes-and-differentials.md) — **sibling thesis**: same "the disagreement is not where the participants think it is" shape, on the measurement-frame dimension rather than the enforcement-regime one, [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
 
 ## The Key Insight: Enforcement Regimes, Not Content Categories
 

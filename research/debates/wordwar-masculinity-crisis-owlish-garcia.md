@@ -145,7 +145,7 @@ Reusable moves this round produced:
 - **Bill the hidden premise.** *Constructed ⇒ not load-bearing* is the load-bearing step in the con's entire case and is never stated, let alone defended. Concede "it's constructed" instantly; fight only there.
 - **"What problem was it built to solve?"** The question that ends the social-construct dismissal. Either they answer — handing you the functional test — or they claim it solves nothing, which is a much stronger claim than the one they opened with.
 - **Delivered ≠ received.** A burden discharged unintelligibly is, at the audience's end, indistinguishable from a burden not discharged. In vote-scored formats these are the same event (§1).
-- **Trend vs. level.** When two sides fight over whether something is "in crisis" without ever defining it, check whether one is arguing the derivative and the other the absolute value. Usually neither has noticed (§4).
+- **Trend vs. level.** When two sides fight over whether something is "in crisis" without ever defining it, check whether one is arguing the derivative and the other the absolute value. Usually neither has noticed (§4), and this round is now the cleanest specimen on the hub page — [Absolutes and Differentials](../philosophy/epistemology/absolutes-and-differentials.md).)
 
 ## Open Questions
 
