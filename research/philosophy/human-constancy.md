@@ -94,15 +94,38 @@ Two things make this support constancy rather than threaten it:
 1. **The reverse Flynn effect.** Scores have declined in Norway, Denmark and Finland since the mid-1990s, and the Norwegian work found the change *within families* — so it is environmental, not genetic. A genetic change cannot reverse in twenty years.
 2. **Chris already held this position, from a different direction.** From the [AI-making-people-dumber round](../debates/wordwar-ai-making-people-dumber-charsky-bunn.md): *"human intelligence will likely remain the 2+ standard deviations from 100 it always has been… what increases IQ are mostly **health and genetic improvements**."* Two independent derivations, and the earlier one was about tools rather than history.
 
-### 4c. Pair-bonding — where the evidence is genuinely two-sided
+### 4c. Pair-bonding — where this page had it backwards
 
 Chris: *"pair-bonding still has much of embedded code in it — women still select for strength, size and competency and the like."*
 
-**The nativist evidence:** Buss's 37-culture study (1989) found consistent sex differences in stated mate preferences across wildly different societies — the kind of cross-cultural invariance that is hard to get from socialization alone.
+**The cross-cultural evidence:** Buss's 37-culture study (1989) found consistent sex differences in stated mate preferences across wildly different societies — the kind of invariance that is hard to get from socialization alone.
 
-**The counter-evidence, which belongs here by the [symmetric-grounding standard](../../CLAUDE.md):** Eagly and Wood's re-analysis found those differences *shrink as gender equality rises*, which is what a social-role account predicts and a purely innate one does not.
+**The social-role counter, and why it is weaker than it looks.** Eagly and Wood (1999) reanalyzed Buss's data and found sex differences on certain items (earning capacity, housekeeping) *shrinking* as gender equality rose — which is what social role theory predicts. Zentner and Mitura (2012) reported similarly.
 
-**And the synthesis is this page's own model.** Both results are compatible with **a fixed end pursued through variable means**: if the underlying end is secure provisioning and competent partnership, then who is expected to supply it will track who controls resources — so the *preference expression* moves with social structure while the *end* does not. That reading is not a dodge; it is a prediction, and it is testable — it says the invariant should be the **end** (competence, security, reliability) and the variant should be **which traits proxy for it**.
+**But the largest test did not replicate it.** [Walter et al. (2020)](https://journals.sagepub.com/doi/abs/10.1177/0956797620904154), *Psychological Science* — 45 countries, with Buss himself among the authors — found the sex differences robust, and gender equality "only partially corroborated" the earlier work: **it predicted sex differences in the actual age of partners, but there was no evidence that gender equality predicted preferences.**
+
+That split is the important part, and it is not a hedge — **it is precisely the prediction this page's model makes.** Preferences (the *end*) did not move with social structure. Realized outcomes (what people actually got) did. A fixed end pursued through variable means is not a compromise between the two camps here; it is what the largest study found.
+
+### The gender-equality paradox — and it runs against social role theory, not toward it
+
+Chris's objection, which is correct and which this section originally had backwards:
+
+> **Chris:** *"I thought the egalitarian study showed the opposite? As societies become more egalitarian, gender differences become more amplified. I can understand the ideas behind Eagly–Wood, but it seems it doesn't go far enough."*
+
+The **gender-equality paradox** is the finding that sex differences in personality and occupational choice are *larger* in more gender-equal countries — the opposite sign from what social role theory predicts. Personality is the domain where it appears most reliably: Big Five and Dark Triad traits, self-esteem, depression, personal values, and educational/occupational choice. [Falk and Hermle (2018, *Science*)](https://www.science.org/doi/10.1126/science.aas9899) found gender differences in economic preferences — risk, altruism, trust, patience — **larger** in richer and more gender-equal countries. Stoet and Geary (2018) reported the same shape for STEM participation.
+
+**So Chris's "doesn't go far enough" is an understatement of his own objection.** A theory that predicts convergence, in a domain that shows divergence, is not merely incomplete — it has the sign wrong. The usual evolutionary reading is **unmasking**: lift material constraint and innate dispositions express more freely, so equality *reveals* rather than *creates* the difference.
+
+### But the paradox is itself disputed — do not trade one clean story for another
+
+This page's error was presenting a contested literature as settled. Correcting it in the other direction would repeat the mistake, so the live challenges belong here too:
+
+- A **Simpson's paradox** critique ([PNAS, 2025](https://www.pnas.org/doi/10.1073/pnas.2422247122)) argues the global positive association between equality and gender difference **disappears** under proper analysis — an aggregation artifact rather than a finding.
+- [PNAS (2020)](https://www.pnas.org/doi/abs/10.1073/pnas.2008704117) argues **gender stereotypes** can explain the paradox without any innateness premise.
+- Stoet and Geary's STEM metric drew methodological criticism and required correction.
+- And the strongest non-nativist reading of the paradox itself: **affluence changes what is rational, not what is innate.** Where economic security is scarce, women may enter STEM *for the security regardless of interest* — so the "paradox" would record a change in constraints, not a revelation of preference. That is compatible with the data and does not require innate dispositions at all.
+
+**Honest status:** the mate-preference replication is clear and favours invariance; the broader paradox is well-replicated in personality but methodologically contested; and the *interpretation* — unmasking versus artifact versus shifting constraint — is genuinely open. What the section can support is the narrow claim: **the convergence prediction has not held up, and the evidence sits closer to a fixed end than this page originally allowed.** It cannot support "innateness proven," and it should not be cited that way.
 
 ## 5. What this does for the rest of the vault
 
@@ -134,6 +157,8 @@ The means-substitution reading is available for each — contraception decouplin
 - **Is fertility collapse ends-drift or means-defeat?** The single most consequential open question on this page, and the vault has nothing on it.
 - **Does the layered model (§2) have a principled boundary, or only a gradient?** §2 concedes the layers are not sealed. If it is a gradient all the way, "means vs. ends" is a matter of degree — which weakens every argument built on the distinction, including the ratchet.
 - **What is the actual drift rate of an end?** The page asserts "far more slowly" without a number. Even an order of magnitude — centuries? millennia? — would convert this from a qualitative claim into something that could be checked against the historical record.
+- **Is the gender-equality paradox real or an aggregation artifact?** §4c records the dispute and does not settle it. The 2025 Simpson’s-paradox critique is the sharpest challenge, and it is the kind that can actually be checked — if the global association really does dissolve under within-country analysis, the paradox stops being evidence for anything and §4c loses its strongest exhibit. **This page has a stake in the answer and should therefore be extra careful with it.**
+- **Does "affluence changes what is rational" beat "affluence unmasks what is innate"?** Both explain the paradox; they are not the same claim and they have different predictions. The constraint reading predicts the difference tracks *economic security specifically*, the unmasking reading predicts it tracks *freedom of choice* generally. Separable in principle, unseparated here.
 - **Does this generalize past humans?** Trunk 1 is about *agents*, not humans specifically. If the constitutive story is right, an artificial agent's "nature" would be its own fixed property-set — which makes this page's question the one to ask about [LLMs as actors](../economics/llm-praxeology.md), and a different answer there would be informative about the framework rather than about the machines.
 
 ## Tags
