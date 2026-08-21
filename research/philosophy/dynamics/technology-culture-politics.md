@@ -80,6 +80,19 @@ Nobody has to intend this. Coarsening is what transmission does, and the qualifi
 
 ## Specimens (evidence ledger — down-links)
 
+- **[Basic Logic — "How Immigration Replaced the Woke Left"](../../debates/basic-logic-immigration-woke.md)** —
+  **the thin-technology boundary case, and Chris's placement.** Every other specimen here runs on a *thick*
+  material layer (the Industrial Revolution, printing, IT/AI). This one's entire technology layer is
+  **ease of travel** — cheap, fast, safe long-haul transport plus the remittance and communications rails
+  that make a diaspora maintainable rather than a one-way exit — and it still drives the full chain to a
+  first-order political realignment. That makes it the page's live test of *how thin the conditions shock
+  can get* before the causal ordering stops holding. It also supplies a clean instance of the third arrow's
+  lag: transport cost falls **smoothly and continuously**, political recognition of the consequence arrives
+  **discretely and late**, and that gap alone produces the video's "a war won without a fight" sensation
+  with nobody having planned anything. Contributes Chris's **convergent-interests** mechanism — two parties
+  with different terminal goals sharing one proximate objective — as the engine that generates a
+  coordinated-*looking* outcome with no coordinator, no foresight, and no defector problem.
+
 - **[Is Feminism Helping Modern Relationships? (David S. vs. Tareyak)](../../debates/wordwar-feminism-rerun-david-tareyak.md)** —
   the specimen behind the lossy-arrows section above, and a case of a debate **failing because the chain was never drawn**.
   The Aff argues from the doctrine's stated content (*equality of the sexes — how could that hurt anyone?*) and rules any

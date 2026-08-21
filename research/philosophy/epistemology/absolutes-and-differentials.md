@@ -338,6 +338,25 @@ every other mechanism here is downstream of whether being caught still costs any
 
 This axis was hit repeatedly before it was named — which is the argument for its generality.
 
+- **[Basic Logic — "How Immigration Replaced the Woke Left"](../../debates/basic-logic-immigration-woke.md)** —
+  **the specimen that supplies the missing positive half of the pattern ≠ intent guard.** This page's guard
+  is a *subtraction*: the stated reason underdetermines the decision, and you may not substitute a hidden
+  one — *"it might not even be intentional."* That is correct but incomplete, because it leaves the
+  coordinated-*looking* outcome unexplained, which is exactly the vacuum conspiracy framing fills. Chris's
+  repair on that specimen names the engine: **convergent interests** — two parties with different terminal
+  goals served by one shared proximate objective (migrants want entry; a coalition wants margin in contested
+  districts), requiring no coordination, no foresight, and no defectors. It also dissolves the video's own
+  internal contradiction — the actors can be genuinely *blindsided* by the outcome, because agreement on a
+  proximate objective carries no information about what a partner does once it becomes decisive. So
+  "it might not even be intentional" becomes a **claim with a mechanism** rather than a hedge, and the
+  single-criterion compression this page diagnoses gets a rival explanation instead of only a prohibition.
+  **Now promoted to its own thesis page — [Convergent Interests — Coordination Without Collusion](../dynamics/convergent-interests.md)**,
+  which carries the discriminator this page's guard never had: antitrust's **plus-factor test**
+  (*did anyone act against their own independent self-interest?*), the line the courts drew between
+  conscious parallelism and actual agreement. That converts *"pattern ≠ intent"* from a prohibition
+  into a **decision procedure** — read the two pages together, this one for when to stop and that one
+  for what to say instead.
+
 - **[Is Masculinity in Crisis?](../../debates/wordwar-masculinity-crisis-owlish-garcia.md)** — the
   cleanest specimen. Owlish argues the **derivative** (rates are flat → no crisis), Garcia the
   **level** (the absolute state is bad → crisis). Both legitimate senses; they never collide, and

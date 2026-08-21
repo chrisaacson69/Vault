@@ -47,6 +47,25 @@ All frameworks point to 2020s–2030s as a transition zone:
 | ~120 yr | Ibn Khaldun | Gen 3–4 (luxury/decline) |
 | Continuous | Olson / Hayek / Tainter | Heavily accumulated |
 
+## Contemporary decline predictions (dated specimens — down-links)
+
+The thinkers above are *theories* of decline. This ledger holds **dated, source-anchored predictions**
+made in the present, filed so they can be **scored later rather than admired now**. A prediction with no
+recorded falsifier is not evidence of a cycle; it is commentary. Each entry therefore carries the test
+that would grade it.
+
+- **[Basic Logic — "How Immigration Replaced the Woke Left"](../../../debates/basic-logic-immigration-woke.md)**
+  (2026-08-20) — the West is remade demographically within decades; the 2010s culture war was a "feint"
+  covering it; the retreat of progressive cultural politics is not a victory but the arrival of a new,
+  socially-conservative voting bloc. **Grading tests** (§5 of that page): the *gradient* test (is the
+  cultural retreat steepest where immigrant vote share is highest, or where the marginal native swing
+  voter is?), the *immigration-plank* test (does the left shed borders too? — **Denmark already runs
+  against the thesis here**), and the *assimilation half-life* test. Verdict so far: observation solid,
+  mechanism real but demonstrated below the scale the conclusion needs, motive claim an argument from
+  incredulity. Also the cluster's cleanest instance of a general hazard for this page — **an
+  unfalsifiable framework mistaken for an analysis**, since its "three paths" exhaust the option space
+  by construction.
+
 ## Open questions
 
 - **Is the cycle breakable?** Hayek says yes (constitutional constraints); Spengler says no. Historical record favors Spengler but n is small.

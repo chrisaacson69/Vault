@@ -116,6 +116,7 @@ Identifying the load-bearing word looks obvious from a transcript and is genuine
 | [Is masculinity in crisis?](./wordwar-masculinity-crisis-owlish-garcia.md) | *crisis* | degree | Severance; 58 minutes at layer 1 |
 | [Are boomers responsible?](./wordwar-boomers-economy-jones-meyers.md) | *responsible* | degree (culpability vs. causality) | Moderator forced the split; Aff then inflated *boomer* |
 | [Is feminism helping relationships?](./wordwar-feminism-relationships-ruelas-anton.md) | *helping* | degree | Defined *feminism* in 90 seconds, never defined *helping* → layer-3 death |
+| [How immigration replaced the woke left](./basic-logic-immigration-woke.md) | *"the third world"* | referential (who is the actor?) | **The first non-debate specimen — and the speaker pins it against himself.** *"They're not homogeneous, but they have enough aligned interest to be considered one political block for the time being"* — the aggregation is conceded aloud, then never defended, and it is what makes a single-actor thesis possible at all. Unpin it (Hindu vs. Muslim UK voting divergence) and the actor dissolves into groups with conflicting interests |
 
 ## Open Questions
 
