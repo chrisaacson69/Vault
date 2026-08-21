@@ -95,6 +95,24 @@ Reusable moves this review crystallized:
 - [Directional Truth and the Discrete Trap](../../notes/directional-truth-and-the-discrete-trap.md) — STV sold as a discrete destination overshoots the directional truth ("FPTP has bad pathologies").
 - [Scope Confusion](../philosophy/morality/scope-confusion.md) — "which proportionality?" is the level/scope error at the heart of Grey's proportionality pitch.
 
+## Worked examples (down-link) -- the arithmetic this review asked for
+
+- **[Worked Examples -- The Impossibility Floor, With Arithmetic](./voting-paradox-worked-examples.md)** --
+  eight machine-checked ballot profiles built from this page's seeds, computed by
+  [`tools/voting-paradoxes.py`](../../tools/voting-paradoxes.py) (`--selftest` re-derives every claim).
+  **It closes the first Open Question below:** the surplus-transfer handwave is now a table --
+  *identical ballots, four ordinary rule-sets (Droop/Hare x Gregory/whole-ballot), **three different
+  three-member councils***, plus isolations showing the **quota alone** and the **transfer rule alone**
+  each change the result. It also supplies Seed 1 (a worked Gibbard-Satterthwaite manipulation),
+  Seed 2 (non-monotonicity: raising the winner on 12 ballots defeats them), Seed 6 (a single profile
+  that is *both* an IIA violation and a Condorcet failure -- the center-squeeze shape), a **no-show
+  paradox** verified tie-break-free, a **majority-criterion failure** under Borda, and the headline
+  demonstration that **one electorate elects five different winners under six ordinary methods**.
+  Carries the discipline note this critique needs to survive contact: **label which result each example
+  demonstrates** -- only the IIA case is literally Arrow; manipulation is Gibbard-Satterthwaite,
+  participation is Moulin, and monotonicity/Condorcet/majority are *criteria*, not theorems. Bundling
+  them all as Arrow is how a correct critique gets dismantled on camera.
+
 ## Open Questions
 - **Surplus-transfer strategy mechanics** — we named that random-sample vs Gregory vs Meek give different winners; we did *not* work a concrete profile showing a *strategic* exploit of the chosen rule. Worth a worked example if this ever needs to be airtight.
 - **Was Gibbard–Satterthwaite persisted before?** Chris recalls it from a prior conversation; a full-vault grep finds it **only** on this page (not in `government-formation.md` or elsewhere) — so it was conversational and is now first persisted here. Flag in case a buried/discarded page resurfaces.
