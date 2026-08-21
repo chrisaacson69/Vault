@@ -170,3 +170,4 @@ permalink: /tags/philosophy/
 - [Worked Examples — The Impossibility Floor, With Arithmetic](../research/debates/voting-paradox-worked-examples.md) — Arrow / Gibbard–Satterthwaite / Moulin separated from the *criteria* (monotonicity, Condorcet, majority) and each given a computed profile
 - [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md) — a definitional ratchet: a standard defined by reference to the distribution can never register growth; the collectively-negotiable / individually-binding scope split
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — revealed preference applied to a political objective, with the pattern-≠-intent guard held explicitly
+- [Human Constancy](../research/philosophy/human-constancy.md) — how much of a human stays fixed, framed as a ratio; the intelligibility asymmetry as a checkable test; supplies Trunk 1’s input parameter

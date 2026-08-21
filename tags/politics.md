@@ -37,3 +37,4 @@ permalink: /tags/politics/
 - [Worked Examples — The Impossibility Floor, With Arithmetic](../research/debates/voting-paradox-worked-examples.md) — eight machine-checked ballot profiles; identical ballots + four ordinary STV rule-sets → three different councils; one electorate, six methods, five winners
 - [Positional Goods](../research/economics/positional-goods.md) — why the expensive sectors are the politically supply-capped ones, and why supply-side reform is an inequality policy neither coalition owns
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — the achievable-and-refused test: a goal with an available, proven, refused method is not the operative goal (subtraction, never substitution)
+- [Human Constancy](../research/philosophy/human-constancy.md) — blank slate vs essentialism as strawmen; Reimer–Money bounded correctly; pair-bonding evidence presented two-sided

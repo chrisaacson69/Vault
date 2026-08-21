@@ -104,3 +104,4 @@ permalink: /tags/economics/
 - [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md) — the two definitions of poverty; Adam Smith’s linen shirt; **Chris’s ratchet** — participation is a negotiated state, so the bar can never be cleared by growth
 - [Econ Nerds — "Three Myths about Inequality"](../research/debates/econ-nerds-inequality-myths.md) — specimen; PSZ vs Auten–Splinter and the ~40% of income invisible to tax returns
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — eliminating inequality is achievable, attested, and universally rejected — so it is not the goal; the functional/destabilising curve, and why the normative question is hostage to the measurement question
+- [Human Constancy](../research/philosophy/human-constancy.md) — what the participation ratchet actually requires: ends drift slower than means, not human nature is constant
