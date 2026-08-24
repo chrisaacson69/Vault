@@ -37,6 +37,7 @@ The [Claudius vending machine experiment](../claude-opus-4-6.md) is a concrete e
 
 ### Praxis
 - [Agent Teams vs. the Theory](./praxis-agent-teams.md) — testing the framework against real Opus 4.6 deployments
+- [The Lemonade Stand Experiment](./lemonade-stand-agents.md) — *(specimen)* the **vending machine 2.0** this framework asked for, run by a third party: Claude Opus 4.7 vs GPT-5.5, unlimited budget, real customers, physical build. $65 / $42 revenue, ~$10k lost each, price below average variable cost. **Corrects the "make the constraint visible" fix** — full ledger visibility, spent anyway, because the goal was *revenue not profit*: **the objective must encode the constraint, or the dashboard is decoration.** Also: spending *inhibition* as the new failure mode, a competitor pair colluding on a child-labour workaround, and product quality (GPT's custom flavours) losing to spectacle (Claude's Rube Goldberg machine)
 - [LLMs as Praxeological Actors](./llm-praxeology.md) — aligned LLMs satisfy Mises's formal criteria for action; Rothbardian demonstrated preference in token generation; Austrian economics as the AI agent framework
 
 ### The Price System as Distributed Computation

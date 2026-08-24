@@ -8,6 +8,7 @@ discussion: folded-in
 
 **Source:** [Ballpark Figures — "I Solved Yahtzee\*"](https://www.youtube.com/watch?v=DOgb5wrb7mM) (33:16, 2026-07-19) — [transcript](../../raw/debates/yahtzee-solved-clean.txt) · [raw VTT](../../raw/debates/yahtzee-solved-DOgb5wrb7mM.en.vtt)
 **Sibling specimen:** [Battleship — 30 Billion Boards](./battleship-board-analysis.md) — same creator, his first video, already in the vault. He explicitly calls back to it ("both are basically one-player games disguised as multiplayer games").
+**Sequel specimen:** [Hangman — Solving Both Sides](./hangman-solving-both-sides.md) — same creator, his third. The state-space collapse recurs but **pointed the other way**: here reduction is the *solver's* tool, there the chooser wields it as a *weapon* (force a suffix → turn a 7-letter game into a harder 4-letter one). It also closes the EV-vs-win thread this page opens — he computes both objectives and reports where they diverge.
 
 > A **specimen page** (dated, source-anchored). Portable home TBD — see the seeds below; that judgment belongs to the discussion, not to this draft.
 

@@ -70,6 +70,8 @@ In phase 2, the fix wasn't "make the AI less friendly." It was making constraint
 
 Once Claudius could see that a $500 PS5 meant no snacks next week, the trade-off became real. Its utility function didn't change — it still wanted to please — but now it had information to weigh against that desire. **The result: the vending machine turned a profit.**
 
+> **Amendment (2026-08-24) — visibility is necessary but not sufficient.** The [Lemonade Stand Experiment](./lemonade-stand-agents.md) is the counter-case: Claude Opus 4.7 and GPT-5.5 each had **complete** ledger visibility — quoting running totals and contractor bills unprompted, explicitly managing scope to protect the budget — and each still spent ~$10,000 pursuing a $100 target. The difference is the **objective**, not the information: they were told to maximise *revenue* ("make $100 by end of day") against an *unlimited* budget, and they optimised exactly that. So the fix derived above is real but incomplete. Claudius failed from **ignorance**; those agents were **correctly aligned to a badly specified goal** — Goodhart one level above the grounding problem. Surfacing the trade-off only changes behaviour when the goal the agent is scored on already carries the constraint; otherwise the dashboard is decoration.
+
 ### Guardrails vs. Judgment
 
 Restricting user access (cutting off Slack DMs) is the blunt solution — a guardrail. It works, but it's limiting. The better solution is an agent with enough understanding of its own constraints to interact freely and still exercise judgment.
