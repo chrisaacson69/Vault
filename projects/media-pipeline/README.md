@@ -59,6 +59,8 @@ So this project must state, up front and honestly, **which stages are agent-run 
 
   **Design consequence for this project:** identity-bearing assets (character, style, palette) must be **generated once and reused**, never regenerated per frame. Per-frame generation has no identity constraint and will drift.
 
+  ✅ **The tools survived — do not rebuild them.** Chris wasn't sure whether the mouth-placement tooling had been saved off a remote box. It had: logical name **`animation-studio`** (`chrisaacson69/animation-studio`) holds `make_mouth_overlays.py` (builds the constrained pose sheet), `composite_lipsync.py` (composites onto video), `mouth_marker.html` (hand-mapping the expressions) and `media-server.py`; **`animation-studio-pod`** is its containerised RunPod form, matching the GPU tiers in [`career/presentation-generator-spec.md`](../../career/presentation-generator-spec.md). Both were **unregistered** in the local-path resolver until 2026-08-24 — findable only by luck, which is precisely how a solved problem gets solved twice. Now registered; resolve by logical name.
+
   *Open extension:* Chris's hypothesis that today's generative video shows the same failure in **lip-sync/mouth-matching** — plausible and the same root cause, but **unverified**; worth a look before it's asserted.
 - **Hardware:** the 16 GB RTX 50-series card mentioned in the 2026-05-29 memory — is it in place? Local generation vs API changes the whole design.
 
