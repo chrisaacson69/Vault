@@ -17,6 +17,7 @@ permalink: /INDEX/
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
 - [Camelot From YouTube](./projects/camelot-from-youtube/README.md) — music analysis tool: key, BPM, structure, events, Rekordbox export (active)
+- [Media Pipeline](./projects/media-pipeline/README.md) — *(draft, not started)* the harness for controlled **`md` → video**; homes the generator list per the standing 2026-05-29 ask, and **extends `career-slides`' working md→Marp→PNG→ffmpeg spine rather than rebuilding it**. Thesis from three 2026 specimens (Genspark's Lemonade OS, Pezzza's training dashboard, Stefan 3D AI's Unreal-MCP stack): **output quality tracks harness quality more than model quality** — plus the boundary discipline of naming what the AI does badly and keeping a human there
 - [CyborgDJ](./projects/cyborgdj/README.md) — programmatic DJ mixing engine; JSON spec in, mixed audio out (active)
 - [DJ Set 1](./projects/dj-set-1/README.md) — 11-track progressive/trance mix, texture-over-harmony philosophy (planning)
 - [Set Mastering](./projects/set-mastering/README.md) — automated DJ mix execution pipeline + light mastering (planning)

@@ -116,6 +116,23 @@ That has three consequences:
 2. **It is not an AI problem.** It is the letter-versus-spirit problem, and law has fought it for centuries — see [Mens Rea in Libertarian Law](../research/philosophy/morality/legal-theory/mens-rea.md), where the vault's own position is that a system should be **intent-blind** and the remedy is therefore to *specify better* (penalties that bite regardless of provable intent) rather than to adjudicate motive. That is structurally the same move as [the lemonade-stand result](../research/economics/lemonade-stand-agents.md): **when you cannot appeal to intent, the constraint has to live in the objective.**
 3. **The observation layer is what supplies the missing referent.** Watching is not a convenience — for Class B it is the *only* channel through which intent enters the loop at all. So the automation question is not "how do we replace the eye with a statistic" but **"how does intent get re-injected each iteration, and by whom?"**
 
+### Could the environment have fixed it instead of the human?
+
+A natural objection (Chris): if the zombie count kept rising, **run-away should stop working**. Nowhere to run, surrounded — the degenerate strategy stops paying and the optimizer is forced to find combat *on its own*, with no reward surgery at all. That would make Class B an **environment**-underspecification problem rather than an objective one, and it would be the more robust fix: you don't have to guess reward weights, you let the constraint bind.
+
+**The video contains a partial test of this, and the answer is no — at least up to 16.** The ordering matters: the reward fixes land at ~4:47–8:24, and the from-scratch 16-zombie control runs at ~17:40. So that control used the **already-corrected** reward — and still produced *"Gary the pacifist is back."* Density alone, at 16, with a good objective, did not force combat discovery.
+
+The likely reason is asymmetric discoverability, not payoff:
+
+- **Avoidance is a broad, shallow optimum** — reachable by one monotone behaviour (increase distance), improving from the very first gradient step.
+- **Combat is a narrow, deep one** — it requires chaining approach, timing, parry, and backstab *before any payoff appears at all.*
+
+Raising density makes avoidance **more expensive**; it does not make combat **easier to find**. Those are different levers, and only the second gets you out of the attractor.
+
+Which sharpens the objection into a genuinely open, testable question — Chris's own caveat is the crux: **is there a density window where avoidance fails but combat still succeeds?** At the N where running away stops working, a *fighting* agent may be dead too. If both strategies fail at the same N, the window is **empty**, no amount of environmental pressure can teach fighting, and you are back to fixing the objective.
+
+> And this is what the curriculum is really doing. At N = 1 combat is cheap to discover; the skill then transfers upward. **The curriculum manufactures the discoverability window that raw density cannot provide** — which is why the ramp works and the cold start at 16 does not.
+
 ## Open Questions
 - **Is "the benchmark must not shrink" a general evaluation rule?** It sounds like it should generalise past this case — anywhere the agent's actions alter the difficulty of its own test.
 

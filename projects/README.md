@@ -15,6 +15,7 @@ permalink: /projects/
 - [Game Annotation (NA1)](./game-annotation/README.md) — Nobunaga's Ambition (NES) bytecode-VM decompiler and the classic-game annotation series
 - [CyborgDJ](./cyborgdj/README.md) — programmatic DJ mixing engine
 - [Camelot From YouTube](./camelot-from-youtube/README.md) — music analysis: BPM, key, structure, Rekordbox export
+- [Media Pipeline](./media-pipeline/README.md) — *(draft, not started)* the harness for controlled **`md` → video**, answering the standing 2026-05-29 ask to home the generator list. Extends `career-slides`' existing md→Marp→PNG→ffmpeg spine rather than rebuilding it. Built on a three-specimen thesis — **output quality tracks harness quality more than model quality** — plus Stefan 3D AI's boundary discipline: name what the AI does badly and keep a human there
 - [Monopoly](./monopoly/README.md) — Markov-chain AI with strategic trading
 - [Slay](./slay/README.md) / [Slay-C](./slay-c/README.md) — hex strategy game with AI; C port for deep search
 - [YouTube Migration](./youtube-migration/README.md) — episode scripts, Manim scenes, animation tooling
