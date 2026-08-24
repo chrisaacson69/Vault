@@ -9,8 +9,8 @@ permalink: /tags/_index/
 
 - [6502](./6502.md) — 10 files
 - [65816](./65816.md) — 5 files
-- [ai](./ai.md) — 51 files
-- [agents](./agents.md) — 17 files
+- [ai](./ai.md) — 52 files
+- [agents](./agents.md) — 18 files
 - [assembly](./assembly.md) — 11 files
 - [atari-2600](./atari-2600.md) — 1 file
 - [audio-processing](./audio-processing.md) — 6 files
@@ -82,4 +82,4 @@ permalink: /tags/_index/
 - [utility](./utility.md) — 2 files
 - [workflow](./workflow.md) — 2 files
 - [youtube](./youtube.md) — 4 files
-- [methodology](./methodology.md) — 8 files
+- [methodology](./methodology.md) — 9 files
