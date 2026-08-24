@@ -53,7 +53,13 @@ So this project must state, up front and honestly, **which stages are agent-run 
 
 - **What is the unit of control?** One `md` page → one video, or a scene-list `md` where each block names its generator and inputs? The second is more like Stefan's asset workflow and probably survives revision better.
 - **Where is the deterministic seam?** The vault's rule is generators-are-tools, LLM-orchestrates. So what exactly must be reproducible from the `md` alone — every frame, or just the structure?
-- **What is the *content* equivalent of a Class B bug?** A render where every metric is green and the video is unwatchable. What would even detect that, short of watching it?
+- ~~What is the *content* equivalent of a Class B bug?~~ — **Already answered, from our own work** (Chris, recalled 2026-08-24). Generating **mouth positions** for a presenter character produced *"completely different variations of the character"* per pose: each output satisfied the request (it is a mouth position) while silently violating the constraint nobody wrote down — **it is the same character**. Every output valid, the set unusable. That is textbook [Class B](../../method/watching-the-solver-learn.md#two-classes-of-objective-bug--and-only-one-is-findable-from-inside): no error, no failed check, and only a human looking at the sheet sees it.
+
+  **The fix is the same remedy the vault keeps arriving at** — when you cannot appeal to intent, put the constraint in the specification: *constrain the number of positions and hand-map the expressions.* Note that this is also what the industry does — `presentation-generator-spec.md` Tier 2 already names **Rhubarb**, which maps audio onto a small fixed viseme set rather than generating each mouth freely. **A fixed pose sheet is a constraint-encoding device**, not a limitation.
+
+  **Design consequence for this project:** identity-bearing assets (character, style, palette) must be **generated once and reused**, never regenerated per frame. Per-frame generation has no identity constraint and will drift.
+
+  *Open extension:* Chris's hypothesis that today's generative video shows the same failure in **lip-sync/mouth-matching** — plausible and the same root cause, but **unverified**; worth a look before it's asserted.
 - **Hardware:** the 16 GB RTX 50-series card mentioned in the 2026-05-29 memory — is it in place? Local generation vs API changes the whole design.
 
 ## Notes

@@ -133,6 +133,14 @@ Which sharpens the objection into a genuinely open, testable question — Chris'
 
 > And this is what the curriculum is really doing. At N = 1 combat is cheap to discover; the skill then transfers upward. **The curriculum manufactures the discoverability window that raw density cannot provide** — which is why the ramp works and the cold start at 16 does not.
 
+There is a **third possibility**, and it is the one that leaves a real gap (Chris): even where `N_overwhelmed > N_forced` — so the window exists on paper — the agent may still not optimise into it, because at that density there are simply **too many variables to take into account**. A window can be non-empty and still be unlearnable. So the three cases are:
+
+1. **Window empty** (`N_forced ≥ N_overwhelmed`) — environmental pressure can never teach it; fix the objective.
+2. **Window open and learnable** — raise the pressure and the behaviour emerges for free.
+3. **Window open but unlearnable** — it exists, and the problem is too high-dimensional at that point to find it. *Indistinguishable from case 1 from the outside*, which is what makes this a gap rather than a question.
+
+**Supporting evidence from game design** (Chris): *Robotron: 2084* is built on exactly this tension — being surrounded and hunting for an escape route — and many of its levels force the situation deliberately. Eugene Jarvis has named it a core tension of the game (*attribution from Chris, not yet sourced — verify before citing*). The transferable point stands regardless of the quote: **the fight/flight balance is hard to tune, and designers tune it by hand.** Decades of human designers hand-placing that balance is evidence the window is *narrow* — and that locating it is a design act, not something an optimiser reliably stumbles into. Which is the same claim as case 3, arrived at from the other direction.
+
 ## Open Questions
 - **Is "the benchmark must not shrink" a general evaluation rule?** It sounds like it should generalise past this case — anywhere the agent's actions alter the difficulty of its own test.
 
