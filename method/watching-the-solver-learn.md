@@ -98,7 +98,25 @@ Batch aggregates answer *did it get better*. They cannot answer *what is it actu
 ## Open Questions
 
 - **What is the vault's equivalent of "policy entropy"** for a non-learning solver — a search engine or a parameter sweep? Something that reports *confidence/convergence* rather than score. Move-choice stability across depths? Variance across restarts?
-- **Does live observation survive an agent-driven workflow?** Watching works because a human is looking. If the iteration loop is run by an agent, what replaces the eye — periodic renders it inspects, or derived behavioural statistics (engagement rate, action histogram) that make "doing nothing" a *measured* quantity rather than a seen one?
+- **Does live observation survive an agent-driven workflow?** Watching works because a human is looking. If the iteration loop is run by an agent, what replaces the eye — periodic renders it inspects, or derived behavioural statistics (engagement rate, action histogram) that make "doing nothing" a *measured* quantity rather than a seen one? **Partly answered below: for one of the two bug classes, no statistic can replace the eye, because there is nothing anomalous to measure.**
+
+## Two classes of objective bug — and only one is findable from inside
+
+The two failures above look alike and are not. The distinction decides what can be automated (Chris, 2026-08-24):
+
+**Class A — internally detectable.** The negative reward on *attack* is an inconsistency *within the system*: an action carrying systematically negative return, or one the policy learns never to select. That leaves a statistical signature — per-action return, action histogram, an ability present in the action space and absent from the policy. **An agent could plausibly catch this**, and it's worth instrumenting for deliberately.
+
+**Class B — detectable only against intent.** Gary avoiding combat to survive is **not a malfunction. It is the correct optimum** for the objective as written. Nothing inside the loop is anomalous: score climbing, episode duration climbing, entropy falling — the run looks like a *success*. The only referent that reveals the failure is what the system is *for* — a gladiator who fights — and that lives entirely outside the specification. As Chris put it: *the fight was easy — just don't engage.*
+
+> **The signature of a Class B bug is that every metric agrees the run went well.**
+
+That has three consequences:
+
+1. **This is the same faculty as "AI creativity."** The mechanism that finds a clever solution nobody anticipated is the mechanism that finds a useless one — the difference lies in intent, not in the search. You cannot suppress one without suppressing the other, which is why "the AI found an unexpected strategy" and "the AI gamed the objective" are the *same event* described from different sides.
+2. **It is not an AI problem.** It is the letter-versus-spirit problem, and law has fought it for centuries — see [Mens Rea in Libertarian Law](../research/philosophy/morality/legal-theory/mens-rea.md), where the vault's own position is that a system should be **intent-blind** and the remedy is therefore to *specify better* (penalties that bite regardless of provable intent) rather than to adjudicate motive. That is structurally the same move as [the lemonade-stand result](../research/economics/lemonade-stand-agents.md): **when you cannot appeal to intent, the constraint has to live in the objective.**
+3. **The observation layer is what supplies the missing referent.** Watching is not a convenience — for Class B it is the *only* channel through which intent enters the loop at all. So the automation question is not "how do we replace the eye with a statistic" but **"how does intent get re-injected each iteration, and by whom?"**
+
+## Open Questions
 - **Is "the benchmark must not shrink" a general evaluation rule?** It sounds like it should generalise past this case — anywhere the agent's actions alter the difficulty of its own test.
 
 ## Tags
