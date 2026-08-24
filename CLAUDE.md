@@ -14,6 +14,8 @@ base"; the knowledge base (`research/`) is one **partition** of it, alongside th
 
 **Self-bootstrapping invariant:** everything needed to *use and maintain* the OS is committed internally (this manual, the partition rules, the memory schema). Every piece that *necessarily* lives outside the repo — the user-global kernel, the `~/.claude/.../memory/` scheduler state, the per-machine resolver — ships with **committed instructions to recreate it from zero**: the [memory cold-start bootstrap](./notes/memory-bootstrap.md) (schema + seed templates) and the [new-machine migration runbook](./notes/new-machine-migration.md) (transfer + clone). A fresh clone is never stranded.
 
+`VAULT-MANUAL-LOADED` — canary token; see the kernel `CLAUDE.md` config-load canary. Never emit from a hook.
+
 ## Grounding Discipline — Read First (non-negotiable)
 
 Chris's #1 standing rule: **never fabricate, and never rebuild what already exists. When grounding is missing, go find it or ask — do not fill the gap with an assumption.** Fabrication has two masks; both are forbidden:

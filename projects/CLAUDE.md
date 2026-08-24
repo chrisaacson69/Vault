@@ -6,6 +6,8 @@ is for *execution*. The lessons about **how to work with AI on a project** live 
 not abstract knowledge. (Loads when working under `projects/`; from a vault-root session, read it when you
 start project work. The cross-boundary essentials are already in the user-global kernel.)
 
+`PROJECT-SDK-LOADED` — canary token; see the kernel `CLAUDE.md` config-load canary. Never emit from a hook.
+
 ## Projects are a package library with dependencies
 
 A project is a **package**: a self-contained external repo with declared dependencies on other packages.

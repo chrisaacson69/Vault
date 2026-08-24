@@ -43,6 +43,29 @@ Run both checks below and produce a single concise report.
 - A **few** firings = normal (you indexed them after the nudge). **Many** firings = drift is accumulating faster than it's integrated → recommend a dedicated `/vault-sync` cleanup pass. Report the count and the recommendation.
 - The rate is the health metric here, not any single entry.
 
+#### 1g. Config-Load Canary Integrity (detects the silent-load failure)
+The kernel `~/.claude/CLAUDE.md` defines four canary tokens, one per config layer. This check does **not**
+test whether they loaded this session (that's the in-session check, done from the kernel) — it asserts the
+**placement invariant** that makes the in-session check trustworthy.
+
+Read the four token literals out of the kernel's table, then grep for **each full literal** (not the
+`-LOADED` substring — prose legitimately says `*-LOADED`) across `~/.claude/` including the memory dir,
+the vault root, `Vault/projects/`, and `Vault/.claude/`.
+
+**Each token must resolve to exactly two files:** the kernel `~/.claude/CLAUDE.md` (which carries the table
+and is the checker) and its own layer file — `Vault/CLAUDE.md`, `memory/MEMORY.md`, or
+`Vault/projects/CLAUDE.md` respectively.
+
+- **A hit in any other file = FAIL.** This is the important direction. Memory topic files, area indexes,
+  hooks, skills, and `settings*.json` all get injected into context — one that spells a token out makes the
+  in-session check pass unconditionally, which is worse than having no canary. Describe tokens as
+  `*-LOADED` in prose; never reproduce a literal outside its own layer file.
+- **A layer file missing its token = FAIL** the other way: the canary now reads as a load failure every
+  session and will be learned as noise. Restore it from the kernel table.
+
+Report per-file hits and PASS/FAIL. Cheap — run it every heartbeat. (This check earned its keep on the day
+it was written: it caught five files per token in its own first implementation.)
+
 ### 1.5 Semantic / Grounding Audit (credit-heavy — the self-improving layer)
 
 This is the analytical pass that keeps the feedback loop compounding **signal, not error** — without it, a slightly-wrong page gets cited by the next page and the mistake propagates (drift). It reads page *bodies*, not just structure, so it's expensive. **Scope it incrementally:**
