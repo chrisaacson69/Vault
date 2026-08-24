@@ -27,7 +27,7 @@ and asking for captions during one yields an empty response for the ad.
 Usage:  py -3 tools/fetch-youtube-transcript.py <video_id_or_url> [out_path]
 Requires: websocket-client  (py -3 -m pip install --user websocket-client)
 """
-import json, os, re, subprocess, sys, tempfile, time, urllib.request
+import json, os, re, shutil, subprocess, sys, tempfile, time, urllib.request
 
 try:
     import websocket  # websocket-client
@@ -45,15 +45,30 @@ def video_id(s):
     return m.group(1) if m else s
 
 
+def kill_tree(pid):
+    """Chrome spawns children; terminating the launcher leaves them running.
+
+    Observed 2026-08-24: 22 orphaned processes accumulated across a debugging
+    session and kept playing video AUDIBLY, in windows the user could not see or
+    close. Always kill the whole tree.
+    """
+    subprocess.run(["taskkill", "/PID", str(pid), "/T", "/F"],
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
 def fetch(vid, out_path):
-    profile = os.path.join(tempfile.gettempdir(), "yt-cdp-profile")
+    # Fresh profile per run, removed afterwards -- no cookie/state accumulation
+    # in an invisible browser.
+    profile = tempfile.mkdtemp(prefix="yt-cdp-")
     proc = subprocess.Popen(
         [CHROME, "--headless=new", "--disable-gpu", "--no-first-run",
+         "--mute-audio",  # belt-and-braces: JS muting loses races with ads
          f"--remote-debugging-port={PORT}", f"--user-data-dir={profile}",
          "--enable-quic", "--origin-to-force-quic-on=www.youtube.com:443",
          "--autoplay-policy=no-user-gesture-required",
          "--window-size=1400,1000", "about:blank"],
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print(f"[headless chrome pid={proc.pid} profile={profile}]")
     try:
         for _ in range(60):
             try:
@@ -132,8 +147,12 @@ def fetch(vid, out_path):
                 seen.add(t)
                 events.append(e)
         ws.close()
+        for _rid, u in caps:
+            print(f"[fetched] {u[:110]}...")
     finally:
-        proc.terminate()
+        kill_tree(proc.pid)
+        shutil.rmtree(profile, ignore_errors=True)
+        print("[headless chrome closed, profile removed]")
 
     if not events:
         sys.exit("captured requests but no caption events -- if bodies were 0 bytes, "
