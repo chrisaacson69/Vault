@@ -11,21 +11,39 @@ The vault lives at `C:\Users\Chris.Isaacson\Vault`. GitHub repos live under `C:\
 
 Run both checks below and produce a single concise report.
 
-### Use the saved checkers — do not re-author them
+### STOP — read `tools/README.md` before writing a single check
 
-The deterministic structural checks (1a, 1c, 1.5c pass 1) are **already implemented** and carry every
-measured false-positive exclusion. Re-deriving them by hand each run reintroduces the bugs they encode:
+**Most of this audit is already built.** `tools/` holds the deterministic checkers, they are indexed in
+[`tools/README.md`](../../../tools/README.md), and they implement
+[method/author-web-derive-hierarchy.md](../../../method/author-web-derive-hierarchy.md): *the index is
+derived by tooling, never hand-maintained.* Run them **first**, and treat their output as ground truth:
 
 ```bash
-py -3 .claude/skills/vault-heartbeat/scripts/check.py [links|tags|raw|all]   # read-only
-py -3 .claude/skills/vault-heartbeat/scripts/repair-tags.py [--apply]        # dry run by default
+py -3 tools/vault-graph.py         # 1a + 1d: broken links, ledger reciprocity, orphans. The gate.
+py -3 tools/vault-fix-links.py     # repair broken links by unique-basename match (--write to apply)
+py -3 tools/vault-tagindex.py      # 1c: derive tags/<tag>.md from each page's `## Tags` (--write)
+py -3 tools/tag-counts.py          # 1c: recompute `- N files` in tags/_index.md (--write)
+py -3 tools/vault-backlinks.py     # materialize derived Backlinks sections (--write)
 ```
 
-`check.py` annotates template placeholders so they aren't reported as defects, counts a tag only inside
-a page's `## Tags` section, and drops tag→tag "related" links. `repair-tags.py` fixes ghosts, missing
-back-links, and `_index.md` registration in one pass. **Review its dry run before `--apply`** — step 1
-edits content pages. Note `grep -P` is unavailable in this Git Bash locale; use `py -3`, per the kernel's
-silent-tool-failure rule. The remaining checks (1b, 1d, 1e, 1f, 1g, 1.5a/b/d/e) are still done by hand.
+Order matters: pages → `vault-tagindex.py` → `tag-counts.py`. Each layer derives from the one below.
+
+Only two checks are genuinely missing from `tools/`, and they live here:
+
+```bash
+py -3 .claude/skills/vault-heartbeat/scripts/heartbeat-checks.py [raw|ghosts|all]   # read-only
+```
+
+**This routing block exists because it failed.** On 2026-08-26 a heartbeat hand-rolled its own
+broken-link, tag-count and tag-index checkers — all five tools already existed, `tools/README.md`
+already indexed them, and `vault-sync` already routed to `tag-counts.py`; this skill mentioned `tools/`
+zero times, so the run never looked. The rebuilds were *worse* (bare back-links where
+`vault-tagindex.py` preserves curated one-liners) and disagreed with the real tools on live drift.
+That is the #1 rule — reuse/convert > rebuild — failing for the exact reason the vault manual predicts:
+**a capability nothing routes to is unfindable, and unfindable capability gets rebuilt.**
+
+`grep -P` is unavailable in this Git Bash locale; use `py -3`, per the kernel's silent-tool-failure rule.
+The remaining checks (1b, 1e, 1f, 1g, 1.5a/b/d/e) are still done by hand.
 
 ### 1. Vault Health Check
 

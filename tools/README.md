@@ -10,6 +10,13 @@ Most of what follows maintains the vault itself. One exception is noted as such:
 because it is the same kind of artifact — a deterministic generator whose output is
 checkable — and because a solver that lives next to its page cannot go unfindable.
 
+**Consumers — the skills that must run these rather than re-implement them:**
+[`/vault-heartbeat`](../.claude/skills/vault-heartbeat/SKILL.md) (its whole structural pass is
+`vault-graph` + `vault-tagindex` + `tag-counts`) and [`/vault-sync`](../.claude/skills/vault-sync/SKILL.md)
+(step 4 → `tag-counts.py`). *Registered 2026-08-26, after a heartbeat hand-rolled its own broken-link
+and tag checkers because nothing routed it here — the index existed, the pointer to it didn't.
+Unfindable capability gets rebuilt; that is what the pointer is for.*
+
 ## vault-graph.py — the derive-the-ledger audit gate
 
 Scans the markdown link graph and reports:
