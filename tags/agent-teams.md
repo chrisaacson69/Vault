@@ -10,3 +10,5 @@ permalink: /tags/agent-teams/
 - [The Anchor Method](../method/anchor-method.md) — the team is the tie-it-together layer; context management is its engine; the director owns the recalibration meta-check
 - [Method — a library of good procedure](../method/README.md) — the living playbook collection for running hard agent-driven projects
 - [Praxis: Agent Teams vs. the Theory](../research/economics/praxis-agent-teams.md) — the economic theory of why agent teams work (the Line Manager → COO → CEO decision-class hierarchy)
+- [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md) — Nate B.
+- [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.

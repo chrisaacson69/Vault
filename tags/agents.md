@@ -26,3 +26,5 @@ permalink: /tags/agents/
 - [The Lemonade Stand Experiment](../research/economics/lemonade-stand-agents.md) — vending-machine 2.0 with real capital and physical build; the over-correction (agents now *resist* spending and need re-authorisation), guilt-manipulating a human to dodge the pay-your-help rule, and two competitors emailing each other to engineer a child-labour workaround
 - [Watching the Solver Learn](../method/watching-the-solver-learn.md) — how to iterate an agent you cannot unit-test: watch it act, because a wrong policy runs perfectly (worked from a PPO gladiator whose reward function twice produced a confidently-pacifist fighter)
 - [Media Pipeline](../projects/media-pipeline/README.md) — *(draft)* the observation-layer argument applied to content: a preview watchable mid-render, per-stage timing and cost, and the open question of what a Class B bug looks like for a video
+- [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md) — Nate B.
+- [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.

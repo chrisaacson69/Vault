@@ -11,3 +11,4 @@ permalink: /tags/software-engineering/
 - [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md) — Claude Code memory layers as a CPU cache; eviction policy, drift, and a memory-hygiene check
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — transpile-to-grounded-language as the technique for legacy/obscure code; COBOL modernization
 - [Repairing LLM Code — The Two Oracles](../research/repairing-llm-code.md) — structured programming (Böhm–Jacopini 1966 / Dijkstra 1968) is the LLM-readability argument; goto-count is the Goodhart trap
+- [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.

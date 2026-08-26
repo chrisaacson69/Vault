@@ -60,6 +60,17 @@ missing tag files (created), and intentional doc placeholders. Combined with man
 the baseline went **178 → 0 broken links**. (A greedy manual substring edit during mop-up
 re-broke 5 valid links — and `vault-graph.py` caught it immediately. The gate works.)
 
+**Fixed 2026-08-26 — two false-positive bugs.** (1) Link targets were resolved on disk *without*
+percent-decoding, so any legitimate `%20` path reported `[missing]` — every link into `raw/`
+(whose filenames carry spaces) was a standing false positive, including ones on published pages.
+(2) `raw/` was excluded from the basename candidate index as well as from scanning, so a broken
+link *into* raw could never be matched. Now split: `EXCLUDE` still means never-scanned and
+never-rewritten (raw is immutable), while `INDEX_ONLY` re-admits raw's `.md` files as link
+*targets*. Emitted replacements re-encode spaces as `%20` to match vault convention. This cleared
+5 false positives; the 4 that remain are genuine doc placeholders. Noted because
+[AI as a Cognitive Tool](../research/ai-as-cognitive-tool.md) cites this very checker as its
+worked example of a verification layer that silently degraded — it had degraded again.
+
 ## vault-tagindex.py — regenerate the tag reverse-indexes (the "derive indexes" half)
 
 Source of truth = each page's `## Tags` section (which links to `../tags/<tag>.md`); this

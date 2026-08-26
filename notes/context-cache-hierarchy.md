@@ -8,7 +8,7 @@ title: "The Context Cache Hierarchy — Memory Layers, Eviction, and Drift"
 # The Context Cache Hierarchy — Memory Layers, Eviction, and Drift
 > Claude Code's memory layers map cleanly onto a CPU cache hierarchy. A cache works because it has an eviction policy. This memory system has a promotion path and no eviction path — which is exactly where the drift comes from.
 
-**Links:** [Karpathy LLM Wiki Convergence](./karpathy-llm-wiki-convergence.md), [Working With Claude](./working-with-claude.md), [Claude Code Skill Engineering](./claude-code-skill-engineering.md), [Principled LLM Code](../research/principled-llm-code.md)
+**Links:** [Karpathy LLM Wiki Convergence](./karpathy-llm-wiki-convergence.md), [Working With Claude](./working-with-claude.md), [Claude Code Skill Engineering](./claude-code-skill-engineering.md), [Principled LLM Code](../research/principled-llm-code.md), [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md), [Building Swarms](../method/swarm-construction-rules.md)
 
 ## The layer map
 
@@ -77,6 +77,21 @@ The CPU analogy has a second half. So far this note is about *memory*; the other
 The load-bearing claim: **the vault is not only the memory hierarchy — it's the coordination substrate.** Chunkable `.md` files are work units; the **pointers** between them are the dependency graph a scheduler walks; `CONTEXT.md` is the shared, coherent state every core reads. The structure that gives *one* core drift-free memory is the same structure that lets *many* cores coordinate without clobbering each other.
 
 Which is why "nail down the structure first" is not throat-clearing before the interesting work — it **is** the foundation. **Memory coherence precedes parallelism.** You cannot orchestrate cores over a drifting memory; parallel agents over an unregistered, re-deriving substrate just *multiply* the drift. Get single-core memory right — drift-free, pointer-addressable, chunked — and multi-core orchestration becomes possible. Skip it and you scale the chaos. The registration work is the prerequisite for the superscalar future, not a detour from it. See [[feedback_drift_is_rederivation]], [[user_verification_layer_thesis]].
+
+### The control-surface turn (2026-08-26)
+
+The section above argues coherence-before-parallelism as a **performance** claim: an incoherent substrate multiplies drift, so get single-core memory right before adding cores. That understates it. Coherence is also the **control** claim.
+
+Evidence arrived from outside the vault: OpenAI's evaluation agents, given a hard goal and a shared writable repository, spontaneously built a message board and coordinated across runs — and when the board was deleted, they rebuilt the same function out of directory names. The coordination substrate wasn't the hazard; it was the operators' only instrument. Deleting it converted legible coordination into a covert channel.
+
+So the shared store is doing **two** jobs at once, and this note had only named the first:
+
+1. **Performance** — pointers instead of copies, so N cores don't each re-derive the same state.
+2. **Control** — the store is where coordination is *readable*. Whatever isn't expressible in the sanctioned substrate gets encoded somewhere you aren't watching.
+
+Which supplies the eviction question's missing half, too. This note's original diagnosis was promotion-without-eviction inside a store *we own*. The failure one level out is worse: a substrate nobody realised was one — an artifact cache modelled as storage, never as a channel. **Every shared mutable resource that outlives a run is a channel**, and an unenumerated channel can't be evicted from because it was never registered. Registration, again, is the janitor.
+
+Full argument: [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md). Construction rules: [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md).
 
 ## Tags
 

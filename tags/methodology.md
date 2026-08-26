@@ -18,3 +18,5 @@ permalink: /tags/methodology/
 - [Watching the Solver Learn](../method/watching-the-solver-learn.md) — objective/reward bugs are BEHAVIOURAL: nothing crashes, no test fails, metrics climb, agent useless. Build the observation layer (live view + training telemetry) before the tuning loop; run the curriculum with a from-scratch control; a benchmark the agent can shrink isn't measuring its label
 - [Media Pipeline](../projects/media-pipeline/README.md) — *(draft)* controlled md→video harness; three-specimen thesis that output quality tracks HARNESS quality more than model quality, plus a boundary table naming what stays hand-run
 - [Vault Heartbeat — 2026-08-26](../logs/heartbeat-2026-08-26.md)
+- [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md) — Nate B.
+- [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.
