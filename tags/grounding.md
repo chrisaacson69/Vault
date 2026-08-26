@@ -13,3 +13,4 @@ permalink: /tags/grounding/
 - [Energy-Based Models](../research/energy-based-models.md) — constraint-satisfaction landscapes as the substrate for grounded reasoning; Aleph + Lean as verifier-backed grounding in formal math
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — formal-language grounding is a gradient; deterministic transpile to a grounded language as the fix (6502→C, COBOL modernization)
 - [Repairing LLM Code — The Two Oracles](../research/repairing-llm-code.md) — correctness grounds downward (diff vs a lower artifact); readability has no lower oracle, only transfer-to-a-reader
+- [Comments and the Distance to an Oracle](../research/comment-oracle-distance.md) — oracle availability is a distance, not a binary — and the class with no oracle (intent) is the class that must be kept

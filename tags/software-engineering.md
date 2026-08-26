@@ -12,3 +12,4 @@ permalink: /tags/software-engineering/
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — transpile-to-grounded-language as the technique for legacy/obscure code; COBOL modernization
 - [Repairing LLM Code — The Two Oracles](../research/repairing-llm-code.md) — structured programming (Böhm–Jacopini 1966 / Dijkstra 1968) is the LLM-readability argument; goto-count is the Goodhart trap
 - [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.
+- [Comments and the Distance to an Oracle](../research/comment-oracle-distance.md) — an eviction rule for comments with a test behind it: distance to the oracle, measured by a fixed-context reader

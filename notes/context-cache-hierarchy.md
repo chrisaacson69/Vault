@@ -8,7 +8,7 @@ title: "The Context Cache Hierarchy — Memory Layers, Eviction, and Drift"
 # The Context Cache Hierarchy — Memory Layers, Eviction, and Drift
 > Claude Code's memory layers map cleanly onto a CPU cache hierarchy. A cache works because it has an eviction policy. This memory system has a promotion path and no eviction path — which is exactly where the drift comes from.
 
-**Links:** [Karpathy LLM Wiki Convergence](./karpathy-llm-wiki-convergence.md), [Working With Claude](./working-with-claude.md), [Claude Code Skill Engineering](./claude-code-skill-engineering.md), [Principled LLM Code](../research/principled-llm-code.md), [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md), [Building Swarms](../method/swarm-construction-rules.md)
+**Links:** [Karpathy LLM Wiki Convergence](./karpathy-llm-wiki-convergence.md), [Working With Claude](./working-with-claude.md), [Claude Code Skill Engineering](./claude-code-skill-engineering.md), [Principled LLM Code](../research/principled-llm-code.md), [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md), [Building Swarms](../method/swarm-construction-rules.md), [Comments and the Distance to an Oracle](../research/comment-oracle-distance.md) — comments as a tier — the locality correction this note needed, plus promotion-without-eviction inside the code substrate
 
 ## The layer map
 

@@ -62,3 +62,4 @@ permalink: /tags/ai/
 - [Media Pipeline](../projects/media-pipeline/README.md) — *(draft)* homes the generator list (image/audio/video) so it is never re-searched; md as grounded control language, generators as deterministic tools, LLM orchestrating via pointers
 - [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md) — Nate B.
 - [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.
+- [Comments and the Distance to an Oracle](../research/comment-oracle-distance.md) — comments as an agent-readable context layer and an inter-agent coordination channel; type them so eviction is mechanical

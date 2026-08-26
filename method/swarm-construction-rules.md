@@ -8,7 +8,7 @@ title: "Building Swarms — Token Rules as Architecture"
 # Building Swarms — Token Rules as Architecture
 > Nate B. Jones's 15 token rules are written as single-agent hygiene. At fan-out, every per-agent overhead is paid N times — which promotes a habit into an architectural constraint. This is the translation, plus the anti-pattern it explains.
 
-**Links:** [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md), [Method — a library of good procedure](./README.md), [The Anchor Method](./anchor-method.md), [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md), [Claude Code Skill Engineering](../notes/claude-code-skill-engineering.md), [Working With Claude](../notes/working-with-claude.md), [Praxis Agent Teams](../research/economics/praxis-agent-teams.md)
+**Links:** [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md), [Method — a library of good procedure](./README.md), [The Anchor Method](./anchor-method.md), [The Context Cache Hierarchy](../notes/context-cache-hierarchy.md), [Claude Code Skill Engineering](../notes/claude-code-skill-engineering.md), [Working With Claude](../notes/working-with-claude.md), [Praxis Agent Teams](../research/economics/praxis-agent-teams.md), [Comments and the Distance to an Oracle](../research/comment-oracle-distance.md) — inline coordination is a per-agent overhead paid N times; the crossover question restated for comments
 
 **Source:** [Nate B. Jones — 15 rules to stop running out of tokens](../raw/videos/2026-08-26%20nate-b-jones-15-token-rules.md) ([YouTube](https://www.youtube.com/watch?v=Y8vAQ1FgNbM)), ingested 2026-08-26. Companion page: [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md).
 

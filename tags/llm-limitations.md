@@ -19,3 +19,4 @@ permalink: /tags/llm-limitations/
 - [Game Annotation Series](../projects/game-annotation/README.md) — assembly as a stress test for LLM mechanical-modeling without rhetorical contagion; per-chapter LLM-interpretation logs
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — LLMs are weakly grounded in obscure formal languages (6502, bespoke VMs, COBOL); transpile to a grounded one rather than reason in them
 - [Repairing LLM Code — The Two Oracles](../research/repairing-llm-code.md) — LLMs faithfully read *wrong* structure and report it with high confidence; confidence and reader-consensus both fail as signals
+- [Comments and the Distance to an Oracle](../research/comment-oracle-distance.md) — a stale comment is the one repo artifact that can be flatly wrong with nothing to notice — last run's fluent output re-fed as evidence
