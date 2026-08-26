@@ -40,7 +40,13 @@
 # Employer-derived captures keep their real class/method/proc names
 # locally as the immutable source; only *.anon.md copies are tracked.
 # ============================================================
+# General rule: everything under work/ is local-only, whatever its extension.
+# Track ONLY anonymized copies (*.anon.md), anywhere under raw/.
+work/**
+!work/**/*.anon.md
+
+# Pre-dating that rule: the 2026-08-26 cold-read capture.
 datasets/comment-oracle-coldread-2026-08-26/README.md
 datasets/comment-oracle-coldread-2026-08-26/protocol.md
 datasets/comment-oracle-coldread-2026-08-26/results-relayed.md
-!datasets/**/*.anon.md
+!**/*.anon.md
