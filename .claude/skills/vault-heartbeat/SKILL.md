@@ -143,9 +143,15 @@ filename miss is not evidence of a gap. Run all three passes and only report wha
 Report only groups surviving all three, and **say which passes were run** — an unqualified "N uncovered"
 from pass 1 alone is a fabricated finding, exactly the failure the Grounding Discipline forbids.
 
-*Durable fix (recommend once, don't re-litigate each run):* have `vault-ingest` write a
-`**Source:**` line naming the actual `raw/` path into every page it creates. That converts this
-whole heuristic into an exact lookup.
+**Pass 0 — the exact lookup, try this first.** As of 2026-08-26 `vault-ingest` step 4 stamps a
+`**Source:**` line naming the real `raw/` path into every page it creates or enriches (spec in
+`.claude/shared/vault-page.md`). So: grep all `**Source:**` / `## Sources` blocks for the raw path
+first, and treat a hit as definitive coverage. Only groups that pass 0 misses go on to passes 1–3.
+
+Pages predating that change have no `**Source:**` line, so the fuzzy passes remain necessary for the
+backlog — but the **share of raw sources resolvable by pass 0 should climb over time**. If it isn't
+climbing, the ingest step is being skipped: report that, because it is the more useful finding than
+any individual uncovered file.
 
 #### 1.5d Gap Analysis / New-Article Candidates (completeness critic)
 - Per major tag/cluster, name what's conspicuously missing and propose new-article candidates.

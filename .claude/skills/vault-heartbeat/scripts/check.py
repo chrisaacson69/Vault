@@ -70,7 +70,8 @@ def check_links():
                 #      correct from the target page, not from the skill file.
                 placeholder = (
                     any(k in p for k in ('path/to', 'relative/path', 'tag-name', './tag.md',
-                                         'my-project', 'NN-previous', 'transcript-file'))
+                                         'my-project', 'NN-previous', 'transcript-file',
+                                         'YYYY-MM-DD'))
                     or (rel.startswith('.claude/') and '/tags/' in p)
                     or rel == 'projects/_template.md')
                 print("  %s L%d: [%s] -> %s%s"

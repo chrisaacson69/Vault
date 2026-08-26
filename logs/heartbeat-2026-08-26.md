@@ -47,8 +47,10 @@ INDEX.md 407 relative links / 0 broken · canary placement PASS (each token = ke
 
 ## Open Questions
 
-- Should `wilson-christians-right-to-rule.md` and `wilson-rights-dont-exist-only-force.md` actually carry the `game-theory` tag? Both make a substantive convention-as-equilibrium argument; currently they only cross-reference it inline.
-- Should `vault-ingest` write a `**Source:**` line naming the real `raw/` path into every page it creates? That converts 1.5c's three-pass heuristic into an exact lookup and permanently retires the false-positive problem.
+*(both resolved same-day, 2026-08-26 — kept here as the record of what was decided and why)*
+
+- ~~Should `wilson-christians-right-to-rule.md` and `wilson-rights-dont-exist-only-force.md` carry the `game-theory` tag?~~ **No** (Chris): the tie is broad at best. Both pages reference the convention-as-equilibrium idea in passing, which is what an *inline cross-link* is for; a tag asserts the page is **about** that subject. Left untagged, and the inline links stand. This is the section rule working as intended — a tag is a claim of aboutness, not of mention.
+- ~~Should `vault-ingest` write a `**Source:**` line naming the real `raw/` path?~~ **Yes, done** (Chris). Spec added to `.claude/shared/vault-page.md` → "The `**Source:**` line" so *every* page-creating skill inherits it, and made mandatory step 4 of `vault-ingest` — including when an ingest **enriches an existing page**, since a second source is the easy one to lose. Heartbeat 1.5c gains a **pass 0** exact lookup that runs before the fuzzy passes. Pages predating this have no line, so the heuristic still covers the backlog; the metric to watch is the *share resolvable by pass 0 climbing over time* — if it stalls, the ingest step is being skipped, which is a more useful finding than any single uncovered file.
 
 ## Tags
 

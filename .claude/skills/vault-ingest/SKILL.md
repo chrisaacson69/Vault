@@ -44,8 +44,14 @@ A single source may touch 5-15 pages. Follow vault-page.md for all page creation
 1. **Check before creating** — search INDEX.md and Grep for existing pages on the topic
 2. **Prefer updating over duplicating** — enrich existing pages rather than creating overlapping new ones
 3. **Write pages** with proper format per vault-page.md (frontmatter, summary, links, tags)
-4. **Cross-link aggressively** — bidirectional links per vault-page.md conventions
-5. **File good synthesis back into the wiki** — if the ingest produces a comparison, resolution, or new framework connection, that synthesis IS a vault page
+4. **Stamp every page with its `**Source:**` line — mandatory, no exceptions.** Name the `raw/` path
+   you just wrote in step 2 as a relative link, plus the original URL. When an ingest updates an
+   *existing* page rather than creating one, add this source to that page's `**Source:**` /
+   `## Sources` block too — an enriched page has two sources, and the second one is just as easy to
+   lose. **This is the step that makes raw coverage auditable**; skipping it is how a processed source
+   later reads as never-ingested. See vault-page.md → "The `**Source:**` line".
+5. **Cross-link aggressively** — bidirectional links per vault-page.md conventions
+6. **File good synthesis back into the wiki** — if the ingest produces a comparison, resolution, or new framework connection, that synthesis IS a vault page
 
 ### 5. Run Vault Sync
 
@@ -65,6 +71,7 @@ Report to the user:
 ### Design Principles
 
 - **Raw files are immutable** — never modify source material in `raw/`
+- **A page without its `**Source:**` line is an unfinished ingest** — the capture is only half the job; the pointer back to it is the other half
 - **Graceful degradation** — per content-extract.md, if fetch fails, guide to manual path
 - **The human directs, the LLM executes** — always discuss before bulk page creation
 - **Connections over coverage** — per vault-page.md, well-linked > thorough but isolated
