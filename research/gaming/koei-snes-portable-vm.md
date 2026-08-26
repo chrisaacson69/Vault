@@ -92,4 +92,4 @@ kernel's teeth (Mode 7, SPC700) once they're not porting? The portable VM is the
 which KOEI's ambition (PTO landing, Operation Europe over-reaching) can be read directly.
 
 ## Tags
-[reverse-engineering](../../tags/reverse-engineering.md) · [snes](../../tags/snes.md) · [koei](../../tags/koei.md) · [game-design](../../tags/game-design.md)
+[reverse-engineering](../../tags/reverse-engineering.md) · [snes](../../tags/snes.md) · [koei](../../tags/koei.md) · [game-design](../../tags/game-design.md) · [decompilation](../../tags/decompilation.md)

@@ -128,4 +128,4 @@ This isn't an ad hoc escape. It follows directly from the agency framework: agen
 ---
 
 ## Tags
-[meta-musing](../tags/meta-musing.md), legal-theory, free-speech, crime, conspiracy, causality, agency
+[meta-musing](../tags/meta-musing.md), legal-theory, free-speech, crime, conspiracy, causality, agency, [libertarian-law](../tags/libertarian-law.md)

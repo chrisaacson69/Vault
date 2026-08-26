@@ -188,4 +188,4 @@ The 1st Amendment protects speech you hate. That's the whole point. If it only p
 - The closing should feel like a warning, not a lecture
 
 ## Tags
-debate, free-speech, 1st-amendment, hate-speech, legal-theory
+debate, free-speech, 1st-amendment, hate-speech, legal-theory, [debates](../tags/debates.md), [libertarian-law](../tags/libertarian-law.md)

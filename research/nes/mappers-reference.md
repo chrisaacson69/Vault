@@ -168,4 +168,4 @@ Mappers are part of game design, not just delivery infrastructure.
 
 ## Tags
 
-[6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md)
+[6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md) · [assembly](../../tags/assembly.md) · [mmc1](../../tags/mmc1.md) · [nes](../../tags/nes.md)

@@ -66,4 +66,4 @@ The decimal precision question applies: how accurate does the simulation need to
 Too technical for the YouTube economics series as a main topic. But essential reference material for engaging with economists who understand the nuance. The Hayek/Mises distinction is the thing that separates "AI solves planning" (plausible against Hayek) from "AI solves planning" (impossible against Mises). Most AI-optimist arguments only address Hayek and don't know Mises's argument exists.
 
 ## Tags
-economics, calculation-problem, hayek, mises, AI, central-planning, computational-irreducibility
+economics, calculation-problem, hayek, mises, AI, central-planning, computational-irreducibility, [economics](../tags/economics.md)

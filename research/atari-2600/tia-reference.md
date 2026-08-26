@@ -131,4 +131,4 @@ The kernel's job: between two `WSYNC`s (= one scan line), do all required regist
 
 ## Tags
 
-[atari-2600](../../tags/atari-2600.md) · [6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md)
+[atari-2600](../../tags/atari-2600.md) · [6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md) · [assembly](../../tags/assembly.md)

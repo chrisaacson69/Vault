@@ -72,3 +72,4 @@ permalink: /tags/debates/
 - [Basic Logic — "How Immigration Replaced the Woke Left"](../research/debates/basic-logic-immigration-woke.md) — not a debate but a **prediction**, with a scoreable ledger; the first non-debate specimen for [The Load-Bearing Word](../research/debates/the-load-bearing-word.md) (*“the third world”*)
 - [Worked Examples — The Impossibility Floor, With Arithmetic](../research/debates/voting-paradox-worked-examples.md) — method page / evidence bank for the [CGP Grey STV](../research/debates/cgp-grey-stv-too-good.md) refutation; theory-last deployment order
 - [Econ Nerds — "Three Myths about Inequality"](../research/debates/econ-nerds-inequality-myths.md) — one-voice explainer; two theses promoted, and two of my own claims corrected on the page
+- [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md)

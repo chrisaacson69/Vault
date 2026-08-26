@@ -75,7 +75,7 @@ Once the discussion has happened:
 
 ### 5. Arguments over rhetoric
 
-Chris cares about **argument structure and logical validity**, not who "won" stylistically. Focus on unsupported premises, scope confusion, and connections to vault frameworks. Where a fallacy occurs, explain WHY it matters — don't just label it (see [The Fallacy Fallacy](../../research/philosophy/tangents/the-fallacy-fallacy.md)). Ignore personal attacks and delivery — ideas, not individuals.
+Chris cares about **argument structure and logical validity**, not who "won" stylistically. Focus on unsupported premises, scope confusion, and connections to vault frameworks. Where a fallacy occurs, explain WHY it matters — don't just label it (see [The Fallacy Fallacy](../../../research/philosophy/tangents/the-fallacy-fallacy.md)). Ignore personal attacks and delivery — ideas, not individuals.
 
 ### 6. Update vault infrastructure
 

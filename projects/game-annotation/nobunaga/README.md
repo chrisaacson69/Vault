@@ -18,3 +18,7 @@ Active work continues in the new repo, not here. The ROM and big/generated artif
 gitignored there and kept locally.
 
 **Design & strategy theses** the project sparked (it became a game-design crucible) live in the vault: [NA1 — A Game-Design Crucible](../../../research/gaming/nobunaga-crucible.md) — the index tying this repo to the in-vault theses (e.g. [Randomness as Termination (N≥3)](../../../research/gaming/n3-termination-and-randomization.md)).
+
+## Tags
+
+[mmc1](../../../tags/mmc1.md) · [nes](../../../tags/nes.md) · [nobunagas-ambition](../../../tags/nobunagas-ambition.md)

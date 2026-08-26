@@ -131,4 +131,4 @@ The question is no longer "can AI run a business?" It's "what's the right team s
 - This framework establishes *that* trade creates surplus. But *how is surplus divided?* The [Nash Bargaining Problem](../gaming/nash-bargaining-problem.md) shows this is fundamentally indeterminate — it depends on player-specific leverage, patience, and outside options, not properties of the goods. The economics framework needs both halves: surplus existence (here) and surplus division (bargaining theory).
 
 ## Tags
-[economics](../../tags/economics.md), [profit](../../tags/profit.md), [utility](../../tags/utility.md), [agents](../../tags/agents.md)
+[economics](../../tags/economics.md), [profit](../../tags/profit.md), [utility](../../tags/utility.md), [agents](../../tags/agents.md), [free-markets](../../tags/free-markets.md)

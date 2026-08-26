@@ -347,4 +347,4 @@ The BV formula gives you the *floor* of analysis. Everything above it is game-sp
 - **Historical wargaming** — The "100 HP = 100 men" formulation predates D&D, rooted in hex-and-counter wargames of the 1950s-60s (Avalon Hill, SPI) which themselves formalized Napoleonic-era military theory.
 
 ## Tags
-[games](../../tags/games.md), [game-theory](../../tags/game-theory.md), [mathematics](../../tags/mathematics.md), [economics](../../tags/economics.md)
+[games](../../tags/games.md), [game-theory](../../tags/game-theory.md), [mathematics](../../tags/mathematics.md), [economics](../../tags/economics.md), [strategy](../../tags/strategy.md)

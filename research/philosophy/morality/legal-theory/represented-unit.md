@@ -151,4 +151,4 @@ alternatives, are these two faces of one argument.
   [specimen](../../../debates/jake-lawyer-17th-amendment.md).
 
 ## Tags
-[philosophy](../../../../tags/philosophy.md), [politics](../../../../tags/politics.md), [history](../../../../tags/history.md), [libertarian-law](../../../../tags/libertarian-law.md)
+[philosophy](../../../../tags/philosophy.md), [politics](../../../../tags/politics.md), [history](../../../../tags/history.md), [libertarian-law](../../../../tags/libertarian-law.md), [debates](../../../../tags/debates.md)

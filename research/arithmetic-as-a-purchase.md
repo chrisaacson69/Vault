@@ -170,4 +170,4 @@ Two observations that only appear at this timescale:
 
 ## Tags
 
-[history](../tags/history.md), [assembly](../tags/assembly.md), [mathematics](../tags/mathematics.md), [reverse-engineering](../tags/reverse-engineering.md), [6502](../tags/6502.md), [65816](../tags/65816.md), [snes](../tags/snes.md), [ai](../tags/ai.md)
+[history](../tags/history.md), [assembly](../tags/assembly.md), [mathematics](../tags/mathematics.md), [reverse-engineering](../tags/reverse-engineering.md), [6502](../tags/6502.md), [65816](../tags/65816.md), [snes](../tags/snes.md), [ai](../tags/ai.md), [nes](../tags/nes.md)

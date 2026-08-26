@@ -40,4 +40,4 @@ This is the scalpel that lands on **MMT and its post-Keynesian relatives**: endo
 - **[Steve Keen vs Patrick Bet-David (PBD #835, 2026-07)](../debates/keen-pbd-postkeynesian-capitalism.md)** — first dated specimen. Keen runs the pure demand-driven framework live: endogenous money, the $100k jubilee, "money is banks + debt." The reductio walks through his framework in real time, and his own Hormuz-supply-shock prediction springs the concession trap.
 
 ## Tags
-[economics](../../tags/economics.md), [philosophy](../../tags/philosophy.md)
+[economics](../../tags/economics.md), [philosophy](../../tags/philosophy.md), [debates](../../tags/debates.md)

@@ -171,3 +171,5 @@ permalink: /tags/philosophy/
 - [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md) — a definitional ratchet: a standard defined by reference to the distribution can never register growth; the collectively-negotiable / individually-binding scope split
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — revealed preference applied to a political objective, with the pattern-≠-intent guard held explicitly
 - [Human Constancy](../research/philosophy/human-constancy.md) — how much of a human stays fixed, framed as a ratio; the intelligibility asymmetry as a checkable test; supplies Trunk 1’s input parameter
+- [Jake the Lawyer — Why We Should NOT Vote for U.S. Senators](../research/debates/jake-lawyer-17th-amendment.md)
+- [Positional Goods — Where the Pie Stops Growing, and Why](../research/economics/positional-goods.md)

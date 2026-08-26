@@ -241,4 +241,4 @@ The synthesis — one set of norms, three enforcement regimes, scope confusion a
 
 ## Tags
 
-[philosophy](../../../tags/philosophy.md), [morality](../../../tags/morality.md), [libertarian-law](../../../tags/libertarian-law.md), [natural-law](../../../tags/natural-law.md), [economics](../../../tags/economics.md)
+[philosophy](../../../tags/philosophy.md), [morality](../../../tags/morality.md), [libertarian-law](../../../tags/libertarian-law.md), [natural-law](../../../tags/natural-law.md), [economics](../../../tags/economics.md), [scope-confusion](../../../tags/scope-confusion.md)

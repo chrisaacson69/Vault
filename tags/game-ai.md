@@ -31,3 +31,4 @@ permalink: /tags/game-ai/
 - [Civilization Revolution — The City-Builder That Plays as a Rush](../research/gaming/civ-revolution-wide-rush.md) — the deterministic, hollow AI (~5/~10-turn opening clock; wanders its first unit away from the capital) is the exploit that makes the opening decapitation rush deterministic; the human knows the script while the AI re-rolls blind.
 - [Subgraph Trade Engine — Implementation Spec](../research/gaming/monopoly/subgraph-trade-engine-spec.md) — Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.
 - [KOEI AI & combat evolution (5-decompiler study)](../research/gaming/koei-ai-combat-evolution.md)
+- [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)

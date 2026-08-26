@@ -11,6 +11,22 @@ The vault lives at `C:\Users\Chris.Isaacson\Vault`. GitHub repos live under `C:\
 
 Run both checks below and produce a single concise report.
 
+### Use the saved checkers — do not re-author them
+
+The deterministic structural checks (1a, 1c, 1.5c pass 1) are **already implemented** and carry every
+measured false-positive exclusion. Re-deriving them by hand each run reintroduces the bugs they encode:
+
+```bash
+py -3 .claude/skills/vault-heartbeat/scripts/check.py [links|tags|raw|all]   # read-only
+py -3 .claude/skills/vault-heartbeat/scripts/repair-tags.py [--apply]        # dry run by default
+```
+
+`check.py` annotates template placeholders so they aren't reported as defects, counts a tag only inside
+a page's `## Tags` section, and drops tag→tag "related" links. `repair-tags.py` fixes ghosts, missing
+back-links, and `_index.md` registration in one pass. **Review its dry run before `--apply`** — step 1
+edits content pages. Note `grep -P` is unavailable in this Git Bash locale; use `py -3`, per the kernel's
+silent-tool-failure rule. The remaining checks (1b, 1d, 1e, 1f, 1g, 1.5a/b/d/e) are still done by hand.
+
 ### 1. Vault Health Check
 
 #### 1a. Broken Links
@@ -23,9 +39,24 @@ Run both checks below and produce a single concise report.
 - List stubs with their age (file modification date).
 
 #### 1c. Tag Integrity
-- For each tag file in `Vault/tags/`, count the actual back-link entries.
-- Compare against the count listed in `Vault/tags/_index.md`.
-- Report any mismatches.
+Check **three** sets, not two — the declared count, the tag file's back-links, and **real usage**
+(pages whose `## Tags` section links to `tags/<name>.md`). Two-way checking misses the common failure.
+- Tag files on disk vs. entries in `tags/_index.md` — an unregistered tag file is *unfindable*, which is
+  the append-without-integrate failure the vault `CLAUDE.md` names.
+- Declared count vs. actual back-links in each tag file.
+- Back-links vs. real usage, **in both directions**: a *ghost* (tag file lists a page that no longer
+  carries the tag) and a *missing* (page carries the tag, tag file doesn't list it).
+
+**When a ghost's file still exists, the tag file is usually right and the page lost its `## Tags` entry
+— repair the page, don't evict the back-link.** Measured 2026-08-26: 39 pages / 55 pairs, and every one
+belonged on the page (`research/nes/*` missing `nes`, KOEI pages missing `koei`). Evicting would have
+destroyed a correct index. Only evict when the target file is genuinely gone or the tag is wrong.
+
+Two known false positives — exclude both or they re-report forever:
+- **tag→tag "related tag" links** (e.g. `constitutional-law` → `libertarian-law`) are legitimate, not
+  page back-links. Drop any link resolving inside `tags/`.
+- **documentation examples**, not real tags: `CLAUDE.md`, `projects/_template.md`, and
+  `notes/obsidian-plugin-setup.md` all spell out `[tag](../tags/x.md)` to *describe* the convention.
 
 #### 1d. Missing Cross-Links
 - Sample up to 10 recently modified research pages.
@@ -51,6 +82,13 @@ test whether they loaded this session (that's the in-session check, done from th
 Read the four token literals out of the kernel's table, then grep for **each full literal** (not the
 `-LOADED` substring — prose legitimately says `*-LOADED`) across `~/.claude/` including the memory dir,
 the vault root, `Vault/projects/`, and `Vault/.claude/`.
+
+**Exclude Claude Code's own generated state — it is not authored config and is never injected as rules:**
+`~/.claude/projects/**/*.jsonl` (session transcripts, which necessarily quote the tokens because the
+config was loaded into them) and `~/.claude/file-history/**` (pre-edit backups of the very layer files
+being checked). Both match every token on every run; counting them turns a real invariant into noise
+that trains the reader to ignore a genuine FAIL. Add `--exclude-dir=file-history --exclude-dir=projects`
+or filter the hit list to authored files only.
 
 **Each token must resolve to exactly two files:** the kernel `~/.claude/CLAUDE.md` (which carries the table
 and is the checker) and its own layer file — `Vault/CLAUDE.md`, `memory/MEMORY.md`, or
@@ -84,8 +122,30 @@ For the scoped pages:
 - A KB disagreeing with itself is drift. Reconcile toward the better-grounded artifact (diff toward the lower oracle where one exists — see `research/repairing-llm-code.md`).
 
 #### 1.5c Raw Coverage (derived — no registry)
-- For each file in `raw/`, check whether its source is cited anywhere in the wiki: grep its frontmatter `source:` URL (or title slug) across all `.md` pages.
-- Flag raw inputs never referenced — captured but never processed.
+
+**Filename matching alone does NOT work — it is ~70% false-positive.** Measured 2026-08-26: a naive
+filename grep flagged 75 of 194 source groups as uncovered; spot-checking four clusters (the
+`peikoff-hop-*` lectures, the `mcfadden-*` battlezone/stellar7 listings, all 8 `wordwar-results-*`
+transcripts, the hangman substack capture) found **all four fully processed**. Pages legitimately cite
+a source by its **URL**, or under a **page name that shares no token with the filename** — so a
+filename miss is not evidence of a gap. Run all three passes and only report what survives all three:
+
+1. **Collapse sibling formats first.** `foo.en.vtt`, `foo.en-orig.srv1`, `foo.info.json`, `foo_clean.txt`
+   and `foo-raw.txt` are one source, not five. Strip the `(.en|-orig|_clean|-clean|_raw|-raw|.info)`
+   suffix chain plus the media extension, and group by `(directory, stem)`. A group is covered if
+   **any** member is cited.
+2. **Then match by URL.** Grep the raw file's `source:` URL / YouTube ID across all pages. Captures
+   whose page cites the link rather than the local path are covered.
+3. **Then match by topic.** For each still-unmatched group, grep 2–3 distinctive content keywords
+   (author surname, debate participants, subject term) across `research/ notes/ career/ method/`.
+   A topic hit means processed-under-another-name — covered.
+
+Report only groups surviving all three, and **say which passes were run** — an unqualified "N uncovered"
+from pass 1 alone is a fabricated finding, exactly the failure the Grounding Discipline forbids.
+
+*Durable fix (recommend once, don't re-litigate each run):* have `vault-ingest` write a
+`**Source:**` line naming the actual `raw/` path into every page it creates. That converts this
+whole heuristic into an exact lookup.
 
 #### 1.5d Gap Analysis / New-Article Candidates (completeness critic)
 - Per major tag/cluster, name what's conspicuously missing and propose new-article candidates.

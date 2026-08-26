@@ -58,3 +58,7 @@ whisper audio.mp3 --model medium --language en
 **Other:** Internet Archive, Google Drive, Dropbox, Imgur, Niconico
 
 Full list: 1,000+ extractors. Run `yt-dlp --list-extractors` to see all.
+
+## Tags
+
+[tools](../tags/tools.md) · [transcription](../tags/transcription.md) · [workflow](../tags/workflow.md)

@@ -48,3 +48,4 @@ permalink: /tags/game-theory/
 - [Combinatorial vs Generative Design Space](../research/gaming/combinatorial-vs-generative-design-space.md)
 - [Risk — The Attrition Constant](../research/gaming/risk-attrition-odds.md) — a Risk battle solved exactly as an absorbing Markov chain; the 3-vs-2 dice cap fixes the engagement frontage regardless of stack size, so attrition is Lanchester-LINEAR and concentration of force buys nothing
 - [Hangman — Solving Both Sides](../research/gaming/hangman-solving-both-sides.md) — the minimax chooser is a hard *concentration* (`-ING` 100% at lengths 7–9), not max-entropy: **the indifference set of an equilibrium is bounded by the substrate's structure** — only ~15 of 26 letters can be made competitive because Z can't do S's job
+- [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)

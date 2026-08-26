@@ -87,4 +87,4 @@ The repair is the same discipline as [topic-talk vs. resolution-work](../../deba
 
 ## Tags
 
-[philosophy](../../../tags/philosophy.md), [economics](../../../tags/economics.md), [politics](../../../tags/politics.md), [debates](../../../tags/debates.md)
+[philosophy](../../../tags/philosophy.md), [economics](../../../tags/economics.md), [politics](../../../tags/politics.md), [debates](../../../tags/debates.md), [epistemology](../../../tags/epistemology.md)

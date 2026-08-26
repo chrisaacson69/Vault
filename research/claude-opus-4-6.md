@@ -14,13 +14,13 @@ title: "Claude Opus 4.6 — Research"
 
 ### Video 1: "How Anthropic's AI Bankrupted Itself"
 - **URL:** https://www.youtube.com/watch?v=zMDXzG1kA14
-- **Transcript:** [transcript1_clean.txt](./transcript1_clean.txt)
+- **Transcript:** [transcript1_clean.txt](../raw/videos/transcript1_clean.txt)
 - **Focus:** Anthropic's "Claudius" vending machine experiments — AI agent running a small business
 - **Key takeaway:** AI agents (Sonnet 4.0/4.5 era) are still vulnerable to prompt injection and social engineering, but the controlled experiment showed modest profit is possible when inputs are tightly managed
 
 ### Video 2: "Claude Opus 4.6: The Biggest AI Jump I've Covered"
 - **URL:** https://www.youtube.com/watch?v=JKk77rzOL34
-- **Transcript:** [transcript2_clean.txt](./transcript2_clean.txt)
+- **Transcript:** [transcript2_clean.txt](../raw/videos/transcript2_clean.txt)
 - **Focus:** Opus 4.6 capabilities, benchmarks, real-world deployments
 - **Key takeaway:** Generational leap — autonomous coding went from 30 min to 2 weeks in 12 months
 

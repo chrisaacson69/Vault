@@ -38,3 +38,5 @@ permalink: /tags/politics/
 - [Positional Goods](../research/economics/positional-goods.md) — why the expensive sectors are the politically supply-capped ones, and why supply-side reform is an inequality policy neither coalition owns
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — the achievable-and-refused test: a goal with an available, proven, refused method is not the operative goal (subtraction, never substitution)
 - [Human Constancy](../research/philosophy/human-constancy.md) — blank slate vs essentialism as strawmen; Reimer–Money bounded correctly; pair-bonding evidence presented two-sided
+- [Econ Nerds — "Three Myths about Inequality and the Data that Destroys Them"](../research/debates/econ-nerds-inequality-myths.md)
+- [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md)

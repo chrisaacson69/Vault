@@ -156,4 +156,4 @@ outright.
 
 ## Tags
 
-[politics](../../../../tags/politics.md), [philosophy](../../../../tags/philosophy.md), [game-theory](../../../../tags/game-theory.md), [economics](../../../../tags/economics.md)
+[politics](../../../../tags/politics.md), [philosophy](../../../../tags/philosophy.md), [game-theory](../../../../tags/game-theory.md), [economics](../../../../tags/economics.md), [debates](../../../../tags/debates.md)

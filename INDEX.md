@@ -363,7 +363,10 @@ permalink: /INDEX/
 - `./raw/assets/` — locally saved images
 
 ## Logs
-- No separate `logs/` folder — session transcripts live under `raw/`, and significant sessions are written up as `notes/` pages.
+- [logs/CHANGELOG.md](./logs/CHANGELOG.md) — full dated history of vault changes.
+- [logs/heartbeat-2026-08-26.md](./logs/heartbeat-2026-08-26.md) — health-check reports; **the most recent one supplies the baseline date for the next run's incremental scope.**
+- `logs/index-drift.log` · `logs/heartbeat-cron.log` — machine-written; the soft gate's firing *rate* is the health metric, not any single entry.
+- Session *transcripts* still live under `raw/`, and significant sessions are written up as `notes/` pages.
 
 ## Tags
 - [Tag Index](./tags/_index.md) — master list of all tags

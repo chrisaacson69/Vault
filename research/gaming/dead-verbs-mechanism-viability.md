@@ -43,6 +43,6 @@ Stated as a per-title scorecard for the annotation series: **does the dominated 
 If KOEI learns, later titles show fewer dead verbs and more states with a unique best response. That's a measurable prediction to carry *into* the next ROM, so we test a hypothesis instead of rationalizing after the read.
 
 ## Tags
-[games](../../tags/games.md), [strategy](../../tags/strategy.md), [game-theory](../../tags/game-theory.md), [game-ai](../../tags/game-ai.md)
+[games](../../tags/games.md), [strategy](../../tags/strategy.md), [game-theory](../../tags/game-theory.md), [game-ai](../../tags/game-ai.md), [koei](../../tags/koei.md)
 
 **See also:** [KOEI AI & combat evolution](./koei-ai-combat-evolution.md) — the combat-resolution + AI-fairness arc across five decompilers; the empirical answer to "does KOEI learn?" on the combat axis (yes: one-shot compare → cheap round-sim; combat handicap → symmetric).

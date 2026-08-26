@@ -287,4 +287,4 @@ The catch: someone has to define who "the leader" is, and what "opposing" means,
 
 ## Tags
 
-[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [ai](../../tags/ai.md), [mathematics](../../tags/mathematics.md), [simulation](../../tags/simulation.md)
+[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [ai](../../tags/ai.md), [mathematics](../../tags/mathematics.md), [simulation](../../tags/simulation.md), [game-theory](../../tags/game-theory.md)

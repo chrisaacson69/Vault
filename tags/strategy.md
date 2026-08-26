@@ -34,3 +34,4 @@ permalink: /tags/strategy/
 - [D&D Monster Tournament — Exact Markov Chains](../research/gaming/dnd-monster-tournament-markov.md) — the written cast/target policy *is* the model, so it's the experimental protocol; running mobility off vs on quantifies the melee bias
 - [Risk — The Attrition Constant](../research/gaming/risk-attrition-odds.md) — a Risk battle solved exactly as an absorbing Markov chain; the 3-vs-2 dice cap fixes the engagement frontage regardless of stack size, so attrition is Lanchester-LINEAR and concentration of force buys nothing
 - [Hangman — Solving Both Sides](../research/gaming/hangman-solving-both-sides.md) — the alphabet tier list: the compression built to be human-readable is also the most model-error-robust policy, surviving frequency re-weighting and British spelling where the exact tree does not
+- [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)

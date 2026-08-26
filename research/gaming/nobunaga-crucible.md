@@ -36,4 +36,4 @@ These are flagged here so the crucible's harvest is visible and the promotions d
 The decompiler pipeline, the verified econ/combat formulas, the emulator, the per-fief tactical maps, and the label/data symbol tables are repo-only by design — they're the *RE artifacts*, not portable theses. Per the two-altitude method, this page is their in-vault anchor; the deep work lives at [`na1-decompiler`](https://github.com/chrisaacson69/na1-decompiler).
 
 ## Tags
-[games](../../tags/games.md), [strategy](../../tags/strategy.md), [game-theory](../../tags/game-theory.md), [game-ai](../../tags/game-ai.md)
+[games](../../tags/games.md), [strategy](../../tags/strategy.md), [game-theory](../../tags/game-theory.md), [game-ai](../../tags/game-ai.md), [koei](../../tags/koei.md)

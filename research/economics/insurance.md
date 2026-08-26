@@ -200,4 +200,4 @@ The entrepreneur's relationship with risk is instructive. The entrepreneur doesn
 - Is there a viable transition path from the current system to self-insurance + catastrophic-only policies? Or is the system too entrenched (employer tax advantages, regulatory mandates, provider pricing built around insurance)?
 
 ## Tags
-[economics](../../tags/economics.md), [risk](../../tags/risk.md), [insurance](../../tags/insurance.md), [morality](../../tags/morality.md)
+[economics](../../tags/economics.md), [risk](../../tags/risk.md), [insurance](../../tags/insurance.md), [morality](../../tags/morality.md), [externalities](../../tags/externalities.md)

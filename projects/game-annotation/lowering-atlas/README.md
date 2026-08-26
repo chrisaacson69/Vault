@@ -13,3 +13,7 @@ This project now lives alongside the NA1 decompiler in a standalone repository:
 The forward-lowering catalog (compile known C control-flow → catalog the CFG signatures GCC emits,
 to source the decompiler's inverse-lowering atom table) was extracted from this vault on
 **2026-06-05** with full git history preserved. Active work continues in the new repo.
+
+## Tags
+
+[compilers](../../../tags/compilers.md) · [reverse-engineering](../../../tags/reverse-engineering.md)

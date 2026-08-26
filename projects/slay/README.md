@@ -36,4 +36,4 @@ Reference: [OpenSlay (Java)](https://github.com/jmseren/OpenSlay) — ~65-70% co
 See full architecture, mechanics, and running instructions in the repo README.
 
 ## Tags
-[python](../../tags/python.md), [ai](../../tags/ai.md), [games](../../tags/games.md)
+[python](../../tags/python.md), [ai](../../tags/ai.md), [games](../../tags/games.md), [game-ai](../../tags/game-ai.md)

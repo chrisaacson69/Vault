@@ -64,4 +64,4 @@ The essay goes further than the vault framework by addressing **political dimens
 This is the next layer beyond what we built today: the challenge isn't just "can AI run a business" but "should AI direct human lives?" The essay's answer is clear: AI as tool, yes. AI as authority, no.
 
 ## Tags
-[economics](../tags/economics.md), [ai](../tags/ai.md), [risk](../tags/risk.md), [philosophy](../tags/philosophy.md)
+[economics](../tags/economics.md), [ai](../tags/ai.md), [risk](../tags/risk.md), [philosophy](../tags/philosophy.md), [civilizational-cycles](../tags/civilizational-cycles.md), [free-markets](../tags/free-markets.md), [morality](../tags/morality.md)

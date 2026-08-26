@@ -63,4 +63,4 @@ This is structurally identical to finding mispriced assets in a market — the o
 - Could this become a YouTube video? "We ran 10 million simulated BattleTech fights and found the most underpriced mechs" — that's a hook for the BattleTech community.
 
 ## Tags
-[games](../../tags/games.md), [battletech](../../tags/battletech.md), [simulation](../../tags/simulation.md), [game-theory](../../tags/game-theory.md), [mathematics](../../tags/mathematics.md)
+[games](../../tags/games.md), [battletech](../../tags/battletech.md), [simulation](../../tags/simulation.md), [game-theory](../../tags/game-theory.md), [mathematics](../../tags/mathematics.md), [strategy](../../tags/strategy.md)

@@ -43,4 +43,4 @@ The shallowness makes the strategy *crisper*, not absent:
 - **Random-start viability, made computable.** This is the [dominance-frontier lens](../dominance-frontier-lens.md)'s open question with a tractable instance: with the AI known to be argmin-weakest, "can fief X escape the bottom trap?" becomes a *simulation* against the verified econ engine, not a judgment call. Candidate seeds: is Yamato unwinnable? Can Hida grow fast enough, with luck, to escape? **A queued sim, not a debate.**
 
 ## Tags
-[games](../../tags/games.md), [strategy](../../tags/strategy.md), [game-theory](../../tags/game-theory.md), [game-ai](../../tags/game-ai.md)
+[games](../../tags/games.md), [strategy](../../tags/strategy.md), [game-theory](../../tags/game-theory.md), [game-ai](../../tags/game-ai.md), [koei](../../tags/koei.md)

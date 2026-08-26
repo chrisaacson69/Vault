@@ -162,4 +162,4 @@ The TIA forces beam-racing; the PPU rewards it (when used by experts). Same chip
 
 ## Tags
 
-[6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md)
+[6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md) · [assembly](../../tags/assembly.md) · [nes](../../tags/nes.md)
