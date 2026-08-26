@@ -20,3 +20,4 @@ permalink: /tags/methodology/
 - [Vault Heartbeat — 2026-08-26](../logs/heartbeat-2026-08-26.md)
 - [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md) — Nate B.
 - [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.
+- [Vault Multi-Machine Sync — Branching, Divergence, and Merge Resolution](../notes/vault-multi-machine-sync.md) — The vault runs on two machines and commits straight to `master` on both.

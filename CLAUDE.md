@@ -95,6 +95,20 @@ A single raw source may touch 5-15 wiki pages. The raw file itself is never modi
 7. **Log sessions when significant** — if a conversation covers substantial ground, offer to create a log entry.
 8. **Keep pages lean** — overview/README pages should be ~60-80 lines of summaries and pointers. Full arguments, reading lists, and detailed analysis go in sub-pages. Point, don't dump.
 
+### Git — commit straight to `master`, and push before you stop
+
+Single author, no PR flow, linear history: **branches buy nothing here, so commit directly to
+`master`.** Review's safeguards live elsewhere (the `raw/` hook, the INDEX drift gate,
+`/vault-heartbeat`, and the derive-tools that can rebuild any generated file from the pages).
+
+The cost is that **the vault runs on more than one machine and both commit to the same branch**, so
+divergence is settled by merge with no reviewer in between. Two rules follow: **push at the end of
+any session that commits** (an unpushed vault is a vault with an unowned second copy), and on
+conflict **resolve by class, not file by file** — derived files (`tags/*.md`) are regenerated, never
+hand-merged. Full taxonomy, regeneration sequence, and post-merge verification:
+[Vault Multi-Machine Sync](./notes/vault-multi-machine-sync.md). Note that `memory/` lives outside
+the repo and does **not** sync — git will not merge it and will not warn you.
+
 ### Memory subsystem — how to derive & maintain it (the OS scheduler)
 
 The memory system routes a session to the right knowledge. **Three tiers**, in `~/.claude/projects/<vault>/memory/`:

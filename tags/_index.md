@@ -9,9 +9,9 @@ permalink: /tags/_index/
 
 - [6502](./6502.md) — 10 files
 - [65816](./65816.md) — 5 files
-- [agent-teams](./agent-teams.md) — 3 files
-- [agents](./agents.md) — 19 files
-- [ai](./ai.md) — 53 files
+- [agent-teams](./agent-teams.md) — 5 files
+- [agents](./agents.md) — 21 files
+- [ai](./ai.md) — 55 files
 - [assembly](./assembly.md) — 11 files
 - [atari-2600](./atari-2600.md) — 1 file
 - [audio-processing](./audio-processing.md) — 6 files
@@ -59,7 +59,7 @@ permalink: /tags/_index/
 - [mathematics](./mathematics.md) — 32 files
 - [meta-musing](./meta-musing.md) — 17 files
 - [metaphysics](./metaphysics.md) — 2 files
-- [methodology](./methodology.md) — 11 files
+- [methodology](./methodology.md) — 14 files
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 59 files
 - [music](./music.md) — 8 files
@@ -82,10 +82,10 @@ permalink: /tags/_index/
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 10 files
 - [snes](./snes.md) — 7 files
-- [software-engineering](./software-engineering.md) — 4 files
+- [software-engineering](./software-engineering.md) — 5 files
 - [strategy](./strategy.md) — 29 files
-- [tools](./tools.md) — 3 files
+- [tools](./tools.md) — 4 files
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files
-- [workflow](./workflow.md) — 3 files
+- [workflow](./workflow.md) — 5 files
 - [youtube](./youtube.md) — 4 files

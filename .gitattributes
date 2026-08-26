@@ -1,0 +1,44 @@
+# Vault git attributes — see notes/vault-multi-machine-sync.md
+
+# ---------------------------------------------------------------------------
+# Line endings. Normalize to LF *in the repository* regardless of what any
+# individual machine has set for core.autocrlf. Working-tree endings are left
+# to the platform default (Windows checkouts still get CRLF via autocrlf=true).
+#
+# Verified 2026-08-26: every committed blob is already LF, so this is pure
+# insurance against a future clone with different settings — NOT a
+# renormalization. Without it, a machine with core.autocrlf=false can commit
+# CRLF blobs, and the next merge conflicts on *every line of every file*.
+# ---------------------------------------------------------------------------
+* text=auto
+
+# ---------------------------------------------------------------------------
+# Append-only logs: union merge concatenates both sides instead of conflicting.
+# Caveat — union does not sort, so entries from two machines can interleave out
+# of date order and duplicate a heading. Always eyeball these after a merge.
+# ---------------------------------------------------------------------------
+logs/CHANGELOG.md merge=union
+
+# ---------------------------------------------------------------------------
+# DERIVED — do not hand-merge. tags/*.md and tags/_index.md are generated from
+# each page's `## Tags` section. On conflict take EITHER side and re-derive:
+#   py -3 tools/vault-tagindex.py --write   # then
+#   py -3 tools/tag-counts.py --write
+# (Deliberately not given a merge driver: `merge=ours` would need per-machine
+# `git config merge.ours.driver true`, which silently no-ops on a fresh clone.)
+# ---------------------------------------------------------------------------
+
+# Binary assets — never diff or line-ending-convert.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.pdf  binary
+*.mp3  binary
+*.mp4  binary
+*.wav  binary
+*.zip  binary
+*.nes  binary
+*.mss  binary
+*.dmp  binary
