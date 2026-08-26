@@ -42,6 +42,7 @@ Both objections restore the same missing variable: **cost to reach**. Oracle ava
 | **In-frame** — same file, same read | a wrapper whose body is one line away | detectable, cheaply | **Delete.** The reader arrives anyway; the comment is a cache of a thing already in view |
 | **In-repo, out-of-frame** — another file, or a different scope of the same file | `ParentIdLookup` → its defining file; the type-level key attribute | detectable, but only if someone looks | **Keep, short.** A *scope* mismatch, not absence. Line-range reading makes this worse, not better |
 | **Out-of-repo** — no artifact inside the boundary | the stored proc; a vendor API's ordering constraint | **silent** — the external thing changes and nothing in your repo moves | **Keep — and prefer importing the oracle.** Pin or snapshot the contract so the distance shrinks. Narrating an unreachable truth is the fallback, not the fix |
+| **Outside the software** — the operational envelope | "this key is duplicable in principle, but only if someone forces it" | falsifiable **only by an incident** — the world changes and no artifact moves | **Keep.** No artifact holds a frequency. Convert it to a guard where you can; where you can't, the comment is the guard |
 | **No oracle, ever** — intent | "returning true here is correct because approved domains partition parents" | unfalsifiable; a reversed decision leaves no trace | **Keep. This is the only copy** |
 
 The result worth naming is the **inversion**: the class with *no* oracle is exactly the class that survives eviction. Everything verifiable is, by that same verifiability, a candidate for deletion.
@@ -54,6 +55,24 @@ Two consequences the mechanism/intent split alone doesn't give you:
 
 1. **Intent that spans call sites must be promoted out.** A comment has excellent locality on the **read** axis and none on the **find** axis — it is reachable only by already having opened the right lines, and you cannot search for it by the question it answers. So a decision governing five call sites belongs in a design record with a pointer left behind. Leaving it inline is the vault's own promotion-without-eviction failure wearing a different substrate.
 2. **Intent needs a different janitor: provenance, not verification.** It cannot rot against an artifact, so it rots invisibly when the decision is reversed. Date it and link it to where the decision lives — the same bidirectional registration the memory tiers use. Without that, "keep all intent" becomes its own accretion problem.
+
+## The envelope class — where a comment suppresses a false positive
+
+The strongest specimen in the session was not intent, and it is the row that was missing. **Both agents independently concluded that a key value could exist across two different customers, and flagged it as a misrepresentation.** They were right about the artifacts and wrong about the system: the duplicate is possible in principle but would have to be *forced*, so the code's uniqueness assumption is **not technically correct and operationally true.** Nothing in the repo says so. The schema permits the duplicate, the code assumes it away, and the reconciliation is a fact about how the business is actually operated.
+
+This differs from intent in a way worth keeping separate. Intent states what we *want* and is unfalsifiable. An envelope claim states what *is*, contingently, outside the software — falsifiable, but only by an incident, never by a test. And it has a distinctive signature: **it makes correct code look like a bug.**
+
+That signature is why this class matters more for agent readers than for human ones. A human who reads "assume unique" shrugs and moves on. An agent with edit rights *fixes* it — adds a dedupe, tightens a guard, files a defect. Both readers here reached the same wrong conclusion with no variance between them, which is the vault's [known failure mode](./repairing-llm-code.md): consensus is not a correctness check, and an ensemble cannot separate right from wrong when the error is in the shared input. The comment is the only thing in the system that breaks that tie.
+
+So the cost of omitting an envelope comment is not a slower read — it is a **wrong action taken confidently.** That is a different loss function from every other row, and it is the first case in this page where the comment is doing a job no cheaper artifact can do at all.
+
+**It also carries its own exit.** Chris's own framing — *it would have to be forced* — describes an unenforced precondition, and unenforced preconditions can usually be enforced: add the constraint, or a guard that throws on the forced case. That converts the fact from prose into an executable artifact and the comment can then be deleted, which is row 3's *import the oracle* move applied one row down. Where the escape hatch is deliberate — the business wants the forced case to remain possible — the reason for *not* enforcing it is intent, and it graduates to `WHY:`. Either way the comment has a defined fate instead of sitting there forever.
+
+**Audience changes the job.** This is the clean statement of why the human and agent cases diverge, and it is Chris's observation: to a human, comments are mostly about intent — the *why*, since a competent reader recovers the *what*. Agents already recover the *what* reliably; what they lack is the envelope. So an agent-facing comment set is doing three jobs, only one of which a human comment set usually does:
+
+1. **Intent** — why this is the right behavior (human and agent alike).
+2. **Envelope** — why this correct-looking defect is not one (agent-critical, human-optional).
+3. **Coordination** — what the last agent did and what the next should not touch (agent-only).
 
 ## The repaired test
 
@@ -77,8 +96,11 @@ The defect that makes this hard is that all of it wears one syntax. Type the com
 | Marker | Class | Lifetime | Evicted by |
 |---|---|---|---|
 | `WHY:` | intent — the no-oracle class | durable; promoted out when it spans call sites | never automatically; audited for provenance |
+| `ASSUMES:` | the operational envelope — an unenforced precondition | durable until enforced | writing the guard that enforces it (then delete), or a deliberate decision not to (then it becomes `WHY:`) |
 | `TODO(TICKET)` | work backlog, addressed to a human | outlives the session | closing the ticket |
 | `AGENT:` | inter-agent coordination | dead at end of run | the production gate, mechanically |
+
+`ASSUMES:` is the only one of the four that is also a **do-not-fix signal** — it exists precisely because an agent reasoning correctly from the artifacts will otherwise "repair" working code. The other three tell a reader something; that one stops an action.
 
 The codebase in question **already runs half the convention** — ticket-scoped `TODO(...)` markers are in use and work. What is missing is a durable tag, and a transient one distinguishable from it, which is why stripping agent chatter currently risks stripping the backlog.
 
