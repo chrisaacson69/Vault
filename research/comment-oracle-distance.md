@@ -1,5 +1,5 @@
 ---
-status: active — thesis grounded, experiment awaiting capture + second reader
+status: active — thesis grounded; stimuli + protocol captured to raw/, replication at n>1 pending
 created: 2026-08-26
 published: false
 layout: layouts/page.njk
@@ -15,8 +15,11 @@ title: "Comments and the Distance to an Oracle"
 Honest status, because the thesis leans on an experiment this page does not yet hold:
 
 - The A/B was run **2026-08-26 on a production C# codebase** (Chris's employer, not a vault repo): one function, full comments vs. reduced comments, cold readers, eight control-flow/behavior questions, graded against the code.
-- The figures below are **as reported by the production-side agent**, relayed in session. The transcripts were still in a session-scoped harness scratchpad at the time of writing — **they must be captured to `raw/` to be reproducible**, and until then this page's numbers are second-hand.
-- **Readers per condition is not yet recorded.** The [prior blind-reader experiment](./repairing-llm-code.md) found two independent readers agreeing on the *same wrong answer* with zero variance, so a per-question tally needs at least two readers per condition before it is citable as a number.
+- **Captured:** [`raw/datasets/comment-oracle-coldread-2026-08-26/`](../raw/datasets/comment-oracle-coldread-2026-08-26/README.md) holds both stimuli byte-exact, the verbatim protocol, and the relayed results with per-claim verification.
+- **The reader transcripts are lost** — both agent output files were 0 bytes when checked. The *stimuli and protocol* survive, so the experiment is **reproducible but the original run is not archivable**. The figures below are condensed from the orchestrating session's log, not verbatim reader text.
+- **n = 1 per arm.** One reader per condition, two agents total — recorded, not unknown. So the tally below is a single paired observation, not a distribution. The [prior blind-reader experiment](./repairing-llm-code.md) found two independent readers agreeing on the *same wrong answer* with zero variance, which is exactly why one reader per arm cannot separate "the comment helped" from "this reader dug harder."
+- **Phase 1 was captured asymmetrically.** Reader B reported its file-restricted answers explicitly; Reader A reported only its Phase 2 corrections, so Arm A's column was reconstructed by inference. A replication must harvest Phase 1 as a returned artifact *before* granting repo access.
+- **The arms differ by more than comment volume.** The trim also reworded the XML `<param>` tags, so the reduced arm *gains* a directly-stated fact while losing 38 comment lines. At n=1 that is a live alternative explanation for the parent-resolution questions.
 - All identifiers here are **anonymized**; the real ones stay in `raw/`. `published: false` until that separation is confirmed.
 
 ## The question, and why it isn't about style
@@ -47,6 +50,10 @@ Both objections restore the same missing variable: **cost to reach**. Oracle ava
 
 The result worth naming is the **inversion**: the class with *no* oracle is exactly the class that survives eviction. Everything verifiable is, by that same verifiability, a candidate for deletion.
 
+**And one row is not like the others: row 2 is audience-asymmetric.** Distance is measured from *the reader*, so it depends on what the reader is holding. A human with an IDE has had row 2 solved for twenty-five years — hover, go-to-definition, inlay hints, and find-references collapse "another file, or another scope" to nearly zero cost. Agents read line ranges through a file API with no hover at all, so the identical fact sits at a completely different distance for them. The specimen is in the session that produced this page: the orchestrator read the very file containing `[DatabaseKeyField(...)]` many times, by line range, and never saw it — 450 lines above the method it governed.
+
+That reframes a large share of agent comment proliferation. **Row-2 comments are a prosthetic for tooling the reader doesn't have**, which means the honest fix is usually not to write the comment but to close the gap — give the agent the language server. It is the same *import the oracle* move as row 3, and the same reuse-over-rebuild rule the vault applies everywhere: a symbol index that already exists and is always correct beats prose that duplicates it and silently rots. The prediction that follows is testable and sharp: **row 2 shrinks as agent tooling acquires what IDEs already have; rows 3–5 do not shrink at all**, because no amount of tooling reaches a stored proc outside the repo, a frequency in the world, or a reason that was never written down. See open question 4 for the part that is still genuinely open.
+
 ## Intent is a primary record, not documentation
 
 For mechanism claims the code is primary and the comment is a **cache** of it — a cache with no coherency protocol, which is why a stale comment is the one artifact in a repo that can be flatly wrong with nothing to notice. For intent there is no primary. The comment **is** the artifact: a primary record misfiled into a code file. You don't keep it because it's useful; you keep it because deleting it is data loss. In the session that produced this page, the cross-parent-duplicate reasoning *existed nowhere until it was said out loud.*
@@ -58,11 +65,13 @@ Two consequences the mechanism/intent split alone doesn't give you:
 
 ## The envelope class — where a comment suppresses a false positive
 
-The strongest specimen in the session was not intent, and it is the row that was missing. **Both agents independently concluded that a key value could exist across two different customers, and flagged it as a misrepresentation.** They were right about the artifacts and wrong about the system: the duplicate is possible in principle but would have to be *forced*, so the code's uniqueness assumption is **not technically correct and operationally true.** Nothing in the repo says so. The schema permits the duplicate, the code assumes it away, and the reconciliation is a fact about how the business is actually operated.
+The strongest specimen in the session was not intent, and it is the row that was missing. **Both readers independently concluded that a key value could exist across two different customers, and reported it as a contract mismatch — and the agent with edit rights escalated it as a defect, proposing three remediations.** They were right about the artifacts and wrong about the system: the duplicate is possible in principle but would have to be *forced*, so the code's uniqueness assumption is **not technically correct and operationally true.** Nothing in the repo says so. The schema permits the duplicate, the code assumes it away, and the reconciliation is a fact about how the business is actually operated.
+
+The division of labour there is itself the evidence. The two read-only readers *described* the mismatch and stopped. The orchestrating agent — the one that could edit — moved to fix it. That is the predicted behaviour observed directly, and it is a stronger specimen than reader consensus, because a reader that cannot act cannot demonstrate the failure this class produces.
 
 This differs from intent in a way worth keeping separate. Intent states what we *want* and is unfalsifiable. An envelope claim states what *is*, contingently, outside the software — falsifiable, but only by an incident, never by a test. And it has a distinctive signature: **it makes correct code look like a bug.**
 
-That signature is why this class matters more for agent readers than for human ones. A human who reads "assume unique" shrugs and moves on. An agent with edit rights *fixes* it — adds a dedupe, tightens a guard, files a defect. Both readers here reached the same wrong conclusion with no variance between them, which is the vault's [known failure mode](./repairing-llm-code.md): consensus is not a correctness check, and an ensemble cannot separate right from wrong when the error is in the shared input. The comment is the only thing in the system that breaks that tie.
+That signature is why this class matters more for agent readers than for human ones. A human who reads "assume unique" shrugs and moves on. An agent with edit rights *fixes* it — adds a dedupe, tightens a guard, files a defect. All three agents here — two readers and the orchestrator — reached the same conclusion with no variance between them, and the only one able to act moved to change working code. That is the vault's [known failure mode](./repairing-llm-code.md): consensus is not a correctness check, and an ensemble cannot separate right from wrong when the error is in the shared input. The comment is the only thing in the system that breaks that tie.
 
 So the cost of omitting an envelope comment is not a slower read — it is a **wrong action taken confidently.** That is a different loss function from every other row, and it is the first case in this page where the comment is doing a job no cheaper artifact can do at all.
 
@@ -78,7 +87,9 @@ So the cost of omitting an envelope comment is not a slower read — it is a **w
 
 > **Load-bearing iff a reader restricted to a fixed context answers correctly with the comment and incorrectly without it.**
 
-Fixing the context is what supplies the missing cost term. The production session ran exactly this as a Phase 1 (file-restricted) / Phase 2 (unrestricted) split, and it produced a distribution rather than an opinion — **as reported: of 8 questions, 4 needed no comment, 3 needed one, and 1 was answered either way but reached more cheaply with it.**
+Fixing the context is what supplies the missing cost term. The production session ran exactly this as a Phase 1 (file-restricted) / Phase 2 (unrestricted) split, and it produced a **per-question verdict** rather than an opinion — **of 8 questions, 4 needed no comment, 3 needed one, and 1 was held with certainty in the verbose arm but only inferred in the reduced one.** At n=1 per arm this is a single paired observation, not yet a distribution; the value is that the test is *decidable per question*, which an aggregate readability judgement never is.
+
+The three comment-dependent questions all concerned facts residing in other files — which is the distance thesis surviving its own experiment rather than being assumed by it. **With one honest caveat that lands on exactly these questions:** the trim also reworded the XML `<param>` tags, so the reduced arm gained a directly-stated fact while losing 38 comment lines. Those are the parent-resolution questions. At n=1 the confound is a live alternative explanation for the strongest result on the page, and the replication must hold the `<param>` text fixed across arms so the only variable is comment volume.
 
 Two method notes for the next run:
 
@@ -111,7 +122,7 @@ This also turns [substrate-as-governance's open question #2](./substrate-as-gove
 1. **Does the distance axis survive measurement?** Sweeping the reader's budget B should produce a monotone curve — comment value rising with distance. Untested; currently a partition asserted from four specimens.
 2. **Where is the crossover for `AGENT:` comments?** [Building Swarms](../method/swarm-construction-rules.md) asks the same of shared workspaces: below some fan-out width, is inline coordination simply correct?
 3. **Does prescribing the marker keep coordination inside it** — or does an optimized swarm abuse a sanctioned schema into a private encoding, the way [any format eventually is](./substrate-as-governance.md)?
-4. **Can the in-repo/out-of-frame row be automated away?** A type-level attribute governing a method is a scope mismatch a tool could surface at the point of use — which would delete the whole second row rather than commenting it.
+4. **Row 2 is already automated away — for humans.** This is not a question about a tool that might exist; it is an asymmetry in who has one. An IDE surfaces a type-level attribute or a callee's contract on hover, which is why human readers rarely need row-2 comments and why the codebase's existing comment set — written by and for humans with IntelliSense — is thin in exactly that row. Agents read line ranges through a file API with no hover: in the session that produced this page, the orchestrator read the very file holding `[DatabaseKeyField(...)]` many times by line range and never saw it, 450 lines above the method. So the prediction is that **row 2 shrinks as agent tooling acquires what IDEs already have, while rows 3–5 do not** — the second row is a tooling deficit wearing a documentation costume. The open part is whether hover-equivalents can reach the out-of-frame *reasons* (a callee's failure behaviour) as well as its signature, since the signature is what tooling actually surfaces and the behaviour is what the reader needed.
 5. **Is there a rot detector for the third row?** Out-of-repo oracles fail silently by construction. Contract snapshots convert distance into an in-repo artifact — how much of the class does that actually cover?
 
 ## Tags
