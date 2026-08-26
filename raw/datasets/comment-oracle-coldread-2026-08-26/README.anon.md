@@ -1,4 +1,4 @@
-# Cold-read A/B — comment value at fixed context (2026-08-26)
+# Cold-read A/B — comment value at fixed context (2026-08-26) — anonymized
 
 Capture backing [Comments and the Distance to an Oracle](../../../research/comment-oracle-distance.md).
 
@@ -6,24 +6,30 @@ Measures whether a reader restricted to a single file answers behavioural questi
 **with** a comment set and incorrectly **without** it. Two arms, identical code, differing only in
 comment volume.
 
+> **This is the tracked, anonymized copy.** The vault is a **public** repository. The originals
+> (`README.md`, `protocol.md`, `results-relayed.md`) carry the employer's real class, method,
+> stored-procedure and column names; they remain on the capture machine, untracked and unmodified,
+> as the immutable source of truth. Identifier mapping used here: `UserRecord`, `AccountSvc`,
+> `ParentIdLookup`, `sp_RefreshTaskAuth`, `LoginCodes`, `AdminUserPageBase`, `ApprovedDomains`,
+> `[KeyField(...)]`, `AccountId`. The mapping is consistent with the research page.
+
 ## Files
 
-| File | What it is |
-|---|---|
-| `sample-a-verbose.cs.txt` | Arm A stimulus — 125 lines, 48 method comment lines + 2 framing |
-| `sample-b-trimmed.cs.txt` | Arm B stimulus — 87 lines, 10 method comment lines + 2 framing |
-| `protocol.md` | The exact prompt both readers received, verbatim |
-| `results-relayed.md` | Reader outputs, condensed from the session log, plus independent verification |
+| File | What it is | Tracked? |
+|---|---|---|
+| `sample-a-verbose.cs.txt` | Arm A stimulus — 125 lines, 48 method comment lines + 2 framing | no — `raw/.gitignore` |
+| `sample-b-trimmed.cs.txt` | Arm B stimulus — 87 lines, 10 method comment lines + 2 framing | no — `raw/.gitignore` |
+| `protocol.anon.md` | The exact prompt both readers received, identifiers anonymized | yes |
+| `results-relayed.anon.md` | Reader outputs, condensed from the session log, plus verification | yes |
 
-Both stimuli are byte-exact as served. Identifiers are **real** here (this is `raw/`); the research
-page anonymises them.
+Both stimuli are byte-exact as served, and stay local — they are employer source.
 
 ## Source of the two arms
 
-One method, `eUsers.CreateUserByGroup`, from a private production C# codebase (ASP.NET 4.8 /
-SQL Server). Arm A is commit `e097923ac`; Arm B is commit `4667bbb8e`, which is A after a
-human comment trim. Both extracted programmatically — doc comment through the method's closing
-brace — and each given the same 2-line framing preamble.
+One method, `UserRecord.CreateUserByGroup`, from a private production C# codebase (ASP.NET 4.8 /
+SQL Server). Arm A is commit `<commit-A>`; Arm B is commit `<commit-B>`, which is A after a human
+comment trim. Both extracted programmatically — doc comment through the method's closing brace —
+and each given the same 2-line framing preamble.
 
 ## What the run produced
 
@@ -42,8 +48,8 @@ The 3 comment-dependent questions all concerned facts residing in *other files*.
    "the comment helped" from "this reader dug harder."
 
 2. **Reader transcripts are lost.** Both agent output files were 0 bytes when checked. Nothing
-   verbatim survives; `results-relayed.md` is condensed from the orchestrating session's log. The
-   *stimuli and protocol* are preserved, so the experiment is reproducible — the original run is
+   verbatim survives; `results-relayed.anon.md` is condensed from the orchestrating session's log.
+   The *stimuli and protocol* are preserved, so the experiment is reproducible — the original run is
    not archivable.
 
 3. **Phase 1 was captured asymmetrically.** The protocol asked for Phase 1 answers with confidence
@@ -62,6 +68,7 @@ The 3 comment-dependent questions all concerned facts residing in *other files*.
 
 ## For a replication
 
-Serve `protocol.md` unchanged, one fresh reader per arm, and require the Phase 1 answer set to be
-returned and stored *before* granting repository access. Vary the context budget rather than fixing
-it at one file if the goal is to test the distance axis rather than a single point on it.
+Serve `protocol.anon.md` unchanged, one fresh reader per arm, and require the Phase 1 answer set to
+be returned and stored *before* granting repository access. Hold the XML `<param>` text identical
+across arms so comment volume is the only variable. Vary the context budget rather than fixing it at
+one file if the goal is to test the distance axis rather than a single point on it.

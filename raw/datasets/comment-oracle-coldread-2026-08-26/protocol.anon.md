@@ -1,7 +1,11 @@
-# Protocol — verbatim prompt
+# Protocol — verbatim prompt (identifiers anonymized)
 
 Both readers received this text identically, differing only in the stimulus path. Each ran as a
 fresh general-purpose agent with no session context.
+
+> Anonymized copy of `protocol.md` for the public repository. Only identifiers in question 7 differ
+> from the text as served: `AccountSvc.GetByAccountId` / `AccountSvc.ParentIdLookup` stand for the
+> employer's real service and method names.
 
 ---
 
@@ -31,9 +35,9 @@ Questions:
 5. Can the user this creates sign in with a password? If not, how would they authenticate?
 6. Why are FirstName and LastName not set on the new record, and what happens to such a user at
    first login?
-7. A reviewer proposes deleting the FARCUS.GetByCustNum existence check, arguing that the
-   FARCUS.GetParentCustNum call on the following line already handles a bad account. From this file
-   alone, can you determine whether that change is safe?
+7. A reviewer proposes deleting the AccountSvc.GetByAccountId existence check, arguing that the
+   AccountSvc.ParentIdLookup call on the following line already handles a bad account. From this
+   file alone, can you determine whether that change is safe?
 8. If the rights-assignment step throws an exception, what state is the database left in, and would
    calling this method again repair it?
 

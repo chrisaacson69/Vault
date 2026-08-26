@@ -34,3 +34,13 @@
 !output/transaction-multiplier-chart.png
 !output/k12-instruction-vs-administration.html
 !output/us-spending-per-student.html
+
+# ============================================================
+# WORK-SOURCED CAPTURES — never tracked. The vault repo is PUBLIC.
+# Employer-derived captures keep their real class/method/proc names
+# locally as the immutable source; only *.anon.md copies are tracked.
+# ============================================================
+datasets/comment-oracle-coldread-2026-08-26/README.md
+datasets/comment-oracle-coldread-2026-08-26/protocol.md
+datasets/comment-oracle-coldread-2026-08-26/results-relayed.md
+!datasets/**/*.anon.md
