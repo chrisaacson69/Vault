@@ -63,3 +63,4 @@ permalink: /tags/ai/
 - [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md) — Nate B.
 - [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.
 - [Comments and the Distance to an Oracle](../research/comment-oracle-distance.md) — comments as an agent-readable context layer and an inter-agent coordination channel; type them so eviction is mechanical
+- [The Contract Model vs. the Substrate Model](../research/contract-vs-substrate.md) — a per-delivery **contract** (delivery / constraints+guardrails / proof artifact / outside-verification / owner) is the vault's architecture with the accumulation stripped out — contracts don't compound, substrate does; plus the artifact-vs-reader split in verification independence, and *tests written only to pass* as oracle collapse
