@@ -41,20 +41,36 @@ His fix is to treat the agent as an **untrusted contractor** and bind it to a de
 
 **This decomposition is good and the page should say so plainly.** Most "prompt better" advice is a list of adjectives. This is a list of *slots*, and filling the slots forces the questions that actually determine whether a task succeeds: what is the deliverable, what is forbidden, what would count as evidence, who checks the evidence, and who owns the failure. Separating **proof** from **verification** is the move most practitioners skip — treating the agent's demonstration and the check on that demonstration as one step is exactly how a generator ends up marking its own work. A user with no vault, no hooks and no accumulated context who adopted only this would get materially better results tomorrow.
 
-### The under-used slot: say what the result should be
+### The under-used slot — and the mode where it does not apply
 
-The first element is the one worth taking personally. He notes that his clients' *application* specs are usually good — the domain owner is the right person to write one — and the failure still happens, because a spec for the app is not a stated result for **the task handed to the agent**. Those are different documents, and only the first one tends to exist.
+The first element is the one worth taking personally. He notes that his clients' *application* specs are usually good — the domain owner is the right person to write one — and the failure still happens, because a spec for the app is not a stated result for **the task handed to the agent**. Those are different documents, and only the first one tends to exist. When the target is missing, the failure is not that the work goes wrong; it is that you **work through the problem instead of understanding the result**. There is nothing for the output to be compared against, so the session produces something plausible, you read it, and you have no independent position from which to judge it. That is the oracle problem relocated to the front of the task, and it is invisible for the same reason every oracle-absence is invisible: nothing ever contradicts anything.
 
-The failure mode when it is missing is not that the work goes wrong. It is that you **work through the problem instead of understanding the result**: without a stated target there is nothing for the output to be compared against, so the session produces something plausible, you read it, and you have no independent position from which to judge it. This is the oracle problem relocated to the front of the task — an unstated intended result is an *absent* oracle, and every downstream check inherits that absence. It is also why the failure is invisible: there is no moment where anything contradicts anything.
+**But the slot has a precondition — the result has to already exist.** Sometimes it does not, and that is not a defect to be corrected. There are two modes, and the contract model silently assumes the first:
 
-A specimen from the session that produced this page, since it is a clean A/B:
-
-| | Stated result? | What happened |
+| | **Delivery** | **Assimilation** |
 |---|---|---|
-| First instruction | No — a source URL and a routing hint ("helps frame a lot of the agent usage in the vault") | The deliverable had to be *inferred*. Reading-and-discussing was guessed at, then a page offered at the end to recover the missing target. |
-| Second instruction | Yes — "write the page — contract model vs substrate model", plus the constraint (*archaic, but honest field experience from systems never built properly*) and the thing to preserve (*the process breakdown*) | Landed on the first pass. |
+| The target | known before the work starts | **is the output of the work** |
+| Front-loaded artifact | the agreed delivery | a **discriminator** — what would make something worth keeping |
+| Asking for a stated result | free, and removes the inference step | asks for a fabrication |
 
-The second instruction is a delivery contract: agreed delivery, a constraint, and a preservation requirement, in one sentence. It cost nothing to write and removed the entire inference step. **The cheapest element in his contract is the one most often skipped, and skipping it is what turns a session into working-through rather than understanding.**
+Demanding a deliverable in the second mode is not rigour. It is a request to invent one, which the vault's [#1 rule](./llm-grounding-problem.md) forbids in every other context and should forbid here: *when grounding is missing, go find it or ask — do not fill the gap with an assumption.* An honestly-unknown destination is missing grounding. The correct front-loaded artifact for assimilation is therefore not a target but a **keeping-criterion**, and often even that is only formulable partway through.
+
+The session that produced this page is a specimen of the **transition between the two modes**, not of a stated-vs-unstated contrast:
+
+| | Mode | Why |
+|---|---|---|
+| First instruction — a source URL and a routing hint (*"helps frame a lot of the agent usage in the vault"*) | Assimilation | The target did not exist yet. Someone had run into the same problems and had a worked-out multi-step answer; the ask was to find out what was keepable, which cannot be stated in advance without deciding the answer in advance. |
+| Second instruction — *"write the page — contract model vs substrate model"*, plus the constraint (*archaic, but honest field experience from systems never built properly*) and the thing to preserve (*the process breakdown*) | Delivery | The target existed **because the first pass manufactured it.** Constraint and preservation-requirement are the discriminator, and it was only formulable once there was material to discriminate over. |
+
+So the rule is not *always state the result*. It is: **know which mode you are in — and if the target does not exist yet, the deliverable of the pass is the target.** Read that way, the first instruction was not missing a contract. It was a contract whose agreed delivery was *the next contract*.
+
+### The method that produced the target: same-and-different
+
+Worth naming, because it is the reflexive case of this page's own thesis. The source was not evaluated on its own terms and was not summarised. It was **diffed against an accumulated position** — this is the same as our oracle rule, this is the same as our guardrails, this part is different and the difference is load-bearing (verification independence, weakened), this part we do not have at all (the proof gate, the ownership split). Chris: *"discussing what was the same and what was different gave me the clarity to know how to bring it in."*
+
+That method has a hard precondition: **there must be something to diff against.** The same video shown to someone without the accumulated pages yields a summary and a vague intention to try contracts. The extraction is not a property of the source; it is a property of the reader's substrate. The page argues that substrate beats per-task contracts, and the process that produced the page is an instance of the claim.
+
+It also sets the order of operations, which is why no vault rule is being written here yet: **dissect first, then find what is keepable, and only then graduate.** Rules are the crystallisation step, and crystallising off a single specimen — before the diff has shown which parts survive contact with the existing method — is exactly how a one-off gets mistaken for law. The candidates are visible (a proof gate, an ownership partition, a standard-retirement trigger) and they are deliberately still sitting in Open Questions.
 
 ## The archaism: contracts do not compound
 
@@ -131,7 +147,7 @@ The evidential standard is practitioner-anecdotal throughout: no *n*, no base ra
 3. **Where does the human-owned/agent-owned boundary actually fall here?** He derives it from environment access. The vault's version would derive it from oracle availability: a delivery with no reachable lower artifact is human-owned by construction. Untested, and it may just be the intent row of [comment-oracle-distance](./comment-oracle-distance.md) wearing different clothes.
 4. **Does the contract model earn a place *inside* the substrate model?** They are not exclusive. A per-delivery contract may be the right form for exactly the tasks the standing rules do not cover — one-off, high-stakes, outside any project's SDK. If so, what is the trigger for writing one instead of relying on the substrate?
 5. **What retires a standard?** The method is *adopt a floor, hold work to it, retire it when it stops discriminating* — and only the first two clauses have mechanisms. Is there a cheap detector for a check that has stopped separating good work from bad (mutation testing is the known one for suites; what is the equivalent for a `CLAUDE.md` rule, or for a regen-guard)? Without one, every standard decays into *"but it passed all the tests."*
-6. **Does an unstated intended result predict the failure?** The claim in §"The under-used slot" is that working-through-without-understanding is downstream of a missing target, not of task difficulty. Both instructions in this session's A/B produced correct work, so the specimen shows a cost in inference, not an error — the stronger version needs a case where the absent target produced a *wrong* result nobody could see was wrong.
+6. **Can the two modes be told apart at the start, by the person in them?** Delivery wants its target stated; assimilation cannot supply one honestly. The distinction is clean in hindsight and the open part is whether it is legible *before* the work — or whether the only reliable signal is the one this session used, which is that the first pass ends by producing a target the second pass can act on. A wrong call in one direction wastes an inference step; in the other it manufactures a fake destination and steers the whole session at it.
 7. **Do agent-authored tests fail this way at a measurable rate?** "Written to pass" is asserted from audits with no *n*. The vault has repos where a lower oracle exists to check a suite against — that is a measurable claim sitting in reach.
 
 ## Tags
