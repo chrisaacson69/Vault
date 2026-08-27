@@ -6,9 +6,9 @@ layout: layouts/page.njk
 title: "The Contract Model vs. the Substrate Model"
 ---
 # The Contract Model vs. the Substrate Model
-> A vibe-code auditor arrives independently at the vault's architecture — untrusted generator, mechanically enforced constraints, a proof artifact, verification outside the producing system — and writes it as a **per-delivery contract**. That is the same architecture with the accumulation stripped out. Contracts are re-authored every task; substrate is authored once and holds. The stripped-down version is worth having anyway: it is what the discipline looks like before it has anywhere to live, and it is a genuinely better way to prompt.
+> A vibe-code auditor arrives independently at the vault's architecture — untrusted generator, mechanically enforced constraints, a proof artifact, verification outside the producing system — and writes it as a **per-delivery contract**. That is the same architecture with the accumulation stripped out. Contracts are re-authored every task; substrate is authored once and holds. The stripped-down version is worth having anyway: it is what the discipline looks like before it has anywhere to live, and it is a genuinely better way to prompt. Underneath both sits the limit neither addresses — the floor you verify against is a *chosen standard*, never the truth, so the method is adopt-hold-retire, and only the first two clauses have mechanisms.
 
-**Links:** [Repairing LLM Code — The Two Oracles](./repairing-llm-code.md) — the oracle framing this page's strongest specimen belongs to, [The Three-Layer Method](./karpathy-three-layer-method.md) — Verifier and Environment as standing layers, [The Substrate Is the Governing Mechanism](./substrate-as-governance.md) — knowledge that outlives the run is the control surface, [Comments and the Distance to an Oracle](./comment-oracle-distance.md) — the same rule-vs-request line applied to prose, [Practicality vs. Precision — Principled LLM Code](./principled-llm-code.md) — slop as a persistence problem, and the "median per session" argument this page's diagnosis section leans on, [The LLM Grounding Problem](./llm-grounding-problem.md)
+**Links:** [Repairing LLM Code — The Two Oracles](./repairing-llm-code.md) — the oracle framing this page's strongest specimen belongs to, [The Three-Layer Method](./karpathy-three-layer-method.md) — Verifier and Environment as standing layers, [The Substrate Is the Governing Mechanism](./substrate-as-governance.md) — knowledge that outlives the run is the control surface, [Comments and the Distance to an Oracle](./comment-oracle-distance.md) — the same rule-vs-request line applied to prose, [Practicality vs. Precision — Principled LLM Code](./principled-llm-code.md) — slop as a persistence problem, and the "median per session" argument this page's diagnosis section leans on, [The LLM Grounding Problem](./llm-grounding-problem.md), [The Gödel Governance Problem](./philosophy/dynamics/the-godel-governance-problem.md) — the universal incompleteness pattern this page borrows for oracles: *you don't have what you think you have, but what you DO have still works*
 
 ## Source
 
@@ -40,6 +40,21 @@ His fix is to treat the agent as an **untrusted contractor** and bind it to a de
 | **Ownership** | Every contract has an owner, agent or human. Deliveries needing an environment agents may not touch are inherently human-owned. |
 
 **This decomposition is good and the page should say so plainly.** Most "prompt better" advice is a list of adjectives. This is a list of *slots*, and filling the slots forces the questions that actually determine whether a task succeeds: what is the deliverable, what is forbidden, what would count as evidence, who checks the evidence, and who owns the failure. Separating **proof** from **verification** is the move most practitioners skip — treating the agent's demonstration and the check on that demonstration as one step is exactly how a generator ends up marking its own work. A user with no vault, no hooks and no accumulated context who adopted only this would get materially better results tomorrow.
+
+### The under-used slot: say what the result should be
+
+The first element is the one worth taking personally. He notes that his clients' *application* specs are usually good — the domain owner is the right person to write one — and the failure still happens, because a spec for the app is not a stated result for **the task handed to the agent**. Those are different documents, and only the first one tends to exist.
+
+The failure mode when it is missing is not that the work goes wrong. It is that you **work through the problem instead of understanding the result**: without a stated target there is nothing for the output to be compared against, so the session produces something plausible, you read it, and you have no independent position from which to judge it. This is the oracle problem relocated to the front of the task — an unstated intended result is an *absent* oracle, and every downstream check inherits that absence. It is also why the failure is invisible: there is no moment where anything contradicts anything.
+
+A specimen from the session that produced this page, since it is a clean A/B:
+
+| | Stated result? | What happened |
+|---|---|---|
+| First instruction | No — a source URL and a routing hint ("helps frame a lot of the agent usage in the vault") | The deliverable had to be *inferred*. Reading-and-discussing was guessed at, then a page offered at the end to recover the missing target. |
+| Second instruction | Yes — "write the page — contract model vs substrate model", plus the constraint (*archaic, but honest field experience from systems never built properly*) and the thing to preserve (*the process breakdown*) | Landed on the first pass. |
+
+The second instruction is a delivery contract: agreed delivery, a constraint, and a preservation requirement, in one sentence. It cost nothing to write and removed the entire inference step. **The cheapest element in his contract is the one most often skipped, and skipping it is what turns a session into working-through rather than understanding.**
 
 ## The archaism: contracts do not compound
 
@@ -79,6 +94,20 @@ which is categorically different from **generator → second generator**, where 
 
 The vault already has evidence for the second half. In the blind-reader experiment in [Repairing LLM Code](./repairing-llm-code.md), LLM readers given structurally faithful C recovered the control flow correctly and confidently; given mis-bracketed C they faithfully reported what the wrong code said. **The reader was never the failure point — the artifact was.** A reader is reliable in proportion to the fidelity of what it is handed, which is why "a video model watches a screen recording of the real login flow" is sound and "a second agent reviews the first agent's diff" is not. His framing cannot tell those apart; the vault's should, and now does.
 
+## The floor is a chosen standard, not the truth
+
+Everything above talks about *the* oracle as though it were an object you could eventually reach. It is not, and the reason is structural rather than practical.
+
+The short argument, from Chris: **if you had the all-knowing oracle, you would just ask it instead of working through the problem.** An oracle that could certify the answer could also produce the answer, so verification work exists *only* in the gap where no such oracle is available. Every oracle actually in use is therefore a **partial** one by construction — cheaper than solving the problem, weaker than the truth. The bytecode does not tell you what the program *should* do; it tells you what it does. It is an oracle for intent-as-compiled, not for intent. Drop an altitude and you land on another floor, not on bedrock.
+
+The longer form is the vault's [universal incompleteness pattern](./philosophy/dynamics/the-godel-governance-problem.md), stated there for institutions and holding here unchanged: **you don't have what you think you have, but what you DO have still works.** The Gödel move is not "therefore nothing is verifiable" — that is the misreading the vault already [catalogues](./debates/agrippa-axioms-wilson-whatever.md). It is that the floor is *adopted*, not discovered, and a new perspective can always reopen a problem that looked closed.
+
+So the honest statement of the method is not "find the oracle." It is:
+
+> Adopt a standard, hold work to it, and **retire the standard when it stops discriminating.**
+
+That third clause is the one with no mechanism behind it. The vault has eviction for *memory* (promote to a store, delete the pointer) and for *artifacts* (register the new one, supersede the old). It has nothing for **standards** — no trigger that fires when a check has quietly stopped separating good work from bad. And that is precisely the shape of *"but it passed all the tests"*: a suite is a standard that stopped discriminating, and nothing in the process was watching for it. His audit is that missing mechanism performed manually by a human who shows up from outside — which is why it works, and why it does not scale.
+
 ## Where the vault is behind him
 
 **The proof artifact as a per-delivery gate.** The RE projects have deterministic proof. Vault-page work has none: a page asserting a finding carries no attached evidence that the check ran, and `/vault-heartbeat` is a periodic sweep rather than a gate at the moment of writing. His rule — *nothing merges without the artifact* — has no counterpart here.
@@ -101,7 +130,9 @@ The evidential standard is practitioner-anecdotal throughout: no *n*, no base ra
 2. **Is the artifact/reader split load-bearing enough to promote?** If it holds, the kernel's verification-independence rule wants rewording: the *artifact* must be lower, the *reader* need not be human. That is a rule change, and rule changes graduate up to `CLAUDE.md` — but only after a case where an LLM reader over a genuine trace catches something a human missed.
 3. **Where does the human-owned/agent-owned boundary actually fall here?** He derives it from environment access. The vault's version would derive it from oracle availability: a delivery with no reachable lower artifact is human-owned by construction. Untested, and it may just be the intent row of [comment-oracle-distance](./comment-oracle-distance.md) wearing different clothes.
 4. **Does the contract model earn a place *inside* the substrate model?** They are not exclusive. A per-delivery contract may be the right form for exactly the tasks the standing rules do not cover — one-off, high-stakes, outside any project's SDK. If so, what is the trigger for writing one instead of relying on the substrate?
-5. **Do agent-authored tests fail this way at a measurable rate?** "Written to pass" is asserted from audits with no *n*. The vault has repos where a lower oracle exists to check a suite against — that is a measurable claim sitting in reach.
+5. **What retires a standard?** The method is *adopt a floor, hold work to it, retire it when it stops discriminating* — and only the first two clauses have mechanisms. Is there a cheap detector for a check that has stopped separating good work from bad (mutation testing is the known one for suites; what is the equivalent for a `CLAUDE.md` rule, or for a regen-guard)? Without one, every standard decays into *"but it passed all the tests."*
+6. **Does an unstated intended result predict the failure?** The claim in §"The under-used slot" is that working-through-without-understanding is downstream of a missing target, not of task difficulty. Both instructions in this session's A/B produced correct work, so the specimen shows a cost in inference, not an error — the stronger version needs a case where the absent target produced a *wrong* result nobody could see was wrong.
+7. **Do agent-authored tests fail this way at a measurable rate?** "Written to pass" is asserted from audits with no *n*. The vault has repos where a lower oracle exists to check a suite against — that is a measurable claim sitting in reach.
 
 ## Tags
 
