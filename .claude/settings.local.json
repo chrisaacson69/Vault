@@ -199,8 +199,6 @@
       "Bash(ls render-*.py)",
       "Bash(py tools/driver-call-index.py)",
       "Read(//c/tmp/**)",
-      "Bash(py \"C:/Users/Chris.Isaacson/Vault/projects/game-annotation/nobunaga/tools/driver-call-index.py\")",
-      "Bash(py \"C:/Users/Chris.Isaacson/Vault/projects/game-annotation/nobunaga/tools/capture-test.py\" testtag pre)",
       "Bash(cd *)",
       "Bash(py -3 -c ' *)",
       "Bash(py -3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d['title']\\); print\\(d['uploader']\\); print\\(d['duration']\\); print\\(d['upload_date']\\); print\\('---'\\); print\\(d.get\\('description',''\\)[:1500]\\)\")",

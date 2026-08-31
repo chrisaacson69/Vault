@@ -31,10 +31,18 @@ concrete: the simulator is the accumulated state that keeps the optimizer honest
 - [x] Scope agreed — strategic optimizer, not a gameplay sim (see repo `notes/scope.md`): maximize a
       **user-defined X over outcomes + finances** s.t. `budget_balance ≥ 0`; finances first-class and
       endogenous; voting/cynicism/assassination/political-capital/implementation-delay all dropped.
-- [ ] Layer 1 — equilibrium fixed-point solver of the effect network + reconstructed budget. Needs the
-      *combination rule* (keystone). Validate against the game's `data_dump/` hook + real play.
-- [ ] Layer 2 — optimizer: constrained max of X (`balance ≥ 0`), linearized-LP → MILP. "Best return
-      per $" = the budget constraint's shadow price; minimizing spend is *not* the goal.
+- [x] Layer 1 — equilibrium fixed-point solver + reconstructed budget. **Running** against the live
+      game CSVs: converges in 51 iterations (`max_delta 9.1e-07`); budget reconstruction lands within
+      a few $Bn per line vs the game (Military 232/225, Pensions 200/204, Schools 95/98).
+- [x] Layer 2 — marginal + greedy optimizer. `frontier.py` ranks moves as free-wins / paid-per-$ /
+      savings-with-tradeoff under `balance ≥ 0`; `optimize_us.py` drives balance −$97Bn → $0Bn and
+      X −1.48 → +1.44 over 40 moves. LP/MILP path still deferred (`pulp` declared, MILP untested).
+- [ ] **Validate Layer 1 against the independent oracle.** Current check is against a turn-1 savegame —
+      a *transient*, not an equilibrium (mean |diff| 0.115; CrimeRate 0.82, Health 0.68). The game ships
+      `data/simulation/data_dump/{inputs,outputs}`, which the repo's own `CLAUDE.md` names as the real
+      oracle; it is not yet wired in. Verification-independence says this is the next gate, not more solver.
+- [ ] Finance + membership subsystems (`_effectivedebt_`, `_global_interest_rates_`, `*_perc`) are still
+      zeroed, so loop gain is too low to hold the game's doom basin — the blocker named in repo `notes/scope.md`.
 
 ## Notes
 - Game CSVs are the single source of truth; read in place (no copy → no drift).

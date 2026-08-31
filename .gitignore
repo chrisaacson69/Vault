@@ -30,8 +30,8 @@ _site/
 
 # Emulator trace dumps — multi-hundred-MB, regenerable, exceed GitHub's 100MB limit
 # (small .dmp SRAM snapshots in traces/ are kept)
-projects/game-annotation/nobunaga/traces/*.txt
-projects/game-annotation/nobunaga/traces/*.gz
+projects/**/traces/*.txt
+projects/**/traces/*.gz
 
 # Python bytecode cache — regenerable, never track
 __pycache__/

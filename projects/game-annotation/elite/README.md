@@ -18,7 +18,7 @@ project SDK → [projects/CLAUDE.md](../../CLAUDE.md).
 | Field | Value |
 |-------|-------|
 | Logical name | `elite-decompiler` |
-| GitHub | `github.com/chrisaacson69/elite-decompiler` *(local, not yet created/pushed)* |
+| GitHub | `github.com/chrisaacson69/elite-decompiler` *(**PUBLIC**, pushed 2026-08-31)* |
 | Sibling path | `../elite-decompiler` (resolved per-machine via vault `.claude/local-paths.md`) |
 | Entry point | `README.md` → `docs/00-recon.md` → `mesen-labels.toml` |
 | Upstream reference | `nes-elite-beebasm` (third-party, read-only — **point at it, don't vendor it**) |

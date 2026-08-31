@@ -11,6 +11,8 @@ permalink: /projects/battletech-simulator/
 
 **Links:** [BattleValue](../../research/gaming/battle-value.md), [Gaming](../../research/gaming/README.md), [Combinatorial vs Generative Design Space](../../research/gaming/combinatorial-vs-generative-design-space.md) (**the power-creep worry, formalised** — measured on HeroClix; BattleTech is the natural second specimen), [YouTube Migration](../youtube-migration/README.md), [D&D Monster Tournament — Exact Markov Chains](../../research/gaming/dnd-monster-tournament-markov.md) (**the tractable sibling** — same "derive empirical BV from combat" motivation, but D&D 1v1's state space is small enough to solve *exactly* as an absorbing Markov chain instead of sampling. Worth building first: it validates the BV-testing methodology against exact truth, which this sim can then inherit), [HeroClix](../heroclix/README.md) (**the other exact-model sibling** — the dial makes "stats are a function of remaining HP" free in a Markov chain, which is precisely the sectional-damage complexity that forces *this* project to sample instead; same bargain-hunting motive, opposite tractability)
 
+**Logical name:** `battletech-sim` · **Sibling path:** `../battletech-sim`
+(resolved on this machine via [`.claude/local-paths.md`](../../.claude/local-paths.md)) ·
 **Code:** https://github.com/chrisaacson69/battletech-sim
 
 ## Motivation
