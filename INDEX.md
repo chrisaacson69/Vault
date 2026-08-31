@@ -23,6 +23,7 @@ permalink: /INDEX/
 - [Slay-C](./projects/slay-c/README.md) — C port of Slay engine for performance and deep search (active)
 - [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
 - [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
+- [democracy3-solver](./projects/democracy3-solver/README.md) — "solve" Democracy 3 by extracting its CSV game-data model into a faithful equilibrium simulator, then optimizing policy vectors (LP/MILP) for max vote share (active)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
 - [OOP Neurons](./projects/oop-neurons/README.md) — object-oriented neural network on GPU; neurons as proper objects; exploring what OOP reveals vs matrix multiplication (concept)
 - [pygone](./projects/pygone/README.md) — a 4 KB chess engine watched and torn down; inverse of the decompiler work (readable Python → 4096-byte blob) (active)
