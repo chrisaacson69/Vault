@@ -11,7 +11,7 @@ permalink: /projects/heroclix/
 
 **Links:** [Combinatorial vs Generative Design Space](../../research/gaming/combinatorial-vs-generative-design-space.md) (**the thesis this project produced** — closed vocabulary vs per-unit free text), [D&D Monster Tournament — Exact Markov Chains](../../research/gaming/dnd-monster-tournament-markov.md) (**the direct ancestor** — it already records the prior HeroClix result and the Hercules confound), [BattleValue](../../research/gaming/battle-value.md) (the metric this tests), [BattleTech Simulator](../battletech-simulator/README.md) (the Monte Carlo sibling — same bargain-hunting motive, sampled instead of exact), [Gaming](../../research/gaming/README.md)
 
-**Code:** logical name `heroclix`, cloned as a sibling (`../heroclix`). Local, not yet pushed.
+**Logical name:** `heroclix` — [github.com/chrisaacson69/heroclix](https://github.com/chrisaacson69/heroclix) (public), cloned as a sibling (`../heroclix`). Python + NumPy.
 **Repo entry point:** `README.md` → `docs/00-source-recon.md`.
 
 ## Why this exists

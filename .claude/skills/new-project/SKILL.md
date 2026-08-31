@@ -2,7 +2,6 @@
 name: new-project
 description: Scaffold a new vault project across all five registration artifacts in the correct order (local repo, GitHub remote, local-paths resolver entry, projects/ pointer page, INDEX.md line), or audit existing projects for partial registration. Use when the user says "new project", "start a project", "scaffold a project", "register this repo in the vault", "audit projects", "check project registration", or "which projects are missing a remote".
 user-invocable: true
-disable-model-invocation: true
 ---
 
 # new-project — create a project so it survives the second machine
@@ -53,6 +52,14 @@ case- and punctuation-insensitively (`batch-resize` finds `batch_resize`), but n
 2. **GitHub remote — immediately.** Default **public**, matching every existing repo. Creating a repo is
    outward-facing and hard to undo, so *confirm with Chris before running it*:
    `gh repo create <name> --public --source=. --remote=origin --push`
+
+   > **This step is gated by the harness, not by prose.** `~/.claude/settings.json` carries an `ask`
+   > rule on `gh repo create` / `delete` / `edit` (both shells), and `ask` overrides `allow`, so the
+   > command prompts however it is reached. That is why this skill is model-invocable again: the gate
+   > moved from *who may start the skill* to *what the dangerous step may do*, which also covers
+   > running `gh` directly — the path the old `disable-model-invocation` flag never protected.
+   > Before publishing, check the repo's `.gitignore` **and its history** (`git log --all --name-only`):
+   > an ignore rule protects the working tree, not what was already committed.
    If the work is sourced from an employer or private codebase, use `--private` — and see the vault
    `CLAUDE.md` warning about `raw/` and identifiers.
 3. **Resolver entry** — add a row to `.claude/local-paths.md` (gitignored, per-machine):
