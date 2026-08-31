@@ -7,7 +7,7 @@ created: 2026-08-10
 
 **Logical name:** `democracy3-solver` · **Sibling path:** `../democracy3-solver`
 (resolved on this machine via [`.claude/local-paths.md`](../../.claude/local-paths.md)) ·
-**Remote:** none yet (local-only) · **Stack:** Python (LP/MILP library deferred)
+**Remote:** https://github.com/chrisaacson69/democracy3-solver *(public)* · **Stack:** Python (LP/MILP library deferred)
 
 **Links:** [MOO1 Opening Optimizer](../moo1-opening-optimizer/README.md) (sister "solve a game with a
 sim + optimizer" project), [project SDK](../CLAUDE.md), [Three-Layer Method](../../research/karpathy-three-layer-method.md)
