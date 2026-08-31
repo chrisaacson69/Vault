@@ -77,6 +77,27 @@ concrete: the simulator is the accumulated state that keeps the optimizer honest
       starting debt). Reading `missions/` would also retire `budget.py`'s screenshot-calibrated scale
       factors and generalise the solver past the US.
 
+- [x] **Browser bench shipped** (2026-08-31) — a private Artifact that re-solves the whole network on
+      every slider drag: policy sliders + on/off, an economy slider, outcomes with per-node **causal
+      attribution** (click an outcome, see its ranked incoming edges), crises with **headroom to their
+      trigger**, dilemma pressure, five loadable scenarios and A/B against a pinned baseline, plus a
+      **sensitivity sweep** that finds the exact level where a crisis flips. Formulas compile to an AST
+      in Python so the browser needs no `eval`; the JS solver matches the Python one to **3.7e-16**.
+      Built by `scripts/export_web_model.py` + `build_explorer.py` from `web/explorer.template.html`.
+- [x] **Findings that corrected the premise** (repo `notes/findings.md`). *Zero crime does not cost
+      mass unemployment* — optimising `-CrimeRate` alone drops unemployment 0.314 and raises equality
+      0.588; crime and unemployment move together and the real price is productivity (−0.343).
+      *Military spending is a jobs programme and pensions are an anti-poverty programme* — deleting
+      both fixes the deficit (−$97Bn → **+$366Bn**, they are 36% of all spending) at the cost of 65%
+      unemployment and 21× crime. That last row is the **"number go up" failure in one line**: a
+      balance-maximiser returns it, arithmetically correct and useless — the case for building the
+      bench before the objective function.
+- [x] **Privacy: the savegame is out of the public repo** (2026-08-31). A 1.7 MB Positech savegame had
+      been tracked in `tests/fixtures/` since commit #1 — mission block plus full game state — while
+      every CSV was correctly gitignored, because a fixture reads as *code* in a data audit. Purged
+      from all history and force-pushed; verified absent from a **fresh clone** (repo 1.9 MB → 202 KB).
+      No test needed it. Lesson harvested: [[feedback_test_fixture_leaks_third_party_data]].
+
 ## Notes
 - Game CSVs are the single source of truth; read in place (no copy → no drift).
 - Classify-first: nonlinear fixed point + small combinatorial part (discrete sliders, situation on/off).
