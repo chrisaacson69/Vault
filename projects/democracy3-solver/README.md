@@ -34,15 +34,31 @@ concrete: the simulator is the accumulated state that keeps the optimizer honest
 - [x] Layer 1 — equilibrium fixed-point solver + reconstructed budget. **Running** against the live
       game CSVs: converges in 51 iterations (`max_delta 9.1e-07`); budget reconstruction lands within
       a few $Bn per line vs the game (Military 232/225, Pensions 200/204, Schools 95/98).
-- [x] Layer 2 — marginal + greedy optimizer. `frontier.py` ranks moves as free-wins / paid-per-$ /
-      savings-with-tradeoff under `balance ≥ 0`; `optimize_us.py` drives balance −$97Bn → $0Bn and
-      X −1.48 → +1.44 over 40 moves. LP/MILP path still deferred (`pulp` declared, MILP untested).
-- [ ] **Validate Layer 1 against the independent oracle.** Current check is against a turn-1 savegame —
-      a *transient*, not an equilibrium (mean |diff| 0.115; CrimeRate 0.82, Health 0.68). The game ships
-      `data/simulation/data_dump/{inputs,outputs}`, which the repo's own `CLAUDE.md` names as the real
-      oracle; it is not yet wired in. Verification-independence says this is the next gate, not more solver.
-- [ ] Finance + membership subsystems (`_effectivedebt_`, `_global_interest_rates_`, `*_perc`) are still
-      zeroed, so loop gain is too low to hold the game's doom basin — the blocker named in repo `notes/scope.md`.
+- [x] Layer 2 — **both optimizers built** (2026-08-31; repo `notes/layer2.md`). A **trust-region SLP**
+      (ℓ1-penalty merit function, step acceptance, adaptive region) replaces the old unconditional-step
+      version that swung the balance by $1500Bn between iterations. A **MILP** encodes the whole network
+      at once — and because 89% of its 1149 edges are affine and the nonlinear rest read only 57 source
+      nodes, it fits in ~514 binaries. Layer 1 re-scores every candidate from either.
+- [x] **The situation flags are decision variables in the MILP** — a situation's hysteresis band is a
+      state where active *and* inactive are both self-consistent, so the binary IS the basin choice.
+      That makes basin escape searchable, which the SLP structurally cannot do (it freezes the set).
+      On the US start it escapes 10 of 12 starting situations: X −0.20→+2.98 at +$75Bn, Layer-1 verified.
+- [x] **The lesson worth keeping: the higher number was the less trustworthy one.** The SLP hits X=3.000
+      (the objective's theoretical ceiling — all six nodes on their clamp bounds) but only *conditional on
+      its frozen basin*; release the situations and the same policy vector scores 2.803 at −$9Bn, infeasible.
+      The MILP's lower +2.977 is the one that holds. When two optimizers disagree, the one that did not
+      assume its basin wins. Chosen objective also **saturates**, so it never exercises the Pareto premise.
+- [ ] **Validate Layer 1 against the independent oracle — the prerequisite is missing.** The game ships
+      `data/simulation/data_dump/{inputs,outputs}`, which the repo's `CLAUDE.md` names as the real oracle,
+      but **both directories are empty**: the game only writes them under a debug condition not yet found.
+      Finding that trigger is the actual gate, not writing more validation code.
+- [ ] Finance + membership subsystems (`_effectivedebt_`, `_global_interest_rates_`, `*_perc`) still
+      zeroed — 11 unresolved sources reported on every MILP run — so loop gain is too low to hold the
+      game's doom basin. Two shipped, grounded, **unread** data sources answer this: `data/simconfig.txt`
+      (interest rates, credit ratings, `DEBT_TO_GDP_MAX`) and `data/missions/{usa,uk,france,germany,
+      canada,australia}/` (per-country policy start vector, income bands, GDP range, population,
+      starting debt). Reading `missions/` would also retire `budget.py`'s screenshot-calibrated scale
+      factors and generalise the solver past the US.
 
 ## Notes
 - Game CSVs are the single source of truth; read in place (no copy → no drift).
