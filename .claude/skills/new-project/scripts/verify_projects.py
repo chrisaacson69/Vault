@@ -237,33 +237,40 @@ def main() -> int:
 
     print(f"vault: {root}")
     print(f"{len(repo_rows)} projects declaring a repo, {len(page_only)} pointer-only pages\n")
-    hdr = f"{'project':<28} {'remote':>7} {'resolv':>7} {'clone':>6} {'index':>6}  missing"
+    hdr = f"{'project':<28} {'remote':>7} {'resolv':>7} {'clone':>6} {'index':>6}  notes"
     print(hdr)
     print("-" * len(hdr))
 
     incomplete = 0
     for r in sorted(repo_rows, key=lambda x: x["name"].lower()):
-        missing = []
+        missing, elsewhere = [], []
+        # A clone absent from THIS machine is only a defect when nothing backs it up.
+        # With a remote, the code is safe and simply lives elsewhere -- 'not here'
+        # is not 'missing'. Without one, an absent clone means it exists nowhere.
         if not r["remote_url"]:
-            missing.append("REMOTE")
+            missing.append("NO REMOTE (at risk)")
+            if not r["has_clone"]:
+                missing.append("no clone either -- exists nowhere")
         elif r["remote_ok"] is False:
-            missing.append("REMOTE(404)")
-        if not r["in_resolver"]:
-            missing.append("resolver")
-        if not r["has_clone"]:
-            missing.append("clone")
+            missing.append("REMOTE 404")
         if not r["in_index"]:
             missing.append("index")
         if r["abs_in_page"]:
             missing.append("ABS-PATH-IN-PAGE")
+        if r["has_clone"] and not r["in_resolver"]:
+            missing.append("resolver")   # cloned here but unfindable by logical name
+        if not r["has_clone"] and r["remote_url"]:
+            elsewhere.append("not cloned here")
         if missing:
             incomplete += 1
         elif args.quiet:
             continue
         tick = lambda b: "ok" if b else "--"  # noqa: E731
+        note = ", ".join(missing) if missing else (
+            "(" + ", ".join(elsewhere) + ")" if elsewhere else "")
         print(
             f"{r['name']:<28} {tick(bool(r['remote_url'])):>7} {tick(r['in_resolver']):>7} "
-            f"{tick(r['has_clone']):>6} {tick(r['in_index']):>6}  {', '.join(missing)}"
+            f"{tick(r['has_clone']):>6} {tick(r['in_index']):>6}  {note}"
         )
 
     if args.suggest_resolver:
@@ -278,7 +285,12 @@ def main() -> int:
                 print('| `' + r['name'] + '` | `' + str(r['resolved']) + '` | `' + ident + '` | `README.md` |')
         return 0
 
-    print(f"\n{incomplete}/{len(repo_rows)} projects incompletely registered on this machine.")
+    away = sum(1 for r in repo_rows if not r["has_clone"] and r["remote_url"])
+    print()
+    print(f"{incomplete}/{len(repo_rows)} projects have a REGISTRATION DEFECT.")
+    if away:
+        print(f"{away} more exist but are not cloned here -- backed by a remote, "
+              "so 'not here' is not 'missing'.")
     if page_only and not args.quiet:
         print("\npointer-only pages (no repo declared -- fine if not started):")
         for r in page_only:

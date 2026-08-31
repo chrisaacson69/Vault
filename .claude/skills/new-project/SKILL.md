@@ -31,7 +31,12 @@ py -3.14 .claude/skills/new-project/scripts/verify_projects.py --lint NAME # cla
 py -3.14 .claude/skills/new-project/scripts/verify_projects.py --suggest-resolver  # rows for found-but-unregistered clones
 ```
 
-Exit 0 = every project complete; exit 1 = something is missing. Note `py -3` may resolve to an old
+**"Not here" is not "missing."** Not every repo comes down on every machine. A clone absent from
+this instance is a *defect* only when nothing backs it up — no remote means it exists nowhere,
+which is how `elite-decompiler` was found with no `.git` at all. With a remote, the code is safe
+and simply lives elsewhere; the audit reports that separately and does not count it against you.
+
+Exit 0 = no registration defects; exit 1 = a real one. Note `py -3` may resolve to an old
 interpreter — the script needs >= 3.9, but project code often needs newer; check `py -0p`.
 
 **Where clones are looked for.** The resolver row first; then the directories listed under
