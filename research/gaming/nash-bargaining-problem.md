@@ -204,4 +204,4 @@ The Nash framework has direct implications for how AI agents should negotiate â€
 
 ## Tags
 
-[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [mathematics](../../tags/mathematics.md)
+[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [mathematics](../../tags/mathematics.md), [game-theory](../../tags/game-theory.md)

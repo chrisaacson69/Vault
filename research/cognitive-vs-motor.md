@@ -80,4 +80,4 @@ The path to grounded AI isn't better language models. It's giving simulation eng
 - Is there a formal relationship between the cognitive/motor split and the [conservation of complexity](../notes/conservation-of-complexity.md)? Moving computation from one layer to the other should conserve total work.
 
 ## Tags
-[ai](../tags/ai.md), [llm-limitations](../tags/llm-limitations.md), [cognitive-motor](../tags/cognitive-motor.md)
+[ai](../tags/ai.md), [llm-limitations](../tags/llm-limitations.md), [cognitive-motor](../tags/cognitive-motor.md), [free-will](../tags/free-will.md)

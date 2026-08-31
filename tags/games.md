@@ -6,11 +6,13 @@ permalink: /tags/games/
 ---
 # games
 
+- [HeroClix](../projects/heroclix/README.md) — dial data + official rules joined; exact Markov combat model
 - [Monopoly](../projects/monopoly/README.md) — Monopoly engine with Markov-chain AI
 - [Slay](../projects/slay/README.md) — hex strategy game recreation with AI
 - [Slay-C](../projects/slay-c/README.md) — C port of Slay engine for performance
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
+- [Slay — Evaluation & Search (the 1v1 case)](../research/gaming/slay-evaluation.md) — the tractable 1v1 base case; eval model, transposition-first search, and three generalizing theses
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [MOO1 Optimal Strategy](../research/gaming/moo1/optimal-strategy.md)
 - [MOO1 Opening Optimizer](../projects/moo1-opening-optimizer/README.md)
@@ -41,8 +43,27 @@ permalink: /tags/games/
 - [Game Annotation Series — moved to standalone repos](../projects/game-annotation/README.md)
 - [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md) — Given the portion of the investment graph you actually own, find the tractable paths forward.
 - [Battleship — 30 Billion Boards](../research/gaming/battleship-board-analysis.md) — the best-response-vs-minimax split: guessing is deep (exploit a fixed prior, 86% win), placement is flat (minimax → random ≈ optimal)
+- [Yahtzee — 259 Trillion → 405 Million](../research/gaming/yahtzee-solved.md) — the Battleship sequel: a ~640,000× state collapse solved by backward induction (EV ≈ 255); verdict = folk strategy formally confirmed, not new strategy discovered
 - [Breaking Down an SNES Cart — the teardown method](../research/gaming/snes-cartridge-teardown.md) — how to look under the hood of any SNES ROM; the 65C816/LoROM-HiROM architecture break vs. the NES work
 - [SNES teardown — `snes-decompiler`](../projects/game-annotation/snes/README.md) — process-table pointer for the SNES teardown substrate
-- [KOEI tools — the shared engine toolchain](../projects/game-annotation/koei/README.md) — the toolchain shared by every KOEI target: `koei-nes` + `koei-snes`, the reversed engine, the portable-VM finding. A *peer* of the console nodes, since the engine spans both
-- [NES / Famicom — system node](../projects/game-annotation/nes/README.md) — the 6502+PPU substrate and its three-layer stack: `nes-render` (generic) → `koei-nes` (family engine) → per-title decompilers
-- [The comparison studies](../projects/game-annotation/comparisons/README.md) — the four paired deep-reads the series began as (Adventure · Mappy · Utopia · M.U.L.E.), one monorepo; indexed by arc because both arcs are cross-system by design
+- [D&D Monster Tournament — Exact Markov Chains](../research/gaming/dnd-monster-tournament-markov.md) — a dice-rolled monster elimination tournament re-solved exactly as an absorbing Markov chain; the videos' fixed "cast when available" policy is what makes exactness possible
+- [Trolligarch — Virtual Democracy Experiments](../research/debates/trolligarch-habbo-roman-empire.md) — Habbo/Minecraft/Discord/Reddit polities as governance laboratories; room rights and admin powers as the real sovereignty beneath the constitution
+- [Combinatorial vs Generative Design Space](../research/gaming/combinatorial-vs-generative-design-space.md)
+- [Battlezone (1980) — 3D Without a Multiply Instruction](../research/gaming/battlezone-mathbox.md) — how the first-person tank game rendered a 3D battlefield on a 1.5 MHz 6502; the vector display gave rasterization away free, but the vertex transform is where the multiplies always were
+- [Arithmetic Scarcity and the 3D Problem](../research/gaming/arithmetic-scarcity-3d.md) — buy the math (Battlezone) / compute it anyway (Elite) / constrain the geometry (Doom, Wolf3D) / precompute at art time (Ultima dungeons, Wing Commander)
+- [Stellar 7 (1983) — The Same Game Without the Coprocessor](../research/gaming/stellar7-software-3d.md) — Damon Slye's Apple II Battlezone-alike; same genre and CPU family, no math box, frame budget within 7% — the closest thing to a controlled experiment on what a coprocessor was worth
+- [Risk — The Attrition Constant](../research/gaming/risk-attrition-odds.md) — a Risk battle solved exactly as an absorbing Markov chain; the 3-vs-2 dice cap fixes the engagement frontage regardless of stack size, so attrition is Lanchester-LINEAR and concentration of force buys nothing
+- [Hangman — Solving Both Sides](../research/gaming/hangman-solving-both-sides.md) — Ballpark Figures' third specimen vs 3Blue1Brown's entropy Wordle bot; the first to solve the *chooser* as well as the guesser, and the one that inverts Battleship's max-entropy minimax result
+- [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)
+- [Bandit Kings of Ancient China (NES)](../projects/game-annotation/nes/bk/README.md) — **Game 6** in the KOEI NES decompiler family — decompile order, not release order.
+- [Gemfire (NES, 1992)](../projects/game-annotation/nes/gemfire/README.md) — **Game 7** in the KOEI NES decompiler family (decompile order, not release order — L'Empereur is
+- [Gemfire (SNES)](../projects/game-annotation/snes/gemfire-snes/README.md) — The second KOEI SNES title reversed — and the pass that exposed the trampoline bug in
+- [Genghis Khan (NES)](../projects/game-annotation/nes/gk/README.md) — Design clock **1987**; Famicom port 1989-04-20.
+- [KOEI tools — the shared engine toolchain](../projects/game-annotation/koei/README.md) — **Tools node, not a title index.** One studio, one bytecode-VM engine lineage, two consoles.
+- [L'Empereur (NES, 1991)](../projects/game-annotation/nes/lemp/README.md) — **Game 8** in the KOEI NES decompiler family.
+- [NES / Famicom — system node](../projects/game-annotation/nes/README.md) — The 6502 + PPU substrate and every title decompiled on it.
+- [ROTK1 — Sangokushi (NES)](../projects/game-annotation/nes/ro3k/README.md) — The earliest title in the KOEI NES decompiler family, and the baseline the other four are read
+- [ROTK2 — Sangokushi II (NES)](../projects/game-annotation/nes/rot3k2/README.md) — Design clock **1989**; Famicom port 1990.
+- [ROTK2 — Sangokushi II (SNES)](../projects/game-annotation/snes/rot3k2-snes/README.md) — The first KOEI **SNES** title reversed, and the title that proved the portable VM from both sides.
+- [The comparison studies — paired deep-reads](../projects/game-annotation/comparisons/README.md) — The four titles the series started as, organized in **paired comparisons**.
+- [democracy3-solver](../projects/democracy3-solver/README.md) — "Solve" Positech's Democracy 3 by extracting its game-data model and running optimization on it.

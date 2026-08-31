@@ -8,7 +8,7 @@ title: "The Multiplayer Coalition Problem"
 # The Multiplayer Coalition Problem
 > Why multiplayer games resist solution, and what the self-balancing dynamics tell us about tractable approximations.
 
-**Links:** [Gaming](./README.md), [Monopoly](../../projects/monopoly/README.md), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Cyborg Model](../cyborg-model.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Opposing Forces](../philosophy/dynamics/opposing-forces.md), [Randomness as Termination (N≥3)](./n3-termination-and-randomization.md) (the design-side corollary: this gang-up equilibrium never terminates without a randomization layer)
+**Links:** [The Lemonade Stand Experiment](../economics/lemonade-stand-agents.md) (two *competing* agents emailing each other to engineer a shared legal workaround), [Gaming](./README.md), [Monopoly](../../projects/monopoly/README.md), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Computation and Information Theory](../computation-and-information.md), [Economics](../economics/README.md), [Risk and Entrepreneurship](../economics/risk-and-entrepreneurship.md), [Cyborg Model](../cyborg-model.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Opposing Forces](../philosophy/dynamics/opposing-forces.md), [Randomness as Termination (N≥3)](./n3-termination-and-randomization.md) (the design-side corollary: this gang-up equilibrium never terminates without a randomization layer), [Risk — The Attrition Constant](./risk-attrition-odds.md) (**this problem with the arithmetic filled in** — Risk's combat has *no* tactical deterrent (matched stacks of 12+ favour the attacker, and the required defensive premium shrinks as borders grow), yet a won battle costs 85% of the attacking force, so in a symmetric three-player standoff the winner falls from a third of the board's force to **13.6%** while the bystander rises to 86.4%. A worked case of relative-position-is-everything, and of stability recovered from player count rather than from mechanics)
 
 ## The Problem
 
@@ -29,6 +29,8 @@ Slay is essentially Risk with cleaner mechanics — hex territory control, incom
 - **Kingmaker situations.** A weak player's decision about who to attack can determine which of two stronger players wins, even though the weak player has no chance of winning themselves.
 
 The two-player simplification in the current [Slay](../../projects/slay/README.md) project was a deliberate choice to make the AI tractable. Restoring six players is an open problem.
+
+The tractable 1v1 base case — the evaluation model and search design, plus three theses that generalize (the **cut/join graph duality**, **realizable-treasury / use-it-or-lose-it**, and **eval-beats-depth in wide-branching games**) — is worked out in [Slay — Evaluation & Search](./slay-evaluation.md).
 
 ### Risk
 
@@ -285,4 +287,4 @@ The catch: someone has to define who "the leader" is, and what "opposing" means,
 
 ## Tags
 
-[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [ai](../../tags/ai.md), [mathematics](../../tags/mathematics.md), [simulation](../../tags/simulation.md)
+[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [ai](../../tags/ai.md), [mathematics](../../tags/mathematics.md), [simulation](../../tags/simulation.md), [game-theory](../../tags/game-theory.md)

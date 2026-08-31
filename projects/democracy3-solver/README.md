@@ -42,4 +42,4 @@ concrete: the simulator is the accumulated state that keeps the optimizer honest
 - Harvest confirmed findings back to the vault (this repo = the dated specimen).
 
 ## Tags
-[python](../../tags/python.md), [optimization](../../tags/optimization.md), [gaming](../../tags/gaming.md)
+[python](../../tags/python.md), [games](../../tags/games.md), [simulation](../../tags/simulation.md)

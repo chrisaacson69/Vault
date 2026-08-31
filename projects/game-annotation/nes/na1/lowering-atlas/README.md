@@ -42,4 +42,4 @@ better grounded than inferring the inverse from each decompiled sub. Related:
 [DREAM — goto-free structuring](../../../../../research/reverse-engineering/dream-goto-free-structuring.md).
 
 ## Tags
-[reverse-engineering](../../../../../tags/reverse-engineering.md) · [assembly](../../../../../tags/assembly.md) · [6502](../../../../../tags/6502.md)
+[compilers](../../../../../tags/compilers.md) · [reverse-engineering](../../../../../tags/reverse-engineering.md) · [assembly](../../../../../tags/assembly.md) · [6502](../../../../../tags/6502.md)

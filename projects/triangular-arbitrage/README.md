@@ -100,4 +100,4 @@ Futures analysis opens several strategies beyond spot arbitrage:
 - `roi_analysis.py` — ROI comparison across all four scenarios
 
 ## Tags
-[economics](../../tags/economics.md), [risk](../../tags/risk.md), [praxis](../../tags/praxis.md), [agents](../../tags/agents.md), [crypto](../../tags/crypto.md), [defi](../../tags/defi.md)
+[economics](../../tags/economics.md), [risk](../../tags/risk.md), [praxis](../../tags/praxis.md), [agents](../../tags/agents.md), [crypto](../../tags/crypto.md), [defi](../../tags/defi.md), [python](../../tags/python.md)

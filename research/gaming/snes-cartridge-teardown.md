@@ -14,7 +14,9 @@ created: 2026-07-07
 **Links:** [snes-decompiler project pointer](../../projects/game-annotation/snes/README.md) · the NES
 counterpart series → [KOEI AI/combat evolution](./koei-ai-combat-evolution.md) &
 [game-annotation](../../projects/game-annotation/README.md) · method kin →
-[Transpilation as a Grounding Strategy](../transpilation-as-grounding.md) (weak formal language → grounded one).
+[Transpilation as a Grounding Strategy](../transpilation-as-grounding.md) (weak formal language → grounded one) ·
+platform kin → [Battlezone (1980) — 3D Without a Multiply Instruction](./battlezone-mathbox.md) (the arcade-hardware
+teardown: coprocessor instead of cartridge mapper).
 
 ## The architecture break vs. the NES work
 

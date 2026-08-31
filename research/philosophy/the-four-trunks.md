@@ -37,6 +37,8 @@ This is a feature, not a failure. The trunks are **division of labor**, not comp
 
 **Core pages:**
 - [The Constitutive/Elective Distinction](./morality/constitutive-elective.md) — primary statement
+- [Human Constancy](./human-constancy.md) — **the trunk’s input parameter.** Constitutive realism says norms are entailed by *the structure of the relata*; this asks **which properties of the relata are fixed**, since the entailment is only as determinate as the property list. If the relata were indefinitely plastic the entailed norms would be too, and the trunk would collapse into the constructivism it contrasts with — so Trunk 1 has a standing dependency here, and had been running on an unstated one
+- [Constructed ≠ Arbitrary](./constructed-not-arbitrary.md) — the trunk generalized past the normative to constructions at large; adds *functional failure* as a third diagnostic beside convergence and collapse, and an operational definition of "crisis"
 - [The Stance-Independence Retreat](./epistemology/stance-independence-retreat.md) — counter-page naming the failed repair attempts
 - [Is-Ought and Performative Grounding](./morality/is-ought-and-performative-grounding.md) — the mechanism at the agency level
 - [Performative Grounding — Philosophical Lineage](./morality/performative-grounding-lineage.md) — 2,400-year precedent

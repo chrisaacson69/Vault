@@ -93,3 +93,7 @@ The pattern is universal: if you make X easier than not-X, you get more X. Full 
 ---
 
 *More to come.*
+
+## Tags
+
+[civilizational-cycles](../tags/civilizational-cycles.md)

@@ -442,4 +442,4 @@ The pages that apply the trajectory/bilateral framework, with what each contribu
 - **High timeout rate:** Bilateral trade evaluation's 1.5x selectivity (vs old 3x) means fewer trades accepted → fewer monopolies → longer games → 10-14% timeouts in normal mode. Separate from auction work but affects aggregate results.
 
 ## Tags
-[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md)
+[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [economics](../../tags/economics.md), [game-theory](../../tags/game-theory.md)

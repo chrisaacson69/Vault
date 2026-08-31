@@ -10,7 +10,7 @@ title: "D&D Spell Damage Model — Math as Game Design Tool"
 
 **Source:** [The Math of D&D Spells](https://www.youtube.com/watch?v=yrgbi1xPESc) — The Gorilla of Destiny (PhD student, D&D science books)
 **Transcript:** [dnd-math-spells-transcript.txt](../../raw/videos/dnd-math-spells-transcript.txt)
-**Links:** [BattleValue](./battle-value.md), [Gaming](./README.md), [Logic and Mathematics](../philosophy/logic-and-math/README.md), [Newcomb's Paradox](../philosophy/dynamics/newcombs-paradox.md)
+**Links:** [BattleValue](./battle-value.md), [Gaming](./README.md), [Logic and Mathematics](../philosophy/logic-and-math/README.md), [Newcomb's Paradox](../philosophy/dynamics/newcombs-paradox.md), [D&D Monster Tournament — Exact Markov Chains](./dnd-monster-tournament-markov.md) (the other D&D math thread — where this page models spells *in isolation* via CLT/bimodality, that one resolves whole fights exactly and needs a cast-priority policy as input)
 
 ## The Model
 

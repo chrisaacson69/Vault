@@ -11,7 +11,6 @@ permalink: /tags/reverse-engineering/
 - [TIA Reference](../research/atari-2600/tia-reference.md) — Atari 2600 chip docs distilled for source-reading
 - [NES Research](../research/nes/README.md) — PPU/APU/Mappers references distilled for source-reading
 - [Transpilation as a Grounding Strategy](../research/transpilation-as-grounding.md) — the RE payoff: bytecode→C transpile (Nobunaga's Sea-16 VM) as the general technique, COBOL modernization as the application
-- [Lowering Atlas](../projects/game-annotation/nes/na1/lowering-atlas/README.md) — the forward complement: compile known C constructs through GCC `-O0`, catalog the CFG signature each leaves, source the finite atom table without reverse-engineering each sub one at a time
 - [APU Reference (NES)](../research/nes/apu-reference.md) — Load-bearing facts about the Audio Processing Unit (integrated into the Ricoh 2A03) for reading NES sound code.
 - [NES Mappers Reference](../research/nes/mappers-reference.md) — The cartridge logic that extends the NES beyond its base 32 KiB PRG / 8 KiB CHR address space.
 - [PPU Reference (NES)](../research/nes/ppu-reference.md) — Load-bearing facts about the Picture Processing Unit (Ricoh 2C02) for reading NES source code.
@@ -23,9 +22,25 @@ permalink: /tags/reverse-engineering/
 - [DREAM — goto-free control-flow structuring](../research/reverse-engineering/dream-goto-free-structuring.md) — reaching-conditions (not node splitting) resolve shared tails; the decompiler-output experiment
 - [The Rosetta Stone Method](../method/rosetta-stone-method.md) — learn new hardware by anchoring the unknown machine against a portable program you already understand (KOEI's cross-platform VM as the exemplar)
 - [Gemfire (SNES) fully decompiled](../research/gaming/gemfire-snes-decompiled.md)
-- [KOEI tools — the shared engine toolchain](../projects/game-annotation/koei/README.md) — the toolchain shared by every KOEI target: `koei-nes` + `koei-snes`, the reversed engine, the portable-VM finding. A *peer* of the console nodes, since the engine spans both
-- [NES / Famicom — system node](../projects/game-annotation/nes/README.md) — the 6502+PPU substrate and its three-layer stack: `nes-render` (generic) → `koei-nes` (family engine) → per-title decompilers
-- [LADS — byte-exact reconstruction](../projects/lads/README.md) — Mansfield's 1984 6502 assembler rebuilt from printed source, verified byte-for-byte against the published object code; the inverse of decompilation
-- [The comparison studies](../projects/game-annotation/comparisons/README.md) — the four paired deep-reads the series began as (Adventure · Mappy · Utopia · M.U.L.E.), one monorepo; indexed by arc because both arcs are cross-system by design
-- [NES system tools](../projects/game-annotation/nes/tools/README.md) — `nes-render` (generic render core, graduated out of NA1) + Mesen emulator integration; flags the three-homes label-emission duplication
-- [SNES system tools — `snes-decompiler`](../projects/game-annotation/snes/tools/README.md) — target-agnostic teardown substrate (verified header/mapper tools); ⚠️ not on GitHub, local copy only
+- [Nobunaga's Ambition (SNES) compiled native — no VM](../research/gaming/na1-snes-native-port.md) — native-65816 exception proven 3 ways (no fetch loop / no dispatch table / native `main`); reachability walk 0 conflicts; built a native 65816→C decompiler reusing the DREAM structurer
+- [NA1 NES↔SNES — grading two blind reverse-engineerings](../research/gaming/na1-nes-snes-blind-regrade.md) — SNES-derived vs NES-derived, all 5 sections converge (record bytes, Grow formula, event cadence, weakest-neighbour AI, 8-stat combat table); create-then-check method
+- [Battlezone (1980) — 3D Without a Multiply Instruction](../research/gaming/battlezone-mathbox.md) — a complete third-party disassembly read as a specimen: what the pipeline actually does, verified against the listing (no software mul/div exists anywhere in the ROM), with cycle counts derived rather than assumed
+- [Arithmetic Scarcity and the 3D Problem](../research/gaming/arithmetic-scarcity-3d.md) — hub for the 3D-under-scarcity specimens; Battlezone grounded from primary source, Elite/Doom/Ultima marked as unwalked stubs so the grounding gap stays visible
+- [Stellar 7 (1983) — The Same Game Without the Coprocessor](../research/gaming/stellar7-software-3d.md) — the control specimen for the arithmetic-scarcity hub; reading the source overturned the hub's own strategy-2 claim (software 3D does *not* preserve geometric freedom — it constrains the representation)
+- [Arithmetic as a Purchase — Sixty Years of Paying for Multiply](../research/arithmetic-as-a-purchase.md) — uses the vault's own decompiled evidence as a specimen: KOEI's `$C1:F800` 32-bit math library wrapping the SNES hardware mul/div registers, read off a real ROM rather than a spec sheet
+- [Bandit Kings of Ancient China (NES)](../projects/game-annotation/nes/bk/README.md) — **Game 6** in the KOEI NES decompiler family — decompile order, not release order.
+- [Gemfire (NES, 1992)](../projects/game-annotation/nes/gemfire/README.md) — **Game 7** in the KOEI NES decompiler family (decompile order, not release order — L'Empereur is
+- [Gemfire (SNES)](../projects/game-annotation/snes/gemfire-snes/README.md) — The second KOEI SNES title reversed — and the pass that exposed the trampoline bug in
+- [Genghis Khan (NES)](../projects/game-annotation/nes/gk/README.md) — Design clock **1987**; Famicom port 1989-04-20.
+- [KOEI tools — the shared engine toolchain](../projects/game-annotation/koei/README.md) — **Tools node, not a title index.** One studio, one bytecode-VM engine lineage, two consoles.
+- [L'Empereur (NES, 1991)](../projects/game-annotation/nes/lemp/README.md) — **Game 8** in the KOEI NES decompiler family.
+- [LADS — byte-exact reconstruction](../projects/lads/README.md) — A reconstruction of **LADS**, the memory-resident 6502 assembler from Richard Mansfield's
+- [Lowering Atlas](../projects/game-annotation/nes/na1/lowering-atlas/README.md) — Sibling tooling to the NA1 decompiler, in the **same repo**: compile *known* C control-flow
+- [NA1 — Nobunaga's Ambition (NES)](../projects/game-annotation/nes/na1/README.md) — The bytecode-VM decompiler that outgrew annotation and became the series' crucible.
+- [NES / Famicom — system node](../projects/game-annotation/nes/README.md) — The 6502 + PPU substrate and every title decompiled on it.
+- [NES system tools — rendering & emulator integration](../projects/game-annotation/nes/tools/README.md) — The **target-agnostic** NES tooling: rendering, and Mesen (emulator) integration.
+- [ROTK1 — Sangokushi (NES)](../projects/game-annotation/nes/ro3k/README.md) — The earliest title in the KOEI NES decompiler family, and the baseline the other four are read
+- [ROTK2 — Sangokushi II (NES)](../projects/game-annotation/nes/rot3k2/README.md) — Design clock **1989**; Famicom port 1990.
+- [ROTK2 — Sangokushi II (SNES)](../projects/game-annotation/snes/rot3k2-snes/README.md) — The first KOEI **SNES** title reversed, and the title that proved the portable VM from both sides.
+- [SNES system tools — `snes-decompiler`](../projects/game-annotation/snes/tools/README.md) — The **target-agnostic** substrate for taking apart *any* SNES cart: 65C816, LoROM/HiROM detection,
+- [The comparison studies — paired deep-reads](../projects/game-annotation/comparisons/README.md) — The four titles the series started as, organized in **paired comparisons**.

@@ -10,7 +10,7 @@ permalink: /projects/camelot-from-youtube/
 > Music analysis tool for detecting key, BPM, structure, and energy at the phrase level.
 
 **Repo:** `https://github.com/chrisaacson69/camelot_from_youtube`
-**Links:** [DJ Set 1](../dj-set-1/README.md), [Order Playlist](../order-playlist/README.md), [Set Mastering Pipeline](../set-mastering/README.md)
+**Links:** [DJ Set 1](../dj-set-1/README.md), [Order Playlist](../order-playlist/README.md), [Set Mastering Pipeline](../set-mastering/README.md), [CyborgDJ](../cyborgdj/README.md), [Multi-Genre & Wide-BPM Mixing](../../research/dj-multi-genre-mixing.md)
 
 ## Overview
 

@@ -179,4 +179,4 @@ The better answer, though it falls flat in practice: **be a better consumer. Lea
 This is an open problem. The mechanism is sound. The inputs are corrupted. And the corruption is partially structural (complexity) and partially self-inflicted (outsourced thinking).
 
 ## Tags
-[economics](../../tags/economics.md), [free-markets](../../tags/free-markets.md), [education](../../tags/education.md)
+[economics](../../tags/economics.md), [free-markets](../../tags/free-markets.md), [education](../../tags/education.md), [externalities](../../tags/externalities.md)

@@ -118,7 +118,7 @@ The vending machine was the closest attempt, and it failed exactly where our the
 ## Open Questions
 - Can the creativity demonstrated in security research transfer to entrepreneurial contexts?
 - What's the next real-world test that pushes into CEO-class decisions?
-- How do we design a "vending machine 2.0" experiment that applies the structural lessons?
+- ~~How do we design a "vending machine 2.0" experiment that applies the structural lessons?~~ — **RESOLVED (2026-08-24), with an asterisk.** A third party ran one: [The Lemonade Stand Experiment](./lemonade-stand-agents.md) — Claude Opus 4.7 vs GPT-5.5, real capital, real customers, physical build, competing agents. It satisfies all four "What Hasn't Been Tested" criteria above. **But it did not apply the structural lesson**: the brief was *"make $100 by end of day"* against an **unlimited budget** — a revenue target, not a profit one. Both agents could see their ledgers in full detail and spent ~$10,000 each anyway. So the finding is not "agents still can't do unit economics" but the sharper **visibility of a constraint is necessary but not sufficient — the *objective* must encode it too.** The genuinely open version of this question is therefore now: *what happens under a profit objective with a hard budget cap?*
 
 ## Tags
-[economics](../../tags/economics.md), [agents](../../tags/agents.md), [praxis](../../tags/praxis.md)
+[economics](../../tags/economics.md), [agents](../../tags/agents.md), [praxis](../../tags/praxis.md), [agent-teams](../../tags/agent-teams.md)

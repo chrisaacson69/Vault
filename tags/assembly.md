@@ -14,9 +14,13 @@ permalink: /tags/assembly/
 - [Mappers Reference](../research/nes/mappers-reference.md) — NES cartridge logic from NROM through MMC5
 - [Breaking Down an SNES Cart](../research/gaming/snes-cartridge-teardown.md) — 65C816 vs 6502; why a width-aware disassembler is needed
 - [SNES teardown — `snes-decompiler`](../projects/game-annotation/snes/README.md) — the target-agnostic SNES teardown substrate
-- [KOEI tools — the shared engine toolchain](../projects/game-annotation/koei/README.md) — the toolchain shared by every KOEI target: `koei-nes` + `koei-snes`, the reversed engine, the portable-VM finding. A *peer* of the console nodes, since the engine spans both
-- [NES / Famicom — system node](../projects/game-annotation/nes/README.md) — the 6502+PPU substrate and its three-layer stack: `nes-render` (generic) → `koei-nes` (family engine) → per-title decompilers
-- [LADS — byte-exact reconstruction](../projects/lads/README.md) — Mansfield's 1984 6502 assembler rebuilt from printed source, verified byte-for-byte against the published object code; the inverse of decompilation
-- [The comparison studies](../projects/game-annotation/comparisons/README.md) — the four paired deep-reads the series began as (Adventure · Mappy · Utopia · M.U.L.E.), one monorepo; indexed by arc because both arcs are cross-system by design
-- [NES system tools](../projects/game-annotation/nes/tools/README.md) — `nes-render` (generic render core, graduated out of NA1) + Mesen emulator integration; flags the three-homes label-emission duplication
-- [SNES system tools — `snes-decompiler`](../projects/game-annotation/snes/tools/README.md) — target-agnostic teardown substrate (verified header/mapper tools); ⚠️ not on GitHub, local copy only
+- [Battlezone (1980) — 3D Without a Multiply Instruction](../research/gaming/battlezone-mathbox.md) — reading Atari's 12 KB of 6502 from McFadden's commented disassembly: the memory-mapped math-box API, the vertex inner loop, quarter-wave sine and octant-folded arctan, `RTS`-dispatch sign fixup
+- [Arithmetic Scarcity and the 3D Problem](../research/gaming/arithmetic-scarcity-3d.md) — why 8086 inner loops avoided `MUL` too (118-133 clocks, microcoded not silicon); the four strategies for real-time 3D when arithmetic is the scarce resource
+- [Stellar 7 (1983) — The Same Game Without the Coprocessor](../research/gaming/stellar7-software-3d.md) — unrolled shift-add multiply (7 stages, no loop), a 4-path specialized divide with the fixed-point pre-shift folded into the signature, and a vertex loop that services bit-banged audio four times per vertex
+- [Arithmetic as a Purchase — Sixty Years of Paying for Multiply](../research/arithmetic-as-a-purchase.md) — the request protocol that never changed: write operands to a port, let the last write trigger, wait a known cycle bound, read the result — the 1401's option gate, Battlezone's `$1860`, the SNES's `$4202`, a GPU command buffer
+- [KOEI tools — the shared engine toolchain](../projects/game-annotation/koei/README.md) — **Tools node, not a title index.** One studio, one bytecode-VM engine lineage, two consoles.
+- [LADS — byte-exact reconstruction](../projects/lads/README.md) — A reconstruction of **LADS**, the memory-resident 6502 assembler from Richard Mansfield's
+- [Lowering Atlas](../projects/game-annotation/nes/na1/lowering-atlas/README.md) — Sibling tooling to the NA1 decompiler, in the **same repo**: compile *known* C control-flow
+- [NA1 — Nobunaga's Ambition (NES)](../projects/game-annotation/nes/na1/README.md) — The bytecode-VM decompiler that outgrew annotation and became the series' crucible.
+- [NES / Famicom — system node](../projects/game-annotation/nes/README.md) — The 6502 + PPU substrate and every title decompiled on it.
+- [The comparison studies — paired deep-reads](../projects/game-annotation/comparisons/README.md) — The four titles the series started as, organized in **paired comparisons**.

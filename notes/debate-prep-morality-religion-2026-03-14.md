@@ -165,3 +165,7 @@ REDIRECT (if they drift to proving God):
    It's whether morality requires religion.
    Even granting God, Euthyphro still applies."
 ```
+
+## Tags
+
+[debates](../tags/debates.md) · [morality](../tags/morality.md) · [religion](../tags/religion.md)

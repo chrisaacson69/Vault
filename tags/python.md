@@ -8,6 +8,7 @@ permalink: /tags/python/
 > Projects and files using Python.
 
 - [Batch Resize](../projects/batch-resize/README.md)
+- [HeroClix](../projects/heroclix/README.md)
 - [Camelot From YouTube](../projects/camelot-from-youtube/README.md)
 - [Order Playlist](../projects/order-playlist/README.md)
 - [PyTorch Learning](../projects/pytorch-learning/README.md)
@@ -19,3 +20,4 @@ permalink: /tags/python/
 - [MOO1 Opening Optimizer](../projects/moo1-opening-optimizer/README.md)
 - [OOP Neurons](../projects/oop-neurons/README.md)
 - [CyborgDJ](../projects/cyborgdj/README.md) — Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
+- [democracy3-solver](../projects/democracy3-solver/README.md) — "Solve" Positech's Democracy 3 by extracting its game-data model and running optimization on it.

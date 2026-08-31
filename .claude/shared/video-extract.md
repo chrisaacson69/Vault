@@ -70,8 +70,32 @@ type: youtube
 ---
 ```
 
+## Fallback: yt-dlp cannot connect at all (SNI-blocked network)
+
+On a network that blocks `www.youtube.com` by SNI — symptom: **every** TCP client
+(`yt-dlp`, `curl`, `WebFetch`) dies at the TLS handshake with `SSLV3_ALERT_HANDSHAKE_FAILURE`
+or schannel `SEC_E_ILLEGAL_MESSAGE`, while `youtu.be` and `youtube-nocookie.com` work —
+**do not debug yt-dlp.** It has no HTTP/3 backend, so no version and no flag can help
+(`-U`, rebuild, `--impersonate`, `--legacy-server-connect` all tested and failed).
+
+Use the saved tool, which drives Chrome over QUIC via CDP:
+
+```bash
+py -3 tools/fetch-youtube-transcript.py "<url-or-id>" "raw/videos/YYYY-MM-DD slug.txt"
+```
+
+It clears three separate walls — QUIC transport, capturing the player's own POT-bearing
+caption URL, and a **User-Agent override without which YouTube returns an empty 200 to
+headless Chrome**. That last one is the trap: the request *succeeds* with a 0-byte body,
+so it reads as "no captions" rather than as a block. Full reasoning is in the tool's
+docstring; provenance in memory `feedback_yt_dlp_transcripts`.
+
+Metadata only (no captions needed) is cheaper via `youtube-nocookie.com` + a
+`Host: www.youtube.com` header — no browser required.
+
 ## Failure Modes
 
 - **No captions available:** Tell the user. Suggest downloading audio and using Whisper for transcription (see notes/yt-dlp-transcript-workflow.md for the full workflow).
+- **Caption request returns HTTP 200 with 0 bytes:** not a network failure and not "no captions" — it is headless-browser detection (`cbr=HeadlessChrome` in the request) or a pre-roll ad playing. Both are handled by `tools/fetch-youtube-transcript.py`.
 - **Geo-blocked / age-restricted:** Note the failure. The user may need to provide cookies or use a different approach.
 - **Live stream / premiere:** May not have captions yet. Check back later.

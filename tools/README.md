@@ -5,6 +5,18 @@ Deterministic generators & audit gates for the vault — the **derive** half of
 keep the vault write-optimized (a web of forward links), and let tools derive the
 read-optimized checks instead of auditing by hand.
 
+Most of what follows maintains the vault itself. One exception is noted as such:
+**`risk-battle-odds.py`** is a *research* solver backing a specific page, kept here
+because it is the same kind of artifact — a deterministic generator whose output is
+checkable — and because a solver that lives next to its page cannot go unfindable.
+
+**Consumers — the skills that must run these rather than re-implement them:**
+[`/vault-heartbeat`](../.claude/skills/vault-heartbeat/SKILL.md) (its whole structural pass is
+`vault-graph` + `vault-tagindex` + `tag-counts`) and [`/vault-sync`](../.claude/skills/vault-sync/SKILL.md)
+(step 4 → `tag-counts.py`). *Registered 2026-08-26, after a heartbeat hand-rolled its own broken-link
+and tag checkers because nothing routed it here — the index existed, the pointer to it didn't.
+Unfindable capability gets rebuilt; that is what the pointer is for.*
+
 ## vault-graph.py — the derive-the-ledger audit gate
 
 Scans the markdown link graph and reports:
@@ -48,6 +60,17 @@ missing tag files (created), and intentional doc placeholders. Combined with man
 the baseline went **178 → 0 broken links**. (A greedy manual substring edit during mop-up
 re-broke 5 valid links — and `vault-graph.py` caught it immediately. The gate works.)
 
+**Fixed 2026-08-26 — two false-positive bugs.** (1) Link targets were resolved on disk *without*
+percent-decoding, so any legitimate `%20` path reported `[missing]` — every link into `raw/`
+(whose filenames carry spaces) was a standing false positive, including ones on published pages.
+(2) `raw/` was excluded from the basename candidate index as well as from scanning, so a broken
+link *into* raw could never be matched. Now split: `EXCLUDE` still means never-scanned and
+never-rewritten (raw is immutable), while `INDEX_ONLY` re-admits raw's `.md` files as link
+*targets*. Emitted replacements re-encode spaces as `%20` to match vault convention. This cleared
+5 false positives; the 4 that remain are genuine doc placeholders. Noted because
+[AI as a Cognitive Tool](../research/ai-as-cognitive-tool.md) cites this very checker as its
+worked example of a verification layer that silently degraded — it had degraded again.
+
 ## vault-tagindex.py — regenerate the tag reverse-indexes (the "derive indexes" half)
 
 Source of truth = each page's `## Tags` section (which links to `../tags/<tag>.md`); this
@@ -64,6 +87,27 @@ py -3 tools/vault-tagindex.py --write    # apply
 First apply (2026-06-08): 41 tag files reconciled — broken links **178 → 117**, ~200 missing
 memberships added (`+48 philosophy`, `+29 morality`, …, the hand-maintained index's rot). The
 remaining 117 broken links are non-tag (INDEX deep-links, a few wrong-path bugs) — a separate pass.
+
+## risk-battle-odds.py — exact Risk battle odds (research solver, not a vault gate)
+
+Backs [research/gaming/risk-attrition-odds.md](../research/gaming/risk-attrition-odds.md).
+Solves a Risk battle fought to the death as an **absorbing Markov chain** — exact, no
+simulation — returning P(win), the full survivor distribution, percentiles, and the
+closed-form mean/spread.
+
+```
+py -3 tools/risk-battle-odds.py 299 300 --stack --observed 54   # a real battle, scored
+py -3 tools/risk-battle-odds.py 298 300 --reduced               # show what the reduction trims
+py -3 tools/risk-battle-odds.py --selftest                      # exit 0 = clean
+```
+
+**Two engines, deliberately.** `solve()` is a forward sweep over the whole `(a,d)` grid;
+`reduced()` exploits the fact that a 3-vs-2 round kills *exactly* two armies (so `a+d`
+parity is invariant and the bulk is a 1-D IID walk) and solves the `a≤2 or d≤1` boundary
+shell separately. They are structurally independent, so `--selftest` **cross-checks them
+against each other on every run** — plus the per-round dice table against the published
+Risk odds, and the martingale identity behind the closed form. That mutual check is the
+point: the reduction is not faster (both are O(A·D)/2), it is a second oracle.
 
 ## vault-backlinks.py — materialize backlinks (the "emit backlinks" half) — BUILT, not applied
 

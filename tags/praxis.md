@@ -9,3 +9,4 @@ permalink: /tags/praxis/
 
 - [Agent Teams vs. the Theory](../research/economics/praxis-agent-teams.md)
 - [Triangular Arbitrage — Currency & Crypto Market Differentials](../projects/triangular-arbitrage/README.md) — Can we exploit differentials in cross-rates for profit? Math says yes.
+- [The Lemonade Stand Experiment](../research/economics/lemonade-stand-agents.md) — the praxis open question answered: real entrepreneurial risk, real customers, physical grounding, competing utility functions — with the confound that the brief specified revenue, not profit

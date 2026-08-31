@@ -8,7 +8,7 @@ title: "The Constitutive/Elective Distinction — Replacing Objective vs Subject
 # The Constitutive/Elective Distinction — Replacing Objective vs Subjective
 > The objective/subjective debate is fought on a single axis that doesn't exist. There are two axes, not one. Morality is mind-dependent AND constrained — a combination the traditional vocabulary has no word for.
 
-**Links:** [The Four Trunks](../the-four-trunks.md), [Morality](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md), [Scope Confusion](./scope-confusion.md), [Is-Ought and Performative Grounding](./is-ought-and-performative-grounding.md), [The Constitutive Middle — Two Dialectics](./constitutive-middle-dialectics.md), [Open Problems](./open-problems.md), [Noerr vs Terry X](../../debates/noerr-teryx-subjective-objective-morality.md), [Logic and Mathematics](../logic-and-math/README.md), [The Regress Problem](../epistemology/the-regress-problem.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Morality](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md), [Scope Confusion](./scope-confusion.md), [Is-Ought and Performative Grounding](./is-ought-and-performative-grounding.md), [The Constitutive Middle — Two Dialectics](./constitutive-middle-dialectics.md), [Open Problems](./open-problems.md), [Noerr vs Terry X](../../debates/noerr-teryx-subjective-objective-morality.md), [Logic and Mathematics](../logic-and-math/README.md), [The Regress Problem](../epistemology/the-regress-problem.md), [Constructed ≠ Arbitrary](../constructed-not-arbitrary.md)
 
 **Trunk:** This page states [Trunk 1 — Normative Ontology](../the-four-trunks.md#trunk-1--normative-ontology) of the vault's philosophy. The working name for the trunk's position is *constitutive realism*.
 
@@ -190,6 +190,12 @@ The [scope model](./scope-confusion.md) maps cleanly onto the constitutive/elect
 
 The constitutive/elective axis IS the scope gradient, just named. The scope model was already tracking this — the new terminology makes it explicit.
 
+### Social Constructions Generally
+
+[Constructed ≠ Arbitrary](../constructed-not-arbitrary.md) runs this page's argument over **non-normative** constructions — masculinity, currency, marriage, borders, language. Same structure: mind-dependent, but constrained by the problem the construction was built to solve, therefore evaluable, therefore capable of being *wrong*. It exists because the "objective/subjective" collapse this page diagnoses has an exact twin outside morality — **"it's just a social construct" treats mind-dependent as automatically elective**, which is the bottom-right cell swallowing the bottom-left one.
+
+It also contributes a diagnostic this page lacks. Convergence and collapse are the two tests offered here for constitutiveness; collapse is terminal and retrospective (you learn the norm was load-bearing by watching the building fall). **Functional failure** — the construction no longer serving the purpose it was built for — is the continuous, present-tense version of the same signal, and yields an operational definition of *crisis*. First specimen: [Is Masculinity in Crisis?](../../debates/wordwar-masculinity-crisis-owlish-garcia.md).
+
 ### Relational Objectivity
 
 The [four-category ontology](../epistemology/relational-objectivity.md) provides the metaphysical infrastructure. The constitutive/elective distinction provides the *vocabulary* for communicating it:
@@ -201,7 +207,7 @@ The [four-category ontology](../epistemology/relational-objectivity.md) provides
 ## Open Questions
 
 1. **Is the constitutive/elective boundary sharp or gradient?** The scope model suggests gradient. But is there a principled threshold, or just a continuous fade?
-2. **Can something shift from elective to constitutive?** Nutrition history suggests yes — "eat what tastes good" was elective until we discovered vitamins, at which point "eat vitamin C" became constitutive. Are there moral analogues?
+2. **Can something shift from elective to constitutive?** Nutrition history suggests yes — "eat what tastes good" was elective until we discovered vitamins, at which point "eat vitamin C" became constitutive. Are there moral analogues? The general form: **technology/biology shifts the axioms, so the constitutive set moves** — if humans didn't need food or didn't die, the constitutive norms would change (sci-fi's real job is stress-testing this). The constitutive set is fixed *relative to a substrate*, not eternally. Specimen: [Sitch/Mullally debate review](../../debates/sitch-mullally-birthright-citizenship.md) §Discussion (the "natural law" laundering diagnosis + the speed-limit *band* as the scope gradient made concrete).
 3. **Does the theist have a stronger version?** "Constitutive of agency" explains morality's normative force. But "constitutive of reality as designed by God" would explain it AND explain why the structure of agency has this property. Is the naturalist explanation complete, or does it push the question back one level?
 4. **Can you get someone to accept this reframe in a live debate?** The terminological shift requires the opponent to abandon "objective/subjective" and adopt new vocabulary mid-conversation. That's a high bar rhetorically, even if it's correct philosophically.
 

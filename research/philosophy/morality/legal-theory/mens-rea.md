@@ -272,7 +272,7 @@ The legal question is: was property violated, and by whom? This is an objective 
 - **Kant** — categorical vs. hypothetical imperatives (background)
 
 ## Tags
-- [philosophy](../../../../tags/philosophy.md)
+- [philosophy](../../../../tags/philosophy.md), [free-will](../../../../tags/free-will.md)
 - [libertarian-law](../../../../tags/libertarian-law.md)
 - [morality](../../../../tags/morality.md)
 - [natural-law](../../../../tags/natural-law.md)

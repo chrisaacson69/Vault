@@ -8,7 +8,7 @@ title: "DJ EQ Blending Technique"
 # DJ EQ Blending Technique
 > How pro DJs use EQ — not the crossfader — as the primary transition tool.
 
-**Links:** [CyborgDJ](../projects/cyborgdj/README.md), [DJ Set 1](../projects/dj-set-1/README.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md), [Crossover Calibration](./dj-crossover-calibration.md)
+**Links:** [CyborgDJ](../projects/cyborgdj/README.md), [DJ Set 1](../projects/dj-set-1/README.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md), [Multi-Genre & Wide-BPM Mixing](./dj-multi-genre-mixing.md), [Crossover Calibration](./dj-crossover-calibration.md)
 
 ## Context
 
@@ -25,7 +25,7 @@ This research collects technique breakdowns from tutorial videos and synthesizes
 | 3 | [How to Mix Tech House (5 Levels)](https://www.youtube.com/watch?v=h0VQEEj--_U) | Club Ready DJ School | Progressive skill levels; EQ + phrasing as foundation |
 | 4 | [3 Ways To Mix Techno](https://www.youtube.com/watch?v=22XjZKJS69E) | Crossfader | Slow EQ blend, drop swap, layering — most mechanically detailed |
 
-Transcripts saved at `C:\Users\Chris.Isaacson\` as `*_transcript.txt`.
+Transcripts are saved locally as `*_transcript.txt` (machine-local, not committed).
 
 ## Core Principle
 

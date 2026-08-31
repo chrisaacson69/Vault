@@ -318,6 +318,92 @@ Use this as the summary frame — ties the whole case together at the end of the
 >
 > *My opponent is offering a band-aid that doubles as a loaded gun. I'm offering the messy, imperfect, self-correcting thing that has produced every free society in history. Take the one that self-corrects."*
 
+## The *voter*-competency variant — the driver's-license symmetry (added 2026-07-20)
+
+*This page argues the **representative**-competency proposition. A separate chat exchange ran the
+**voter**-competency version, where the Pro analogy is: "we put restrictions on a driver's licence,
+why not voting?" and the Pro explicitly asked for a **symmetry breaker**. Recorded here because the
+material is shared and this is the doc that gets opened.*
+
+### ⚠ Correction: Article II is **not** a voting provision
+
+Chris originally cited **Article II** as constitutional text about voting. **It isn't** — A2 §1 cl. 2
+governs how *states appoint electors*, not any individual franchise. The authority is blunt:
+
+> **[Bush v. Gore, 531 U.S. 98 (2000)](https://www.law.cornell.edu/supremecourt/text/00-949):** *"The
+> individual citizen has no federal constitutional right to vote for electors for the President of
+> the United States unless and until the state legislature chooses a statewide election as the means
+> to implement its power to appoint members of the Electoral College."* The legislature's power over
+> the **manner** of appointment is **plenary** — it may appoint electors itself, as several states
+> did after the Framing.
+
+**This inverts the chat claim that "legal standing is the Affirmative's worst leg."** Split the claim
+by office:
+
+| Office | Affirmative's constitutional footing |
+|---|---|
+| **President** | **Their strongest ground.** Plenary legislative power over manner of appointment; no individual federal right to vote for electors at all |
+| **Congress** | Weak — Art I §2 ties House electors to the state's most numerous branch; 17th for Senate |
+| **Any test correlating with race / sex / wealth / age** | Weakest — 15th, 19th, 24th, 26th |
+
+### The better symmetry breaker
+
+"A licence isn't in the Constitution, voting is" is true but invites *"so what?"* — it's an argument
+from placement. **Use demonstrated history instead: the Pro's exact proposal was implemented, then
+outlawed.**
+
+- **Literacy tests** are the direct historical analogue of a competency test. Banned nationwide by
+  the **VRA Amendments of 1970** and **[made permanent in 1975](https://www.congress.gov/bill/94th-congress/house-bill/6219)**.
+- **[Oregon v. Mitchell, 400 U.S. 112 (1970)](https://supreme.justia.com/cases/federal/us/400/112/):**
+  **all** the justices joined in upholding the literacy-test ban, under the **15th Amendment
+  enforcement clause**.
+- The **24th Amendment** independently bars poll taxes — the *wealth* version of a competency filter.
+
+**The line:** *"Competency tests for voting aren't hypothetical. We ran them for a century, they
+functioned as discriminatory instruments, and Congress banned them permanently with the Supreme
+Court unanimously behind it. There is no comparable history for driver's licensing — that's your
+asymmetry."* This also feeds the page's core thesis: the filter relocates power to **whoever designs
+the filter**, and literacy tests are the empirical proof of what that relocation produced.
+
+**⚠ Expect the dodge — and it fails on the text.** Pro's prepared escape (seen live) is to **deny the
+equivalence**: *"competency ≠ literacy, so none of the literacy-test law applies to us."* Chris's read
+that current law still binds them is **correct**, and the answer is statutory, not analogical —
+**§201 defines the banned thing functionally, never using the word "literacy" as the trigger**:
+
+> **VRA §201 / [52 U.S.C. §10501(b)](https://uscode.house.gov/view.xhtml?path=%2Fprelim%40title52%2Fsubtitle1%2Fchapter105&edition=prelim):**
+> a "test or device" is any voting prerequisite that a person *"(1) demonstrate the ability to read,
+> write, understand, or interpret any matter, **(2) demonstrate any educational achievement or his
+> knowledge of any particular subject**, (3) possess good moral character, or (4) prove his
+> qualifications by the voucher of registered voters."*
+
+**Clause (2) is a competency test by definition.** Renaming the instrument doesn't move it out of the
+statute — the ban attaches to the *mechanism*, and clause (1) doesn't even exhaust it. Make them
+argue their proposal is not "knowledge of any particular subject," which is the one thing a
+competency test cannot deny being.
+
+### ⚠ Don't answer the takings clause when they argued due process
+
+In the chat exchange the Pro invoked the **5th/14th (due process)**; the reply given was *"roads are
+public, so not subject to private property law."* That answers **takings**, not **due process** —
+wrong clause. And it concedes a point that isn't true:
+
+- **[Bell v. Burson, 402 U.S. 535 (1971)](https://supreme.justia.com/cases/federal/us/402/535/):** an
+  issued driver's licence **is** a protected interest; the state must give notice and a hearing
+  before suspension. So licences **do** carry due-process protection — which *strengthens* the Pro's
+  analogy on that axis. Concede it and move to the enumerated-restrictions asymmetry above, which
+  the analogy cannot survive.
+- *"The law IS due process"* **does not hold** — the doctrine exists precisely because some
+  deprivations require more than the existence of a statute (that's the procedural/substantive
+  split). Don't run this line.
+
+### Related: the Electoral College framing
+
+The "states don't elect the President, the EC does; a state's only job is to lawfully send electors"
+position is already developed in the vault as the **manner/substance line** and the **two patchworks**
+distinction — see [Trump v. Anderson](../trump-v-anderson-eligibility.md) (ballot-mechanics patchwork
+is permitted by A2S1; *eligibility* patchwork is not — and *Thornton* is the structural reason) and
+[Chiafalo v. Washington](../chiafalo-and-the-deliberative-elector.md).
+
 ## Vault Connections
 
 - **[Pool vs Kyla: Suffrage](./pool-kyla-suffrage-taxation.md)** — same structural problem at the voter level; same answer (fix scope, not participation). The entire argument pattern transposes.

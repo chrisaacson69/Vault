@@ -10,7 +10,7 @@ discussion: folded-in
 **Source:** [YouTube — CGP Grey](https://www.youtube.com/watch?v=l8XOZJkozfI) — [Transcript](../../raw/debates/cgp-grey-voting-too-good.en.srt)
 **Participants:** CGP Grey (advocate for STV) vs — (no opponent; this is a one-sided explainer, so the "opposition" is the adversarial read)
 **Result:** n/a — advocacy piece, not a debate
-**Vault relevance:** [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md), [Convergence Is a Process, Not a Destination](../../notes/convergence-as-process.md), [Directional Truth and the Discrete Trap](../../notes/directional-truth-and-the-discrete-trap.md), [Scope Confusion](../philosophy/morality/scope-confusion.md)
+**Vault relevance:** [Game Theory as Normative, Not Descriptive](../../notes/game-theory-as-normative-not-descriptive.md), [Convergence Is a Process, Not a Destination](../../notes/convergence-as-process.md), [Directional Truth and the Discrete Trap](../../notes/directional-truth-and-the-discrete-trap.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Aggregation vs. Sorting](../philosophy/morality/legal-theory/aggregation-vs-sorting.md) (**this review is one of that thesis's two specimens** — it contributes the impossibility floor (Arrow, Gibbard–Satterthwaite) and the proportionality-scope confusion showing "fair" has no single referent; the thesis adds the dimensionality variable and the sorting alternative)
 
 ---
 
@@ -94,6 +94,24 @@ Reusable moves this review crystallized:
 - [Convergence Is a Process, Not a Destination](../../notes/convergence-as-process.md) — "maximize happiness" presumes a stance-independent optimum that doesn't exist.
 - [Directional Truth and the Discrete Trap](../../notes/directional-truth-and-the-discrete-trap.md) — STV sold as a discrete destination overshoots the directional truth ("FPTP has bad pathologies").
 - [Scope Confusion](../philosophy/morality/scope-confusion.md) — "which proportionality?" is the level/scope error at the heart of Grey's proportionality pitch.
+
+## Worked examples (down-link) -- the arithmetic this review asked for
+
+- **[Worked Examples -- The Impossibility Floor, With Arithmetic](./voting-paradox-worked-examples.md)** --
+  eight machine-checked ballot profiles built from this page's seeds, computed by
+  [`tools/voting-paradoxes.py`](../../tools/voting-paradoxes.py) (`--selftest` re-derives every claim).
+  **It closes the first Open Question below:** the surplus-transfer handwave is now a table --
+  *identical ballots, four ordinary rule-sets (Droop/Hare x Gregory/whole-ballot), **three different
+  three-member councils***, plus isolations showing the **quota alone** and the **transfer rule alone**
+  each change the result. It also supplies Seed 1 (a worked Gibbard-Satterthwaite manipulation),
+  Seed 2 (non-monotonicity: raising the winner on 12 ballots defeats them), Seed 6 (a single profile
+  that is *both* an IIA violation and a Condorcet failure -- the center-squeeze shape), a **no-show
+  paradox** verified tie-break-free, a **majority-criterion failure** under Borda, and the headline
+  demonstration that **one electorate elects five different winners under six ordinary methods**.
+  Carries the discipline note this critique needs to survive contact: **label which result each example
+  demonstrates** -- only the IIA case is literally Arrow; manipulation is Gibbard-Satterthwaite,
+  participation is Moulin, and monotonicity/Condorcet/majority are *criteria*, not theorems. Bundling
+  them all as Arrow is how a correct critique gets dismantled on camera.
 
 ## Open Questions
 - **Surplus-transfer strategy mechanics** — we named that random-sample vs Gregory vs Meek give different winners; we did *not* work a concrete profile showing a *strategic* exploit of the chosen rule. Worth a worked example if this ever needs to be airtight.

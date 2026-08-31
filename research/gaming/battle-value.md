@@ -8,7 +8,7 @@ title: "BattleValue — A Universal Combat Comparison Metric"
 # BattleValue — A Universal Combat Comparison Metric
 > BV = sqrt(Attack × HP). One number to compare any two units across any game system.
 
-**Links:** [Gaming](./README.md), [Economics](../economics/README.md), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [YouTube Migration](../../projects/youtube-migration/README.md), [The Dominance-Frontier Lens](../dominance-frontier-lens.md) (BV/Cost is this lens's cost-axis for combat units)
+**Links:** [Gaming](./README.md), [Economics](../economics/README.md), [Risk — The Attrition Constant](./risk-attrition-odds.md) (**the Square-Law counterexample** — BV's `sqrt(Attack × HP)` derives from Lanchester's *Square* Law, which assumes force concentration compounds; Risk caps the engagement frontage at 3-vs-2 dice regardless of stack size and so obeys the *linear* law instead, with a measured **zero** concentration advantage. The general lesson for BV: **where frontage is capped, the Square-Law premise fails** — check it before applying BV to any system), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md), [YouTube Migration](../../projects/youtube-migration/README.md), [The Dominance-Frontier Lens](../dominance-frontier-lens.md) (BV/Cost is this lens's cost-axis for combat units), [D&D Monster Tournament — Exact Markov Chains](./dnd-monster-tournament-markov.md) (**the proposed ground-truth oracle for BV** — an exact pairwise win matrix is the test this metric has never faced; where √(Attack × HP) fails should be predictable from the MoM complications list. **Carries the Hercules warning:** Chris's earlier HeroClix Markov study crowned Hercules on BV/cost purely because range and non-combat abilities were unmodelled — so a combat model and BV that *share* a melee blind spot will agree with each other for bad reasons, and any BV validation needs a mobility-enabled control run), [HeroClix](../../projects/heroclix/README.md) (**the Hercules warning's home project** — dial data + official rules now confirmed fetchable, so the melee blind spot is testable rather than merely acknowledged)
 
 ## The Problem
 
@@ -347,4 +347,4 @@ The BV formula gives you the *floor* of analysis. Everything above it is game-sp
 - **Historical wargaming** — The "100 HP = 100 men" formulation predates D&D, rooted in hex-and-counter wargames of the 1950s-60s (Avalon Hill, SPI) which themselves formalized Napoleonic-era military theory.
 
 ## Tags
-[games](../../tags/games.md), [game-theory](../../tags/game-theory.md), [mathematics](../../tags/mathematics.md), [economics](../../tags/economics.md)
+[games](../../tags/games.md), [game-theory](../../tags/game-theory.md), [mathematics](../../tags/mathematics.md), [economics](../../tags/economics.md), [strategy](../../tags/strategy.md)

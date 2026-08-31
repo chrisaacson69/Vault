@@ -14,6 +14,7 @@ created: YYYY-MM-DD
 # Title
 > One-line summary
 
+**Source:** [Title](../raw/videos/YYYY-MM-DD slug.txt) — <https://original.url>
 **Links:** [related item](./path/to/file.md), [another](./path/to/other.md)
 
 ## Content sections...
@@ -22,6 +23,24 @@ created: YYYY-MM-DD
 
 [tag-name](../tags/tag-name.md)
 ```
+
+### The `**Source:**` line (required for any page derived from `raw/`)
+
+**Every page built from captured material names its `raw/` path, as a relative link, verbatim.** Cite the
+original URL too, but the local path is the part that must be there: the URL says where it came from, the
+path says *which artifact in this repo it was actually derived from*. Omit it and the page is unverifiable
+on any other machine, and the vault loses its only mechanical way to tell captured-and-processed from
+captured-and-forgotten.
+
+This is not bookkeeping — it is the Grounding Discipline's audit trail. Measured 2026-08-26: without it,
+raw coverage can only be guessed at by matching filenames, which ran ~70% false-positive (75 of 194 source
+groups flagged as unprocessed; four clusters spot-checked, all four were fully processed and simply cited
+by URL or under an unrelated page name). One `**Source:**` line per page turns that three-pass heuristic
+into an exact lookup. See `.claude/skills/vault-heartbeat/SKILL.md` §1.5c.
+
+- Multiple sources → one `**Source:**` line each, or a `## Sources` section with the same content.
+- Source is a URL with no local capture → cite the URL and say so; don't invent a path.
+- Pages with no captured source at all (pure synthesis) correctly have no `**Source:**` line.
 
 ### Frontmatter Rules
 - `status` and `created` are required

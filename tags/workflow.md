@@ -9,3 +9,6 @@ permalink: /tags/workflow/
 
 - [yt-dlp Transcript Workflow](../notes/yt-dlp-transcript-workflow.md)
 - [Claude Code Skill Engineering](../notes/claude-code-skill-engineering.md) — 4 rules + 2 patterns; minimal prompts, pointer-based markdown, saved scripts over regenerated code
+- [Vault Heartbeat — 2026-08-26](../logs/heartbeat-2026-08-26.md)
+- [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md) — Nate B.
+- [Vault Multi-Machine Sync — Branching, Divergence, and Merge Resolution](../notes/vault-multi-machine-sync.md) — The vault runs on two machines and commits straight to `master` on both.

@@ -12,6 +12,7 @@ permalink: /tags/game-ai/
 - [Slay-C](../projects/slay-c/README.md)
 - [Gaming](../research/gaming/README.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
+- [Slay — Evaluation & Search (the 1v1 case)](../research/gaming/slay-evaluation.md) — eval-term surgery + transposition-first search; cut/join duality, realizable treasury, eval-beats-depth (early-NNUE lesson)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [Subgraph Investment Optimization](../research/gaming/monopoly/subgraph-investment-optimization.md)
 - [Diplomacy: 7 AI Models](../research/gaming/diplomacy-ai-analysis.md)
@@ -30,3 +31,4 @@ permalink: /tags/game-ai/
 - [Civilization Revolution — The City-Builder That Plays as a Rush](../research/gaming/civ-revolution-wide-rush.md) — the deterministic, hollow AI (~5/~10-turn opening clock; wanders its first unit away from the capital) is the exploit that makes the opening decapitation rush deterministic; the human knows the script while the AI re-rolls blind.
 - [Subgraph Trade Engine — Implementation Spec](../research/gaming/monopoly/subgraph-trade-engine-spec.md) — Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.
 - [KOEI AI & combat evolution (5-decompiler study)](../research/gaming/koei-ai-combat-evolution.md)
+- [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)

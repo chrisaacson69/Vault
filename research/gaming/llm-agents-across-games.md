@@ -613,4 +613,4 @@ The Phase 5 update is not primarily about a new game. It's about what a new game
 More data points (future channel releases, other multi-LLM strategic games) would further harden these signatures, but seven games is already enough for the architectural claim.
 
 ## Tags
-[games](../../tags/games.md), [game-ai](../../tags/game-ai.md)
+[games](../../tags/games.md), [game-ai](../../tags/game-ai.md), [llm-limitations](../../tags/llm-limitations.md)

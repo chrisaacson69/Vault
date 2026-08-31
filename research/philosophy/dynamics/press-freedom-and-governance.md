@@ -8,7 +8,7 @@ title: "Press Freedom and Governance — Pre-commitment, Information, and the Ob
 # Press Freedom and Governance — Pre-commitment, Information, and the Observation Problem
 > Free press is the mechanism by which every other constitutional constraint is monitored. Remove it, and pre-commitments become unenforceable.
 
-**Links:** [Philosophy](../README.md), [Newcomb's Paradox](./newcombs-paradox.md), [The Gödel Governance Problem](./the-godel-governance-problem.md), [Opposing Forces](./opposing-forces.md), [The Technology-Governance Gap](./technology-governance-gap.md), [Scope Confusion](../morality/scope-confusion.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Market Efficiency and Human Limits](../../economics/market-efficiency-and-human-limits.md), [Legal Theory](../morality/legal-theory/README.md), [Registration and Scope Creep](../morality/legal-theory/registration-and-scope-creep.md), [The SAVE Act and the Suffrage Question](../../debates/save-act-suffrage-hoppian.md), [Civilizational Cycles](./civilizational-cycles/README.md)
+**Links:** [Philosophy](../README.md), [Newcomb's Paradox](./newcombs-paradox.md), [The Gödel Governance Problem](./the-godel-governance-problem.md), [Opposing Forces](./opposing-forces.md), [The Technology-Governance Gap](./technology-governance-gap.md), [Scope Confusion](../morality/scope-confusion.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Market Efficiency and Human Limits](../../economics/market-efficiency-and-human-limits.md), [Legal Theory](../morality/legal-theory/README.md), [Registration and Scope Creep](../morality/legal-theory/registration-and-scope-creep.md), [The Represented Unit](../morality/legal-theory/represented-unit.md) (the Hearst outrage-lever specimen — concentrated press manufacturing the crisis that carried the 17th Amendment), [Jake the Lawyer — 17th Amendment](../../debates/jake-lawyer-17th-amendment.md), [The SAVE Act and the Suffrage Question](../../debates/save-act-suffrage-hoppian.md), [Civilizational Cycles](./civilizational-cycles/README.md)
 
 ## The Core Claim
 
@@ -67,6 +67,31 @@ The press operates in a market. Like all markets:
 Government press patsies will exist in any system. But a free market also produces counter-factualists — outlets and individuals whose competitive advantage is challenging the official narrative. Substack, YouTube, independent journalism, whistleblower platforms. The internet era has lowered barriers to entry to near-zero for information distribution.
 
 This is the [opposing forces](./opposing-forces.md) principle applied to information: every concentration of narrative power generates counter-narratives, *if the system allows them to exist*. Free press is the structural condition that allows opposing forces to operate in the information domain.
+
+**The failure mode this predicts — concentration as an outrage-lever (the Hearst specimen).** The argument
+above cuts both ways: when barriers to entry are *high* and narrative power *concentrated*, the
+opposing-force is throttled and the press flips from a check on power into a **lever for restructuring
+it.** The cleanest historical case is William Randolph Hearst, c. 1906: one in four Americans read a
+Hearst paper daily — a near-monopoly on the pre-broadcast information market. He commissioned David Graham
+Phillips's *The Treason of the Senate* (Cosmopolitan, 1906), a sensational serial arguing the Senate was
+captured by industrialists and that **the state legislatures were the weak point in the constitutional
+system**. It manufactured outrage at industrial scale and helped carry the **17th Amendment** (1913) — a
+structural change to federalism — over the ratification bar. Two lessons fold back into the framework:
+
+- **Concentration converts observation into manufacture.** The same channel that *observes* power
+  (pre-commitment enforcement, below) can, when monopolized, *manufacture* the crisis that justifies
+  bypassing constitutional friction. This is the [Gödel governance](./the-godel-governance-problem.md)
+  **meta-bypass**: outrage as the universal solvent that opens every procedural side-door, wielded here
+  through a concentrated press. Barriers to entry, not incumbent virtue, are what determine which way the
+  press points.
+- **The self-serving fit is the tell, not the motive.** Direct election required senators to win *millions*
+  of voters instead of a few hundred legislators — i.e. to buy *exactly* the product Hearst sold. Whether or
+  not he sincerely believed the progressive case, the reform's shape matched his market perfectly. The
+  structural point (from [The Represented Unit](../morality/legal-theory/represented-unit.md) discussion)
+  is that **Hearst is downstream of consolidation, not its author**: the Gilded Age's national
+  economic/informational consolidation *created* a one-in-four megaphone, and the amendment extended that
+  consolidation to the political layer. Capture cost scales inversely with centralization; a national
+  information market is what made a national outrage campaign buyable in the first place.
 
 ### The Asymmetry of Error
 

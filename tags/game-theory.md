@@ -6,6 +6,7 @@ permalink: /tags/game-theory/
 ---
 # game-theory
 
+- [HeroClix](../projects/heroclix/README.md)
 - [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - [The Multiplayer Coalition Problem](../research/gaming/multiplayer-coalition-problem.md)
 - [Bilateral Trade Valuation](../research/gaming/bilateral-trade-valuation.md)
@@ -39,5 +40,12 @@ permalink: /tags/game-theory/
 - [Subgraph Trade Engine — Implementation Spec](../research/gaming/monopoly/subgraph-trade-engine-spec.md) — Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.
 - [The Coconut Island and the Manufactured Option Space](../research/debates/coconut-island-and-manufactured-option-space.md) — Two related debate moves used to force "exploitation under capitalism" or "structural conflict" conclusions.
 - [Battleship — 30 Billion Boards](../research/gaming/battleship-board-analysis.md) — best-response (guessing, exploitable prior → deep) vs minimax (placement, adaptive adversary → high-entropy equilibrium → flat); skill gradient tracks opponent-model exploitability
+- [Yahtzee — 259 Trillion → 405 Million](../research/gaming/yahtzee-solved.md) — **EV-max ≠ win-max**: a state abstraction sound for expected points is provably insufficient for "am I ahead"; variance-seeking when behind pays only as the opponent's score *hardens*, and **reachability (support) binds before variance tuning**
 - [CGP Grey — "Too Good for Politicians to Allow" (STV)](../research/debates/cgp-grey-stv-too-good.md) — voting as mechanism design; Arrow + Gibbard–Satterthwaite as the impossibility floor; STV inherits RCV's non-monotonicity + center-squeeze; system choice is irreducibly normative
 - [Sitch vs. Ryan Mullally — Birthright Citizenship & Natural Law](../research/debates/sitch-mullally-birthright-citizenship.md) — finite-horizon PD / default-defect as the formal Ring of Gyges; TFT loses pairwise but wins the tournament (individual vs population); God-as-infinite-iterator; EGT as the population-level answer to the brute
+- [D&D Monster Tournament — Exact Markov Chains](../research/gaming/dnd-monster-tournament-markov.md) — **fixed policy ⇒ MDP collapses to a plain Markov chain** (real tactical choice would make it a two-player stochastic game); hunts non-transitive cycles that would mean "same CR" is not a total order
+- [Aggregation vs. Sorting](../research/philosophy/morality/legal-theory/aggregation-vs-sorting.md) — median voter (1-D) vs McKelvey–Schofield chaos (≥2-D); **increasing returns to coordination** unifies Duverger's law with the monopolization of legal orders (Nozick's dominant protection agency in economic dress)
+- [Combinatorial vs Generative Design Space](../research/gaming/combinatorial-vs-generative-design-space.md)
+- [Risk — The Attrition Constant](../research/gaming/risk-attrition-odds.md) — a Risk battle solved exactly as an absorbing Markov chain; the 3-vs-2 dice cap fixes the engagement frontage regardless of stack size, so attrition is Lanchester-LINEAR and concentration of force buys nothing
+- [Hangman — Solving Both Sides](../research/gaming/hangman-solving-both-sides.md) — the minimax chooser is a hard *concentration* (`-ING` 100% at lengths 7–9), not max-entropy: **the indifference set of an equilibrium is bounded by the substrate's structure** — only ~15 of 26 letters can be made competitive because Z can't do S's job
+- [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)

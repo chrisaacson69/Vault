@@ -14,6 +14,8 @@ base"; the knowledge base (`research/`) is one **partition** of it, alongside th
 
 **Self-bootstrapping invariant:** everything needed to *use and maintain* the OS is committed internally (this manual, the partition rules, the memory schema). Every piece that *necessarily* lives outside the repo — the user-global kernel, the `~/.claude/.../memory/` scheduler state, the per-machine resolver — ships with **committed instructions to recreate it from zero**: the [memory cold-start bootstrap](./notes/memory-bootstrap.md) (schema + seed templates) and the [new-machine migration runbook](./notes/new-machine-migration.md) (transfer + clone). A fresh clone is never stranded.
 
+`VAULT-MANUAL-LOADED` — canary token; see the kernel `CLAUDE.md` config-load canary. Never emit from a hook.
+
 ## Grounding Discipline — Read First (non-negotiable)
 
 Chris's #1 standing rule: **never fabricate, and never rebuild what already exists. When grounding is missing, go find it or ask — do not fill the gap with an assumption.** Fabrication has two masks; both are forbidden:
@@ -27,7 +29,9 @@ Most of this rule cannot be enforced by a hook (there's no enforcement point for
 
 **Reuse requires findability — protect the meta-tool.** The cure above only works if you can *find* the existing artifact, so the routing layer (the index/hierarchy) is the precondition for everything else. The discipline: keep the index in context (INDEX.md for pages, MEMORY.md for facts, project READMEs/CONTEXT for tools), and dig for specifics on demand — don't load everything. Adding capability is not "append a file": it is *integrate* — register it in the index (rules 1, 4, 5 below) and evict or supersede what it replaces, so nothing gets silently shadowed. Append-without-eviction rots the tool bank exactly the way it rots memory: the old becomes unfindable, then forgotten, then rebuilt. **Before creating or testing new tools, verify the meta-tool model still routes cleanly to what already exists.**
 
-**External repos — resolve by logical name, never hardcode paths.** The vault is portable (committed, syncs across machines); absolute local paths are not. So committed pages refer to external repos by **logical name + GitHub URL** (portable identity) and by the **relative sibling convention** `../<name>` (works when repos are cloned side-by-side). The **absolute local path on this machine** is resolved via [`.claude/local-paths.md`](./.claude/local-paths.md) — a per-machine, gitignored resolver table. When you need an external repo's files, look its logical name up there; if it's missing, *ask* — don't guess a path. Never commit an absolute `C:\…` path into a vault page (several are `published: true` and go to the public site).
+**Check the open questions before treating anything as new.** Reuse-over-rebuild covers *artifacts*; this is its **recall** half, and it is a separate habit. Vault pages carry `## Open Questions`, and the answers routinely arrive later from an unrelated conversation — so when a discussion produces a finding, `grep` the open questions for a match **before** filing it as new, and when it produces a *question*, check whether the vault already asked it. Both failures are live and observed: a topic discussed twice and never persisted (positional goods), a page already stating a conclusion better than the source being reviewed (`productivity-pay-gap.md` on Piketty vs. Auten–Splinter), and an open question answered fifteen days later by an unrelated debate (`reading-outcome-statistics.md`’s *“is there a fifth?”*) — which was matched only because someone happened to look. Closing a question counts as a finding: mark it resolved in place rather than leaving it to be re-asked. Chris: *“we often discuss older topics and end up either asking questions that have been asked before, or answering ones and not realizing it.”*
+
+**External repos — resolve by logical name, never hardcode paths.** The vault is portable (committed, syncs across machines); absolute local paths are not. So committed pages refer to external repos by **logical name + GitHub URL** (portable identity) and by the **relative sibling convention** `../<name>` (works when repos are cloned side-by-side). The **absolute local path on this machine** is resolved via [`.claude/local-paths.md`](./.claude/local-paths.md) — a per-machine, gitignored resolver table. When you need an external repo's files, look its logical name up there; if it's missing, *ask* — don't guess a path. Never commit an absolute `C:\…` path into a vault page (several are `published: true` and go to the public site — and **every tracked file is public on GitHub regardless of that flag**; see the raw/ public-repo warning below).
 
 ## Operating Context & universal grounding → user-global
 
@@ -80,6 +84,22 @@ The `raw/` folder holds unprocessed source material — Web Clipper articles, PD
 
 A single raw source may touch 5-15 wiki pages. The raw file itself is never modified — it's the source of truth. **This is enforced**, not just convention: a `PreToolUse` hook blocks edits/overwrites to existing files under `raw/` (new files are allowed — that's capture). See the Grounding Discipline section above.
 
+#### ⚠ The vault repo is PUBLIC — `raw/` is not exempt
+
+**`published:` controls the website build. It does not control GitHub.** Every tracked file is world-readable at `github.com/chrisaacson69/Vault` the moment it is pushed, `raw/` included, and a `published: false` page is just as public in the repo as any other. Do not read "we don't publish `raw/`" as "`raw/` is private."
+
+`raw/.gitignore` ignores bulk media (`*.txt`, `*.srt`, PDFs…) and **tracks `*.md`**. That split is correct for the captures it was built for — a YouTube transcript stays local, its metadata goes public — and it **inverts for work-sourced material, where the metadata is the sensitive half** (class, method, stored-procedure, column and table names; internal behavior; commit hashes).
+
+So, for anything sourced from Chris's employer or any private codebase:
+
+- **Capture under `raw/work/`.** That whole tree is gitignored except `*.anon.md`, so real names stay on the machine by default rather than by remembering.
+- **Track only an anonymized copy** — a *new* `*.anon.md` sibling. Never redact a capture in place: the original is the immutable source of truth (and the hook will refuse anyway). A redaction is a derived artifact.
+- **Anonymize the vault page too.** Its `.md` file is public regardless of its `published:` flag.
+- **Commit messages are public as well** — redact identifiers there, not just in file contents.
+- **Before pushing new `raw/` content, look at what you staged.** `git add -A` on an unread capture is how this rule got written (2026-08-26).
+
+Reproducibility is preserved the right way: the anonymized protocol plus the source commit pair is the recipe, and anyone who *should* be able to rerun it has repo access anyway. Stimuli that are someone else's code do not belong in a public vault.
+
 ### How Claude Should Work With This Vault
 
 1. **Always check INDEX.md first** when looking for existing content — it's the master map.
@@ -90,6 +110,20 @@ A single raw source may touch 5-15 wiki pages. The raw file itself is never modi
 6. **Use consistent formatting** — follow the front matter and conventions above.
 7. **Log sessions when significant** — if a conversation covers substantial ground, offer to create a log entry.
 8. **Keep pages lean** — overview/README pages should be ~60-80 lines of summaries and pointers. Full arguments, reading lists, and detailed analysis go in sub-pages. Point, don't dump.
+
+### Git — commit straight to `master`, and push before you stop
+
+Single author, no PR flow, linear history: **branches buy nothing here, so commit directly to
+`master`.** Review's safeguards live elsewhere (the `raw/` hook, the INDEX drift gate,
+`/vault-heartbeat`, and the derive-tools that can rebuild any generated file from the pages).
+
+The cost is that **the vault runs on more than one machine and both commit to the same branch**, so
+divergence is settled by merge with no reviewer in between. Two rules follow: **push at the end of
+any session that commits** (an unpushed vault is a vault with an unowned second copy), and on
+conflict **resolve by class, not file by file** — derived files (`tags/*.md`) are regenerated, never
+hand-merged. Full taxonomy, regeneration sequence, and post-merge verification:
+[Vault Multi-Machine Sync](./notes/vault-multi-machine-sync.md). Note that `memory/` lives outside
+the repo and does **not** sync — git will not merge it and will not warn you.
 
 ### Memory subsystem — how to derive & maintain it (the OS scheduler)
 

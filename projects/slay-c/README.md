@@ -10,7 +10,7 @@ permalink: /projects/slay-c/
 > C port of the Slay hex strategy engine — performance-focused, headless, with alpha-beta search and AI arena.
 
 **Repo:** `https://github.com/chrisaacson69/slay-c`
-**Links:** [Slay (Python)](../slay/README.md), [Vault Index](../../INDEX.md)
+**Links:** [Slay (Python)](../slay/README.md), [Slay — Evaluation & Search](../../research/gaming/slay-evaluation.md) (the 1v1 eval + search theory this engine implements), [Vault Index](../../INDEX.md)
 
 ## Overview
 

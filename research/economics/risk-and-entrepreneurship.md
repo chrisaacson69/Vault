@@ -8,7 +8,7 @@ title: "Risk and Entrepreneurship"
 # Risk and Entrepreneurship
 > A business is a repeatable value engine — but every engine runs on bets. Profit is the reward for bearing risk correctly. Loss is the cost of guessing wrong.
 
-**Links:** [Economics](./README.md), [Value and Profit](./value-and-profit.md), [Insurance](./insurance.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md)
+**Links:** [The Lemonade Stand Experiment](./lemonade-stand-agents.md) (risk without *felt* stakes — "Stress doesn't ship lemonade"), [Economics](./README.md), [Value and Profit](./value-and-profit.md), [Insurance](./insurance.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md)
 
 ## Business as Repeatable Value Under Constraints
 
@@ -144,6 +144,7 @@ The specimens that instantiate "capital allocation under uncertainty" in a contr
 - [MIRR — 4X Strategy as Capital Allocation](../gaming/mirr-4x-framework.md) — the cross-game (MoO + MoM) application: each turn is an investment ranked by MIRR (reinvestment at the empire's own growth rate). The safe investment (factory) vs the entrepreneurial bet (colony), with a crossover, is *this page's* "reinvest vs expand" made mechanical and testable.
 - [Monopoly Frontier-Trade Theory](../gaming/monopoly/frontier-trade-theory.md) — the same root in a non-4X game, using a Markowitz/EPT frontier as the metric instead of MIRR.
 - The 4X opening is this framework with the noise removed (deterministic mechanics, no competitors in the opening) — a clean bench: if the risk / time-preference logic ranks correctly there, it earns trust for the messier real-world domains.
+- [**Variance Is Not Luck**](./variance-is-not-luck.md) — this page's *"risk cannot be eliminated, only managed"* and *"be right often enough that cumulative profit exceeds cumulative loss"* turned outward into a defence against luck-fatalism. Where this page asks how an entrepreneur should act under variance, that one asks what variance licenses anyone to *conclude* — and separates **variance** (universal, neutral, a property of the world) from **luck** (a property of an agent's engagement with it). Also inherits this page's survivorship-bias point as the fatalist's one genuinely good argument.
 
 ## Open Questions
 - At what dollar threshold should a CEO agent defer to a human?

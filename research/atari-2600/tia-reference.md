@@ -8,7 +8,7 @@ title: "TIA Reference (Atari 2600)"
 # TIA Reference (Atari 2600)
 > Load-bearing facts about the Television Interface Adaptor for reading 2600 source code. Curated from Stella Programmer's Guide and TIA hardware notes.
 
-**Links:** [Game Annotation Series](../../projects/game-annotation/README.md), [Adventure Display Kernel](../../projects/game-annotation/README.md)
+**Links:** [Game Annotation Series](../../projects/game-annotation/README.md), [Adventure Display Kernel](../../projects/game-annotation/README.md), [Battlezone (1980) — 3D Without a Multiply Instruction](../gaming/battlezone-mathbox.md) *(Atari's other 6502 problem — the arcade side, where the answer was a coprocessor)*
 
 ## The big picture
 
@@ -131,4 +131,4 @@ The kernel's job: between two `WSYNC`s (= one scan line), do all required regist
 
 ## Tags
 
-[atari-2600](../../tags/atari-2600.md) · [6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md)
+[atari-2600](../../tags/atari-2600.md) · [6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md) · [assembly](../../tags/assembly.md)

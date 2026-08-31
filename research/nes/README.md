@@ -58,4 +58,4 @@ Each NES game we cover should be asked: *what does this code do that Adventure c
 
 ## Tags
 
-[6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md)
+[6502](../../tags/6502.md) · [reverse-engineering](../../tags/reverse-engineering.md) · [nes](../../tags/nes.md)

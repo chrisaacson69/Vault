@@ -9,7 +9,7 @@ permalink: /research/gaming/master-of-magic/
 # Master of Magic — Economic Analysis
 > Apply BV and MIRR frameworks to the original 1994 4X classic. Everything is broken — but is it equally broken?
 
-**Links:** [BattleValue](../battle-value.md), [MOO1 MIRR Analysis](../moo1/mirr-analysis.md), [Gaming](../README.md)
+**Links:** [BattleValue](../battle-value.md), [MOO1 MIRR Analysis](../moo1/mirr-analysis.md), [Gaming](../README.md), [D&D Monster Tournament — Exact Markov Chains](../dnd-monster-tournament-markov.md) (**this page is that project's precedent** — same complication classes: immunities, attack types, special abilities, decisions frozen into a policy; and the same expected payoff, a good approximation plus the ability to diagnose *why* a unit over- or under-performs)
 **Project:** [masterofmagic](https://github.com/chrisaacson69/masterofmagic)
 
 ---
