@@ -42,12 +42,29 @@ concrete: the simulator is the accumulated state that keeps the optimizer honest
 - [x] **The situation flags are decision variables in the MILP** — a situation's hysteresis band is a
       state where active *and* inactive are both self-consistent, so the binary IS the basin choice.
       That makes basin escape searchable, which the SLP structurally cannot do (it freezes the set).
-      On the US start it escapes 10 of 12 starting situations: X −0.20→+2.98 at +$75Bn, Layer-1 verified.
+      On the US start it escapes 7 of 12 starting situations (entering 8 others): X +0.24→+2.91 at
+      +$140Bn, Layer-1 verified.
 - [x] **The lesson worth keeping: the higher number was the less trustworthy one.** The SLP hits X=3.000
       (the objective's theoretical ceiling — all six nodes on their clamp bounds) but only *conditional on
-      its frozen basin*; release the situations and the same policy vector scores 2.803 at −$9Bn, infeasible.
-      The MILP's lower +2.977 is the one that holds. When two optimizers disagree, the one that did not
+      its frozen basin*; release the situations and the same policy vector scores 2.788 at −$42Bn, infeasible.
+      The MILP's lower +2.905 is the one that holds. When two optimizers disagree, the one that did not
       assume its basin wins. Chosen objective also **saturates**, so it never exercises the Pareto premise.
+- [x] **A documented decision was not the implemented one** (2026-08-31). scope.md pins the world economy
+      at its long-run **average** and lets savings absorb the cycle; every script instead read
+      `save.globals.get("globaleconomy_pos", 0.5)` — a fallback that never fires, because the key is always
+      present — so every result the project had ever produced ran at the save's momentary cycle position
+      (0.3113 = a below-average economy). Now owned by `scenario.py`, average by default, position sweepable.
+      All Layer-2 numbers above are re-run at economy 0.5. Instance of [[feedback_documented_vs_actual_behavior]].
+- [ ] **The savings-buffer premise is not yet measurable — the budget has two incompatible halves.**
+      `AnchoredBudget.cost(name, setting)` takes no state argument, so the 46 policies enacted in the save
+      are economy-blind while the 77 CSV-estimated ones carry the GDP multipliers (7 policies have a declared
+      GDP multiplier silently discarded). Sweeping the status quo across the whole cycle therefore gives a
+      **perfectly flat** balance. Where it *can* be measured — the optimum's economy-sensitive fraction —
+      booms fail to cover busts (mean −$3Bn) because the optimizer pins GDP at its clamp: **a buffer cannot
+      be filled by booms that are capped.** `scripts/economy_sweep.py`.
+- [ ] `_year` is fed `globaleconomy_years = 8.0`, which is exactly `GLOBAL_ECONOMY_CYCLE_LENGTH_YEARS` from
+      `simconfig.txt` — the cycle *length*, not elapsed time, and 8× outside the [0,1] every other node uses.
+      Left as-found deliberately; what the engine passes for `_year` is unresolved.
 - [ ] **Validate Layer 1 against the independent oracle — the prerequisite is missing.** The game ships
       `data/simulation/data_dump/{inputs,outputs}`, which the repo's `CLAUDE.md` names as the real oracle,
       but **both directories are empty**: the game only writes them under a debug condition not yet found.
