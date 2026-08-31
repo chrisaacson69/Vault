@@ -19,6 +19,8 @@ permalink: /projects/game-annotation/
 [LLM Agents Across Strategic Games](../../research/gaming/llm-agents-across-games.md) ·
 project SDK → [projects/CLAUDE.md](../CLAUDE.md)
 
+**Logical name:** `game-annotation` — [github.com/chrisaacson69/game-annotation](https://github.com/chrisaacson69/game-annotation), cloned as a sibling (`../game-annotation`). The monorepo behind this whole tree; the per-title repos below are separate packages that depend on it.
+
 ## Two axes, deliberately not one folder tree
 
 The series grew two different shapes, and forcing either into the other would sever the valuable edges.

@@ -6,6 +6,19 @@ pointer page but no remote and no resolver entry exists on exactly one machine
 -- unbackupable, and invisible from every other instance. (Observed with
 democracy3-solver, 2026-08-10..08-30.)
 
+WHAT MADE THAT HARD TO SEE (heroclix, 2026-08-31). A page enters the audited set
+by DECLARING a repo -- a `**Logical name:**` label or a GitHub URL. But a project
+with no remote has no URL to write, so its page says something like "logical name
+`x`, local, not yet pushed", declares nothing the regex recognises, and lands in
+"pointer-only pages (fine if not started)". The audit could only see projects that
+had already passed it: heroclix sat there with 25 commits and no remote while the
+run reported 0/33 defects, and was right about all 33.
+
+So a clone on disk now counts as a declaration by itself. If `../<name>` is a git
+repo, the page is AUDITED whatever it says, and failing to declare the repo is
+itself a reported defect -- because that omission is what hid the project. The
+audit must not depend on the page being correct; that is the thing being checked.
+
 The five artifacts, in the order they must be created:
   1. local repo        -- a git repo at the resolved path
   2. GitHub remote     -- created IMMEDIATELY, not "later"
@@ -157,6 +170,21 @@ def audit(root: Path, page: Path, resolver: dict, index_text: str, network: bool
 
     has_clone = bool(resolved and (resolved / ".git").is_dir())
 
+    # Ask the CLONE what its remote is, rather than trusting the page. This
+    # separates "the code is at risk" from "the page is merely stale": a repo
+    # with an origin is backed up even when its vault page never says so.
+    clone_remote = None
+    if has_clone and resolved is not None:
+        rc, out = git(["remote", "get-url", "origin"], cwd=resolved)
+        if rc == 0 and out.strip():
+            clone_remote = out.strip().removesuffix(".git")
+
+    # A page that declares nothing but has a real git repo behind it is exactly
+    # the shape this audit exists to catch, so it must not be filtered out by the
+    # very omission that constitutes the defect.
+    audited = declares_repo or has_clone
+    undeclared = has_clone and not declares_repo
+
     remote_ok = None
     if network and gh:
         rc, _ = git(["ls-remote", "--heads", f"https://github.com/{gh.group(1)}"])
@@ -169,6 +197,9 @@ def audit(root: Path, page: Path, resolver: dict, index_text: str, network: bool
         "name": name,
         "page": rel,
         "declares_repo": declares_repo,
+        "audited": audited,
+        "undeclared": undeclared,
+        "clone_remote": clone_remote,
         "remote_url": gh.group(1) if gh else None,
         "remote_ok": remote_ok,
         "in_index": rel in index_text,
@@ -232,11 +263,12 @@ def main() -> int:
     search_roots = parse_search_roots(root)
     rows = [audit(root, p, resolver, index_text, args.network, search_roots)
             for p in find_pointer_pages(root)]
-    repo_rows = [r for r in rows if r["declares_repo"]]
-    page_only = [r for r in rows if not r["declares_repo"]]
+    repo_rows = [r for r in rows if r["audited"]]
+    page_only = [r for r in rows if not r["audited"]]
 
     print(f"vault: {root}")
-    print(f"{len(repo_rows)} projects declaring a repo, {len(page_only)} pointer-only pages\n")
+    print(f"{len(repo_rows)} projects with a repo (declared or found on disk), "
+          f"{len(page_only)} pointer-only pages\n")
     hdr = f"{'project':<28} {'remote':>7} {'resolv':>7} {'clone':>6} {'index':>6}  notes"
     print(hdr)
     print("-" * len(hdr))
@@ -247,10 +279,16 @@ def main() -> int:
         # A clone absent from THIS machine is only a defect when nothing backs it up.
         # With a remote, the code is safe and simply lives elsewhere -- 'not here'
         # is not 'missing'. Without one, an absent clone means it exists nowhere.
-        if not r["remote_url"]:
+        if r["undeclared"]:
+            # The omission that hid this project from the audit until now.
+            missing.append("PAGE DECLARES NO REPO -- add **Logical name:** + URL")
+        if not r["remote_url"] and not r["clone_remote"]:
             missing.append("NO REMOTE (at risk)")
             if not r["has_clone"]:
                 missing.append("no clone either -- exists nowhere")
+        elif not r["remote_url"] and r["clone_remote"]:
+            # Code is safe; the vault just cannot route anyone to it.
+            missing.append(f"remote exists ({r['clone_remote']}) but the PAGE omits it")
         elif r["remote_ok"] is False:
             missing.append("REMOTE 404")
         if not r["in_index"]:
@@ -292,7 +330,8 @@ def main() -> int:
         print(f"{away} more exist but are not cloned here -- backed by a remote, "
               "so 'not here' is not 'missing'.")
     if page_only and not args.quiet:
-        print("\npointer-only pages (no repo declared -- fine if not started):")
+        print("\npointer-only pages (nothing declared AND no clone on disk -- "
+              "genuinely not started):")
         for r in page_only:
             print(f"  {r['name']}  ({r['page']})")
     return 1 if incomplete else 0
