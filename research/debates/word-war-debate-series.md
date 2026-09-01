@@ -427,7 +427,9 @@ So the protocol is two-stage, and both stages must be dated in the [ledger](#pre
 
 *Name correction: the channel bills him **Jose Tejeda**, not "Tejada" as this hub has had it since round 1. The channel's spelling is adopted going forward.*
 
-**Two facts recovered alongside the resolutions, neither previously in the vault:** the championship prize is **$5,000** (stated in every round-2 description), and **round 2 is being run as live streams with live chat**, where round 1 was posted as finished video. Both bear on turnout: a live audience and a named prize are different mobilisation conditions than round 1 had, which is a confound on [finding 11](#cross-round-findings)'s dilution test that did not exist when the test was designed.
+**Round 2 changed the format in five visible ways**, all confirmed on the [data-centers tape](./wordwar-r2-data-centers-medeiros-horseradish.md): the ballot window is **24 hours, not 48**; rounds are **live-streamed** rather than posted as finished video; **side assignments are published** in the description ([defect 1](#format-defects-and-their-cheap-fixes), fixed); there is a **named sponsor** read three times per round; and contenders appear to get **~12 hours' notice of the resolution** (the Neg says so on air) — which, if bracket-wide, reframes every “he didn't know his topic” reading in the round-1 reviews.
+
+**Two more facts recovered alongside the resolutions, neither previously in the vault:** the championship prize is **$5,000** (stated in every round-2 description), and **round 2 is being run as live streams with live chat**, where round 1 was posted as finished video. Both bear on turnout: a live audience and a named prize are different mobilisation conditions than round 1 had, which is a confound on [finding 11](#cross-round-findings)'s dilution test that did not exist when the test was designed.
 
 ### The predictions, as filed
 
@@ -475,6 +477,7 @@ Compact view of the [ledger](#predictions-ledger); the ledger rows carry the rea
 | Party loyalty | **Kung Fu Joe** (Aff) | Kewl Vic **+62.0** | ❌ | Called against a personal acquaintance — and the acquaintance won by 62 |
 | Therapy culture | **Smith**, on reach alone | **Smith advances** — margin never published | ✅ | The ledger's one pure affiliation call, made *against* the merits read — and it paid |
 | Feminism rerun | **Tareyak** (Neg) | **Tareyak advances** — margin never published | ✅ | The burden-play Aff loses; the "conceded the room" predictor gets its first observation |
+| **R2 — data centers** | **Medeiros**, on polish and reach | ⏳ | — | **Unscored** (round excluded). ⚠ Filed *against* a personal connection — Lee Horseradish owns the show Chris debates on |
 
 **Record: 5 of 11 ballot forecasts correct (45%), one correct abstention, one meta-claim refuted.** *Updated 2026-09-01 — the last two were resolved by the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01), not by result cards.* Both late hits were **non-argument calls that paid**: Smith on reach alone, Tareyak on confidence and straightforwardness. That does not revive the dead [finding 15](#cross-round-findings) — the misses still run in both directions — but it does move the bar the round-2 model has to clear, from **33% to 45%**.
 
@@ -511,6 +514,7 @@ Source: [wordwardebate.com/voting-results](https://wordwardebate.com/voting-resu
 
 | Prediction | Made | Status |
 |---|---|---|
+| **Medeiros (Aff) wins, R2 data centers** | R2 M1 discussion, 2026-09-01 | open — **unscored by design**, since this is the match [pre-registered as excluded](#round-2-pre-registration--predictions-filed-before-any-tape-2026-09-01) (both contenders advanced on byes, and the pool's prior splits on the resolution). Chris: *“I am going with Alex here mostly due to polish and reach, though Lee can muster up quite a zealous crowd too.”* ⚠ **Disclosure, and it runs against the call: Lee Horseradish owns the show Chris debates on**, and Chris is calling for his opponent while also disagreeing with Lee's side — the **second** ledger entry where the affiliation channel points opposite to the prediction (the first was Kewl Vic, where the acquaintance won by 62). The round's value is diagnostic rather than predictive: it is the **first resolution in sixteen that asks “should” about a decision private parties make**, which is [the finding it produced](./wordwar-r2-data-centers-medeiros-horseradish.md#discussion) |
 | Owlish advances on delivery, not substance | R1 §7 | ✅ **CORRECT** — 74.2%, the second-largest margin on the board |
 | Garcia keeps losing on legibility wherever he appears | R1 OQ4 | ✅ **so far** — 25.8%. Stays open for future appearances |
 | Bracket selects for legibility over correctness | R1 OQ4 | ❌ **REFUTED — and this is the bracket's most valuable single result.** The AI round is exactly the case finding 2 said was needed: legibility (finding 6) *and* audience priors both pointed at **Bunn**, and only argument quality pointed at **Charsky**. Charsky took **79.05%**. Argument quality beat legibility and sympathy simultaneously and decisively |

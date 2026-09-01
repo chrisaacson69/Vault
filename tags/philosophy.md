@@ -10,6 +10,7 @@ permalink: /tags/philosophy/
 - [Philosophy Research](../research/philosophy/README.md)
 - [Technology → Culture → Politics](../research/philosophy/dynamics/technology-culture-politics.md) — Trunk-4 causal-ordering thesis: material conditions → culture → politics; the **lossy arrows** (absorbed form drops the qualifier; laws deliver more than or the opposite of their sales pitch); not crude determinism because culture is an explicit lagging transducer with path-dependence
 - [The Negative's Easy Burden](../research/philosophy/tangents/the-negatives-easy-burden.md) — debate method: why negating is cheaper, the first-and-last compensation, weaponized-Agrippa + freezing exploits, the concede-relocate counter, and the two mirror specimens — a negative who forfeits the advantage, and the **squirrel** affirmative who annexes it
+- [Easy to Critique, Hard to Build](../research/philosophy/tangents/easy-to-critique-hard-to-build.md) — costs are forecastable, benefits are not; decision rights follow the residual
 - [Morality — First Principles Exploration](../research/philosophy/morality/README.md)
 - [Philosophy of Logic and Mathematics](../research/philosophy/logic-and-math/README.md)
 - [Epistemology — Parking Lot](../research/philosophy/epistemology/README.md)

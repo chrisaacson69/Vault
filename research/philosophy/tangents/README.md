@@ -25,6 +25,8 @@ If a page makes a specific claim that slots into [one of the four trunks](../the
 - [History of Philosophy — Peikoff](./history-of-philosophy/README.md) — lecture-by-lecture analysis of Peikoff's 50-part survey, Thales to Kant
 - [Rudyard Lynch (Whatifalthist)](./whatifalthist.md) — YouTube historian; Turchin/Glubb synthesizer; adds evolutionary biology and Mouse Utopia model to cycle theory
 - [The Fallacy Fallacy](./the-fallacy-fallacy.md) — why naming a fallacy isn't a rebuttal; meta-rhetoric applicable across all trunks
+- [The Negative's Easy Burden](./the-negatives-easy-burden.md) — negating is structurally cheaper than affirming; formal systems compensate for it and bloodsports debate doesn't. The concede-relocate counter. *(Was missing from this list — added 2026-09-01.)*
+- [Easy to Critique, Hard to Build](./easy-to-critique-hard-to-build.md) — the sibling asymmetry on a different axis: a venture's **costs are enumerable in advance and its benefits are not**, so evaluation-by-enumeration is biased against building. Carries the Model T case, the endogenous-adaptation claim, the scope condition set by tetraethyl lead, and the counter to a harm list.
 
 ## Tags
 

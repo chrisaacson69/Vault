@@ -8,7 +8,7 @@ title: "Risk and Entrepreneurship"
 # Risk and Entrepreneurship
 > A business is a repeatable value engine — but every engine runs on bets. Profit is the reward for bearing risk correctly. Loss is the cost of guessing wrong.
 
-**Links:** [The Lemonade Stand Experiment](./lemonade-stand-agents.md) (risk without *felt* stakes — "Stress doesn't ship lemonade"), [Economics](./README.md), [Value and Profit](./value-and-profit.md), [Insurance](./insurance.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md)
+**Links:** [Easy to Critique, Hard to Build](../philosophy/tangents/easy-to-critique-hard-to-build.md) — applies this page's risk/reward pairing as a **standing** claim: decision rights follow the residual, so a "should" aimed at anyone but the risk-bearer asks a room to overrule the people with skin in the game, [The Lemonade Stand Experiment](./lemonade-stand-agents.md) (risk without *felt* stakes — "Stress doesn't ship lemonade"), [Economics](./README.md), [Value and Profit](./value-and-profit.md), [Insurance](./insurance.md), [Claude Opus 4.6 Research](../claude-opus-4-6.md), [Gaming](../gaming/README.md)
 
 ## Business as Repeatable Value Under Constraints
 

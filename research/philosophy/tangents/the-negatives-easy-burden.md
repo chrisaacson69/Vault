@@ -8,11 +8,13 @@ title: "The Negative's Easy Burden — Weaponized Regress and the Concede-Reloca
 # The Negative's Easy Burden
 > Negating is structurally cheaper than affirming. Formal systems *know* this and compensate for it; informal "bloodsports" debate doesn't — which hands the skeptic a free edge. The cure isn't to out-justify the regress (impossible), it's to concede the true core fast and force the regress symmetric on the one joint that's left.
 
-**Links:** [The Fallacy Fallacy](./the-fallacy-fallacy.md), [Agrippa's Trilemma](../../debates/agrippa-axioms-wilson-whatever.md), [Definitional Control (Noerr)](../../debates/noerr-logic-feelings-humane.md), [Force Doctrine — The Theory](../morality/force-doctrine.md), [Symmetry Breaking](../dynamics/symmetry-breaking.md), [The squirrel specimen — Word War feminism rerun](../../debates/wordwar-feminism-rerun-david-tareyak.md)
+**Links:** [Easy to Critique, Hard to Build](./easy-to-critique-hard-to-build.md) — **the sibling asymmetry**: this page is *building vs. picking* inside an exchange; that one is *forecasting costs vs. benefits* about a venture, [The Fallacy Fallacy](./the-fallacy-fallacy.md), [Agrippa's Trilemma](../../debates/agrippa-axioms-wilson-whatever.md), [Definitional Control (Noerr)](../../debates/noerr-logic-feelings-humane.md), [Force Doctrine — The Theory](../morality/force-doctrine.md), [Symmetry Breaking](../dynamics/symmetry-breaking.md), [The squirrel specimen — Word War feminism rerun](../../debates/wordwar-feminism-rerun-david-tareyak.md)
 
 ---
 
 ## The asymmetry: building has surface area, picking has none
+
+*Sibling page: [Easy to Critique, Hard to Build](./easy-to-critique-hard-to-build.md) runs the same asymmetry on a different axis — not who is exposed in an exchange, but which **ledger** can be written in advance. A venture's costs are forecastable and its benefits are not, so evaluation-by-enumeration is biased against building for reasons that have nothing to do with rhetoric.*
 
 The affirmative must **build** something — commit to a thesis, define terms, supply a chain. Every commitment is surface area to attack. The negative need only **pick** — ask "but why?", demand a definition, find an imprecision. Negation produces nothing of its own and therefore exposes nothing. So in any single exchange, **whoever is currently justifying is the exposed party**, and the pure skeptic arranges never to be that party.
 
