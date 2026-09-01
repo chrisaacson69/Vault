@@ -389,9 +389,11 @@ It also pays off both matchups this hub said on 2026-08-18 that it wanted:
 - **Brunet vs. Tareyak** — argument quality's best specimen against the Neg who won on straightforwardness. The one round where the vault's argument read and its ballot read pointed the same way for *both* contenders in round 1.
 - **Medeiros vs. Horseradish** — **zero data on either side**, and this needs saying plainly: the two-factor model cannot be run on it (no execution record exists) and finding 2 cannot be run on it (no known reach), so it is the one round of the eight that must be **excluded from the pre-registered test**. Conveniently, the [success test](#the-actual-objective-a-predictor-not-a-post-mortem) was already written as **"3-of-7"** — and seven is exactly what remains once this round is set aside.
 
-### ⚠ The model cannot be coded yet — and that is the protocol's next step
+### ⚠ ~~The model cannot be coded yet~~ — superseded the same day: three resolutions published, predictions registered
 
-[Finding 17](#cross-round-findings)'s model is **resolution-level**: it predicts from the pool's prior *on the proposition*, overridden only by a large execution gap. **No round-2 resolutions, side assignments, dates or moderators have been published** — only the pairings — so the model has nothing to code. Anything registered today would be a *person-level reputation* guess, which is a **different model**, and reporting it as the same one would contaminate the test.
+**⚠ Superseded within hours of being written (2026-09-01).** Three round-2 matches had already aired with **resolutions and side assignments published in their video descriptions**, so the model *can* be coded and [now has been](#round-2-pre-registration--predictions-filed-before-any-tape-2026-09-01). The reasoning below is kept because it is the protocol that was followed, not because the blocker still stands.
+
+[Finding 17](#cross-round-findings)'s model is **resolution-level**: it predicts from the pool's prior *on the proposition*, overridden only by a large execution gap. At the time of writing, **no round-2 resolutions, side assignments, dates or moderators had been published** — only the pairings — so the model had nothing to code. Anything registered today would be a *person-level reputation* guess, which is a **different model**, and reporting it as the same one would contaminate the test.
 
 So the protocol is two-stage, and both stages must be dated in the [ledger](#predictions-ledger):
 
@@ -412,6 +414,46 @@ So the protocol is two-stage, and both stages must be dated in the [ledger](#pre
 - **Margins are still the sharpest single instrument.** Round 1's median is **45.6** with a bimodal split (four rounds ≤ 25.0, then a gap with nothing in it, then eight at 42.8–89.1). If round 2 stays bimodal at the same spread, [finding 11](#cross-round-findings)'s neutral dilution is dead. If the distribution shifts toward the middle, it is confirmed — and [finding 17](#cross-round-findings) predicts *which* rounds land in the narrow mode: the ones where prior and execution point in opposite directions.
 - **The tests already registered.** Finding 17's model must be coded and published *before* the tapes are watched; finding 11 predicts margins compress as pools grow; and together they predict the prior model gets **more** accurate, not less.
 - **Whether the format polishes.** The [defect list](#format-defects-and-their-cheap-fixes) is the checklist: announced side assignments, one closing-order rule, pre-round definitions, a live bracket, and results published on close. The bracket arriving at all is partial credit on defect 4 — very late, and as a list rather than a standings page.
+
+## Round 2 pre-registration — predictions filed before any tape (2026-09-01)
+
+**Three round-2 matches are already posted**, and the channel now publishes **the resolution and the side assignment in the video description** — which, if it holds, quietly fixes [defect 1](#format-defects-and-their-cheap-fixes). That is everything [finding 17](#cross-round-findings)'s model needs, so it is coded here **before any transcript is read**, which is the condition the finding pre-committed to.
+
+| # | Match | Resolution as published | Aff | Neg | Aired |
+|---|---|---|---|---|---|
+| 1 | **Medeiros vs. Horseradish** | *"America should build more data centers."* | **Medeiros** | **Horseradish** | 2026-08-31 · 1:11:43 |
+| 6 | **Tejeda vs. The Aftermath** | *"Women should have the right to vote."* | **The Aftermath** | **Jose Tejeda** | 2026-08-31 · 1:05:21 |
+| 8 | **Ruelas vs. Charsky** | *"Mass deportation is bad."* | **Charsky** (against deportation) | **Ruelas** (pro deportation) | 2026-08-31 · 1:11:27 |
+
+*Name correction: the channel bills him **Jose Tejeda**, not "Tejada" as this hub has had it since round 1. The channel's spelling is adopted going forward.*
+
+**Two facts recovered alongside the resolutions, neither previously in the vault:** the championship prize is **$5,000** (stated in every round-2 description), and **round 2 is being run as live streams with live chat**, where round 1 was posted as finished video. Both bear on turnout: a live audience and a named prize are different mobilisation conditions than round 1 had, which is a confound on [finding 11](#cross-round-findings)'s dilution test that did not exist when the test was designed.
+
+### The predictions, as filed
+
+> **Model under test** ([finding 17](#cross-round-findings)): *default to the audience's prior on the resolution; override only on a large execution gap; rhetoric moves the margin, not the winner.* The pool's signature is agency-affirming, free-speech, anti-establishment, patriot-coded ([finding 10](#cross-round-findings)).
+
+| # | Prior favours | **Predicted winner** | Predicted margin band | Scored? |
+|---|---|---|---|---|
+| 6 | **Aff** — near-unanimous on any audience | **The Aftermath** | wide (≥ 40) *if the prior dominates*; narrow if affiliation compresses it | ✅ **scored** |
+| 8 | **Neg** — this pool is patriot-coded | **Martae Ruelas** | **narrow** (≤ 25) | ✅ **scored** |
+| 1 | **split — the model is silent** | *no call* (weak Neg lean, unscored) | narrow | ❌ **excluded, as pre-registered** |
+
+**Match 6 is the best test in the bracket, because it puts the model's own two clauses against each other.** Clause (a) says the ballot tracks the resolution, and *"women should have the right to vote"* has about as lopsided a prior as a proposition can have — for this pool or any other. Clause (b) says affiliation intrudes where voters know a contender, and **Tejeda carries the largest mobilised bloc in the bracket** (+89.1 in round 1, the biggest margin on the board) — drawn onto the indefensible side. So the two clauses point in **opposite directions**, and the round adjudicates between them:
+
+- **Aftermath wins wide** → clause (a) dominates; the prior is the ballot, and affiliation is a second-order effect.
+- **Aftermath wins narrow** → both are live; the prior decides the winner and affiliation eats the margin, which is exactly clause (c) restated.
+- **Tejeda wins** → **finding 17 is dead.** No re-coding of the prior will save it; a pool that votes down women's suffrage is not a pool voting its priors on the resolution.
+
+**Match 8 is the override clause's test.** The prior points at Ruelas, but Charsky is the bracket's best-argued winner and the one contender who has already beaten legibility *and* prior simultaneously ([+58.1 vs. Bunn](./wordwar-ai-making-people-dumber-charsky-bunn.md)). The prior-only call is filed as **Ruelas** so the prediction is falsifiable; a **Charsky** win is then *not* a refutation but a second instance of the override, and should be scored as such rather than quietly counted as a hit. Either way, clause (c) predicts this lands in the **narrow** mode — prior and execution are pulling apart.
+
+**Match 1 is excluded, and the exclusion was registered before the topics were known.** No round-1 data on either contender, and the resolution splits the pool's signature down the middle: anti-Big-Tech, anti-eminent-domain and rising-electricity-bill populism pull **Neg**, while pro-growth, anti-regulation and beat-China-on-AI pull **Aff**. A model whose default is "the prior" has no default here. That makes it the round where **execution is most visible**, which is worth watching even though it cannot score — see [the round page](./wordwar-r2-data-centers-medeiros-horseradish.md).
+
+### What this set can and cannot settle
+
+- **It cannot settle the 3-of-7 test on its own** — only two of these three are scored, and five matches have not aired.
+- **It can kill the model outright** on match 6, which is why that one is worth more than the other seven combined.
+- **[Finding 11](#cross-round-findings)'s compression test is now confounded** by the live-stream format and the published prize, both introduced at round 2. Margins compressing would no longer cleanly indicate neutral dilution; that has to be said now rather than after the numbers arrive.
 
 ## Prediction scorecard
 
