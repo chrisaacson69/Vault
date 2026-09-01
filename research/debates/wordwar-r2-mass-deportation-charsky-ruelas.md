@@ -123,6 +123,53 @@ Confirmed on the tape and it is the cleanest statement of the mismatch. Charsky'
 
 Set against the [data-centers round](./wordwar-r2-data-centers-medeiros-horseradish.md), where Ren ran a live fact-check that resolved the central empirical dispute roughly 100:1 for the affirmative: **across two rounds, every substantive intervention by this moderator has landed in the same direction.** Stated as a pattern in the record rather than a claim about intent — two rounds is two rounds.
 
+### ⭐ The evidentiary standard was unmeetable in principle
+
+> **Chris:** *"it was fair enough for a cursory look to show that these are all too myopic to reach conclusions. Marte tried to use more macro figures to expand the case, but **Charsky only asked for sources that didn't exist.**"*
+
+**This is the strongest single observation about the round, and it inverts who was doing the right thing.**
+
+Charsky's standard-of-critique demand — *name the identifying assumption that fails* — is unimpeachable as methodology and **unmeetable for this resolution**, because the study he is asking for cannot exist. There is no quasi-experimental estimate of removing ten million people, for the same reason the external-validity objection bites: **it has not happened**, so there is no variation to exploit. The evidentiary bar he polices therefore rules out the only class of evidence that could speak to the policy actually on the table.
+
+Which means **Ruelas was reaching for the right *form* of evidence and failing on execution.** Macro aggregates — entry volumes, housing stock, fiscal totals — are the appropriate instrument for a question about a shock of unprecedented scale; they are what you use when the clean local estimate is out of sample. He simply could not source them, and lost the exchange on provenance rather than on relevance. The round's central methodological dispute is thus **the better-sourced side arguing at the wrong scale against the worse-sourced side arguing at the right one.**
+
+*Research parked at Chris's direction — a cursory look was enough to establish the myopia; reading the papers is deferred, not abandoned.*
+
+### Why P1 fails — the level conflation, and three counterexamples
+
+*Provenance: the P2 dilemma critique above was developed in this session. **The P1 analysis and the examples below come from a parallel session Chris ran on the same opening** and are recorded as that session's work. The two passes converged independently on the stipulation point — noted as convergence, **not** treated as verification, since the vault's standard is that independence means dropping to a lower artifact, not consulting a second agent.*
+
+The premise: *if deportations are justified, the balance of reasons favouring them would justify the same course of harm in all other cases where the same balance of reasons is present.*
+
+> **The parallel session's statement of the flaw, which Chris picked out as the best line:** *"P1's force comes entirely from the counterfactual — 'identical in every way aside from citizenship status.' But that phrasing stipulates that citizenship status is morally inert. Which is the thing under dispute."*
+
+And the deeper diagnosis: **P1 conflates levels.** Universalizability is a constraint on *reasons* — like cases decided alike. It is not a denial that **institutional facts can be among the reasons.** If status is reason-giving at all, then two cases differing in status do **not** exhibit "the same balance of reasons," the antecedent is never satisfied, and the principle never reaches the case. The stipulation is what hides this: it smuggles in the denial that status is reason-giving, and the level conflation is what makes the smuggle invisible.
+
+**Three counterexamples, from the parallel session** — each a case where a purely institutional difference generates real, uncontroversial differences in permission and duty, with nobody claiming the state rewrote morality:
+
+- A man **identical to your spouse in every respect except that he is not married to you.** May the state compel you to share marital property with him?
+- Someone **identical to a licensed surgeon except for the license.**
+- A person **identical to a party to a contract except that they never signed it.**
+
+The surgeon is the sharpest of the three, because it is not a matter of private consent between the parties — the license is a **state** instrument, and nobody concludes that stopping an unlicensed but otherwise identical practitioner means the state has bent the moral law.
+
+### What survives of Charsky's case
+
+The vault's [symmetric-grounding standard](./word-war-debate-series.md) applies to a verdict this harsh, so: two things stand.
+
+- **The lump-of-labour diagnosis is simply correct.** Employment is not a fixed quantity to be divided; population changes shift demand, production, investment and hiring. Whatever else is wrong, that objection lands.
+- **The crime-reporting mechanism is the most robust thing he cited**, precisely because it is *not* the claim that needs extrapolating. Enforcement reducing victims' willingness to report, and offending rising in consequence, is a within-scale behavioural finding. It survives the external-validity objection that guts the economic extrapolation.
+
+The pattern is worth stating plainly: **his strongest evidence is the evidence that does not depend on scale, and his headline claim is the one that does.**
+
+### Chris's read on the ballot
+
+> **Chris:** *"his logic doesn't hold, and his sources are faulty — hard things to pick out in this format without training and research. But he did come across as strong, so maybe that or his audience might carry him."*
+
+A soft lean to **Charsky**, on presentation and reach rather than on the case — and it runs **against** the [pre-tape prior-only call of Ruelas](./word-war-debate-series.md#round-2-pre-registration--predictions-filed-before-any-tape-2026-09-01). Recorded as a lean rather than a call. The registered condition still governs: a Charsky win scores as **a second instance of the two-factor override**, not as a quiet hit for the prior model.
+
+Note the shape of the verdict, which is the honest summary of the whole round: **the better debater had the worse argument and the worse evidence, and it took a trained economist plus two separate analytical passes to establish that.** Against a 24-to-48-hour audience ballot, none of that is discoverable.
+
 ### The third non-contest, by a third mechanism
 
 > **Chris:** *"Will there be anything to judge on?"*
