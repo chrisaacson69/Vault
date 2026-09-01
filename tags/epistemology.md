@@ -92,3 +92,4 @@ permalink: /tags/epistemology/
 - [Absolutes and Differentials — Frame Selection as the Political Crux](../research/philosophy/epistemology/absolutes-and-differentials.md) — hub — political disputes settled by *frame selection* before evidence: absolute (level ⇒ a task) vs. differential (gap ⇒ an enemy); plus one-legible-criterion-for-a-multivariate-reason (WMD / "Iran cannot build a bomb"). Parent = the Weighting Problem's selection step.
 - [Generational Attribution](../research/philosophy/dynamics/generational-attribution.md) — A cohort large enough to be pivotal in every vote will correlate with every outcome.
 - [Easy to Critique, Hard to Build](../research/philosophy/tangents/easy-to-critique-hard-to-build.md) — costs are forecastable, benefits are not; decision rights follow the residual
+- [Formal Debate Concepts — A Portable Inventory](../research/debates/formal-debate-concepts.md) — fiat, topicality, inherency, kritik, turns; analysis not prediction

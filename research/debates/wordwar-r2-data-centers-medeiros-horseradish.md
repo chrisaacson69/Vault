@@ -155,6 +155,8 @@ The discussion produced a **portable thesis**, and it has been promoted rather t
 
 **This round is that page's primary specimen**, and unusually it supplies *both* halves at once: the negative's case is a pure enumeration delivered with no counterfactual ledger, while **closed-loop cooling** — the very thing being argued over — is the endogenous adaptation the thesis predicts, and the **Abilene aquifer** is the scope condition where the thesis stops applying. The affirmative's non-uniqueness filter is the correct counter, imperfectly executed.
 
+**This round is also the primary specimen for five entries in [Formal Debate Concepts](./formal-debate-concepts.md)** — the affirmative's *is this a reason not to build, or to build differently?* filter is an **inherency** test invented on the spot; his hospitals-and-factories reply is **non-uniqueness**; the negative's *build manufacturing instead* and *government should hold strategic AI* are unframed **counterplans** that concede the harm; his Thiel/Yarvin motive case is a **kritik** missing its link and alternative, which is why *"even if true, why does that mean we shouldn't build more?"* went unanswered three times; and Chris's *better water and energy tech is a bonus, not a hindrance* is a clean **impact turn**.
+
 It is filed as the sibling of [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md): that page is *building vs. picking* inside an exchange; this one is *forecasting costs vs. benefits* about a venture.
 
 ## Open Questions
