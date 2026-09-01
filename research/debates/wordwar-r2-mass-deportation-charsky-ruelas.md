@@ -153,6 +153,22 @@ And the deeper diagnosis: **P1 conflates levels.** Universalizability is a const
 
 The surgeon is the sharpest of the three, because it is not a matter of private consent between the parties — the license is a **state** instrument, and nobody concludes that stopping an unlicensed but otherwise identical practitioner means the state has bent the moral law.
 
+### The missing half of the economics — an immigrant is a demander, not only a supplier
+
+*Kept deliberately compact at Chris's direction — his immigration research stays out of this page; only the structural correction to the round's economics is recorded.*
+
+> **Chris:** *"Employment is not a fixed pie, but it IS semi-sticky :) but that only looks at one side. All of these people need places to stay and food to eat, etc., and it is this increased demand that can cause the economic problems — suppression of wages, high prices to maintain life. All the other side of that equation those studies don't consider, and yet most people feel the effect. Sure, it isn't single-variate, but it is a big chunk. **'GDP go up' is not an excuse for unfettered immigration.**"*
+
+**Three corrections, none of which either debater made.**
+
+1. **The lump-of-labour rebuttal is granted, then narrowed.** Chris concedes the point — employment is not a fixed pie — and adds the qualifier that does the work: it is **semi-sticky**. Adjustment has a speed. The honest claim is therefore not *no displacement* but *displacement dissipates at some rate*, and the rate is the whole question. Worse for the models: comparative statics compare **equilibria**, while a *sustained* inflow means you never arrive at one. You live permanently on the transition path the long-run result assumes away.
+
+2. **⭐ The rebuttal and the complaint are the same fact in two markets.** This is the sharp form of Chris's point. *Employment is not fixed* is true **because immigrants also demand** — they consume, so they create the jobs they fill. But that identical demand is the entire mechanism of the housing and cost-of-living complaint. The asymmetry is in the **supply response**: labour markets can add positions relatively quickly, while **housing supply is inelastic in the short run** — you cannot build as fast as people arrive. So the same demand shock is absorbed in one market and capitalised into prices in the other. **You cannot invoke demand creation to dissolve the labour worry and then decline to count it in the housing worry.** As Charsky presented it, the case does exactly that, and Ruelas — who had the housing numbers — never connected them to the concession he had already been handed.
+
+3. **"GDP go up" is not the welfare metric**, and the vault already holds this: [Measuring Growth](../economics/measuring-growth.md) — *GDP counts the transactions, not the improvement.* Adding people raises aggregate output nearly by definition; the questions that matter are **per-capita** and **distributional**. An aggregate that rises while the median household's rent-to-income ratio worsens has not answered the objection, it has changed the subject.
+
+**Why this belongs on a debate page rather than in an economics argument:** it is a *structural* gap, not a partisan one. The literature Charsky cited studies the labour-market side because that is where the clean identification lives — and the effect people report feeling runs through housing and prices, where it does not. **The evidence is concentrated where the complaint is not.** That is the same shape as the [external-validity problem](#-the-evidentiary-standard-was-unmeetable-in-principle) above, arriving from a different direction: the research design goes where the data is tractable, and the tractable question is not the contested one.
+
 ### What survives of Charsky's case
 
 The vault's [symmetric-grounding standard](./word-war-debate-series.md) applies to a verdict this harsh, so: two things stand.
