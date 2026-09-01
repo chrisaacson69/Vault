@@ -40,3 +40,4 @@ permalink: /tags/politics/
 - [Human Constancy](../research/philosophy/human-constancy.md) — blank slate vs essentialism as strawmen; Reimer–Money bounded correctly; pair-bonding evidence presented two-sided
 - [Econ Nerds — "Three Myths about Inequality and the Data that Destroys Them"](../research/debates/econ-nerds-inequality-myths.md)
 - [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md)
+- [Mass Deportation Is Bad (Word War R2 — Charsky vs. Ruelas)](../research/debates/wordwar-r2-mass-deportation-charsky-ruelas.md)
