@@ -3,13 +3,13 @@ status: active
 created: 2026-08-05
 ---
 # The Word War Debate Contender Series — Bracket Tracker
-> A 32-contender debate tournament, covered touch-and-go. The individual rounds are specimens; the *bracket* is the experiment — what a format selects for when an audience votes.
+> A single-elimination debate tournament billed at 32 contenders (the arithmetic says 30), covered touch-and-go. The individual rounds are specimens; the *bracket* is the experiment — what a format selects for when an audience votes. **Round 1 complete; the round of 16 is set.**
 
 **Links:** [Debates index](./README.md), [Constructed ≠ Arbitrary](../philosophy/constructed-not-arbitrary.md), [The Weighting Problem](../philosophy/epistemology/weighting-problem.md)
 
 ## What it is
 
-32 contenders, single elimination, opening round branded **"Thunder 32."** Two finalists advance to a live **WW1** event. Format per round: 5-min openings → sponsor → ~15-min open floor → (sometimes) a moderated question round → closings. **Moderators rotate.** Advancement is decided by **audience write-in ballot on a 48-hour window** at wordwardebate.com — a mechanism that matters (see *Cross-round findings*).
+32 contenders, single elimination, opening round branded **"Thunder 32"** — though the arithmetic of the completed round 1 gives **30** ([see below](#round-of-16--the-full-bracket-received-2026-09-01)). Two finalists advance to a live **WW1** event. Format per round: 5-min openings → sponsor → ~15-min open floor → (sometimes) a moderated question round → closings. **Moderators rotate.** Advancement is decided by **audience write-in ballot on a 48-hour window** at wordwardebate.com — a mechanism that matters (see *Cross-round findings*).
 
 **Method:** reviews are built from a cleaned auto-caption transcript plus **real-time commentary captured while listening**. That mode produced the densest discussion in the bracket (sixteen sections off one hour of tape) because reactions are caught at the moment they occur rather than reconstructed after. Its ceiling is length — it scales with runtime, not with signal — so the **WW1 main-card debates (1:56 and 2:07) will need a different approach**: timestamped notes on marked moments, or a selection pass before commenting.
 
@@ -199,7 +199,7 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
 
     **The lesson is about the vault's method, not about the audience.** Finding 15 was fitted to **seven** data points and broke on the eighth and ninth. That is precisely the error [finding 13](#cross-round-findings) warns about — small-*n* noise read as signal — committed here on the vault's own ledger rather than on the debaters'. A pattern over seven binary outcomes is roughly what chance produces anyway; it should never have been promoted to a "posture going into round 2." **Standing correction: no predictor gets promoted off fewer than ~10 resolved calls, and any predictor that would have been contradicted by the two most recent results is not yet a predictor.**
 
-    **What actually survives, stated conservatively:** the *analytical* reads still hold up — argument-quality verdicts, concession-tracking, layer diagnoses, and load-bearing-word calls have all survived contact with results. What remains unmodelled is the mapping from those verdicts to ballots, and **three of nine is not distinguishable from a coin.** The honest posture into round 2 is therefore agnostic rather than corrected: run the [autopsy](#next-session--the-winloss-autopsy-planned-2026-08-17-parked-pending-results) over all fourteen at once, and register a model only if it beats the base rate *across the whole set* rather than across a flattering slice of it.
+    **What actually survives, stated conservatively:** the *analytical* reads still hold up — argument-quality verdicts, concession-tracking, layer diagnoses, and load-bearing-word calls have all survived contact with results. What remains unmodelled is the mapping from those verdicts to ballots, and **three of nine is not distinguishable from a coin.** The honest posture into round 2 is therefore agnostic rather than corrected: run the [autopsy](#next-session--the-winloss-autopsy-unparked-2026-09-01-round-1-is-complete) over all fourteen at once, and register a model only if it beats the base rate *across the whole set* rather than across a flattering slice of it.
 
 16. **The bloodsports penalty — a contender's own diagnosis, and the most promising predictor on the table (2026-08-18).**
 
@@ -245,8 +245,12 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
     | Fragile culture | Bourdeau (**Neg** — culture isn't the cause) | **Aff** | ❌ |
     | Military service to vote | Brunet (**Neg** — no) | **Aff** | ❌ |
     | Party loyalty illogical | Kewl Vic (**Neg**) | unclear — **affiliation** | ➖ |
+    | Therapy culture | Josh Smith (**Aff** — it makes people weaker) | Aff | ✅ *(added 2026-09-01)* |
+    | Feminism rerun | Tareyak (**Neg** — not helping) | Neg | ✅ *(added 2026-09-01)* |
 
     **Seven of eleven codable rounds, with the twelfth explained by clause (b).** Against the vault's own **3-of-9** ballot record, that is a decisive improvement — and it was reached without watching a single tape, which is itself the point.
+
+    **Update 2026-09-01 — the two recovered results both fit, taking it to nine of thirteen codable.** Therapy culture and the feminism rerun were resolved by the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01) rather than by result cards, and the pool's prior predicts both: an anti-establishment, agency-affirming audience votes *therapy culture makes people weaker* and *feminism is not helping*. **This changes nothing about the model's standing**, because these two codings are exactly as post-hoc as the other eleven — the same fit-after-the-fact this finding's own warning is about, and the reason its test was registered prospectively. What it *does* change is the comparator: the vault's ballot record rose to **5-of-11**, so the model must now beat **45%**, not 33%.
 
     **And the four failures are not random: they are the four rounds where the vault recorded the largest *execution* gap.** Owlish's legibility against Garcia's private vocabulary; Charsky, the best debater in the bracket; Bourdeau extracting three concessions; Brunet naming the inflation in thirty seconds. So the natural completion is a **two-factor model**:
 
@@ -284,7 +288,7 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
 
 Exactly right, and it is structural rather than sloppy. A live event resolves on the night; this one resolves **48 hours after each release**, on a staggered schedule, with results published as image cards on a page that carries no bracket. So at any moment the tournament is in a superposition — some rounds decided, some inside their window, some unaired — and **nobody outside the organizers can see the standings.** The rounds are all we get; the *tournament* is invisible. Since this hub exists to track the bracket as a unit, maintaining the state here is the fix.
 
-**Standing as of 2026-08-18 — 12 of 14 aired rounds decided.** *(Chris reported all results as posted; in fact two are still missing — see the note under the table.)*
+**Standing as of 2026-09-01 — round 1 complete, all 16 slots known.** The last two results were **never published**; they were recovered by subtraction from the round-of-16 bracket ([below](#round-of-16--the-full-bracket-received-2026-09-01)), which is why their margins are blank and always will be.
 
 | # | Round | Result | Margin | **Advances** |
 |---|---|---|---|---|
@@ -298,51 +302,116 @@ Exactly right, and it is structural rather than sloppy. A live event resolves on
 | 8 | Therapy for men | Summerhays 71.4 – 28.6 Gilkison | +42.8 | **Summerhays** |
 | 9 | Fragile culture | Bourdeau 73.7 – 26.3 Turner | +47.4 | **Bourdeau** |
 | 10 | Military service | Brunet 78.6 – 21.4 Lawrence | +57.2 | **Brunet** |
-| 11 | Therapy culture | Smith vs. Ouedrago | — | ⏳ closed, unposted |
-| 12 | Feminism rerun | David S. vs. Tareyak | — | ⏳ closed, unposted |
+| 11 | Therapy culture | **Josh Smith** def. Ouedrago | never published | **Josh Smith** |
+| 12 | Feminism rerun | **Tareyak** def. David S. | never published | **Tareyak** |
 | 13 | Hate speech | Thunder 62.5 – 37.5 McPherson | +25.0 | **Octavius Thunder** |
 | 14 | Party loyalty | Kewl Vic 81 – 19 Kung Fu Joe | **+62.0** | **Kewl Vic** |
-| — | *(two matchups)* | never listed | — | not aired |
+| 15 | *(never listed)* | no opponent on record — **bye** | — | **Medeiros** |
+| 16 | *(never listed)* | no opponent on record — **bye** | — | **Lee Horseradish** |
 
-**Two rounds remain unposted and both are overdue:** **therapy culture** (Smith vs. Ouedrago) and the **feminism rerun** (David S. vs. Tareyak), each closed well before the two that just published. So the pipeline is not merely lagging — it is publishing **out of order**, which is a fourth production irregularity and rules out "they post as windows close."
+**Two rounds were never posted at all.** **Therapy culture** (Smith vs. Ouedrago) and the **feminism rerun** (David S. vs. Tareyak) both closed *before* the two cards that published on 2026-08-18, and neither card ever appeared. So the pipeline does not merely lag — it publishes **out of order** and then **drops rounds entirely**, which rules out "they post as windows close." Note what this cost: these are the two rounds this hub covered live and predicted blind, and **their ballots are permanently unrecoverable** — the bracket gives up the winner and nothing else.
 
 **What the margins say — this format produces blowouts.** Across twelve decided rounds the mean margin is **44.2 points** and the median **45.6**. **Eight of twelve** were decided by **40+**, and exactly one has been competitive (Cruz/Hamm, +12.4). Read against [finding 13](#cross-round-findings) — rounds turning on 30–105 ballots — a 45-point median means **a typical round is decided by a dozen or so people breaking one way.** This is the baseline finding 11 predicts should compress as the bracket advances: **if round 2's margins don't shrink, neutral dilution is in trouble.**
 
 **Three rounds are closed with no card posted**, including hate speech, whose window has clearly expired. Given the two never-listed matchups and the round-2 filming already underway, the publication pipeline is running behind the tournament itself — a third production irregularity, consistent with reading the format as loosely administered.
 
-## Round 2 field — what we can fill in, and what to look forward to
+## Round of 16 — the full bracket (received 2026-09-01)
 
-Assembled 2026-08-18. The organizers publish no bracket ([defect 4](#format-defects-and-their-cheap-fixes)), so this is reconstructed from result cards, the channel, and the site.
+**The bracket *is* the result card.** The organizers never published two round-1 results and never listed two matchups, but a list naming the sixteen survivors resolves all four gaps by subtraction: a name in round 2 won its round 1, and a name that isn't there, didn't. [Defect 4](#format-defects-and-their-cheap-fixes) paying off backwards — the standings page they don't publish would have been redundant with the bracket they finally did.
 
-**12 of 16 round-2 slots are known:**
+**The eight pairings, as given** (round-1 credentials attached):
 
-| Advancing | Beat | On |
+| # | Round-of-16 matchup | Round-1 credentials |
 |---|---|---|
-| **Owlish** | Garcia | delivery over substance |
-| **Martae Ruelas** | Anton | +21.0 |
-| **Rex Jones** | Meyers | +23.4 |
-| **Luke Charsky** | Bunn | the bracket's best-argued round |
-| **The Aftermath** (Petro) | Constable | +43.8 |
-| **Jose Tejada** | Guptill | +89.1, the largest margin |
-| **Silvio Cruz** | Hamm | +12.4, the only close round |
-| **Spencer Summerhays** | Gilkison | +42.8 |
-| **Rowan Bourdeau** | Turner | +47.4 |
-| **Chris Brunet** | Lawrence | +57.2 |
-| **Octavius Thunder** | McPherson | +25.0 |
-| **Kewl Vic** | Kung Fu Joe | +62.0 |
+| 1 | **Medeiros** vs. **Lee Horseradish** | neither has an aired round — the two byes drawn against each other |
+| 2 | **Josh Smith** vs. **Rowan Bourdeau** | Smith def. Ouedrago *(margin never published)* · Bourdeau +47.4 |
+| 3 | **Chris Brunet** vs. **Tareyak** | Brunet +57.2 · Tareyak def. David S. *(margin never published)* |
+| 4 | **Octavius Thunder** vs. **Kewl Vic** | Thunder +25.0 · Kewl Vic +62.0 |
+| 5 | **Rex Jones** vs. **Owlish** | Jones +23.4 · Owlish +48.4 |
+| 6 | **The Aftermath** vs. **Jose Tejada** | Aftermath +43.8 · Tejada +89.1 |
+| 7 | **Silvio Cruz** vs. **Spencer Summerhays** | Cruz +12.4 · Summerhays +42.8 |
+| 8 | **Martae Ruelas** vs. **Luke Charsky** | Ruelas +21.0 · Charsky +58.1 |
 
-**4 slots unresolved:** two await result cards (**Smith vs. Ouedrago**; **David S. vs. Tareyak**) and two come from the matchups that were never listed or aired.
+### The four gaps, closed
 
-**One name recovered for the missing four.** The channel hosts contender *audition* videos, and cross-referencing them against the known field leaves exactly one unmatched: **Lee Horseradish** — an audition posted, no matchup, no result. That is a strong candidate for one of the two unaired rounds. (The other three remain unknown; the site has **no roster page** — `/wwd-contender-series-1` returns *Page Not Found* — and `/vote-now-1` is now empty, so no ballot is currently open anywhere.)
+1. **Therapy culture — Josh Smith beat Haji Ouedrago.** Smith is in the bracket, Ouedrago isn't. This resolves the ledger's **one pure affiliation call** — the only prediction here made on reach alone, and made *against* the merits read (the Aff conceded his own causal claim; the Neg had a defensible case in his first formal debate). It hit. That is a data point *for* [finding 2](#cross-round-findings), and the cleanest one available, because nothing else was pointing that direction.
+2. **Feminism rerun — Tareyak beat David S.** Called blind for the Neg on straightforwardness and confidence, with the Aff's closing sounding "almost like a concession speech." It hit. So the bracket's first test of a **procedural / burden-play affirmative** before a lay ballot returns a verdict: the squirrel case, the refusal to define *helping*, the exit-interview trashing of the debate — none of it worked. The moderator's on-air *"we'll see if the strategy of trashing the debate quality is rewarded by the audience"* is answered: **no.** That also supplies the first observation for the *"conceded the room"* predictor, which was registered with David S. as its pending specimen.
+3. — 4. **Medeiros and Lee Horseradish advanced without an aired round.** Chris's read — the missing matchups became byes — is what the names support.
 
-**No round-2 content exists publicly yet:** no matchup videos, no announced pairings, no dates. Contenders told Chris filming is underway, so the tape exists and the publication lag is the constraint.
+**The audition cross-reference was half right, which is the useful half.** On 2026-08-18 this page cross-referenced the channel's contender auditions against the known field and named **Horseradish** as the strong candidate for a missing slot. Confirmed. But it found **one of two** — **Medeiros** never surfaced by that method at all. So the auditions are a *lead generator, not a census*, and any future "who's left" reconstruction must assume it under-counts.
+
+**The field was 30, not 32.** Fourteen aired matchups = 28 contenders, plus two who advanced with no opponent on record = **30 names**, against branding that says 32. Two readings, not equally likely:
+
+- **(a) Two contenders withdrew after seeding** and their opponents advanced unopposed. That is *exactly* what a bye is, and it explains the otherwise-odd fact that the matchups were never even *listed* — there was nothing to list.
+- **(b) Two matchups were held and never published in any form.** Possible, but it requires the pipeline to have swallowed a whole round twice, and `/vote-now-1` never showed a ballot for either.
+
+Either way the consequential fact is the same: **two of sixteen round-2 slots were filled without a single vote being cast.** Against [finding 13](#cross-round-findings) — rounds decided by 30–105 ballots — two contenders reached the round of 16 at a price of zero, in a bracket where everyone else paid a few dozen.
+
+### The airing order is not the bracket order — and the bracket is now recoverable
+
+Number the round-1 rounds by the order they aired (the [standings table](#bracket-state--the-scoreboard-the-format-doesnt-publish)). The round-of-16 pairs are then:
+
+`{1,3} {2,4}` · `{5,6} {7,8}` · `{9,11} {10,12}` · `{13,14} {15,16}`
+
+**Alternating blocks of four.** In blocks 1 (rounds 1–4) and 3 (rounds 9–12) the bracket pairs odd-with-odd and even-with-even; in blocks 2 and 4 it pairs adjacents. That is not noise — it means **release order interleaved two bracket slots within a block**, then stopped doing so for the next block.
+
+Two things follow, and both are worth more than the curiosity:
+
+- **The pairings were fixed at seeding, not drawn after round 1.** Every round-2 matchup joins two winners that were seed-adjacent from the start. This is a real single-elimination tree, not a re-seed — so the whole bracket already existed on day one, which makes [defect 6](#format-defects-and-their-cheap-fixes) a choice rather than a constraint.
+- **The mapping is invertible**, so round-1 airing dates translate into bracket positions and back — useful if round 2 also releases out of order.
+
+### The quarterfinal projection — registered now, before it is announced
+
+If the round-of-16 list is in bracket order and quarterfinals pair adjacent matchups (the standard reading, and the one the block structure supports), the QF is:
+
+| QF | Feeds from |
+|---|---|
+| **A** | (Medeiros / Horseradish) vs. (Smith / Bourdeau) |
+| **B** | (Brunet / Tareyak) vs. (Thunder / Kewl Vic) |
+| **C** | (Jones / Owlish) vs. (Aftermath / Tejada) |
+| **D** | (Cruz / Summerhays) vs. (Ruelas / Charsky) |
+
+**A falsifiable structural prediction, registered 2026-09-01**, and it costs nothing to check when the QF is announced. If it holds, the bracket is fully reconstructed and every later round is predictable in *shape* before it is published.
+
+It also pays off both matchups this hub said on 2026-08-18 that it wanted:
+
+- **Brunet vs. Thunder is one win away** — QF **B**. The exact pairing named as "similarly informative": round-1 evidence has Brunet as a disciplined arguer who beat prior *and* rhetoric by 57, and Thunder as a prior-rider who won behind a closing about "satanic pedophilic overlords."
+- **Charsky vs. Tejada is two wins away** — the **C/D semifinal**. Also as named: "the cleanest possible test of the two-factor model," the bracket's best arguer against its largest mobilised bloc.
+
+### What each round of 16 actually tests
+
+- **Thunder vs. Kewl Vic** — the sharpest round on the board. These are the two results that **killed [finding 15](#cross-round-findings)**: both were vault misses running in the *anti*-argument direction (Joe read as the better arguer, lost by 62; McPherson read as the better arguer, lost by 25). Now they face each other, so whatever beat argument in round 1 sits on **both** sides and cancels — and what is left over is the variable that decides it. One of these two is guaranteed a quarterfinal.
+- **The Aftermath vs. Tejada** — the two cleanest **prior-riders** collide (+43.8 and +89.1, the two rounds [finding 17](#cross-round-findings) codes as flat prior-alignment). Both won by riding the pool rather than out-arguing anyone, so the prior cannot break the tie and the model is forced onto its override clause. The most direct prospective test of the two-factor model in the round.
+- **Ruelas vs. Charsky** — the best-argued winner against the second-narrowest. Charsky's round is the strongest evidence that argument quality beats legibility *and* prior at once; his liability is the [finding 6](#cross-round-findings) technique/format mismatch. If [finding 11](#cross-round-findings)'s neutral dilution is real, a bigger and less partisan pool should hurt him **less** than round 1 did — so this round runs findings 6 and 11 against each other.
+- **Cruz vs. Summerhays** — the **weakest mandate on the board**. Cruz advanced on +12.4, the only competitive round, on an inferred ballot of roughly 16–73 votes; Summerhays advanced on +42.8 in a round where the vault's substance read went the *other* way by 43 points. Two winners whose round 1 the vault does not think measured anything.
+- **Josh Smith vs. Bourdeau** — reach ([finding 2](#cross-round-findings), the call that just paid) against uncollected-concessions-that-went-unpunished (+47.4). Both won by mechanisms orthogonal to argument quality, in opposite ways.
+- **Rex Jones vs. Owlish** — **term inflation vs. delivery**: "spiritual boomer" against the bracket's clearest legibility win. The two smallest margins among the non-argument winners, and the round most likely to go to whoever redefines first.
+- **Brunet vs. Tareyak** — argument quality's best specimen against the Neg who won on straightforwardness. The one round where the vault's argument read and its ballot read pointed the same way for *both* contenders in round 1.
+- **Medeiros vs. Horseradish** — **zero data on either side**, and this needs saying plainly: the two-factor model cannot be run on it (no execution record exists) and finding 2 cannot be run on it (no known reach), so it is the one round of the eight that must be **excluded from the pre-registered test**. Conveniently, the [success test](#the-actual-objective-a-predictor-not-a-post-mortem) was already written as **"3-of-7"** — and seven is exactly what remains once this round is set aside.
+
+### ⚠ The model cannot be coded yet — and that is the protocol's next step
+
+[Finding 17](#cross-round-findings)'s model is **resolution-level**: it predicts from the pool's prior *on the proposition*, overridden only by a large execution gap. **No round-2 resolutions, side assignments, dates or moderators have been published** — only the pairings — so the model has nothing to code. Anything registered today would be a *person-level reputation* guess, which is a **different model**, and reporting it as the same one would contaminate the test.
+
+So the protocol is two-stage, and both stages must be dated in the [ledger](#predictions-ledger):
+
+1. **Now (2026-09-01):** register person-level priors from round-1 reputation only, labelled openly as the **naive baseline**. Its job is to be beaten.
+2. **When the topics drop, before any tape is watched:** code prior direction · side assignment · reach, per round, and register finding 17's predictions. **That is the run that counts**, and the one the finding pre-committed to.
+
+**One bar moved, and it has to be said out loud rather than quietly re-set.** The success test was pre-registered as beating the vault's **3-of-9** ballot record. With Smith and Tareyak resolved, that record is now **5 of 11 (45%)**. The registered number stands as registered — moving a bar after seeing results is precisely the error [finding 15](#cross-round-findings) died of — but the honest comparator has risen, so a model clearing 3-of-7 while the vault's own hit rate sits at 45% has **not** demonstrated anything. Report both numbers when the round resolves.
+
+### What is still unknown
+
+- **Round-2 resolutions, side assignments, dates and moderators** — everything the model needs.
+- **The margins for the two recovered results.** Smith and Tareyak give winners only, so the margin distribution stays at **n=12** (mean 44.2, median 45.6) and [finding 11](#cross-round-findings)'s compression test is unaffected — round 2's margins will be judged against a 12-round baseline.
+- **Medeiros, entirely** — no audition, no aired round, no handle, no reach estimate. A genuine blind spot in a bracket of sixteen.
+- **Whether the two byes were withdrawals or unpublished rounds**, which decides whether two more contenders belong in the identity-mapping harvest.
 
 ### What to watch for
 
-- **The tests already registered.** [Finding 17](#cross-round-findings)'s two-factor model must be coded and published *before* the tapes are watched; [finding 11](#cross-round-findings) predicts margins compress as pools grow; and the two together predict the prior model gets **more** accurate, not less.
-- **Margins are the sharpest single instrument.** Round 1's median is **45.6** with a bimodal split (four rounds ≤25, eight ≥42.8). If round 2 stays bimodal at the same spread, neutral dilution is dead. If the whole distribution shifts toward the middle, it is confirmed.
-- **The matchups worth wanting.** Two contenders now carry vault-relevant reputations into round 2: **Charsky**, whose win is the strongest evidence in the bracket that argument quality can beat legibility and prior simultaneously, and **Tejada**, whose +89.1 came after arguing his opponent's case for twenty minutes. *A Charsky–Tejada pairing would be the cleanest possible test of the two-factor model*, since it pits the bracket's best arguer against its largest mobilised bloc. **Brunet vs. Thunder** would be similarly informative — the round-1 evidence has Brunet as a disciplined arguer and Thunder as a prior-rider.
-- **Whether the format polishes.** The [defect list](#format-defects-and-their-cheap-fixes) is the checklist: announced side assignments, one closing-order rule, pre-round definitions, a live bracket, and results published on close.
+- **Margins are still the sharpest single instrument.** Round 1's median is **45.6** with a bimodal split (four rounds ≤ 25.0, then a gap with nothing in it, then eight at 42.8–89.1). If round 2 stays bimodal at the same spread, [finding 11](#cross-round-findings)'s neutral dilution is dead. If the distribution shifts toward the middle, it is confirmed — and [finding 17](#cross-round-findings) predicts *which* rounds land in the narrow mode: the ones where prior and execution point in opposite directions.
+- **The tests already registered.** Finding 17's model must be coded and published *before* the tapes are watched; finding 11 predicts margins compress as pools grow; and together they predict the prior model gets **more** accurate, not less.
+- **Whether the format polishes.** The [defect list](#format-defects-and-their-cheap-fixes) is the checklist: announced side assignments, one closing-order rule, pre-round definitions, a live bracket, and results published on close. The bracket arriving at all is partial credit on defect 4 — very late, and as a list rather than a standings page.
 
 ## Prediction scorecard
 
@@ -362,10 +431,10 @@ Compact view of the [ledger](#predictions-ledger); the ledger rows carry the rea
 | *Meta* | Bracket selects legibility over correctness | — | ❌ **refuted** | The bracket's most valuable single result |
 | Hate speech | **McPherson** (Neg) | Thunder +25.0 | ❌ | Called *against* Chris's own position; **the better debater lost to a closing about "satanic pedophilic overlords"** |
 | Party loyalty | **Kung Fu Joe** (Aff) | Kewl Vic **+62.0** | ❌ | Called against a personal acquaintance — and the acquaintance won by 62 |
-| Therapy culture | **Smith**, on reach alone | ⏳ | — | The one pure affiliation call; still unposted |
-| Feminism rerun | **Tareyak** (Neg) | ⏳ | — | Still unposted |
+| Therapy culture | **Smith**, on reach alone | **Smith advances** — margin never published | ✅ | The ledger's one pure affiliation call, made *against* the merits read — and it paid |
+| Feminism rerun | **Tareyak** (Neg) | **Tareyak advances** — margin never published | ✅ | The burden-play Aff loses; the "conceded the room" predictor gets its first observation |
 
-**Record: 3 of 9 ballot forecasts correct, one correct abstention, one meta-claim refuted.** The one-directional pattern claimed here yesterday **did not survive the next two results** — see [finding 15](#cross-round-findings), rewritten.
+**Record: 5 of 11 ballot forecasts correct (45%), one correct abstention, one meta-claim refuted.** *Updated 2026-09-01 — the last two were resolved by the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01), not by result cards.* Both late hits were **non-argument calls that paid**: Smith on reach alone, Tareyak on confidence and straightforwardness. That does not revive the dead [finding 15](#cross-round-findings) — the misses still run in both directions — but it does move the bar the round-2 model has to clear, from **33% to 45%**.
 
 *Open bookkeeping:* an **Aff/Neg tally** would be worth having — does either side enjoy presumption with this audience? — but three of the ten side assignments need verifying against their tapes before the count means anything, so it is deliberately not asserted here.
 
@@ -390,7 +459,7 @@ Source: [wordwardebate.com/voting-results](https://wordwardebate.com/voting-resu
 | Fragile culture — Turner vs. **Bourdeau** | **Bourdeau** 73.7% – 26.3% | +47.4 |
 | Military service — Lawrence vs. **Brunet** | **Brunet** 78.6% – 21.4% | **+57.2** |
 
-*Retrieved 2026-08-17. Ten result cards are archived at [`raw/debates/wordwar-results-2026-08-17/`](../../raw/debates/wordwar-results-2026-08-17/) — the site publishes results only as images, so those files are the primary source. **Not yet posted:** therapy culture, the feminism rerun, hate speech, and party loyalty (the last still inside its window).*
+*Retrieved 2026-08-17. Ten result cards are archived at [`raw/debates/wordwar-results-2026-08-17/`](../../raw/debates/wordwar-results-2026-08-17/) — the site publishes results only as images, so those files are the primary source. **Never posted:** therapy culture and the feminism rerun — hate speech and party loyalty published on 2026-08-18, but those two cards never appeared, and their winners were recovered from the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01) instead.*
 
 **⚠ Note the precision drop.** The two newest results are reported to **one** decimal, not two. That materially weakens the [finding 13](#cross-round-findings) reconstruction, because a single decimal admits far more denominators: **78.6/21.4 fits any multiple of 14** (smallest 11–3), and **73.7/26.3 any multiple of 19** (smallest 14–5). Against the military-service round's 224 views, the 15–25% turnout band observed elsewhere would favour n≈42 (18.8%) over n=14 (6.3%) — but that is an inference from the band, not from the figures, and is flagged as such.
 
@@ -407,9 +476,9 @@ Source: [wordwardebate.com/voting-results](https://wordwardebate.com/voting-resu
 | Charsky wins round 4 | R4 §12, §16 | ✅ **CORRECT — 79.05%.** The test resolved the informative way. Three predictors, two directions: argument quality → Charsky; delivery/legibility (finding 6) → Bunn; audience priors (AI skepticism is the popular position) → Bunn. Charsky won by 58 points, so **argument quality beat both legibility and sympathy at once**. The single most load-bearing result in the bracket |
 | **Kung Fu Joe (Aff) wins, Joe/Vic** | R14 discussion | ❌ **WRONG by 62 points — Kewl Vic took it 81–19**, the second-largest margin in the bracket, against a call giving the Aff *both* better arguments and better presentation. Its value: the round holds argument quality nearly constant (the two agreed), leaving **posture** as the visible variable — Joe's closing is about his opponent, Vic's about the question. Best specimen for [finding 16](#cross-round-findings), with the confound that Vic is both the larger channel and the acquaintance. Original registration: **registered blind.** Chris: *"Aff has the better arguments, and he presented well, I think he wins."* Convergent (better debater *and* predicted winner), and made **with a personal connection to the opponent** — Chris knows Vic — which is the first call in the ledger where the affiliation channel runs *against* the prediction rather than with it |
 | **McPherson (Neg) wins, McPherson/Thunder** | R13 discussion | ❌ **WRONG — Thunder took it 62.5–37.5.** The better debater lost to an opponent closing on *"satanic pedophilic overlords"* and *"global enslavement"* — and lost while arguing the side Chris *disagrees* with, so Chris and the room reached the same winner-side by opposite routes. **McPherson's own post-mortem became [finding 16](#cross-round-findings).** Original registration: **registered blind, and a call *against* Chris's own position on the resolution**, which is what makes it worth logging. He sides with the Aff on the merits and still calls the round for the Neg: *"the neg performed better here as he had a plan and he has experience dealing with these types of debates… Despite all of the 'bad' arguments, I think this goes to the Neg."* So this is the **second clean instance of the Garcia pattern** — the side the vault reads as correct losing on execution — and it refines the demoted [finding 5](#cross-round-findings) in a useful direction: not *the format punishes correctness*, but *a correct position with no plan loses to an incorrect position with one* |
-| **Tareyak (Neg) wins, David/Tareyak** | R12 discussion | open — **registered blind**, and notable for being *convergent* where the previous call was split. Chris: *"the Neg did well to steer the debate away from the very narrow framing… I think the neg pulls this as he was more straight-forward with his arguments and was more confident.. the Aff's closing almost sounded like a concession speech."* The Aff himself models the pool correctly on air (*"I do know sort of how the audience probably skews here"*) and then trashes the debate in his exit interview, drawing the moderator's *"we'll see if the strategy of trashing the debate quality is rewarded by the audience"* — so a David win would be the bracket's first case of a **procedural/burden-play affirmative** beating a substantive negative before a lay ballot, which is the direct test of [finding 6](#cross-round-findings)'s extension |
+| **Tareyak (Neg) wins, David/Tareyak** | R12 discussion | ✅ **CORRECT — Tareyak advances.** Recovered from the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01) on 2026-09-01; the card was never published, so the winner is known and the margin never will be. **Registered blind**, and notable for being *convergent* where the previous call was split. Chris: *"the Neg did well to steer the debate away from the very narrow framing… I think the neg pulls this as he was more straight-forward with his arguments and was more confident.. the Aff's closing almost sounded like a concession speech."* The Aff himself models the pool correctly on air (*"I do know sort of how the audience probably skews here"*) and then trashes the debate in his exit interview, drawing the moderator's *"we'll see if the strategy of trashing the debate quality is rewarded by the audience"* — so a David win would be the bracket's first case of a **procedural/burden-play affirmative** beating a substantive negative before a lay ballot, which is the direct test of [finding 6](#cross-round-findings)'s extension. **It did not happen.** The burden-play affirmative lost, so that test returns **no** — and the moderator's on-air *"we'll see if the strategy of trashing the debate quality is rewarded by the audience"* is answered in the negative |
 | **Lawrence (Aff) likely wins, Lawrence/Brunet — but the argument goes to Brunet** | R11 discussion | ❌ **WRONG — and it is the most important result in the bracket, because it was the designed test and it failed cleanly. Brunet took it 78.6 – 21.4.** The call was the ledger's first explicit *split*: argument to Brunet, ballot to Lawrence on rhetoric. **The side named as having the better argument won by 57 points** — the second-largest margin on the board. So the pattern the demoted [finding 5](#cross-round-findings) was built on does not merely lack support; the one round staged to test it produced the opposite, decisively. Note what makes it strong evidence: the Aff was a **USAF veteran arguing a veterans-first proposition to an audience that skews patriotic**, i.e. audience prior *and* rhetoric both pointed at Lawrence, and he still lost by 57. Together with Charsky (+58) this is now **two decisive rounds where argument quality beat rhetoric and sympathy simultaneously.** Original registration below. Chris: *"the argument goes to Chris [Brunet], but I don't think he was aggressive enough… Glenn is likely to take this based on appeal and rhetoric alone. **He was the better 'debater' even though he had the worse argument.**"* This is the exact pattern the demoted [finding 5](#cross-round-findings) was built on, now stated as a prediction rather than noticed afterwards — so it is the cleanest available retest of whether the format rewards rhetoric over argument |
-| **Smith (Aff) wins, Smith/Ouedrago** | R10 discussion | open — **registered blind, and explicitly a reach call rather than a merits call.** Chris: *"I think JS takes this… JS has a channel called 'JS Urban Adventures', and has a decent sized following. I think this will carry him."* This is the first prediction in the ledger made **on the affiliation channel alone**, and it is testable against the merits read: the Aff conceded his own causal claim and the Neg — in his first formal debate — had a defensible case. A Smith win is consistent with finding 2; an Ouedrago win would be the bracket's first clear instance of an unknown beating a following |
+| **Smith (Aff) wins, Smith/Ouedrago** | R10 discussion | ✅ **CORRECT — Smith advances.** Recovered from the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01) on 2026-09-01; no card was ever published, so the margin is permanently unknown. **Registered blind, and explicitly a reach call rather than a merits call.** Chris: *"I think JS takes this… JS has a channel called 'JS Urban Adventures', and has a decent sized following. I think this will carry him."* This is the first prediction in the ledger made **on the affiliation channel alone**, and it is testable against the merits read: the Aff conceded his own causal claim and the Neg — in his first formal debate — had a defensible case. A Smith win is consistent with finding 2; an Ouedrago win would have been the bracket's first clear instance of an unknown beating a following. **Smith won**, which leaves [finding 2](#cross-round-findings) holding its single best data point — the one round where reach was the *only* predictor pointing that way, and it was the one that was right |
 | **Turner (Aff) wins, Turner/Bourdeau** | R9 discussion | ❌ **WRONG — Bourdeau took it 73.7 – 26.3, and this is the informative failure the registration anticipated.** The call rested on execution: the Neg conceded the data, the mechanism, and the causal principle (*"they're going to be a product of whatever that environment is"*), and the Aff never cashed any of it. The page said in advance that a Neg win *"would say the concessions were invisible to the audience, which is itself worth knowing."* **It says exactly that, by 47 points.** Concessions extracted but never converted are worth nothing on a lay ballot — an audience scores what a debater *does with* an admission, not the admission. Pairs with the Ouedrago round, where the same failure to collect went unpunished. Original registration below. Unlike most calls in this ledger it rests on execution rather than sympathy: the Neg conceded the data, the mechanism, and the causal principle, and the Aff still declined to cash it — so a Neg win would say the concessions were invisible to the audience, which is itself worth knowing |
 | **Summerhays/Gilkison — no confident call** | R8 discussion | ✅ **the abstention was correct, and that is the point.** Chris read **Neg (Gilkison) as winning on substance** — *"does this rise to the level of 'doesn't work'.. I don't think it does"* — while explicitly declining to predict the vote: *"this might be a victim of small sample size :)"*. **The vote went the other way: Summerhays 71.4–28.6.** So the substance read and the ballot diverged by 43 points, exactly the gap the abstention anticipated. Finding 13 earning its keep: a round turning on ~21–49 ballots cannot be forecast from the merits, and the correct move was to say so rather than guess |
 | **Hamm (Aff) advances, Cruz/Hamm** | R7 discussion | ❌ **WRONG — Cruz took it 56.2–43.8.** But Chris called the *shape* exactly: *"might be close."* At **+12.4 it is by far the tightest margin in the bracket**, on an inferred n of roughly 16–73 — i.e. a swing of a few votes. **This was flagged in advance as the informative outcome**, and what it informs is finding 13 rather than anything about argument quality: on the tape the Aff had the cleaner case (the severance held; the Neg conceded the inside standard in his own closing), the predictors all agreed, and it still went the other way by single digits of ballots. At this sample size, "the better case lost" and "four people voted differently" are the same sentence |
@@ -468,11 +537,11 @@ Ana Kasparian vs. Pearl Davis · Michael Rectenwald vs. Shabbos Kestenbaum · **
 - **Stefan Molyneux** — moderating round 1.
 - **Pisco** — moderating the Boomers round, *and* a WW1 main-card debater (vs. Mullally). Contenders moderating each other's rounds is itself a structural feature worth noting.
 
-## Next session — the win/loss autopsy (planned 2026-08-17, parked pending results)
+## Next session — the win/loss autopsy (unparked 2026-09-01: round 1 is complete)
 
 > **Chris:** *"let's wait for more results and then we can break apart **why people won or lost**."*
 
-The bracket is four results short of complete (therapy culture, feminism rerun, hate speech — all closed and unposted — plus party loyalty, closing ~08-18). Once all fourteen are in, run a **cross-round causal analysis** rather than another per-round review. The materials are already assembled and this is the payoff pass:
+**The bracket is complete as of 2026-09-01** — fourteen winners, twelve margins. Run the **cross-round causal analysis** now, rather than another per-round review. The materials are assembled and this is the payoff pass:
 
 - **Fourteen paired data points** — a vault verdict on the argument, and a ballot — which is the only way to separate *what won* from *what was better*.
 - **The candidate explanations are already named across the findings** and can finally be scored against each other rather than asserted: delivery/legibility (6), affiliation and turnout (2, 12, 13), audience prior (10), argument quality (the Charsky and Brunet results), concessions left uncollected (the fragility result), and technique/format mismatch (6's extension).
@@ -487,7 +556,7 @@ The bracket is four results short of complete (therapy culture, feminism rerun, 
 
 Do all three in the same read; they come from the first ninety seconds and the last two minutes of each tape.
 
-**Status 2026-08-18: 12 of 14 in hand**; only therapy culture and the feminism rerun are outstanding, and both closed *before* the two that just posted — so the pipeline publishes out of order and further waiting may not produce them. **The autopsy is runnable on 12** and should not block on the last two; code them as unknown rather than dropping them.
+**Status 2026-09-01: 14 of 14 winners in hand, 12 of 14 margins.** Therapy culture and the feminism rerun came from the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01); their cards were never published and never will be, so those two enter the autopsy as **winner-known, margin-unknown** — codable for every predictor except the margin-based ones. The earlier advice stands with its reason changed: **run it on all fourteen now**, and run it *before* the round-2 topics drop, because the two-stage protocol needs finding 17's model coded and registered the moment they do.
 
 ### The actual objective: a predictor, not a post-mortem
 
@@ -523,8 +592,8 @@ Consolidated because the observations have accumulated across a dozen reviews an
 | 2 | **Closing order follows two different rules**, one positional (Kyla) and one side-based (Mullally), and the side-based one has run in both directions | finding 9's correction table | Pick one and put it in the format sheet. The last word is a real edge |
 | 3 | **Load-bearing terms are not negotiated pre-round** — only the topic noun is | The [feminism rerun](./wordwar-feminism-rerun-david-tareyak.md) was decided by this before it started | Require an agreed definition of the resolution's *operative* term, or announce on air that none was reached |
 | 4 | **No live bracket.** Staggered 48-hour windows plus image-only results mean nobody outside the organizers can see the standings | The reason [this hub maintains one](#bracket-state--the-scoreboard-the-format-doesnt-publish) | A single standings page — the data already exists |
-| 5 | **Results not published when windows close.** Three rounds closed with no card | therapy culture, feminism rerun, hate speech | Publish on close |
-| 6 | **Matchups unlisted while later rounds film** | two of sixteen, never announced | Publish the full bracket at seeding |
+| 5 | **Results not published when windows close — and two were never published at all.** Hate speech eventually posted; **therapy culture and the feminism rerun never did.** Their winners were recoverable only by subtraction from the round-of-16 list, and their ballots are lost permanently | therapy culture, feminism rerun | Publish on close |
+| 6 | **Matchups unlisted while later rounds film — and two slots were filled with no ballot at all.** The [block structure of the round-2 pairings](#the-airing-order-is-not-the-bracket-order--and-the-bracket-is-now-recoverable) shows the tree was fixed at seeding, so nothing prevented publishing it | two of sixteen never announced; Medeiros and Horseradish advanced unopposed | Publish the full bracket at seeding |
 | 7 | **Moderators are drawn from the competitor pool** | Pisco moderates and competes; Mullally moderates after winning WW1 | Not obviously wrong — but it makes disclosure load-bearing |
 
 **In fairness, three things the format does well**, and they should survive any polish: the **moderated crossfire round** is the most productive segment in almost every round (it is where definitions actually get pinned); the **48-hour window** lets voters watch the whole tape rather than reacting live; and **disclosure norms are emerging on their own** — Mullally opens the party-loyalty round with *"candidly, I know both these guys."*
@@ -532,7 +601,7 @@ Consolidated because the observations have accumulated across a dozen reviews an
 ## Open questions
 
 1. ~~Does moderator interference show up in a third round?~~ **Answered — no.** ~~Does the attribution rule hold on a fourth moderator?~~ **Answered — yes**, and emphatically: [Ryan Mullally](./wordwar-western-therapy-men-summerhays-gilkison.md#mullally--the-fourth-moderator-and-finding-1s-open-successor) states the rule unprompted in his own words — *"whether or not they're both modern western therapy I take no position on. I'm just pointing out that there might be a distinction."* Supply the distinction, own it as yours, decline to adjudicate. ~~Do Molyneux/Kyla repeat their patterns in later rounds?~~ **Answered for Kyla — yes.** The [hate-speech round](./wordwar-hate-speech-mcpherson-thunder.md) has her blocking a debater's definitional move without owning it, which is the round-2 charge in a different costume, and it pairs with Pisco's owned block to locate the line precisely: **the rule is not "don't supply content," it is "don't launder a ruling as a question."** Remaining successors: does **Molyneux** repeat his, and is there a case where a moderator's unowned intervention actually *helps* the debater it interrupts? (finding 1)
-2. Can any round separate legibility from reach? The **David vs. Tareyak rerun** was the designed instrument and is now [reviewed](./wordwar-feminism-rerun-david-tareyak.md) — **but it cannot be scored until its ballot posts**, and the comparison it enables is *across pairs on one resolution*, not within a round. Held open pending the result. (finding 2)
+2. ~~Can any round separate legibility from reach?~~ **Closed 2026-09-01, and for a procedural reason worth remembering.** The **David vs. Tareyak rerun** was the designed instrument; it is [reviewed](./wordwar-feminism-rerun-david-tareyak.md) in full, but **its card was never published**, so the [bracket recovered the winner and nothing else](#round-of-16--the-full-bracket-received-2026-09-01). What survives is the **cross-pair** comparison the question was built on: the *same resolution* run twice with different contenders returned the **Neg both times** (Ruelas +21.0; Tareyak, margin unknown) — which is evidence about the **resolution's prior**, so it feeds [finding 17](#cross-round-findings) rather than finding 2. The legibility/reach separation needed the *margin*, and there is now no path to it. **Lesson: an instrument designed around a margin dies if the margin is never published** — so future designed tests should be built on the winner, which this format does eventually reveal. Open successor: is there a *within-round* instrument, where one contender has legibility and the other has reach? (finding 2)
 3. ~~Do the layer-1 and layer-3 failure modes exhaust the space, or is there a third?~~ **Answered — no, and the addition is below them, not beside them.** The Boomers round supplies **layer 0** (epistemic non-overlap); the stack needed a floor. Open successor: does layer 0 recur, or is it an artifact of one unusual worldview? A bracket optimizing for audience appeal will keep drawing heterodox contenders, so this is worth watching. (finding 3)
 4. Does the "true position loses" pattern survive more rounds, or was it two coincidences? (finding 5)
 5. **Candidate finding — term inflation.** Two rounds now turn on the same move: widen the resolution's load-bearing term until no counterexample survives, at the cost of the resolution meaning anything. Rex converts "boomer" from a birth cohort to a disposition (**"spiritual boomer"**); Calvin converts "luck" to **"essentially anything that happens."** In both cases the inflating side was ahead on the version it traded away. Two specimens is a pattern, not a finding — promotion pending, and the wealth round is Chris's to discuss first.

@@ -10,8 +10,10 @@ discussion: folded-in
 **Prompt as stated:** *"Therapy culture is making people weaker"*
 **Participants:** Josh Smith / "JS" (**Aff** — *The Dreaded Conservative*, 200+ episodes) vs. Haji Ouedrago (**Neg** — his first formal debate)
 **Moderator:** Kyla Turner — her fifth round, opening with *"I don't want to be weighing in at all on today's debate"*
-**Duration:** 1:10 · **Result:** pending
+**Duration:** 1:10 · **Result: JOSH SMITH ADVANCES** — margin unknown and permanently so: **no result card was ever published**, and the winner was recovered by subtraction from the [round-of-16 bracket](./word-war-debate-series.md#round-of-16--the-full-bracket-received-2026-09-01) on 2026-09-01
 **Vault relevance:** [The Load-Bearing Word](./the-load-bearing-word.md), [Does Western Therapy Work for Men?](./wordwar-western-therapy-men-summerhays-gilkison.md) (sibling), [Word War series hub](./word-war-debate-series.md)
+
+> **Outcome (2026-09-01).** Chris called this one for **Smith on reach alone** — *"JS has a channel called 'JS Urban Adventures', and has a decent sized following. I think this will carry him"* — explicitly **against** the merits read on this page, where the Aff concedes his own causal claim and the Neg, in his first formal debate, has the defensible case. **Smith advanced.** That makes this the [ledger](./word-war-debate-series.md#predictions-ledger)'s one *pure affiliation* call and its best single data point for finding 2: the only round where reach was the sole predictor pointing that way, and it was right. The counterfactual it was registered against — an unknown beating a following — has still not appeared anywhere in the bracket.
 
 ---
 
