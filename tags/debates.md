@@ -80,3 +80,4 @@ permalink: /tags/debates/
 - [The Represented Unit — What an Upper Chamber Is For, and What Breaks When You Swap It](../research/philosophy/morality/legal-theory/represented-unit.md) — A bicameral upper chamber exists to represent the **pre-existing power centers whose consent was required to form the union at all** — barons in England, states in America, the…
 - [The Supply Omission — Why "Demand-Driven" Is Half an Argument](../research/economics/the-supply-omission.md) — "The economy is demand-driven" deletes the clause that makes it true: *within the limited supply*.
 - [Mass Deportation Is Bad (Word War R2 — Charsky vs. Ruelas)](../research/debates/wordwar-r2-mass-deportation-charsky-ruelas.md)
+- [Biden vs. Trump: Who Was the Better President? (Word War R2 — Bourdeau vs. Smith)](../research/debates/wordwar-r2-biden-trump-bourdeau-smith.md)

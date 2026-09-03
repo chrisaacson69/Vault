@@ -41,3 +41,4 @@ permalink: /tags/politics/
 - [Econ Nerds — "Three Myths about Inequality and the Data that Destroys Them"](../research/debates/econ-nerds-inequality-myths.md)
 - [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md)
 - [Mass Deportation Is Bad (Word War R2 — Charsky vs. Ruelas)](../research/debates/wordwar-r2-mass-deportation-charsky-ruelas.md)
+- [Biden vs. Trump: Who Was the Better President? (Word War R2 — Bourdeau vs. Smith)](../research/debates/wordwar-r2-biden-trump-bourdeau-smith.md)

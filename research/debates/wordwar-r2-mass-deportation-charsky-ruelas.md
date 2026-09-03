@@ -12,10 +12,27 @@ discussion: folded-in
 **Participants:** **Luke Charsky** (**Aff** — against mass deportation, opens first) vs. **Martae Ruelas** (**Neg** — pro mass deportation)
 **Moderator:** **Dylan Ren** — *Conspiracy Social Club*; **his second round of round 2**, after the [data-centers match](./wordwar-r2-data-centers-medeiros-horseradish.md)
 **Duration:** 1:11:27 · **740 views** — the most-watched round-2 tape by a wide margin (435 and 314 for the others)
-**Result:** pending — **ballot open 48 hours**
+**Result: CHARSKY 79.3% – 20.7% RUELAS (+58.6)** — **the override fired, exactly as pre-registered.** Note the consistency: Charsky won round 1 by **+58.1** and round 2 by **+58.6**
 **Vault relevance:** [Word War series hub](./word-war-debate-series.md), [Formal Debate Concepts](./formal-debate-concepts.md), [Charsky's round 1](./wordwar-ai-making-people-dumber-charsky-bunn.md), [Ruelas' round 1](./wordwar-feminism-relationships-ruelas-anton.md)
 
 ---
+
+## ✅ RESULT — Charsky 79.3 – 20.7, and this is the cleanest thing the ledger has produced
+
+**The two models were split on this round before the tape, and the split resolved.**
+
+| Model | Predicted | Outcome |
+|---|---|---|
+| **Prior-only** (clause a alone) | **Ruelas** — the pool is patriot-coded, and *"mass deportation is bad"* runs hard against its prior | ❌ **WRONG by 58.6** |
+| **Two-factor** (prior, overridden by a large execution gap) | **Charsky** — named in the pre-registration as *"the single most likely override candidate in the bracket"* | ✅ **CORRECT** |
+
+**And the handling was registered in advance, which is what makes it count.** The pre-registration said: *"a Charsky win is not a refutation but a second instance of the two-factor override, and should be scored as such rather than quietly counted as a hit."* That is exactly what happened, and it is scored that way — the **prior-only** model took a loss, the **two-factor** model took a win, and neither was re-coded after the fact.
+
+**⚠ What this does NOT license.** The vault's own analysis of this round concluded that Charsky's logic fails (the P2 dilemma is false, P1 conflates levels) and that his evidence is mis-scaled (local quasi-experimental estimates cannot reach a 10M-person shock, and his one mass-scale citation is a calibrated model, not a quasi-experiment). **The ballot does not touch any of that.** So the honest statement is narrow: *the audience rewarded the better-performing debater, and the vault still judges he had the worse case.* Chris: *"his logic doesn't hold, and his sources are faulty — hard things to pick out in this format without training and research. But he did come across as strong."* **Chris's lean was right, and his reasoning for it was right.**
+
+**The stability is the striking number.** Charsky: **+58.1** in round 1, **+58.6** in round 2 — against a different opponent, a different resolution, a different moderator, a bigger audience, and the pool's prior running against him the second time. Two rounds is two rounds, but a debater reproducing his margin to within half a point while the conditions change is the closest thing the bracket has to a fixed quantity.
+
+**It also settles the round's open question 2 in one direction.** The page asked: if Charsky loses, is it the prior beating a better-argued case, or the [technique mismatch](./word-war-debate-series.md#cross-round-findings) finally costing him? **He didn't lose.** So [finding 6](./word-war-debate-series.md#cross-round-findings)'s mismatch — the density, the flowing-judge closing, the 225 wpm — has now failed to cost him anything **twice**, which is a real problem for reading it as a liability rather than merely a stylistic fact.
 
 ## Why this round carries the most weight of the three
 

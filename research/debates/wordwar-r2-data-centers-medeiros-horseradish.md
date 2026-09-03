@@ -12,10 +12,20 @@ discussion: folded-in
 **Participants:** **Alexxander Medeiros** (**Aff**) vs. **Lee Horseradish** (**Neg**)
 **Moderator:** **Dylan Ren** — co-host of the *Conspiracy Social Club* podcast; his first round in the bracket
 **Duration:** 1:11:43 · 435 views at first look (channel: 6.57K subs) · **live-streamed**; ballot open **24 hours**, not 48
-**Result:** pending
+**Result: MEDEIROS 88.1% – 11.9% HORSERADISH (+76.2)** — the **largest margin of the tournament so far**, exceeding round 1's biggest (+89.1 was Tejada's, so second-largest overall; largest of round 2). Chris's unscored call was **Medeiros on polish and reach** — correct, and by 76 points
 **Vault relevance:** [Word War series hub](./word-war-debate-series.md), [The Load-Bearing Word](./the-load-bearing-word.md), [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md)
 
 ---
+
+## ✅ Result — and the round excluded from the test produced the biggest number in it
+
+**Medeiros 88.1 – 11.9 (+76.2).** Chris's call was **Medeiros on polish and reach**, filed *against* a personal connection (Lee Horseradish owns the show Chris debates on) and explicitly **unscored**, because this was the match [pre-registered as excluded](./word-war-debate-series.md#round-2-pre-registration--predictions-filed-before-any-tape-2026-09-01) — no round-1 data on either contender and a resolution the pool's prior splits on.
+
+**Three things follow, and the second is the important one.**
+
+1. **The exclusion was still correct.** The reason for excluding it was that the model had nothing to run on, and that remains true — the result cannot confirm or refute [finding 17](./word-war-debate-series.md#cross-round-findings), because the prior was genuinely indeterminate here. A hit on a round that was pre-declared unmodelable is **not evidence for the model**, and is not counted as such.
+2. **⚠ It is, however, strong evidence for the *reach/affiliation* channel** — and against this page's own reading of the round. The vault judged the affirmative to have run the better hour, but +76.2 is not a verdict on argument quality; it is the shape of a round where one contender's network turned out and the other's did not. Both men were unknown quantities with no aired round, so **affiliation was the only variable with any information in it**, and it produced the tournament's second-largest margin. [Finding 2](./word-war-debate-series.md#cross-round-findings) gains its second clean specimen in three days.
+3. **Chris's read of the *mechanism* was right and the page's was incomplete.** He named "polish and reach" — two channels, and the margin says the second did the work. The page's own analysis, which ran on topicality and the residual-claimant argument, describes a contest the ballot was not measuring.
 
 ## Retrieval note — corrected
 

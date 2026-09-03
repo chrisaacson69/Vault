@@ -12,10 +12,20 @@ discussion: folded-in
 **Participants:** **The Aftermath** (**Aff**, opens first) vs. **Jose Tejeda** (**Neg**)
 **Moderator:** **Monica Perez** — *The Monica Perez Show*; her first round in the bracket, and the **sixth** distinct moderator
 **Duration:** 1:05:21 · live-streamed; 24-hour ballot
-**Result:** pending
+**Result: CLOSED, NOT PUBLISHED.** Round 2's ballots are shut (*“voting will return for round 3”*) and only **two of the round's cards were posted** — [data centers](./wordwar-r2-data-centers-medeiros-horseradish.md) and [deportation](./wordwar-r2-mass-deportation-charsky-ruelas.md). This one is missing, so **the discriminator has not resolved**
 **Vault relevance:** [Word War series hub](./word-war-debate-series.md), [The Load-Bearing Word](./the-load-bearing-word.md), [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md), [Guptill vs. Tejada — the bracket's first verbal dispute](./wordwar-too-sensitive-guptill-tejada.md)
 
 ---
+
+## ⚠ The discriminator did not resolve — the result was never published
+
+**Round 2's voting is closed** (`/vote-now-1`: *"voting will return for round 3 soon"*) and the results page posted **two** of the round's cards, not three. **This round is the missing one.**
+
+That is a real loss, because this was the match designed to kill one of the two models: prior-only → Aftermath, two-factor → Tejeda, one dies either way. **Both calls stay open and unresolved.**
+
+**⚠ And it is the third time the pattern has hit the same kind of round.** The organizers have now failed to publish three results: [therapy culture](./wordwar-therapy-culture-ouedrago-smith.md), the [feminism rerun](./wordwar-feminism-rerun-david-tareyak.md), and this one — all three of them rounds the vault reviewed in depth and predicted on. Stated carefully, because the tempting reading is the wrong one: with 3 unpublished out of ~17 aired, hitting three reviewed rounds is **not** a pattern requiring explanation, since the vault reviews a large share of the field. It is bad luck, not selection.
+
+**There is now a recovery route, and it is new.** Round-1 margins turn up in *later rounds' moderator introductions* — the [Biden/Trump round](./wordwar-r2-biden-trump-bourdeau-smith.md) opens by crediting Josh Smith with **65%**, a number this vault had recorded as permanently unrecoverable. So **watch the round-3 intros for Tejeda or The Aftermath**; if either advances, the introduction may state this round's margin. The channel is unreliable but it is not nothing.
 
 ## ⚠ The round collapses in the first sentence, and the affirmative says so himself
 

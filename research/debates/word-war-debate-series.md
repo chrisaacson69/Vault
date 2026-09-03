@@ -302,7 +302,7 @@ Exactly right, and it is structural rather than sloppy. A live event resolves on
 | 8 | Therapy for men | Summerhays 71.4 – 28.6 Gilkison | +42.8 | **Summerhays** |
 | 9 | Fragile culture | Bourdeau 73.7 – 26.3 Turner | +47.4 | **Bourdeau** |
 | 10 | Military service | Brunet 78.6 – 21.4 Lawrence | +57.2 | **Brunet** |
-| 11 | Therapy culture | **Josh Smith** def. Ouedrago | never published | **Josh Smith** |
+| 11 | Therapy culture | **Josh Smith** 65% – 35% Ouedrago | **+30.0** — *recovered 2026-09-03 from a moderator intro* | **Josh Smith** |
 | 12 | Feminism rerun | **Tareyak** def. David S. | never published | **Tareyak** |
 | 13 | Hate speech | Thunder 62.5 – 37.5 McPherson | +25.0 | **Octavius Thunder** |
 | 14 | Party loyalty | Kewl Vic 81 – 19 Kung Fu Joe | **+62.0** | **Kewl Vic** |
@@ -459,6 +459,73 @@ So the protocol is two-stage, and both stages must be dated in the [ledger](#pre
 - **It can kill the model outright** on match 6, which is why that one is worth more than the other seven combined.
 - **[Finding 11](#cross-round-findings)'s compression test is now confounded** by the live-stream format and the published prize, both introduced at round 2. Margins compressing would no longer cleanly indicate neutral dilution; that has to be said now rather than after the numbers arrive.
 
+## Round 2 results — two of eight posted (2026-09-03)
+
+**Voting for round 2 is closed** (`/vote-now-1` now reads *"voting will return for round 3 soon"*), and the results page carries a **`WWD CONTENDER SERIES - ROUND 2`** section with **two** cards. Read off rendered images, as ever — [the retrieval note](#round-1-official-results-unsealed-2026-08-11) still applies.
+
+| Match | Result | Margin | Advances |
+|---|---|---|---|
+| 1 | **Medeiros** 88.1% – 11.9% Horseradish | **+76.2** | **Medeiros** |
+| 8 | **Charsky** 79.3% – 20.7% Ruelas | **+58.6** | **Luke Charsky** |
+| 6 | Tejeda vs. The Aftermath | — | ⏳ **closed, never published** |
+
+### ✅ The registered test resolved, and the two models split cleanly
+
+The [pre-registration](#round-2-pre-registration--predictions-filed-before-any-tape-2026-09-01) filed **prior-only → Ruelas** on match 8, while naming **Charsky as "the single most likely override candidate in the bracket,"** and specified the handling in advance: *a Charsky win is not a refutation but a second instance of the two-factor override, and should be scored as such rather than quietly counted as a hit.*
+
+| Model | Match 8 call | Outcome |
+|---|---|---|
+| **Prior-only** (the ballot tracks the resolution) | Ruelas | ❌ **wrong by 58.6** |
+| **Two-factor** (prior, overridden by a large execution gap) | Charsky | ✅ **correct** |
+
+**So [finding 17](#cross-round-findings) survives in its two-factor form and its one-factor form is dead.** That is the first time this hub has run a genuine pre-registered discrimination and had it come back clean. The override clause is now carrying two specimens — Charsky vs. Bunn (+58.1) and Charsky vs. Ruelas (+58.6) — and both are the same man, which is a real limitation on how much it establishes.
+
+**⚠ What did not resolve.** [Match 6](./wordwar-r2-womens-suffrage-tejeda-aftermath.md) was the *decisive* test — a near-unanimous resolution prior against the bracket's largest mobilised bloc, with a Tejeda win registered as killing finding 17 outright. **Its card was never published**, so both calls stay open. Three results have now gone unpublished (therapy culture, the feminism rerun, this one), all three reviewed here in depth — which, given how much of the field this hub reviews, is bad luck rather than selection.
+
+### ⚠ Finding 11's compression prediction is in serious trouble
+
+[Finding 11](#cross-round-findings) predicted that **margins compress as the bracket advances**, because pools grow, both contenders have already cleared a round, and the neutral fraction rises. The test as registered: *"if round 2's margins don't shrink, neutral dilution is in trouble."*
+
+| | Round 1 (n=12) | Round 2 (n=2) |
+|---|---|---|
+| Mean margin | 44.2 | **67.4** |
+| Median margin | 45.6 | **67.4** |
+| Range | 12.4 – 89.1 | 58.6 – 76.2 |
+
+**Both round-2 margins exceed round 1's median, and neither lands in round 1's narrow mode (12.4–25.0).** Views are up (822, 740, 435, 392, 314, 262 against a round-1 ceiling of ~1,136), so pools did grow — and margins grew with them. On n=2 that is suggestive rather than decisive, but it is the wrong direction, and the honest reading is that **the mechanism was probably backwards**: a bigger audience is not a more *neutral* audience if the growth comes from the same networks that were already voting.
+
+*Confounds, logged when they appeared rather than now: round 2 introduced live-streaming, a named $5,000 prize, and — [as recorded](#round-2-pre-registration--predictions-filed-before-any-tape-2026-09-01) — an **inconsistent ballot window** (24h for match 1, 48h for match 8). The window difference sits across the only two data points, so the comparison is contaminated at the source.*
+
+### ⭐ A retrieval route the vault had written off: moderator intros carry the margins
+
+**Josh Smith's round-1 margin is recovered.** This hub recorded it as *"permanently unrecoverable"* because no result card was ever posted — but the [Biden/Trump round](./wordwar-r2-biden-trump-bourdeau-smith.md) opens with the moderator crediting Smith with **65% of the audience**, and Bourdeau with **73%** (matching the published 73.7, which corroborates the channel). So **therapy culture was Smith +30.0**, and the round-1 margin set goes from n=12 to **n=13**.
+
+**This is a general retrieval method, not a one-off:** the round-2 intros summarise each contender's round-1 result, so a *later* round's introduction can recover an *earlier* unpublished margin. Standing action — **check the round-3 intros for Tejeda or The Aftermath**, either of which could recover match 6, and for Tareyak, which would recover the feminism rerun. *Caveat: intros round to whole percents and are spoken, so recovered figures are lower-precision than a card and should be marked as such.*
+
+## Round 2, wave 2 — three more matches, calls filed 2026-09-03
+
+Three further round-2 tapes are up, so **six of eight** have aired. Resolutions and side assignments again come from the video descriptions.
+
+| # | Match | Resolution | Aff / for | Neg / against | Views |
+|---|---|---|---|---|---|
+| 2 | **Bourdeau vs. Josh Smith** | *"Biden was a better president than Trump."* | **Bourdeau** | **Smith** | 392 |
+| 5 | **Rex Jones vs. Owlish** | *"Amnesty vs. Mass Deportation"* | Jones — **for mass deportation** | Owlish — **for amnesty** | 822 |
+| 7 | **Summerhays vs. Cruz** | *"The Iran war is in America's best interest."* | **Summerhays** | **Cruz** | 262 |
+
+**Filed under the surviving two-factor model** — *default to the pool's prior on the resolution; override only on a large execution gap.* Prior direction read off the bracket's [audience signature](#cross-round-findings): patriot-coded, anti-establishment, agency-affirming, right-leaning.
+
+| # | Prior favours | **Predicted winner** | Margin band | Basis |
+|---|---|---|---|---|
+| 5 | **Jones** (mass deportation) — strongly | **Rex Jones** | wide (≥ 45) | Pure prior play; the pool just gave a pro-deportation position 20.7% *against Charsky*, but that reads as an execution override rather than a prior reversal |
+| 2 | **Smith** (anti-Biden) — strongly | **Josh Smith** | wide (≥ 45) | ⚠ **post-opening**, not pre-tape — openings were read before filing, so this is labelled accordingly and is the weaker registration |
+| 7 | **Cruz** (war not in US interest) — moderately | **Silvio Cruz** | **narrow (≤ 25)** | The anti-establishment/anti-interventionist prior points at Cruz. But Cruz advanced on the bracket's *only* competitive margin (+12.4) while Summerhays won by +42.8, so **execution points the other way** and the two factors conflict |
+
+**Match 7 is the one worth watching**, because prior and execution point in opposite directions — exactly the condition [finding 17](#cross-round-findings)'s clause (c) says produces a **narrow** margin. It is also the round-2 pairing with the weakest mandates on both sides.
+
+**⚠ Registration hygiene.** Matches 5 and 7 are filed **pre-tape, sight unseen**. Match 2 is filed **post-opening** and is not claimable as a pre-tape call — the openings had already been read when the resolution was identified. Scored separately.
+
+**And the standing bar, restated so it cannot drift:** the pre-registered success test was *beat the vault's own 3-of-9 ballot record on round 2*. With two round-2 results in, the model ledger is **two-factor 1–0, prior-only 0–1**, and the vault's overall record has risen to **7 of 13 (54%)** — which is now the honest comparator, stated alongside the registered number rather than replacing it.
+
 ## Prediction scorecard
 
 Compact view of the [ledger](#predictions-ledger); the ledger rows carry the reasoning, this carries the record.
@@ -479,10 +546,13 @@ Compact view of the [ledger](#predictions-ledger); the ledger rows carry the rea
 | Party loyalty | **Kung Fu Joe** (Aff) | Kewl Vic **+62.0** | ❌ | Called against a personal acquaintance — and the acquaintance won by 62 |
 | Therapy culture | **Smith**, on reach alone | **Smith advances** — margin never published | ✅ | The ledger's one pure affiliation call, made *against* the merits read — and it paid |
 | Feminism rerun | **Tareyak** (Neg) | **Tareyak advances** — margin never published | ✅ | The burden-play Aff loses; the "conceded the room" predictor gets its first observation |
-| **R2 — data centers** | **Medeiros**, on polish and reach | ⏳ | — | **Unscored** (round excluded). ⚠ Filed *against* a personal connection — Lee Horseradish owns the show Chris debates on |
-| **R2 — women's suffrage** | **Aftermath** (prior-only, *pre-tape*) | ⏳ | — | The bracket's decisive test. ⚠ Round collapsed — Aff declared devil's advocate — so a **two-factor** call of **Tejeda** is filed separately, *post-opening*. One model dies either way |
+| **R2 — data centers** | **Medeiros**, on polish and reach | **Medeiros +76.2** | ✅ *(unscored)* | Round pre-excluded, so it earns the model nothing — but the *mechanism* call was right, and +76.2 between two unknowns is [finding 2](#cross-round-findings)'s cleanest specimen. ⚠ Filed *against* a personal connection |
+| **R2 — women's suffrage** | **Aftermath** (prior-only, *pre-tape*) | ⏳ **never published** | — | The decisive test, and it **did not resolve**. Both it and the separate *post-opening* **Tejeda** (two-factor) call stay open |
+| **R2 — mass deportation** | **Ruelas** (prior-only, *pre-tape*) | **Charsky +58.6** | ❌ | The prior-only model's registered loss |
+| **R2 — mass deportation** | **Charsky** (two-factor override, *pre-tape*) | **Charsky +58.6** | ✅ | Pre-named as the override candidate, with the scoring rule set in advance. **The ledger's first clean pre-registered discrimination** |
+| **R2 — mass deportation** | Chris's lean: **Charsky** on presentation and reach | **Charsky +58.6** | ✅ *(lean)* | Filed as a lean, not a call — and against his own read that Charsky's logic and sources both fail |
 
-**Record: 5 of 11 ballot forecasts correct (45%), one correct abstention, one meta-claim refuted.** *Updated 2026-09-01 — the last two were resolved by the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01), not by result cards.* Both late hits were **non-argument calls that paid**: Smith on reach alone, Tareyak on confidence and straightforwardness. That does not revive the dead [finding 15](#cross-round-findings) — the misses still run in both directions — but it does move the bar the round-2 model has to clear, from **33% to 45%**.
+**Record: 7 of 13 ballot forecasts correct (54%), one correct abstention, one meta-claim refuted.** *Updated 2026-09-03 with the two published round-2 results — the deportation lean and the (unscored) data-centers call both hit.* The **model** ledger is separate and now stands at **two-factor 1–0, prior-only 0–1** on pre-registered round-2 calls. *Updated 2026-09-01 — the last two were resolved by the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01), not by result cards.* Both late hits were **non-argument calls that paid**: Smith on reach alone, Tareyak on confidence and straightforwardness. That does not revive the dead [finding 15](#cross-round-findings) — the misses still run in both directions — but it does move the bar the round-2 model has to clear, from **33% to 45%**.
 
 *Open bookkeeping:* an **Aff/Neg tally** would be worth having — does either side enjoy presumption with this audience? — but three of the ten side assignments need verifying against their tapes before the count means anything, so it is deliberately not asserted here.
 
