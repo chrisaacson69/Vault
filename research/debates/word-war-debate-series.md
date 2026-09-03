@@ -171,6 +171,31 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
     - **Finding 11 (neutral dilution) gains a concrete threshold.** The pool must grow by roughly an order of magnitude before performance can outweigh a committed bloc of twenty.
     - **Every margin in this series should be read as noisy.** A 43-point spread on 32 ballots is a handful of people, not a mandate.
 
+18. **⭐ The ballot-count reconstruction, redone for round 2 — and the turnout rate is higher than the obvious guess, because the denominator is wrong (2026-09-03).**
+
+    Prompted by Chris: another streamer reviewing the [data-centers round](./wordwar-r2-data-centers-medeiros-horseradish.md) asked ChatGPT to estimate the vote split, which assumed a **10% conversion** on ~589 views and preferred **52–7**. Chris's instinct was that **20% is likelier** — *"this is a fairly niche event and I think the retention rates are higher than normal."* He is right, and the vault could already have told him so.
+
+    **First, the 52–7 estimate is circular.** 52–7 is n=59, and 59 is *exactly* 10.0% of 589. The answer is the assumption restated with a plausible-looking split attached; the percentage did no work. What makes the split checkable is that **a reported percentage constrains its own denominator** — [finding 13](#cross-round-findings)'s method — and 88.1% is consistent with n = 42, 59, 67, 84, 101, 109, 118, 126, 134, 143 … so 59 is one of at least ten candidates and nothing about the reported figure selects it.
+
+    **Second, the vault has an empirically-derived turnout band and it is 15–25%, not 10%.** Finding 13 got there from two independent directions: the two-decimal round-1 results pin *n* hard (79.05% is impossible below **105** ballots; 94.55% below **55**; 71.88% below **32**), and those floors sit at 15–25% of their videos' views. So Chris's 20% is inside the measured band and the 10% assumption is below every observed round.
+
+    Applying the band to the two published round-2 results:
+
+    | Round | Views | Reported | Feasible *n* in band | Implied split |
+    |---|---|---|---|---|
+    | Data centers | ~589 | 88.1 / 11.9 | 101, 109, 118, 126, 134, 143 | **89–126 to 12–17** |
+    | Deportation | ~740 | 79.3 / 20.7 | 111, 116, 121, 135, 140, 145, 150 | **88–146 to 23–38** |
+
+    At Chris's 20% specifically: data centers ≈ **104–14**, deportation ≈ **115–30**.
+
+    **Third — and this is the correction worth keeping — the denominator everyone is using is too big.** Turnout is being computed against *views now*, but **the ballot closed 24 or 48 hours after posting while views kept accumulating.** The rate that matters is ballots ÷ **views at ballot close**, and that number is strictly smaller than any later view count. This hub logged the data-centers video at **435 views** on 2026-09-01, shortly after its 24-hour ballot had closed; the streamer saw **589** later. Against ~435 rather than 589, an n of 101–143 is a turnout of **23–33%**.
+
+    So the ordering is: **10% is too low, 20% is about right against late view counts, and the true conversion against the audience that could actually vote is plausibly 25–30%.** That is a genuinely engaged niche audience, exactly as Chris supposed — and it also means [finding 13](#cross-round-findings)'s 15–25% band is itself slightly understated, since it was computed against review-time views for round 1 too.
+
+    **What it does not change:** the absolute numbers stay tiny. Even at the top of the band these rounds are decided by **roughly 100–150 people**, so finding 13's central point survives intact — mobilisation still outranks any analysis of debate quality. What improves is the *precision*: round 2's pools (n≈100–150) look genuinely larger than round 1's (n≈31–105), which is [finding 11](#cross-round-findings)'s growth premise **confirmed** even as its compression prediction fails. The pools grew; the margins grew too.
+
+    *⚠ Standing caveats, unchanged from finding 13: multiples of each n fit equally well, so these are lower bounds; the arithmetic assumes ordinary rounding of an exact vote share; and view counts are read at a single moment rather than at ballot close, which is precisely the error this entry corrects for.*
+
 14. **Audience size is small and shows no clear trend within round 1.** Views ran 703 → 1,136 → 591 → 810 → 210 → 276 → 239 → 163 across Aug 3–10. The release interval is now pinned: the channel has been posting on a **48-hour cycle** (see the production note below), so each successive video in that series had two fewer days of exposure than the one before it. It is tempting to read a collapse, but **later videos have had far less time to accumulate** (the Aug 10 debate had one day; the Aug 3 debate had eight), so the sequence cannot establish a decline. What it does establish is the *scale*: no round-1 debate has cleared 1,200 views, against a 6,360-subscriber channel.
 
     **Subscriber datapoint, 2026-08-17: 6,410** — up ~50 over roughly two weeks of the bracket running. Worth recording because [finding 11](#cross-round-findings)'s neutral-dilution mechanism requires the tournament to *accumulate* an audience, and a ~0.8% channel growth across the whole of round 1 is not the order-of-magnitude change finding 13 says would be needed for performance to outweigh a mobilised bloc. Early evidence against the hypothesis, from the one number that tracks it directly.
