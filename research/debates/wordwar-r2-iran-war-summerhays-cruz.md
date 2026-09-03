@@ -170,6 +170,57 @@ That is a sharper charge than the [suffrage page](./wordwar-r2-womens-suffrage-t
 - **Closings:** *"decent — they actually summarize positions well."* Notable against the page's [entry-13 complaint](./formal-debate-concepts.md): both closings added new material, and both still did the summarising job better than most in the bracket.
 
 
+### Chris's refinement of the fourth type — and it earned promotion
+
+> **Chris:** *"your fourth manipulation type for definitions is a good find. Affirmative using their right to define terms to their advantage — but you are right, **he says they can't be defined and then defines 1 very narrow and the other very broad**."*
+
+That sharpens the move from *abdication* into something more precise, and it is what made it promotable: the refusal is **cover for an asymmetry**. *"The Iran war"* goes broad in both temporal directions; *"best interest"* goes narrow to long-term-only. Each is set where it helps, and the *"intrinsically subjective"* disclaimer means the pair never has to be defended as one principle.
+
+**It also supplied a second specimen already sitting in the vault** — David S. in the [feminism rerun](./wordwar-feminism-rerun-david-tareyak.md), who declared *helping* open to interpretation while holding *feminism* to Merriam-Webster. That page had named the pattern *asymmetric latitude* and left it without a home. It now has one: [The Load-Bearing Word](./the-load-bearing-word.md), type four.
+
+### Chris on the Neg's two arguments — both downgraded
+
+> **Chris:** *"asymmetric warfare is normal these days, but the point is that it is **costing a lot**. And 'control of the strait' and what that entails is a hard question and I don't know what that even looks like. Though the aff seems to handwave a lot on the benefits here — **charge fees? How?**"*
+
+Two corrections to the page's reading:
+
+1. **The cost-asymmetry argument is not novel, and its force is magnitude, not structure.** Cheap munitions against expensive platforms is the ordinary condition of modern conflict, so *"this is asymmetric"* establishes nothing by itself. What survives is the **quantitative** claim — the exchange ratio is expensive enough to matter. The page called this Cruz's best argument; the accurate version is that it is his best argument **only in its magnitude form**, which he asserted rather than sized.
+2. **Neither man can say what controlling Hormuz means.** The page credited Cruz's fee objection as an internal-logic attack; Chris's point is that it lands because the Aff never operationalised the plan at all. *Charge fees — how?* Collected from whom, enforced by what, under what claimed right. The Aff's retreat under interrogation (*"I'm not even saying we absolutely need to go in"*) is the same hole showing.
+
+### ⭐ The bully question — the argument neither debater made
+
+Chris grants the disanalogy and then refuses to let it settle the matter, which is the right treatment:
+
+> **Chris:** *"the analogy question is a false analogy — everything is fighting the Nazis :) But that doesn't answer the big question. **If you allow a bully to continue, how does it stop? If you stand up to a bully, does it create animosity that leads to a long feud?** I think history has shown that standing up to the bully is the lesser evil. Long-standing feuds still happen, but eventually things defuse."*
+
+**This is the argument Summerhays was reaching for and never made, stripped of the WWII costume.** The blowback objection has a real answer, and it is not *"Nazis"* — it is that **non-confrontation is also a policy with costs**, and those costs compound. Cruz's case implicitly treats de-escalation as the zero-cost baseline; it is not, and he never had to defend it because the Aff never pressed him.
+
+Note the shape: it is a **counterfactual ledger** demand — *what does the world without this action look like, including its harms* — which is the same instrument as [Easy to Critique, Hard to Build](../philosophy/tangents/easy-to-critique-hard-to-build.md). Cruz enumerated costs; nobody asked him to price the alternative.
+
+**Where the analogy genuinely fails is narrower than "it's a false analogy."** Deterrence logic presumes an actor with something to lose and an address to send the bill to. It travels well against a state and badly against a regime whose collapse leaves a vacuum — which is precisely the gap the Aff's own regime-change plan walks into, and precisely what Cruz's solvency questions were groping at without naming.
+
+### Chris's verdict, and a prediction that changes
+
+> **Chris:** *"this debate actually hits at the main question I attribute to geopolitics: **are these actions in the best interests of the participants**. Not sure I am convinced it is, as I don't buy that we can capitalise the strait."*
+
+> **Chris:** *"I don't agree with the aff position, but **I think he argued better. I will push my prediction to him**."*
+
+**⚠ Two calls are now live on this round and they disagree** — recorded separately with their timing, because that is what makes them scoreable:
+
+| Call | Predicts | Filed | Basis |
+|---|---|---|---|
+| **The model** | **Cruz**, narrow (≤ 25) | **pre-tape, sight unseen** (2026-09-03) | Prior points Neg (anti-interventionist strand); execution points Aff; clause (c) → narrow |
+| **Chris** | **Summerhays** | **post-tape** (2026-09-03) | Execution — *"I don't agree with the aff position, but I think he argued better"* |
+
+The model call **stays exactly as filed**; a post-tape call cannot retire a pre-tape one. And Chris's is the **third** ledger entry made against his own position (after McPherson and Kung Fu Joe), which is the pattern that makes his calls worth scoring: he is not predicting what he wants.
+
+**What the ballot discriminates:** a Summerhays win vindicates execution-over-prior and puts a second dent in the anti-interventionist reading of [finding 10](./word-war-debate-series.md#cross-round-findings)'s audience signature; a Cruz win vindicates the prior model on a round where the pool's two strands conflicted. **The margin is the tiebreak either way** — clause (c) predicts narrow regardless of winner, so a blowout in either direction damages it.
+
+### Smaller notes
+
+- **On new arguments in closings:** *"I think we will see 'new arguments' a lot — people want to get in arguments they forgot."* So [entry 13](./formal-debate-concepts.md) is expected to recur as a *format-wide* property rather than a debater's failing; what stays anomalous is **the shot at Rex Jones** — *"wild."*
+- **On Perez:** *"she has her own style :)"* — treated as settled at n=2; see above.
+
 ## Open Questions
 
 1. Does **definitional abdication** earn promotion to [The Load-Bearing Word](./the-load-bearing-word.md) as a fourth type, or is it a variant of conclusion-loading wearing a modest hat?

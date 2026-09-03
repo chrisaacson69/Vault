@@ -8,7 +8,20 @@ title: "The Load-Bearing Word"
 # The Load-Bearing Word
 > Every resolution has one word carrying the argumentative weight. Find it, pin it, and most of the debate is already decided — because the side that gets its reading on the record has quietly set the win condition for both.
 
-**⚠ Candidate fourth type — definitional abdication (2026-09-03).** The [Iran-war round](./wordwar-r2-iran-war-summerhays-cruz.md) supplies a move this page does not cover: **declare the operative term subjective and undefinable, then argue from a specific reading of it anyway.** Where inflation widens a term, severance narrows it, and conclusion-loading builds the verdict into it, abdication **refuses** it — collecting a definition's benefit while shedding the burden of defending one, since there is nothing stated for an opponent to attack. Promotion pending a second specimen; the counter is that an undefined term cannot be load-bearing for its *proponent* either.
+**⭐ Fourth type — ASYMMETRIC LATITUDE (added 2026-09-03, two specimens).** Chris's formulation, from the [Iran-war round](./wordwar-r2-iran-war-summerhays-cruz.md): *"he says they can't be defined, and then defines 1 very narrow and the other very broad."*
+
+> **Claim the resolution's terms cannot be fixed — then quietly fix each one in the direction that helps: the term you must satisfy narrowly, the term you get to exploit broadly.** The disclaimer is what makes it work: with nothing stated, there is no definition for an opponent to attack, and the asymmetry between the two readings never has to be justified as a joint principle.
+
+Where **inflation** widens a term to vacuity, **severance** narrows it to dodge evidence, and **conclusion-loading** builds the verdict into it, this move does *both* widening and narrowing at once and hides the pair behind a refusal. It is the affirmative's definitional prerogative exercised while being disclaimed.
+
+| Specimen | Broadened | Narrowed | The disclaimer |
+|---|---|---|---|
+| [Iran war](./wordwar-r2-iran-war-summerhays-cruz.md) — Summerhays | *"the Iran war"* — backdated to Oct 7 **and** extended into the future | *"best interest"* — long-term only, so every present cost is a sacrifice | *"it's intrinsically subjective"* |
+| [Feminism rerun](./wordwar-feminism-rerun-david-tareyak.md) — David S. | *"helping"* — any instance whatsoever counts | *"feminism"* — held to Merriam-Webster | *"I've just said it's open to interpretation"* |
+
+**The second specimen was already in the vault, named and homeless.** That page flagged **asymmetric latitude** — *maximum looseness on "helping," minimum on "feminism," both motivated the same way and not jointly principled* — as the round's strongest unstated charge, and filed the round's *burden* half under [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md). That placement stands: burden-annexation and asymmetric latitude are **separate moves that co-occurred**. This entry gives the definitional half the home it lacked.
+
+**The counter, and it is cheap in both cases:** demand that the latitude be **jointly principled**. Whatever standard licenses the broad reading must be applied to the narrow one — and an operative term declared undefinable is not load-bearing for its *proponent* either, so a burden left unspecified cannot have been met.
 
 **Links:** [Formal Debate Concepts](./formal-debate-concepts.md) — **severance** and its siblings sit inside that inventory; this page is the deep store for them,  [Online Debates](./README.md), [Absolutes and Differentials](../philosophy/epistemology/absolutes-and-differentials.md) — the *inflation* move with the motte **pre-registered**: a criterion defined broadly enough to be technically satisfied later while carrying the strong reading up front, [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md) (its sibling — that page is about *burden*, this one about *terms*), [The Weighting Problem](../philosophy/epistemology/weighting-problem.md), [Constructed ≠ Arbitrary](../philosophy/constructed-not-arbitrary.md), [Word War series](./word-war-debate-series.md)
 
