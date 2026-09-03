@@ -168,6 +168,49 @@ A shift in position worth dating. Across the bracket the moderated segment has b
 *And the moderator verdict is a straight upgrade on the page's earlier "might bias right wing" prior — registered before watching, revised after. Binkley sat out, and his two crossfire questions each discomfited the man receiving it.*
 
 
+### ⭐ Chris's answer to the attribution crux — a third standard, better than either debater's
+
+> **Chris:** *"Most of the issues that come up in a presidency are **not caused by the president**. **Their reaction to current events is what defines their presidency** and even history… deciding to enter a world war is an act of Congress, but the president plays a role, as well as other things. Smith did well to point out that the middle east conflicts are not new, but **Bourdeau is correct that the reaction to this is entirely on Trump**. What should have happened is kickback on the US involvement in Russia–Ukraine — same principles here."*
+
+The page framed the crux as a binary: **causation** (Bourdeau) against **occurrence-on-your-watch** (Smith). Chris's answer is neither, and it is sharper than both:
+
+> **A president is judged on his *response*, not on the arrival of the event.** Presidents inherit almost everything; what is theirs is what they did about it.
+
+**Two consequences follow, and the second is the one the round needed.**
+
+1. **Attribution is a share, not a switch.** *"Deciding to enter a world war is an act of Congress, but the president plays a role."* Responsibility is distributed across actors, so the question is never *is this his fault* but *what portion is his* — which is the **unclaimed share** move Chris developed on the [feminism rerun](./wordwar-feminism-rerun-david-tareyak.md): a real causal pathway need not be the only one to be genuine. The same instrument, transposed from social causation to political responsibility.
+2. **Applied symmetrically it convicts both men — and Chris names the missing move.** If the *reaction* to a long-running Middle East conflict is entirely Trump's, then by identical reasoning the *reaction* to Russia–Ukraine — the scale of US involvement and funding — is entirely Biden's. **That is the counter Smith never made**, and it was available from Bourdeau's own stated principle. Bourdeau gets the standard right on Iran and then declines to run it on his own side; Smith could have made him pay and instead reached for the deterrence claim.
+
+**And that is where the round's two rules differ in *kind*, not merely in direction.** Both debaters' rules are counterfactual, but only one is testable:
+
+| Claim type | Example from the tape | Status |
+|---|---|---|
+| **An action the president took** | Trump ordering the Iran strike; Biden's mandates and lockdown policy | **Attributable** — the choice was his, and the record shows it |
+| **The arrival of an event** | COVID; Russia invading Ukraine | **Not attributable** — no presidential act |
+| **A deterrence counterfactual** | *"If we had a stronger president… that wouldn't have happened"* | **Unfalsifiable** — and *symmetric*: available to either side about anything |
+
+The third row is the important one. **A deterrence claim is ammunition that never runs out**, because no evidence can bear on what a differently-postured president would have prevented — which means it proves any conclusion and therefore establishes none. Smith's version of the standard leans on exactly that row; Chris's *reaction* standard lives entirely in the first, where evidence exists.
+
+So the crux is **partly resolvable after all**, and the test is cheap: *does this claim rest on something the president did, or on what a hypothetical other president would have deterred?* Only the first can be argued.
+
+*Chris on the round's abandoned rubric:* **"it was an interesting attempt to create objectivity, but then dismissed — kinda typical."*
+
+### Chris's answers to the page's three questions
+
+1. **Is the attribution crux resolvable?** *"Not sure, we should explain and discuss more."* — held open; the analysis above is the first pass and is **not** treated as settled.
+2. **Was Smith's concede-then-narrow a good play or a tell?** *"I think this was an attempt to connect with his audience and I think it is fine — we see both sides actually doing this."* So it reads as **ordinary audience-facing practice, not a tell**, and the page's framing of it as unusually sophisticated is downgraded accordingly.
+3. **Does anything move the call off Smith?** No — and Chris's reasoning is a claim about the whole format:
+
+   > **Chris:** *"I think the results will be based on popularity and reach. These conversations don't change voters, because they only rehash talking points that have been rehashed for a long time and people won't change their minds — such the nature of partisanship."*
+
+   That is [finding 2](./word-war-debate-series.md#cross-round-findings)'s channel asserted as **dominant** for partisan resolutions specifically, and it is testable against [finding 17](./word-war-debate-series.md#cross-round-findings): the prior-model and the reach-model **agree** on this round (both point at Smith), so the ballot cannot discriminate between them here. Its informative use is the **margin** — a wide result is consistent with both; a narrow one would embarrass both.
+
+### Chris's verdict on the round
+
+> **Chris:** *"maybe you even see why I don't like these types of debates — mostly just mud slinging and unproductive."*
+
+Worth recording as the round's summary judgment, and it is consistent with everything above: a resolution whose structure was **capable** of exposing partisan double standards, two debaters who each demonstrated one, and no instrument brought to the table to convert that into an argument. The format supplied the opportunity; partisanship supplied the reason not to take it.
+
 ## Open Questions
 
 1. Does the shared-standard move survive contact? Establishing criteria before applying them is the right structure, but the criteria he chose (**integrity, intelligence, leadership**) are the ones his side loses least badly on — which is standard-selection, not neutral ground.
