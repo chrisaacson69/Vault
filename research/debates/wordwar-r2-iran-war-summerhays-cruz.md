@@ -197,7 +197,26 @@ Chris grants the disanalogy and then refuses to let it settle the matter, which 
 
 Note the shape: it is a **counterfactual ledger** demand — *what does the world without this action look like, including its harms* — which is the same instrument as [Easy to Critique, Hard to Build](../philosophy/tangents/easy-to-critique-hard-to-build.md). Cruz enumerated costs; nobody asked him to price the alternative.
 
-**Where the analogy genuinely fails is narrower than "it's a false analogy."** Deterrence logic presumes an actor with something to lose and an address to send the bill to. It travels well against a state and badly against a regime whose collapse leaves a vacuum — which is precisely the gap the Aff's own regime-change plan walks into, and precisely what Cruz's solvency questions were groping at without naming.
+**Chris's completed version — the argument is about *decay profiles*, not about who is tougher.** *(His first pass was truncated in transmission; this is the full statement.)*
+
+> **Chris:** *"the point was that 'Nazi' has become overused, so the analogy is bad — **but the intent probably goes his way**. When faced with a bully, you can either ignore it and hope it goes away, or confront it and hope it doesn't start a feud. **History seems to be leaning that bullies don't go away, and you should risk the feud** — which ends in the quoted: they will still happen, but eventually they go away."*
+
+This is a **decision under uncertainty with asymmetric decay**, and stating it that way is what makes it an argument rather than a posture:
+
+| Option | Cost | Does the cost decay? |
+|---|---|---|
+| **Ignore** | The bully persists | **No** — nothing in the situation self-corrects |
+| **Confront** | A feud may start | **Yes** — *"they will still happen, but eventually they go away"* |
+
+**The load-bearing claim is not that confrontation is cheap. It is that its cost is *temporary* while the alternative's is *permanent*.** That is a far better argument than anything on the tape, and it survives the disanalogy entirely — which is Chris's own point: *the analogy is bad, the intent goes his way.* **A bad analogy does not refute the conclusion it was offered for** ([The Fallacy Fallacy](../philosophy/tangents/the-fallacy-fallacy.md) applied in its most useful direction, by the person who would most enjoy dismissing the argument).
+
+**And it converts the page's earlier objection into a test rather than a rebuttal.** The note above held that deterrence logic presumes an actor with something to lose and an address to send the bill to, so it travels badly against a regime whose collapse leaves a vacuum. Under Chris's framing that is not a counter-principle — it is the **condition under which the second row fails**:
+
+> **The principle holds wherever the feud decays. It fails where confrontation produces a vacuum instead of a feud**, because a vacuum does not defuse — it metastasises into a different conflict with new parties, and the temporary cost becomes permanent after all.
+
+So the question this round should have been fought over is narrow and answerable: **does confronting Iran produce a decaying feud, or a non-decaying vacuum?** Regime change is exactly the intervention that risks the second. Cruz's enforcement and stability questions were groping at it; Summerhays' *"prop up the Majlis"* answer is the point where he needed the argument and had a gesture.
+
+*Chris's own verdict lands there: he grants the bully logic and still declines the Aff, because the benefit side — capitalising the strait — was never shown.*
 
 ### Chris's verdict, and a prediction that changes
 
