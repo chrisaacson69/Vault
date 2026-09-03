@@ -81,3 +81,4 @@ permalink: /tags/debates/
 - [The Supply Omission — Why "Demand-Driven" Is Half an Argument](../research/economics/the-supply-omission.md) — "The economy is demand-driven" deletes the clause that makes it true: *within the limited supply*.
 - [Mass Deportation Is Bad (Word War R2 — Charsky vs. Ruelas)](../research/debates/wordwar-r2-mass-deportation-charsky-ruelas.md)
 - [Biden vs. Trump: Who Was the Better President? (Word War R2 — Bourdeau vs. Smith)](../research/debates/wordwar-r2-biden-trump-bourdeau-smith.md)
+- [The Iran War: In America's Best Interest? (Word War R2 — Summerhays vs. Cruz)](../research/debates/wordwar-r2-iran-war-summerhays-cruz.md)
