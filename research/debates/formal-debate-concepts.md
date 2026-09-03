@@ -126,6 +126,14 @@ So: use the inventory to say *what was true of the argument*. Keep [finding 17](
 
 **Specimen — [suffrage](./wordwar-r2-womens-suffrage-tejeda-aftermath.md).** A declared devil's advocate, scored by a room, on a sincerity he was never supposed to have.
 
+### 13. No new arguments in rebuttal
+
+**Definition.** New arguments may not be introduced in the final speech. Extending, weighing and applying existing ones is fine; raising fresh ground is not, because the opponent has no speech left to answer it.
+
+**Why it globalizes.** It is the procedural form of a fairness intuition everyone already has — *you don't get to land a new charge on the way out the door* — and it names why a strong-sounding closing can be illegitimate rather than merely aggressive.
+
+**Specimen — [Biden vs. Trump](./wordwar-r2-biden-trump-bourdeau-smith.md).** **Both** closings break it: the Neg introduces the Hunter Biden laptop texts and the Afghanistan withdrawal; the Aff introduces a ~$2bn presidential revenue figure, crypto ventures, foreign golf courses and a 20,000-falsehoods count. Chris: *"the closings were good, though they added more fuel, which is bad form."* Note the asymmetry this creates under an **audience** ballot rather than a judge's: unanswered new material in a closing is not merely unfair, it is *maximally* placed, arriving last and unrebutted.
+
 ## Using it — the four questions worth asking of any round
 
 1. **Is the case topical?** Does it argue *the resolution*, or a neighbouring proposition?
