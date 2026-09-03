@@ -76,6 +76,8 @@ So: use the inventory to say *what was true of the argument*. Keep [finding 17](
 
 **Specimen — [data centers](./wordwar-r2-data-centers-medeiros-horseradish.md).** *"Then we shouldn't build hospitals or factories either."* Correctly run. The negative eventually found the right answer — those have larger benefits per acre, so it is a **ratio** claim, not a harms claim — but only in his closing.
 
+**⭐ First *prospective* use of this page (2026-09-03).** Watching the [Iran round](./wordwar-r2-iran-war-summerhays-cruz.md), Chris applied non-uniqueness live to name the reply the Neg failed to make. The Aff argued that Iranians have protested against their government, therefore the US should install a new one; the answer is that **dissent-implies-intervention licenses intervention everywhere**, since every country contains people who dislike their government — so it distinguishes nothing. *"We don't go around pleasing every faction in any country where some people don't like their leadership (as in every country, ever)."* The inventory was built from moves that were missing; this is the first time it supplied one in advance.
+
 ### 7. Counterplan
 
 **Definition.** The negative advocates a *different* action rather than defending the status quo. It **concedes the harm** and contests the agent or the method.
