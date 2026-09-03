@@ -133,6 +133,27 @@ The claim on the tape is *"we've given mass amnesty to millions of illegal immig
 
 *Stated carefully: the legalisation figure and the subsequent growth are uncontested; the **causal** claim that IRCA induced later migration is contested in the literature and is not asserted here.* **Nobody in the round supplied any of this** — she asserted the fact, he disputed the framing, the moderator intervened, and it went unresolved.
 
+### ⭐ The part of the history nobody in the round knew: the party positions were inverted
+
+> **Chris (16 at the time):** *"here is the thing people don't want to admit about the history. This was passed by the Republican Reagan because **at that time Republicans wanted immigration for cheap labor**, and it was **the Democrats who were claiming it hurt US labor by flooding the market with cheap labor**. Reagan got what he wanted out of it — 2.7 million cheap workers, without having to pay the cost of holding big business culpable to keep track of their labour force. But yes, now we want amnesty without any cost because **voter turnout is now more important**."*
+
+**The labour half is strongly corroborated, and by the cleanest possible evidence — one organisation, both positions.** The **AFL-CIO was central to writing and passing IRCA** and specifically championed its **employer sanctions** as a protection for American workers' jobs, passing supporting resolutions at its 1985 convention and, in 1987, applauding the law's sanctions *and* its legalisation programme. **In February 2000 it reversed**, calling for a new legalisation programme and *an end to employer sanctions*, on the grounds that sanctions let employers exploit undocumented status to suppress workplace protections. *Sources: [BU historical conference paper (Jacobson & Geron)](https://www.bu.edu/historic/conference08/Jacobson.Geron.pdf), [AFSCME 1992 IEB resolution](https://www.afscme.org/about/governance/conventions/resolutions-amendments/other-international-executive-board-resolutions/repeal-of-employer-sanctions-1986-irca), [Migration Policy Institute on declining sanctions enforcement](https://www.migrationpolicy.org/article/declining-enforcement-employer-sanctions).*
+
+*⚠ Marked as partially grounded: the **labour-side** inversion is documented above. The **business-side** claim — that Republican support was driven by employer demand for cheap labour and that business resisted the sanctions — is Chris's contemporaneous recollection and the conventional account, and was **not** verified in this pass. IRCA itself passed with bipartisan support, so the interesting structure is coalition alignment rather than a clean party split.*
+
+**Why this is the payoff of the fact-check, and not a digression: both debaters are running the other side's 1986 position, and neither knows it.**
+
+| | 1986 | This round |
+|---|---|---|
+| *Amnesty floods the labour market and undercuts vulnerable workers* | the **labour/Democratic** argument | **Rex Jones**, the right-coded Neg |
+| *Legalise the existing population* | the **Reagan/Republican** outcome | **Owlish**, the left-coded Aff |
+
+Jones' [exploitation argument](#argument-structures) — amnesty as capture by *"powerful economic interests that benefit from a cheap, vulnerable labor force"* — **is the AFL-CIO's 1986 case, delivered from the right.** The page flagged it as *a left-coded premise for a right-coded conclusion*; the history shows it is not a rhetorical borrowing at all. It is simply the argument's original owner, changed hands.
+
+**And the mechanism is [Convergent Interests — Coordination Without Collusion](../philosophy/dynamics/convergent-interests.md)** — Chris's own instrument, applied to his own example. One proximate objective (a larger, legally-precarious-then-legalised labour supply) served **different terminal goals in different eras**: employer demand for cheap labour then, electoral margin now. Nothing requires coordination or foresight; when the terminal goal changed hands, **the sponsoring coalition changed with it while the policy stayed put.** That explains a party-position inversion without anyone defecting or lying — which is exactly what that page's mechanism was built to do.
+
+**The enforcement half is where Chris is least forgiving, and the record supports him:** *"the enforcement claim was super weak and nobody should buy this at all — it is just an excuse."* Sanctions enforcement declined markedly after enactment, so the bargain's costly half was the half that lapsed. **That is the strongest available argument against a present-day amnesty-plus-enforcement package**, it is grounded in the one precedent everyone cites, and *neither debater had it.*
+
 ### The interrogation round — a softball and a bad answer
 
 > **Chris:** *"the Owlish question seemed a bit of a softball, and I don't think she was honest here."*
@@ -166,6 +187,12 @@ That is the resolution's actual crux and it surfaces near the end. Jones has bee
 ### Chris's verdict and call
 
 > **Chris:** *"the appeals to the moderator and the spiciness are getting a bit tired — there is little to no substance… Neg tries again with a low-wage argument, Aff deflects with min-wage. Very poor argument. For the closings, Neg tried to frame all of the Aff's reasons and Aff did the same — both appeals to emotion. **You did get some reasons beyond that, and that should have been the debate.**"*
+
+> **Chris on why it degenerated:** *"a debate labelled as 'spicy', but in reality it was just bad. They both appealed to the moderator to control the other, and she even stepped in on her own several times to try to keep it on track. **I think Owlish got rattled when her main line of attack of anti-Trump got shut down early, and all she was was reactive since then** — not a good performance really by either. **Jones should have shut her down calmly.**"*
+
+That completes the causal story the page assembled piecemeal: the strawman is not merely a wasted argument, it is **the thing that cost her the initiative**. Her prepared case was built around an opponent who declined to exist, and everything after was improvised against his agenda. It also explains the volume of moderator appeals — a debater with no line of her own reaches for the referee.
+
+**And the criticism is symmetric.** Jones held the better position and *"should have shut her down calmly"*; instead he matched her register, mocked the appeals to the moderator (*"are we calling the judge now? slam the gavel like objection"*), and spent his closing characterising her rather than closing out the argument he had already won. **Winning the round and debating well came apart here.**
 
 > **Chris:** *"I like this topic, but this was debated poorly and hard to listen to. **The reasons for amnesty were mostly emotional appeal and too broad; the reasons for deportation were integrity of the law and proper procedure to respect the country.** … I think Neg takes this — **Aff was too scattered**."*
 

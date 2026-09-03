@@ -190,6 +190,21 @@ convergent interests, nothing is.* A predicate true of every case explains no ca
   we got these people to vote for us, but now they want to vote for themselves!"*** The specimen also
   supplies the correction that keeps the model honest — the resulting fight is **live and unresolved**,
   so no equilibrium should be read off it yet.
+- **⭐ The 1986 IRCA party inversion** — surfaced in the [Word War amnesty round](../../debates/wordwar-r2-amnesty-jones-owlish.md)
+  (2026-09-03), and the page's **cleanest historical specimen**, because the terminal goals swap eras
+  while the policy stays put. One proximate objective — legalising a large, precarious labour supply —
+  served **employer demand for cheap labour** in 1986 and **electoral margin** now. Nothing coordinated
+  the switch: when the terminal goal changed hands, the **sponsoring coalition changed with it**.
+  The documentary anchor is a single organisation holding both positions: the **AFL-CIO** helped write
+  IRCA and championed its **employer sanctions** as a protection for American workers (1985 convention
+  resolutions; a 1987 resolution applauding both the sanctions and the legalisation), then in **February
+  2000 called for the sanctions' repeal**. Same body, opposite position, fourteen years, **no defectors**.
+  What makes it a strong specimen rather than an anecdote: it is a case where the mechanism's rival
+  explanation — a plan — requires the *same actors* to have lied in both directions, while convergence
+  requires only that coalitions pursue their own ends. Chris supplies the observation from
+  contemporaneous memory; **the labour-side inversion is documented, the business-side motive is not
+  verified here**, and IRCA itself passed with bipartisan support, so the structure is coalition
+  alignment rather than a clean party split.
 - **The "hands up, don't shoot" / WMD pair** — already in
   [Absolutes and Differentials](../epistemology/absolutes-and-differentials.md). Both are single-criterion
   compressions of multivariate cases, arrived at by opposite coalitions, and *"nobody has to intend it"*
