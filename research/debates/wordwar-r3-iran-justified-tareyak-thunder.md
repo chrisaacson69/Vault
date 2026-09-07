@@ -1,7 +1,7 @@
 ---
 status: active
 created: 2026-09-07
-discussion: pending
+discussion: folded-in
 ---
 # Is the Iran War Justified? (Tareyak vs. Octavius Thunder) — Quarterfinal B
 > The round where the two debaters are arguing **different resolutions**, say so out loud, and nobody fixes it. Plus the best framing argument of the bracket, destroyed eleven minutes later by the man who made it.
@@ -113,6 +113,45 @@ So layer 0 is not a property of a *round*. It is a property of a **question**, a
 - **He refuses a bigotry generalisation from his own side of the room, and gives a strategic reason for it.** When Thunder says *"communism is a Jewish ideology"*, Tareyak splits it (*"some Jews"*), runs a **Catholic Church analogy** (*"we can paint every Christian as a child abuser because of what the Catholic Church done"*), and lands on: *"This is what happens when you paint with broad brushes. You're literally telling people who are more than willing to side with you against communism that **you're the enemy** even though you stand against communism."* It is the best moral moment in the round and it comes from the side that had least to gain from it.
 - **He converts the citizenship attack into a credential.** Asked *"are you an American citizen?"*, he first refuses it (*"How is that relevant? Attack my argument"*) and later re-frames: *"this is an outsider perspective. **I look up to Americans.**"*
 
+## ⭐ The three rebuttals the Neg needed and never found (Chris)
+
+Chris's read is that the Neg had the better *position* and argued it badly — *"he was just very poor in arguing it again."* Three specific gaps, all of them free:
+
+**1. The blood argument dies on Iraq, and Iraq appears in this round only as a pun.**
+
+> **Chris:** *"'only 18' isn't the problem, it's the **hundreds or thousands lost in the years after**, à la Iraq and Afghanistan."*
+
+That is the answer, and it is devastating, because Tareyak's figure is a **snapshot of an ongoing war** offered as though it were a final accounting. The relevant number is the *terminal* cost, and the United States has two recent base rates for exactly this intervention shape. Thunder's actual reply — *"18 people dying isn't affecting the finances of the average American, $40 billion is"* — answers the treasure argument instead, which Tareyak immediately catches.
+
+The maddening part: **Thunder says the word "Iraq" once, as a joke.** His opening line is *"If you think Iran is the problem, you've been living under Iraq"* — a pun on *under a rock*. The strongest available Neg argument is in the round as wordplay and never as an argument.
+
+*(This also subsumes the arithmetic hole: the 225 annual peacetime deaths **continue during the war**, so the 18 are marginal, not a substitute. Chris's version is better because it is forward-looking — a lay audience feels "forever war" in a way it does not feel "baseline vs. increment.")*
+
+**2. The moral argument dies on China, and Thunder ran the weak version.**
+
+> **Chris:** *"as for the moral justification… **why Iran and not China** where the same type of thing is happening?"*
+
+Thunder *did* run a consistency attack — the Africa version: *"you could say the same about Africa, how they're doing genital mutilation and raising child soldiers… I wouldn't say it's fight to start a war with them either."* That is the right shape and the wrong example, because Africa is a country Tareyak has no commitments about.
+
+**China is already the villain in Tareyak's own case.** His treasure argument is explicitly *deny China the $27 trillion*; his closing frames the whole thing as *"the global chess game"* against Chinese influence. So applying his own moral test to China forces a dilemma with no comfortable exit: either **advocate war with China** — absurd, and he would not — or **concede that "this regime brutalises its own citizens" is not sufficient justification**, which deletes one of his three contentions outright. Free, on the record, and never taken.
+
+**3. Resources in the ground are not resources in your hand.**
+
+> **Chris:** *"Thunder needed to push harder that while the area has lots of resources, **it doesn't mean we can capitalize on them**."*
+
+Thunder gestures at this twice — *"we wouldn't suddenly assume all of Iran's wealth"* and the good empirical version, *"we invaded Venezuela for oil? I didn't see gas prices go down"* — but never states it cleanly, so Tareyak's yes/no framing (*"$40 billion for access to $27 trillion. Is that a good deal?"*) keeps working. The crisp form: **you are not buying $27 trillion for $40 billion. You are buying a hope that some future government sells you things at a discount — and that is a trade relationship, which you can have without a war.** Said once, the treasure argument is finished.
+
+### The burden asymmetry the prompt mismatch actually created
+
+Chris: *"technically Aff can win on just 1 advantage if the neg can't show the other 2 are worse."* That is true — **under the spoken prompt**, and it is the concrete cost of [the mismatch](#-the-two-debaters-are-arguing-different-resolutions-and-they-say-so-on-air):
+
+| Operative prompt | Aff's burden | Neg's burden |
+|---|---|---|
+| *"beneficial to America"* (spoken) | **one surviving net advantage** | turn it, or outweigh it with a disadvantage |
+| *"the Iran war is justified"* (published) | clear a **threshold test** — imminence, necessity, proportionality | deny that the threshold was met |
+
+Under the spoken version Thunder has to run and *weigh* a disadvantage, and he never weighs anything — the $40bn is asserted, never traded off against the claimed benefit. Under the published version his Article 51 case is close to sufficient on its own. **He wins on one prompt and loses on the other, which is precisely why fifty minutes went into arguing about which one it was.**
+
 ## And where each man was bad
 
 **Tareyak's audience-fit problem is the largest structural liability anyone has carried in this bracket.** He is Irish. He is arguing that America should fight a war. And he tells his American opponent, on air, that he is a coward:
@@ -140,15 +179,19 @@ The [standing action](./word-war-debate-series.md#-a-retrieval-route-the-vault-h
 
 **1. The feminism rerun's margin is recovered.** Nathan Paul: *"Terak has argued that feminism is most certainly not helping relationships these days, and the audience agreed with him. **75% of them in fact.**"* So the [feminism rerun](./wordwar-feminism-rerun-david-tareyak.md) was **Tareyak 75 – 25 David S., +50.0** — a card that was never published and that this page had written off as *"probably permanent."* Round 1's margin set goes from **n=13 to n=14**.
 
-**2. ⭐ The bracket's first raw ballot count — and it reconciles exactly.** Of the [abortion round](./wordwar-r2-abortion-vic-thunder.md): *"he won with an overwhelming amount of votes at **140 total** over his opponent."* Read as Thunder's own count, that fixes the whole ballot:
+**2. ⭐ The bracket's first raw ballot figure — ⚠ and this page's first pass got the arithmetic wrong.** Of the [abortion round](./wordwar-r2-abortion-vic-thunder.md): *"he won with an overwhelming amount of votes at **140 total** over his opponent."* Chris asked the right question — *"+140 votes? 140 votes total?"* — and the two readings do **not** fit equally well:
 
-| | Votes | Share | Published |
+| Reading | Implied ballot | Shares | vs. published **58.4 / 41.6** |
 |---|---|---|---|
-| Thunder | **140** | 58.33% | 58.4% ✓ |
-| Kewl Vic | **100** | 41.67% | 41.6% ✓ |
-| **Total** | **240** | | |
+| **A — 140 is Thunder's vote count** | 240 total (140 / 100) | 58.33 / 41.67 | ❌ rounds to **58.3 / 41.7** — a card would not print 58.4 |
+| **B — 140 is the margin** | **≈830–838 total** (e.g. 486 / 346 of 832) | 58.35–58.43 / 41.57–41.65 | ✅ every value in the band rounds to **58.4 / 41.6** |
+| C — 140 is the total | 140 (82 / 58) | 58.57 / 41.43 | ❌ rounds to **58.6 / 41.4** |
 
-Both figures land inside a tenth of a point of the published card, which is strong evidence the reading is right. **So a round-2 quarterfinal-qualifier was decided by 240 ballots on 3,495 views — a 6.9% view-to-vote conversion, and a 20-vote swing.** [Finding 13](./word-war-debate-series.md#cross-round-findings) inferred 30–105 ballots from percentage granularity; this is the first *stated* number, it is larger, and it is the same order.
+**Only reading B reproduces the published card**, and it is also the more natural parse of *"140 … over his opponent."* The page originally asserted reading A *"reconciles exactly."* **It does not** — it misses by a tenth in both figures, which a results card would not do. Corrected.
+
+**⚠ But B is in tension with [finding 13](./word-war-debate-series.md#cross-round-findings), and the tension is the interesting part.** Round 1's ballot sizes were pinned tightly by *two-decimal* percentages — 94.55/5.45 fits **N = 55** exactly (52/3); 79.05/20.95 fits **N = 105** exactly (83/22) — which is where the 30–105 range came from. Reading B says round 2's abortion match drew **roughly 830–838**, an eight-fold jump on a three-fold jump in views (1,136 → 3,495), i.e. a **24% view-to-vote conversion**. Reading A's 240 sits much better against that trend and much worse against the card.
+
+**So the honest position is: the arithmetic favours B, the trend favours A, and one decimal place is not enough to settle it.** What both readings agree on is the thing that matters — **a round-of-16 match in a $5,000 tournament was decided by a swing of between 20 and 70 voters.** The way to close it is a future card printed to two decimals, or another spoken count; **standing action: log every raw vote figure a moderator says aloud.**
 
 ## The moderator — a third test for finding 1
 
@@ -166,7 +209,19 @@ Against the two-part rule this hub now runs — **own it** (attribution) and **a
 
 **So symmetry is satisfied and the questions are still useless: each side got a question sympathetic to its own case.** Perez's interrogation was symmetric and *uncomfortable* — the same instrument turned on both men. Nathan's is symmetric and *comfortable* — a prompt to restate, not a test to survive.
 
-**Third test, and it is the one this round supplies: the instrument has to bite.** *Own it, aim it at both, and make it a test rather than a prompt.* A moderator who feeds both sides has tested neither, and the symmetry that made Perez neutral makes Nathan merely even-handedly inert.
+**⭐ Chris's reframe, and it changes the verdict rather than qualifying it.** Two things I underweighted:
+
+> *"The good news is this starts with one of the WWD creators as the judge, so hopefully this means he will judge how he thinks the series **should** go… The judge getting into it seems to suggest **this is the intended format**, though it felt like some of the early round judges were biased here."*
+
+**A promoter in the chair is a calibration instrument, not just a conflict.** Every other moderator has been a guest whose behaviour could be idiosyncrasy; a co-founder's behaviour is evidence about **the norm the format intends**. And what Nathan Paul does is: supply content and own it, ask both sides questions, enforce structure, manage crosstalk, and instruct voters to *"look beyond personality, popularity."* If that is the intended standard, then **the hub's moderator ledger needs re-grading against it**: Kyla's unowned definitional block is a *deviation from house style*, not merely a personal tic, and Perez is close to intent rather than unusually interventionist.
+
+> *"**The best part of this round is the judge forcing Thunder to deal with each of the AFF 3 points.**"*
+
+Correct, and this page's first pass buried it. At 32:48 the moderator says *"you mentioned these three things… why don't you clarify them again and then I want Octavius to, one at a time, counteract each of those points."* **That is the moderator installing a structure the debaters did not have** — the same move as Pisco forcing the culpability/causality split in the [Boomers round](./wordwar-boomers-economy-jones-meyers.md) — and it is what exposes the round's cleanest error: Thunder answers the **blood** argument by talking about **money**, and Tareyak catches him (*"That didn't actually deal with the blood argument. That's the treasure argument"*).
+
+**So the verdict splits rather than standing.** His *questions* were soft — symmetric and comfortable, each letting its recipient restate his case. His *structural* interventions were the most valuable thing any moderator has done in the bracket. Those are different instruments and the round grades them oppositely.
+
+**Third test, restated with that in mind: the instrument has to bite — and question-asking is not the only instrument.** *Own it, aim it at both, and make it a test rather than a prompt.* A moderator who feeds both sides has tested neither, and the symmetry that made Perez neutral makes Nathan merely even-handedly inert.
 
 **And a genuinely new failure mode:** Kyla's error was laundering a *stronger* argument into a debater's mouth. Nathan's is attributing a *weaker* one — inflating the Neg's burden from *"unjustified"* to *"the worst thing in the world."* Thunder caught it. A less alert debater spends the next five minutes defending a position he never held.
 
@@ -178,12 +233,45 @@ But on **preparation** the bye ran the other way, and hard. Tareyak arrives with
 
 Against [the compressed schedule](./word-war-debate-series.md#round-2-pre-registration--predictions-filed-before-any-tape-2026-09-01) — rounds 2, 3 and 4 inside twelve days — **a bye is rest**, in a way it would not be on a normal calendar. So the two effects are opposed and this round cannot separate them: *the bye costs mobilisation and buys preparation.* The registered call stands as filed; the mechanism needs splitting.
 
+## Chris's verdict, and the test he attaches to it
+
+> *"He has the better position, he was just **very poor in arguing it again**."* … *"Tareyak does a lot of **online bloodsports debates** and is good at debating because of it; Thunder much less so."*
+
+So the round splits three ways rather than two, and that is sharper than what this page had:
+
+| | Better **position** | Better **argued** | Expected to **win** |
+|---|---|---|---|
+| Chris | **Thunder** | **Tareyak** | **Thunder**, on reach |
+
+The middle column is now explained rather than just observed: Tareyak's preparation edge — numbered contentions, line-by-line flowing, a rehearsed falsification test — comes from a **bloodsports background**, which is information no transcript contains and belongs under [the information-channel caveat](./word-war-debate-series.md#what-it-is). The reps are the variable, not the intelligence.
+
+**⚠ And the antisemitism may be a net *asset* with this pool, which is the darker reading.** Chris: *"the antisemitism can actually help him pull in votes from pro-Palestinians and the like."* This page's first pass framed *"nuke Israel"* and *"communism is a Jewish ideology"* as either a marginal-voter cost or this pool's native register. Chris's version is a third option: **not tolerated, actively mobilising** — a bloc-recruitment move rather than a gaffe. Round 1 supports it, since Thunder won behind *"satanic pedophilic overlords."*
+
+### 📌 Registered — Chris's designed test, filed pre-result
+
+> *"**Good test.** If Thunder wins this as we think, then this is a popularity contest, and Thunder goes down easily when faced against a similar-reach opponent."*
+> *"If Tareyak manages to get through because he debated better, he **still probably loses in the final 4 due to audience size**."*
+
+That is a two-stage prediction with a single mechanism, and it survives either quarterfinal outcome — which is what makes it a real test rather than a lean:
+
+1. **Thunder beats Tareyak** → reach beat argument again.
+2. **Either winner then loses the semifinal**, because [the projection](./word-war-debate-series.md#the-projected-semifinals--registered-before-announcement) puts the QF B winner against **Medeiros** — 2-0 by 75+, the largest unexplained reach in the bracket.
+
+**If both legs land, "this is a popularity contest" stops being a complaint and becomes the model.** If the QF B winner beats Medeiros, reach is not sufficient and something else is carrying rounds. Filed with Chris's other calls in the [ledger](./word-war-debate-series.md#prediction-scorecard).
+
+### Two smaller observations worth keeping
+
+- **Thunder has now failed to use a full opening twice.** In the [abortion round](./wordwar-r2-abortion-vic-thunder.md) he mis-clocked it (*"I have five minute. I thought I had one minute"*); here he yields at roughly 1:20 of 5:00 — *"I remit the remainder of my time."* Two rounds, two openings under-spent, and in both the material he skipped was the material he needed later.
+- **"Teriaki."** Thunder mangles his opponent's name into the sauce. Chris: *"needed to be corrected once so that if Thunder kept it up, it would make him look worse — but he didn't need it, he didn't keep it up."* Worth logging as a cheap tactic and its cheap counter: **correct it once, publicly, and let repetition do the work for you.**
+- **A wry structural note.** Chris: *"flying Tareyak from Ireland to Nashville might be too expensive ;)"* — offered as a joke, and it points at something real. The **promoter moderated a round whose outcome changes the promoter's travel bill**, with a live event five days out. No suggestion anything improper happened; the point is that this is exactly the situation [disclosure norms](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) exist for, and the format already has an emerging one (Mullally: *"candidly, I know both these guys"*).
+
 ## Open Questions
 
-- **Who actually argued better?** My read: **Tareyak on technique, Thunder on fit** — the mirror image of the [abortion round](./wordwar-r2-abortion-vic-thunder.md), where Vic argued better and Thunder had the room. If that is right, Thunder has now been the *worse* arguer in two consecutive rounds and won at least one of them.
-- **⚠ Post-tape, and labelled as such: the registered *narrow* band now looks like the interesting part, and a Tareyak win is live.** *"I'd probably nuke Israel"* and *"communism is a Jewish ideology"* are the kind of thing that either costs a marginal voter or is simply this pool's register — and round 1 says the latter, since Thunder won behind *"satanic pedophilic overlords."* **The pre-tape call (Thunder) stands exactly as filed**; this is an observation, not a revision.
-- **Does the prompt mismatch have a winner?** If the ballot goes to Tareyak, the audience voted the *spoken* prudential prompt; if to Thunder, it may have voted the *published* moral one — or neither, and it is reach. The [Tejeda/Jones round](./word-war-debate-series.md#-the-live-disagreement--qf-c-and-it-is-a-genuine-discriminator) runs the prudential prompt cleanly, so the pair may separate them.
-- **Is the Lindsay Clancy analogy scouting?** Tareyak uses her (*"if Lindsay Clancy is willing to kill her own three children, would you trust her to look after your children?"*) as his analogy for the Iranian regime. **Thunder used the same case in his round-2 abortion round.** Either a coincidence about a case that was in the news, or the first evidence in this bracket of a contender studying his opponent's previous tape. The transcript does not say.
+- **Does the ballot settle the popularity model?** See the registered test above. This is the first round where a loss by the better-argued contender and a loss by the better-positioned one point at *different* conclusions.
+- **Does the prompt mismatch have a winner?** If the ballot goes to Tareyak, the room voted the *spoken* prudential prompt; if to Thunder, possibly the *published* moral one — or neither, and it is reach. The [Tejeda/Jones round](./word-war-debate-series.md#-the-live-disagreement--qf-c-and-it-is-a-genuine-discriminator) runs the prudential prompt cleanly, so the pair may separate them.
+- **Is 140 a margin or a count?** [The arithmetic favours the margin reading and the trend favours the count](#-two-retrievals-both-from-the-moderators-intro). **Standing action: log every raw vote figure a moderator states aloud** — two more and this closes.
+- **Is the Lindsay Clancy analogy scouting?** Tareyak uses her (*"if Lindsay Clancy is willing to kill her own three children, would you trust her to look after your children?"*) as his analogy for the Iranian regime. **Thunder used the same case in his round-2 abortion round.** Either a coincidence about a case in the news, or the first evidence in this bracket of a contender studying his opponent's previous tape. The transcript does not say.
+- **The two Iran Affs date the war differently, and it matters.** [Summerhays backdated it to October 7th](./wordwar-r2-iran-war-summerhays-cruz.md) to import the Israel conflict — logged there as *definitional abdication*. Tareyak does the opposite: he dates it precisely (the 12-day war in June, American strikes six months later) and **uses the timeline as a weapon against the Israel thesis**. Same resolution, same side, opposite treatment of the same word — the cleanest available demonstration that *"the Iran war"* is itself load-bearing.
 
 ## Tags
 
