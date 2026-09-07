@@ -702,6 +702,8 @@ Resolutions and side assignments from the video descriptions; the channel has ke
 | **C** | Tejeda vs. Rex Jones | *"War with Iran is beneficial for America."* | **Jose Tejeda** | **Rex Jones** | **2.6K** | ⏳ voting |
 | **B** | Tareyak vs. Thunder | *"The Iran war is justified."* | **Tareyak** | **Octavius Thunder** | 148 | ⏳ voting |
 
+**⚠ Two of the four resolutions are nearly the same question, and Chris flagged it as a disappointment.** *"The Iran war is justified"* and *"war with Iran is beneficial for America"* are a **moral** claim and a **prudential** one — genuinely different burdens — but they will read as one topic to a viewer watching both, and a bracket of four quarterfinals spending half of itself on Iran is a thin slate. It is almost certainly a symptom of [the compressed schedule](#round-2-pre-registration--predictions-filed-before-any-tape-2026-09-01): four topics had to be produced fast. The accident is that it handed this page a controlled experiment it could never have arranged.
+
 **⚠ Hygiene: A and D are unscoreable.** Both cards were published before this page saw the lineup, so no call on either is claimable and neither earns the model anything. They are read below as *evidence*, not as tests.
 
 **Two things A and D establish anyway:**
@@ -725,6 +727,46 @@ Both ballots are open. **Neither transcript has been read** and neither result e
 - **They split** → the Iran axis is weak, personnel decides, and *"code the axis"* buys nothing beyond what reach already predicted. That is the quiet failure mode and the easiest to rationalise after the fact, so: **a split counts as a miss for the axis correction**, not a half-hit.
 
 **🎯 A second hypothesis this pair tests for free — does a bye cost you the next round?** If reach is really *mobilisation* rather than raw audience ([finding 2](#cross-round-findings)'s sub-mechanism), then a contender who skipped a round has a cold list and should underperform his form. **Tareyak is the first clean case:** he advanced on a bye, has not been on screen since round 1, and his QF tape has **148 views against Tejeda/Jones's 2,600**. Medeiros does not test it — his round-1 bye was against Horseradish, who also had one. Registered: **the bye is a liability, not a gift**, and QF B is where it shows.
+
+### ⭐ Chris's round-3 reads — 0-for-2 on the resolved half, and the misses are the most diagnostic result in the bracket
+
+Reported by Chris on 2026-09-07, **after** the quarterfinal A and D cards were known — so those two are *held reads reported against himself*, not filed predictions, and score nothing. The B and C halves are **live and unresolved**, and one of them disagrees with the model.
+
+| QF | Chris's pick | His reasoning | Outcome |
+|---|---|---|---|
+| **A** | **Bourdeau** | round-2 form | ❌ **Medeiros +74.8** |
+| **D** | **Charsky** | *"he is the strongest"* | ❌ **Summerhays +9.0** |
+| **C** | **Tejeda** | biggest demonstrated bloc, two rounds running | ⏳ open — **disagrees with the model** |
+| **B** | **Thunder** | *"Tareyak really hasn't been tested, and he still beat Vic despite a poor performance"* | ⏳ open — **agrees with the model, by a different route** |
+
+His onward reads, now moot: *Bourdeau beats Thunder* (**"Thunder is the weakest of the final 4"**) and *Charsky beats Tejeda*.
+
+**⭐ What the two misses actually show — the cleanest quantification of clause (c) this bracket has produced.** Chris's model here is **form**: who has been performing. It went 0-for-2, and look at what the two picks had in common — *both were drawn onto the most hostile prior this pool can generate*, and neither reading required a judgment call:
+
+| QF | Chris's pick | Side he had to defend | Prior | Margin |
+|---|---|---|---|---|
+| **D** | Charsky | **socialism** | maximally hostile | **−9.0** |
+| **A** | Bourdeau | **the DSA is a force for good in America** | maximally hostile | **−74.8** |
+
+Same condition, and the margins differ by **65.8 points.** That is *exactly* the shape [finding 17](#cross-round-findings) clause (c) asserts — **the prior picks the winner, execution moves the margin** — and it puts a number on it for the first time: in this bracket, on a hostile prior, **execution appears to be worth something like sixty-odd points of margin and zero points of outcome.** Charsky, the best arguer in the field, converted his entire edge into *losing narrowly*.
+
+Read that against Charsky's own three-round line — **+58.1, +58.6, −9.0** — and the picture is consistent: he does not lose his ability to argue between rounds, he loses the prior, and the sign follows the prior every time.
+
+**⚠ Three things that stop this being cleaner than it is.**
+1. **Opponent quality is not controlled.** Bourdeau faced Medeiros, who is 2-0 by 75+ and may simply have enormous reach; Charsky faced Summerhays, whose round-2 margin was never published. Some unknown share of the 65.8 is *opponent*, not *self*.
+2. **The retrodiction is contaminated and this page will not pretend otherwise.** The [axis correction](#-the-prior-went-backwards-in-the-abortion-round-and-it-needs-a-model-change) was written *after* these two cards were read. The model retrodicts both correctly, and retrodiction is cheap. The honest claim is only that the prior coding here required no judgment — *socialism* and *the DSA* are not borderline for this pool — not that the model earned anything.
+3. **Chris's model is not naive, and it beat the model in round 2.** Form has been his most successful instrument all bracket (his post-tape execution calls went 2-of-3 in wave 2, including beating the model outright on Iran). What round 3 shows is not that form is wrong — it is that **form is a margin instrument being used as an outcome instrument**, which is the same error in the opposite direction from the one the prior-only model died of.
+
+### 📌 The live disagreement — QF C, and it is a genuine discriminator
+
+**Model: Rex Jones, wide. Chris: Tejeda.** Both filed pre-result. This is the first time the two routes have pointed at *different contenders* on an open round, and the routes are clean:
+
+- **The model** reads the resolution: *"war with Iran is beneficial for America"* loads the anti-establishment axis, the pool's purest position is non-intervention, and the Neg is **Alex Jones's son** with 2.6K views on the tape — prior and affiliation aligned.
+- **Chris** reads the contenders: **Tejeda carries the largest demonstrated bloc in the bracket** — +89.1 in round 1, +63.2 in round 2 — and blocs have been beating everything.
+
+**And Chris has the stronger precedent, which is worth saying plainly since it cuts against the model.** The [suffrage round](./wordwar-r2-womens-suffrage-tejeda-aftermath.md) was *this exact test*: Tejeda drawn against a near-unanimous prior. **He won by 63.** If that generalises, the model is about to lose the same way twice.
+
+The model's answer — that the suffrage round was **collapsed**, with the Aff declaring himself a devil's advocate so the ballot never faced the proposition at all — is a real distinction and also exactly the kind of after-the-fact rescue that should make anyone suspicious. **So the round is a genuine discriminator: if Tejeda wins a contested round against a hostile prior, "the prior picks the winner" is finished, and the bloc is the whole story.**
 
 ### The projected semifinals — registered before announcement
 
@@ -771,8 +813,13 @@ Compact view of the [ledger](#predictions-ledger); the ledger rows carry the rea
 | **R2 — abortion** | *no call — result published first* | **Thunder +16.8** | — | ⚠ Unscored, and the page says so. But this page's own audience coding points at **Vic**, so it is a prior-only failure the model was never made to register. Occasioned the [axis correction](#-the-prior-went-backwards-in-the-abortion-round-and-it-needs-a-model-change) |
 | **R3 — DSA** | *no call — result published first* | **Medeiros +74.8** | — | Unscoreable. Medeiros is 2-0 by 75+ and has never been modelled |
 | **R3 — nationalism/socialism** | *no call — result published first* | **Summerhays +9.0** | — | Unscoreable, but **consistent with clause (c)**: hostile prior picks the winner, execution gap eats the margin to the bracket's narrowest |
-| **R3 — Iran (Tejeda/Jones)** | Model: **Rex Jones**, wide (*pre-tape*) | ⏳ | — | Prior + affiliation + form all aligned. Half of the [Iran double-header](#round-3--the-quarterfinals-the-projection-confirmed-and-two-calls-filed-2026-09-07) |
-| **R3 — Iran (Tareyak/Thunder)** | Model: **Octavius Thunder**, narrow (*pre-tape*) | ⏳ | — | Same axis, weaker on every dimension; also the **bye-cost** test |
+| **R3 — DSA** | Chris: **Bourdeau**, on round-2 form — *held, reported after the card was known* | **Medeiros +74.8** | ❌ *(unscored)* | Reported against himself. Not filed, so it scores nothing — but it is the **form** model losing to a hostile prior by 75 |
+| **R3 — nationalism/socialism** | Chris: **Charsky**, *"he is the strongest"* — *held, reported after the card was known* | **Summerhays +9.0** | ❌ *(unscored)* | Same shape, same result, **65.8 points of margin apart** — the pair that quantifies clause (c) |
+| **R3 — Iran (Tejeda/Jones)** | Model: **Rex Jones**, wide (*pre-tape, pre-result*) | ⏳ | — | Prior + affiliation aligned. Half of the [Iran double-header](#round-3--the-quarterfinals-the-projection-confirmed-and-two-calls-filed-2026-09-07) |
+| **R3 — Iran (Tejeda/Jones)** | Chris: **Tejeda** (*pre-result*) | ⏳ | — | ⚠ **The ledger's first live disagreement on an open round.** He reads the contenders (largest demonstrated bloc, +89.1 then +63.2); the model reads the resolution (anti-war axis + the Jones network). **He has the better precedent** — Tejeda already beat a near-unanimous prior by 63 in the suffrage round |
+| **R3 — Iran (Tareyak/Thunder)** | Model: **Octavius Thunder**, narrow (*pre-tape, pre-result*) | ⏳ | — | Same axis, weaker on every dimension; also the **bye-cost** test |
+| **R3 — Iran (Tareyak/Thunder)** | Chris: **Thunder** (*pre-result*) | ⏳ | — | ✅ **Agreement by independent routes again** — the model on the anti-war prior, Chris on form (*"Tareyak really hasn't been tested, and he still beat Vic despite a poor performance"*). Neither used the other's input |
+| *Structural* | Chris: **Thunder is the weakest of the final four** | ⏳ | — | Still testable if Thunder advances — the projection puts him against **Medeiros**, who is 2-0 by 75+ |
 | *Structural* | **The quarterfinal bracket**, registered 2026-09-01 before announcement | 4 of 4 pairings correct | ✅ | The page's first purely structural prediction, and it solved the tree |
 
 **Record: 9 of 16 ballot forecasts correct (56%), one correct abstention, one meta-claim refuted, and one structural prediction that hit 4-for-4.** *Updated 2026-09-07 — round 2 is complete, and wave 2 resolves as Jones ✅, Summerhays ✅, Smith ❌.* The **model** ledger is separate and now stands at **two-factor 3–2, prior-only 0–2** on pre-registered round-2 calls, with the [caveats on the denominator](#-wave-2-scored-2026-09-07--one-clean-hit-two-misses-and-the-misses-are-the-informative-half) stated where they belong. Two round-3 calls are open. *Updated 2026-09-01 — the last two were resolved by the [round-of-16 bracket](#round-of-16--the-full-bracket-received-2026-09-01), not by result cards.* Both late hits were **non-argument calls that paid**: Smith on reach alone, Tareyak on confidence and straightforwardness. That does not revive the dead [finding 15](#cross-round-findings) — the misses still run in both directions — but it does move the bar the round-2 model has to clear, from **33% to 45%**.
