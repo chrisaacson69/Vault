@@ -12,7 +12,7 @@ discussion: folded-in
 **Participants:** **Owlish** (**Aff** — for amnesty, opens first) vs. **Rex Jones** (**Neg** — for deportation)
 **Moderator:** **Monica Perez** — **her third round of round 2**, after [suffrage](./wordwar-r2-womens-suffrage-tejeda-aftermath.md) and [Iran](./wordwar-r2-iran-war-summerhays-cruz.md)
 **Duration:** 1:03:19 · **822 views** — the most-watched round-2 tape
-**Result:** pending
+**Result: REX JONES 82.6% – 17.4% OWLISH (+65.2)** — the registered call hit, and the *wide (≥ 45)* band held with room to spare. ⭐ **The ledger's strongest joint prediction:** the model filed Jones pre-tape on the pool's prior alone, Chris filed Jones post-tape on execution alone (*“Aff was too scattered”*), neither used the other's route, and both were right
 **Vault relevance:** [Word War series hub](./word-war-debate-series.md), [Formal Debate Concepts](./formal-debate-concepts.md), [Owlish's round 1](./wordwar-masculinity-crisis-owlish-garcia.md), [Jones' round 1](./wordwar-boomers-economy-jones-meyers.md)
 
 **Registered call:** [filed pre-tape, sight unseen](./word-war-debate-series.md#round-2-wave-2--three-more-matches-calls-filed-2026-09-03) — **Rex Jones, wide (≥ 45)**, as a pure prior play.

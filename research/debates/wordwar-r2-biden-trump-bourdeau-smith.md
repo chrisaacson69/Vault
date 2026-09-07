@@ -12,7 +12,7 @@ discussion: folded-in
 **Participants:** **Rowan Bourdeau** (**Aff** — pro-Biden, opens first) vs. **Josh Smith** (**Neg** — pro-Trump)
 **Moderator:** **Brad Binkley** — *Propaganda Report* podcast; **seventh** distinct moderator
 **Duration:** 1:11:48 · 392 views at first look
-**Result:** pending
+**Result: BOURDEAU ADVANCES** — card never published; recovered from the round-3 field, where Bourdeau appears in quarterfinal A (and lost it to Medeiros, 12.6–87.4). ❌ **The call missed.** Chris and the model both filed **Josh Smith, wide**, post-opening — prior and reach agreed, so nothing discriminates them and both are simply wrong. A straight prior miss on the model's strongest coding, with no margin published to diagnose it
 **Vault relevance:** [Word War series hub](./word-war-debate-series.md), [Formal Debate Concepts](./formal-debate-concepts.md), [Bourdeau's round 1](./wordwar-fragile-culture-turner-bourdeau.md), [Smith's round 1](./wordwar-therapy-culture-ouedrago-smith.md)
 
 ---

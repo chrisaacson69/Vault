@@ -12,7 +12,7 @@ discussion: folded-in
 **Participants:** **Spencer Summerhays** (**Aff**, opens first) vs. **Silvio Cruz** (**Neg**)
 **Moderator:** **Monica Perez** — *The Monica Perez Show*; **her second round of round 2**, after [suffrage](./wordwar-r2-womens-suffrage-tejeda-aftermath.md)
 **Duration:** 1:08:21 · 262 views at first look — the least-watched round-2 tape
-**Result:** pending
+**Result: SUMMERHAYS ADVANCES** — card never published; recovered from the round-3 field, where Summerhays appears in quarterfinal D. ❌ The model's pre-tape call was **Cruz, narrow**, on an anti-interventionist prior — wrong. ✅ Chris's post-tape call was **Summerhays** on execution (*“I don't agree with the aff position, but I think he argued better”*) — right, and his third call filed against his own position. **The margin is unrecoverable from a card, so the *narrow* band is untestable**
 **Vault relevance:** [Word War series hub](./word-war-debate-series.md), [The Load-Bearing Word](./the-load-bearing-word.md), [Formal Debate Concepts](./formal-debate-concepts.md), [Summerhays' round 1](./wordwar-western-therapy-men-summerhays-gilkison.md), [Cruz's round 1](./wordwar-algorithm-fair-cruz-hamm.md)
 
 ---
