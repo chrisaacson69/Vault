@@ -189,9 +189,24 @@ The [standing action](./word-war-debate-series.md#-a-retrieval-route-the-vault-h
 
 **Only reading B reproduces the published card**, and it is also the more natural parse of *"140 … over his opponent."* The page originally asserted reading A *"reconciles exactly."* **It does not** — it misses by a tenth in both figures, which a results card would not do. Corrected.
 
-**⚠ But B is in tension with [finding 13](./word-war-debate-series.md#cross-round-findings), and the tension is the interesting part.** Round 1's ballot sizes were pinned tightly by *two-decimal* percentages — 94.55/5.45 fits **N = 55** exactly (52/3); 79.05/20.95 fits **N = 105** exactly (83/22) — which is where the 30–105 range came from. Reading B says round 2's abortion match drew **roughly 830–838**, an eight-fold jump on a three-fold jump in views (1,136 → 3,495), i.e. a **24% view-to-vote conversion**. Reading A's 240 sits much better against that trend and much worse against the card.
+**⚠ The first pass said the trend favoured the smaller reading. It doesn't — because the vault already measured the turnout rate and I re-derived it badly.** [Finding 18](./word-war-debate-series.md#cross-round-findings) settled this on 2026-09-03: the empirically-grounded conversion band is **15–25% against late view counts, and plausibly 25–30% against views at ballot close** — and Chris made exactly that correction again here: *"great conversion considering the ballot closed before those 3.5K."*
 
-**So the honest position is: the arithmetic favours B, the trend favours A, and one decimal place is not enough to settle it.** What both readings agree on is the thing that matters — **a round-of-16 match in a $5,000 tournament was decided by a swing of between 20 and 70 voters.** The way to close it is a future card printed to two decimals, or another spoken count; **standing action: log every raw vote figure a moderator says aloud.**
+Applying the band properly:
+
+| Reading | Implied *n* | Views needed at ballot close for 25–30% turnout | Share of the eventual 3,495 |
+|---|---|---|---|
+| **B — margin** | **≈834** | 2,780 – 3,340 | 80–95% by hour 24 |
+| A — count | ≈250 | 830 – 1,000 | 24–29% by hour 24 |
+
+**The observed tail growth on sibling tapes decides it.** Over four days the amnesty round went 822 → ~1,000 (+22%) and the round-2 Iran round 262 → 303 (+16%). If the abortion tape behaved similarly, it stood at roughly **2,100–2,600 views when its ballot closed** — which puts turnout at **n ≈ 525–780**, bracketing the margin reading and leaving the count reading well *below* every round the vault has measured.
+
+**So the arithmetic and the turnout band now agree, and they point the same way: ~830 ballots, a 140-vote margin.** Reading A survives only if the abortion tape had a far longer tail than its siblings — possible, since 3,495 is a fourfold outlier that smells like late algorithmic pickup, but it is now the reading that needs the special pleading.
+
+**What it costs [finding 13](./word-war-debate-series.md#cross-round-findings):** the *"rounds are decided by 30–105 ballots"* headline is a round-1 statement and it is now two rounds stale. Round 2 ran at **n ≈ 100–150** on finding 18's reconstruction, and this figure puts the abortion match near **830**. **The pools are growing roughly an order of magnitude across the bracket** — which is [finding 11](./word-war-debate-series.md#cross-round-findings)'s growth premise confirmed a second time, while its compression prediction keeps failing. Bigger rooms, bigger margins.
+
+**What survives untouched:** *"a swing of 70 people decides a quarterfinal berth in a $5,000 tournament."* Even at 830 ballots the absolute numbers stay small enough that mobilisation outranks anything a reviewer can say about argument quality.
+
+*Standing action, unchanged: log every raw vote figure a moderator states aloud. Two more and the reading closes.*
 
 ## The moderator — a third test for finding 1
 
@@ -244,6 +259,12 @@ So the round splits three ways rather than two, and that is sharper than what th
 | Chris | **Thunder** | **Tareyak** | **Thunder**, on reach |
 
 The middle column is now explained rather than just observed: Tareyak's preparation edge — numbered contentions, line-by-line flowing, a rehearsed falsification test — comes from a **bloodsports background**, which is information no transcript contains and belongs under [the information-channel caveat](./word-war-debate-series.md#what-it-is). The reps are the variable, not the intelligence.
+
+**⭐ And Chris withdrew half of his own verdict on reflection — which is the more valuable result.** Told that *"Thunder had the better position"* holds cleanly on the **published** prompt but not on the **spoken** one, where net benefit is an open empirical question:
+
+> **Chris:** *"I guess I was coming at it that **a libertarian should be against foreign wars**, but it is fair to bring up the point that I judge foreign actions based on **the net benefit for that country doing it** — and who knows, maybe we can control the strait and the oil and get better off."*
+
+That is an argument from the **label** rather than from the case, caught by the man making it, and it is now [finding 19](./word-war-debate-series.md#cross-round-findings): **the reviewer's own politics can silently supply the "better position" verdict**, which matters because this page runs a substance column alongside a ballot column and has been treating the former as a neutral control. The check it produces is cheap — *state the strongest version of the losing side's case first; if that is hard to write, the read is doing prior-work rather than argument-work.*
 
 **⚠ And the antisemitism may be a net *asset* with this pool, which is the darker reading.** Chris: *"the antisemitism can actually help him pull in votes from pro-Palestinians and the like."* This page's first pass framed *"nuke Israel"* and *"communism is a Jewish ideology"* as either a marginal-voter cost or this pool's native register. Chris's version is a third option: **not tolerated, actively mobilising** — a bloc-recruitment move rather than a gaffe. Round 1 supports it, since Thunder won behind *"satanic pedophilic overlords."*
 
