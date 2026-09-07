@@ -39,7 +39,15 @@ When the discussion surfaces something **portable** — true beyond this one deb
 ### 1. Acquire the transcript
 
 Follow [content-extract.md](../../shared/content-extract.md) for source detection and extraction.
-- YouTube: `yt-dlp --write-auto-sub --sub-lang en --sub-format srt --skip-download -o "raw/debates/transcript-name" "URL"`, then strip timestamps. Save the raw transcript to `Vault/raw/debates/` (never modified — it's the source of truth).
+- **YouTube — FIRST TRY, on this machine, every time:**
+  ```bash
+  py -3 tools/fetch-youtube-transcript.py "<url-or-id>" "raw/debates/transcript-<VIDEOID>.txt"
+  ```
+  **Do NOT start with `yt-dlp` here.** `www.youtube.com` is SNI-blocked on this network, so `yt-dlp`, `curl` and `WebFetch` all die at the TLS handshake — that is settled and must not be re-debugged. The saved tool drives headless Chrome over QUIC via CDP and mints the POT token the caption endpoint requires. Verified working 2026-09-07 (1,552 cues, first try). Full background + the tested dead ends: [video-extract.md](../../shared/video-extract.md) and the `yt-dlp` memory.
+  - ⚠ **A 0-byte HTTP 200 from the caption endpoint is a missing POT token — not a network block and not "this video has no captions."** An in-page `fetch` of `ytInitialPlayerResponse.captions…baseUrl` returns exactly this, even from a logged-in browser. Do not conclude captions are ungenerated on that evidence.
+  - **Fallback if CDP is unavailable:** scrape the YouTube transcript panel from the DOM (*Show transcript* → `transcript-segment-view-model` elements, **not virtualised**, so a full hour is present at once), then move the text out by POSTing it to a throwaway `127.0.0.1` HTTP listener — YouTube's CSP allows that, while both clipboard routes fail. Lower fidelity (the panel merges cues) but it needs nothing installed.
+  - **Metadata without a browser:** if the channel is mirrored on a PeerTube instance (Word War Debate is, at `vid.samtripoli.com`), `/api/v1/videos?sort=-publishedAt` and `/api/v1/videos/<shortUUID>` return titles, **full descriptions**, durations and view counts as JSON — i.e. resolutions and side assignments — and reach this machine when YouTube does not. Partial mirrors: a first look, never a census.
+  - Then strip timestamps for a cleaned copy. Save both to `Vault/raw/debates/` (never modified — it's the source of truth).
 - Ask for start/end timestamps if not given; extract the debate portion. **Ask whether to include the post-debate panel / audience Q&A** — that looser exchange is often where the real signal is, and excluding it by default is part of how this skill thinned out.
 - Non-YouTube URL: `WebFetch`. If bot-blocked, ask Chris to clip it to `raw/` and point you at the file.
 

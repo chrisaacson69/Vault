@@ -4,6 +4,25 @@ Mid-level handler for extracting content from video sources. Called by content-e
 
 **Specific tool:** `yt-dlp` (supports YouTube, Rumble, and 1000+ sites)
 
+---
+
+## ⚠ READ FIRST — on this machine, YouTube does not go through `yt-dlp`
+
+`www.youtube.com` is **SNI-blocked on TLS-over-TCP**, so `yt-dlp`, `curl` and `WebFetch` all die at the
+handshake. This is settled, re-verified **2026-09-07**, and must not be re-debugged — see
+*Fallback: yt-dlp cannot connect at all* below for the full list of tested dead ends.
+
+**So for any YouTube transcript, the FIRST command is:**
+
+```bash
+py -3 tools/fetch-youtube-transcript.py "<url-or-id>" "<out-path>.txt"
+```
+
+It works (1,552 cues, first try, 2026-09-07). Everything in the `yt-dlp` sections below applies to
+**non-YouTube sources** and to **unfiltered networks**. Do not spend a turn rediscovering this.
+
+---
+
 ## Metadata Extraction
 
 Two equivalent paths depending on whether you already have `info.json`:
