@@ -94,3 +94,4 @@ permalink: /tags/epistemology/
 - [Easy to Critique, Hard to Build](../research/philosophy/tangents/easy-to-critique-hard-to-build.md) — costs are forecastable, benefits are not; decision rights follow the residual
 - [Formal Debate Concepts — A Portable Inventory](../research/debates/formal-debate-concepts.md) — fiat, topicality, inherency, kritik, turns; analysis not prediction
 - [Abortion Should Be Legal Nationwide (Word War R2 — Kewl Vic vs. Octavius Thunder)](../research/debates/wordwar-r2-abortion-vic-thunder.md)
+- [Is the Iran War Justified? (Word War R3 — Tareyak vs. Octavius Thunder)](../research/debates/wordwar-r3-iran-justified-tareyak-thunder.md)

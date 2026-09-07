@@ -45,3 +45,4 @@ permalink: /tags/politics/
 - [The Iran War: In America's Best Interest? (Word War R2 — Summerhays vs. Cruz)](../research/debates/wordwar-r2-iran-war-summerhays-cruz.md)
 - [Amnesty or Mass Deportation? (Word War R2 — Jones vs. Owlish)](../research/debates/wordwar-r2-amnesty-jones-owlish.md)
 - [Abortion Should Be Legal Nationwide (Word War R2 — Kewl Vic vs. Octavius Thunder)](../research/debates/wordwar-r2-abortion-vic-thunder.md)
+- [Is the Iran War Justified? (Word War R3 — Tareyak vs. Octavius Thunder)](../research/debates/wordwar-r3-iran-justified-tareyak-thunder.md)

@@ -29,13 +29,13 @@ permalink: /tags/_index/
 - [constitutional-law](./constitutional-law.md) — 4 files
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 9 files
-- [debates](./debates.md) — 77 files
+- [debates](./debates.md) — 78 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 100 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
-- [epistemology](./epistemology.md) — 87 files
+- [epistemology](./epistemology.md) — 88 files
 - [ethics](./ethics.md) — 6 files
 - [externalities](./externalities.md) — 3 files
 - [fiction](./fiction.md) — 1 file
@@ -69,8 +69,8 @@ permalink: /tags/_index/
 - [objectivism](./objectivism.md) — 17 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 175 files
-- [politics](./politics.md) — 38 files
+- [philosophy](./philosophy.md) — 176 files
+- [politics](./politics.md) — 39 files
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 2 files
