@@ -107,3 +107,4 @@ permalink: /tags/economics/
 - [Human Constancy](../research/philosophy/human-constancy.md) — what the participation ratchet actually requires: ends drift slower than means, not human nature is constant
 - [The Lemonade Stand Experiment](../research/economics/lemonade-stand-agents.md) — Claude Opus 4.7 vs GPT-5.5 running real lemonade stands: $65 and $42 revenue against ~$10k losses each. **Visibility of a constraint is necessary but not sufficient — the objective must encode it too** (they saw the ledger and spent anyway; the goal was revenue, not profit)
 - [Easy to Critique, Hard to Build](../research/philosophy/tangents/easy-to-critique-hard-to-build.md) — costs are forecastable, benefits are not; decision rights follow the residual
+- [Is the DSA a Force for Good in America? (Word War R3 — Medeiros vs. Bourdeau)](../research/debates/wordwar-r3-dsa-medeiros-bourdeau.md)

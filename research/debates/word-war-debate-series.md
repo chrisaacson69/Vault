@@ -269,6 +269,23 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
     **Falsifiable, and cheap to test in the autopsy:** code each round for *opponent-directed minutes* and see whether it predicts the loser across all fourteen. If a debater who spent visibly more time on his opponent than on the resolution has lost every time, that is the first predictor in this hub with a real mechanism behind it. **Registered before the coding is done**, so it can fail honestly.
 
 
+20. **⭐ The accepted reductio is the most expensive single error in this format — two specimens, −65.2 and −74.8 (2026-09-07).** A pattern that only became visible once two rounds had it.
+
+    In both cases the opponent offers a reductio of the debater's own position; in both cases the debater **accepts the characterisation** rather than blocking it; and in both cases it becomes the spine of the opponent's closing.
+
+    | Round | The reductio | Accepted by | Margin |
+    |---|---|---|---|
+    | [Amnesty](./wordwar-r2-amnesty-jones-owlish.md) | *"Can 500 million Indians just come here and it still be America?"* → *"yes… it's just the name"* | Owlish | **−65.2** |
+    | [DSA](./wordwar-r3-dsa-medeiros-bourdeau.md) | *"The DSA is only a force for good because it elects people who disagree with it"* → *"Yeah, sure. If you want to characterize it like that"* | Bourdeau | **−74.8** |
+
+    **Two of the three largest margins in the bracket are rounds where the losing side accepted a reductio**, and in both the block was one sentence and free. Owlish needed *"no — every immigration system has a cap; we're arguing about where it sits, not whether there is one."* Bourdeau needed *"no — a platform is a bargaining position, not a legislative agenda; you don't judge the Republicans by their most maximalist plank either."* Bourdeau reached for exactly that argument **eight minutes late** and never developed it.
+
+    **Why it is so much more expensive than an ordinary dropped point:** a reductio is *designed to be quotable*, so accepting one does not merely lose the exchange — it **manufactures the opponent's closing line and hands over the clip.** It is the mirror image of [finding 6](#cross-round-findings): where a technically-correct move can fail because a lay ballot cannot register it, a reductio is the move a lay ballot registers *best*, which is exactly why conceding one costs so much.
+
+    **Diagnostic, and it is a preparation task rather than an in-round one:** for every position you intend to defend, write down the sentence an opponent would use to make it sound absurd, and prepare the limiting principle *before* you are asked for it. Both losers here were asked for a limiting principle and did not have one.
+
+    ⚠ *Two specimens is a pattern, not a law.* The test is whether a round exists in which a reductio was **blocked**, and what that round cost — currently unchecked, and logged as an [open question](#open-questions).
+
 19. **⭐ The reviewer's own politics can silently supply the "better position" verdict — caught in the act, by Chris, on himself (2026-09-07).** The single most important caveat on this page, because it applies to a column that appears in every round review and in the [scorecard](#prediction-scorecard).
 
     This hub records two independent judgments per round: **who argued better** (technique) and **who had the better position** (substance). The first is checkable against the tape. The second is not, and it has been treated as though it were neutral. It is not necessarily neutral, and the [QF B round](./wordwar-r3-iran-justified-tareyak-thunder.md) produced the demonstration:
@@ -474,7 +491,9 @@ So the protocol is two-stage, and both stages must be dated in the [ledger](#pre
 - ~~**Round-2 resolutions, side assignments, dates and moderators.**~~ **Closed** — all eight, and all four of round 3's, published in the video descriptions.
 - ~~**The margins for the two recovered results.**~~ **Half closed** — Smith's +30.0 came out of a [moderator intro](#-a-retrieval-route-the-vault-had-written-off-moderator-intros-carry-the-margins), taking round 1 to n=13; Tareyak's is still missing and probably permanent.
 - ~~**Whether the two byes were withdrawals or unpublished rounds.**~~ **Effectively closed by a third case.** [Round 2 produced another bye](#round-2-results--complete-updated-2026-09-07) — Brunet vs. Tareyak, no video anywhere, no ballot ever opened — which is what a **withdrawal** looks like and not what a swallowed round looks like. Reading (a) is now the strong favourite for all three.
-- **Medeiros, entirely** — no audition, no round-1 tape, no reach estimate. **This has gone from a blind spot to the most urgent gap on the page:** he is 2-0 at +76.2 and +74.8, has never lost a contested round, and is **one win from the Nashville final**. The hub's model cannot say a single thing about the contender most likely to win the tournament.
+- ⚠ **Medeiros — the blind spot is now half-closed, and in the least convenient direction for the reach model.** [His QF A tape](./wordwar-r3-dsa-medeiros-bourdeau.md) shows he is **not** an unexplained network effect: he pre-blocks the cherry-picking objection with three levels of evidence, banks every concession aloud, states the socialist calculation problem in lay terms, and produces the round's one piece of decisive evidence. **Execution alone is sufficient to explain both of his blowouts**, which makes his margins *less* diagnostic of reach, not more — and confounds [Chris's semifinal test](#prediction-scorecard) if he is the opponent. What is still unknown is his *audience*: no audition, no round-1 tape, no reach estimate.
+- **Round-3 view pace, from Chris (2026-09-07)** — the QF B tape sat at **184 views at 9 hours (~20/hr)** against QF C's ~113/hr, QF D's ~1.6K and QF A's 550 in a day. **A five-to-sixfold gap on the same round of the same tournament**, which is the sharpest evidence yet for the [bye-cost hypothesis](#round-3--the-quarterfinals-the-projection-confirmed-and-two-calls-filed-2026-09-07): Tareyak has not been on screen since round 1 and it shows in the denominator. ⚠ It also means QF B will be decided by a **much smaller pool** than QF C — which favours whichever contender has the more mobilised list, and that is not the Irishman.
+- ~~**Medeiros, entirely**~~ — *superseded above.* Original entry: no audition, no round-1 tape, no reach estimate. **This had gone from a blind spot to the most urgent gap on the page:** he is 2-0 at +76.2 and +74.8, has never lost a contested round, and is **one win from the Nashville final**. The hub's model cannot say a single thing about the contender most likely to win the tournament.
 - **Two round-2 margins** — Bourdeau/Smith and Summerhays/Cruz — winners only. Both contenders appear in round 3, so both are live candidates for the intro-retrieval route.
 - **Whether the pool's Iran prior is pro- or anti-war.** One datum says pro-war; the [round-3 double-header](#round-3--the-quarterfinals-the-projection-confirmed-and-two-calls-filed-2026-09-07) settles it within days.
 
@@ -631,6 +650,17 @@ That directly changes what the model says about round 3, where **two of the four
 
 **Which makes finding 13's headline two rounds stale.** *"Rounds are decided by 30–105 ballots"* is a round-1 statement; round 2 ran at **n ≈ 100–150**, and this figure puts the abortion match near **830**. **Pools are growing by roughly an order of magnitude across the bracket** — [finding 11](#cross-round-findings)'s growth premise confirmed again while its compression prediction keeps failing. The consequence survives regardless: **a swing of ~70 people took a quarterfinal berth in a $5,000 tournament.** Standing action — **log every raw vote figure a moderator says aloud.**
 
+**⚠ Third payoff, and a six-point error that downgrades the whole method (2026-09-07).** [Quarterfinal A](./wordwar-r3-dsa-medeiros-bourdeau.md)'s intro yields two figures and one of them is wrong:
+
+| Intro figure | Actual | Status |
+|---|---|---|
+| Bourdeau *"won with **72%** of the votes"* on Biden vs. Trump | never published | ⭐ **Recovers [round-2 match 2](./wordwar-r2-biden-trump-bourdeau-smith.md): Bourdeau +44.0** |
+| Medeiros *"got **82%**"* on data centers | **88.1%** (published card) | ❌ **off by 6.1** |
+
+**That is a bigger deal than the recovery.** This route was logged as reliable to **±0.5** on four checkable figures that all landed. Here the *same moderator* misses by six points on a card published four days earlier — the single largest margin in the tournament she could have quoted. So the three margins that exist **only** as spoken figures — **Smith +30.0** ("65%"), **Tareyak +50.0** ("75%") and **Bourdeau +44.0** ("72%") — carry a **±6 band, not ±0.5**, and should be read as *spoken estimates* rather than results. They are currently doing work in the margin distribution and in [finding 11](#cross-round-findings)'s compression test; the direction of that test does not change, but the precision does.
+
+**Only one round-2 margin now has no route at all: [Summerhays vs. Cruz](./wordwar-r2-iran-war-summerhays-cruz.md).**
+
 **Corroborated a second time, and the rounding is confirmed.** The [abortion round](./wordwar-r2-abortion-vic-thunder.md) opens with Perez crediting Thunder with *"63% of the votes"* (published: 62.5) and Kewl Vic with *"a whopping 81%"* (published: 81.0). Both land inside a point, both round to whole percents exactly as flagged. The channel's spoken figures are reliable to ±0.5.
 
 ### 🔧 Retrieval — the tool already existed, and it still works
@@ -723,7 +753,7 @@ Resolutions and side assignments from the video descriptions; the channel has ke
 
 | QF | Match | Resolution as published | Aff | Neg | Views | Status |
 |---|---|---|---|---|---|---|
-| **A** | Medeiros vs. Bourdeau | *"The DSA is a force for good in America."* | **Bourdeau** | **Medeiros** | 550 | ✅ **Medeiros 87.4 – 12.6 (+74.8)** |
+| **A** | [Medeiros vs. Bourdeau](./wordwar-r3-dsa-medeiros-bourdeau.md) | *"The DSA is a force for good in America."* | **Bourdeau** | **Medeiros** | 550 | ✅ **Medeiros 87.4 – 12.6 (+74.8)** · **reviewed** |
 | **D** | Summerhays vs. Charsky | *"Nationalism vs. Socialism"* | Summerhays — **nationalism** | Charsky — **socialism** | 1.6K | ✅ **Summerhays 54.5 – 45.5 (+9.0)** |
 | **C** | Tejeda vs. Rex Jones | *"War with Iran is beneficial for America."* | **Jose Tejeda** | **Rex Jones** | **2.6K** | ⏳ voting |
 | **B** | [Tareyak vs. Thunder](./wordwar-r3-iran-justified-tareyak-thunder.md) | *"The Iran war is justified."* ⚠ *spoken on air as "beneficial to America"* | **Tareyak** | **Octavius Thunder** | 148 | ⏳ voting · **reviewed** |
