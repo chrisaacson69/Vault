@@ -286,6 +286,18 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
 
     ⚠ *Two specimens is a pattern, not a law.* The test is whether a round exists in which a reductio was **blocked**, and what that round cost — currently unchecked, and logged as an [open question](#open-questions).
 
+23. **⭐ Delivery rate is a fixed trait, and a constant cannot explain a variable — finding 6 narrowed (2026-09-08).** Prompted by Chris: *"Charsky speaks rapidly in his opening, and it would be fun to count WPM here too."* Measured off the timestamped cues:
+
+    | | Words | Duration | **WPM** |
+    |---|---|---|---|
+    | Charsky opening, [QF D](./wordwar-r3-nationalism-socialism-summerhays-charsky.md) | 1,088 | 4.90 min | **222.0** |
+    | Charsky opening, [round 2](./wordwar-r2-mass-deportation-charsky-ruelas.md) | 1,083 | 4.87 min | **222.5** |
+    | Summerhays opening, QF D | 892 | 5.67 min | **157.4** |
+
+    Conversation and broadcast delivery run **130–160 WPM**; full competitive-policy *spreading* clears 300. **222 is the top of the intelligible range.** But the striking figure is not 222 — it is **222.0 against 222.5**: two rounds, two opponents, two topics, and his rate is identical to within half a word per minute across ~1,085 words each. That is a **locked-in motor habit**, not a read of the room.
+
+    **[Finding 6](#cross-round-findings) has to narrow accordingly.** It says his delivery is a technique/format mismatch that costs him under an audience ballot. His three results at a constant 222 WPM are **+58.1, +58.6, −9.0**, and **a constant cannot explain a variable** — the prior moves and the delivery does not. So the defensible version is: *the mismatch imposes a roughly fixed cost, which a favourable prior swamps and a hostile one does not.* A handicap, not a verdict. ⚠ One contender, three rounds; measure a second before rewriting the finding outright.
+
 21. **⭐ There is no house style — two founders moderated round 3 and behave nothing alike (2026-09-08).** This retires a hypothesis of Chris's own, one day after he proposed it, on his own new fact.
 
     The [QF B](./wordwar-r3-iran-justified-tareyak-thunder.md) reframe was that a **promoter in the chair is a calibration instrument**: a guest moderator's conduct could be idiosyncrasy, but a founder's shows *"how he thinks the series should go."* It was a good hypothesis and it had one data point. Then Chris identified [QF C](./wordwar-r3-iran-beneficial-tejeda-jones.md)'s moderator, **Sam Tripoli, as a second founder** — and the two diverge about as far as two moderators can:
@@ -723,7 +735,11 @@ That directly changes what the model says about round 3, where **two of the four
 
 **That is a bigger deal than the recovery.** This route was logged as reliable to **±0.5** on four checkable figures that all landed. Here the *same moderator* misses by six points on a card published four days earlier — the single largest margin in the tournament she could have quoted. So the three margins that exist **only** as spoken figures — **Smith +30.0** ("65%"), **Tareyak +50.0** ("75%") and **Bourdeau +44.0** ("72%") — carry a **±6 band, not ±0.5**, and should be read as *spoken estimates* rather than results. They are currently doing work in the margin distribution and in [finding 11](#cross-round-findings)'s compression test; the direction of that test does not change, but the precision does.
 
-**Only one round-2 margin now has no route at all: [Summerhays vs. Cruz](./wordwar-r2-iran-war-summerhays-cruz.md).**
+**⭐ CLOSED 2026-09-08 — and it is the model's worst miss.** [QF D](./wordwar-r3-nationalism-socialism-summerhays-charsky.md)'s intro credits Summerhays with *"**92% of the votes**"* on the Iran round, so [round-2 match 7](./wordwar-r2-iran-war-summerhays-cruz.md) was **Summerhays 92 – 8 Cruz, +84.0**. **Every round-1 and round-2 margin in this bracket is now known** — and four of the last five came from spoken intros rather than published cards.
+
+The registered call there was ***Cruz, narrow (≤ 25)***, on an anti-interventionist prior: **wrong on the winner and wrong on the band by roughly sixty points.** ⚠ **It also bears directly on the [Iran double-header](#round-3--the-quarterfinals-the-projection-confirmed-and-two-calls-filed-2026-09-07)**, whose two open calls both back the **anti-war Neg**. A +84 for the pro-war side is the strongest evidence available that the coded axis has the **sign wrong** — unless it is Summerhays' reach, which is Chris's reading. The two unread cards separate them.
+
+*(Perez's fourth checkable figure also lands: Charsky at "79%" against a published 79.3. Running record: **seven accurate within ±0.6, one wrong by 6.1**.)*
 
 **Corroborated a second time, and the rounding is confirmed.** The [abortion round](./wordwar-r2-abortion-vic-thunder.md) opens with Perez crediting Thunder with *"63% of the votes"* (published: 62.5) and Kewl Vic with *"a whopping 81%"* (published: 81.0). Both land inside a point, both round to whole percents exactly as flagged. The channel's spoken figures are reliable to ±0.5.
 
@@ -818,7 +834,7 @@ Resolutions and side assignments from the video descriptions; the channel has ke
 | QF | Match | Resolution as published | Aff | Neg | Views | Status |
 |---|---|---|---|---|---|---|
 | **A** | [Medeiros vs. Bourdeau](./wordwar-r3-dsa-medeiros-bourdeau.md) | *"The DSA is a force for good in America."* | **Bourdeau** | **Medeiros** | 550 | ✅ **Medeiros 87.4 – 12.6 (+74.8)** · **reviewed** |
-| **D** | Summerhays vs. Charsky | *"Nationalism vs. Socialism"* | Summerhays — **nationalism** | Charsky — **socialism** | 1.6K | ✅ **Summerhays 54.5 – 45.5 (+9.0)** |
+| **D** | [Summerhays vs. Charsky](./wordwar-r3-nationalism-socialism-summerhays-charsky.md) | *"Nationalism vs. Socialism"* ⚠ *not a pair of opposites* | Summerhays — **nationalism** | Charsky — **socialism** | 1.6K | ✅ **Summerhays 54.5 – 45.5 (+9.0)** · **reviewed** |
 | **C** | [Tejeda vs. Rex Jones](./wordwar-r3-iran-beneficial-tejeda-jones.md) | *"War with Iran is beneficial for America."* | **Jose Tejeda** | **Rex Jones** | **2.6K** (113/hr) | ⏳ **reviewed blind — card deliberately not read** |
 | **B** | [Tareyak vs. Thunder](./wordwar-r3-iran-justified-tareyak-thunder.md) | *"The Iran war is justified."* ⚠ *spoken on air as "beneficial to America"* | **Tareyak** | **Octavius Thunder** | 148 | ⏳ voting · **reviewed** |
 
