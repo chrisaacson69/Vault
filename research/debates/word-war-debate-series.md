@@ -286,6 +286,29 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
 
     ⚠ *Two specimens is a pattern, not a law.* The test is whether a round exists in which a reductio was **blocked**, and what that round cost — currently unchecked, and logged as an [open question](#open-questions).
 
+21. **⭐ There is no house style — two founders moderated round 3 and behave nothing alike (2026-09-08).** This retires a hypothesis of Chris's own, one day after he proposed it, on his own new fact.
+
+    The [QF B](./wordwar-r3-iran-justified-tareyak-thunder.md) reframe was that a **promoter in the chair is a calibration instrument**: a guest moderator's conduct could be idiosyncrasy, but a founder's shows *"how he thinks the series should go."* It was a good hypothesis and it had one data point. Then Chris identified [QF C](./wordwar-r3-iran-beneficial-tejeda-jones.md)'s moderator, **Sam Tripoli, as a second founder** — and the two diverge about as far as two moderators can:
+
+    | | **Nathan Paul** (QF B) | **Sam Tripoli** (QF C) |
+    |---|---|---|
+    | Content supplied | his own framing, as *"more of a statement"* | none |
+    | Questions | each **sympathetic to its recipient**; one labelled aloud as *"kind of an anti-war question"* | symmetric, and one gets **turned against the man it was asked of** |
+    | Structure | **installs it** — forces point-by-point rebuttal | **stays out** — *"he stepped back and let them go"* |
+
+    **Two consequences, and the second is the useful one.**
+    - **The organisation has no settled moderation norm** — which is the same underlying fact as [defect 2](#format-defects-and-their-cheap-fixes)'s three incompatible closing conventions and [defect 9](#format-defects-and-their-cheap-fixes)'s prompt mismatches. **The format is not a format; it is nine people's habits.** Kyla's unowned definitional block therefore goes back to being judged against finding 1's rule alone, since there is no house style for it to deviate from.
+    - ⭐ **Technique is contingent on the room, which is a fourth clause for finding 1's rule.** Chris: *"Sam was a good moderator, he stayed out and let them go — **it helped that the 2 debaters were good and mostly behaved themselves.**"* Tripoli's light touch worked because these two could carry a round unaided; Perez's heavy interrogation earned its keep in [QF A](./wordwar-r3-dsa-medeiros-bourdeau.md) precisely because one debater there had no structure of his own. So: **own it · aim it at both · make it bite · and match the intervention to the room.** A moderator who installs structure for two capable debaters is intruding; one who stays out while a round dies at [layer 0](#cross-round-findings) is abdicating.
+
+22. **⭐ The anti-war Neg keeps inflating his best argument into his worst one — twice in one round of the bracket (2026-09-08).** Chris: *"You don't have to be against the war and be an antisemite at the same time!"* and, on QF C, *"the negative pushing that this helps Israel and not the US is a good thread, but then he goes anti-Israel, **flattening the point out**."*
+
+    | Round | The narrow claim — checkable, on-resolution, damaging | The inflated claim — unfalsifiable, off-resolution, dismissible |
+    |---|---|---|
+    | [QF B](./wordwar-r3-iran-justified-tareyak-thunder.md) | Israel's interests drove the war's timing | *"Communism is a Jewish ideology"*; media control, AIPAC, OnlyFans |
+    | [QF C](./wordwar-r3-iran-beneficial-tejeda-jones.md) | *"The war is not beneficial to America. The war is beneficial to Israel"* — delivered with a factual reversal the Aff cannot answer | *"Is Sharia law worse than Talmudic rule?"*; *"Talmudic rule says they're all on the left, we have the right to kill them"* |
+
+    **The narrow version is the strongest argument available to the anti-war side**: specific, about American interest, exactly on the resolution. The inflated version cannot be checked, changes the subject from American interest to ethnic claims, and hands the opponent a free dismissal — which is what happens both times. This is [inflation](./the-load-bearing-word.md) operating on an **argument** rather than a term: widen it until no counterexample survives and it stops doing work. **Two debaters, two rounds, one resolution, the same self-inflicted wound** — which makes it a property of the position's rhetorical gravity rather than of either man.
+
 19. **⭐ The reviewer's own politics can silently supply the "better position" verdict — caught in the act, by Chris, on himself (2026-09-07).** The single most important caveat on this page, because it applies to a column that appears in every round review and in the [scorecard](#prediction-scorecard).
 
     This hub records two independent judgments per round: **who argued better** (technique) and **who had the better position** (substance). The first is checkable against the tape. The second is not, and it has been treated as though it were neutral. It is not necessarily neutral, and the [QF B round](./wordwar-r3-iran-justified-tareyak-thunder.md) produced the demonstration:
