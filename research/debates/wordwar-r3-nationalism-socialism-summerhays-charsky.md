@@ -161,6 +161,34 @@ His closing is a **flow**: *"the positive argument I gave for socialism went rel
 
 **Summerhays' closing goes the other way** and Chris grades it accordingly: *"a prewritten close that ties socialism to globalism and is basically a null."* He does not respond to the round; he restates the bundling that won it.
 
+## ⭐ The Aff scored his opponent's concession as a win — the sharpest form of the flow problem
+
+Chris: *"Here it was, I was expecting a socialism fight, and I get a nationalism fight where **the other side didn't realise what he was up against**."*
+
+That is the round in one sentence, and it explains the closing. Charsky's summary rests on: *"the positive argument I gave for socialism **went relatively untouched**… the independent reasons to reject these commitments were **not really addressed**."*
+
+**Both statements are true and neither is a point.** His socialism argument went untouched because **Summerhays agreed with it** — *"I do find myself agreeing with a lot of socialist things, that's why I'm not going to challenge Luke on the capitalism."* Under a flow, an argument the opponent does not answer is won. But an argument the opponent **concedes as irrelevant to what he is defending** is not unanswered — it is *off the table*, and the ballot has nothing to do with it.
+
+**So Charsky spent his closing banking his opponent's agreement as if it were his opponent's silence.** That is a sharper failure than the [dropped-arguments](./formal-debate-concepts.md) problem already logged against him twice: it is not merely that a lay ballot cannot register unanswered points, it is that **the flow cannot distinguish *unanswered* from *conceded-and-therefore-moot***, and a debater reading his own flow will mistake the second for the first. Chris's verdict on the counterfactual is exactly right: *"**Luke easily wins if that was a policy debate round** for the reasons he said in his close, but ouch."*
+
+## ⭐ Nobody scouts, and this round is what it costs
+
+> **Chris:** *"I feel sorry for Luke not doing the research on his opponent well enough."*
+
+Summerhays' position was **available in advance and decisive**: he is a nationalist who agrees with much of socialism, so the resolution was never going to be argued as written. Charsky arrives with a fully-built case against capitalism — which his opponent had no intention of defending — and no case at all against the borders proposition that actually decided the round.
+
+**The bracket's evidence on opponent preparation is now two data points and they point the same way.** In [QF B](./wordwar-r3-iran-justified-tareyak-thunder.md), Tareyak's Lindsay Clancy analogy is the same case Thunder had used in his own previous round — possible scouting, unprovable from the tape. Here, the *absence* of scouting is unmistakable and expensive. **In a format where you can watch every one of your opponent's previous rounds for free, almost nobody does**, and the one round where it would have reframed the entire preparation is the round the better arguer lost.
+
+## ⚠ On the question of what Summerhays personally believes
+
+Chris: *"I almost want to do research on Summerhays to see if he is a neo-Nazi, as he just casually accepted national socialism… and it explains the reach if he is a popular influencer in that community."*
+
+**This page will record what was said on tape and will not go looking for an affiliation.** The reasons are practical rather than delicate: the vault is a **public repository**, Summerhays is a named individual, and *"is he a neo-Nazi"* is precisely the class of claim that must not be published on inference from an hour of debate. The on-tape record is strong enough to stand alone and is already here — he said *"I don't reject that,"* he located Hitler's defect in race-realism rather than in the ideology, he declined to contest the anti-capitalism, and he allowed that the system need not be authoritarian. **Those are quotations, and they are the evidence.**
+
+**And the analytically useful version of Chris's point does not require the accusation at all:** it does not matter what Summerhays privately holds, because **the position he stated on air was open to an attack Charsky never made.** The [Italy counterexample](#the-hitler-answer-and-the-counterexample-nobody-ran) defeats *"the ideology was fine, the racism was the defect"* regardless of who is saying it — Mussolini's corporatism was expansionist and repressive years before the 1938 racial laws, and Imperial Japan is a second case. That is a debate-craft finding, it is fully grounded in the transcript, and it costs nobody a reputation.
+
+*(The reach half of the conjecture is also testable without any of this, and the [view data](./word-war-debate-series.md#-two-corrections-on-the-view-data-and-the-second-is-a-correction-of-a-correction) already speaks to it: Summerhays' +84.0 in round 2 is the largest unexplained mandate in the bracket, and nothing about its source is known.)*
+
 ## Who argued better
 
 **Charsky, clearly, and Chris agrees:** *"Luke is the better debater and won the round, but Spencer has the bigger reach."* And Charsky himself gets the round's real shape right in his closing — *"they agree on socialism"* is, as Chris puts it, **spot on**.
@@ -168,6 +196,15 @@ His closing is a **flow**: *"the positive argument I gave for socialism went rel
 **So the +9.0 is the bracket's cleanest specimen of the gap this hub exists to measure**: the better arguer lost, by nine points, in the round where the prior against him was largest on paper and smallest in fact. Two things had to happen for it to be that close — the Neg conceded the economic half, and Charsky is genuinely very good — and neither was enough.
 
 ⚠ Applying [finding 19](./word-war-debate-series.md#cross-round-findings): the strongest version of Summerhays' case is real and this page should say so. *Obligations do plausibly attach to thick relations rather than to abstract personhood; a polity that cannot prioritise its own members cannot sustain the solidarity that funds any redistribution at all; and a cosmopolitan distributive principle with no enforcing agent is not a policy.* He never assembled it in those terms, but the materials were his.
+
+## Parked for discussion — Chris
+
+> *"My biggest gripes are with his econ arguments, of course."* … *"I would want to have both the **immigration** and **economic** discussions with Charsky. He is well spoken, but still very wrong."*
+
+Two threads deliberately left open rather than resolved in a round review, both with the material already gathered here:
+
+- **The economics.** The [three-point argument against capitalism](#the-affs-opening-is-the-most-sophisticated-in-the-bracket-and-chriss-two-objections-both-land) — registration, weighing, action — plus the [asymmetry](#-the-asymmetry-that-decides-the-philosophy--structural-pessimism-about-markets-structural-optimism-about-states) between structural pessimism about markets and structural optimism about states, and the [enforcement gap](#and-the-enforcement-gap-chris-predicted-before-watching) in a borderless distributive scheme. The discount-rate point deserves engaging on its merits rather than dismissing.
+- **The immigration/protectionism economics.** The [H-1B lottery result](#where-the-empirics-went-and-why-they-did-not-save-the-aff) is a real natural experiment with a real scope condition — firm-level, high-skill — and Chris's qualification (*"it starts breaking down if the conditions change — low-skill workers"*) is the right place to start.
 
 ## Open Questions
 
