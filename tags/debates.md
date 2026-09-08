@@ -86,3 +86,4 @@ permalink: /tags/debates/
 - [Abortion Should Be Legal Nationwide (Word War R2 — Kewl Vic vs. Octavius Thunder)](../research/debates/wordwar-r2-abortion-vic-thunder.md)
 - [Is the Iran War Justified? (Word War R3 — Tareyak vs. Octavius Thunder)](../research/debates/wordwar-r3-iran-justified-tareyak-thunder.md)
 - [Is the DSA a Force for Good in America? (Word War R3 — Medeiros vs. Bourdeau)](../research/debates/wordwar-r3-dsa-medeiros-bourdeau.md)
+- [War With Iran: Would It Benefit America? (Word War R3 — Tejeda vs. Rex Jones)](../research/debates/wordwar-r3-iran-beneficial-tejeda-jones.md)
