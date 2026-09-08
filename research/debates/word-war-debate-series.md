@@ -967,6 +967,44 @@ The [projection registered before announcement](#the-projected-semifinals--regis
 
 **⭐ Note the resolution, too:** *"Flock cameras: beneficial or harmful?"* is a **surveillance** topic — and it is the first prompt in the bracket that cleanly loads the anti-establishment axis for *both* men, since neither Jones nor Summerhays has an obvious pro-surveillance side to defend. Worth watching whether that produces the [verbal-dispute failure](#cross-round-findings) (finding 8) rather than a contest.
 
+## The Final Four — the board, and calls filed before either tape is read (2026-09-08)
+
+| SF | Match | Resolution | Aff | Neg | Status |
+|---|---|---|---|---|---|
+| **2** | **Rex Jones vs. Spencer Summerhays** | *"Flock cameras: beneficial or harmful?"* | **Summerhays** — *beneficial* | **Rex Jones** — *harmful* | ⏳ **aired**, 231 views at 2h · **6-hour ballot, closing tonight** |
+| **1** | **Alexxander Medeiros vs. Octavius Thunder** | *not yet published* | — | — | ⏳ **not aired** |
+
+Both exactly as [projected on 2026-09-01](#the-projected-semifinals--registered-before-announcement). Only one Final Four tape exists so far; SF1 has not been posted.
+
+### 📌 Registered — both filed before either tape is opened
+
+| SF | Predicted winner | Margin | Basis |
+|---|---|---|---|
+| **2** | **Rex Jones** | **narrow** | ⭐ *"Flock cameras are beneficial"* is the worst side anyone has drawn since Charsky got socialism. The pool's axis is anti-establishment and anti-surveillance; **Summerhays is defending mass ALPR surveillance to an Infowars-adjacent room.** Jones also carries the [better-debater read](./wordwar-r3-iran-beneficial-tejeda-jones.md) from both Chris and this page, the network, and a win over the bracket's largest bloc. **Prior + execution + form aligned** — the same configuration that produced QF C. *Narrow* because it is the round-3-and-beyond tape with the largest pool (115 views/hr) and [dilution](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) compresses with pool size |
+| **1** | **Medeiros** | **wide** | ⚠ **Filed without a topic**, so the axis is uncoded and this is an execution-and-reach call only — weaker than a normal filing and labelled so. Medeiros is [the best audience-facing prosecutor reviewed](./wordwar-r3-dsa-medeiros-bourdeau.md) and is 2-0 by +76.2 and +74.8; Thunder is 3-0 on **the three narrowest wins of any advancing contender** (+25.0, +16.8, and QF B unknown). *Wide* because **both men have low reach**, so the pool should be small — and small pools produce big margins |
+
+**⚠ Chris's [two-stage test](#prediction-scorecard) has a confound that is now visible.** Leg 2 was *"Thunder goes down easily when faced against a similar-reach opponent."* But **Medeiros has the lowest reach on the board**, and Thunder's one big audience — the [abortion round's 3,495](./wordwar-r2-abortion-vic-thunder.md) — came with **the topic, not with him**: his QF B ran at roughly 11 views/hour. So SF1 is two low-reach contenders, and a Thunder loss there would be evidence about **execution**, not audience size. The test's mechanism does not apply to the round it landed on.
+
+### ⚠ Two corrections on the view data, and the second is a correction of a correction
+
+**1. View counts are revised *downward*.** [QF C](./wordwar-r3-iran-beneficial-tejeda-jones.md) read **2.6K at ~23h** on 2026-09-07 and reads **2.1K at ~2 days** today — a **~19% reduction**, which is YouTube stripping inflated or bot traffic after the fact. **Any view snapshot is provisional**, and the tape that looked like the bracket's runaway hit lost 500 views. This bites the [turnout-band work](#-a-retrieval-route-the-vault-had-written-off-moderator-intros-carry-the-margins) directly: denominators measured early are too big.
+
+**2. Views-per-hour decays with age, so rates measured at different ages are not comparable — and this page has now made the opposite error twice on the same question.**
+
+| Read | Method | Verdict on QF B |
+|---|---|---|
+| First pass (2026-09-07) | raw **counts** at different ages | "badly underperforming" — **wrong method** |
+| Correction (2026-09-07) | **rates** at different ages — 20/hr at 9h vs 15/hr at 36h | "running faster than QF A" — **also wrong method** |
+| Now, matched maturity | QF A **550 @ ~36h = 15.3/hr** · QF B **310 @ ~28h = ~11/hr** · QF C **2,100 @ ~48h = 43.8/hr** | **QF B is the slowest of the four** |
+
+So the retraction was itself wrong, and the original *direction* was right for the wrong reason. **The rule that prevents a third error: compare cumulative views at a matched age, never rates measured at different ages.** The [bye-cost hypothesis](#round-3--the-quarterfinals-the-projection-confirmed-and-two-calls-filed-2026-09-07) is back in play — weakly, since a topic effect explains it just as well.
+
+### ⭐ The moderator intro is now the *only* surviving route to a margin
+
+With [the card archive deleted](#-round-3-resolved--the-final-four-is-set-and-the-results-page-has-been-wiped-2026-09-08), Chris's observation is the whole plan: *"maybe we will glean the margins from the intros when we discuss the final 2 debates."* Correct, and it is no longer a supplementary channel — **it is the last one.** The QF B and QF C margins exist nowhere else, and the semifinal intros are the only place they can still surface.
+
+**Standing action, upgraded:** transcribe **every** number a moderator speaks aloud in the Final Four and the final. Current reliability of that route: **seven accurate within ±0.6, one wrong by 6.1.**
+
 ### The projected semifinals — registered before announcement
 
 Same reasoning as the quarterfinal projection, which is now 4-for-4. Pairing adjacent quarterfinals gives:
@@ -1021,6 +1059,8 @@ Compact view of the [ledger](#predictions-ledger); the ledger rows carry the rea
 | *Structural* | Chris: **Thunder is the weakest of the final four** | ⏳ — **he is in it**, drawn against Medeiros | — | Still testable if Thunder advances — the projection puts him against **Medeiros**, who is 2-0 by 75+ |
 | ⚠ *Filing failure* | **The model's two calls on QF C contradict each other** — *Rex Jones, **wide (≥40)*** (finding 17, filed 2026-09-07) against *margin **under +40*** (finding 11, filed 2026-09-08) | ⏳ | — | ⭐ Filed a day apart off two different findings and the conflict went unnoticed until the tape was opened. **Sloppy filing that accidentally produces the best test on the board:** the round now discriminates between two of this page's own findings. Handling set before the card was read — *Jones by 40+* kills dilution, *Jones under 40* kills the wide band, *Tejeda* kills both |
 | **R3 — Iran (Tejeda/Jones)** | Model: **the narrowest margin of round 3** (*filed blind 2026-09-08; result deliberately not looked up, but the 24h ballot has probably closed — so blind, not pre-result*) | ⏳ | — | ⭐ **Independent of who wins**, which is what makes it worth filing. [Finding 11's dilution result](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) says margin falls with pool size; QF C is running at **113 views/hr against QF A's 15 and QF B's 20**, so it should have the largest pool in the round by a wide margin. Predicted: **narrower than QF A's +74.8 and QF D's +9.0 is the hard case** — the falsifiable form is *QF C comes in under +40*. A blowout kills the dilution reading outright |
+| **SF2 — flock cameras** | Model: **Rex Jones**, narrow (*pre-tape, pre-result*) | ⏳ | — | *"Beneficial"* is the worst side drawn since socialism — Summerhays defends mass surveillance to an Infowars-adjacent room. Prior + execution + form aligned, as in QF C |
+| **SF1 — topic unpublished** | Model: **Medeiros**, wide (*pre-tape; ⚠ **no topic**, so execution-and-reach only*) | ⏳ | — | Best prosecutor in the bracket against the narrowest-winning contender; both low-reach, so a small pool and a wide margin |
 | *Structural* | ✅ **leg 1 hit** — Chris: **the QF B winner loses the semifinal on audience size** — *"if Thunder wins this, this is a popularity contest, and Thunder goes down easily when faced against a similar-reach opponent"* (*pre-result*) | ⏳ | — | ⭐ **A two-stage test that survives either quarterfinal outcome.** Both legs landing turns *"this is a popularity contest"* from a complaint into the model; the QF B winner beating **Medeiros** falsifies it. Filed 2026-09-07 |
 | *Structural* | **The quarterfinal bracket**, registered 2026-09-01 before announcement | 4 of 4 pairings correct | ✅ | The page's first purely structural prediction, and it solved the tree |
 
