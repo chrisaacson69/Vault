@@ -1041,6 +1041,30 @@ The same pool votes both rounds inside 24 hours, and the two resolutions pull op
 
 **The Franklin test makes it concrete.** Rex Jones quoted *"those who would give up essential liberty to purchase a little temporary safety deserve neither"* twice in [SF2](./wordwar-sf2-flock-cameras-summerhays-jones.md), against the cameras. **Does the same room apply Uncle Ben to drug prohibition?** A pool that cites Franklin against surveillance and ignores him on prohibition is telling you the quotation is a *weapon*, not a *premise* — which is a finding about the audience rather than about either contender, and it is checkable across the two cards.
 
+### 🚫 The semifinal results are being **withheld**, not delayed — and the archive format says the margins may never exist (2026-09-09)
+
+Checked at Chris's request. **The ballot is closed and the numbers are not posted, by design.**
+
+| What was checked | State on 2026-09-09 |
+|---|---|
+| `wordwardebate.com/voting-results` | **404.** The URL this hub had recorded is dead; the page moved to **`/view-results`** |
+| `/view-results` | **A single Final Four bracket image and nothing else.** The four semifinalists are shown; **neither semifinal winner is advanced**, and there is **not one percentage card anywhere on the page** |
+| `/vote-now-1` | ***"WHO WILL BE IN NASHVILLE??? CHECK BACK SOON TO SEE THE RESULTS!"*** — the six-hour window is long shut and the outcome is deliberately held |
+| Championship | **Word War Debate II — LIVE, Friday 12 September, Woolworth Theatre, Nashville.** Three days out |
+
+⭐⭐ **This reinterprets [defect 5](#format-defects-and-their-cheap-fixes), and not in the organisers' favour.** The 2026-09-08 wipe was recorded here as a current-state display overwriting its own history. It now reads as **deliberate**: the per-round cards were cleared to make room for a reveal-driven bracket, and the finalists are being kept secret to sell a live show. **That is a defensible entertainment decision and a total loss for the record** — the difference between carelessness and policy is that policy will do it again.
+
+⚠ **And the prior season shows what "archived" means here.** `/word-war-i-results` proves they *do* keep past seasons — and the format is **winner's name only**: a matchup graphic, the word WINNER, a name. **No percentages, no ballot counts**, and several of the images are already broken placeholders.
+
+> 🚫 **So the working assumption must now be that the semifinal and final margins will never be published at all** — not wiped, never issued. If the Contender Series is archived the way WWI was, we get four names and no numbers.
+
+**Two consequences for this hub:**
+
+1. **The [moderator-intro route](#-the-moderator-intro-is-now-the-only-surviving-route-to-a-margin) is not merely the last surviving route — it is now the only route that can ever exist for SF1, SF2 and the final.** It stops being a recovery technique for lost data and becomes the *primary* collection method, prospectively. ⚠ **And the final is a live theatre show**, so whether any number is ever spoken aloud depends on whether a moderator on a Nashville stage happens to read one out.
+2. **The registered calls stay open.** [SF2 → Rex Jones, narrow](#-registered--both-filed-before-either-tape-is-opened) and [SF1 → Medeiros, wide](#-post-topic-observation-on-sf1--the-call-stands-and-the-model-now-disagrees-with-it) remain unresolved, and the SF1 call is the one carrying the [execution-vs-axis discriminator](./wordwar-sf1-drug-legalization-thunder-medeiros.md). **The winner alone resolves the direction; the margin half of *"wide"* may be unscoreable.** ⭐ *Note what that costs:* the ledger has been calibrated on margins, and finding 11's pool-size correlation needs numbers, not names.
+
+📌 **Filed as defect 17.** The reveal is 12 September; the finalists' identity will be public then whether or not any number is.
+
 ### ⚠ The intro-retrieval route splits in two, and only half of it works
 
 Both semifinal intros were checked for the [two missing margins](#-round-3-resolved--the-final-four-is-set-and-the-results-page-has-been-wiped-2026-09-08). **Neither gives a number.** What they give instead is a characterisation, and the characterisations do not survive contact with the cards we already hold:
@@ -1152,7 +1176,7 @@ Compact view of the [ledger](#predictions-ledger); the ledger rows carry the rea
 
 *Status check the same day:* `/vote-now-1` shows only **Kung Fu Joe vs. Kewl Vic** open among contender rounds (plus a non-bracket "Candace vs. Andrew" event), so the military-service, feminism-rerun and hate-speech ballots have **closed** and their results exist but are not yet transcribed here. It also independently corroborates the production note above: no ballot has opened for either unlisted matchup, so neither has aired.
 
-Source: [wordwardebate.com/voting-results](https://wordwardebate.com/voting-results). Six of the seven covered rounds have posted; **Cruz vs. Hamm and Summerhays vs. Gilkison are still inside their 48-hour windows**, so the blind protocol continues for those two.
+Source: [wordwardebate.com/voting-results](https://wordwardebate.com/view-results). Six of the seven covered rounds have posted; **Cruz vs. Hamm and Summerhays vs. Gilkison are still inside their 48-hour windows**, so the blind protocol continues for those two.
 
 | Round | Result | Margin |
 |---|---|---|
@@ -1320,6 +1344,8 @@ Consolidated because the observations have accumulated across a dozen reviews an
 **A search that terminates at the first genuine disagreement produces exactly the artefacts in this table.** The resolution then records *where two particular men happen to split*, not a clean opposition — so odd pairings (*"Nationalism vs. Socialism"*) and over-wide wordings are the expected output rather than drafting errors. [SF1](./wordwar-sf1-drug-legalization-thunder-medeiros.md) is the clearest specimen: *"all drugs should be legal"* is stretched around a disagreement that is really only about **opioids**, and both debaters say on the record that they agree about psychedelics. The evidence for the hypothesis is Thunder's own *"I did take a risk by **choosing the prompt**."*
 
 ⚠ **If it holds, the cheap fix changes shape.** Defects 8 and 14 stop being *"assign topics more carefully"* and become *"require a narrowing step after the disagreement is located"* — the negotiation has already done the hard part (finding real disagreement) and then fails to write it down accurately. ⭐ **It also sharpens defect 3 into something odder than it looked:** the contenders apparently negotiate *the topic* and then do not negotiate *the operative term inside it*, which is the half that actually decides rounds. **Unconfirmed** — it needs a contender or an organiser to describe the process; nothing in the published material does.
+
+📌 **Defect 17 — ⭐⭐ results are now withheld rather than published, and the prior season's archive is winner-name-only (2026-09-09).** The results page moved (`/voting-results` → `/view-results`), lost every percentage card, and shows a Final Four bracket with **neither semifinal winner advanced**; `/vote-now-1` reads *"check back soon."* Meanwhile `/word-war-i-results` shows what the archive looks like once a season ends: **a name, no number, and broken images.** **Cheap fix:** publish the count and the split at ballot close, in text, on a permanent per-round URL — the reveal can still be a reveal without destroying the record, and text costs nothing to keep. **Detail:** [above](#-the-semifinal-results-are-being-withheld-not-delayed--and-the-archive-format-says-the-margins-may-never-exist-2026-09-09).
 
 **In fairness, three things the format does well**, and they should survive any polish: the **moderated crossfire round** is the most productive segment in almost every round (it is where definitions actually get pinned); the **ballot window** lets voters watch the whole tape rather than reacting live — though round 2 halved it to 24 hours, which cuts against that virtue; and **disclosure norms are emerging on their own** — Mullally opens the party-loyalty round with *"candidly, I know both these guys."*
 
