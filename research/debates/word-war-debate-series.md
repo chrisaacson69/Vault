@@ -971,8 +971,8 @@ The [projection registered before announcement](#the-projected-semifinals--regis
 
 | SF | Match | Resolution | Aff | Neg | Status |
 |---|---|---|---|---|---|
-| **2** | **Rex Jones vs. Spencer Summerhays** | *"Flock cameras: beneficial or harmful?"* | **Summerhays** — *beneficial* | **Rex Jones** — *harmful* | ⏳ **aired**, 231 views at 2h · **6-hour ballot, closing tonight** |
-| **1** | **Alexxander Medeiros vs. Octavius Thunder** | *not yet published* | — | — | ⏳ **not aired** |
+| **2** | **Spencer Summerhays vs. Rex Jones** | *"Flock cameras are beneficial to Americans, not harmful."* | **Summerhays** — *beneficial*, opens first | **Rex Jones** — *harmful* | ⏳ aired, 662 views at 20h (**33.1/hr**) |
+| **1** | **Octavius Thunder vs. Alexxander Medeiros** | *"All drugs should be legal."* | **Thunder** — *for*, opens first | **Medeiros** — *against* | ⏳ aired, 325 views at 16h (**20.3/hr**) |
 
 Both exactly as [projected on 2026-09-01](#the-projected-semifinals--registered-before-announcement). Only one Final Four tape exists so far; SF1 has not been posted.
 
@@ -984,6 +984,42 @@ Both exactly as [projected on 2026-09-01](#the-projected-semifinals--registered-
 | **1** | **Medeiros** | **wide** | ⚠ **Filed without a topic**, so the axis is uncoded and this is an execution-and-reach call only — weaker than a normal filing and labelled so. Medeiros is [the best audience-facing prosecutor reviewed](./wordwar-r3-dsa-medeiros-bourdeau.md) and is 2-0 by +76.2 and +74.8; Thunder is 3-0 on **the three narrowest wins of any advancing contender** (+25.0, +16.8, and QF B unknown). *Wide* because **both men have low reach**, so the pool should be small — and small pools produce big margins |
 
 **⚠ Chris's [two-stage test](#prediction-scorecard) has a confound that is now visible.** Leg 2 was *"Thunder goes down easily when faced against a similar-reach opponent."* But **Medeiros has the lowest reach on the board**, and Thunder's one big audience — the [abortion round's 3,495](./wordwar-r2-abortion-vic-thunder.md) — came with **the topic, not with him**: his QF B ran at roughly 11 views/hour. So SF1 is two low-reach contenders, and a Thunder loss there would be evidence about **execution**, not audience size. The test's mechanism does not apply to the round it landed on.
+
+### ⚠ Post-topic observation on SF1 — the call stands, and the model now disagrees with it (2026-09-09)
+
+**SF1's resolution is *"All drugs should be legal,"* with Thunder on the affirmative.** The [registered call](#-registered--both-filed-before-either-tape-is-opened) was **Medeiros, wide**, filed explicitly *without a topic* and labelled as an execution-and-reach call only. **The topic is now known and the axis is codeable, and it points the other way.**
+
+*"All drugs should be legal"* is the **bodily-autonomy / anti-government-overreach axis in its purest available form** — and that is the axis [finding 10's correction](#cross-round-findings) says beats every other strand of this pool's signature. It is also **Thunder's own axis**: he won the [abortion round](./wordwar-r2-abortion-vic-thunder.md) on it against a hostile social-conservative prior, and his opening here is the *same case structure* — *"humans should have full body autonomy… it is our God-given right to ingest these substances"* — including the same pre-emptive line-drawing move (cyanide is legal, it is in apple seeds; suicide is covered too).
+
+**The call is not revised** — moving a registration after new information is the error [finding 15](#cross-round-findings) died of. What this does instead is turn SF1 into an **accidental discriminator between two of the hub's own instruments**, in the same way [QF C](./wordwar-r3-iran-beneficial-tejeda-jones.md) was:
+
+| Instrument | Says | |
+|---|---|---|
+| **Execution + reach** (the filed call) | **Medeiros** — the best audience-facing prosecutor reviewed, 2-0 by 75+ | ⏳ |
+| **Axis model** (finding 10, as corrected) | **Thunder** — the anti-government axis, run by the man who already won on it | ⏳ |
+
+A Medeiros win says execution beats the axis on a topic the axis owns. A Thunder win confirms the axis correction a second time and costs the execution call. Either way something learns.
+
+### ⚠ The intro-retrieval route splits in two, and only half of it works
+
+Both semifinal intros were checked for the [two missing margins](#-round-3-resolved--the-final-four-is-set-and-the-results-page-has-been-wiped-2026-09-08). **Neither gives a number.** What they give instead is a characterisation, and the characterisations do not survive contact with the cards we already hold:
+
+| Moderator | Says about | Characterisation | Known truth |
+|---|---|---|---|
+| Binkley (SF1) | Thunder's QF B | *"he won **a vast amount of the votes**"* | unknown |
+| Perez (SF2) | Jones' QF C | *"he won the last debate, but it was **pretty close**"* | unknown |
+| Perez (SF2) | Summerhays' QF D | *"he **crushed** in his last debate"* | **+9.0 — the narrowest margin in the tournament**, and she moderated it herself |
+
+**That last row is decisive.** A **+9.0** described as *"crushed"* is not a rounding error or a misremembering — it is **promotional copy**. Which means the two unknown characterisations carry no information: *"a vast amount"* and *"pretty close"* cannot be converted into margins, and it would be reasoning backwards to treat *"pretty close"* as support for the dilution reading of QF C simply because that is the answer this page would prefer.
+
+**So the route splits, and the split is the finding:**
+
+- **Numbers spoken aloud are reliable** — **seven of eight accurate within ±0.6**, one wrong by 6.1. Every recovered margin in this bracket came through this channel.
+- **Adjectives are worthless** — one of the two checkable ones is flatly false, and it is false in the flattering direction. **Intros are marketing, not reporting.** The numbers survive because they are read off a card; the adjectives are written to sell a match.
+
+**Consequence for the bracket record: the QF B and QF C margins are almost certainly lost for good.** The cards are deleted, the semifinal intros gave no figures, and only the championship broadcast remains as a possible source. *Standing action unchanged and narrowed: transcribe **numbers**, discard **adjectives**.*
+
+**Moderators:** SF1 is **Brad Binkley** (*Propaganda Report*), his second round after [Biden/Trump](./wordwar-r2-biden-trump-bourdeau-smith.md); SF2 is **Monica Perez**, her **seventh** — she has now moderated more of this tournament than anyone.
 
 ### ⚠ Two corrections on the view data, and the second is a correction of a correction
 
