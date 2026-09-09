@@ -1,7 +1,7 @@
 ---
 status: active
 created: 2026-09-09
-discussion: pending
+discussion: folded-in
 ---
 # Flock Cameras: Beneficial or Harmful? (Spencer Summerhays vs. Rex Jones) — Semifinal 2
 > The Affirmative demands realized proof of harm while claiming his benefits by pure logic — then produces no benefits and calls the documented harm an edge case. Plus the best-prepared argument in the bracket, and an Aff who ends up saying he disagrees with the Supreme Court.
@@ -141,6 +141,69 @@ Symmetric and biting again, and one of her questions is the round's most useful:
 - **To Jones:** ⭐ *"Constitutional opinions can change. **Regardless of the rulings**, do you feel the net benefit of preventing this is there?"* — the right question, because it takes his best weapon away and makes him argue the resolution rather than the law. He answers it well (foreign compromise of a single credentialed officer; no two-factor authentication; the documented stalking arrests).
 - **To Summerhays:** political persecution and selective punishment under total information awareness.
 - **To Jones:** the **exculpatory** value — proving your own innocence from public data. He answers on the Ninth Amendment and unenumerated rights.
+
+## ⭐⭐ The safeguard is "my side wins forever" — stated, tested, conceded, and kept
+
+Chris: *"Admits that there is no defense against corruption, relying on **winning elections** to stop it!"* Verified, and it goes further than that. Jones runs the [rotation-of-power argument](#the-negs-closing-is-the-best-argued-in-the-tournament) as a live cross-examination and Summerhays walks every step of it:
+
+> **Summerhays:** *"**We are going to win infinite elections if we win the next one and you'll never have to vote again.**"*
+> **Jones:** *"If the Democrats get in with the powers you've granted them, could they abuse the flock system?"* — **"They could. That's why I'm trying to make sure that doesn't happen."**
+> **Jones:** *"Are you going to be able to make sure Republicans win every election?"* — **"No. You can only try."**
+> **Jones:** *"You agree there's a national database? So the Democrats would get access to that same database?"* — **"They would. We would be screwed either way."**
+> **Summerhays:** *"**I'm giving the keys to the kingdom to my party right now, because our party is the federal government.**"* … and on there never being another Democratic administration: *"**God willing, inshallah.**"*
+
+**So the entire safeguard against abuse is that his own side holds power permanently — and he concedes, in sequence, that he cannot guarantee it, that the other side would inherit the same database, and that everyone would then be *"screwed either way."* He maintains the position anyway.** Jones' answer is the round's cleanest statement of principle:
+
+> *"I say the American government should not have this power over the American people **regardless of who's in charge**. I don't care. It's about the principles, the rights, the Bill of Rights, the Constitution. **You care about a side winning.**"*
+
+And the factual floor gives way at the same time. Asked whether every officer with access reaches the same national system, or whether he simply does not know: **"I don't know."**
+
+## ⭐⭐ The load-bearing word is *"flock cameras"* — a device, or a network?
+
+Chris found the equivocation the whole round runs on, and it is in the Aff's closing:
+
+> *"He immediately goes to **private cameras as 'good'**, and then uses that to justify police use. I think he doesn't get the point that **private cameras are not interconnected while flock cameras are**, and this is where it becomes abuse."*
+
+**That is the round's real definitional axis, and neither man names it.** Summerhays' case is built on a **device** reading — still images, permits, a business's own property, *"business customers can only access their own data,"* *"these are all places that already had legal recourse to record you on their private property before flock cameras."* Every one of those claims is true of *a camera*. Jones' case is built on a **network** reading — a national, searchable, cross-agency index with no two-factor authentication.
+
+**The Aff's argument only works on the device reading and his opponent's only works on the network reading, and the network reading is what Flock sells.** A shop's camera is a local artifact whose reach is bounded by the cost of asking for the footage; an interconnected index removes that cost. **The equivocation is: *businesses already record you* (true, uncontroversial) → *therefore Flock is fine* (false, because Flock's product is the interconnection, not the recording).**
+
+It is the same **referential** load-bearing problem as *"the DSA"* in [QF A](./wordwar-r3-dsa-medeiros-bourdeau.md) — which object does the name pick out? — and this time **the Neg wins the round without ever pinning it**, asserting the network reading rather than establishing it. Had Summerhays defended the device reading explicitly and forced Jones to prove the interconnection, the round is much closer.
+
+## ⚠ The doctrine both men needed, and the case the Neg names and drops
+
+Chris: *"He tries to tie 4A to only private property and it is hands off for public property… no. **Privacy is not about consent, it is about reasonable expectations.**"*
+
+That is the correction, and it has a name the round never properly uses. The Fourth Amendment **protects people, not places** — the property framing Summerhays leans on has not been the governing test for decades, and *"anywhere in public is fair game"* is not what the doctrine says. What makes aggregated public movement a search is that the *whole* of a person's movements reveals what no individual observation does.
+
+**And Jones has the case.** At 19:32 he says ***"Carpenter — uh, Chatrie"*** and switches immediately to the newer ruling. **Carpenter is the one that answers Summerhays' public/private framing head-on**, and he abandons it inside two words in favour of the case that answers the *"just still images"* framing. He needed both: one for each of his opponent's two defences.
+
+**On plain view**, Chris's read is right — *"mostly right, wrong on a couple of examples."* An officer lawfully positioned may act on what is in plain sight; that is real, and Summerhays' window example roughly tracks it. What does **not** follow is the inference he builds on it: **plain view licenses observation by someone lawfully present, not systematic automated collection by a machine that is always present.** Which is Chris's crux —
+
+> *"The Aff has a good point that police can sit and observe, but **I think automating this is the crux of the issue**."*
+
+**Correct, and it is the argument that would have decided the round on the merits.** A stakeout is self-limiting because it costs an officer's time; that cost is the practical privacy protection, and automation removes it. Neither man states it. *(Parked for discussion below.)*
+
+## Smaller corrections and confirmations from Chris
+
+- **The "public" framing does not reach the conclusion.** *"He describes the cameras as 'public' items that can be used to assist law enforcement, so I am not seeing the justification for government to use these."* Right: private devices lawfully recording public space establishes nothing about a **government** entitlement to query a **national index** of the results. And the school example contradicts it directly — the data is *"only available to the police,"* which is the same self-refutation as the [public-URL trap](#-the-trap-the-affs-own-premise-sets-for-him).
+- **Safeguards cannot be deferred past deployment.** On *"we would have to have a separate conversation"* about regulating abuse: *"if we can't get benefits or create harm via corruption, **this needs to be decided now, not after it is implemented**."* The sequencing is the point — a safeguard designed after the database exists is a safeguard on a database that already exists.
+- **The China answer is weak.** *"Full video vs. rapid still"* is a difference of degree in the collection medium, not of kind in the capability, and it does not touch the predictive-policing question that was asked.
+- ⭐ **His positions are consistent across rounds, which is the problem.** *"Summerhays doesn't like the innocent burden. This tracks with his nationalism beliefs — he has no problem with a highly authoritarian state."* The man who told Perez [*"I don't reject national socialism"* and *"inherently authoritarian maybe"*](./wordwar-r3-nationalism-socialism-summerhays-charsky.md) is the same man rejecting Blackstone's ratio here. **This is not drift; it is a coherent worldview showing up twice** — and it is coherent in a direction that costs him with this pool.
+- **The Wilson dig may also be baseless.** *"I am not sure Summerhays is even affiliated with him."* So the ad hominem is not merely crude but possibly unfounded — worse than the [inflation problem](./word-war-debate-series.md#cross-round-findings) already logged against Jones, since inflation at least starts from something true.
+- ⭐ **Second consecutive pre-written, non-responsive closing.** Chris on QF D: *"a prewritten close that ties socialism to globalism and is basically a null."* Here: *"it feels this closing was prepared as it doesn't directly address the debate."* **A contender-level habit, not a one-off** — and it interacts badly with [defect 15](./word-war-debate-series.md#format-defects-and-their-cheap-fixes): if the last word is free, a *pre-written* last word spends it on material the round has already moved past.
+
+## ⚠ And the six-hour window may decide it regardless
+
+Chris: *"Neg has the better arguments here and hopefully this plus his reach will carry — though **the 6 hour voting window might mean anything goes!**"*
+
+The right worry, and it is the [confirmed dilution result](./word-war-debate-series.md#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) pointing at its own limit. A window cut from 48 hours to 24 to **6** does not merely shrink the pool — it shifts *who* is in it, from *people who watched the debate* to *people who were online when it dropped*. At that size the ballot measures **list speed**, and the relationship between argument quality and outcome gets noisier in both directions. **A six-hour window is not a smaller sample of the same electorate; it is a different electorate.**
+
+## Parked for discussion — the automation question
+
+Chris: *"the aff has a good point that police can sit and observe, but I think automating this is the crux of the issue **which we will discuss later if it doesn't get covered**."* It did not get covered. The question worth having on its own terms:
+
+**If an officer may lawfully watch you cross a public square, what changes when a machine watches every square, always, and remembers?** Candidate answers the round never reached — that the *cost* of surveillance was itself the historical protection and automation removes it; that aggregation produces a *qualitatively* different object (a life, not an observation); that retention converts a present observation into a permanent record queryable against future suspicion; and that the constitutional test has never been *"could a person have seen this?"* but *"what expectation is reasonable?"*
 
 ## Who argued better
 
