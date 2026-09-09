@@ -154,6 +154,8 @@ by whether it rotates the salient axis. A movement that merely adds a third pole
 axis is a spoiler and dies; one that makes a *new* dimension salient can displace an incumbent party
 outright.
 
+**⭐ Adjudication belongs in the sorting column (2026-09-09):** [Common Law as a Discovery Procedure](./common-law-as-discovery.md) argues that case-by-case adjudication is a **discovery procedure** with the same shape as a market — it does not demand the information ex ante but generates it at the dispute, from the parties who hold it, and precedent is the aggregation step. **Statute plans; precedent discovers** (Hayek's *thesis* vs. *nomos*). ⚠ It also flags the open tension this page creates for it: **if increasing returns to coordination make law a network good that consolidates even without coercion, is a distributed discovery procedure stable at all**, or does it collapse into a single legislature by the same mechanism? Unresolved on both pages.
+
 ## Tags
 
 [politics](../../../../tags/politics.md), [philosophy](../../../../tags/philosophy.md), [game-theory](../../../../tags/game-theory.md), [economics](../../../../tags/economics.md), [debates](../../../../tags/debates.md)

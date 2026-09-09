@@ -127,7 +127,7 @@ I answered *pigeonhole*. **Chris's own version is stronger and I was reaching fo
 
 **Which produces the interesting implication, and it is not one this page went looking for:**
 
-> **The common law is the market solution to the calculation problem in law.**
+> **The common law is the market solution to the calculation problem in law.** — *spun out to its own page at Chris's request: [Common Law as a Discovery Procedure](./common-law-as-discovery.md), which carries Hayek's* nomos/thesis *distinction, four disanalogies stated up front, and the sharper form of the automation worry: an enforcement layer does not repeal the discovery procedure, it **starves** it, because disputes stop reaching adjudication once the machine has disposed of them.*
 
 Case-by-case adjudication is a **discovery procedure**. It does not demand the information in advance; it generates it locally, at the point of the dispute, from the parties who actually hold it — and the jury is the local-knowledge holder. **Statute is central planning; precedent is price discovery.** That is the same axis as [Aggregation vs. Sorting](./aggregation-vs-sorting.md) — *voting aggregates, markets sort* — with adjudication in the sorting column.
 
@@ -168,6 +168,42 @@ Applied to the specimens: *don't defraud people* is a conduct command and automa
 | A **good rule being run in the wrong mode** | *no turn on red*; jaywalking | **classify it — and exempt it from automated enforcement** |
 
 The first failure calls for legislative courage. **The second calls only for the statute to say which kind of rule it is** — which is cheap, and which no code currently does.
+
+## ⭐⭐ The threshold problem — and why bright lines are chosen, not merely inherited
+
+**Chris's objection, and it lands on this page's own proposal:**
+
+> *"This is also a **threshold argument**, which makes it tough for law. We know the case where right turn on red is wrong and we know where it is right — but **what about edge cases?** You don't cause an accident, but it causes **the next five cars to slam on their brakes**. Legal? This is what makes law tough, and why people **would rather take clear lines and deal with the 'injustices'**."*
+
+**The five-braking-cars case breaks the test I proposed two sections up.** *"Invoke liability defaults only when harm occurs"* sounds decisive until you ask what counts as harm. No collision, no injury, no property damage — and five drivers who had to react to a hazard that should not have been there. Near-miss? Externality? Nothing at all? **The trigger is as vague as the rule was**, so the proposal does not eliminate the indeterminacy; it **relocates** it from the prohibition to the predicate.
+
+That is worth conceding plainly rather than patching, because it is the same limit the rest of the page keeps running into: **whether *this* rolling stop was reasonable is exactly the local, tacit, case-generated information the [calculation argument](#-i-bet-we-can-even-show-this-mathematically--and-his-framing-is-better-than-mine) says cannot be encoded in advance.** The threshold problem and the calculation problem are one problem seen from two directions.
+
+### Rules and standards, and the trade nobody escapes
+
+| | **Rule** (*no turn on red*) | **Standard** (*drive with reasonable care*) |
+|---|---|---|
+| Fit to the case | **poor at the edges** — over- and under-inclusive by construction | good |
+| Predictable before you act | **yes** | no |
+| Cost to administer | low | high |
+| Who decides | the drafter, in advance | the adjudicator, after |
+| Failure mode | **known injustices at the margin** | **discretion, unpredictability, capture** |
+
+**A rule is a compression that accepts a known error rate to buy predictability. A standard refuses the compression and pays in uncertainty and discretion.** Neither is correct in general; the choice per domain is a judgement about which cost is worse there.
+
+**⭐ And Chris's point is that the choice is *deliberate*, which this page had not credited.** *"People would rather take clear lines and deal with the injustices"* is a **revealed preference for predictability over case-fit** — not inherited sloppiness, not a drafting failure, but a considered trade repeatedly re-made. The bright line is chosen *knowing* it will be wrong at the edges, because knowing where you stand is worth more than being right in every case.
+
+### ⭐ Which is where automation does its deepest damage
+
+Everything above concerned *which offences* get enforced. The threshold problem shows automation also re-weights **the form of law itself**:
+
+> **A machine can apply a rule and cannot apply a standard.** *No turn on red* is trivially automatable; *drive with reasonable care* is not automatable at all.
+
+So an enforcement layer does not merely favour the machine-legible **offences** — it favours the machine-legible **form**, pushing every domain it touches toward bright lines and away from standards. **And bright lines are precisely the form whose failure mode is the known-injustices-at-the-margin that discretion used to absorb.**
+
+**That is the whole thesis in one sentence: automation increases the rate at which law produces edge-case injustice, while removing the mechanism that was quietly cleaning it up.** Not one effect but two, working the same direction — which is why *"just enforce the law as written"* is not a neutral proposal even when the law is good.
+
+⚠ *This also sharpens the [classification proposal](#the-test-this-yields-which-is-better-than-the-previous-one) rather than rescuing it. Marking a provision as a liability default keeps automation off it — a real gain — but does nothing about the threshold vagueness in whatever triggers it. The proposal buys the first problem and not the second.*
 
 ## "A cop could have watched you" — why the analogy fails
 

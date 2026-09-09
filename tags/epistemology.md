@@ -98,3 +98,4 @@ permalink: /tags/epistemology/
 - [War With Iran: Would It Benefit America? (Word War R3 — Tejeda vs. Rex Jones)](../research/debates/wordwar-r3-iran-beneficial-tejeda-jones.md)
 - [Flock Cameras: Beneficial or Harmful? (Word War SF2 — Summerhays vs. Rex Jones)](../research/debates/wordwar-sf2-flock-cameras-summerhays-jones.md)
 - [The Slack in the Law](../research/philosophy/morality/legal-theory/slack-in-the-law.md)
+- [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)

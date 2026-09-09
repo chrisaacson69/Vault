@@ -109,3 +109,4 @@ permalink: /tags/economics/
 - [Easy to Critique, Hard to Build](../research/philosophy/tangents/easy-to-critique-hard-to-build.md) — costs are forecastable, benefits are not; decision rights follow the residual
 - [Is the DSA a Force for Good in America? (Word War R3 — Medeiros vs. Bourdeau)](../research/debates/wordwar-r3-dsa-medeiros-bourdeau.md)
 - [Nationalism vs. Socialism (Word War R3 — Summerhays vs. Charsky)](../research/debates/wordwar-r3-nationalism-socialism-summerhays-charsky.md)
+- [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)

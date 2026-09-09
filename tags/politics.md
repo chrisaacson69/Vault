@@ -51,3 +51,4 @@ permalink: /tags/politics/
 - [Nationalism vs. Socialism (Word War R3 — Summerhays vs. Charsky)](../research/debates/wordwar-r3-nationalism-socialism-summerhays-charsky.md)
 - [Flock Cameras: Beneficial or Harmful? (Word War SF2 — Summerhays vs. Rex Jones)](../research/debates/wordwar-sf2-flock-cameras-summerhays-jones.md)
 - [The Slack in the Law](../research/philosophy/morality/legal-theory/slack-in-the-law.md)
+- [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)

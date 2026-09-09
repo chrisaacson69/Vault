@@ -112,6 +112,7 @@ permalink: /tags/philosophy/
 - [Quantum Logic](../research/philosophy/logic-and-math/quantum-logic.md) — The other non-classical logics were invented by philosophers.
 - [Registration, Rights, and Government Scope Creep](../research/philosophy/morality/legal-theory/registration-and-scope-creep.md) — The vehicle/gun registration comparison reveals more about how government mechanisms expand than about either vehicles or guns.
 - [The Slack in the Law](../research/philosophy/morality/legal-theory/slack-in-the-law.md)
+- [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)
 - [Restitution for Death — The Framework's Hardest Case](../research/philosophy/morality/legal-theory/restitution-for-death.md) — When the victim is dead, "making whole" is impossible.
 - [Self-Ownership and the Property Rights Derivation](../research/philosophy/morality/legal-theory/self-ownership-and-property-rights.md) — You don't need self-ownership to ground property rights — and the standard chain that tries to is the weak link in libertarian theory.
 - [Structural Dynamics](../research/philosophy/dynamics/README.md) — How real structured systems behave over time.
