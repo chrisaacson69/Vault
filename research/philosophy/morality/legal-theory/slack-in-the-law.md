@@ -3,7 +3,7 @@ status: active
 created: 2026-09-09
 ---
 # The Slack in the Law
-> Enforcement has always been rationed by cost, and the gap between what the law forbids and what is actually punished is where liberty has been living. Automation removes the rationing without changing a word of the code.
+> Enforcement has always been rationed by cost, and the gap between what the law forbids and what is punished is **unofficial repair of defective law**. Automation removes the repair and leaves the error — and the system was already gravitating toward whatever is cheapest to measure.
 
 **Links:** [Registration and Scope Creep](./registration-and-scope-creep.md), [Mens Rea in Libertarian Law](./mens-rea.md), [Government Formation](./government-formation.md), [The Technology-Governance Gap](../../dynamics/technology-governance-gap.md), [Technology → Culture → Politics](../../dynamics/technology-culture-politics.md) · **Specimen:** [Flock Cameras — Summerhays vs. Rex Jones](../../../debates/wordwar-sf2-flock-cameras-summerhays-jones.md)
 
@@ -64,6 +64,65 @@ So a surveillance layer does not deliver *the law, enforced*. It delivers **a re
 
 ⚠ And it compounds the first problem: the machine-legible offences are disproportionately the *trivial* ones, so the slack is removed precisely where its removal is least justified.
 
+## ⭐ The reframe: slack is a symptom, not a feature
+
+**Chris's correction, and it changes what this page is about.**
+
+> *"I have often done a **rolling stop** in a right turn lane and turned right under red because there was no traffic going in that direction. Technically illegal, **absolutely no harm done** — and this is a **failure of law, not enforcement**."*
+
+The page above treats the slack as *protective* — something being consumed as a liberty and about to be taken away. That is not wrong, but it is the wrong level of description. **If a rolling right-on-red into an empty intersection is harmless, then the rule prohibiting it is simply incorrect at the margin, and non-enforcement is the system silently repairing a drafting error.**
+
+So: **slack is not a good thing we are about to lose. It is a repair mechanism for defective law** — and its protective character *and* its discriminatory character are both side effects of repairing by **discretion** rather than by **amendment**. The danger of automation is therefore sharper than "it removes something valuable":
+
+> **Automation removes the correction while leaving the error in place.**
+
+**⭐ This partially dissolves [the open question](#open-questions) this page registered against [Registration and Scope Creep](./registration-and-scope-creep.md).** Slack is neither primarily a protection nor primarily a discrimination — those are the two faces of *unofficial repair*. The reason the same phenomenon looks like liberty from one angle and arbitrariness from the other is that **a repair administered by discretion is unevenly distributed by construction.** Both descriptions are downstream of the same defect: a rule that is wrong, and a system correcting it informally instead of fixing it.
+
+### Which yields the test
+
+**May we automate this rule?** — *Would you be willing to see it enforced perfectly, every time, against everyone?* If the honest answer is no, the rule is defective and automation does not create the problem; it **exposes** one that was already there.
+
+**⭐ And that is the optimistic reading, which this page owes as the counterweight to everything above.** A law that can only survive by not being enforced has never actually been tested. Automation is a brutal but genuine **law-quality audit** — it converts drafting defects from *invisible* to *intolerable*, and a code that has accumulated forty years of dead letters has never had to justify a single one of them. The failure mode is not that automation arrives; it is that it arrives **without the repeal that should accompany it.**
+
+## ⭐ The system already gravitates to the cheap measurements — this is a diagnosis, not a forecast
+
+> **Chris:** *"The system will gravitate towards the cheapest options, so **we live in a world where every traffic violation is reported, but the big crimes are never touched**. Sounds a lot like where we are."*
+
+**Correct, and it upgrades the machine-legibility argument from a prediction to an explanation.** The re-weighting is not a future risk of surveillance technology — it is a description of the present, and the technology only accelerates a gradient the system was already sliding down. Enforcement resources flow toward whatever is cheapest to detect and prove, so **the offences that reliably carry consequences are the ones a sensor or a form can establish**, while fraud, corruption, regulatory capture and abuse of office — which require inference, testimony and intent — remain effectively optional.
+
+That is the same structural failure as any metric that becomes a target, running on the criminal law: **the measurable subset becomes the operative code**, and it does so without anybody legislating the change.
+
+### The efficiency counter, and why it does not land
+
+Chris offers the strongest objection to his own position:
+
+> *"We probably should still try to make enforcement cheaper so we free up resources to go after bigger crimes."*
+
+**It is the right instinct and the mechanism does not work, for a reason worth stating: automation does not free capacity, it creates demand.** Detecting a thousand times more violations does not reduce anyone's workload — each detection generates a citation, a contest, a hearing, a collection — and **all of that new load lands in the trivial-offence lane**, which is the only lane the technology can see. To convert cheap detection into freed capacity you would have to **decline to act on most of what you now detect**, which is precisely the discretion automation was adopted to eliminate.
+
+**The route that actually frees resources is repeal, not automation.** If the aim is to stop spending enforcement on rolling right-on-reds, the instrument is deleting the rule, not detecting the violation more efficiently.
+
+## ⭐ The jury is *designed* slack — and it is the part that cannot be automated
+
+> **Chris:** *"I think the option to break the law is necessary. **This is the reason juries exist.** We have countless examples showing that no legal system can account for everything… so the jury is there to discern the edge cases."*
+
+**This is the institutional half the page was missing.** Not all slack is the accidental residue of enforcement cost — some of it is **built**, and the jury is where. A jury's acquittal is **unreviewable**: double jeopardy bars retrial, courts decline to instruct jurors that they may refuse to convict, and no appellate mechanism can correct them. That is not an oversight. **It is the one place where a legal system has institutionalised the proposition *the rules got this case wrong*, and then deliberately made the override uninspectable.**
+
+Two consequences:
+
+1. **The designed slack is exactly what automation cannot reproduce.** There is no automated nullification, no machine that acquits against the evidence because the rule is unjust here. Every proposal to automate adjudication rather than detection is a proposal to delete this.
+2. **It confirms the reframe.** A society that builds an unreviewable override into its trial machinery has *already conceded* that its rules will be wrong in particular cases — which is Chris's *"failure of law"* admitted at the constitutional level, in advance.
+
+### "I bet we can even show this mathematically" — the honest answer
+
+⚠ **The tempting tool is the wrong one, and the vault has a page about not making this mistake.** [The Gödel Governance Problem](../../dynamics/the-godel-governance-problem.md) is about a *different* incompleteness — whether a system can be strong enough to prevent monopoly without becoming one — and its closing section, ***"The General Pattern: We Need What We Cannot Complete,"*** is the family this belongs to. But Gödel is not the theorem that establishes Chris's claim.
+
+**What the claim actually is:** a finite set of general rules, applied to an unbounded and open-ended space of cases, must group together cases that differ in morally relevant ways. **That is a pigeonhole argument, not an incompleteness argument** — and it is *sound*, which is better than being impressive. Finite partition, unbounded space, therefore guaranteed mis-grouping. Edge cases are not evidence of bad drafting; they are **arithmetically certain** for any finite code.
+
+**The rigorous jurisprudential statement already exists**: H. L. A. Hart's **open texture** — general rules have a core of settled application and a **penumbra** where the answer is genuinely indeterminate, and this follows from using general language to regulate an unforeseeable future rather than from any failure of care by the drafters. That is argued rather than proved, and it is the right citation.
+
+*(Formal results that are adjacent but do not say this: Rice's theorem and undecidability are about what can be **computed**, not about what is **correct**; the frame problem is about specification in an open world. Suggestive, not probative. Recording the distinction because reaching for Gödel here is exactly the move this vault's own page warns against.)*
+
 ## The other function of a rule: adjudication, not instruction
 
 Chris's aside is more important than it looks — unenforced laws are *"obsolete **or only there to resolve differences**."*
@@ -95,7 +154,7 @@ Not a solution — the tension is real and Chris is right that it does not disso
 
 ## Open Questions
 
-- **Is the slack actually load-bearing, or is that a rationalisation of a mess?** The strongest counter is that selective enforcement is *itself* the injustice — it is arbitrary, and it falls hardest on whoever the enforcer already dislikes. **Slack and discrimination are the same phenomenon described by someone with different priors**, and this page has not resolved which description is prior. [Registration and Scope Creep](./registration-and-scope-creep.md) treats selective enforcement as a *harm* in its causal chain; this page treats it as a *protection*. Both cannot be simply true.
+- **~~Is the slack load-bearing, or a rationalisation of a mess?~~ — partially dissolved (2026-09-09).** The original tension: [Registration and Scope Creep](./registration-and-scope-creep.md) treats selective enforcement as a *harm*; this page treated it as a *protection*; both cannot be simply true. **Chris's *"failure of law, not enforcement"* resolves the level confusion** — slack is primarily neither, it is **unofficial repair of defective law**, and its protective and discriminatory faces are both consequences of repairing by discretion rather than by amendment. **What remains open** is the harder question underneath: given that some repair mechanism is arithmetically necessary, *which* one — discretion, juries, desuetude, sunset clauses, or amendment — is least bad, and on what criterion?
 - **Is there a coherent thin-code design that survives cheap enforcement?** Chris doubts the Misesian route is feasible and the three objections above say why, but "infeasible" is not "impossible" and nobody has tried to design for this specific combination.
 - **⏳ The post-9/11 apparatus** — Chris: *"we might have to get into the legality of the government monitoring and data centers that appeared after 9/11."* Bulk collection, the third-party doctrine, and the argument that the constitutional test was settled two decades ago and lost. Deliberately parked as its own page rather than compressed into a bullet here; it is the historical case study this thesis needs.
 - **Does the confrontation problem have a technical answer?** If a machine cannot be cross-examined, can its *design and error rate* be — auditing the system rather than the observation? Red-light-camera litigation is the place to look.
