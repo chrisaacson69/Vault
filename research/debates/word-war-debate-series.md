@@ -1065,6 +1065,32 @@ Checked at Chris's request. **The ballot is closed and the numbers are not poste
 
 📌 **Filed as defect 17.** The reveal is 12 September; the finalists' identity will be public then whether or not any number is.
 
+### ⭐⭐ The travel constraint breaks the embargo — the finalists already know (2026-09-09)
+
+> **Chris:** *"Also they have to **fly the winners out to Nashville**… but let's hope they can get the winners out on **3 days' notice** :)"*
+
+**This is the observation that dissolves the withheld-results puzzle.** The semifinal ballot closed on 8 September; the live show is 12 September at the Woolworth Theatre. **Nobody gets a contender from wherever they live to Nashville without telling them, and nobody books that flight the morning of.** So:
+
+> 🔓 **The embargo is public-facing only. The result exists, the organisers hold it, and the finalists were told within hours of the ballot closing.** What is being withheld is not the outcome but the *announcement* — which is a marketing decision, not an unfinished count.
+
+⭐ **And it is the calendar defect cashing out in cash.** Everything in the [season assessment](#-seventeen-defects-five-causes--and-the-season-assessment) about compression costing prep time and ballot quality has a line-item version: **four days' notice is the most expensive way in the world to buy a plane ticket**, and a published schedule would have had those seats booked three weeks out at a fraction of the price. The idle fortnight was not only the missing prep time — **it was the missing airfare discount.**
+
+### 📌 Registered — the Nashville card will leak the semifinal results before the show
+
+Two grounded facts point the same way. First, **`/word-war-i-results` shows the previous live event ran a three-match card**: `WWI UNDERCARD` → `WWI PRIME SHOWCASE` → `WWI MAIN EVENT`. Second, **flying all four semifinalists is the cheap hedge** — it fills an undercard, it keeps the reveal intact until showtime, and it removes the need to know the winner before booking.
+
+**So the prediction:**
+
+| # | Call | Resolves |
+|---|---|---|
+| **N1** | **The Nashville card is announced before 12 September, and announcing it reveals both semifinal winners** — the moment a pairing is published, the bracket is solved | on announcement |
+| **N2** | **All four Final Four contenders travel**, with the two semifinal losers used on the undercard rather than sent home | 12 Sep |
+| **N3** | ⚠ **The Contender Series final is *not* the main event.** WWI's main event was the marquee outside name (Kestenbaum) while the in-house pairing (Mullally/Pisco) opened. If that pattern holds, the championship this hub has tracked for six weeks is the **middle** slot on someone else's card | 12 Sep |
+
+⚠ **N3 is the one worth watching**, and it is faintly deflating if it lands: *"Road to WWD II"* would mean the Contender Series is a **feeder**, not a season — the bracket's purpose being to produce a body for the undercard of the real event rather than to crown anything. **That would explain the results handling better than carelessness does.** A feeder's job is to deliver a name by a date; margins, archives and ballot windows are not features it needs.
+
+📌 **Practical consequence:** the card announcement is now the **most likely place a semifinal result ever becomes public**, and it may arrive before any number does — or instead of one. **Watch the site and the channel between now and the 12th.**
+
 ### ⚠ The intro-retrieval route splits in two, and only half of it works
 
 Both semifinal intros were checked for the [two missing margins](#-round-3-resolved--the-final-four-is-set-and-the-results-page-has-been-wiped-2026-09-08). **Neither gives a number.** What they give instead is a characterisation, and the characterisations do not survive contact with the cards we already hold:
