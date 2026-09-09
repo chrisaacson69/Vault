@@ -984,7 +984,7 @@ The [projection registered before announcement](#the-projected-semifinals--regis
 | SF | Match | Resolution | Aff | Neg | Status |
 |---|---|---|---|---|---|
 | **2** | [**Summerhays vs. Rex Jones**](./wordwar-sf2-flock-cameras-summerhays-jones.md) | *"Flock cameras are beneficial to Americans, not harmful."* | **Summerhays** — *beneficial*, opens first | **Rex Jones** — *harmful* | ⏳ aired, 662 views at 20h (**33.1/hr**) · **reviewed blind** |
-| **1** | **Octavius Thunder vs. Alexxander Medeiros** | *"All drugs should be legal."* | **Thunder** — *for*, opens first | **Medeiros** — *against* | ⏳ aired, 325 views at 16h (**20.3/hr**) |
+| **1** | [**Thunder vs. Medeiros**](./wordwar-sf1-drug-legalization-thunder-medeiros.md) | *"All drugs should be legal."* | **Thunder** — *for*, opens first | **Medeiros** — *against* | ⏳ aired, 325 views at 16h (**20.3/hr**) · **reviewed blind** |
 
 Both exactly as [projected on 2026-09-01](#the-projected-semifinals--registered-before-announcement). Only one Final Four tape exists so far; SF1 has not been posted.
 
@@ -1014,7 +1014,17 @@ A Medeiros win says execution beats the axis on a topic the axis owns. A Thunder
 
 **📌 And Chris files a *content* prediction on SF1, before the tape (2026-09-09):** *"It will [be] interesting how the bans will be defended — predicting **crime/homeless and religion**."*
 
+**✅ Scored 2026-09-09 — 2 of 3.** **Crime** ✅ heavily (public disorder, a 96-study meta-analysis linking cocaine to partner violence, stimulant violence in the home, car crashes). **Homelessness** ✅ but **moderator-sourced** — Binkley raises it first and Medeiros then makes it central. **Religion** ❌ entirely absent. ⭐ *The miss is a compliment to the contender rather than a fault in the prediction:* it was a good read of **the standard prohibitionist**, and Medeiros is not one — he ran topicality, a natural experiment, a counter-example to the safety claim, a reversibility argument and an anti-corporate turn. **The model predicted the position correctly and under-predicted the man.**
+
 A different species of call from the ones in the [ledger](#prediction-scorecard) — it forecasts **which arguments appear**, not who wins, which makes it checkable against the transcript rather than against a ballot. It is also a sharp test of the axis model from the *other* side: if Medeiros is boxed onto the anti-autonomy side of this pool's dominant axis, the question is what he reaches for instead, and Chris's answer is *public-order harms and moral/religious grounds* — the two places a prohibitionist can stand once libertarian ground is conceded. Scored on the tape when SF1 is reviewed.
+
+**⭐ And Chris frames SF1 as a consistency test on the *audience*, which is sharper than either call (2026-09-09):**
+
+> *"Interesting thing is **we now go from 'I don't like cameras because they restrict us' to 'I don't care if drug laws are restricting, we are better off with them'**… this one serves as an example of if we can take liberty too far. **What does Uncle Ben think?**"*
+
+The same pool votes both rounds inside 24 hours, and the two resolutions pull opposite ways on the **liberty axis**. [Finding 10's correction](#cross-round-findings) says the anti-establishment / bodily-autonomy strand dominates this pool — if that is right, it should be **anti-camera *and* pro-legalisation**, and the two ballots should agree. **If it goes anti-camera and pro-prohibition, the axis is not dominant but *selective***, and the operative principle is narrower than the finding claims — something closer to *"anti-establishment when the state is watching **me**, pro-order when the subject is **other people's** behaviour."*
+
+**The Franklin test makes it concrete.** Rex Jones quoted *"those who would give up essential liberty to purchase a little temporary safety deserve neither"* twice in [SF2](./wordwar-sf2-flock-cameras-summerhays-jones.md), against the cameras. **Does the same room apply Uncle Ben to drug prohibition?** A pool that cites Franklin against surveillance and ignores him on prohibition is telling you the quotation is a *weapon*, not a *premise* — which is a finding about the audience rather than about either contender, and it is checkable across the two cards.
 
 ### ⚠ The intro-retrieval route splits in two, and only half of it works
 

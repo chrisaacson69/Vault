@@ -226,6 +226,16 @@ Not a solution — the tension is real and Chris is right that it does not disso
 - **Sunset the code against enforcement reality.** A rule that has gone forty years unenforced is not a rule; automating it is legislating without a vote. Either re-enact it deliberately or strike it.
 - **Match the tool to the offence class.** If automation will only ever reach the machine-legible subset, then deploying it uniformly guarantees the re-weighting problem. Deploy it where severity and legibility coincide, and nowhere else.
 
+## ⭐ The mirror specimen — when enforcement capability is *deleted* rather than made cheap
+
+This page argues automation makes enforcement **too cheap**, converting liability defaults into conduct commands. [Semifinal 1](../../../debates/wordwar-sf1-drug-legalization-thunder-medeiros.md) supplies the same thesis from the opposite end, arrived at independently by a debater who has never heard of it.
+
+> **Medeiros, on the Florida pill-mill epidemic:** *"So what stopped it? Not the market. Not consumer choice. **Enforcement.**… And here's what I want you holding: **that off switch only existed because the whole thing was still technically illegal.** There was a prescription to falsify, a licence you could revoke, and a statute to charge. My opponent's resolution **deletes all three.**"*
+
+**Legalization removes the instrument; automation makes the instrument free.** Both are arguments that **the enforcement apparatus — not the rule text — is the load-bearing variable**, and that changing it silently changes what the law *is* while leaving what it *says* untouched.
+
+⭐ **The two semifinals of that bracket ran the two halves against the same audience inside twenty-four hours:** the [cameras round](../../../debates/wordwar-sf2-flock-cameras-summerhays-jones.md) was won by arguing enforcement capability is **dangerous, so never build it** (*"you have to say your side is going to be in charge forever"*); the drugs round was argued on its being **essential, so never delete it**. **Neither debater noticed they were making the same claim with the sign flipped** — which is the clearest available evidence that the variable is real and that nobody has a name for it.
+
 ## Open Questions
 
 - **~~Is the slack load-bearing, or a rationalisation of a mess?~~ — partially dissolved (2026-09-09).** The original tension: [Registration and Scope Creep](./registration-and-scope-creep.md) treats selective enforcement as a *harm*; this page treated it as a *protection*; both cannot be simply true. **Chris's *"failure of law, not enforcement"* resolves the level confusion** — slack is primarily neither, it is **unofficial repair of defective law**, and its protective and discriminatory faces are both consequences of repairing by discretion rather than by amendment. **What remains open** is the harder question underneath: given that some repair mechanism is arithmetically necessary, *which* one — discretion, juries, desuetude, sunset clauses, or amendment — is least bad, and on what criterion?
