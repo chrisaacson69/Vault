@@ -1347,6 +1347,60 @@ Consolidated because the observations have accumulated across a dozen reviews an
 
 📌 **Defect 17 — ⭐⭐ results are now withheld rather than published, and the prior season's archive is winner-name-only (2026-09-09).** The results page moved (`/voting-results` → `/view-results`), lost every percentage card, and shows a Final Four bracket with **neither semifinal winner advanced**; `/vote-now-1` reads *"check back soon."* Meanwhile `/word-war-i-results` shows what the archive looks like once a season ends: **a name, no number, and broken images.** **Cheap fix:** publish the count and the split at ballot close, in text, on a permanent per-round URL — the reveal can still be a reveal without destroying the record, and text costs nothing to keep. **Detail:** [above](#-the-semifinal-results-are-being-withheld-not-delayed--and-the-archive-format-says-the-margins-may-never-exist-2026-09-09).
 
+## ⭐⭐ Seventeen defects, five causes — and the season assessment
+
+> **Chris, 2026-09-09:** *"The defect page got long, as this is their first attempt. **They needed a real schedule and sticking to it.** It means debaters must be on the ball if they want to participate, and it also gives the time required for each round to be fair. They literally jammed **13 debates within a week** IIRC; the 6-hour voting windows for the SF seems bad form… but tbh, aside from the time constraints, **the later rounds were much clearer and cleaner**."*
+
+### The count is exactly right and the span is nine days — but the real number is the idle one
+
+Taken from the airing dates on the round pages:
+
+| Block | Debates | Aired |
+|---|---|---|
+| **Round of 16** | **8** | 3 – 10 August |
+| **— idle —** | **0** | **10 – 31 August (21 days)** |
+| Round 2 | **7** (one bye) | 31 Aug (3), 2 Sep (3), 3 Sep (1) |
+| Quarterfinals | **4** | 6 Sep (3), 7 Sep (1) |
+| Semifinals | **2** | 8 Sep (2) |
+| **The crush** | **13** | **31 August – 8 September (9 days)** |
+
+⭐⭐ **So: 36 days from first tape to last, and 21 of them idle in a single block.** The schedule did not lack time — **21 debates over 36 days is one every 1.7 days**, which is slower than round 1 actually ran (8 in 8 days) and leaves room for **48-hour ballots on every round with slack to spare**. ⚠ **The three-week gap and the six-hour ballot are the same decision.** The idle fortnight *was* the resource the compressed rounds needed, and it was spent before the crunch arrived, against a live date that was fixed the whole time.
+
+**This is why Chris's fix is the right one and is not merely administrative.** A published schedule does two things no amount of good intent replaces: it **filters for commitment ex ante** (*"debaters must be on the ball if they want to participate"*), and it **equalises prep time across rounds**, which is a fairness property, not a convenience. The current arrangement gave [round 2 contenders ~12 hours' notice of their resolution](#format-defects-and-their-cheap-fixes) and semifinal voters six hours to cast a ballot — and *both* numbers were set by a calendar nobody had written down.
+
+### The list is long because it is unsorted — it has five roots
+
+Seventeen items reads as a catastrophe. It is not; it is **five problems**, and one of them causes a third of the list:
+
+| Root | Defects | Fixable by |
+|---|---|---|
+| ⭐ **The calendar** | **6, 10, 12, 13, 16, 17** | *a published schedule* — Chris's fix, and it retires six items at once |
+| **Rules that were never written down** | **1b, 2, 3, 15** | ⭐ **a one-page document.** Speaking order, closing order, definition negotiation, and whether new argument is allowed in a closing. **Costs nothing, depends on nothing else, and would survive any schedule** |
+| **Record-keeping** | **4, 5, 11, 17** | publishing counts as text on permanent URLs |
+| **Prompt design** | **8, 9, 14** | a narrowing step after the disagreement is located — *if* [the negotiation hypothesis](#format-defects-and-their-cheap-fixes) holds, this is a procedure gap rather than a drafting one |
+| **Conflict of interest** | **7** | disclosure; arguably not a defect at all |
+
+⭐ **The second row is the free win.** It is the only cluster with no dependency on money, calendar, or venue — four of the seventeen defects are *a page of rules nobody has typed*, and two of them (closing order, definitions) have decided rounds.
+
+### ⚠ "The later rounds were clearer and cleaner" — true, and the credit mostly belongs to the bracket
+
+**The record supports it.** Round 1 produced [layer-0 epistemic non-overlap](#cross-round-findings) and [verbal disputes with no definitions](./wordwar-too-sensitive-guptill-tejada.md). By round 3 the bracket had its first **topicality** argument and its first **grant-and-outweigh**, and [SF1](./wordwar-sf1-drug-legalization-thunder-medeiros.md) is the best-argued round of the tournament and the only one where both sides brought a case.
+
+⚠ **But the confound has to be named: that is what a tournament is *for*.** Half the weak debaters are gone after round 1 and three-quarters after round 2. **Later rounds being better is the bracket working, not the format improving** — and the two are easy to confuse when they arrive together. Separating them:
+
+| | Improved? | Evidence |
+|---|---|---|
+| **The debating** | ✅ **markedly** | topicality, grant-and-outweigh, real clash — but **selection explains most of it** |
+| **Production** | ✅ **one real fix** | [defect 1](#format-defects-and-their-cheap-fixes) — side assignments published from round 2, held for all 12 later matches |
+| **Moderation** | ❌ **no convergence** | [finding 21](#cross-round-findings) — two founders moderated round 3 and behave nothing alike; closing order still ran on three different rules |
+| **Ballot integrity** | 🔻 **degraded** | 48h → 24h → **6h** |
+| **Transparency** | 🔻 **degraded** | cards wiped, then results withheld entirely |
+| **Prompts** | 🔻 **arguably worse** | *"Nationalism vs Socialism"*; *"all drugs"* stretched over a disagreement about opioids |
+
+⭐ **So the honest season verdict: the debating got better and the production did not — and in three measurable respects it went backwards.** That is a real finding rather than a grumble, because it separates what a second season should keep (the bracket, the crossfire round, the contender pool) from what it must fix (the calendar, and the page of rules nobody wrote).
+
+**And the encouraging half of Chris's read stands:** the format's problems are almost entirely **procedural**, which is the cheap kind. Nothing on this list requires more money, a bigger audience, or better debaters. **It requires a calendar and a rulebook** — and one of those is a single page.
+
 **In fairness, three things the format does well**, and they should survive any polish: the **moderated crossfire round** is the most productive segment in almost every round (it is where definitions actually get pinned); the **ballot window** lets voters watch the whole tape rather than reacting live — though round 2 halved it to 24 hours, which cuts against that virtue; and **disclosure norms are emerging on their own** — Mullally opens the party-loyalty round with *"candidly, I know both these guys."*
 
 ## Open questions
