@@ -271,6 +271,8 @@ The legal question is: was property violated, and by whom? This is an objective 
 - **Hume** — is-ought gap (background from morality work)
 - **Kant** — categorical vs. hypothetical imperatives (background)
 
+**Related (2026-09-09):** [The Slack in the Law](./slack-in-the-law.md) argues that **enforcement cost** has been doing unpriced protective work, and that automation removes it. That bears on this page's core question from an unexpected direction: **an automated enforcer has no access to mental state at all.** If mens rea is doing real work in a legal order, automated enforcement cannot implement that order — it can only detect acts. A machine cannot distinguish the unwitting courier from the knowing one.
+
 ## Tags
 - [philosophy](../../../../tags/philosophy.md), [free-will](../../../../tags/free-will.md)
 - [libertarian-law](../../../../tags/libertarian-law.md)

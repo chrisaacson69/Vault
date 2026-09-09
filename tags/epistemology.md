@@ -97,3 +97,4 @@ permalink: /tags/epistemology/
 - [Is the Iran War Justified? (Word War R3 — Tareyak vs. Octavius Thunder)](../research/debates/wordwar-r3-iran-justified-tareyak-thunder.md)
 - [War With Iran: Would It Benefit America? (Word War R3 — Tejeda vs. Rex Jones)](../research/debates/wordwar-r3-iran-beneficial-tejeda-jones.md)
 - [Flock Cameras: Beneficial or Harmful? (Word War SF2 — Summerhays vs. Rex Jones)](../research/debates/wordwar-sf2-flock-cameras-summerhays-jones.md)
+- [The Slack in the Law](../research/philosophy/morality/legal-theory/slack-in-the-law.md)

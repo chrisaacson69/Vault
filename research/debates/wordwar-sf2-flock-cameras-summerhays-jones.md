@@ -199,6 +199,14 @@ Chris: *"Neg has the better arguments here and hopefully this plus his reach wil
 
 The right worry, and it is the [confirmed dilution result](./word-war-debate-series.md#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) pointing at its own limit. A window cut from 48 hours to 24 to **6** does not merely shrink the pool — it shifts *who* is in it, from *people who watched the debate* to *people who were online when it dropped*. At that size the ballot measures **list speed**, and the relationship between argument quality and outcome gets noisier in both directions. **A six-hour window is not a smaller sample of the same electorate; it is a different electorate.**
 
+## ⭐ Crystallized — [The Slack in the Law](../philosophy/morality/legal-theory/slack-in-the-law.md)
+
+The automation question below was parked for discussion and Chris took it up the same day, producing a thesis that is **portable past this round**: *enforcement has always been rationed by cost, and the gap between what the law forbids and what is punished is where liberty has been living — automation removes the rationing without changing a word of the code.*
+
+Its core claim is a two-knob table: **thick code + expensive enforcement** is where we live and is tolerable *because* the slack absorbs the excess; **thin code + cheap enforcement** is the libertarian ambition and is *"next door to complete totalitarianism"* (Chris); and **thick code + cheap enforcement** is the empty cell no society has ever occupied and a surveillance layer now makes reachable. The page also carries the **deterrence vs. prevention** distinction behind Chris's *"we could build cars that don't speed, but is that really reasonable?"*, the red-light-camera precedent and its **confrontation-clause** objection, and the observation that **automation does not enforce the law but the machine-legible subset of it**.
+
+**This round is its dated specimen.** Everything below is the raw material.
+
 ## Parked for discussion — the automation question
 
 Chris: *"the aff has a good point that police can sit and observe, but I think automating this is the crux of the issue **which we will discuss later if it doesn't get covered**."* It did not get covered. The question worth having on its own terms:

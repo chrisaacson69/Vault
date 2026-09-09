@@ -152,5 +152,7 @@ Given the structural pattern above, gun registration should be evaluated not by 
 
 The argument "registration doesn't mean confiscation" has to explain why this particular mechanism would be the first in history to resist the structural forces that expanded every other one. The [opposing forces](../../dynamics/opposing-forces.md) principle predicts it won't.
 
+**⭐ The counter-reading, from [The Slack in the Law](./slack-in-the-law.md) (2026-09-09):** this page treats **selective enforcement** as a *harm* — step 4 in the scope-creep chain. That page treats the same phenomenon as a *protection*: the gap between what is forbidden and what is punished is where discretion, mercy and ordinary life fit, and it exists because enforcement is expensive. **Both cannot be simply true**, and the tension is registered as an open question on both pages. The candidate reconciliation is that slack is protective when its *distribution* is arbitrary-but-broad and harmful when it becomes *targeted* — which makes the scope-creep chain a story about slack being captured rather than removed.
+
 ## Tags
 [philosophy](../../../../tags/philosophy.md), [libertarian-law](../../../../tags/libertarian-law.md), [morality](../../../../tags/morality.md)
