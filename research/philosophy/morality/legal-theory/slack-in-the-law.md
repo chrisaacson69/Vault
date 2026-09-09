@@ -115,6 +115,30 @@ Two consequences:
 1. **The designed slack is exactly what automation cannot reproduce.** There is no automated nullification, no machine that acquits against the evidence because the rule is unjust here. Every proposal to automate adjudication rather than detection is a proposal to delete this.
 2. **It confirms the reframe.** A society that builds an unreviewable override into its trial machinery has *already conceded* that its rules will be wrong in particular cases — which is Chris's *"failure of law"* admitted at the constitutional level, in advance.
 
+### ⭐⭐ Which yields the criterion the page was missing: *who holds the slack, and by what procedure*
+
+Until now this page has measured slack by **size** — how wide the gap between what the law says and what enforcement does. That is the wrong axis, and Chris's objection to **drug decriminalization** is what exposes it:
+
+> *"Ugg. Something is **either legal or not legal**. Just because your local body doesn't enforce something doesn't make it legal. The federal government would be perfectly valid in enforcing drug laws in the 'legal' states — but I think they want to see how it all turns out first."*
+
+**He is legally correct, and the case is [*Gonzales v. Raich*](https://supreme.justia.com/cases/federal/us/545/1/) (2005):** the Controlled Substances Act reaches purely intrastate, non-commercial cultivation, so it applies in "legal" states and always has. What keeps federal enforcement out is not law but **discretion** — the Cole Memo (2013), *rescinded in 2018*, plus an annual appropriations rider covering only *medical* use. ⚠ **And as of 28 April 2026 the incoherence is written into the schedule itself:** DOJ/DEA moved FDA-approved marijuana products **and products under a qualifying state medical licence** to Schedule III, while everything else — including the recreational market that is most of the industry — **stays Schedule I**. Federal legality now turns on which piece of paper your state issued you. That is not "legal," not "illegal," but a third thing.
+
+⚠ **Here is the tension, and it is a real one.** *"Something is either legal or not legal"* is a demand that **text and enforcement match** — and perfect matching is exactly what automated enforcement delivers. The objection to decriminalization and the objection to [flock cameras](../../../debates/wordwar-sf2-flock-cameras-summerhays-jones.md) appear to point in opposite directions.
+
+⭐⭐ **They don't, and the jury section above already contains the resolution — as a criterion this page should have stated outright:**
+
+> **Slack is legitimate when it has a designated holder and a public procedure. It is illegitimate when it belongs to whoever happens to hold the office.**
+
+| | **Who holds it** | **How exercised** | **Verdict** |
+|---|---|---|---|
+| **Jury nullification** | jurors, appointed for the case | in public, case by case, defendant present, unreviewable *by design* | ✅ designed slack |
+| **Prosecutorial non-enforcement / decriminalization** | whoever holds the office | categorically, in advance, revocable at will — and **revoked in 2018** | ❌ undesignated |
+| **Automated enforcement** | **nobody** | the gap is deleted for everyone | ❌ the other failure |
+
+**So the objection to decriminalization is a *rule-of-law* objection, not a pro-enforcement one**, and it is fully compatible with hating the cameras. What is wrong with declared non-enforcement is not that the gap exists — the jury's gap is the same size — but that **nobody was appointed to hold it**, it operates categorically rather than case by case, and it leaves a standing class of people who are guilty at someone's discretion. **Automation is the same defect run the other way: it takes the gap away from everyone, including the people the system deliberately gave it to.**
+
+⭐ *This also repairs the page's own framing. The [reframe](#-the-reframe-slack-is-a-symptom-not-a-feature) held that slack is a symptom rather than a feature. The corrected statement is narrower and survives better:* **accidental slack is a symptom; designed slack is a feature; and undesignated slack is a third thing that is neither, and is what most policy arguments are actually fighting about.**
+
 ### ⭐ "I bet we can even show this mathematically" — and his framing is better than mine
 
 I answered *pigeonhole*. **Chris's own version is stronger and I was reaching for the weaker argument:**
@@ -179,6 +203,34 @@ The first failure calls for legislative courage. **The second calls only for the
 
 That is worth conceding plainly rather than patching, because it is the same limit the rest of the page keeps running into: **whether *this* rolling stop was reasonable is exactly the local, tacit, case-generated information the [calculation argument](#-i-bet-we-can-even-show-this-mathematically--and-his-framing-is-better-than-mine) says cannot be encoded in advance.** The threshold problem and the calculation problem are one problem seen from two directions.
 
+### ⭐⭐ The law's own answer is *proximate cause* — and it is a standard because it cannot be anything else
+
+The threshold problem has a twin that arrives from the other direction, and Chris raised it about drug legalization: **does an overdose have to affect everyone else?**
+
+> *"From a grand perspective yes — the universe is a closed system, everything interacts with everything else. **Does this mean anything for a society? No.** I think there has to be a different measure."*
+
+**That is the collapse of but-for causation, stated exactly.** Every act has a causal path to every other, so *"it affects others"* licenses regulating anything — the [non-uniqueness objection](../../../debates/wordwar-sf1-drug-legalization-thunder-medeiros.md) in its general form. A principle that proves everything decides nothing.
+
+⭐ **The law hit this wall long ago and built a second test to cut the chain: *proximate cause*.** *Palsgraf v. Long Island Railroad* (1928) is the canonical case — the fireworks really did cause the scales to fall, in a but-for sense, and the court held that is not the kind of causation liability runs on. **The doctrine exists for no other reason than that but-for causation proves too much.**
+
+**And it is a *standard*, not a rule.** There is no formula: it asks whether this was the kind of harm, to the kind of person, that makes attribution fair — decided case by case, after the fact, usually by a jury. ⭐⭐ **So the answer to "what is the different measure?" is: the law has one, it works, and it is precisely the sort of thing that cannot be encoded.** The threshold problem and the causation problem are the same problem, and the legal system solved both the same way — by refusing to write a rule and appointing someone to decide.
+
+⚠ **Which is the sharpest form of this page's thesis.** An enforcement layer that can only apply rules cannot apply proximate cause at all. **Automating enforcement does not merely favour machine-legible offences — it is structurally incapable of the doctrine the system uses to stop every prohibition from swallowing everything.**
+
+**Three tests that do sharpen "affects others" beyond the closed-system triviality**, all of them standards rather than rules:
+
+| Test | Question | Applied to the overdose |
+|---|---|---|
+| **Severability** (Coase; Chris's *"1. don't do that"*) | can the cost be routed back to the actor short of banning the act? | yes — pricing or coverage, so the cost does not justify the ban |
+| **Chain of free choices** | how many independent human decisions sit between act and harm? | the medical bill routes through a *policy choice* to pool costs; drunk driving's harm routes through nobody's choice but the driver's |
+| ⭐ **Reciprocity of risk** (Fletcher, 1972) | is the risk mutual, with both parties taking the benefit? | **no** — and this is the strongest form of the case against, because traffic risk *is* reciprocal and addiction's socialised cost is not |
+
+⭐ **The reciprocity test is the one that bites the driving analogy**, and the answer is instructive: the fix for non-reciprocity is to **restore** reciprocity, not to prohibit. Mandatory auto insurance is exactly the instrument that makes traffic risk reciprocal *in cost terms* — you pre-pay your expected externality — and a Pigouvian excise is its analogue for a consumed good. **Which gives the whole regulatory design space as one inequality:**
+
+> **expected social cost ≤ tax ≤ cost of evasion**
+
+**Chris supplies the limit case from the right-hand side:** *"in California when they became legal, it actually caused a spike in drug crime, as the taxes were so high people circumvented the legal routes."* Set the price above the cost of evasion and the illicit channel reappears — legal supply, illegal supply, and a tax base funding neither. California tested that boundary and repealed the cultivation tax in 2022. ⚠ **And when the left-hand side exceeds the right, no pricing regime exists, and prohibition-style arguments start to be defensible on their own terms.** That is a measurable version of *is the juice worth the squeeze* — and a far better question than the one the debate actually had.
+
 ### Rules and standards, and the trade nobody escapes
 
 | | **Rule** (*no turn on red*) | **Standard** (*drive with reasonable care*) |
@@ -192,6 +244,51 @@ That is worth conceding plainly rather than patching, because it is the same lim
 **A rule is a compression that accepts a known error rate to buy predictability. A standard refuses the compression and pays in uncertainty and discretion.** Neither is correct in general; the choice per domain is a judgement about which cost is worse there.
 
 **⭐ And Chris's point is that the choice is *deliberate*, which this page had not credited.** *"People would rather take clear lines and deal with the injustices"* is a **revealed preference for predictability over case-fit** — not inherited sloppiness, not a drafting failure, but a considered trade repeatedly re-made. The bright line is chosen *knowing* it will be wrong at the edges, because knowing where you stand is worth more than being right in every case.
+
+### ⭐⭐⭐ Rules and standards are the endpoints of a dial — and the number of classes *is* the dial
+
+**Chris, on the licensure/graduated-privilege model:**
+
+> *"Licensure, graduated privilege and the like are good solutions to what we have. People will argue them (**'who controls the licensing!'**) — but it gets to the point that **there are other options**. FWIW the whole **class system** was an attempt at this, so maybe the argument is to **revisit and maybe even subclass to allow for finer control**."*
+
+⭐⭐ **This breaks the table above, and in the right direction.** *Rule* and *standard* are not two options; they are the two ends of a continuum, and **the free parameter is how many classes the code partitions the conduct space into.**
+
+| Classes | What it is | Fit | Predictability |
+|---|---|---|---|
+| **1** | a bright-line rule — *no turn on red* | worst | perfect |
+| **a few** | a **schedule** — licence classes, drug schedules, tax brackets, tariff codes | better | good |
+| **many** | a subclassed schedule with endorsements | better still | falling |
+| **one per case** | a **standard** — *reasonable care* | perfect | none |
+
+**A rule is a schedule with one class. A standard is a schedule with a class per case. Everything real is in between, and "subclass for finer control" is a proposal to turn the dial** — which is why it feels like a different kind of answer than *ban it* or *allow it*. It is: it is a move along an axis the ban/allow argument never mentions.
+
+**Chris is right that turning it reduces error.** Doubling the classes roughly halves the distance between a case's actual risk and the class it is assigned to. You get *more* boundaries (N classes have N−1 of them, each with its own threshold problem) but each misclassification is *smaller*. On error terms alone, finer is better and the limit is a standard.
+
+⚠ **So what stops it? Two costs, and they are the ones that set the optimum:**
+
+1. **Legibility.** A code with forty classes stops being knowable by the person it governs — which spends back exactly the [ex-ante predictability](./common-law-as-discovery.md) the bright line was bought for. **This is the binding constraint, not administrative cost.**
+2. ⭐ **Capture surface.** Every class boundary is a place an interested party can lobby. Tax codes and tariff schedules are what a dial turned by the people being measured looks like after a century.
+
+⭐⭐ **And the CSA schedules are the specimen of getting this wrong in a way finer subclassing would not fix.** Five classes for thousands of substances is coarse, but the deeper defect is that the schedules are a **scalar**: one ordinal ranking for a risk profile that varies on at least four independent dimensions — dependence liability, lethal-dose margin, behavioural toxicity, and medical utility. **Marijuana sitting in Schedule I with heroin while fentanyl sits in Schedule II is not an error in the ranking; it is evidence that no single ranking exists.** Adding classes to a line that is the wrong shape buys nothing.
+
+⭐ **Driving already solved this, and the solution is the one Chris is reaching for.** A licence is `class + endorsements` — Class C plus motorcycle plus hazmat plus passenger. **Endorsements are dimensions; schedules are a scalar.** The right reading of *"subclass to allow for finer control"* is therefore **not more rungs on the ladder but more ladders**: a substance carries a vector of restrictions (prescription-only, quantity-limited, supervised-administration, no-take-home) rather than a rank, and a person carries a vector of privileges. **That is a schedule that can be finer without becoming longer.**
+
+### ⭐⭐ "Who controls the licensing?" is the same objection we just endorsed — and it has a test
+
+Chris anticipates the objection and it deserves better than dismissal, because **it is the criterion from the jury section arriving upstream.** A permission regime is a prohibition with a gate; building the gate **relocates the discretion from the enforcement layer to the licensing layer**. And a licensing board holds slack *categorically, in advance, in private, with no defendant present* — which is the profile this page just marked ❌ for prosecutorial non-enforcement.
+
+**So what makes driver licensure benign and taxi medallions a scandal?** Not the fact of licensing. Four structural properties:
+
+| Property | Filter (✅ driver's licence) | Quota (❌ medallion, certificate-of-need, liquor licence) |
+|---|---|---|
+| Criteria | objective, cheaply verified, near-zero discretion at issue | discretionary, or a fixed number |
+| Issuance | **uncapped** — ~90% of adults hold one | **capped**, so the licence becomes an asset |
+| What it filters | competence | competitors |
+| Revocation | procedural, appealable, for cause | rarely at issue — the value is in the scarcity |
+
+> ⭐ **The test: is the licence a *filter* or a *quota*?** A filter with objective criteria and unlimited issuance is a competence check. **A capped licence is a cartel with a government stamp**, and it will be captured, because the rent is the point.
+
+**That is a real answer to *"who controls the licensing?"*** — the controller matters much less when there is nothing scarce to control. And it connects straight to [Registration and Scope Creep](./registration-and-scope-creep.md): a filter that is later capped converts into a quota without any change to the statute, which is this page's whole thesis about mode-change-without-text-change, arriving in a third form.
 
 ### ⭐ Which is where automation does its deepest damage
 
@@ -239,6 +336,10 @@ This page argues automation makes enforcement **too cheap**, converting liabilit
 ## Open Questions
 
 - **~~Is the slack load-bearing, or a rationalisation of a mess?~~ — partially dissolved (2026-09-09).** The original tension: [Registration and Scope Creep](./registration-and-scope-creep.md) treats selective enforcement as a *harm*; this page treated it as a *protection*; both cannot be simply true. **Chris's *"failure of law, not enforcement"* resolves the level confusion** — slack is primarily neither, it is **unofficial repair of defective law**, and its protective and discriminatory faces are both consequences of repairing by discretion rather than by amendment. **What remains open** is the harder question underneath: given that some repair mechanism is arithmetically necessary, *which* one — discretion, juries, desuetude, sunset clauses, or amendment — is least bad, and on what criterion?
+- **⭐ Does the filter/quota test survive contact with professional licensing?** Medicine, law and the trades are *filters* by the four properties above — uncapped, objective-ish, revocable for cause — and are still the standard example of capture. If the test passes something it should fail, the missing property is probably **who writes the criteria**: a filter whose bar is set by the incumbents is a quota with extra steps. **This is the first thing to check, and it may cost the test its crispness.**
+- **⭐ Is the vector schedule actually implementable, or does it just relocate the problem?** Endorsements work for driving because the dimensions are few and observable. A substance vector — dependence liability, lethal-dose margin, behavioural toxicity, medical utility — needs each dimension *measured*, and three of those four are contested empirical questions with active literatures. **A schedule that requires resolving four sciences before it can classify anything may be worse than a bad scalar.**
+- **Where is the legibility ceiling, and is it a constant?** The classes-as-dial argument says predictability falls as classes multiply, which implies an optimum. But phones hold the schedule now — a driver does not memorise the vehicle code, they look it up. **If lookup is free, does the ceiling move?** ⚠ *And note the trap: "the machine knows the rules for you" is the same capability that makes enforcement free.* The thing that raises the legibility ceiling is the thing this page says to fear.
+- **Is there a name for undesignated slack?** The three-way distinction (accidental / designed / undesignated) is doing real work now and the third category has no term. *Discretionary forbearance*? Worth finding the existing one before minting a word — administrative-law scholarship on **enforcement discretion** and **desuetude** is the place to look.
 - **Is there a coherent thin-code design that survives cheap enforcement?** Chris doubts the Misesian route is feasible and the three objections above say why, but "infeasible" is not "impossible" and nobody has tried to design for this specific combination.
 - **⏳ The post-9/11 apparatus** — Chris: *"we might have to get into the legality of the government monitoring and data centers that appeared after 9/11."* Bulk collection, the third-party doctrine, and the argument that the constitutional test was settled two decades ago and lost. Deliberately parked as its own page rather than compressed into a bullet here; it is the historical case study this thesis needs.
 - **Does the confrontation problem have a technical answer?** If a machine cannot be cross-examined, can its *design and error rate* be — auditing the system rather than the observation? Red-light-camera litigation is the place to look.

@@ -199,6 +199,21 @@ Chris framed this before either tape: *"we now go from **'I don't like cameras b
 
 **That is a complete non-carceral deterrence model** — fines, court dates, licence exposure, stigma — and it is exactly what the off-switch argument requires, since the off switch he actually described was a prescription database and revoked licences, not prison cells. **He tells the story and never connects it to the objection; Thunder never forces him to.**
 
+### ⭐⭐ The experiment both men needed and neither had — and it says *both of them are right*
+
+Chris: *"I think the **prohibition amendments** were this experiment, and I think we are going through it again with **marijuana** right now."*
+
+**That is the right natural experiment, and it is under-used because each side remembers only the half that flatters it.** The standard economic estimates (Miron & Zwiebel, 1991) have US alcohol consumption falling to roughly **30% of its pre-Prohibition level** in the first years of the 18th Amendment, then recovering to something like **60–70%** by the end of the decade.
+
+| Claim | Whose | Verdict from 1920–33 |
+|---|---|---|
+| *Prohibition reduces use* | Medeiros | ✅ **substantially, and it never fully rebounded while it was in force** |
+| *Prohibition builds violent supply chains* | Thunder | ✅ **also true — the cartel-and-corruption apparatus is the same decade** |
+
+⭐ **They spent an hour treating these as contradictory. The record has them as simultaneous, which is the whole difficulty.** And the repeal was therefore **not a finding that prohibition failed to reduce drinking** — it was a judgement that the price was not worth paying. **That is Chris's *"is the juice worth the squeeze"* already run once, at national scale, with a recorded verdict** — and the single most useful fact available to this round, held by neither man.
+
+⚠ **The marijuana rerun is at a different point on the curve** and Chris names the complication: a legal channel plus a tax set above the cost of evasion leaves the illicit market standing. **The two experiments test different things** — Prohibition tested whether a ban suppresses use; legalization-with-excise tests whether a *price* can substitute for a ban. See [The Slack in the Law](../philosophy/morality/legal-theory/slack-in-the-law.md) for the inequality that falls out of it.
+
 ### Confirmed
 
 **The *too stupid → too vulnerable* reframe** — Chris: *"this was a great turn."* Agreed, and it is scored above as the moment that decides the round.
