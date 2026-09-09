@@ -1073,7 +1073,9 @@ Checked at Chris's request. **The ballot is closed and the numbers are not poste
 
 > 🔓 **The embargo is public-facing only. The result exists, the organisers hold it, and the finalists were told within hours of the ballot closing.** What is being withheld is not the outcome but the *announcement* — which is a marketing decision, not an unfinished count.
 
-⭐ **And it is the calendar defect cashing out in cash.** Everything in the [season assessment](#-seventeen-defects-five-causes--and-the-season-assessment) about compression costing prep time and ballot quality has a line-item version: **four days' notice is the most expensive way in the world to buy a plane ticket**, and a published schedule would have had those seats booked three weeks out at a fraction of the price. The idle fortnight was not only the missing prep time — **it was the missing airfare discount.**
+⚠ **~~And it is the calendar defect cashing out in cash — the idle fortnight was the missing airfare discount.~~ Retracted the same day, on Chris's correction:** *"The extra paid for the plane tickets is probably **justified**. It is **the cram session due to that big gap that isn't**."*
+
+**He is right, and the retracted version confused two different things.** A late semifinal is *required* by the product: the reveal has to be close to the show, and the alternative — running the semifinals live in Nashville — fails on its own terms. Chris: *"It might make sense to have the SF and finals on the same day, but they are already planning a **6-hour event**… this would make it **8+ with no prep time for the finals**."* **So the four-day booking window is a deliberate purchase of marketing tension, not an accident**, and the premium is the price of the format working. It is not the defect.
 
 ### 📌 Registered — the Nashville card will leak the semifinal results before the show
 
@@ -1087,9 +1089,25 @@ Two grounded facts point the same way. First, **`/word-war-i-results` shows the 
 | **N2** | **All four Final Four contenders travel**, with the two semifinal losers used on the undercard rather than sent home | 12 Sep |
 | **N3** | ⚠ **The Contender Series final is *not* the main event.** WWI's main event was the marquee outside name (Kestenbaum) while the in-house pairing (Mullally/Pisco) opened. If that pattern holds, the championship this hub has tracked for six weeks is the **middle** slot on someone else's card | 12 Sep |
 
-⚠ **N3 is the one worth watching**, and it is faintly deflating if it lands: *"Road to WWD II"* would mean the Contender Series is a **feeder**, not a season — the bracket's purpose being to produce a body for the undercard of the real event rather than to crown anything. **That would explain the results handling better than carelessness does.** A feeder's job is to deliver a name by a date; margins, archives and ballot windows are not features it needs.
+### ✅ N3 resolved within the hour — by Chris, off the WWD II card
 
-📌 **Practical consequence:** the card announcement is now the **most likely place a semifinal result ever becomes public**, and it may arrive before any number does — or instead of one. **Watch the site and the channel between now and the 12th.**
+> *"Ohh, this **contender series is actually the undercard** :) They show this on the WW2 card."*
+
+**✅ N3 hits.** The championship this hub has tracked for six weeks is **the opening slot on someone else's bill**. *"Road to WWD II"* is literal: the Contender Series is a **feeder**, not a season — its job is to deliver a name by a date.
+
+⭐ **Which explains the results handling better than carelessness ever did.** A feeder does not need margins, a permanent archive, or a long ballot window; it needs a body in a chair on the 12th. Every item in the [record-keeping cluster](#-seventeen-defects-five-causes--and-the-season-assessment) — the wiped cards, the withheld semifinals, the winner-name-only WWI archive — is **exactly what you would build if the bracket's output were a person rather than a record.** That is not a defence of it, but it is a *reason*, and reasons predict better than sloppiness does.
+
+⚠ **N2 is now doubtful and should be downgraded, not quietly dropped.** It predicted the two semifinal losers would fill the undercard — but **the undercard is the Contender final itself**, so that slot is taken and the losers have no obvious place on a three-match card. **Probable miss.** N1 stays open: the card apparently shows the *slot* rather than the *names*, or Chris would have had the result in front of him.
+
+### ⭐⭐ Which isolates the actual defect: the fixed points were fine, the middle was crushed for nothing
+
+**Take Chris's correction seriously and the diagnosis gets sharper rather than softer.** Three dates were genuinely constrained — the live show (12 Sep, venue booked), the semifinal (late, for the reveal), and the gap between them (short, for travel and tension). **None of those is the problem.**
+
+**The problem is the eleven debates upstream of the semifinal.** Round 2 (7) and the quarterfinals (4) had **the whole of 12 August – 5 September** available — 24 days, one debate every 2.2 days, with 48-hour ballots throughout. Instead they ran in **nine days** with the ballot cut to 24 hours and then to six.
+
+> ⭐ **So the corrected fix moves no fixed point at all.** Same live date, same semifinal date, same four-day reveal, same airfare. **It only spreads the middle across days that were already empty** — which means the schedule that repairs six of the seventeen defects costs *nothing*, not even the marketing tension the late reveal was buying.
+
+**That is the memo.** Not *"stop compressing"* in the abstract, and not *"book flights earlier"* — **"the fortnight you left empty in August is the fortnight rounds 2 and 3 needed, and using it would have cost you nothing you cared about."**
 
 ### ⚠ The intro-retrieval route splits in two, and only half of it works
 
