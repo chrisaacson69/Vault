@@ -27,6 +27,8 @@ The debate is stuck because the vocabulary is broken, not because the question i
 
 ## The Two Axes
 
+> **The clearest single illustration is the driving convention** (Chris, 2026-09-10): *which* side of the road is **elective** — arbitrary, a coin flip would have done — while *that there must be a side* is **constitutive**, fixed by two-way traffic and the physics of a head-on collision. Both axes visible in one case, which is what makes it usable on people the abstract argument bounces off; and once the convention holds, driving the wrong way is genuinely wrong — by reasonable reliance, the same structure as promise-keeping. Worked in full at [Constructed ≠ Arbitrary](../constructed-not-arbitrary.md#the-driving-specimen--arbitrary-content-real-obligation).
+
 **Axis 1: Does it require minds?**
 - Mind-independent — exists without any minds (mass, chemistry, height relations)
 - Mind-dependent — requires minds to exist (morality, nutrition, danger, ice cream preference)

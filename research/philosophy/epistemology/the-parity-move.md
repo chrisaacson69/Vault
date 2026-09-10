@@ -95,6 +95,68 @@ Note what happened there. Horn 2 was accepted, and the uniqueness claim was drop
 
 The same escape is available for logic — logic as constitutive of reasoning rather than decreed. That is [Move 1](./the-regress-problem.md) of the regress page, the performative escape, and it is the vault's own exit. **Which means the vault's foundation is not brute either**; it claims a different *kind* of justification. Anyone running parity should expect that reply and be able to say why their version of it works.
 
+## A Fourth Option, Not a Fourth Horn
+
+The question left open above — whether the performative escape defeats Agrippa's trilemma or coexists with it — is what separates the vault from the Objectivist critics who run the same instrument. Chris's read:
+
+> *"I suppose I think that performative grounding is another horn. Though I am not sure it can be used everywhere. the term 'self-evident' seems to not carry much.. **was the 5th postulate 'self-evident'?** 'validated in use' is better, this is the performative part."*
+
+That is the answer, and the P5 question is what makes it precise.
+
+### "Self-evident" is not a credential — it is a feeling with a track record
+
+The Objectivist route needs the axioms to be **self-evident**. Test that credential against the one case the vault has worked in full ([Formal Systems and Approximation](../logic-and-math/formal-systems-and-approximation.md)): **the parallel postulate was the paradigm case of a self-evident truth for two thousand years, and it was wrong.** Kant staked his epistemology on it. Saccheri derived hyperbolic geometry, found no contradiction, and rejected it as *"repugnant to the nature of the straight line"* — substituting intuitive repugnance for a proof, and publishing it as one.
+
+So self-evidence has been falsified as a foundation-credential by the clearest available case. Anything resting on it inherits that record.
+
+### The two credentials come apart — and P5 is the discriminator
+
+The move that does the work is separating two things that get conflated:
+
+| Credential | Claim | P5 | Non-contradiction |
+|---|---|---|---|
+| **Self-evident** | I can see directly that it is true | **claimed, for 2,000 years — and false** | claimed |
+| **Validated in use** | you cannot coherently operate without it; denial deploys it | **never held, and demonstrably not so** | **holds** |
+
+The second row is the decisive one. **P5 was never validated in use and could not be — Euclid proved his first 28 propositions without it**, and an entire consistent geometry exists in which it fails. Non-contradiction is the opposite: the denial requires the thing denied.
+
+**So the objection that kills self-evidence leaves the performative escape standing.** That is the strongest available defence of Move 1, and it arrives from the very test that looked like a threat to it.
+
+### The operability test, and what it sorts
+
+The credential yields a usable test — **can you operate without it?** Run it on the three laws:
+
+| | Can you operate without it? | Verdict |
+|---|---|---|
+| **Identity (A is A)** | nothing to deny — it asserts nothing | tautology |
+| **Non-contradiction** | **no** — denial deploys it | constitutive; performatively grounded |
+| **Excluded middle** | **yes** — intuitionistic mathematics, Coq, Lean, shipping verified software | an empirical bet, not a precondition |
+| **The parallel postulate** | **yes** — 28 propositions, plus hyperbolic geometry | not even a candidate |
+
+**Note what happened: the operability test independently sorts the three laws exactly as [the hub's unbundling](../logic-and-math/the-absoluteness-claim.md) does** — one tautology, one bookkeeping rule that genuinely cannot be abandoned, one empirical bet. Two unrelated methods, the same partition. By the vault's own standard that convergence is the evidence, not the argument.
+
+It also shows the scope limit Chris flagged (*"I am not sure it can be used everywhere"*) is real and narrow. The escape reaches non-contradiction, one's own existence as a reasoner, and agency-as-effort. It does **not** reach excluded middle, the parallel postulate, specific moral norms, or God. **That narrowness is what makes it credible** — a foundation-generator that validated everything would validate nothing.
+
+### Why it is not a fourth *horn*
+
+Chris's instinct is right that there is a fourth option; "horn" is the one word to avoid, and the reason is exactly where the Objectivists go wrong.
+
+Agrippa's three horns describe how a **chain of propositional justification** can terminate: brute assertion, infinite regress, or circle. The performative escape **is not a chain.** It does not justify P by deriving P from something else; it shows that asserting ¬P deploys P. It is not another exit from the taxonomy — it is outside the taxonomy's subject matter.
+
+> **Which is precisely why it does not refute the trilemma.** The trilemma remains a true description of propositional justification. The escape shows that *not everything requires propositional justification.* Those are compatible claims about different questions.
+
+The Objectivists in the [Void Podcast critique](../../debates/malpass-dyer-tag-logic.md#the-critic-video--objectivists-and-a-three-way-fight) slide from *"there is something the trilemma does not cover"* to *"the trilemma is self-refuting."* That is the same **scope failure** this page warns about in its own instrument: a valid tool pushed past its domain. Calling the escape a "horn" concedes the frame that makes the slide look reasonable — it puts the escape inside the taxonomy, where its existence then reads as the taxonomy being incomplete and therefore broken.
+
+**So: the vault is not at parity with a self-attesting foundation, and it does not need the trilemma to be false.** It needs the trilemma to be exactly what it is — a diagnostic about chains — plus a small, well-fenced set of things that are not chains at all.
+
+## Arbitrary Origin, Real Obligation
+
+The other half of Chris's contribution, and it answers a different objection: *"morals are just preferences unless grounded in God."*
+
+> **Chris:** *"a person doesnt have to burn themselves over and over in order to realize putting thier hand in a fire is bad.. likewise, things can be 'abitrary', but still have moral wieght. In the US, people drive on the right, in England, they drive on the left. The choice is arbitray. But it is clear to say that when in the US, it is good to drive on the right, and it is wrong to drive on the left.. while in England this is reversed.. arbitray, but still real. Some may say these are not moral claims, but I think that is a misunderstanding of morality."*
+
+Full treatment as a specimen on [Constructed ≠ Arbitrary](../constructed-not-arbitrary.md#the-driving-specimen--arbitrary-content-real-obligation). Why it belongs here: **it is the same structural point as the operability test, one level down.** "Validated in use" and "arbitrary in content" are not opposites — the driving convention is both at once, which is why treating *arbitrary* and *binding* as exclusive is the error the whole cluster keeps running into. The choice of side is elective; the requirement to coordinate is constitutive; and once the convention is established, violating it endangers people who reasonably relied on it, which is an ordinary moral wrong of the same shape as breaking a promise.
+
 ## Specimens
 
 The debates this thesis was assembled from. Each contributes something the others don't.
@@ -109,7 +171,7 @@ The debates this thesis was assembled from. Each contributes something the other
 
 ## Open Questions
 
-1. **Is the constitutive escape ([Move 1](./the-regress-problem.md)) genuinely different in kind, or is it parity's third horn wearing better clothes?** **A rival answer is now on the record:** the Objectivists in the [Void Podcast critique](../../debates/malpass-dyer-tag-logic.md#the-critic-video--objectivists-and-a-three-way-fight) agree the escape is different in kind and conclude it **defeats** the trilemma outright; the vault agrees it is different in kind and keeps the trilemma as a diagnostic. Both readings cannot be correct about what the escape buys, so this is no longer an abstract worry — there is a live position to argue against. The vault claims the performative escape is not dogmatism, regress, or circle. If that holds, the vault is *not* at parity with a self-attesting foundation and the draw is actually a win. If it doesn't hold, the vault has a leveler pointed at its own table. This is the most important unresolved question on the page, and the regress page asserts the answer rather than defending it.
+1. ~~**Is the constitutive escape genuinely different in kind, or is it parity's third horn wearing better clothes?**~~ **LARGELY ANSWERED 2026-09-10** — see [A Fourth Option, Not a Fourth Horn](#a-fourth-option-not-a-fourth-horn) below. Residue: the answer turns on the *operability test*, and the test's edge cases are unmapped (induction and the reliability of memory are the hard ones — arguably you cannot operate without them, but their denial is not obviously self-defeating in the way non-contradiction's is).
 2. **Does parity work against an opponent who concedes it up front?** Dyer does. Presuppositionalism *affirms* foundational circularity and claims the Christian circle is vindicated by "the impossibility of the contrary." Against that, beats 1–3 are already granted — so the move reduces entirely to beat 4, and the interesting question becomes whether "impossibility of the contrary" survives the existence of *built, consistent* contraries.
 3. **When is a tu quoque legitimate and when is it a dodge?** [Force Doctrine](../morality/force-doctrine.md) says *"a tu quoque is a draw"* and treats that as the goal. But tu quoque is normally a fallacy. The distinction being relied on: parity attacks the *criterion* the opponent introduced, not the opponent. Worth stating rigorously — it is the difference between this move and mere whataboutism.
 4. **Does the door/room framing let both sides claim victory?** Both parties can announce they have entered the room and are winning on structure. Is there a way to make beat 4 *adjudicable*, or does it always devolve to the [weighting problem](./weighting-problem.md)?

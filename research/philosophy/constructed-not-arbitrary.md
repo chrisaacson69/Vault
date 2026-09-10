@@ -8,7 +8,7 @@ title: "Constructed ≠ Arbitrary — Social Constructions Have Jobs, and Can Fa
 # Constructed ≠ Arbitrary
 > "It's a social construct" is treated as though it ends the conversation. It doesn't even start it. A construction exists to solve a real problem, so it is answerable to that problem twice — at design time and at run time. That makes it evaluable. And a thing with a job can be bad at its job.
 
-**Links:** [The Four Trunks](./the-four-trunks.md), [The Constitutive/Elective Distinction](./morality/constitutive-elective.md), [Relational Objectivity](./epistemology/relational-objectivity.md), [Scope Confusion](./morality/scope-confusion.md), [Emergence and Convergence](./logic-and-math/emergence-and-convergence.md), [Technology → Culture → Politics](./dynamics/technology-culture-politics.md), [Game Theory as Normative](../../notes/game-theory-as-normative-not-descriptive.md)
+**Links:** [The Parity Move](./epistemology/the-parity-move.md), [The Four Trunks](./the-four-trunks.md), [The Constitutive/Elective Distinction](./morality/constitutive-elective.md), [Relational Objectivity](./epistemology/relational-objectivity.md), [Scope Confusion](./morality/scope-confusion.md), [Emergence and Convergence](./logic-and-math/emergence-and-convergence.md), [Technology → Culture → Politics](./dynamics/technology-culture-politics.md), [Game Theory as Normative](../../notes/game-theory-as-normative-not-descriptive.md)
 
 **Trunk:** [Trunk 1 — Normative Ontology](./the-four-trunks.md#trunk-1--normative-ontology) (*constitutive realism*), generalized past the normative. Trunk 1 already says normative facts are mind-dependent but not arbitrary. This page runs the same argument over **constructions at large** — masculinity, currency, marriage, borders, language, professional standards — and adds the piece Trunk 1 doesn't carry: a **failure criterion**.
 
@@ -149,6 +149,47 @@ The real argument lives in layers 2–3. **"It's just a social construct" is a l
 *What problem was this built to solve* is the move that **exits** layer 1 rather than winning inside it. It concedes the definitional point and relocates the dispute to ground where evidence exists. That relocation, not the rebuttal, is the value.
 
 The cost is that this is where the burden actually gets discharged, and it's real work: naming the function honestly (not retrofitting one that guarantees the verdict you want), showing it unmet with evidence, and establishing the route from failure to harm. The test tells you *what argument to build*. It does not build it.
+
+## The Driving Specimen — Arbitrary Content, Real Obligation
+
+The cleanest case in the collection, from Chris (2026-09-10), and it earns its place by being the one where **both axes are visible simultaneously** — which is rare, and is why it works on people the abstract argument bounces off.
+
+> *"In the US, people drive on the right, in England, they drive on the left. The choice is arbitrary. But it is clear to say that when in the US, it is good to drive on the right, and it is wrong to drive on the left — while in England this is reversed. Arbitrary, but still real."*
+
+Separate the two levels and the "just a preference" move has nowhere to stand:
+
+| Level | Status | Why |
+|---|---|---|
+| **Which side** | genuinely **arbitrary** | no fact about the world favours right over left. A coin flip would have done |
+| **That there must be a side** | not arbitrary at all | two-way traffic at speed, and the physics of a head-on collision. The problem is real and it is not up to anyone |
+| **Driving left in the US, once established** | genuinely **wrong** | it endangers people who reasonably relied on the convention |
+
+So this is a construction with an arbitrary *content* and a non-arbitrary *job* — the page's thesis in its most compressed form. It also supplies the design-time/run-time pair with unusual clarity: the design-time constraint is *pick one and publish it*; the run-time constraint is *everyone actually drives on it*. Both are checkable, neither is a preference. (The canonical formal treatment is Lewis, *Convention*, 1969; Schelling's focal points are the same insight from the coordination side.)
+
+### Answering "but that isn't a moral claim"
+
+Chris anticipates the objection — *"some may say these are not moral claims, but I think that is a misunderstanding of morality"* — and the strong version of it is worth stating properly, because the weak version ("it's just traffic law") misses what is being claimed.
+
+The strong objection: driving on the right is *prudential* (you'll crash) or *legal* (you'll be fined), not moral. The answer is that **the moral content was never in the side.** It is in the reckless endangerment of others. Driving on the left in the US is not wrong because left is wrong; it is wrong because, **given** the convention, doing it predictably imperils people who had every reason to expect otherwise. The convention converts an arbitrary choice into a genuine duty **by creating reasonable reliance.**
+
+Which makes it structurally identical to **promise-keeping** — the paradigm case that nobody disputes is moral. The content of a promise is arbitrary (I could have promised anything, or nothing); the obligation to keep one is not. Reliance is what does the work in both. Anyone willing to call promise-breaking a moral wrong has already conceded the structure.
+
+### The fire point — why you don't need the collapse
+
+> *"a person doesnt have to burn themselves over and over in order to realize putting their hand in a fire is bad."*
+
+This is the [functional-failure diagnostic](#why-the-failure-criterion-matters) stated from the inside. A crude empiricism about norms implies you learn only by repeated trial — which is the **collapse** diagnostic, terminal and retrospective. But the structure is *inferable in advance*: one encounter with fire, plus a working model of what bodies are, is enough. You do not need to watch the building fall to see that the beam is load-bearing.
+
+That is the same continuous, present-tense reading the table above gives as the third diagnostic — and it is why "we have not collapsed yet" is not evidence that a construction is doing its job.
+
+### What it does and does not establish
+
+Kept honest, per [What This Does *Not* Claim](#what-this-does-not-claim):
+
+- **It does establish** that *arbitrary in origin* and *really obligatory* are compatible — which is exactly what "morals are just preferences unless grounded in God" denies. The dichotomy is false, and one clear counterexample is all that requires.
+- **It does not establish** that all moral facts are convention-dependent. Driving-side is wrong *because of* a convention; murder is not. A critic can fairly say the interesting moral questions are the non-conventional ones — and they would be right that this specimen does not reach them.
+
+So deploy it as an **existence proof against the dichotomy**, never as a theory of morality. Its job is to break the assumed link between *constructed* and *arbitrary-therefore-weightless*; [constitutive/elective](./morality/constitutive-elective.md) is what carries the general case.
 
 ## Specimens
 
