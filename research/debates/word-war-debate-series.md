@@ -1106,6 +1106,65 @@ Chris framed the two semifinals as a test of the *room*, not the contenders:
 
 ⭐ *And reach may invert.* Thunder carries the tournament's largest online audience (**3,495** on the abortion round, ~4× anything Jones has drawn) — an advantage that means one thing for an online ballot and something quite different for a room of ticket-holders. **Whether the ballot is even cast by the room is unknown.**
 
+### ⭐⭐ Chris on the final, and a reach instrument that turns out to be measuring the wrong thing (2026-09-10)
+
+#### The reach proxy is broken, and it was broken all along
+
+Chris went and looked Thunder up rather than trusting the view counts:
+
+> *"I was doing research on Thunder's reach. **Only 4.45k on YouTube with 2.2k videos** (mostly shorts), but **Instagram has him at 37.1k**, and maybe he has a large TikTok following — I don't know his main platform."*
+
+⚠ **This page has used YouTube view counts as the reach proxy throughout, and that is a category error.** Thunder's YouTube presence is **negligible** — 4,450 subscribers across 2,200 uploads is a shorts channel, not an audience — while his Instagram following is **roughly eight times larger**. **A contender's reach lives wherever their audience lives, and this bracket only ever measured one platform.**
+
+⭐ **What survives, and what does not:**
+
+- ❌ **Channel subscriber counts on YouTube are worthless here.** Any call that leaned on "low reach" for Thunder was leaning on a number that measured his least-used platform.
+- ✅ **A round's own view count still measures *something* real** — Thunder's [abortion round](./wordwar-r2-abortion-vic-thunder.md) drew **3,495**, four times the bracket norm, so he demonstrably *can* mobilise. **He simply does it from somewhere this page cannot see.**
+- ⚠ **Which retroactively weakens [Chris's two-stage test leg 2](#-the-semifinals-resolve--and-the-axis-model-beats-the-call-i-filed-against-it) further, in his favour.** It was scored a miss on the grounds that *"Medeiros had the lowest reach on the board."* **That was measured on YouTube. It may not be true.**
+
+#### ⚠⚠ And it puts a confound under finding 11's rescue
+
+[Finding 11](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) was rescued by correlating **margin against pool size** (r = −0.74, n=7), with the abortion round's 3,495 views as its most influential point. **But pool size is not exogenous.** It is produced by two things that *independently* predict margin:
+
+1. **Topic salience** — abortion draws a crowd *and* splits any room. Nationalism/socialism drew 1,600 *and* produced +9.0.
+2. **Contender mobilisation** — off-platform, and therefore unmeasured.
+
+> ⭐⭐ **So the correlation may be spurious, with topic salience as the common cause of both the big pool and the narrow margin.** That is the same variable the [axes-conflict hypothesis](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) already names — and it now has a mechanism for *why* it also inflates the audience. **Finding 11 stays unresolved, and the honest verdict is stronger than "n is small": the independent variable is endogenous.**
+
+#### ⭐ Chris's merit-vs-ballot read on SF1 — and the gap is bigger than +5.4 suggests
+
+> *"TBH, I don't think [SF1] was as close as the results showed it to be. We basically had **concession by the Aff that they don't want opioids legalized**. OTOH, the Neg kinda conceded it was OK for non-opioids to be free, though he was less set against it, citing even **marijuana has its troubles**."*
+
+**Both readings check out against the tape**, and together they are worse for the Aff than the ballot shows:
+
+| | Conceded | Where |
+|---|---|---|
+| **Aff (Thunder)** | the **opioid** ground — *"worst drug, and I'm trying to talk about the psychedelics"* | 46:42, and again when he answers the pill-mill case with *"well, they have the right to do that"* |
+| **Neg (Medeiros)** | **non-opioids**, with a hedge — *"I'd 100% be, yeah, legalize the psychedelics"*, but marijuana daily users *"1 million to 18 million"* | 49:00 / 19:12 |
+
+⭐⭐ **The two concessions collapse the round onto opioids — and that is the ground the Aff had already given up.** On a resolution reading *"**all** drugs should be legal," the Affirmative conceded the only live question and won the ballot anyway.* **So the merit/ballot gap is not the 5.4 points the card shows; the card understates it**, and this is a sharper version of [finding 5](#cross-round-findings) than the raw margin conveys.
+
+#### 📌 A competing instrument, registered before the topic drops: **likeability**
+
+> *"I think he rates **high in likeability** even if his arguments are not so sound :)"*
+
+**This is a real rival to the axis model and it has not been separated from it once.** Thunder's two wins — [abortion](./wordwar-r2-abortion-vic-thunder.md) and drugs — are *both* on axis-favourable ground, so every observation to date is consistent with **either** *the axis carries him* **or** *the room likes him*. ⚠ **Two instruments, zero discriminating evidence.**
+
+⭐ **The final is the discriminator, and only if the topic cooperates.** The test, filed now so it cannot be fitted afterwards:
+
+| If the published topic is… | And Thunder wins | And Thunder loses |
+|---|---|---|
+| **axis-favourable to Thunder** (liberty/anti-state) | ⏳ **tells us nothing** — both instruments predicted it | axis model damaged |
+| ⭐ **axis-neutral, or axis-favourable to Jones** | ✅ **likeability confirmed as a distinct force** | ✅ **axis model clean, likeability unnecessary** |
+
+📌 **Registered consequence:** the [filed call](#-the-semifinals-resolve--and-the-axis-model-beats-the-call-i-filed-against-it) of **Jones, narrow** should be read as *conditional on the topic being axis-neutral*. **If the resolution lands on liberty-versus-state ground, the call is wrong on its own logic and should be treated as already refuted** — the axis model just beat the execution instrument once, and it would point at Thunder again.
+
+#### The live-event variables Chris flags, and one he did not
+
+He expects the ballot to survive the venue change: *"I think they still use a public voting system in the live event… while I am sure supporters from each side will be there, it should also attract a **non-partisan audience**, so reach will matter less."* **If that holds, it cuts in a useful direction — a less partisan room is a room where execution should matter more**, which is the instrument that just lost SF1. ⭐ *So the final is a second, independent test of execution-versus-axis, on a pool selected to favour execution.*
+
+⚠ **And the variable with no precedent in fourteen rounds:** *"they also have **commentators** that might sway opinions."* **No online round had live commentary between the argument and the ballot.** A commentator supplies a *frame* to a room that has not yet voted — which is the moderator-interference question ([finding 21](#cross-round-findings)) with the volume turned up and the ballot still open. **Nothing on this page is calibrated for it, and it should be watched as a format change rather than a detail.**
+
 ### 🚫 The semifinal results are being **withheld**, not delayed — and the archive format says the margins may never exist (2026-09-09)
 
 Checked at Chris's request. **The ballot is closed and the numbers are not posted, by design.**
