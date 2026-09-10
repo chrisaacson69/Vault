@@ -14,7 +14,7 @@ title: "Rights Don't Actually Exist, Only Force (Wilson vs 5)"
 **Format:** "Speed-dating" — same thesis, five fresh opponents
 **Duration:** ~22 min
 **Result:** No position changed; two opponents conceded outright; the argument was never refuted *or* completed
-**Vault relevance:** [Force Doctrine & Pragmatism](./wilson-force-doctrine-pragmatism.md), [Wilson on Triggernometry](./wilson-triggernometry-christian-nationalism.md), [Trent Horn parity](./trent-horn-vs-notsoerudite-christian-nationalism.md), [Wilson vs Objectivism](./wilson-objectivism-stance-dependence.md)
+**Vault relevance:** [Force Doctrine & Pragmatism](./wilson-force-doctrine-pragmatism.md), [Wilson on Triggernometry](./wilson-triggernometry-christian-nationalism.md), [Trent Horn parity](./trent-horn-vs-notsoerudite-christian-nationalism.md), [Wilson vs Objectivism](./wilson-objectivism-stance-dependence.md), [The Parity Move](../philosophy/epistemology/the-parity-move.md)
 
 ---
 

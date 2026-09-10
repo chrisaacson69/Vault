@@ -8,7 +8,7 @@ title: "Non-Classical Logics"
 # Non-Classical Logics
 > What happens when you challenge the other axioms? Contradictions that don't explode, truth that comes in degrees, and premises that must actually be relevant.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Intuitionistic Logic](./intuitionistic-logic.md), [Gödel's Incompleteness](./godel-incompleteness.md), [The Translation Problem](./the-translation-problem.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../dynamics/the-godel-governance-problem.md), [Scope Confusion](../morality/scope-confusion.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Intuitionistic Logic](./intuitionistic-logic.md), [Gödel's Incompleteness](./godel-incompleteness.md), [The Translation Problem](./the-translation-problem.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../dynamics/the-godel-governance-problem.md), [Scope Confusion](../morality/scope-confusion.md), [The Absoluteness Claim](./the-absoluteness-claim.md), [Formal Systems and Approximation](./formal-systems-and-approximation.md), [The Consistency Defeater](./the-consistency-defeater.md), [The SQL Argument](./the-sql-argument.md), [Theorems With Absurd Readings](./theorems-with-absurd-readings.md), [Logics In Production](./logics-in-production.md)
 
 ---
 

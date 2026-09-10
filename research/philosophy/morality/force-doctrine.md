@@ -8,7 +8,7 @@ title: "Force Doctrine — The Theory"
 # Force Doctrine — The Theory
 > Andrew Wilson's "rights don't exist, only force" is a constitutive realism that took two wrong exits. Walk its own path honestly and it lands on structure, not God-by-the-gun. The man is more right than his framework.
 
-**Links:** [Rights Don't Exist, Only Force (the early statement)](../../debates/wilson-rights-dont-exist-only-force.md), [Force Doctrine & Pragmatism](../../debates/wilson-force-doctrine-pragmatism.md), [Wilson on Triggernometry](../../debates/wilson-triggernometry-christian-nationalism.md), [The Constitutive Middle](./constitutive-middle-dialectics.md), [Scope Confusion](./scope-confusion.md)
+**Links:** [Rights Don't Exist, Only Force (the early statement)](../../debates/wilson-rights-dont-exist-only-force.md), [Force Doctrine & Pragmatism](../../debates/wilson-force-doctrine-pragmatism.md), [Wilson on Triggernometry](../../debates/wilson-triggernometry-christian-nationalism.md), [The Constitutive Middle](./constitutive-middle-dialectics.md), [Scope Confusion](./scope-confusion.md), [The Parity Move](../epistemology/the-parity-move.md)
 
 ---
 

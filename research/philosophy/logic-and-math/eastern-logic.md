@@ -8,7 +8,7 @@ title: "Eastern Logical Traditions"
 # Eastern Logical Traditions
 > The convergence proof: independent civilizations, no contact, same structural insights — centuries before the West caught up.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Logic and Mathematics](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [The Birthmark](../epistemology/the-birthmark.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Logic and Mathematics](./README.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [The Birthmark](../epistemology/the-birthmark.md), [The Absoluteness Claim](./the-absoluteness-claim.md), [The SQL Argument](./the-sql-argument.md), [Theorems With Absurd Readings](./theorems-with-absurd-readings.md), [Logics In Production](./logics-in-production.md)
 
 ---
 

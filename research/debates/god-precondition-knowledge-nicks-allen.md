@@ -12,7 +12,7 @@ title: "Is God the Necessary Precondition for Knowledge?"
 **Moderator:** Breakfast Tacos
 **Duration:** ~2.5 hours (debate proper); ~6 hours total with audience panel
 **Result:** Kurt 73% – Eli 27% (audience vote)
-**Vault relevance:** [epistemology](../philosophy/epistemology/README.md), [logic and mathematics](../philosophy/logic-and-math/README.md), [Gödel governance problem](../philosophy/dynamics/the-godel-governance-problem.md), [performative grounding](../philosophy/morality/performative-grounding-lineage.md), [scope confusion](../philosophy/morality/scope-confusion.md), [value and profit](../economics/value-and-profit.md), [the fallacy fallacy](../philosophy/tangents/the-fallacy-fallacy.md)
+**Vault relevance:** [epistemology](../philosophy/epistemology/README.md), [logic and mathematics](../philosophy/logic-and-math/README.md), [Gödel governance problem](../philosophy/dynamics/the-godel-governance-problem.md), [performative grounding](../philosophy/morality/performative-grounding-lineage.md), [scope confusion](../philosophy/morality/scope-confusion.md), [value and profit](../economics/value-and-profit.md), [the fallacy fallacy](../philosophy/tangents/the-fallacy-fallacy.md), [Malpass vs Dyer 2019](./malpass-dyer-tag-logic.md), [The Parity Move](../philosophy/epistemology/the-parity-move.md)
 
 ---
 
@@ -114,11 +114,15 @@ The bridge Kurt needed: "Even if your foundational account is correct, it's expl
 
 Eli's argument depends on the laws of logic being universal, invariant, and complete. Several well-established results show they are none of these:
 
+> **Sequencing note (added 2026-09-10):** this toolkit is ordered wrongly for live use. Sorites is the *weakest* item in it and it leads; the items an opponent cannot take back are elsewhere. For the ordered version — and for the case against premise 1 made without Gödel or self-reference — see [The Absoluteness Claim](../philosophy/logic-and-math/the-absoluteness-claim.md).
+
 ### The Sorites Paradox (Heap Problem)
 
 One grain of sand is not a heap. Adding one grain to a non-heap doesn't make it a heap. Therefore, no amount of sand is ever a heap. Classical logic + reasonable premises = absurd conclusion.
 
-This directly attacks the law of identity: at what exact grain does the non-heap become a heap? If identity is a clean universal truth about external reality, this should have a clean answer. It doesn't. The boundary is constrained but not sharp — identity is a practical tool, not a metaphysical universal.
+**Correction (2026-09-10):** this page previously filed sorites under the law of *identity*. That was wrong. Sorites attacks **bivalence and vague predicates** — the excluded middle's insistence that "this is a heap" must be either true or false. Identity is not what is at stake: nobody disputes that a heap is a heap. What's disputed is whether the predicate has a sharp boundary. Run against identity, the argument invites a correct rebuttal; run against bivalence, it doesn't.
+
+Also: never run it as a reductio ("therefore there are no heaps"), which asks the audience to deny what they can see. Run it as a **dilemma** — *name the grain, or admit you're asserting a fact nobody can ever access, or accept degrees* — and then note that engineers took the third horn and built working machinery on it (fuzzy control).
 
 **The continuum fallacy defense and why it backfires:** The standard dismissal is "that's the continuum fallacy — fuzzy boundaries don't eliminate real distinctions." Correct. But this concedes the position: if fuzzy boundaries don't eliminate real distinctions, then identity is pragmatically useful without being metaphysically sharp. You can't simultaneously invoke the continuum fallacy ("fuzzy but useful") and claim the law of identity is a universal immaterial truth requiring divine grounding. If it's fuzzy but useful, it's pragmatic — and pragmatic tools don't need God.
 
@@ -185,7 +189,7 @@ The abandoned price theory thread connects to [Value and Profit](../economics/va
 ## Open Questions
 
 - The **fallacy fallacy** — does identifying a logical fallacy in an argument actually prove the conclusion is wrong? Or does it only prove the argument is invalid? TAG may be poorly argued while the conclusion happens to be true. The fallacy fallacy is the meta-level version of the regularity trap: "your argument has a flaw" ≠ "your conclusion is false."
-- Can the strange loop / Gödel argument be made accessible to non-technical audiences without being dismissed as a "trick"? What's the right framing?
+- ~~Can the strange loop / Gödel argument be made accessible to non-technical audiences without being dismissed as a "trick"? What's the right framing?~~ **RESOLVED 2026-09-10** → [The Absoluteness Claim](../philosophy/logic-and-math/the-absoluteness-claim.md). The framing: don't make the Gödel argument accessible — *route around it*. Three moves, none requiring self-reference. (1) **Unbundle the three laws** into a tautology, a bookkeeping rule with an escape hatch Aristotle installed himself, and one genuine empirical bet — only the third asserts anything about the world, and it's the one that keeps losing. (2) **Use non-Euclidean geometry as the vehicle** — the parallel postulate was the paradigm self-evident absolute for 2,000 years, Kant staked his epistemology on it, and spacetime turned out curved. Finished history, uncontested, structurally identical, dismissible as nothing. (3) **Argue from theorems, not mistakes** — the drinker paradox and explosion are *their* theorems with absurd readings, so "you translated badly" is unavailable. Explosion in particular delivers the Gödel payload (you must assume your own consistency) with no self-reference at all.
 - Where exactly does "constructed but convergent" become indistinguishable from "discovered"? The vault holds these are different, but the practical distinction may be thinner than claimed. (See [Logic and Mathematics — Open Question #1](../philosophy/logic-and-math/README.md))
 - Kurt's embodied cognition position — that knowledge is constrained by biology, not grounded in metaphysics — is the vault's physical constraints argument applied to epistemology. Does this deserve its own page, or does it fold into the existing [epistemology stub](../philosophy/epistemology/README.md)?
 

@@ -52,3 +52,4 @@ Closest philosophical neighbors: same bottom-up method, secular grounding, reaso
 ## Tags
 
 [philosophy](../../../tags/philosophy.md), [epistemology](../../../tags/epistemology.md)
+- [The Parity Move](./the-parity-move.md) — the instrument derived from [the regress problem](./the-regress-problem.md): apply the accounting demand symmetrically. Defeats a uniqueness claim, never a conclusion; Euthyphro is its moral instance; *the leveler is the door, not the room*.

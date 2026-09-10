@@ -8,7 +8,7 @@ title: "Gödel Against Himself"
 # Gödel Against Himself
 > The man whose theorems break Platonism was a Platonist. Understanding why he's wrong about his own work is the key to the Vault's interpretation of incompleteness.
 
-**Links:** [History of Logic](../research/philosophy/logic-and-math/history-of-logic.md), [Emergence and Convergence](../research/philosophy/logic-and-math/emergence-and-convergence.md), [Counting Requires Agents](./bridge-logic-to-morality.md), [Agency as Moral Ground](./bridge-logic-to-morality.md), [TAG Debate](../research/debates/god-precondition-knowledge-nicks-allen.md)
+**Links:** [History of Logic](../research/philosophy/logic-and-math/history-of-logic.md), [Emergence and Convergence](../research/philosophy/logic-and-math/emergence-and-convergence.md), [Counting Requires Agents](./bridge-logic-to-morality.md), [Agency as Moral Ground](./bridge-logic-to-morality.md), [TAG Debate](../research/debates/god-precondition-knowledge-nicks-allen.md), [The Absoluteness Claim](../research/philosophy/logic-and-math/the-absoluteness-claim.md), [Formal Systems and Approximation](../research/philosophy/logic-and-math/formal-systems-and-approximation.md), [The Consistency Defeater](../research/philosophy/logic-and-math/the-consistency-defeater.md), [Malpass vs Dyer 2019](../research/debates/malpass-dyer-tag-logic.md)
 **Source:** [Stanford Encyclopedia — Gödel's Philosophy](https://plato.stanford.edu/entries/goedel/#GodPhiVie)
 
 ---

@@ -8,7 +8,7 @@ title: "Intuitionistic Logic"
 # Intuitionistic Logic
 > What if truth requires proof? Drop the excluded middle and logic becomes constructive — and accidentally invents the theoretical foundation of programming.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [The Formal Revolution](./formal-revolution.md), [Gödel's Incompleteness](./godel-incompleteness.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Aristotelian Logic](./aristotelian-logic.md), [The Formal Revolution](./formal-revolution.md), [Gödel's Incompleteness](./godel-incompleteness.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md), [The Absoluteness Claim](./the-absoluteness-claim.md), [Formal Systems and Approximation](./formal-systems-and-approximation.md), [The Consistency Defeater](./the-consistency-defeater.md), [The SQL Argument](./the-sql-argument.md), [Theorems With Absurd Readings](./theorems-with-absurd-readings.md), [Logics In Production](./logics-in-production.md)
 
 ---
 

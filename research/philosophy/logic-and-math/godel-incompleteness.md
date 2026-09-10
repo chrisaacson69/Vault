@@ -8,7 +8,7 @@ title: "Gödel's Incompleteness Theorems"
 # Gödel's Incompleteness Theorems
 > No sufficiently powerful formal system can be both complete and consistent. Logic knows it has limits — and it proved it about itself.
 
-**Links:** [A History of Logic](./history-of-logic.md), [The Formal Revolution](./formal-revolution.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../dynamics/the-godel-governance-problem.md), [Computation and Information Theory](../../computation-and-information.md), [The Translation Problem](./the-translation-problem.md)
+**Links:** [A History of Logic](./history-of-logic.md), [The Formal Revolution](./formal-revolution.md), [Logic and Mathematics](./README.md), [The Gödel Governance Problem](../dynamics/the-godel-governance-problem.md), [Computation and Information Theory](../../computation-and-information.md), [The Translation Problem](./the-translation-problem.md), [The Absoluteness Claim](./the-absoluteness-claim.md), [Formal Systems and Approximation](./formal-systems-and-approximation.md), [The Consistency Defeater](./the-consistency-defeater.md)
 
 ---
 

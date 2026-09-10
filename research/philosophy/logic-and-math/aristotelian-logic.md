@@ -8,7 +8,7 @@ title: "Aristotelian Logic"
 # Aristotelian Logic
 > The first formal system of reasoning — and the default assumption in almost every philosophy debate today.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Logic and Mathematics](./README.md), [HoP Ep 3: Heraclitus](../tangents/history-of-philosophy/03-heraclitus.md), [HoP Ep 4: Parmenides](../tangents/history-of-philosophy/04-parmenides.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Logic and Mathematics](./README.md), [HoP Ep 3: Heraclitus](../tangents/history-of-philosophy/03-heraclitus.md), [HoP Ep 4: Parmenides](../tangents/history-of-philosophy/04-parmenides.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md), [The Absoluteness Claim](./the-absoluteness-claim.md), [Formal Systems and Approximation](./formal-systems-and-approximation.md), [The Consistency Defeater](./the-consistency-defeater.md)
 
 ---
 

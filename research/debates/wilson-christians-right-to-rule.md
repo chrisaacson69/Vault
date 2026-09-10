@@ -14,7 +14,7 @@ title: "Christians Have as Much Right to Rule as Secularists (Wilson vs 5)"
 **Format:** "Speed-dating" — same thesis, five fresh opponents (the [rights-don't-exist](./wilson-rights-dont-exist-only-force.md) format, different claim)
 **Duration:** ~26 min
 **Result:** One outright concession (O2); three stalemates on the clock; one (O3) holds the line and turns the reciprocity test back on Wilson
-**Vault relevance:** [Rights Don't Exist, Only Force](./wilson-rights-dont-exist-only-force.md), [Trent Horn vs NotSoErudite](./trent-horn-vs-notsoerudite-christian-nationalism.md), [Force Doctrine — The Theory](../philosophy/morality/force-doctrine.md), [Wilson on Triggernometry](./wilson-triggernometry-christian-nationalism.md)
+**Vault relevance:** [Rights Don't Exist, Only Force](./wilson-rights-dont-exist-only-force.md), [Trent Horn vs NotSoErudite](./trent-horn-vs-notsoerudite-christian-nationalism.md), [Force Doctrine — The Theory](../philosophy/morality/force-doctrine.md), [Wilson on Triggernometry](./wilson-triggernometry-christian-nationalism.md), [The Parity Move](../philosophy/epistemology/the-parity-move.md)
 
 ---
 

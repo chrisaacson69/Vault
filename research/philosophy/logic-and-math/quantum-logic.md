@@ -8,7 +8,7 @@ title: "Quantum Logic"
 # Quantum Logic
 > The other non-classical logics were invented by philosophers. This one was demanded by nature.
 
-**Links:** [A History of Logic](./history-of-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Aristotelian Logic](./aristotelian-logic.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md)
+**Links:** [A History of Logic](./history-of-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Aristotelian Logic](./aristotelian-logic.md), [Logic and Mathematics](./README.md), [Computation and Information Theory](../../computation-and-information.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md), [The Absoluteness Claim](./the-absoluteness-claim.md), [Formal Systems and Approximation](./formal-systems-and-approximation.md), [The Consistency Defeater](./the-consistency-defeater.md)
 
 ---
 
