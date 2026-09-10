@@ -332,7 +332,7 @@ than the triviality exchange.
 ## Vault Connections
 
 - [The Constitutive/Elective Distinction](../philosophy/morality/constitutive-elective.md) — deployed live at #10; this call is a field test of it.
-- [Morality — Open Problems](../philosophy/morality/open-problems.md) — #2 already carries "one should think"; this call is its first adversarial trial, and the `trivial` objection is a live threat to it.
+- [Morality — Open Problems](../philosophy/morality/open-problems.md) — #2 already carries "one should think"; this call is its first adversarial trial. **The `trivial` objection now has an answer (2026-09-10):** the semantic/pragmatic split explains why the charge feels apt — the norm is practice-relative, binding only inside a claim on another mind — and **reliance** supplies the moral force the performative escape cannot (asserting asks someone to rely on your having thought; careless assertion abuses that, the same structure as promise-breaking). Also relevant to the capital-punishment tension above: neither *you should live* nor *you should exist* is semantically self-defeating to deny, so both sit in the pragmatic column and are Move-2 arguments, not performative ones.
 - [Sitch vs. Ryan Mullally — Birthright Citizenship & Natural Law](./sitch-mullally-birthright-citizenship.md) — same interlocutor; source of the "one should think" promotion.
 - [Lance Bush vs. Mullally — Metaethics](./lance-bush-mullally-metaethics.md) — Bush's trilemma (trivial/false/incomprehensible) is the weapon Mullally borrowed at #7.
 - [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md) — "trivial is a cheap way out" is the frustration that page formalises.

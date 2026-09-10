@@ -44,12 +44,23 @@ This is the vault's signature exit, traced from Aristotle (*Metaphysics* IV.4) f
 
 The [operability test](./the-parity-move.md#a-fourth-option-not-a-fourth-horn) — *can you operate without it?* — sorts cleanly at the top and murkily in the middle. The murk is where the strongest opponents attack, so it is worth grading explicitly:
 
-| Tier | The denial… | Members | Strength |
-|---|---|---|---|
-| **1 — semantic self-defeat** | cannot be coherently **stated**; asserting it deploys the thing denied | non-contradiction; one's own existence as a reasoner; that assertions mean something determinate | airtight (Aristotle, *Metaphysics* IV.4) |
-| **2 — pragmatic indispensability** | can be stated, and may even be true; what cannot be done is **live** it | induction; the reliability of memory; other minds; agency-as-effort | real but weaker — not a self-refutation |
+| Test | The denial… | Members |
+|---|---|---|
+| **Semantic self-defeat** | cannot be coherently **stated**; asserting it deploys the thing denied | non-contradiction; one's own existence as a reasoner; that assertions mean something determinate |
+| **Pragmatic indispensability** | can be stated, and may even be true; what cannot be done is **live** it | induction; the reliability of memory; other minds; agency-as-effort |
 
-The asymmetry is exact. *"There are true contradictions"* excludes its own negation in the act of assertion, so it says nothing. *"Induction is unjustified"* is **coherent, meaningful, non-self-contradicting, and Hume thought it was true** — and he was arguably right. What he could not do was stop eating breakfast.
+**⚠ Correction (Chris, 2026-09-10): these are two independent axes, not a strength ordering.** An earlier version of this section called them Tier 1 and Tier 2 and ranked the first above the second. The test case that breaks the ranking is **"one should think"** — semantically self-defeating to deny (your denial asks me to accept it *because you reasoned to it*) yet **not** pragmatically indispensable (people live largely unthinking, and manage). That is the inverse profile from induction, so the two tests cross:
+
+| | **Pragmatically indispensable** | **Not pragmatically indispensable** |
+|---|---|---|
+| **Semantically self-defeating to deny** | non-contradiction; self-existence as a reasoner | **"one should think"** |
+| **Not semantically self-defeating** | induction; reliability of memory | the parallel postulate; excluded middle |
+
+All four cells are populated, and the off-diagonal cells are the informative ones. See [Morality Open-Problems #2](../morality/open-problems.md) for what the crossing does to "one should think" as a candidate moral fact.
+
+There is also a gradation *within* the semantic test worth keeping: **unconditional** self-defeat (non-contradiction — every assertion whatsoever needs determinate content) versus **practice-relative** self-defeat ("one should think" — self-defeating to deny only *inside* the practice of claiming someone's assent). The second is real but narrower.
+
+The asymmetry between the two tests is exact. *"There are true contradictions"* excludes its own negation in the act of assertion, so it says nothing. *"Induction is unjustified"* is **coherent, meaningful, non-self-contradicting, and Hume thought it was true** — and he was arguably right. What he could not do was stop eating breakfast.
 
 **Three consequences, and the vault should own all of them:**
 

@@ -28,6 +28,38 @@ The framework may not need an absolute if probabilistic heuristics evaluated by 
 
 **The universality↔implementability trade (the reframe that reorganizes this problem).** "Absolute = applies in *every* situation" is a physically impossible bar for any actor-bound, physics-bound morality; the only thing at that limit is God. So the candidates lie on a curve: *"one should think"* is **maximally implementable but domain-bounded**; *"do as God wills"* is **maximally universal but uncomputable** (epistemically inaccessible — it just relocates the is-ought gap into knowing God's will). The more universal the claim, the less operational. So the right question may not be "is there an absolute?" but "**where on the universality/implementability curve do you want to sit?**" — which is why the framework runs on domain-bounded, scope-limited norms rather than a single universal. (See [debate review](../../debates/sitch-mullally-birthright-citizenship.md) §Discussion.)
 
+**The semantic/pragmatic test (Chris, 2026-09-10) — and it splits the candidate.** Applying the two-axis grading from [The Regress Problem](../epistemology/the-regress-problem.md#the-escape-has-two-strengths-and-conflating-them-is-how-it-gets-overextended):
+
+> *"'One should think.' Semantically it is a moral fact backed by performative grounding, maybe not the case pragmatically."*
+
+That is right, and it is the most useful thing said about this candidate so far, because **the two tests come apart in opposite directions for the two flagship cases**:
+
+| | Semantically self-defeating to deny? | Pragmatically indispensable? |
+|---|---|---|
+| non-contradiction | **yes** | **yes** |
+| induction | no — Hume stated it and meant it | **yes** |
+| **"one should think"** | **yes** | **no** — people live largely unthinking, and manage |
+
+So the escape is a 2×2, not a ladder, and "one should think" occupies the cell nobody had looked at: **strong on the semantic test, weak on the pragmatic one.** Three consequences for this open problem:
+
+**1. It repairs the retortion argument, which was stated too weakly.** *"Denying it requires thinking"* is vulnerable to the standard objection to performative arguments: **doing X does not entail you should do X.** I breathe while asserting "one should not breathe," and no contradiction follows — I merely happen to breathe. The repaired version does not rest on the *occurrence* of cognition:
+
+> Your denial asks me to accept it **because you reasoned to it.** If thinking carries no normative authority, your conclusion carries none either — so the denial destroys its own standing. The self-defeat is in the *authority of the assertion*, not in the fact that a brain was running.
+
+That version survives the objection. The naive one does not, and it is the one the vault has been carrying.
+
+**2. It gives a better account of the domain limit than "reactive situations."** The limit above is stated as *inapplicability where no conscious decision is being made*. The pragmatic result locates it more precisely: the norm is **constitutive of the practice of claiming someone's assent**, and outside that practice the performative escape yields nothing at all. The domain is not "situations involving deliberation" — it is **situations in which you are making a claim on another mind.** Narrower, and checkable.
+
+**3. It explains the `trivial` objection — and answers it.** The [Mullally call](../../debates/chris-mullally-callin.md) flagged triviality as a live threat, and the pragmatic weakness is *why* the charge feels apt: if the norm binds only inside assertion, it looks like a rule of the debating room with nothing to say about life.
+
+The answer is **reliance**, borrowed from the [driving specimen](../constructed-not-arbitrary.md#the-driving-specimen--arbitrary-content-real-obligation): asserting something to someone asks them to rely on your having thought. Careless assertion abuses that reliance, and *that* is an ordinary moral wrong against a person — the same structure as breaking a promise, where the content is arbitrary and the obligation is not.
+
+Which yields the division of labour the candidate needed:
+
+> **The performative escape earns *inescapability within assertion*. Reliance earns *moral*.** Two different jobs, and running them together is what made the triviality charge stick — the escape was being asked to deliver a moral conclusion it cannot reach on its own.
+
+So the candidate survives, downgraded and sharpened: **not an absolute, but a real, narrow, non-trivial norm** — practice-relative in its self-defeat, moral by way of reliance, and sitting exactly where the universality↔implementability curve predicts (maximally implementable, tightly domain-bounded). Note also that it does **not** rescue grounding facts #2 and #3 (*you should live*, *you should exist*), which the Mullally call left in tension with capital punishment: neither is semantically self-defeating to deny, so both fall to the pragmatic column, where the argument is Move 2 territory rather than performative.
+
 ## 3. The Timescale Problem
 
 Immoral strategies can dominate for generations. Error correction is a civilizational process, not an individual one. How does an individual navigate when the lagging indicators haven't caught up yet?

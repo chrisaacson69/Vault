@@ -67,6 +67,21 @@ It does *not* ground the margins: lifestyle choices, art preferences, risk toler
 
 **Connection to the weighting problem:** Convergence of weightings at the core tracks real patterns in survival and flourishing (grounded by performative contradiction), while subjectivity persists at the margins where multiple weightings are compatible with continued existence.
 
+## Two Tests, And The Repaired Retortion Form
+
+Performative arguments come in two strengths and the vault used to run them together (corrected 2026-09-10 — see [The Regress Problem](../epistemology/the-regress-problem.md#the-escape-has-two-strengths-and-conflating-them-is-how-it-gets-overextended)):
+
+- **Semantic self-defeat** — the denial cannot be coherently *stated*. Non-contradiction, one's own existence as a reasoner. Airtight, and *unconditional*.
+- **Pragmatic indispensability** — the denial can be stated and may be true; it cannot be *lived*. Induction, memory reliability, other minds. Real, but not a self-refutation — Hume stated the induction denial, meant it, and kept eating breakfast.
+
+They are **independent axes, not a ranking**: *“one should think”* is semantically self-defeating to deny and *not* pragmatically indispensable, the inverse of induction. See [Open Problems #2](./open-problems.md#2-naming-an-absolute-moral-truth).
+
+**And the retortion form matters.** The weak version — *“denying it requires doing it”* — faces the obvious objection that **doing X does not entail you should do X**: I breathe while asserting *“one should not breathe”* and nothing follows. The version that survives does not appeal to the occurrence of the act at all:
+
+> The denial asks you to accept it **because the denier reasoned to it.** If the activity carries no normative authority, the conclusion carries none either. The self-defeat is in the **authority of the assertion**, not in the fact that it happened.
+
+Every performative argument on this page should be checked against that form before deployment.
+
 ## The Prescribing Anti-Realist Self-Refutes
 
 The performative move is usually aimed at the *skeptic* ("try to deny you value existence"). It also bites the *advocate*. **To prescribe a norm is to performatively presuppose that the norm is correct to adopt — not merely preferred.** Anyone who argues "you *ought* to accept X" while holding "there are no objective oughts" is in a performative contradiction one level deeper than the familiar epistemic one (making truth-claims while denying truth is knowable). The contradiction here is *normative*: moral anti-realism denied in the very act of moral prescription.
