@@ -8,7 +8,7 @@ title: "Morality — Debate FAQ"
 # Morality — Debate FAQ
 > Common objections to the vault's moral framework, with responses. A living document — grows as new arguments are encountered.
 
-**Links:** [Morality Framework](./README.md), [Performative Grounding](./performative-grounding-lineage.md), [Scope Confusion](./scope-confusion.md), [Deontology vs. Consequentialism](./deontology-consequentialism.md), [Action/Inaction Asymmetry](./README.md#the-actioninaction-asymmetry), [The Sheriff Problem](../../debates/utilitarianism-sheriff-counterexample.md), [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md)
+**Links:** [Morality Framework](./README.md), [Performative Grounding](./performative-grounding-lineage.md), [Scope Confusion](./scope-confusion.md), [Deontology vs. Consequentialism](./deontology-consequentialism.md), [Action/Inaction Asymmetry](./README.md#the-actioninaction-asymmetry), [The Sheriff Problem](../../debates/utilitarianism-sheriff-counterexample.md), [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md), [The Parity Move](../epistemology/the-parity-move.md), [The Regress Problem](../epistemology/the-regress-problem.md)
 
 ---
 
@@ -21,6 +21,28 @@ title: "Morality — Debate FAQ"
 **The full argument:** [Performative grounding](./README.md). The person asking "why be moral?" has already answered the question — they're alive, acting, choosing to ask. Their behavior demonstrates a preference for continued existence that their words pretend to question. Denying your existence, consciousness, or agency requires using all three. See also: [Performative Grounding — Lineage](./performative-grounding-lineage.md) for 2,400 years of independent precedent (Aristotle, Apel, Gewirth, Hoppe, Korsgaard).
 
 **If they push TAG:** "Only God can ground morality/logic/uniformity." Two independent demolitions: (1) TAG is question-begging — "only God provides a universal ground" IS the conclusion restated as a premise; (2) the vault provides an alternative ground (agency), so "only God" is factually false. See [bridge planning](../../../notes/bridge-logic-to-morality.md) for the full two-vector attack.
+
+### "You can't KNOW right from wrong without God"
+
+**Note the difference from the entry above.** That one is metaphysical (*what makes it wrong?*); this one is **epistemic** (*how could you know?*). They get run together, and separating them is most of the work — because the standard reply to this entry is a switch back to the other one.
+
+**The short answer — experience, and it needs far fewer trials than they assume.** From Chris: *"a person doesn't have to burn themselves over and over in order to realize putting their hand in a fire is bad."* One encounter, plus a working model of what a body is, and you're done. No revelation, no canon, no interpretation — first-person, non-inferential, and available to a child.
+
+**The reply you will get: "that's just a preference."** Usually with a sadist or a masochist attached. Four answers, and the first is the important one:
+
+1. **Name the switch.** The claim was that you *cannot know*. "It's just a preference" concedes that you do know and disputes whether what you know is *normative*. That is a different argument, and they have dropped the first one. Make them say which they're running.
+2. **Refuse the word "just."** A non-chosen, physiologically caused, cross-culturally invariant response present in every functioning member of the species is not "just" a preference in the dismissive sense that word is smuggling. The whole objection lives in that one syllable — so make them defend it. Compare [Constructed ≠ Arbitrary](../constructed-not-arbitrary.md): *arbitrary in origin* and *really binding* are compatible, and the [driving specimen](../constructed-not-arbitrary.md#the-driving-specimen--arbitrary-content-real-obligation) is the clean existence proof.
+3. **The sadist is evidence *for* the claim.** This is the reversal worth having ready: the sadist's enjoyment is **parasitic on the harm being real.** If the burn weren't bad for the victim, there would be nothing there to enjoy. Far from being a counterexample, the case presupposes exactly what it was produced to deny. (And a *masochist* is a different objection — consent. A consenting masochist isn't a case where non-consensual harm is permitted; it's a case where it's **absent.** See [Scope Confusion](./scope-confusion.md).)
+4. **Margin vs core.** Even taken at face value, one atypical pain response is [variance at the margin against a near-universal invariant](../constructed-not-arbitrary.md#variance-at-the-margin-doesnt-refute-the-invariant-at-the-core) — the standard low-N cherry-pick. The masochist who enjoys a controlled burn still flees a house fire, still needs the burn unit, still dies of sepsis. The nociceptive system is intact; what varies is the framing of a narrow band of stimulus.
+
+**Then turn it around, because their route is longer than yours.** "How do you know *with* God?" requires (i) that God exists, (ii) what is commanded, (iii) that you have interpreted it correctly — three inferential steps, each contestable, resting on testimony, transmission, canon and hermeneutics. **The fire gives you one step and no intermediaries.** On the epistemic question actually asked, experience is the *cheaper* route, not the desperate one. See [The Parity Move](../epistemology/the-parity-move.md).
+
+**If they escalate to induction — this is their strongest card, and it is a real argument.** Dyer runs it in 2019 (Hume → logical positivism → Quine's *Two Dogmas*: induction still has no rational justification). Do not pretend it is a trick. Two answers:
+
+- **The fire argument never needed the thing Hume attacked.** "Don't put your hand in fire" does not require *nature is uniform for all future time*. It requires that this kind of thing damaged you, that damage is bad for you, and that you have no reason to think this instance differs. **The normative conclusion follows from a merely probable, defeasible expectation** — you don't need certainty that fire will burn you, only expected cost high enough to avoid it. Hume's gap is real and **it does not reach the moral claim.**
+- **And their ground fares no better.** "God guarantees the regularity" needs you to know God exists, is truthful, and won't change the rules — and most arguments *to* God's existence are themselves inductive or abductive, which closes the loop. A presuppositionalist avoids that by making it self-attesting instead, which is [parity](../epistemology/the-parity-move.md), not an answer. Meanwhile the structure works: [evaluate what's built on the foundation](../epistemology/the-regress-problem.md), because unjustifiable does not mean arbitrary.
+
+⚠ **Known gap:** the vault has no page on the problem of induction — only a passing mention in [Aristotle's epistemology](../tangents/history-of-philosophy/14-aristotle-epistemology.md). Given it is the strongest card the strongest opponents play, that is the most valuable unbuilt page in this area.
 
 ### "Name one absolute moral truth"
 

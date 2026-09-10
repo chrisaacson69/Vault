@@ -40,6 +40,25 @@ Some "foundations" are not assumed at all — they are **constitutive** of reaso
 
 This is the vault's signature exit, traced from Aristotle (*Metaphysics* IV.4) forward. **The credential is *validated in use*, not *self-evident*** — a distinction that matters because self-evidence has a failure record (the parallel postulate held it for two thousand years) while the operability test does not. The test — *can you operate without it?* — and why the escape is a fourth **option** rather than a fourth **horn**: [The Parity Move](./the-parity-move.md#a-fourth-option-not-a-fourth-horn). The vocabulary that makes it communicable is [constitutive vs. elective](../morality/constitutive-elective.md); the mechanism at the agency level is [performative grounding](../morality/is-ought-and-performative-grounding.md). You "didn't choose logic the way you chose your shirt — there are no other options, and the 'other options' use the same axioms to argue against them."
 
+#### The escape has two strengths, and conflating them is how it gets overextended
+
+The [operability test](./the-parity-move.md#a-fourth-option-not-a-fourth-horn) — *can you operate without it?* — sorts cleanly at the top and murkily in the middle. The murk is where the strongest opponents attack, so it is worth grading explicitly:
+
+| Tier | The denial… | Members | Strength |
+|---|---|---|---|
+| **1 — semantic self-defeat** | cannot be coherently **stated**; asserting it deploys the thing denied | non-contradiction; one's own existence as a reasoner; that assertions mean something determinate | airtight (Aristotle, *Metaphysics* IV.4) |
+| **2 — pragmatic indispensability** | can be stated, and may even be true; what cannot be done is **live** it | induction; the reliability of memory; other minds; agency-as-effort | real but weaker — not a self-refutation |
+
+The asymmetry is exact. *"There are true contradictions"* excludes its own negation in the act of assertion, so it says nothing. *"Induction is unjustified"* is **coherent, meaningful, non-self-contradicting, and Hume thought it was true** — and he was arguably right. What he could not do was stop eating breakfast.
+
+**Three consequences, and the vault should own all of them:**
+
+1. **Induction sits in Tier 2, which means Move 1 does not cover it.** That matters, because induction is precisely what the best presuppositional opponents attack — Dyer runs it as his heaviest card (Hume → logical positivism → Quine's *Two Dogmas*), and it is a serious argument, not a rhetorical trick. Answering it with the performative escape at full strength is an overreach that a trained opponent will catch. **Induction belongs to Move 2**: not justified, but indispensable and enormously successful, which is the right kind of warrant by this page's own standard.
+2. **Memory is not even an escape — it is honestly circular.** You cannot check memory against anything except memory. That is horn 3, squarely inside the trilemma, and we live with it. Pretending otherwise would be exactly the error the [Objectivist specimen](../../debates/malpass-dyer-tag-logic.md#the-critic-video--objectivists-and-a-three-way-fight) makes.
+3. **The narrowness is the credential.** Tier 1 has a handful of members and that is what makes it believable. An escape that validated induction, memory, other minds, an ethics and a deity would validate nothing — see the [scope discipline](./the-parity-move.md#scope-discipline--what-it-does-not-do) on the parity page, which is the same warning pointed at the same instrument.
+
+⚠ **Unbuilt:** the vault has no page on the problem of induction — only a line in [Aristotle's epistemology](../tangents/history-of-philosophy/14-aristotle-epistemology.md). It is the most valuable gap in this area, because Tier 2's most-attacked member has no home to defend it from.
+
 ### Move 2 — Evaluate the Structure, Not the Foundation (for everything else)
 
 For foundations that genuinely are assumed (mathematical axioms, "God exists," "suffering is bad"), unjustifiable does **not** mean arbitrary. **Math is the paradigm case**: Peano axioms are unprovable, yet bridges don't fall down. The edifice is evaluated by coherence, predictive power, and observed outcomes — at the level of the *structure*, not the *base*. Two systems can rest on equally-unjustifiable foundations and still differ in quality, because the errors live in the middle (inferences, applications, edge cases), not at the base.
