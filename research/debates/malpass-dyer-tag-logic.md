@@ -221,6 +221,65 @@ The method around it is the presuppositional **"arbitrary standard" tu quoque** 
 - **The one counter the vault already has is exactly on target** — the speed-of-light challenge from [Nicks vs Allen](./god-precondition-knowledge-nicks-allen.md) `:97`: *"The speed of light is universal and immaterial. Is it a concept in God's mind, or is it just how photons behave? If it's just how photons behave, then you have a universal immaterial pattern without a mind."* That hits the universals premise directly, which is where he actually lives.
 - **Parity is the counter to holism.** If no starting point is neutral and everyone reasons inside a paradigm, then *"my paradigm accounts for it"* is available to everyone, and the contest becomes an ordinary comparison of paradigms on their merits — not a transcendental proof. The vault already runs this (the boomerang at `:77`), and it needs promoting to a thesis rather than sitting inside a debate review.
 
+## The Critic Video — Objectivists, And A Three-Way Fight
+
+**Source:** [Jay Dyer Perverts Aristotle's Defense of Logic](https://www.youtube.com/watch?v=d7BT4ZpTQPE) — The Void Podcast, 115 min, ~20,000 words. Hosts plus **James Valliant** and "Jim San Pay"; explicitly **Objectivist** (Peikoff cited at 4:20 as "Ayn Rand's intellectual heir", Rand referenced throughout, and Rand's axiomatic triad — *existence, identity, consciousness* — stated as the foundation at 38:00).
+
+### It misses Dyer's actual argument, at length
+
+| Term | Count in 115 min |
+|---|---|
+| Aristotle / Aristotelian | **47** |
+| universals | 8 |
+| predication | 2 |
+| paradigm | 15 |
+| **one and the many** | **0** |
+| **holism** | **0** |
+| **Van Til / Bahnsen** | **0** |
+| **"account for"** | **0** |
+
+A near-two-hour critique built almost entirely on the **Aristotle** framing — the one thing Dyer explicitly disclaims (*"I have a severe critique of Aristotle, so I don't want to give the impression that I'm an Aristotelian"*, 2019, 62:52) — and it never touches the one-and-many, worldview holism, or the "account for your preconditions" demand that actually carry his argument.
+
+**This is independent confirmation of the [clickbait finding](#the-clickbait-finding), from the other side.** The critics absorbed the same title-level framing the fans did. It is also the exact error this cluster nearly made, which is the useful part: *the argument you find in the titles is not the argument the arguer holds — and that goes for critics too.*
+
+### They make the precise error the vault already documented
+
+At 17:23–17:39 they run Agrippa's trilemma as self-refuting and treat it as a kill:
+
+> *"Agrippa's trilemma is self-refuting. If all things are axiomatic — the reduction to axiomatic — are we making a truth claim?"* / *"You are making a truth claim."* / *"And is that truth claim justified?"* / *"No."* / **"What a disaster."**
+
+[The Regress Problem](../philosophy/epistemology/the-regress-problem.md) names this specifically: *"The most common error is to treat the trilemma as a competing thesis and declare it 'self-refuting'… This is a category error. Agrippa's trilemma is a diagnostic tool — like the halting problem in computation or Euthyphro's dilemma in ethics. It describes the structure of justification; it does not enter the contest it describes. Asking 'is the trilemma true?' is like asking whether the halting problem halts."*
+
+**A live specimen of a predicted error, performed as a victory lap.** Ledger wired to the regress page.
+
+### They independently make the parity move against Dyer
+
+At 33:15–34:21, on Dyer's embrace of foundational circularity:
+
+> *"the necessity, as he says, of circularity when we get to fundamental axioms… the circularity is a good thing on the level of what he calls the paradigmatic level of axioms… Now, when you actually debate Jay against his opponents — **it's good for me, but not for thee** — because then when you point out that he's smuggling in something that he's denying…"*
+
+That is the selective-universal-solvent charge, arrived at independently: circularity licensed for his own foundation and forbidden to everyone else's. Specimen for [The Parity Move](../philosophy/epistemology/the-parity-move.md).
+
+### The genuinely interesting part: this is a three-way fight, and the vault is the third party
+
+| | Are the laws absolute? | What grounds them | Route |
+|---|---|---|---|
+| **Dyer** | Yes — as "principles" | God (immanent + transcendent, omniscient) | transcendental argument, worldview holism |
+| **Objectivist critics** | **Yes** — axiomatic concepts (existence, identity, consciousness) | self-evident; validated in the act of using them | Aristotelian axioms; **Agrippa rejected as self-refuting** |
+| **The vault** | **No** — constructed, a rendering | Agrippa binds everyone; performative escape for the constitutive axioms; then judge the *structure* | structural realism |
+
+Three consequences worth having:
+
+1. **The critics share premise 1 with Dyer and fight only premise 2.** Objectivism *needs* identity to be axiomatic and absolute — so **the entire Tier 4 logic-pluralism argument is unavailable to them.** Deploying it would demolish their own foundation. They are locked into "the laws are absolute *and* self-evident *and* need no God," which is a much narrower road than the vault's.
+2. **They use the vault's own Move 1 — the performative escape — to do it.** On free will at 37:20–37:29: *"It too is axiomatic, because if indeed thinking takes an effort, I have to engage in that effort whether I'm trying to prove it or disprove it. The determinist is in effect arguing for you to choose determinism."* And: *"Proof presupposes free will."* That is [the regress page's](../philosophy/epistemology/the-regress-problem.md) signature exit, traced from *Metaphysics* IV.4.
+3. **So the vault agrees with each side against the other.** With Dyer against the Objectivists: there is no self-validating foundation, and calling Agrippa self-refuting is a category error. With the Objectivists against Dyer: that fact does not get you God. **That is precisely the shape of [The Parity Move](../philosophy/epistemology/the-parity-move.md)** — and it is why the vault's position is not a midpoint between the two but a different axis.
+
+**And it sharpens the sharpest open question.** [Parity's Open Question 1](../philosophy/epistemology/the-parity-move.md#open-questions) asks whether the constitutive escape is genuinely a different *kind* of justification or Agrippa's third horn in better clothes. **The Objectivists answer "different in kind" and use it to reject the trilemma outright; the vault answers "different in kind" and keeps the trilemma as a diagnostic.** Both cannot be right about what the escape buys you. This video is the first live specimen of the rival answer, and the vault's version is asserted on the regress page rather than defended against it.
+
+### Housekeeping finding
+
+**Free will is the critic's position, not Dyer's.** The 4 hits are all Objectivist free-will-as-self-regulated-cognition. Confirmed across all six Dyer sources: zero. So the [breakfast-next-Tuesday fork](../philosophy/logic-and-math/the-sql-argument.md) still has **no established purchase on Dyer's stated position** — it remains a good argument against the popular form and an unverified one against him.
+
 ## Open Questions
 
 - Did Malpass's 2019 pressure cause the later simplification, or is the short-form content simply a different product for a different audience? The corpus data shows the *what*, not the *why*.
