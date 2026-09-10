@@ -12,7 +12,7 @@ discussion: pending
 **Participants:** **Octavius Thunder** (**Aff**, opens first) vs. **Alexxander Medeiros** (**Neg**)
 **Moderator:** **Brad Binkley** — *Propaganda Report*; his **second** round after [Biden/Trump](./wordwar-r2-biden-trump-bourdeau-smith.md)
 **Duration:** 1:04:31 · 325 views at 16h (**20.3/hr**) · **6-hour ballot**
-**Result:** ⏳ not looked up
+**Result:** ✅ **Thunder 52.7 – 47.3 Medeiros (+5.4)** — **the narrowest margin in the tournament.** The registered call (*Medeiros, wide*) misses on both axes; the [axis model](./word-war-debate-series.md#cross-round-findings), which pointed at Thunder once the topic was published and was deliberately not substituted in, is right. **The better debater lost, and this page said he was better.**
 **Vault relevance:** [Word War series hub](./word-war-debate-series.md), [Formal Debate Concepts](./formal-debate-concepts.md), [The Slack in the Law](../philosophy/morality/legal-theory/slack-in-the-law.md), [SF2 — flock cameras](./wordwar-sf2-flock-cameras-summerhays-jones.md), [Thunder's abortion round](./wordwar-r2-abortion-vic-thunder.md), [Medeiros' QF A](./wordwar-r3-dsa-medeiros-bourdeau.md)
 
 **⚠ Registered call, and the model disagrees with it:** [**Medeiros, wide**](./word-war-debate-series.md#-registered--both-filed-before-either-tape-is-opened) — filed **without a topic**, on execution and reach only. When the resolution was published the [axis model pointed at Thunder](./word-war-debate-series.md#-post-topic-observation-on-sf1--the-call-stands-and-the-model-now-disagrees-with-it), and the call was deliberately not revised. **A Medeiros win says execution beats the axis on a topic the axis owns; a Thunder win confirms the axis correction twice.**

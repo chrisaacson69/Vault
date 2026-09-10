@@ -12,7 +12,7 @@ discussion: folded-in
 **Participants:** **Spencer Summerhays** (**Aff** — beneficial, opens first) vs. **Rex Jones** (**Neg** — harmful)
 **Moderator:** **Monica Perez** — her **seventh** round; she has now moderated more of this tournament than anyone
 **Duration:** 1:05:32 · 662 views at 20h (**33.1/hr**) · **6-hour ballot**
-**Result:** ⏳ not looked up
+**Result:** ✅ **Jones 62.8 – 37.2 Summerhays (+25.6)** — registered call **Jones, narrow**: ✅ winner, ❌ band by **0.6 points**.
 **Vault relevance:** [Word War series hub](./word-war-debate-series.md), [Formal Debate Concepts](./formal-debate-concepts.md), [The Load-Bearing Word](./the-load-bearing-word.md), [Jones' QF C](./wordwar-r3-iran-beneficial-tejeda-jones.md), [Jones' round 2](./wordwar-r2-amnesty-jones-owlish.md), [Summerhays' QF D](./wordwar-r3-nationalism-socialism-summerhays-charsky.md), [Summerhays' round 2](./wordwar-r2-iran-war-summerhays-cruz.md)
 
 **Registered call:** [**Rex Jones, narrow**](./word-war-debate-series.md#-registered--both-filed-before-either-tape-is-opened) — filed pre-tape and pre-result on the reasoning that *"flock cameras are beneficial"* is the worst side anyone has drawn since Charsky got socialism, with prior, execution and form all aligned. ⚠ **The margin half is now unfalsifiable**, since [the results archive was deleted](./word-war-debate-series.md#-round-3-resolved--the-final-four-is-set-and-the-results-page-has-been-wiped-2026-09-08).

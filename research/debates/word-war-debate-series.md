@@ -996,8 +996,8 @@ The [projection registered before announcement](#the-projected-semifinals--regis
 
 | SF | Match | Resolution | Aff | Neg | Status |
 |---|---|---|---|---|---|
-| **2** | [**Summerhays vs. Rex Jones**](./wordwar-sf2-flock-cameras-summerhays-jones.md) | *"Flock cameras are beneficial to Americans, not harmful."* | **Summerhays** — *beneficial*, opens first | **Rex Jones** — *harmful* | ⏳ aired, 662 views at 20h (**33.1/hr**) · **reviewed blind** |
-| **1** | [**Thunder vs. Medeiros**](./wordwar-sf1-drug-legalization-thunder-medeiros.md) | *"All drugs should be legal."* | **Thunder** — *for*, opens first | **Medeiros** — *against* | ⏳ aired, 325 views at 16h (**20.3/hr**) · **reviewed blind** |
+| **2** | [**Summerhays vs. Rex Jones**](./wordwar-sf2-flock-cameras-summerhays-jones.md) | *"Flock cameras are beneficial to Americans, not harmful."* | **Summerhays** — *beneficial*, opens first | **Rex Jones** — *harmful* | ✅ **Jones 62.8 – 37.2 (+25.6)** · 662 views at 20h (**33.1/hr**) · reviewed blind |
+| **1** | [**Thunder vs. Medeiros**](./wordwar-sf1-drug-legalization-thunder-medeiros.md) | *"All drugs should be legal."* | **Thunder** — *for*, opens first | **Medeiros** — *against* | ✅ **Thunder 52.7 – 47.3 (+5.4)** — **bracket minimum** · 325 views at 16h (**20.3/hr**) · reviewed blind |
 
 Both exactly as [projected on 2026-09-01](#the-projected-semifinals--registered-before-announcement). Only one Final Four tape exists so far; SF1 has not been posted.
 
@@ -1041,6 +1041,71 @@ The same pool votes both rounds inside 24 hours, and the two resolutions pull op
 
 **The Franklin test makes it concrete.** Rex Jones quoted *"those who would give up essential liberty to purchase a little temporary safety deserve neither"* twice in [SF2](./wordwar-sf2-flock-cameras-summerhays-jones.md), against the cameras. **Does the same room apply Uncle Ben to drug prohibition?** A pool that cites Franklin against surveillance and ignores him on prohibition is telling you the quotation is a *weapon*, not a *premise* — which is a finding about the audience rather than about either contender, and it is checkable across the two cards.
 
+### ✅ THE SEMIFINALS RESOLVE — and the axis model beats the call I filed against it (2026-09-10)
+
+**Posted overnight, with margins, exactly as Chris said.** The final is **Rex Jones vs. Octavius Thunder**, live in Nashville on 12 September.
+
+| SF | Result | Margin | Registered call | Score |
+|---|---|---|---|---|
+| **2 — flock cameras** | **Jones 62.8 – 37.2 Summerhays** | **+25.6** | **Jones, narrow (≤ 25)** | ✅ **winner** · ❌ **band by 0.6 points** |
+| **1 — all drugs legal** | **Thunder 52.7 – 47.3 Medeiros** | **+5.4** | **Medeiros, wide (≥ 45)** | ❌ **wrong winner, wrong band** |
+
+⚠ **N1 also resolves: ❌.** The result arrived as a *results card*, not as a card announcement — the page was rebuilt overnight with a championship graphic and two Final Four cards. **And the page is still a current-state display: yesterday's bracket image is gone, and the QF B and QF C margins did not come back.** [Defect 5](#format-defects-and-their-cheap-fixes) confirmed a third time — those two numbers are permanently lost.
+
+### ⭐⭐⭐ The result that matters: the discriminator fired, and the model won
+
+**SF1 was set up on 2026-09-09 as an explicit contest between two of this page's own instruments**, with the call deliberately *not* revised after the topic was published:
+
+| Instrument | Said | Outcome |
+|---|---|---|
+| **Execution + reach** (the filed call) | **Medeiros** — best audience-facing prosecutor in the bracket, 2-0 by 75+ | ❌ |
+| **Axis model** (finding 10, as corrected) | **Thunder** — the anti-government axis, run by the man who already won on it | ✅ |
+
+> ⭐⭐ **The axis model beat the execution call on the round the axis owned, and it did so against the best debater in the tournament.** This page's own review of SF1 concluded *"Medeiros, and it is not close."* **He lost.**
+
+**This is the second confirmation of [finding 10's correction](#cross-round-findings) and the strongest specimen of [finding 5](#cross-round-findings) — the better-argued side losing — in fourteen rounds.** It also vindicates the discipline: **the call was left standing after new information made it look wrong**, which is the only reason the test was clean. Revising it would have bought a hit and destroyed the evidence.
+
+⚠ **And it costs the execution instrument badly.** *"Best prosecutor in the bracket"* was not a lazy read — Medeiros ran topicality, a natural experiment, grant-and-outweigh, and a reversibility argument nobody else attempted. **He was better and it did not matter.** Any future call that rests on execution alone should now carry an explicit discount.
+
+### ⭐⭐ Chris's consistency test on the audience — ✅ the pool is consistent
+
+Chris framed the two semifinals as a test of the *room*, not the contenders:
+
+> *"We now go from **'I don't like cameras because they restrict us'** to **'I don't care if drug laws are restricting, we are better off with them'**… what does Uncle Ben think?"*
+
+**Answer: the room is consistent, and emphatically.** It voted **anti-surveillance** (Jones +25.6) and **pro-legalisation** (Thunder +5.4) inside the same six-hour window. **The Franklin quotation Jones deployed twice against the cameras was not a weapon of convenience — the same pool applied it to prohibition.** ✅ **Anti-establishment/bodily-autonomy is confirmed as this pool's dominant axis for the third and fourth consecutive rounds**, and the [SF1/SF2 mirror](./wordwar-sf1-drug-legalization-thunder-medeiros.md) resolves in favour of *liberty* on both readings of enforcement capability.
+
+### ⚠ Finding 11 reverses on the bracket's only perfectly-controlled pair
+
+**SF1 and SF2 aired the same day, ran the same six-hour window, and faced the same electorate.** Nothing else in the tournament is this clean:
+
+| | Pool | Margin |
+|---|---|---|
+| **SF1 — drugs** | 325 views @16h (**20.3/hr**) | **+5.4** |
+| **SF2 — cameras** | 662 views @20h (**33.1/hr**) | **+25.6** |
+
+**The bigger pool produced the *wider* margin — the opposite of [finding 11's](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) direction (r = −0.74, n=7).** ⚠ **n=2, but perfectly controlled**, which is worth more than two more uncontrolled points. **Finding 11 should now be treated as unresolved rather than confirmed**, and re-run at n=9.
+
+⭐ **The hypothesis it was losing to explains both rounds instead.** Registered 2026-09-07: *"the narrowest rounds are the ones where the pool's prior is split or its axes conflict."* **SF1's axes were documented as conflicting the day before the tape** — this page said so in writing — and it produced **+5.4, the narrowest margin in the tournament**, displacing Summerhays/Charsky's +9.0. **SF2's axis was clean** (anti-surveillance to an anti-establishment room) and it produced a comfortable but not blowout +25.6, with Summerhays' execution plausibly absorbing the rest. ✅ **Fourth confirmation, and the first one predicted in advance.**
+
+### The other ledger rows
+
+- **Joint final prediction — Chris + model: *Rex Jones vs. Medeiros*.** ⚠ **Half.** Jones ✅ by two routes; Medeiros ❌.
+- **Chris's two-stage test, leg 2** — *"Thunder goes down easily when faced against a similar-reach opponent."* ❌ **Thunder did not go down**, and the [confound flagged pre-result](#-registered--both-filed-before-either-tape-is-opened) is why the leg was weak: **Medeiros had the lowest reach on the board**, so the round tested *low reach vs. low reach*, not the popularity mechanism the leg was about. **Scored as a miss with the caveat that it was mis-specified before it ran, not after.**
+- **New tournament minimum: +5.4.** The three narrowest are now Thunder/Medeiros **+5.4**, Summerhays/Charsky **+9.0**, Cruz/Hamm **+12.4** — and all three are axis-conflict rounds.
+
+### 📌 Registered — the final, and every instrument is out of calibration
+
+**Rex Jones vs. Octavius Thunder, 12 September, Woolworth Theatre, Nashville — the undercard of WWD II.**
+
+| Call | Confidence |
+|---|---|
+| **Rex Jones, narrow** | ⚠ **Weak, and labelled so.** No topic published, so the axis cannot be coded — which means this is *another execution-and-reach call, filed immediately after that instrument lost SF1*. It is the only instrument available, not a good one |
+
+⚠⚠ **The larger caveat, and it may invalidate the whole ledger for this round: the electorate probably changes.** Every instrument on this page is calibrated to an **online ballot of a niche podcast audience**. A live theatre crowd in Nashville — who paid, travelled, and are watching three matches — is a **different pool**, and [defect 16](#format-defects-and-their-cheap-fixes) already established that a changed window is a changed electorate. **A changed venue is a bigger change than a changed window.**
+
+⭐ *And reach may invert.* Thunder carries the tournament's largest online audience (**3,495** on the abortion round, ~4× anything Jones has drawn) — an advantage that means one thing for an online ballot and something quite different for a room of ticket-holders. **Whether the ballot is even cast by the room is unknown.**
+
 ### 🚫 The semifinal results are being **withheld**, not delayed — and the archive format says the margins may never exist (2026-09-09)
 
 Checked at Chris's request. **The ballot is closed and the numbers are not posted, by design.**
@@ -1050,7 +1115,7 @@ Checked at Chris's request. **The ballot is closed and the numbers are not poste
 | `wordwardebate.com/voting-results` | **404.** The URL this hub had recorded is dead; the page moved to **`/view-results`** |
 | `/view-results` | **A single Final Four bracket image and nothing else.** The four semifinalists are shown; **neither semifinal winner is advanced**, and there is **not one percentage card anywhere on the page** |
 | `/vote-now-1` | ***"WHO WILL BE IN NASHVILLE??? CHECK BACK SOON TO SEE THE RESULTS!"*** — the six-hour window is long shut and the outcome is deliberately held |
-| Championship | **Word War Debate II — LIVE, Friday 12 September, Woolworth Theatre, Nashville.** Three days out |
+| Championship | **Word War Debate II — LIVE, Friday 12 September, Woolworth Theatre, Nashville.** **The final is Rex Jones vs. Octavius Thunder** |
 
 ⭐⭐ **This reinterprets [defect 5](#format-defects-and-their-cheap-fixes), and not in the organisers' favour.** The 2026-09-08 wipe was recorded here as a current-state display overwriting its own history. It now reads as **deliberate**: the per-round cards were cleared to make room for a reveal-driven bracket, and the finalists are being kept secret to sell a live show. **That is a defensible entertainment decision and a total loss for the record** — the difference between carelessness and policy is that policy will do it again.
 
@@ -1205,8 +1270,8 @@ Compact view of the [ledger](#predictions-ledger); the ledger rows carry the rea
 | ⚠ *Filing failure* | **The model's two calls on QF C contradict each other** — *Rex Jones, **wide (≥40)*** (finding 17, filed 2026-09-07) against *margin **under +40*** (finding 11, filed 2026-09-08) | ⏳ | — | ⭐ Filed a day apart off two different findings and the conflict went unnoticed until the tape was opened. **Sloppy filing that accidentally produces the best test on the board:** the round now discriminates between two of this page's own findings. Handling set before the card was read — *Jones by 40+* kills dilution, *Jones under 40* kills the wide band, *Tejeda* kills both |
 | **R3 — Iran (Tejeda/Jones)** | Model: **the narrowest margin of round 3** (*filed blind 2026-09-08; result deliberately not looked up, but the 24h ballot has probably closed — so blind, not pre-result*) | ⏳ | — | ⭐ **Independent of who wins**, which is what makes it worth filing. [Finding 11's dilution result](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) says margin falls with pool size; QF C is running at **113 views/hr against QF A's 15 and QF B's 20**, so it should have the largest pool in the round by a wide margin. Predicted: **narrower than QF A's +74.8 and QF D's +9.0 is the hard case** — the falsifiable form is *QF C comes in under +40*. A blowout kills the dilution reading outright |
 | **SF2 — flock cameras** | Model: **Rex Jones**, narrow (*pre-tape, pre-result*) | ⏳ | — | *"Beneficial"* is the worst side drawn since socialism — Summerhays defends mass surveillance to an Infowars-adjacent room. Prior + execution + form aligned, as in QF C |
-| **SF1 — topic unpublished** | Model: **Medeiros**, wide (*pre-tape; ⚠ **no topic**, so execution-and-reach only*) | ⏳ | — | Best prosecutor in the bracket against the narrowest-winning contender; both low-reach, so a small pool and a wide margin |
-| **The final** | **Chris + model: Rex Jones vs. Medeiros** (*both filed before either semifinal resolves; SF1 has not even aired*) | ⏳ | — | ⭐ **Agreement by two routes again.** Both semifinal calls held jointly, so the final is a joint prediction with a single failure point — if either leg misses, both are wrong at once. The strongest form: **it forecasts the championship pairing two rounds and one unaired tape ahead** |
+| **SF1 — topic unpublished** | Model: **Medeiros**, wide (*pre-tape; ⚠ **no topic**, so execution-and-reach only*) | **Thunder +5.4** | ❌❌ | Best prosecutor in the bracket against the narrowest-winning contender; both low-reach, so a small pool and a wide margin |
+| **The final** | **Chris + model: Rex Jones vs. Medeiros** (*both filed before either semifinal resolves; SF1 has not even aired*) | **Jones vs. Thunder** | ⚠ **half** | ⭐ **Agreement by two routes again.** Both semifinal calls held jointly, so the final is a joint prediction with a single failure point — if either leg misses, both are wrong at once. The strongest form: **it forecasts the championship pairing two rounds and one unaired tape ahead** |
 | *Structural* | ✅ **leg 1 hit** — Chris: **the QF B winner loses the semifinal on audience size** — *"if Thunder wins this, this is a popularity contest, and Thunder goes down easily when faced against a similar-reach opponent"* (*pre-result*) | ⏳ | — | ⭐ **A two-stage test that survives either quarterfinal outcome.** Both legs landing turns *"this is a popularity contest"* from a complaint into the model; the QF B winner beating **Medeiros** falsifies it. Filed 2026-09-07 |
 | *Structural* | **The quarterfinal bracket**, registered 2026-09-01 before announcement | 4 of 4 pairings correct | ✅ | The page's first purely structural prediction, and it solved the tree |
 
