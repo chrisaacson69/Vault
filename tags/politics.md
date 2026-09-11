@@ -36,7 +36,7 @@ permalink: /tags/politics/
 - [Convergent Interests — Coordination Without Collusion](../research/philosophy/dynamics/convergent-interests.md) — why coordinated-looking political outcomes need no coordinator; Yarvin’s **Cathedral** accurately attributed and bounded, academic load carried by DiMaggio & Powell; Hayekian spontaneous order with the sign flipped
 - [Worked Examples — The Impossibility Floor, With Arithmetic](../research/debates/voting-paradox-worked-examples.md) — eight machine-checked ballot profiles; identical ballots + four ordinary STV rule-sets → three different councils; one electorate, six methods, five winners
 - [Positional Goods](../research/economics/positional-goods.md) — why the expensive sectors are the politically supply-capped ones, and why supply-side reform is an inequality policy neither coalition owns
-- [The Citadel Effect — Coordination Without a Coordinator](../research/economics/citadel-effect.md)
+- [Coordination Without a Coordinator](../research/economics/coordination-without-a-coordinator.md)
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — the achievable-and-refused test: a goal with an available, proven, refused method is not the operative goal (subtraction, never substitution)
 - [Human Constancy](../research/philosophy/human-constancy.md) — blank slate vs essentialism as strawmen; Reimer–Money bounded correctly; pair-bonding evidence presented two-sided
 - [Econ Nerds — "Three Myths about Inequality and the Data that Destroys Them"](../research/debates/econ-nerds-inequality-myths.md)
