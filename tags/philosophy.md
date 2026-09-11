@@ -179,6 +179,7 @@ permalink: /tags/philosophy/
 - [Human Constancy](../research/philosophy/human-constancy.md) — how much of a human stays fixed, framed as a ratio; the intelligibility asymmetry as a checkable test; supplies Trunk 1’s input parameter
 - [Jake the Lawyer — Why We Should NOT Vote for U.S. Senators](../research/debates/jake-lawyer-17th-amendment.md)
 - [Positional Goods — Where the Pie Stops Growing, and Why](../research/economics/positional-goods.md)
+- [The Citadel Effect — Coordination Without a Coordinator](../research/economics/citadel-effect.md)
 - [Mass Deportation Is Bad (Word War R2 — Charsky vs. Ruelas)](../research/debates/wordwar-r2-mass-deportation-charsky-ruelas.md)
 - [Biden vs. Trump: Who Was the Better President? (Word War R2 — Bourdeau vs. Smith)](../research/debates/wordwar-r2-biden-trump-bourdeau-smith.md)
 - [The Iran War: In America's Best Interest? (Word War R2 — Summerhays vs. Cruz)](../research/debates/wordwar-r2-iran-war-summerhays-cruz.md)

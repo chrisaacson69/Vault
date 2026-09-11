@@ -32,7 +32,7 @@ permalink: /tags/_index/
 - [debates](./debates.md) — 84 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 103 files
+- [economics](./economics.md) — 104 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 101 files
@@ -69,8 +69,8 @@ permalink: /tags/_index/
 - [objectivism](./objectivism.md) — 17 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 191 files
-- [politics](./politics.md) — 46 files
+- [philosophy](./philosophy.md) — 192 files
+- [politics](./politics.md) — 47 files
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 2 files
