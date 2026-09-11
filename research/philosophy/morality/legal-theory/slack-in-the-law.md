@@ -333,6 +333,18 @@ This page argues automation makes enforcement **too cheap**, converting liabilit
 
 ⭐ **The two semifinals of that bracket ran the two halves against the same audience inside twenty-four hours:** the [cameras round](../../../debates/wordwar-sf2-flock-cameras-summerhays-jones.md) was won by arguing enforcement capability is **dangerous, so never build it** (*"you have to say your side is going to be in charge forever"*); the drugs round was argued on its being **essential, so never delete it**. **Neither debater noticed they were making the same claim with the sign flipped** — which is the clearest available evidence that the variable is real and that nobody has a name for it.
 
+## ⭐⭐ Undesignated slack does not stay put — it gets copied
+
+The [criterion above](#-which-yields-the-criterion-the-page-was-missing-who-holds-the-slack-and-by-what-procedure) held that undesignated slack is illegitimate because **nobody was appointed to hold it**. Chris supplies a stronger reason, from the commercial side:
+
+> *"We often see companies start **'borrowing' policies** when it turns out another company **gets away with it**."*
+
+**The enforcement gap is itself a public signal.** One firm adopts a risky practice, nothing happens, and the rest copy — no agreement, no communication, just a free experiment whose result everybody can read. **So discretionary non-enforcement does not produce a quiet exception; it produces an industry norm**, by the mechanism worked out in [Coordination Without a Coordinator](../../../economics/coordination-without-a-coordinator.md).
+
+> ⭐ **Which means the choice is never between *enforce* and *quietly don't enforce*. It is between *enforce* and *publish a loophole*.**
+
+⚠ *This also sharpens the automation argument from an unexpected direction.* If unenforced rules decay into collective practice, then **the pre-automation world was not as slack-rich as this page implies** — some of the gap was being continuously consumed by whoever noticed it first. **The people who lost the most when enforcement became cheap were the ones already exploiting the gap at scale**, not the driver doing a rolling stop. *That is worth holding against the page's own sympathies.*
+
 ## Open Questions
 
 - **~~Is the slack load-bearing, or a rationalisation of a mess?~~ — partially dissolved (2026-09-09).** The original tension: [Registration and Scope Creep](./registration-and-scope-creep.md) treats selective enforcement as a *harm*; this page treated it as a *protection*; both cannot be simply true. **Chris's *"failure of law, not enforcement"* resolves the level confusion** — slack is primarily neither, it is **unofficial repair of defective law**, and its protective and discriminatory faces are both consequences of repairing by discretion rather than by amendment. **What remains open** is the harder question underneath: given that some repair mechanism is arithmetically necessary, *which* one — discretion, juries, desuetude, sunset clauses, or amendment — is least bad, and on what criterion?

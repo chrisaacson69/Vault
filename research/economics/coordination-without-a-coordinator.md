@@ -5,7 +5,7 @@ created: 2026-09-11
 # Coordination Without a Coordinator
 > A walled, self-perpetuating advantage can assemble itself out of individually rational decisions made on true information, with no agreement, no policy and no conspiracy. Which means there is no defendant to sue, no statute to repeal, and no one who did it.
 
-**Links:** [Positional Goods](./positional-goods.md) (**the payoff structure that makes it bite**), [Aggregation vs. Sorting](../philosophy/morality/legal-theory/aggregation-vs-sorting.md) (*this is sorting that turns into aggregation*), [The Slack in the Law](../philosophy/morality/legal-theory/slack-in-the-law.md) (*permission converting to requirement with no text change*), [Inequality Optimum](./inequality-optimum.md), [Constructed, Not Arbitrary](../philosophy/constructed-not-arbitrary.md), [The Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Word War final — genetic engineering](../debates/word-war-debate-series.md)
+**Links:** [Positional Goods](./positional-goods.md) (**the payoff structure that decides valence**), [Market Efficiency and Human Limits](./market-efficiency-and-human-limits.md), [Aggregation vs. Sorting](../philosophy/morality/legal-theory/aggregation-vs-sorting.md) (*this is sorting that turns into aggregation*), [The Slack in the Law](../philosophy/morality/legal-theory/slack-in-the-law.md) (*permission converting to requirement with no text change*), [Inequality Optimum](./inequality-optimum.md), [Constructed, Not Arbitrary](../philosophy/constructed-not-arbitrary.md), [The Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Word War final — genetic engineering](../debates/word-war-debate-series.md)
 
 ## ⚠ Naming — three terms that get mashed together, and only two of them are this
 
@@ -14,10 +14,16 @@ created: 2026-09-11
 | Term | Source | What it actually names |
 |---|---|---|
 | ***Citadelle*** | **Saint-Exupéry**, posthumous, 1948 (*The Wisdom of the Sands*) | ❌ **A different idea entirely** — that structure, constraint and ritual are what make life meaningful; the citadel is built in men's hearts. **Nothing to do with emergent coordination.** Related instead to [constraint-gives-meaning](../philosophy/constructed-not-arbitrary.md) themes |
-| **"The Cathedral"** | **Curtis Yarvin / neoreaction** | ✅ **This mechanism, in the ideological domain** — universities, press and civil service converging on one line **without conspiracy**, because incentives and information are shared |
+| **"The Cathedral"** ① | **Curtis Yarvin / neoreaction** | ✅ **This mechanism, in the ideological domain** — universities, press and civil service converging on one line **without conspiracy**, because incentives and information are shared |
+| ⚠ **"The Cathedral"** ② | **Eric S. Raymond**, *The Cathedral and the Bazaar* (1997) | ❌ **The opposite** — a small core team, controlled releases, **explicit central coordination** (his examples: GNU Emacs, GCC) |
+| ⭐ **"The Bazaar"** | Raymond, same essay | ✅ **This mechanism, in the production domain** — thousands of uncoordinated contributors, *release early and often*, and a coherent Linux kernel comes out |
 | **Tacit collusion** | economics / antitrust | ✅ **This mechanism, in the pricing domain** |
 
-> ⭐⭐ **Which is the most interesting thing here: Yarvin's Cathedral and antitrust's tacit collusion are the same formal object, discovered independently in two literatures that never cite each other.** One was built to explain oligopoly pricing, the other to explain ideological convergence, and both describe *correlated incentives plus shared information producing a coordinated outcome with no coordinator.*
+⚠⚠ **Note what rows ① and ② do to each other — Chris found this:** *"I also came across the term **bazaar**… the cathedral was looked at as top-down, where bazaar was more bottom up."* **There are two Cathedrals in circulation and they sit at opposite ends of the very axis this page is about.** Raymond's cathedral **has a coordinator**; Yarvin's Cathedral **has none** — that is its whole claim. ⭐ *So "cathedral" cannot be used unglossed:* the word does not tell you whether central control is present or absent, which is the only thing anyone needs to know. **A second reason the descriptive name is the right one.**
+
+⚠ *One correction to Chris's gloss, since it matters for the axis:* Raymond's cathedral is not *"top-down without explicit control mechanisms"* — **it is top-down *with* them**, a restricted core team and gated releases. **The bazaar is the one with no explicit control**, which is why it belongs on this page and the cathedral does not.
+
+> ⭐⭐ **And the most interesting thing here: Yarvin's Cathedral, Raymond's bazaar and antitrust's tacit collusion are the same formal object, discovered independently in three literatures that never cite each other.** One was built to explain oligopoly pricing, one ideological convergence, one open-source software — and all three describe *correlated incentives plus shared information producing a coordinated outcome with no coordinator.*
 
 ⚠ **Using the Cathedral's mechanism does not mean adopting its politics**, and the two are separable. The **descriptive** claim — that institutions with aligned incentives converge without agreeing — is analytically ordinary and applies to **any** correlated-incentive bloc regardless of its direction: industry-funded research, professional-association orthodoxy, trade-press consensus, a donor class, a regulatory bar. **The normative and historical claims bolted onto the term are a separate argument and are not imported here.** ⭐ *And the [defector test](#-the-deflaters--and-the-test-that-separates-real-cases-from-lazy-ones) below applies to the Cathedral exactly as it applies to a cartel, which is what converts it from an unfalsifiable vibe into a checkable claim — in either direction.*
 
@@ -60,6 +66,35 @@ Chris referred back to *"the citadel effect (tacit collusion) **you describe**"*
 
 ⚠ *This is not an argument that markets are bad — it is an argument that the **state/non-state** boundary is the wrong place to look for coercion.* The mirror failure exists on the other side: a framework that sees only private power misses that most such structures are **held open** by licensure, zoning and credential requirements that *are* state action. **Both errors are the same error — attributing a distributed outcome to whichever agent the framework already dislikes.**
 
+## ⭐⭐⭐ The mechanism is value-neutral — the *good* decides whether you get a market or a wall
+
+**The page as first written had a bug: every specimen was malign.** Raymond's bazaar fixes it, because **it is the same mechanism producing something excellent.** Nobody directs Linux; thousands of contributors act on their own incentives with shared information, and a coherent kernel comes out. **That is coordination without a coordinator, and it is the best-documented success case there is** — alongside the one Hayek spent a career on, the **price system**, which is this mechanism's founding example.
+
+> ⭐⭐ **So the mechanism explains nothing about the outcome. What determines valence is the payoff structure of the thing being coordinated on.**
+
+| Emergent order | Good it coordinates on | Sum | Result |
+|---|---|---|---|
+| **Price system** | allocation of scarce resources | **positive** | ✅ a market |
+| **The bazaar** | code — **non-rival**, copyable at zero cost | **positive** | ✅ a kernel |
+| **Tacit collusion** | price, against buyers | **transfer** | ❌ a cartel |
+| **Genetic / credential stratification** | a [positional good](./positional-goods.md) | ⭐ **zero by construction** | ❌ a wall |
+
+**Read down the third column and the page's thesis falls out: distributed choice *sorts* when the good is positive-sum and *walls* when the good is positional.** Which is [aggregation vs. sorting](../philosophy/morality/legal-theory/aggregation-vs-sorting.md) again — and it says the sort/aggregate distinction is a property of **the good and the dispersion of preferences over it**, not of the institution doing the choosing. ⚠ *That is a correction owed to that page, and it is now load-bearing here.*
+
+## ⭐⭐ Chris's mechanism: diffusion by observed impunity — and the signal is the enforcement gap
+
+> *"We often see companies start **'borrowing' policies** when it turns out another company **gets away with it**."*
+
+**This is a sharper specification of the signal than the pricing literature usually gives**, and it deserves its own line. In textbook tacit collusion the observed variable is a **price**. Here it is an **enforcement outcome**: firm A adopts a legally or reputationally risky practice, **nothing happens to them**, and B, C and D copy it. No communication, no agreement, not even a shared price — **just a public experiment whose result everyone can read.**
+
+⭐⭐⭐ **Which wires this page directly into [The Slack in the Law](../philosophy/morality/legal-theory/slack-in-the-law.md), and it is not a decorative link.** That page distinguishes *designed* slack (the jury), *accidental* slack (enforcement cost) and **undesignated slack** (nobody was appointed to hold it). **This is what undesignated slack does when left alone: it gets discovered, published by example, and copied.**
+
+> **An unenforced rule does not stay quietly unenforced. It becomes an industry norm** — because the first firm to test it runs the experiment for everyone else for free.
+
+**Specimens to check, all of which spread by imitation rather than agreement:** non-compete and forced-arbitration clauses, gig-economy worker classification, dark patterns, data-retention practice, unpaid internships, and algorithmic personalised pricing.
+
+⚠ **And it strengthens the who-holds-the-slack criterion beyond what that page claimed.** The argument there was that undesignated slack is illegitimate because *nobody was appointed to hold it.* **The stronger argument is that it does not stay put:** discretionary non-enforcement is read by everyone with an incentive to read it, and converts into **collective practice** — so the choice is never between *enforce* and *quietly not enforce*. It is between *enforce* and **publish a loophole**.
+
 ## ⚠ The deflaters — and the test that separates real cases from lazy ones
 
 **This pattern is dangerously easy to invoke**, because it explains any durable inequality without requiring evidence of anything. Three honest objections:
@@ -81,6 +116,7 @@ The [Word War final](../debates/word-war-debate-series.md) is the reason this pa
 - **Is the defector test actually applicable to non-market cases?** It is crisp for pricing. What counts as "defection" in credentialism — an employer who drops the degree requirement? Some do, and the citadel persists, which either falsifies the framing or means the test needs a threshold.
 - **Does a shared algorithmic oracle change the *kind* of thing this is, or only the speed?** If tacit collusion required mutual observation and inference, and a common model supplies the answer directly, the epistemics are different even though no agreement exists. ⭐ **This may be the first case where the law's agreement requirement can be met by pointing at a vendor.**
 - **What is the relationship to [aggregation vs. sorting](../philosophy/morality/legal-theory/aggregation-vs-sorting.md)?** That page holds that markets sort and voting aggregates. A citadel looks like **sorting that has collapsed into aggregation** because preferences correlated — which suggests the sort/aggregate distinction is a property of *preference dispersion*, not of the institution. **If that is right it is a correction to that page, and it should be made there.**
+- ⭐ **Is "positive-sum vs. positional" really the whole valence rule, or just the clean half?** Standards bodies, language and common law are all emergent orders on goods that are neither obviously positive-sum nor obviously positional, and they produce mixed results. **If the rule needs a third column it should be found before the table is trusted.**
 - **Is there a case of one of these that dissolved, and how?** The page is built entirely from cases that persist. Selection on the dependent variable is the obvious flaw, and one clear dissolution case would be worth more than three more specimens.
 
 ## Tags
