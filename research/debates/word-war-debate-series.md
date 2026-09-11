@@ -1174,6 +1174,56 @@ Every prior round had the pool's signature pointing one way. **This one splits i
 
 **On GATTACA:** ⭐ the inversion is genuinely clever — *the canonical anti-engineering film is set in a world where the unengineered man wins*, so the standard citation undercuts the standard fear. ⚠ **But it is fiction, so it is evidence about what people fear, not about what happens.** Its real force is **rhetorical and reductive**: it denies the other side its own best-known illustration. Worth deploying exactly that way and not as data.
 
+#### ⭐⭐ Chris corrects the table — the *choosing* is distributed even when the *technology* is not
+
+> *"In GATTACA the **parents** do the selection and it is consensual… I don't think Thunder has to argue for **state-mandated** eugenics with the state deciding outcomes. What if the parents just go to a clinic and **pick from a menu**? This still contains all of the evolutionary pressures that exist if it was just randomly determined by nature. Lots of parents might choose blue eyes, but I bet a fair amount of parents choose brown."*
+
+⚠ **This is right, and it breaks a row of the table above.** That table listed germline editing as *"centralised — a clinic, a protocol"*, which **conflated two different things**:
+
+| | Who **supplies** the technology | Who **chooses** the target |
+|---|---|---|
+| Mate selection | — | distributed |
+| **Germline editing via a clinic menu** | **centralised** | ⭐ **also distributed — one couple at a time** |
+| State eugenics programme | centralised | centralised |
+
+**A menu at a clinic is much closer to a market than to a plan**, and my *nomos/thesis* label was wrong on that axis: **millions of uncoordinated parents with heterogeneous preferences is a price system for traits, not a central plan.** Chris's version is the stronger one, and the correction stands.
+
+⭐ **Two residues survive it, though, and they are where the real argument is:**
+
+**1. The menu is the plan.** Parents choose *from* the menu; **they do not write it.** Which traits are on offer is decided by clinics, regulators and reimbursement — a small, centralised, professionally-captured committee — and *distributed choice over a centrally curated option set is not a market.* ⭐ **It is an election with a candidate list.** So the [weighting problem](../philosophy/epistemology/weighting-problem.md) is **relocated to the supply side, not dissolved** — and that is precisely where the [filter-versus-quota test](../philosophy/morality/legal-theory/slack-in-the-law.md) starts to matter.
+
+**2. ⭐⭐ Distributed choice only preserves diversity when preferences are *uncorrelated*.** Chris's blue-eyes/brown-eyes case is right for **neutral** traits, where taste genuinely varies. It fails exactly where selection bites: **height, IQ, disease resistance, freedom from disability** — traits with a *perceived universal ranking*, where parental preferences are not diverse but **strongly correlated**.
+
+> ⚠ **And this has already been run as an experiment.** Sex-selective abortion in India and China produced badly skewed sex ratios **entirely from distributed, private, parental choices** — no state mandate required. **Distributed + correlated = coordination without a coordinator**, which is the [aggregation-versus-sorting](../philosophy/morality/legal-theory/aggregation-vs-sorting.md) failure mode: choice that normally *sorts* instead *aggregates* onto one answer.
+
+#### ⭐⭐⭐ "Evolution can't be broken that easily" — and the reason it can't is the reason this is risky
+
+> *"I don't think evolution can be broken that easily. Just because we **can** choose traits doesn't mean we **select properly**."*
+
+**Half of this is a strong defence and half of it is the objection.** He is right that recombination keeps regenerating variance, that edits at a few loci are a small perturbation on a vast genome, and that selection feedback is slow — **so "we will engineer ourselves into a corner" is overstated.**
+
+⚠ **But *"we don't select properly"* is not reassurance — it is the argument, once you add correlation.** Random variation is not noise that evolution tolerates; **it is a diversification strategy.** Evolution does not optimise, it maintains a portfolio, and the variance is what pays out when the environment moves. **Correlated directed selection concentrates the portfolio**: a population tuned to the last generation's idea of *better*, with the variance that would have handled the next one deliberately removed. **The failure mode is monoculture, and it is fully naturalistic — no disgust required.**
+
+⭐ **So the honest form of the worry is a *speed mismatch*, not a break:** editing acts in one generation, and the feedback that would tell you it was a mistake arrives over many. **You find out you were wrong after it is already in the pool** — which is [the off-switch argument](./wordwar-sf1-drug-legalization-thunder-medeiros.md) again, arrived at from population genetics instead of from law.
+
+#### ⭐⭐⭐ And GATTACA cuts the other way — its coercion is *private*
+
+**The sharpest thing in this exchange is buried in Chris's own concession**, and it is bad news for the affirmative case rather than good:
+
+> *"I agree there is a level of positional compulsion here, and that was also a key theme in the movie."*
+
+⭐⭐ **GATTACA is not a film about state eugenics. There is no law in it compelling anyone.** Vincent is not arrested; he is **denied insurance and denied employment**. The coercion is **private, emergent, and produced by exactly the distributed voluntary choices Chris is defending** — actuaries pricing risk and employers screening applicants, each acting rationally on available information.
+
+> ⚠ **Which means Chris's favourite illustration undercuts his own dismissal of "who controls."** Nobody controls it. **That is the problem.** *"Legalise it and keep the state out"* is a solution to a form of coercion the film does not contain — and **a libertarian framework has no tool against emergent private discrimination on true information.** You cannot shrink your way out of an actuary.
+
+**So the Neg's best line is not *icky*. It is: *the thing you are afraid of losing is the thing legalisation takes away.*** Positional compulsion converts *permitted* into *required* with no statute, and the enforcement is done by insurers and employers rather than police — [mode change without text change](../philosophy/morality/legal-theory/slack-in-the-law.md), in the purest specimen the vault has yet found.
+
+#### 📌 Chris's own pre-tape read, registered
+
+> *"I also agree these are advanced concepts, and **'icky' and fear might win the day.**"*
+
+**Filed as his call on the round**, and it agrees with [the model's post-topic call](#-the-final--topic-published-and-it-splits-the-pools-axis-against-itself-2026-09-11) by an independent route: **Chris expects the disgust default to hold; the model expects the framing burden to sink Thunder.** ⭐ **Same prediction, two mechanisms** — which is the configuration that has produced this page's best calls and also its most confident misses. ⚠ *Note the shared blind spot:* both routes assume the room does **not** convert to bodily autonomy. **If Thunder frames it early and holds the frame — the one thing he has not done in three rounds — both of us are wrong together.**
+
 #### ⭐⭐ What Rex has beyond "icky" — and the vault already holds most of it
 
 Chris: *"it will be interesting to see Rex's arguments beyond 'it feels icky/unnatural.'"* **There are at least four that are not disgust arguments, and three of them turn Thunder's own axis:**
