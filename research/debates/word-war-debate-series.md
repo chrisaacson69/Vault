@@ -1218,6 +1218,49 @@ Every prior round had the pool's signature pointing one way. **This one splits i
 
 **So the Neg's best line is not *icky*. It is: *the thing you are afraid of losing is the thing legalisation takes away.*** Positional compulsion converts *permitted* into *required* with no statute, and the enforcement is done by insurers and employers rather than police — [mode change without text change](../philosophy/morality/legal-theory/slack-in-the-law.md), in the purest specimen the vault has yet found.
 
+#### ⚠ Grounding note — the "citadel effect" is **not in the vault**, and that is the finding
+
+> **Chris:** *"…it turns over to market forces, which has the **'citadel' effect (Tacit Collusion) you describe**."*
+
+**Searched: there is no page, note or memory containing *citadel* or *tacit collusion* anywhere in the vault.** I am not going to reconstruct what I supposedly said — that is the [grounding rule's first mask](../../CLAUDE.md). ⚠ **This is the vault's documented rot pattern happening in real time:** a concept discussed, referred back to with confidence, and **never persisted** — the same failure the OS manual records for positional goods, *"a topic discussed twice and never persisted."* **It got caught this time only because someone cited it and the citation failed.**
+
+**Tacit collusion is real and standard** — firms in a concentrated market converge on supra-competitive behaviour with no agreement, purely by observing each other's incentives. **Applied here it is strong:** no clinic, insurer or employer needs to coordinate for a genetic tier to form; each acts rationally on available information and the **citadel assembles itself**. ⭐ **That is the GATTACA mechanism stated in economic rather than cinematic terms**, and it is the same *coordination-without-a-coordinator* shape as correlated parental preference. 📌 **Owed a page.**
+
+#### ⭐ "Only what the engineers can accomplish" — this does weaken my supply-side objection
+
+> *"Let's assume the only control of trait selection is **what the genetic engineers can accomplish** — this removes the 'who decides' argument."*
+
+**Largely accepted.** If the menu is bounded by the **capability frontier** rather than by a committee's taste, then the option set is not curated in the objectionable sense, and *"an election with a candidate list"* overstates it. ⚠ **The residue is only that the frontier is itself endogenous** — research funds follow demand and reimbursement — so capability is shaped by preference on a lag. **But that is a much weaker objection than the one I made, and the correction is his.**
+
+#### ⭐⭐⭐ "Evolution++ in low generations" — the rate framing is right, and it has an exact form
+
+> *"This feels like **evolution++ decisions in low generations instead of millions of years**… maybe humans can't handle that, maybe they can."*
+
+**This is the crux, and it is a control problem rather than a moral one.**
+
+| | Generates variation | Evaluates it |
+|---|---|---|
+| **Natural** | one generation | one generation — **same clock** |
+| **Engineered** | ⭐ **instant, deliberate** | **still one generation** |
+
+> ⭐⭐ **Editing speeds up the actuator without speeding up the sensor.** Variation becomes fast and directed; the feedback that tells you a choice was wrong still arrives at the reproductive rate of human beings. **A control loop with a fast actuator and a slow sensor overshoots and oscillates** — that is the precise, non-mystical content of *"maybe humans can't handle that."* Not *we will break evolution*; **we will raise the gain without raising the sampling rate.**
+
+⚠ **And it answers the other half — *"the market should find answers to both."*** ⭐ **It can't be the independent corrective, because it shares the lag.** A market prices what it can observe, and **a trait whose fitness consequences appear in forty years cannot be priced today.** Markets and evolution are not two insurance policies here; they are **one feedback loop counted twice**, and the binding constraint on both is the same interval.
+
+#### ⭐⭐ Which yields a regulatory dimension that isn't disgust: **feedback latency**
+
+**The argument above is trait-dependent, and that is a feature.** Monogenic disease correction has **fast, legible feedback** — it works or it doesn't, within a life. Polygenic edits for cognition, temperament or longevity have **feedback measured in generations**, and that is exactly where the control problem bites.
+
+> ⭐ **So the non-arbitrary line is not *"genetic engineering,"* which is a blob, but *how long it takes to find out you were wrong.*** Regulate by **feedback latency**.
+
+**And note the shape — it is [the vector schedule](../philosophy/morality/legal-theory/slack-in-the-law.md), arriving unprompted in a third domain.** Not more rungs on a *"how genetic is it"* ladder, but **a different ladder**: latency, reversibility, and whether the change is somatic or germline. ⭐ *This is also the first time in this session that a policy dimension has fallen out of an argument rather than being proposed and then defended* — which is usually the sign it is the right one.
+
+#### 📌 Registered: the debate will not reach any of this
+
+> **Chris:** *"This stuff is interesting, but the debate will probably only **scratch the surface**."*
+
+**Filed as a prediction, and it is checkable.** ⏳ **Scored against the tape on four items** — does either contender reach (a) **consent of the edited party**, (b) **irreversibility / germline permanence**, (c) **positional compulsion**, (d) **the private, non-state character of the coercion**? ⚠ **Prior expectation: (a) yes, (b) probably, (c) no, (d) no** — and if (d) appears from either man it is the single most impressive moment in the tournament, because [it is the argument that beats a libertarian affirmative on its own terms](#-and-gattaca-cuts-the-other-way--its-coercion-is-private).
+
 #### 📌 Chris's own pre-tape read, registered
 
 > *"I also agree these are advanced concepts, and **'icky' and fear might win the day.**"*
