@@ -1106,6 +1106,85 @@ Chris framed the two semifinals as a test of the *room*, not the contenders:
 
 ⭐ *And reach may invert.* Thunder carries the tournament's largest online audience (**3,495** on the abortion round, ~4× anything Jones has drawn) — an advantage that means one thing for an online ballot and something quite different for a room of ticket-holders. **Whether the ballot is even cast by the room is unknown.**
 
+### 🏁 THE FINAL — topic published, and it splits the pool's axis against itself (2026-09-11)
+
+**Off the WWD X account, via Chris:** ***"Genetic Engineering on Humans Should Be Legal."*** **Thunder affirmative, Rex Jones negative.** Live, Woolworth Theatre, Nashville, 12 September.
+
+#### ❌ First, the pre-registered condition fires — and it fires against me
+
+Filed yesterday, before the topic existed: *"**If the resolution lands on liberty-versus-state ground, the call is wrong on its own logic and should be treated as already refuted.**"*
+
+> **It landed on liberty-versus-state ground.** *"X should be legal,"* Thunder affirmative — the **identical construction** to *"All drugs should be legal."* **So the filed call of *Jones, narrow* is refuted by its own stated condition, and it stays on the ledger as refuted.** No reinterpretation of *"axis-favourable"* after seeing the topic; that is the exact move [SF1](#-the-semifinals-resolve--and-the-axis-model-beats-the-call-i-filed-against-it) was kept clean by refusing.
+
+#### ⭐⭐⭐ Thunder's *fourth* consecutive bodily-autonomy affirmative
+
+| Round | Resolution | Thunder's side |
+|---|---|---|
+| R2 | abortion | **bodily autonomy** |
+| SF1 | *"All drugs should be legal"* | **Aff** |
+| **Final** | *"Genetic engineering on humans should be legal"* | **Aff** |
+
+**Three rounds, one axis, always affirmative, always *"the state may not forbid what you do with your body."*** ⭐ **This is the strongest evidence yet for [the prompt-negotiation hypothesis](#format-defects-and-their-cheap-fixes)** — a contender does not land on his own axis three times running by lottery. Chris's *"they rattle off topics until they find disagreement"* predicts exactly this: **the topic search terminates wherever Thunder's opponent will take the other side of Thunder's standing position.**
+
+#### ⭐⭐ The reason this is the best topic in the tournament: the axis conflicts *with itself*
+
+Every prior round had the pool's signature pointing one way. **This one splits it**, because two strands of the same anti-establishment signature give opposite answers:
+
+| Strand | Reads the topic as | Points at |
+|---|---|---|
+| **Bodily autonomy / anti-prohibition** | *the state banning what you may do with your own reproduction* | **Thunder** |
+| ⭐ **Anti-technocracy** — anti-pharma, anti-WEF, anti-expert, naturalist, religious | *laboratories and corporations redesigning human beings* | **Jones** |
+
+⚠ **And the default reading is Jones's.** Chris: *"the gut reaction is usually **disgust** for the idea."* **The topic is not a "my body" question until somebody makes it one** — it arrives sounding like *labs doing things to babies*, not like *the government in my bedroom*. **So the round is a framing fight, and whoever wins the framing wins the ballot.**
+
+⭐ **Which is the worst possible round for Thunder's documented flaw.** He has now twice found the correct frame and let go of it inside a minute — *"is it financially beneficial for me to rob an old lady?"* in the quarterfinal, and the [closed-course answer](./wordwar-sf1-drug-legalization-thunder-medeiros.md) in SF1. **A round decided by holding a frame is a round decided by the one thing he does not do.**
+
+📌 **By the [axes-conflict hypothesis](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable), a split axis predicts the narrowest margins.** SF1 holds the record at **+5.4** on a conflicted axis. **This one is more conflicted.**
+
+#### 📌 Registered — post-topic, separately scoreable, and on different grounds
+
+| Call | Basis |
+|---|---|
+| **Rex Jones, narrow (≤ 25)** | ⚠ **Same winner as the refuted call, reached by a different route — and that must be stated rather than hidden.** The original was *execution-and-reach*. This one is **axis-conflict plus framing burden**: the disgust default sits with Jones, Thunder must convert the topic before he can argue it, and converting-and-holding is his documented weakness |
+| **Margin: narrow, and possibly a new bracket minimum** | the most internally conflicted axis in fourteen rounds |
+
+**Content calls, filed before the tape** (the [species Chris scored 3-of-3 on SF1](#-post-topic-observation-on-sf1--the-call-stands-and-the-model-now-disagrees-with-it)):
+
+- **Thunder runs pure bodily autonomy for the fourth consecutive round**, and ⭐ **again supplies no limiting principle when pressed** — the [cheeseburger](./wordwar-sf1-drug-legalization-thunder-medeiros.md) / abortion pattern, now three-for-three.
+- **Jones runs *consent* and/or *irreversibility*.** Both are available and both are strong.
+- ⚠ **Jones does *not* run the positional-compulsion argument** (below). It is the best one on the board and the most subtle, and nobody in this bracket has made the best available argument yet.
+
+#### ⭐ Chris's case, engaged — and where it needs help
+
+> *"I usually argue that humans naturally 'genetically engineer' with **mate selection**, so the principle itself isn't absurd. I also like to describe the movie **GATTACA** as evidence that it isn't as bad as people think… the selectors don't always get it right, and even people without selection can be competitive."*
+
+**Mate selection is a *non-uniqueness* argument, and it is now Chris's signature move** — third time in three rounds ([DSA](./wordwar-r3-dsa-medeiros-bourdeau.md), [drugs](./wordwar-sf1-drug-legalization-thunder-medeiros.md), here). **It works against the strong claim** — *selecting for traits in offspring is inherently wrong* — because humans have always done it and nobody calls mate choice eugenics.
+
+⚠ **But it under-delivers against the claim actually on the table**, and the gap is worth having before the tape:
+
+| | **Mate selection** | **Germline editing** |
+|---|---|---|
+| Who decides | **distributed** across millions | **centralised** — a clinic, a protocol, a fashion |
+| Speed | generations | **one generation** |
+| Direction | undirected; no one is optimising | **directed toward a chosen target** |
+| Consent of the selector | **both parties choose each other** | a **third party** chooses for the edited |
+| Error correction | continuous, cheap | ⭐ **none — the change is in the germ line** |
+
+**So the analogy licenses the *principle* and not the *mechanism*.** ⭐ *And note the shape:* the right-hand column is **centralised, fast, directed, and uncorrectable** — which is the [common-law-versus-legislation](../philosophy/morality/legal-theory/common-law-as-discovery.md) distinction applied to the genome. **Mate selection is *nomos*; germline editing is *thesis*.** That is a much stronger version of Chris's own point than "it's natural," because it says *why* the distributed version is safer without needing nature to be a value.
+
+**On GATTACA:** ⭐ the inversion is genuinely clever — *the canonical anti-engineering film is set in a world where the unengineered man wins*, so the standard citation undercuts the standard fear. ⚠ **But it is fiction, so it is evidence about what people fear, not about what happens.** Its real force is **rhetorical and reductive**: it denies the other side its own best-known illustration. Worth deploying exactly that way and not as data.
+
+#### ⭐⭐ What Rex has beyond "icky" — and the vault already holds most of it
+
+Chris: *"it will be interesting to see Rex's arguments beyond 'it feels icky/unnatural.'"* **There are at least four that are not disgust arguments, and three of them turn Thunder's own axis:**
+
+1. ⭐⭐ **Consent — and it is a *liberty* argument, not a squeamish one.** The edited party is the only person in the transaction who cannot agree, and a germline edit binds **every descendant forever**. *"My body, my choice"* collapses when the body being altered is someone else's, and Thunder's [documented failure mode is exactly this](./wordwar-r2-abortion-vic-thunder.md) — he lost the abortion round's best exchange on whose body was at issue.
+2. ⭐⭐ **Irreversibility — the off switch, which is Medeiros's *winning* SF1 argument.** *"That off switch only existed because the whole thing was still technically illegal."* **A germline change has no off switch at all**, and if Jones watched SF1 he has a template that already took Thunder to within 5.4 points. See [The Slack in the Law](../philosophy/morality/legal-theory/slack-in-the-law.md).
+3. ⭐⭐⭐ **Positional compulsion — the best argument available, and the one I predict nobody makes.** Enhancement is a [positional good](../economics/positional-goods.md): its value is *relative*. So if it is legal and effective, **opting out becomes a competitive penalty**, and *permitted* converts to *expected* converts to *effectively required* — with no statute changing at all. **That is precisely the mode-change-without-text-change thesis** this vault built last week, arriving in a third domain. ⭐ **And it is an argument that legalisation *destroys* liberty**, which is the only kind of argument that can beat Thunder in front of this room.
+4. ⭐ **The weighting problem — the vault already has it, and it has already broken a transhumanist.** In [Wilson vs. Istvan](./wilson-istvan-transhumanism-christianity.md), *"would uniformly blonde, blue-eyed, high-IQ designer babies be ethical?"* is the question Istvan **refused to answer**, and it is the round's killshot. *"Better" requires a weighting function; who sets the weights, and who picks them?* See [the Weighting Problem](../philosophy/epistemology/weighting-problem.md).
+
+⚠ **The eugenics card cuts *toward* the Neg in this room specifically**, and not by squeamishness: *legalise it and the state, insurers and employers will apply pressure.* **That is an anti-state argument for prohibition**, which is the rarest and most effective shape available against a libertarian affirmative — and the same structure as Medeiros's socialised-cost turn, which is the move that went closest to beating Thunder.
+
 ### ⭐⭐ Chris on the final, and a reach instrument that turns out to be measuring the wrong thing (2026-09-10)
 
 #### The reach proxy is broken, and it was broken all along
