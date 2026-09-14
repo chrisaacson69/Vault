@@ -315,6 +315,42 @@ Sharp and occasionally ugly. Jones accuses Thunder of wanting to *"erase all rac
 
 **The proposition half is right:** *"Will the SAVE Act save America?"* is a genuine resolution with a real burden, unlike rounds 2 and 3. ⚠ *The structure half is not quite* — **the main event used the same opener-closes-last rule and handed Mockler both ends**, and it produced the closest result of the night, decided on a review that reversed it. **If the order privilege is worth anything at all, it is worth the most exactly there.**
 
+## The other three, read — Chris
+
+### ⚠ *Angels vs. Demons* — nothing to affirm, so nothing to judge
+
+> *"I didn't like Angels vs. Demons because **there wasn't anything to affirm** — just two people talking, any contention seemed **manufactured**. I would give it to Lynn, but tbh **only because I liked her style better. I have nothing to go on.**"*
+
+⭐⭐ **That last clause is the finding, and it is unusually honest.** A matchup with no proposition **gives a judge no criterion**, so the ballot necessarily collapses to *delivery preference* — which is [finding 6](./word-war-debate-series.md#cross-round-findings)'s mechanism arriving not as a bias but as **the only thing left to vote on**. **Lynn had both the first and last word** ([above](#-the-rest-of-the-card--and-the-coin-toss-took-both-ends-in-all-four)) and lost a nailbiter; on a criterion-free round, that is about as much signal as the format can produce.
+
+### ⭐⭐⭐ *God! vs God?* — Jay Dyer vs. Stefan Molyneux, and the vault has seen this argument before
+
+> *"Jay is a **bloodsports** philosophy debater while Stefan is more used to **slower-paced, structured** discussions… most of the debate was spent on **Jay trying to get the materialist Stefan [to accept] that concepts exist**."*
+
+**Chris' read is exactly right, and the round is a fresh specimen of an argument this vault has already dissected twice.**
+
+⭐ **Dyer says so himself on stage:** *"some years back, Stefan and I had this exact same debate, and Stefan was struggling to understand the difference between **the number seven as a concept** and **seven coconuts**."* **It is a rematch**, and the argument is the *popular* form catalogued in [Malpass vs Dyer](./malpass-dyer-tag-logic.md): abstract conceptual universals — laws of logic, mathematics, causation, induction — *"cannot be located only in the physical world"*, therefore they need a metaphysical ground.
+
+⭐⭐ **And his sharpest move is a genuinely good one, which Chris credits:** Molyneux, as a self-described empiricist, is *"limited to finite sense data"*, yet made *"multiple universal claims"* — so **justify the move from particulars to universals.** That is Hume's problem of induction pointed straight at the opponent's method, and **Molyneux answers it inductively** (*"we can see all across time… with perfect universal consistency"*), which is the circle the question was about. **He never reaches the vault's own answer.**
+
+> ⭐⭐⭐ **[The Parity Move](../philosophy/epistemology/the-parity-move.md) is the standing reply and nobody made it.** *You cannot account for universals either — "God grounds them" relocates the terminus rather than justifying it.* **That converts Dyer's uniqueness claim into a draw, which is all the materialist needs.** Molyneux had ninety minutes and never ran it.
+
+⚠ **On conduct, the tape does not support a one-sided reading.** Chris is right that Dyer's aggression cost him — he fights the moderator outright (*"Can you please get her to stop? She's talked the entire time"*), which is the worst moment of the night by anyone. **But Molyneux opens the personal exchange** (*"Jay doesn't know what words mean… Jay doesn't even know what an arm is"*, *"a bunch of pre-programmed responses like an NPC"*) and states his strategy aloud: *"the important thing is not to change Jay's mind… but to appeal to the audience, **which I see by the smiles** I'm having some success with."* ⭐ **That is a contender openly optimising for the ballot rather than the argument** — the cleanest specimen of [finding 6](./word-war-debate-series.md#cross-round-findings) in the archive, and it *worked*: the desk called it *"a runaway."*
+
+**And Chris' procedural point stands: Molyneux's long answers to short questions are a real problem, not a stylistic preference.** Dyer's *"you didn't answer the question"* and *"let him filibuster"* are founded more often than not. ⚠ *Both men were right about each other, which is why it produced heat rather than progress.*
+
+### ⭐⭐ *Will the SAVE Act save America?* — and it corrects a vault page
+
+> *"Refreshing — both came out swinging and spoke well… **Mockler struck first with the personal attacks**… otoh it felt that **Pearson was caught flat-footed several times and didn't know things he should have.**"*
+
+**Both halves are on the tape.** Mockler goes personal early and often (*"this guy doesn't know [expletive] about this bill"*), and Pearson deflects with *"who's the leader of your party?"* rather than answering. **But the flat-footed charge is the more serious one, and it is documented in a single exchange:**
+
+> **Mockler:** *"How many Americans have a passport?"* → **Pearson:** *"You seem to have the answer."* → *"You didn't look this number up before the debate?"* → **Pearson:** *"Well, I think I have a passport."*
+
+⭐⭐⭐ **And the substance is why this round matters to the vault: it fought entirely on documentary mechanics, which is the strongest objection and the one [the vault's SAVE Act page](./save-act-suffrage-hoppian.md) does not engage.** Mockler's case is three operational claims — **~44% of Americans hold no passport**; **Real ID displays citizenship in only a handful of states** (enhanced licences exist in a short list, not nationally); **photo ID alone does not satisfy the Act.** *Correction owed to that page, filed there.*
+
+⚠ **What is absent is as striking as what is present.** Across the whole round: **zero mentions of *"Jim Crow,"* zero of *"racist,"* zero of *"maiden name."*** **Every rhetorical objection the vault page catalogued and dismissed as propaganda simply did not appear** — the live debate skipped straight past them to the mechanics. ⭐ *The page was right that those objections are weak, and wrong to treat them as the debate.*
+
 ## Open Questions
 
 - ⭐⭐ **Why did topicality win the two biggest rounds of the bracket and appear in none of the first twelve?** Medeiros in SF1, Jones here. Both are late-round contenders, both faced opponents with strong concrete evidence, and both neutralised that evidence by attacking the resolution's *wording* rather than its merits. **Is this a skill that only survives selection, or a strategy that only pays when the opponent has good evidence?**

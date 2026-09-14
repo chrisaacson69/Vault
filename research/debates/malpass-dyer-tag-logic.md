@@ -280,6 +280,16 @@ Three consequences worth having:
 
 **Free will is the critic's position, not Dyer's.** The 4 hits are all Objectivist free-will-as-self-regulated-cognition. Confirmed across all six Dyer sources: zero. So the [breakfast-next-Tuesday fork](../philosophy/logic-and-math/the-sql-argument.md) still has **no established purchase on Dyer's stated position** — it remains a good argument against the popular form and an unverified one against him.
 
+## ⭐ New specimen, 2026-09-12 — Dyer vs. Molyneux, live, and it is a rematch
+
+[Word War Debate II](./wordwar-final-genetic-engineering-jones-thunder.md#-god-vs-god--jay-dyer-vs-stefan-molyneux-and-the-vault-has-seen-this-argument-before), *"God! vs. God?"*, ~70 minutes. **Dyer flags the rematch himself:** *"some years back, Stefan and I had this exact same debate, and Stefan was struggling to understand the difference between **the number seven as a concept** and **seven coconuts**."*
+
+⭐⭐ **It confirms this page's corpus finding — the argument got simpler, not sharper.** There is **no formal logic, no engagement with alternative logics, and no Gödel** in seven years of distance; what remains is the **one-and-many** in its popular form: universals, mathematics, causation and induction *"cannot be located only in the physical world."*
+
+⭐ **The strongest version he deploys is the Humean one** — an empiricist confined to finite sense data made several universal claims, so *justify the move from particulars to universals.* **Molyneux answers inductively**, which is circular against a challenge about induction, **and never runs [the parity move](../philosophy/epistemology/the-parity-move.md)** — the standing reply that converts Dyer's uniqueness claim into a draw. **Nobody has run it against him on a stage yet**, in any source in this corpus.
+
+⚠ *Conduct note, since it bears on why the technical version keeps disappearing:* the round was decided by a live audience ballot, Molyneux stated openly that he was playing to the room, and the desk called it *"a runaway"* for Dyer. **A format that rewards the popular form is a format the technical form exits.**
+
 ## Open Questions
 
 - Did Malpass's 2019 pressure cause the later simplification, or is the short-form content simply a different product for a different audience? The corpus data shows the *what*, not the *why*.

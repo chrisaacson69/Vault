@@ -38,6 +38,24 @@ The speaker refutes common objections to the SAVE Act. This portion is solid and
 
 ---
 
+## ⚠⚠ Correction (2026-09-14): "voter ID is the easy part" conflates two different requirements
+
+**A live debate on this exact question — [Adam Mockler vs. CJ Pearson, Word War Debate II](./wordwar-final-genetic-engineering-jones-thunder.md#-will-the-save-act-save-america--and-it-corrects-a-vault-page) — fought the whole round on ground this page skips.**
+
+> ⭐⭐⭐ **The SAVE Act is not a voter ID law. It is a *documentary proof of citizenship* law, and that is a materially harder requirement.** Photo ID establishes *who you are*; the Act requires a document establishing *that you are a citizen*. **Part 1 above treats these as the same easy question, and they are not.**
+
+**The three operational claims that carried the live round, none of which appear above:**
+
+| Claim | Why it bites |
+|---|---|
+| **~44% of Americans hold no passport** | the cleanest citizenship document is absent for roughly half the electorate |
+| ⭐ **Real ID shows citizenship in only a handful of states** | Real ID proves *lawful status* to the issuing agency but the **card generally does not display citizenship**; enhanced licences that do exist in a short list of states, not nationally |
+| **Photo ID alone does not satisfy the Act** | so the fallback most people assume is available is not |
+
+⚠ **And the rhetorical objections this page catalogues — Jim Crow, "voter ID is racist", the married-women framing — did not appear in the live debate *at all*: zero mentions of any of them across the full round.** ⭐ **The page was right that those are weak arguments and wrong to treat them as *the* arguments.** The serious objection was always administrative, and it is the one a defender has to answer: *by what document does a married, non-passport-holding citizen in a non-enhanced-ID state register?*
+
+**None of this touches Part 2**, which is about suffrage rather than mechanics and stands unchanged. ⚠ *But Part 1's verdict — "this portion is solid and doesn't need deep analysis" — is retracted.*
+
 ## Part 2: The Suffrage Argument (The Meat)
 
 ### The Argument Chain
