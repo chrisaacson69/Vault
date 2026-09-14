@@ -286,6 +286,12 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
 
     ⚠ *Two specimens is a pattern, not a law.* The test is whether a round exists in which a reductio was **blocked**, and what that round cost — currently unchecked, and logged as an [open question](#open-questions).
 
+27. **⭐⭐ Burden inflation — volunteering a hard premise when an easier one would have done (2026-09-14).** Chris, on the [final](./wordwar-final-genetic-engineering-jones-thunder.md): *"'**Embryos don't have rights**' — to be fair this is consistent for him, but **he doesn't need it to beat consent**, and it let Rex torture him for much too long."*
+
+    **The mirror of [finding 20](#cross-round-findings).** An accepted reductio is a hard premise **forced on you** by your own principle; burden inflation is a hard premise **offered unprompted** when the argument does not require it. Thunder had the sufficient answer to the consent objection — *children cannot consent to chemotherapy; parents decide* — which works **whether or not an embryo is a person**, and he delivered it in his closing where it could not be developed.
+
+    ⚠ **The tell is that it is *consistent*, which is why it is hard to see as an error.** Volunteering it cost a second burden (fetal personhood), a large share of the round's airtime, and standing with a pool that had already voted on abortion. ⭐ *Diagnostic question for future rounds: **does this premise appear in the shortest path to my conclusion?** If not, holding it is a cost with no return.*
+
 26. **⭐⭐⭐ The last two rounds were won by the same argument, delivered by the same move — and neither winner knew it was a thesis (2026-09-14).** Topicality appeared in none of the first twelve rounds and then decided both of the last two.
 
     | | [SF1 — drugs](./wordwar-sf1-drug-legalization-thunder-medeiros.md) | [Final — genetic engineering](./wordwar-final-genetic-engineering-jones-thunder.md) |
