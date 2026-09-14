@@ -286,6 +286,16 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
 
     ⚠ *Two specimens is a pattern, not a law.* The test is whether a round exists in which a reductio was **blocked**, and what that round cost — currently unchecked, and logged as an [open question](#open-questions).
 
+28. **⭐⭐⭐ Two judges crossed their own priors in opposite directions on the same round — the counter-specimen to finding 19 (2026-09-14).** Chris, on the [SAVE Act main event](./wordwar-final-genetic-engineering-jones-thunder.md):
+
+    > *"In the same judge group, a **left-leaning judge leaned Pearson**, while being **more right-leaning, I gave it to Mockler**. To me that shows how close this actually was. Impressive round."*
+
+    **Pearson is the right-coded debater and Mockler the left-coded one, so both judges scored *against* their own side** — and the official ballot was the closest of the night, *"so close that the winner literally changed and flipped on the final review."* **Three independent readings, two of them crossed, all landing near 50/50.**
+
+    ⚠ **[Finding 19](#cross-round-findings) holds that a reviewer's own politics supplies the *"better position"* verdict.** This is its cleanest counter-case, and it is stronger than a single crossing would be: **one crossing can be contrarianism; two crossings in opposite directions on one round cannot both be.**
+
+    > ⭐⭐ **Which yields a usable quality metric the vault did not have: *cross-prior agreement*.** When judges of opposing priors each award it to the other side's debater, they are scoring **the debate** rather than **the position** — and that is the best available evidence that a round was genuinely balanced and genuinely well argued. 📌 *Worth applying retrospectively: [finding 5](#cross-round-findings)'s "better side loses" specimens should be re-checked for whether the reviewer's prior and the verdict ever crossed.*
+
 27. **⭐⭐ Burden inflation — volunteering a hard premise when an easier one would have done (2026-09-14).** Chris, on the [final](./wordwar-final-genetic-engineering-jones-thunder.md): *"'**Embryos don't have rights**' — to be fair this is consistent for him, but **he doesn't need it to beat consent**, and it let Rex torture him for much too long."*
 
     **The mirror of [finding 20](#cross-round-findings).** An accepted reductio is a hard premise **forced on you** by your own principle; burden inflation is a hard premise **offered unprompted** when the argument does not require it. Thunder had the sufficient answer to the consent objection — *children cannot consent to chemotherapy; parents decide* — which works **whether or not an embryo is a person**, and he delivered it in his closing where it could not be developed.

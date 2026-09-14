@@ -52,6 +52,32 @@ The speaker refutes common objections to the SAVE Act. This portion is solid and
 | ⭐ **Real ID shows citizenship in only a handful of states** | Real ID proves *lawful status* to the issuing agency but the **card generally does not display citizenship**; enhanced licences that do exist in a short list of states, not nationally |
 | **Photo ID alone does not satisfy the Act** | so the fallback most people assume is available is not |
 
+### ⚠⚠ Amended same day — the three claims are real, the arithmetic is not
+
+**Chris caught the error in Mockler's case, and it is one I repeated when filing the correction above:**
+
+> *"Sure, 44% of Americans hold no passport, but **a passport is only one of many documents**. Mockler treats all of his statistics as **additive** when in fact they are mostly **subtractive**."*
+
+⭐⭐⭐ **The Act accepts a *disjunction* of documents and the statistics were presented as a *conjunction*.** Lacking a passport excludes nobody — it routes them to another accepted document. **The excluded population is the *intersection*: citizens holding *none* of the qualifying documents** — no passport, no birth certificate, no naturalisation certificate, no qualifying enhanced ID. **That number is far smaller than 44%, and nobody on that stage computed it or asked for it.**
+
+> **So the correction above stands on *kind* and fails on *magnitude*.** Documentary proof of citizenship **is** a materially different requirement from photo ID, and that distinction is real. **But none of the three statistics establishes how many people it actually excludes**, and presenting them additively makes a modest administrative problem look like mass disenfranchisement.
+
+⭐⭐ **And Chris' standing counter-argument is the one the defence needed and never gave:**
+
+> *"The requirements to prove citizenship are basically the same as the requirements to **prove the ability to work in the US**, and this doesn't stop anyone."*
+
+**Every legally employed person in the country has already cleared a documentary-proof bar of comparable difficulty** — a functioning, universal, decades-old system. **That is a *precedent* argument rather than a *principle* argument, which is exactly what an administrative objection deserves.**
+
+⚠ **Where it does not fully reach, and it is worth stating:** the employment bar is cleared **with an employer's help, once, while working-age**, and accepts broad document combinations. **The population it misses is the one where this objection actually lives** — elderly citizens who have not been employed in decades, never held a passport, and whose birth records are in another state or another name. *That is a real and narrow problem, and a narrow problem has cheap fixes.*
+
+⭐ **Which is Chris' conclusion, and it reframes the entire dispute:**
+
+> *"The only real complaints are **the cost, the red tape, and that you have to be in person** — all things that can be fixed. I've got no problem with **free voter ID and the ability to file online.** These are not insurmountable."*
+
+> ⭐⭐⭐ **So the SAVE Act argument is a dispute about *implementation* conducted as a dispute about *principle*** — the third specimen of that structure in this bracket, after [SF1](./wordwar-sf1-drug-legalization-thunder-medeiros.md) (both agreed about most drugs, fought over opioids) and [the final](./wordwar-final-genetic-engineering-jones-thunder.md) (both agreed *some* engineering should be lawful, fought over the default). **Free issuance plus online filing dissolves most of the objection, and neither debater proposed it.**
+
+⚠ **And the dishonesty Chris flags is the reason it never got there.** Mockler repeatedly asserts he supports *"voter ID"* and **never once specifies what he would accept or how it differs from proof of citizenship** — which is how a position sounds moderate while opposing every concrete instance of itself. ⭐ **Pearson asks the right question — *"how many Americans don't have simple photo ID? Real ID?"* — and lets the deflection stand**, which is the same failure Thunder committed four times in the championship: *the correct question, asked once, abandoned.*
+
 ⚠ **And the rhetorical objections this page catalogues — Jim Crow, "voter ID is racist", the married-women framing — did not appear in the live debate *at all*: zero mentions of any of them across the full round.** ⭐ **The page was right that those are weak arguments and wrong to treat them as *the* arguments.** The serious objection was always administrative, and it is the one a defender has to answer: *by what document does a married, non-passport-holding citizen in a non-enhanced-ID state register?*
 
 **None of this touches Part 2**, which is about suffrage rather than mechanics and stands unchanged. ⚠ *But Part 1's verdict — "this portion is solid and doesn't need deep analysis" — is retracted.*
