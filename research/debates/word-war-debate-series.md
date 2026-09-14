@@ -1106,6 +1106,63 @@ Chris framed the two semifinals as a test of the *room*, not the contenders:
 
 ⭐ *And reach may invert.* Thunder carries the tournament's largest online audience (**3,495** on the abortion round, ~4× anything Jones has drawn) — an advantage that means one thing for an online ballot and something quite different for a room of ticket-holders. **Whether the ballot is even cast by the room is unknown.**
 
+### 🏆 THE BRACKET CLOSES — Rex Jones is the Contender Series champion (2026-09-14)
+
+**Live from the Woolworth Theatre, 12 September. [Full review](./wordwar-final-genetic-engineering-jones-thunder.md).** ⚠ **No margin was published, and `view-results` now 404s with the voting section deleted from the site** — [defect 17](#format-defects-and-their-cheap-fixes) in its terminal form. The result was recovered from the tape: the announcement is a 23-second gap, but the stage interview and the closing recap (*"You know who won the first one? There's Rex Jones"*) both confirm it.
+
+#### The ledger
+
+| Call | Result |
+|---|---|
+| **Post-topic: Rex Jones, narrow** — on *axis-conflict + framing burden* | ✅ **winner correct**; margin unpublished, band unscoreable |
+| **Pre-topic: Jones, narrow** — on *execution + reach*, then **self-refuted by its own condition** | ⚠ **see below — the condition was wrong, not the call** |
+| **Margin narrow / possible bracket minimum** | ⏳ **permanently unscoreable** |
+| **N2** — four semifinalists travel, losers fill the undercard | ❌ the undercard was *Angels vs. Demons* (James Williams def. Dr. Heather Lynn) |
+| **N3** — the Contender final is **not** the main event | ✅ **and understated**: it was the **opening** debate; the main event was Mockler vs. Pearson on the SAVE Act |
+
+⚠⚠ **The most useful failure is the self-refutation, and it was mis-specified.** I filed *"if the resolution lands on liberty-versus-state ground, treat Jones-narrow as already refuted"* — on the reasoning that such ground makes the axis model point at Thunder. **It landed there, I honoured the condition, and Thunder lost anyway.** ⭐ **So the naive axis read was wrong and the refined one written the same day — *the axis splits, the disgust default sits with the Neg, and Thunder carries the framing burden* — was right.** The lesson is not that registering conditions is bad; it is that **a condition is a prediction too, and this one was worse than the analysis it was meant to discipline.**
+
+#### ⭐⭐⭐ The steelman scored 4 of 4; the content predictions scored 2 of 4
+
+**Filed pre-tape as *"what Rex has beyond icky"* — all four appeared:**
+
+| Steelman argument | |
+|---|---|
+| **Consent of the edited party** | ✅ **his lead**, anchored on the **Nuremberg Code, Article One** |
+| **Irreversibility / germline permanence** | ✅ the gene pool, *"a thousand generations"* |
+| **Positional compulsion** | ✅ *"if your child doesn't get the shot… you're going to end up a **second-class citizen**"* |
+| **The weighting problem** | ✅ verbatim — ***"Who are you to say what's better and what's worse?"*** |
+
+**The content predictions did much worse:**
+
+| Prediction | |
+|---|---|
+| **Thunder supplies no limiting principle** | ✅✅ **and it decides the round** — *"I don't have a line right now"* |
+| **Thunder does not run "you can't put it back in the bottle"** | ✅ never makes it; gets adjacent via China and does not convert |
+| **Thunder runs pure bodily autonomy for a 4th round** | ❌ **miss, and a credit to him** — he ran a *regulated-technology* case instead |
+| **Jones does *not* run positional compulsion** | ❌ **miss, and it was my most confident content call** |
+
+> ⭐⭐ **The page predicted *which arguments were good* far better than it predicted *which would be made*.** That asymmetry is worth keeping: **steelmanning is a different and apparently more reliable instrument than forecasting behaviour**, and this hub has been spending most of its effort on the weaker one.
+
+#### ⚠ Chris's calls
+
+- ***"Icky and fear might win the day"*** — ⚠ **half.** Jones won on **fear**, but not of the technology: his engine is the **COVID-mandate chain**, which is fear *of institutions*. **He ran almost no disgust** — his case was Nuremberg, two Supreme Court patent cases, a topicality frame and gene-pool biodiversity. ⭐ *And the commentary desk named the actual axis:* **"macro versus micro"** — long-term versus short-term — with no mention of God, nature or squeamishness.
+- ***"The debate will only scratch the surface"*** — ❌ **wrong, and this is the happiest miss in the ledger.** Of the four items filed, **(a) consent ✅, (b) irreversibility ✅, (c) positional compulsion ✅**, and only **(d) the private, emergent character of the coercion** was missed — Jones routes all of it through *government + corporate mandate*, never through actuaries and employers acting alone. **Three and a half of four. The final went considerably deeper than either of us expected.**
+
+#### ⭐⭐⭐ The cross-round finding: topicality won both of the bracket's biggest rounds
+
+**Medeiros opened SF1 with *legalization ≠ decriminalization*. Jones won the final with the same shape** — his *"cocaine proposition,"* deployed six times: **cocaine is illegal yet has medical carve-outs, therefore *illegal-with-carve-outs* is not *legal***, and every gene therapy the Affirmative cites becomes evidence *for the Negative*.
+
+⭐ **It appeared in none of the first twelve rounds and then decided both of the last two.** Both users were late-round contenders facing opponents with **strong concrete evidence**, and in both cases topicality neutralised that evidence without contesting a single fact. 📌 **Open: is this a skill that only survives selection, or a strategy that only pays when the opponent's evidence is good?**
+
+⚠ **And the loser's opponent named the winning line aloud, on stage:** *"I would have taken the position that you just support somatic. That's what I would have done."* **Somatic-only is defensible, matches the existing-therapy evidence, and dodges every consent and gene-pool argument — and it concedes the resolution as written, which is presumably why Thunder refused it.**
+
+#### 📌 What dies with the bracket
+
+**The margin series ends here.** No figure for the final, none for either semifinal beyond the two captured on 2026-09-10, and the two quarterfinal margins lost on 2026-09-08 are not coming back. ⚠ **[Finding 11](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) is therefore permanently unresolvable on this dataset**, and the [axes-conflict hypothesis](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) keeps its four confirmations without a fifth.
+
+⚠ **One variable arrived with no precedent and no way to measure it:** voting stayed open through two subsequent debates while the commentary desk praised Jones on air, and the desk itself noted that slots later in the night *"get a shorter window to get the votes in."* **[Defect 16](#format-defects-and-their-cheap-fixes) — the window is the electorate — now applies *within* a single event.**
+
 ### 🏁 THE FINAL — topic published, and it splits the pool's axis against itself (2026-09-11)
 
 **Off the WWD X account, via Chris:** ***"Genetic Engineering on Humans Should Be Legal."*** **Thunder affirmative, Rex Jones negative.** Live, Woolworth Theatre, Nashville, 12 September.
@@ -1525,7 +1582,8 @@ Compact view of the [ledger](#predictions-ledger); the ledger rows carry the rea
 | **R3 — Iran (Tejeda/Jones)** | Model: **the narrowest margin of round 3** (*filed blind 2026-09-08; result deliberately not looked up, but the 24h ballot has probably closed — so blind, not pre-result*) | ⏳ | — | ⭐ **Independent of who wins**, which is what makes it worth filing. [Finding 11's dilution result](#-finding-11s-compression-prediction--rescued-because-it-was-being-tested-against-the-wrong-variable) says margin falls with pool size; QF C is running at **113 views/hr against QF A's 15 and QF B's 20**, so it should have the largest pool in the round by a wide margin. Predicted: **narrower than QF A's +74.8 and QF D's +9.0 is the hard case** — the falsifiable form is *QF C comes in under +40*. A blowout kills the dilution reading outright |
 | **SF2 — flock cameras** | Model: **Rex Jones**, narrow (*pre-tape, pre-result*) | ⏳ | — | *"Beneficial"* is the worst side drawn since socialism — Summerhays defends mass surveillance to an Infowars-adjacent room. Prior + execution + form aligned, as in QF C |
 | **SF1 — topic unpublished** | Model: **Medeiros**, wide (*pre-tape; ⚠ **no topic**, so execution-and-reach only*) | **Thunder +5.4** | ❌❌ | Best prosecutor in the bracket against the narrowest-winning contender; both low-reach, so a small pool and a wide margin |
-| **The final** | **Chris + model: Rex Jones vs. Medeiros** (*both filed before either semifinal resolves; SF1 has not even aired*) | **Jones vs. Thunder** | ⚠ **half** | ⭐ **Agreement by two routes again.** Both semifinal calls held jointly, so the final is a joint prediction with a single failure point — if either leg misses, both are wrong at once. The strongest form: **it forecasts the championship pairing two rounds and one unaired tape ahead** |
+| **The final** | **Chris + model: Rex Jones vs. Medeiros** (*both filed before either semifinal resolves; SF1 has not even aired*) | **Jones vs. Thunder** | ⚠ **half** |
+| **The championship** | Model: **Rex Jones**, narrow (*post-topic, on axis-conflict + framing burden*) | ✅ **Jones champion** — margin never published | ✅ | ⭐ **Agreement by two routes again.** Both semifinal calls held jointly, so the final is a joint prediction with a single failure point — if either leg misses, both are wrong at once. The strongest form: **it forecasts the championship pairing two rounds and one unaired tape ahead** |
 | *Structural* | ✅ **leg 1 hit** — Chris: **the QF B winner loses the semifinal on audience size** — *"if Thunder wins this, this is a popularity contest, and Thunder goes down easily when faced against a similar-reach opponent"* (*pre-result*) | ⏳ | — | ⭐ **A two-stage test that survives either quarterfinal outcome.** Both legs landing turns *"this is a popularity contest"* from a complaint into the model; the QF B winner beating **Medeiros** falsifies it. Filed 2026-09-07 |
 | *Structural* | **The quarterfinal bracket**, registered 2026-09-01 before announcement | 4 of 4 pairings correct | ✅ | The page's first purely structural prediction, and it solved the tree |
 

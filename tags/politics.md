@@ -52,5 +52,6 @@ permalink: /tags/politics/
 - [Nationalism vs. Socialism (Word War R3 — Summerhays vs. Charsky)](../research/debates/wordwar-r3-nationalism-socialism-summerhays-charsky.md)
 - [Flock Cameras: Beneficial or Harmful? (Word War SF2 — Summerhays vs. Rex Jones)](../research/debates/wordwar-sf2-flock-cameras-summerhays-jones.md)
 - [All Drugs Should Be Legal (Word War SF1 — Thunder vs. Medeiros)](../research/debates/wordwar-sf1-drug-legalization-thunder-medeiros.md)
+- [Genetic Engineering on Humans Should Be Legal (Word War final — Jones vs. Thunder)](../research/debates/wordwar-final-genetic-engineering-jones-thunder.md)
 - [The Slack in the Law](../research/philosophy/morality/legal-theory/slack-in-the-law.md)
 - [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)

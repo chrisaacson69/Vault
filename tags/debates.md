@@ -90,4 +90,5 @@ permalink: /tags/debates/
 - [Nationalism vs. Socialism (Word War R3 — Summerhays vs. Charsky)](../research/debates/wordwar-r3-nationalism-socialism-summerhays-charsky.md)
 - [Flock Cameras: Beneficial or Harmful? (Word War SF2 — Summerhays vs. Rex Jones)](../research/debates/wordwar-sf2-flock-cameras-summerhays-jones.md)
 - [All Drugs Should Be Legal (Word War SF1 — Thunder vs. Medeiros)](../research/debates/wordwar-sf1-drug-legalization-thunder-medeiros.md)
+- [Genetic Engineering on Humans Should Be Legal (Word War final — Jones vs. Thunder)](../research/debates/wordwar-final-genetic-engineering-jones-thunder.md)
 - [Malpass vs Dyer — TAG and the Laws of Logic](../research/debates/malpass-dyer-tag-logic.md) — the 2019 technical version: concedes alternative formal systems, claims Gödel as an ally, denies being an Aristotelian; the later corpus drops every technical thread
