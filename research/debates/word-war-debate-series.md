@@ -294,6 +294,33 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
 
     ⚠ **[Finding 19](#cross-round-findings) holds that a reviewer's own politics supplies the *"better position"* verdict.** This is its cleanest counter-case, and it is stronger than a single crossing would be: **one crossing can be contrarianism; two crossings in opposite directions on one round cannot both be.**
 
+    ### ⭐⭐⭐ Why it happens — two mechanisms, and they are not the same claim
+
+    **Chris, spitballing the cause, and the two judges gave different accounts of themselves:**
+
+    > *"I think this means we tend to **judge our own side too harshly**. The other judge said it was probably because he **didn't want to look biased**; for me I think it was **knowing better responses to the other side and being disappointed that my side didn't make them**."*
+
+    | | **A — bias avoidance** (the other judge) | **B — informed disappointment** (Chris) |
+    |---|---|---|
+    | Kind | **motivational** — a reputational correction | ⭐ **epistemic** — asymmetric *information*, not asymmetric motive |
+    | Mechanism | discount your own side to appear fair | you hold a **higher-resolution map of your own side's argument space**, so you see every argument that was available and unmade |
+    | ⭐ Testable difference | should **weaken when judging privately or anonymously** | should **survive anonymity**, and scale with expertise in your own side's literature |
+    | Failure mode | over-correction | ⭐⭐ **comparing your side to the steelman and theirs to the transcript** |
+
+    ⭐⭐⭐ **B names a real and specific error, and this page committed it all season.** *"The strongest version of Thunder's case is real and mostly unmade"* is the review method's standing move — and **a steelman is only available for arguments you already know exist.** So the method **systematically holds the better-known side to a higher standard**: its debater is scored against an ideal, the opponent against what they actually said. ⚠ *The [4-of-4 steelman versus 2-of-4 forecast split](#-the-bracket-closes--rex-jones-is-the-contender-series-champion-2026-09-14) is the same asymmetry showing up as a scoreboard.*
+
+    ⭐ **A third candidate neither judge proposed: differential error detection.** You catch your own side's mistakes because you can check their claims; the other side's claims you cannot check as well, so they pass unchallenged. **This produces the crossing with no disappointment and no reputational motive at all** — and it is the hardest of the three to introspect, which is a reason to doubt both self-reports.
+
+    ### ⭐⭐ Which reconciles findings 19 and 28 — they may be one mechanism, not two
+
+    > **You judge the side you know better *favourably on position* and *harshly on execution*.**
+
+    **[Finding 19](#cross-round-findings) is the first half; finding 28 is the second.** They look opposite and pull against each other on a single ballot, so **which one is visible depends on which is larger** — and execution-harshness only wins when the round is close on position and your side underperformed its known best case.
+
+    ⭐ **Which derives Chris' own caveat rather than merely agreeing with it:** *"it is still a decent metric that probably only shows up in very close fights."* ⚠ **But the distinction matters: that is a property of the *detector*, not of the *phenomenon*.** In a lopsided round the harshness is the same size and simply is not enough to flip the verdict, so nothing is observed. **The crossing is the visible tip; the asymmetry is presumably always there.** *That makes the metric more useful, not less — a crossing is strong evidence, but its absence is no evidence at all.*
+
+    ⚠⚠ **Honest limits, and they are severe.** n = 2 judges, one round, with **mechanisms self-reported after the fact** — and introspective accounts of one's own judgement are among the least reliable evidence there is. **The behaviour (the crossing) is solid; every explanation above is speculation**, including the one that reconciles two of this page's own findings. 📌 *The cheap test is available whenever there is a judge group: collect verdicts **before** anyone states their prior, then collect the priors.*
+
     > ⭐⭐ **Which yields a usable quality metric the vault did not have: *cross-prior agreement*.** When judges of opposing priors each award it to the other side's debater, they are scoring **the debate** rather than **the position** — and that is the best available evidence that a round was genuinely balanced and genuinely well argued. 📌 *Worth applying retrospectively: [finding 5](#cross-round-findings)'s "better side loses" specimens should be re-checked for whether the reviewer's prior and the verdict ever crossed.*
 
 27. **⭐⭐ Burden inflation — volunteering a hard premise when an easier one would have done (2026-09-14).** Chris, on the [final](./wordwar-final-genetic-engineering-jones-thunder.md): *"'**Embryos don't have rights**' — to be fair this is consistent for him, but **he doesn't need it to beat consent**, and it let Rex torture him for much too long."*
