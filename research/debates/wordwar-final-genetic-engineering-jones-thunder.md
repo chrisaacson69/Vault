@@ -110,11 +110,76 @@ Then: existing gene therapies as proof the principle is already conceded; *"natu
 
 ⚠ **The mechanism is shakier than it sounds and went unchallenged.** Illegality does not prevent patenting — you can hold a patent on a compound nobody may lawfully sell. The *economic* version (no legal market, less investment, fewer patents) is arguable; **the legal version Jones actually asserts is not, and Thunder never tested it.**
 
+## ⭐⭐⭐ The burden was captured in the first five minutes, and never contested
+
+**Chris, reporting his group's reading:**
+
+> *"Jones early on framed the debate in that **Thunder has to defend X**, and Thunder **never pushed back** on this framing, so he was able to keep his concession and still argue that this isn't the 'real topic'… **The mistake here was accepting that framing instead of pushing back on it.**"*
+
+**This is the mechanism behind everything else in the round.** Jones' opening does not argue the resolution — **it assigns the burdens**: *"this is the position that you have to defend… He has to defend that **in its entirety**. He is going to try to bring **edge cases**."* ⭐ **Pre-labelling every future carve-out as an "edge case" inoculates against the Affirmative's best evidence before it is offered**, and pre-labelling every retreat as a "pivot" makes reasonable narrowing look like evasion.
+
+**Thunder accepts all of it.** He never says *you don't get to write my burden*, never asks Jones to defend *prohibition as a default*, and never points out that **Jones' own carve-outs are edge cases by the same standard.** The one time he gets close — *"medically legal is still legal"* — he abandons it in ten seconds.
+
+**What was available, and it is not subtle:**
+
+> *"You wrote my burden and exempted yourself from it. The resolution says 'should be legal.' **You say some should be lawfully practised. I say some should be lawfully practised. We agree.** The only question left is where the default sits — and you have asserted prohibition-as-default six times without once defending it."*
+
+⚠ **That reframe costs Jones his entire structure**, because the cocaine proposition is the *only* thing converting Thunder's evidence into Jones' evidence. **Nobody said it.**
+
+### ⭐⭐ The judges' verdict, and why it doesn't settle the contest
+
+Chris took it to people who judge debate for a living:
+
+> *"They **all agreed that this was a concession**, but the desire to talk about the subject and not escape **'on a technicality'** makes for better conversation… sure, but **in a contest this doesn't matter as much.**"*
+
+⭐⭐⭐ **That disagreement is not about this round — it is about what the format is for, and the series has never decided.** Two objectives, two verdicts, both internally consistent:
+
+| Objective | Verdict on the cocaine proposition |
+|---|---|
+| **Produce good conversation** | ❌ a technical escape that prevented the argument the topic promised |
+| **Decide a contest on the resolution as worded** | ✅ correct, decisive, and the Affirmative's job to answer |
+
+**The judges optimise the first; the ballot rewards the second; and the prompt-writing** — [an over-wide resolution stretched around a narrow disagreement](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) — **is what forces the two apart.** ⚠ *A resolution that says what the disagreement actually is makes topicality unavailable and the conversation unavoidable. That is the cheap fix for both complaints at once.*
+
+### 📌 Chris's open question, and the bracket already has two data points
+
+> *"The question is if saying things like **'he has to support the resolution in full'** would land well on an **unsophisticated audience**."*
+
+**Topicality is 1–1 in this bracket, which is the most useful answer available:**
+
+| | [SF1 — Medeiros](./wordwar-sf1-drug-legalization-thunder-medeiros.md) | **Final — Jones** |
+|---|---|---|
+| The move | *legalization ≠ decriminalization* | *the cocaine proposition* |
+| Used to | **dismiss** the opponent's sympathetic material — *"so what?"* | ⭐ **convert** the opponent's evidence — *"you're describing my position"* |
+| Anchored to | a general framing claim | ⭐ **a concession the audience heard him make**, at minute 53 |
+| Repetition | stated once, early | **six times, by his own count** |
+| Ballot | ❌ **lost** 47.3–52.7 | ✅ **won** |
+
+> ⭐⭐ **So the answer is: not on its own.** On n=2 the difference is not sophistication but **anchoring** — Jones' topicality points at a sentence the room *watched his opponent say*, and he repeats it until it is the only thing anyone remembers. Medeiros' pointed at a definition. **A lay audience will not follow you to the resolution's wording, but it will follow you to a quote.**
+
+⚠ *n=2, one confound each way: Jones also had the first and last word, and Medeiros faced a topic the pool's axis owned. Worth testing on any future bracket rather than trusted.*
+
 ## ⚠ Two corrections to the record
 
-**1. The coin toss set speaking order, not sides.** The tape: *"We flipped a coin before the match started. **Rex Jones, you are opening the debate**, followed by Octavius."* Sides were never reassigned, and Jones states the allocation himself at 60:44 — *"You're taking the affirmative on that. I'm taking the negative."*
+**1. ~~The coin toss set speaking order, not sides.~~ Formally true, and Chris is right that it understates what happened.**
 
-⭐ **But the impression is worth keeping, because something genuinely odd did happen: the *Negative opened the debate*.** In every prior round the Affirmative opened. Here a coin flip handed the Neg the first word, and **he used it to define the term, set both burdens, and pre-but his opponent before that opponent had said anything.** Thunder's opening then had to be a *response* to a case he had just heard, in a slot designed for laying out his own. ⚠ *That is a real structural advantage assigned by coin toss, and it belongs with [defect 1b](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) — speaking order is not a neutral variable in this format.*
+The tape says only *"we flipped a coin… **Rex Jones, you are opening the debate**, followed by Octavius,"* and Jones assigns the sides himself at 60:44. **But Chris pushed back on my tidy correction:**
+
+> *"They still did the **first-last / last-first** ordering as if the first speaker was the affirmative. In this speech he framed the debate and set definitions **just like an affirmative would do**, so I think there was more to it than just order."*
+
+⭐⭐⭐ **He is right, and the tape confirms the part I had not checked — Jones got the first word *and* the last one.** Openings ran **Jones → Thunder**; closings ran *"since we started with Rex, we're going to start this time with Octavius"* → **Thunder, then Jones.** **The Negative opened the debate and closed it.**
+
+**So one coin flip delivered the entire affirmative structural package:**
+
+| Privilege | Effect |
+|---|---|
+| **First word** | defines *genetic engineering*, sets **both** burdens, and pre-buts (*"I expect you to obfuscate, I expect you to pivot"*) before his opponent has spoken |
+| ⭐ **Last word** | the closing is unanswerable by construction — [defect 15](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) — and he spends it restating the minute-53 concession |
+| **De facto affirmative posture** | Thunder's *opening* becomes a rebuttal to a case he has just heard, in the slot meant for building his own |
+
+⚠ **This compounds [defect 2](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) rather than sitting beside it.** That defect records three different closing-order rules across the series; **under the one this moderator used — *the opener closes last* — the single coin toss decided both ends of the debate.** The toss looked like a formality and allocated the two most valuable slots in the format.
+
+⭐ **And Chris's conclusion is the right one, and it is not a complaint about Jones:** *"If Jones took advantage of this, so should Thunder."* **The privilege was available to whoever won the toss and used it. Only one man used it.**
 
 **2. Reach — [Chris]** *"Rex Jones is actually the son of Alex Jones, the controversial talk show host, and at many times you can see Rex channeling his father's passion."*
 
