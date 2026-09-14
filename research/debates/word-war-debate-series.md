@@ -1880,6 +1880,44 @@ Seventeen items reads as a catastrophe. It is not; it is **five problems**, and 
 
 📌 **Defect 18 — ⭐⭐ a coin toss allocated both the first and the last word, and nobody noticed (2026-09-14).** In the [championship](./wordwar-final-genetic-engineering-jones-thunder.md) the toss was announced as deciding who opens. Under this moderator’s closing rule (*the opener closes last*) it also decided who closes — so **the Negative opened the debate, defined the term, assigned both burdens, pre-butted his opponent, and then had the unanswerable final word.** Chris: *“they still did the first-last / last-first ordering **as if the first speaker was the affirmative**… there was more to it than just order.”* ⭐⭐ **Confirmed 4-for-4 across the whole WWD II card (2026-09-14):** the toss winner opened *and* closed in every debate — Jones, Lynn, Dyer and Mockler — and **three of the four won**, with the closest round of the night going to the man holding both ends. ⚠ **And the two non-propositional rounds are the worst case:** *“Angels vs. Demons”* and *“God! vs. God?”* have **no affirmative and no burden of proof**, and the burden is the entire justification for the first-and-last privilege — so there it compensates for nothing. **Even where a burden exists, the toss ignores which side carries it.** **Cheap fix — and it is Chris's, and it is already in the format's own history:** *“keep the order for openings and closings.”* That is **Kyla's round-1 rule, applied 5-for-5** before Perez inverted it: whoever opens also closes first, so the second speaker gets the last word as compensation for hearing the case first. Symmetric, costless, and abandoned. **This compounds [defects 1b, 2 and 15](#format-defects-and-their-cheap-fixes) instead of sitting beside them.**
 
+## ⭐⭐⭐ The fix the whole season was pointing at: measure *movement*, not *level*
+
+**Chris, closing the measurement thread:**
+
+> *"There is another debate format where they **poll the audience at the start** and then at the end, and measure by **% of people moved** — so this is your test done in another format. Though **% moved might not be a perfect record**: someone who has 95% of the vote has a hard time getting another 1%… measured in absolute % points or relative %, might have troubles **at the extremes**."*
+
+**That is the Intelligence Squared design, and the connection he draws is right:** a pre-poll *is* the prior, collected before the verdict, which is exactly the [finding 28](#cross-round-findings) protocol run on an audience instead of a judge panel.
+
+### ⭐⭐ Why it matters here more than anywhere else
+
+> **Every complaint this page has filed about ballot quality is a complaint about a *level* ballot.**
+
+[Finding 5](#cross-round-findings) — the better-argued side loses. [Finding 10's correction](#cross-round-findings) — the pool's axis decides rounds. [The SF1 result](./wordwar-sf1-drug-legalization-thunder-medeiros.md) — the best debater in the bracket lost on a topic his opponent's axis owned. **All of these say the same thing: a level ballot measures *where the room already was*, and the room was fixed before anyone spoke.**
+
+> ⭐⭐⭐ **A movement ballot cancels the axis by construction, because the axis is baked into the pre-poll.** Whatever the room believed walking in is subtracted out, and what remains is **what the debating did**. **That is a direct measurement of execution — the thing this bracket spent fourteen rounds failing to measure.**
+
+⚠ *And it is robust to the pool-selection problem that broke the [reach instrument](#-chris-on-the-final-and-a-reach-instrument-that-turns-out-to-be-measuring-the-wrong-thing-2026-09-10) twice:* a self-selected audience makes a level ballot nearly uninformative, **but movement within a biased pool is still movement.**
+
+### ⚠ Chris' objection is correct, and his two candidate metrics fail at *opposite* ends
+
+| Metric | Fails where | Why |
+|---|---|---|
+| **Absolute points gained** (what IQ2 used) | ⚠ **the top** | start at 95% and only 5 points exist to win; the metric structurally rewards whoever starts behind |
+| **Relative gain** (% of own starting share) | ⚠ **the bottom** | 1% → 2% is a **100% gain**; the metric rewards whoever starts tiny |
+
+**Two fixes, and the second is the standard answer to exactly this problem:**
+
+1. ⭐ **Share of the *available* pool converted** — gain ÷ (100 − starting share). Starting at 95% and taking 3 of the 5 available is **60% conversion**; starting at 20% and taking 12 of 80 is **15%**. Normalises the ceiling directly, and is easy to explain on a stage.
+2. ⭐⭐⭐ **The log-odds (logit) shift** — convert each share *p* to ln(*p*/(1−*p*)) and score the **difference**. Symmetric, unbounded, no ceiling at either end, and it makes moves at the extremes commensurate with moves in the middle: **95% → 97% and 50% → 62% are both a shift of roughly 0.5**, which is the right answer and is why this transform is standard wherever bounded proportions are compared.
+
+### ⚠ Three problems neither metric solves
+
+- **The undecided bucket is doing most of the work.** Converting a fence-sitter and flipping an opponent are different achievements and a two-way poll scores them identically. **Poll three ways.**
+- ⭐ **The pre-poll is itself a treatment.** Asking people to commit publicly before the debate makes them *more* resistant to moving afterwards — **so the instrument partly causes the small movements it then measures**, and it should be expected to under-report persuasion across the board.
+- **It still cannot separate persuasion from performance.** A room can move because an argument landed or because a speaker was charming; movement measures *that the room changed*, not *why*.
+
+📌 **Filed as the cheap fix for [defects 16 and 18](#format-defects-and-their-cheap-fixes) and the only proposal on this page that would test [finding 5](#cross-round-findings) rather than merely restate it.** ⚠ *It costs one extra poll and nothing else.*
+
 **In fairness, three things the format does well**, and they should survive any polish: the **moderated crossfire round** is the most productive segment in almost every round (it is where definitions actually get pinned); the **ballot window** lets voters watch the whole tape rather than reacting live — though round 2 halved it to 24 hours, which cuts against that virtue; and **disclosure norms are emerging on their own** — Mullally opens the party-loyalty round with *"candidly, I know both these guys."*
 
 ## Open questions
