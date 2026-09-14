@@ -105,6 +105,30 @@ Right — and that fixes what this section is *for*. *Remain* asserts a status q
 
 **This is the framing counter, not the tactical one** ([The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md)). Its win condition — *"my account of what tonight is about is better than his"* — is what the audience already thinks it is voting on. And it is *not* Thunder's dodge (*"I'm only arguing legality"*, which [restated the topic](./wordwar-r2-abortion-vic-thunder.md#who-actually-argued-better--chriss-read-and-it-corrects-this-page)): *readily* is genuinely narrower than *legal*, so declining the legality fight concedes something real. **It stays honest only if you stay in the lane** — Chris's own rule from that review.
 
+#### Nailing *readily* — it means *for the asking*, and the test is whether the process can say no
+
+> **Chris (2026-09-14):** *"I have to nail down 'readily' as no barriers… 'only a three-day waiting period and she can get one? Good enough for Roe! Sounds readily available to me!'"*
+
+That is the Aff's cheapest escape and the one that beats the whole page if it lands: **accept the Neg's friction and call it readily anyway.** If *readily* is allowed to mean *eventually, after a process*, the German model, the UK model and the court order all fit *inside* the resolution and the Aff wins by agreement. So "no barriers" isn't quite the nail — **speed is the wrong axis.** The right one:
+
+> **Readily = *for the asking*. The plan = *for the showing*. The test: can the process say no?**
+
+A waiting period delays; a court can **refuse**. Any process that can return *no* is by definition not *readily* — however fast it runs. That puts the plan outside the resolution regardless of the 48-hour clock, and it disposes of two worries at once:
+
+- **"Once she has the order, the abortion has to be readily available to execute."** Yes — and that's not a concession. The resolution modifies *abortions as a class*; it says nothing about executing an *authorised* one, which should be prompt in exactly the way a search proceeds the moment a warrant issues. (And any hospital can do it; that was never the issue.)
+- **"Your plan would expand access in the 13 ban states."** Yes. *"My plan is to the left of Texas."* The §1 table sizes the *Aff's* burden; it never claimed the Neg defends the bans, and in this room *Germany, not Texas* is the point.
+
+**The fork — and the Aff's own party is the anchor:**
+
+| If the Aff says… | Then… |
+|---|---|
+| **"Readily means no barriers."** | They defend WHPA-level zero friction against Roe (physician gatekeeper), *Casey* (wait upheld), Germany, Britain — the case as built. |
+| **"A three-day wait is still readily."** | **Take the concession out loud:** *"Then you've accepted counselling and a wait — and you disagree with your own party's bill, which calls those 'medically unnecessary restrictions.' I'll take it."* They've conceded the German model; the remaining argument is one more signature, on the Neg's terms (§7). |
+
+Either branch is a Neg win. **The only losing branch is letting the Aff stand between them** — *readily* undefined, friction accepted piecemeal, no concession recorded. That's what the threshold cross (§1) is for, and why it comes before the Aff can frame the word.
+
+**On "good enough for Roe":** Roe was never *for the asking*. It put the *physician's* medical judgment in charge (§2b) and *Casey* upheld the wait. Even Roe fails the Aff's own "readily."
+
 ### "available" — available *to whom*, and *for what*
 
 Held in reserve: *available* without qualification includes sex-selective abortion, disability-selective abortion, and coerced abortion. See §6 — these are the arguments that load on the room's own values.
@@ -301,7 +325,7 @@ The vault's standing warning ([easy burden](../philosophy/tangents/the-negatives
 | **Neg 3 open** | The three words (§1). *Their* history (§2, §2b): Roe said no to "my body"; *Casey* upheld a waiting period; thirteen states had grounds-and-certification before Roe. The readiness dial (§3b). Close on *"safe, legal, rare — they kept two."* |
 | **Aff 3 cross** | Expect *"do you think it should be legal at all?"* — **one sentence, then pivot** (below). Expect *"how would you do this?"* — §7, owned. |
 | **15 open** | Gun waiting period (§6) — let them raise two-bodies. Viability / ~10,000 past 21 weeks. Coercion and sex-selection. The numbers (§3). |
-| **Close** | *"Safe, legal, rare. They kept two. I'm asking for the third — and for someone other than the interested party to decide when it isn't."* |
+| **Close** | *"Safe, legal, rare. They kept two. I'm asking for the third — and for someone other than the interested party to decide when it isn't. Readily means for the asking. I'm asking for the showing."* |
 | **Q&A** | The personal questions (below). |
 
 ### The legality question — one sentence, then pivot
