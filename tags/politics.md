@@ -55,3 +55,4 @@ permalink: /tags/politics/
 - [Genetic Engineering on Humans Should Be Legal (Word War final — Jones vs. Thunder)](../research/debates/wordwar-final-genetic-engineering-jones-thunder.md)
 - [The Slack in the Law](../research/philosophy/morality/legal-theory/slack-in-the-law.md)
 - [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)
+- [Abortions Should Remain Readily Available (prep)](../research/debates/abortion-readily-available-prep.md) — the Aff's own history as the case: Roe permitted regulation and post-viability bans; *safe, legal and rare* (1989→Clinton) had "rare" struck from the 2012 platform; the court order as *nemo iudex in causa sua*, pre-answered by judicial-bypass law
