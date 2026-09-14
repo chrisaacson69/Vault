@@ -1824,6 +1824,56 @@ Consolidated because the observations have accumulated across a dozen reviews an
 
 📌 **Defect 17 — ⭐⭐ results are now withheld rather than published, and the prior season's archive is winner-name-only (2026-09-09).** The results page moved (`/voting-results` → `/view-results`), lost every percentage card, and shows a Final Four bracket with **neither semifinal winner advanced**; `/vote-now-1` reads *"check back soon."* Meanwhile `/word-war-i-results` shows what the archive looks like once a season ends: **a name, no number, and broken images.** **Cheap fix:** publish the count and the split at ballot close, in text, on a permanent per-round URL — the reveal can still be a reveal without destroying the record, and text costs nothing to keep. **Detail:** [above](#-the-semifinal-results-are-being-withheld-not-delayed--and-the-archive-format-says-the-margins-may-never-exist-2026-09-09).
 
+## 🏁 Season close — *"the prizefight of debate"* is not branding, it is the design, and it explains the defect list
+
+**Chris, closing the season:**
+
+> *"WWD tries to market themselves as something like **'the prizefight of debate'** — basically they want the showmanship of boxing or MMA, but for **verbal combat**. This tends to promote more of a **bloodsports** format… I think we saw this happen in real time with Jay vs. Stefan. **Jay's combative style seemed to have more audience appeal** as he promoted that style."*
+
+### ⭐⭐⭐ Almost every defect on this page is a *consequence* of that identity, not a failure to achieve a different one
+
+**Read the list again with the prizefight frame and it stops being a list of mistakes:**
+
+| Defect | The prizefight reason for it |
+|---|---|
+| **8, 14** — prompts chosen badly, non-exclusive alternatives | a card needs **clash**, and clash is selected for over clarity |
+| **13, 12, 16** — compressed calendar, shrinking ballots | a card needs a **fixed live date**, and everything upstream compresses toward it |
+| **5, 17** — results wiped, then withheld, then deleted | **the reveal is the product**; an archive competes with it |
+| **18** — the coin toss | that *is* the boxing convention, imported without its compensating rules |
+| *(new)* — a commentary desk between argument and ballot | every prizefight has one |
+
+> ⭐⭐ **So the memo changes.** *"Publish your margins on permanent URLs"* asks a promoter to damage his own product. **The fixes that survive are the ones a prizefight already wants** — and that turns out to be most of them.
+
+### ⭐⭐⭐ Because the analogy, taken seriously, demands *more* structure, not less
+
+**Boxing and MMA are not improvised.** They have **unified rules**, **weight classes**, **published judges' scorecards**, an **official record for every fighter**, and a **sanctioning body**. The showmanship sits on top of an unusually rigid administrative substrate — **that is what makes the drama legible.**
+
+> **Word War Debate has adopted the showmanship and almost none of the infrastructure.** No written rulebook (defects 1b, 2, 3, 15), no published scorecards (5, 17), no fighter records, no schedule (13).
+
+⭐ **So the bloodsport framing is the strongest *argument for* the fixes, not an excuse for their absence.** *"If you want to be the UFC of debate, notice that the UFC publishes every judge's scorecard."* **That is a better memo than anything else on this page, and it is entirely in the promoter's own language.**
+
+### ⚠ The audience is now a paying participant, and that is a real incentive channel
+
+The tape documents it: a **super-chat / Rumble-rant segment** mid-debate, with questions read out on air for anyone who paid. ⭐ **So the questions that reach the stage are selected by willingness to pay**, which selects for *engagement* rather than *relevance* — and it sits alongside the commentary desk as a second uncontrolled input between argument and ballot.
+
+**And [Dyer vs. Molyneux](./wordwar-final-genetic-engineering-jones-thunder.md#-god-vs-god--jay-dyer-vs-stefan-molyneux-and-the-vault-has-seen-this-argument-before) is the specimen.** Molyneux says out loud that he is playing to the room — *"which I see by the smiles"* — and **loses in a runaway to the more combative man.** ⚠ *Chris' balance is the right one and this page keeps it: he would have preferred the civil version, **and** Molyneux's wandering monologues were a genuine failure to engage. Both are true, and Dyer's procedural objections were largely founded.*
+
+> ⭐⭐ **Which means combat was *correct play*.** If an audience ballot rewards combat, a contender who brings it is not lowering the tone — **he is reading the rules accurately.** Style selection is not a flaw in this format; it is the format's output, and [finding 6](#cross-round-findings) is what it looks like from the inside.
+
+### ⚠ A sampling caveat on this vault's whole debate corpus
+
+> **Chris:** *"WWD prefers the more bloodsport style while **I tend to review the more substantial ones**."*
+
+📌 **Worth filing against every cross-debate finding here.** The [debates collection](./README.md) is **not a random sample** — it is selected for substance by the reviewer. **So findings about what wins, what loses, and what audiences reward are drawn from a corpus chosen on a correlate of the thing being measured.** ⚠ *This compounds the [steelman asymmetry](#cross-round-findings) from finding 28: the reviewer's prior shapes not only how a round is scored but **which rounds enter the record at all**.*
+
+### ⭐ And the season's own best round is the refutation of the trade-off
+
+> **Chris:** *"The championship round was the best of the evening as it was a **good mix of substance and thrill** on a rather interesting topic too."*
+
+**That is the important closing fact.** [Jones vs. Thunder](./wordwar-final-genetic-engineering-jones-thunder.md) ran the Nuremberg Code, two Supreme Court patent cases, a topicality frame and a consent trap — **and it was also the most entertaining thing on the card**, in a room that had paid to be entertained.
+
+> ⭐⭐⭐ **So substance and showmanship are not the trade-off the format's branding implies. The best round had both.** **Which means the defects were never the price of the style — they were just defects**, and the format's own championship is the proof.
+
 ## ⭐⭐ Seventeen defects, five causes — and the season assessment
 
 > **Chris, 2026-09-09:** *"The defect page got long, as this is their first attempt. **They needed a real schedule and sticking to it.** It means debaters must be on the ball if they want to participate, and it also gives the time required for each round to be fair. They literally jammed **13 debates within a week** IIRC; the 6-hour voting windows for the SF seems bad form… but tbh, aside from the time constraints, **the later rounds were much clearer and cleaner**."*
