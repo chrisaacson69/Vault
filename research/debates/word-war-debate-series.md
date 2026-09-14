@@ -286,6 +286,19 @@ The reason the bracket is worth tracking as a unit rather than as a pile of revi
 
     ⚠ *Two specimens is a pattern, not a law.* The test is whether a round exists in which a reductio was **blocked**, and what that round cost — currently unchecked, and logged as an [open question](#open-questions).
 
+26. **⭐⭐⭐ The last two rounds were won by the same argument, delivered by the same move — and neither winner knew it was a thesis (2026-09-14).** Topicality appeared in none of the first twelve rounds and then decided both of the last two.
+
+    | | [SF1 — drugs](./wordwar-sf1-drug-legalization-thunder-medeiros.md) | [Final — genetic engineering](./wordwar-final-genetic-engineering-jones-thunder.md) |
+    |---|---|---|
+    | **The technical move** | *legalization ≠ decriminalization* | *the cocaine proposition* — illegal-with-carve-outs is not legal |
+    | **What it neutralised** | the entire sympathetic case (teenagers, dime bags) | the entire evidence base (sickle cell, SMA, hemophilia) |
+    | **The substantive claim underneath** | ⭐ **the off switch** — *"that only existed because it was still technically illegal"* | ⭐ **keep the default prohibitory** so carve-outs stay narrow and revocable |
+    | Winner | Medeiros (lost the ballot) | **Jones (won the bracket)** |
+
+    ⭐⭐ **Both are the same claim: the enforcement instrument exists only while the conduct is formally illegal — so the default allocation *is* the argument.** That is the [liability-default vs. conduct-command](../philosophy/morality/legal-theory/slack-in-the-law.md) distinction, reached twice, independently, by debaters with no exposure to it.
+
+    ⚠ **And it reframes both rounds as *default-allocation disputes disguised as yes/no disputes*.** In SF1 both men agreed about most drugs and fought over opioids; in the final **both ended at "some yes, some no"** — Chris caught it: *"with the cocaine example he showed an instance when it **should** be legal, even by his own admission."* **The winner in each case is the one who named his default and called it a position, rather than arriving at it as a retreat.** 📌 *Open: is topicality a late-round skill, or a strategy that only pays against an opponent with good evidence?*
+
 25. **⭐⭐ The *free concession* — granting a premise your own evidence has already defeated (2026-09-09).** A distinct error type from finding 20's accepted reductio, and it took Chris to spot it: *"the **oxycontin** example shows **'clean' drugs may actually be worse**, and there is now incentive to make them more potent."*
 
     In [SF1](./wordwar-sf1-drug-legalization-thunder-medeiros.md) the Neg's own opening establishes that **Florida's pill mills had every safety feature legalization promises** — FDA drug, licensed prescriber, exact dose, no cartel, no adulterant — and produced the deadliest drug epidemic in American history. Twenty minutes later he concedes *"the premise that drugs would be safer is **100% true**."* **He had already proved that clean supply is not safe supply, and then granted the opposite.**

@@ -48,6 +48,12 @@ Follow [content-extract.md](../../shared/content-extract.md) for source detectio
   - **Fallback if CDP is unavailable:** scrape the YouTube transcript panel from the DOM (*Show transcript* → `transcript-segment-view-model` elements, **not virtualised**, so a full hour is present at once), then move the text out by POSTing it to a throwaway `127.0.0.1` HTTP listener — YouTube's CSP allows that, while both clipboard routes fail. Lower fidelity (the panel merges cues) but it needs nothing installed.
   - **Metadata without a browser:** if the channel is mirrored on a PeerTube instance (Word War Debate is, at `vid.samtripoli.com`), `/api/v1/videos?sort=-publishedAt` and `/api/v1/videos/<shortUUID>` return titles, **full descriptions**, durations and view counts as JSON — i.e. resolutions and side assignments — and reach this machine when YouTube does not. Partial mirrors: a first look, never a census.
   - Then strip timestamps for a cleaned copy. Save both to `Vault/raw/debates/` (never modified — it's the source of truth).
+  - ⭐ **Multi-debate captures — split before reading, not after.** A live event is one video holding several debates plus hours of pre-show, ad reads and desk commentary; the WWD II stream was **6h46m / 11,676 cues** for a round that ran 58 minutes. Map the boundaries with a grep for segment markers (`prompt is`, `minutes on the clock`, `that's time`, `let's meet`, `the winner is`), then slice:
+    ```bash
+    py -3 tools/split-transcript.py raw/debates/transcript-<ID>.txt \
+        0-42:preshow 42-101:d1-<slug> 205-275:d3-<slug> --outdir raw/debates
+    ```
+    Each `start-end:slug` is in **whole minutes**; the tool writes `<stem>-<slug>.txt` with timestamps intact (so quotes stay citable) plus a `-clean` sibling, and reports cue and word counts per segment so an empty range is obvious immediately. **Review the segment, cite the full capture.** Chris, after the WWD II review: *"we might be best to split the transcript up in chunks because of the 4 debates plus all the noise."*
 - Ask for start/end timestamps if not given; extract the debate portion. **Ask whether to include the post-debate panel / audience Q&A** — that looser exchange is often where the real signal is, and excluding it by default is part of how this skill thinned out.
 - Non-YouTube URL: `WebFetch`. If bot-blocked, ask Chris to clip it to `raw/` and point you at the file.
 

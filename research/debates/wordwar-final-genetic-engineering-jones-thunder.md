@@ -24,7 +24,7 @@ discussion: pending
 1. **The stage interview immediately after** — the sponsor comes out, and the host turns to Jones: *"Rex, how you feeling?"* → *"Uh, **shocked**… if it wasn't for the high quality of my opponent, I wouldn't have **risen to the occasion**."* Thunder then gets the runner-up acknowledgement.
 2. ⭐ **The closing recap at 396:49** — *"You know who won the first one? **There's Rex Jones.**"* The Contender championship *was* the first debate of the night.
 
-⚠ **And `wordwardebate.com/view-results` now 404s, with "View Results" and "Vote Now" removed from the site navigation entirely.** No margin was ever published for the final. **[Defect 17](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) in its terminal form** — the semifinal percentages captured here on 2026-09-10 are now the only surviving record of them.
+⚠ **And `wordwardebate.com/view-results` now 404s, with "View Results" and "Vote Now" removed from the site navigation entirely** (`/word-war-ii-results` 404s too; the nav offers only *Word War I Results*, and the home page still carries pre-event marketing). Chris reports a results page exists somewhere and that **it carries no margins either** — consistent with the announcement on the night, which named the winner before the fourth debate and gave no figure. **[Defect 17](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) in its terminal form** — the semifinal percentages captured here on 2026-09-10 are now the only surviving record of them.
 
 ## ⭐⭐⭐ How Jones won it: topicality, and the concession he extracted in fifteen minutes
 
@@ -79,6 +79,48 @@ Then: existing gene therapies as proof the principle is already conceded; *"natu
 ⭐⭐⭐ **The last one is the [designer-baby trap](./wilson-istvan-transhumanism-christianity.md) from the vault's Wilson–Istvan page, and Thunder walks straight into it in front of a libertarian-coded room.** Jones does not even need to develop it. He also lands the **weighting problem** verbatim — *"Who are you to say what's better and what's worse?"* — which is the question that broke Istvan on that page.
 
 ⚠ **And the fourth consecutive round with no limiting principle.** Abortion, drugs, and now this: asked where the boundary sits, Thunder jokes (*"I'll draw the line there — under six feet"*) rather than drawing one. **[Finding 5](./word-war-debate-series.md#cross-round-findings) held that this worked because opponents could not exploit it. Jones exploited it in the first fifteen minutes and then ran on it for an hour.**
+
+## ⭐⭐⭐ Chris: the cocaine proposition concedes the resolution — and Thunder found it and let go
+
+**The sharpest reading of this round is Chris's, and it turns Jones' winning move against him:**
+
+> *"The topic is that **'Genetic Engineering on Humans Should Be Legal'**… and yet with the cocaine example he showed an instance when it **SHOULD** be legal, even by his own admission!"*
+
+**He is right, and the mechanism is a quantifier switch.** The resolution is ambiguous between two readings, and **Jones enforces one on his opponent while claiming the other for himself:**
+
+| Reading | *"Genetic engineering on humans should be legal"* | Who uses it |
+|---|---|---|
+| **Universal** | **all** of it should be legal — somatic, hereditary, enhancement, everything | ⭐ what Jones demands Thunder defend *"in its entirety"* |
+| **Existential** | it should **not be categorically banned** — some of it should be lawfully practised | ⭐ what Jones himself asserts: *"illegal, **but** there are medical contexts to use it"* |
+
+> ⭐⭐ **Both men end the hour at "some yes, some no." The difference is only which side the default sits on** — and Jones won because he **named his default and called it a position**, while Thunder's identical structure was framed as a retreat.
+
+⭐⭐ **And Thunder found this, said it twice inside ten seconds, and dropped it** (77:17):
+
+> **Thunder:** *"So you agree that it should be legal under certain medical circumstances. **So you agree with me?**"* … *"Medically legal **is still legal**."*
+> **Jones:** *"I agree with my position, which is that it should be illegal."*
+
+**That is not an answer, it is a restatement of the label** — and Thunder accepts it and moves on. ⚠ **This is the fifth documented instance of Thunder locating the correct argument and releasing it within a minute**, after the old-lady robbery in [QF B](./wordwar-r3-iran-justified-tareyak-thunder.md) and the closed-course answer in [SF1](./wordwar-sf1-drug-legalization-thunder-medeiros.md). **It is no longer a tendency; it is the thing that loses him rounds.**
+
+### ⚠ Where Jones has a real answer, and it is better than the label
+
+**In fairness, the two defaults are not interchangeable, and Jones gives a reason:** keep the prohibition in place *so that patents cannot form and the carve-outs stay narrow and revocable*. **That is the off-switch argument** — [Medeiros' winning move in SF1](./wordwar-sf1-drug-legalization-thunder-medeiros.md), that an enforcement instrument only exists while the underlying conduct is formally illegal.
+
+⭐⭐⭐ **Which produces the cross-round finding: the last two rounds of this bracket were won by the same substantive claim, delivered by the same technical move.** *Preserve the default prohibition because that is what keeps the off switch* — reached in both cases via **topicality** rather than by contesting a single fact. See [The Slack in the Law](../philosophy/morality/legal-theory/slack-in-the-law.md): this is the **liability-default vs. conduct-command** distinction being argued on stage by people who have never heard of it.
+
+⚠ **The mechanism is shakier than it sounds and went unchallenged.** Illegality does not prevent patenting — you can hold a patent on a compound nobody may lawfully sell. The *economic* version (no legal market, less investment, fewer patents) is arguable; **the legal version Jones actually asserts is not, and Thunder never tested it.**
+
+## ⚠ Two corrections to the record
+
+**1. The coin toss set speaking order, not sides.** The tape: *"We flipped a coin before the match started. **Rex Jones, you are opening the debate**, followed by Octavius."* Sides were never reassigned, and Jones states the allocation himself at 60:44 — *"You're taking the affirmative on that. I'm taking the negative."*
+
+⭐ **But the impression is worth keeping, because something genuinely odd did happen: the *Negative opened the debate*.** In every prior round the Affirmative opened. Here a coin flip handed the Neg the first word, and **he used it to define the term, set both burdens, and pre-but his opponent before that opponent had said anything.** Thunder's opening then had to be a *response* to a case he had just heard, in a slot designed for laying out his own. ⚠ *That is a real structural advantage assigned by coin toss, and it belongs with [defect 1b](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) — speaking order is not a neutral variable in this format.*
+
+**2. Reach — [Chris]** *"Rex Jones is actually the son of Alex Jones, the controversial talk show host, and at many times you can see Rex channeling his father's passion."*
+
+⭐ **This repairs the reach instrument rather than just adding colour.** The [hub's reach proxy already failed once](./word-war-debate-series.md#-chris-on-the-final-and-a-reach-instrument-that-turns-out-to-be-measuring-the-wrong-thing-2026-09-10) on Thunder, whose audience is on Instagram rather than YouTube. Jones breaks it in the other direction: **his platform access is inherited, so no channel metric on any platform measures what he can actually reach.** ⚠ **The instrument was never measuring reach; it was measuring one distribution channel.**
+
+**And it explains the case construction.** The COVID-mandate chain — emergency use authorisation, mandates for jobs and school, *"85% of Americans"* — is not a set of arguments Jones assembled for this topic. **It is the native vocabulary of the audience he grew up broadcasting to**, which is why it arrives fully formed and why it lands on this specific pool. *That is an advantage of fluency, not of research.*
 
 ## ⭐ What the commentary desk saw, and it names the axis
 
