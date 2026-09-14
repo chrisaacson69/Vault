@@ -276,6 +276,45 @@ Alex Stein, immediately after: *"the foundation of the debate was the **macro ve
 
 Sharp and occasionally ugly. Jones accuses Thunder of wanting to *"erase all races, ethnicities"*; Thunder answers a eugenics line with *"they used to say the same thing about black people"*; there is a *"you sound like a communist."* Both men shook hands and praised each other afterwards, and Jones called it *"the best debate of the night."* **On the tape it reads as a prizefight, which is what the desk called it** — *"sweating his ass off like he was in a freaking prize fight."*
 
+## ⭐⭐⭐ The rest of the card — and the coin toss took both ends in all four
+
+**Chris asked for a brief pass over the other three. It produced the sharpest format finding of the season.**
+
+| # | Debate | Resolution | Won the toss / **opened** | **Closed last** | Winner |
+|---|---|---|---|---|---|
+| **1** | **Jones vs. Thunder** — Contender championship | *"Genetic engineering on humans should be legal"* | **Jones** | **Jones** | ✅ **Jones** |
+| **2** | **Dr. Heather Lynn vs. James Williams** — undercard | ⚠ *"Angels vs. Demons"* | **Lynn** | **Lynn** | ❌ **Williams** — *"a nailbiter"* |
+| **3** | **Jay Dyer vs. Stefan Molyneux** | ⚠ *"God! vs. God?"* | **Dyer** | **Dyer** | ✅ **Dyer** — *"a runaway"* |
+| **4** | **Adam Mockler vs. CJ Pearson** — main event | *"Will the SAVE Act save America?"* | **Mockler** | **Mockler** | ✅ **Mockler** — *"so close the winner literally changed and flipped on the final review"* |
+
+**The rule was uniform across the night** — *"we started with X, we'll reverse and start with Y"* — so **the coin-toss winner opened the debate and closed it, four times out of four.** ⚠ **They won three of the four**, and the one who lost it lost a nailbiter, while the closest round of the night went to the man holding both ends.
+
+⚠ *n=4, and the toss winner may simply have been the better debater in three of them. But the allocation is not in doubt, and it was never announced as part of the format.*
+
+### ⭐⭐ Chris' objection, and why the non-propositional rounds are the worst case
+
+> *"The next two had crazy resolutions that **fit the coin flip mechanism better** — Angels vs. Demons, and God! vs. God? …otoh they kept the **first-last / last-first structure** of the other rounds, and **I don't think this is fair.**"*
+
+**He is right, and the reason is sharper than unfairness in general.** *"Angels vs. Demons"* and *"God! vs. God?"* are **not propositions — they are matchups.** There is nothing to affirm, so there is **no affirmative and no burden of proof.**
+
+> ⭐⭐⭐ **And the burden of proof is the entire justification for the first-and-last privilege.** Formats give the Affirmative both ends *because* the Affirmative has to prove something. **Strip the proposition and the privilege compensates for nothing — it is a pure structural gift, assigned by coin.**
+
+⚠ **Worse, the toss ignores side even when a side exists.** In rounds 1 and 4 there *is* a burden, and the coin handed both ends to whoever won it **regardless of who carried that burden**. **So the compensation is randomised away from the thing it exists to compensate** — half the time it offsets a burden, half the time it doubles an advantage.
+
+### ⭐⭐⭐ Chris' fix is not new — the series already ran it, for five rounds, and dropped it
+
+> *"The solution is the same: **keep the order for openings and closings.**"*
+
+**That is Kyla's rule, and [defect 2](./word-war-debate-series.md#format-defects-and-their-cheap-fixes) records that she applied it 5-for-5 in round 1** — *opener closes first* — before Perez inverted it 4-for-4 and Mullally went side-based and self-inconsistent.
+
+> **So the format's own history contains the answer.** Whoever speaks first also closes first; **the second speaker gets the last word as compensation for hearing the case laid out before they begin.** That is symmetric, it needs no ruling, and it costs nothing. **Word War Debate used it in round one and has been drifting away from it ever since.**
+
+### ⭐ And Chris rates the main event second-best
+
+> *"The last round actually had a topic as a normal debate round would, and structured fine — and it was among two very good young up-and-comers. **The second best debate of the night.**"*
+
+**The proposition half is right:** *"Will the SAVE Act save America?"* is a genuine resolution with a real burden, unlike rounds 2 and 3. ⚠ *The structure half is not quite* — **the main event used the same opener-closes-last rule and handed Mockler both ends**, and it produced the closest result of the night, decided on a review that reversed it. **If the order privilege is worth anything at all, it is worth the most exactly there.**
+
 ## Open Questions
 
 - ⭐⭐ **Why did topicality win the two biggest rounds of the bracket and appear in none of the first twelve?** Medeiros in SF1, Jones here. Both are late-round contenders, both faced opponents with strong concrete evidence, and both neutralised that evidence by attacking the resolution's *wording* rather than its merits. **Is this a skill that only survives selection, or a strategy that only pays when the opponent has good evidence?**
