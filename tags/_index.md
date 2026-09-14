@@ -14,7 +14,7 @@ permalink: /tags/_index/
 - [ai](./ai.md) — 58 files
 - [assembly](./assembly.md) — 17 files
 - [atari-2600](./atari-2600.md) — 1 file
-- [audio-processing](./audio-processing.md) — 7 files
+- [audio-processing](./audio-processing.md) — 8 files
 - [battletech](./battletech.md) — 1 file
 - [c](./c.md) — 1 file
 - [career](./career.md) — 7 files
@@ -28,7 +28,7 @@ permalink: /tags/_index/
 - [compression](./compression.md) — 1 file
 - [constitutional-law](./constitutional-law.md) — 4 files
 - [crypto](./crypto.md) — 1 file
-- [cyborg](./cyborg.md) — 9 files
+- [cyborg](./cyborg.md) — 10 files
 - [debates](./debates.md) — 86 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
@@ -62,7 +62,7 @@ permalink: /tags/_index/
 - [methodology](./methodology.md) — 17 files
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 60 files
-- [music](./music.md) — 9 files
+- [music](./music.md) — 10 files
 - [natural-law](./natural-law.md) — 6 files
 - [nes](./nes.md) — 19 files
 - [nobunagas-ambition](./nobunagas-ambition.md) — 1 file
@@ -74,7 +74,7 @@ permalink: /tags/_index/
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 2 files
-- [python](./python.md) — 14 files
+- [python](./python.md) — 15 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
 - [reverse-engineering](./reverse-engineering.md) — 37 files

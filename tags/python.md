@@ -21,3 +21,4 @@ permalink: /tags/python/
 - [OOP Neurons](../projects/oop-neurons/README.md)
 - [CyborgDJ](../projects/cyborgdj/README.md) — Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
 - [democracy3-solver](../projects/democracy3-solver/README.md) — "Solve" Positech's Democracy 3 by extracting its game-data model and running optimization on it.
+- [DJ Blend Tool Test Plan — Retrieve, Fit, Close the Gaps](../research/dj-blend-tool-test-plan.md) — Ordered plan to retrieve the candidate blend tools and test each on one fixed transition, closing the critic / closed-loop / A/B-log gaps.

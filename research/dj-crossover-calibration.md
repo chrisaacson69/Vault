@@ -9,7 +9,7 @@ title: "Crossover Calibration — Measuring the EQ Cutoff Instead of Guessing It
 > Design for a tool that finds the EQ crossover frequency for a transition by measurement and a
 > psychophysics harness, replacing the slowest and most frustrating loop in manual mix authoring.
 
-**Links:** [DJ EQ Blending Technique](./dj-eq-blending.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md), [CyborgDJ](../projects/cyborgdj/README.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md), [Planner-LM Composites](./planner-lm-composites.md), [The Three-Layer Method](./karpathy-three-layer-method.md)
+**Links:** [DJ EQ Blending Technique](./dj-eq-blending.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md), [CyborgDJ](../projects/cyborgdj/README.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md), [Planner-LM Composites](./planner-lm-composites.md), [The Three-Layer Method](./karpathy-three-layer-method.md), [DJ Blend Tool Test Plan](./dj-blend-tool-test-plan.md) (the phased execution of this design)
 
 *Status: design, not yet implemented. No numbers here are measured — every quantity is a parameter to be
 determined by the harness this page describes.*

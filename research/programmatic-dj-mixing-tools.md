@@ -8,7 +8,7 @@ title: "Programmatic DJ Mixing Tools"
 # Programmatic DJ Mixing Tools
 > Research into tools and libraries that can execute a DJ mix from written instructions — loading tracks, time-stretching, beat-matching, applying EQ crossfades, and rendering a continuous output file.
 
-**Links:** [DJ Set 1](../projects/dj-set-1/README.md), [Set Mastering Pipeline](../projects/set-mastering/README.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md), [DJ EQ Blending Technique](./dj-eq-blending.md), [Crossover Calibration](./dj-crossover-calibration.md)
+**Links:** [DJ Set 1](../projects/dj-set-1/README.md), [Set Mastering Pipeline](../projects/set-mastering/README.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md), [DJ EQ Blending Technique](./dj-eq-blending.md), [Crossover Calibration](./dj-crossover-calibration.md), [DJ Blend Tool Test Plan](./dj-blend-tool-test-plan.md)
 
 ---
 
@@ -489,6 +489,10 @@ DawDreamer remains an unexercised fallback.
   `arXiv:2603.08759` ("EDMFormer"), **could not be substantiated and should be treated as fabricated.**
   Practical fallback: derive drops from energy/spectral-flux on the phrase grid.
 - Audio-understanding LLMs / MCP / scriptable DAW APIs — **zero surviving claims**; hypothesis untested.
+  *Half-resolved 2026-09-14:* the Claude Messages API has **no audio input modality** (verified against the
+  Files API docs — text, images, PDF, plain text only), so an LLM "ear" is necessarily the feature pipeline
+  emitting text + plots. Whether reading those plots adds anything is Phase 6 of the
+  [test plan](./dj-blend-tool-test-plan.md); scriptable DAW APIs remain untested.
 - Whether pyCrossfade, Automix/M-DJCUE, or any commercial DJ tool exposes a programmatic interface.
 
 ---
