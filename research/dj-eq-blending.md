@@ -263,6 +263,12 @@ Not luck — structural:
   CQT chroma + Krumhansl with **consensus voting and bar-aligned timeline windows** — a better *method* for
   tracks that change key. It beat a commercial tool because of the architecture around the primitive.
 
+*Correction 2026-09-15:* the Rekordbox grids for the 11 DJ-set tracks are **camelot's own XML export**
+(imported 2026-02-20, never re-analysed; BPMs are tempogram bin centres). The rigidity argument holds — a
+constant grid at the exported tempo scored F=1.0 against them while camelot's cached beats scored 0.31 —
+but "Rekordbox detects better" is only tested on the three natively-analysed tracks, where a comb-searched
+rigid grid + `beat_this` downbeats reaches 1.000/0.999. Details: [test plan → Phase 3 results](./dj-blend-tool-test-plan.md#phase-3--results-2026-09-15).
+
 **Two consequences.** (1) Stop recomputing the grid — read Rekordbox's back via `pyrekordbox` (MIT, active),
 which already ships as a dependency but is currently used write-only. (2) Rekordbox's grids are a **free,
 genre-matched labelled benchmark** for scoring neural beat trackers on *this* catalog rather than on

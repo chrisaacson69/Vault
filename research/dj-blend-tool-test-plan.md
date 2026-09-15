@@ -103,7 +103,7 @@ bounds what every later phase has to deliver and may retire H1 before H1 is buil
   Rekordbox's grids *back*, `librosa.beat.beat_track` (current).
 - **Test:** score all three against the Rekordbox grid on the catalog in `camelot_from_youtube/` — Rekordbox
   is the free genre-matched benchmark the July page identified; downbeat accuracy is the number that matters
-  (Zehren's switch-point rule: downbeat at the start of a 4-bar period).
+  (Zehren's switch-point rule: downbeat at the start of a 4-bar period). *Ran 2026-09-15 — see results below.*
 - **Pass:** `beat_this` ≥ Rekordbox on downbeats, or a decision to read Rekordbox and stop recomputing.
 - **Closes:** ⚠️ beat grid row of the gap table. Independent of Phases 1–2; can run in parallel.
 
@@ -136,6 +136,50 @@ bounds what every later phase has to deliver and may retire H1 before H1 is buil
 - **Pass/fail is informative either way:** it measures whether reading the plots adds anything over the
   deterministic pipeline — the still-open "audio-understanding LLM" question, now testable because the
   ground truth exists.
+
+## Phase 3 — results (2026-09-15)
+
+Bench lives in `camelot_from_youtube/bench/` (scorer, runners, rigid-grid fitter; `README.md` there).
+Reference = the grid Rekordbox holds per track (`PQTZ` tag via `pyrekordbox`); F-measure at 70 ms.
+
+**The reference was contaminated, and finding that out is the main result.** Of 14 tracks in Rekordbox,
+the 11 DJ-set tracks were *imported from camelot's own `rekordbox_collection.xml`* on 2026-02-20 and
+never re-analysed (`created`/`updated` one minute apart; BPMs 120.19 / 123.05 / 126.05 / 129.19 = librosa
+tempogram **bin centres** 60·86.13/43…40 to two decimals; `TEMPO Inizio` = camelot's first downbeat).
+Only Flip of the Coin, Waves and Quicksilver (added 2026-03-07, BPM 122.00 / 124.00 / 122.00) carry a
+native Rekordbox analysis. So the [EQ page's Rekordbox-vs-librosa split](./dj-eq-blending.md#rekordbox-vs-librosa--an-empirical-split-chris-2026-07)
+was, for those 11 tracks, camelot's rigid export judged against camelot's drifting beats — the *rigidity*
+conclusion stands (see below), the *Rekordbox-detects-better* half is untested until they are re-analysed.
+
+Against the three clean references:
+
+| tracker | beat F | downbeat F | what it tells you |
+|---|---|---|---|
+| camelot (cached) / raw librosa | 0.66 / 0.67 | 0.00 | DP tracker drifts ±200 ms through a rigid track; no downbeat model |
+| `beat_this` (minimal post-proc, no madmom) | 0.97 | **0.97** | locally right, incl. downbeats; but snaps tempo coarsely (130.00 on a ~129 track) and drifts ~3 s over a long track |
+| rigid grid, tempogram tempo + onset phase | 0.30 | 0.07 | tempogram bin is 0.05–1 BPM off — a rigid grid at the wrong tempo is worse than a drifting one |
+| rigid grid, **comb-search tempo** + onset phase | **1.000** | 0.67 | 2-D search (±1.5 BPM × phase) over the onset envelope recovers 122.00/124.00 exactly; camelot's downbeat-phase estimator is at chance |
+| comb tempo + onset phase + **`beat_this` downbeat phase** | **1.000** | **0.999** | the combination: deterministic grid, NN only votes bar phase |
+
+Three tracks is thin evidence, but every row has a mechanism behind it, and the mechanisms match what
+you already knew: **structure (one tempo) beats sample-following; the tempo must be searched, not read
+off a tempogram bin; the downbeat needs a learned model.** On the 11 contaminated tracks, `beat_this`,
+the comb search, and a line fit through librosa's own beats all agree on tempos the export doesn't hold
+(Quivver 128.98 not 129.199; Below The Belt / LTN 130.00 not 129.19) — those exported grids are probably
+0.1–0.8 s adrift by the end of the track.
+
+**Tool verdicts.** `beat_this`: keep, for the downbeat vote (and as a tempo cross-check) — runs on
+Py 3.14 + torch 2.11 cu128 in `env_mir`, ~5 s/track on the RTX 3050. `allin1`: **not runnable here** —
+NATTEN has no Windows wheels and there is no CUDA toolkit on this machine; run it in the cloud (Linux
+wheels exist) if section labels are wanted. `pyrekordbox` read path: works; the grids it returns are
+only a reference *after* Rekordbox has analysed the track itself. `madmom` DBN (what makes `beat_this`'s
+published numbers): not tried — NC licence, git-only, Py 3.14 build unverified.
+
+**Open, in priority order.** (1) Re-analyse the 11 DJ-set tracks in Rekordbox → 14 clean references, then
+re-run `beat_bench.py score`. (2) The half-beat phase flip: full-band and kick-band onset scoring each pick
+the off-beat on different tracks; it can't be judged until (1). (3) Port `rigid_grid.py --comb` +
+`beat_this` phase into `bpm_detect.py` — camelot's export would then carry a grid that survives to the end
+of the track.
 
 ## Retrieval checklist
 
