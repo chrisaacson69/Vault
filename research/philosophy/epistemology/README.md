@@ -25,12 +25,13 @@ Real structures are identified by **independent convergence under reality-pressu
 - [Absolutes and Differentials](./absolutes-and-differentials.md) — **hub.** The *selection* step of the Weighting Problem weaponized in political argument: one side states the **absolute** (what is the level? is it being fixed? ⇒ a **task**), the other the **differential** (compared to whom? moving which way? ⇒ a **blame assignment**). Both can be true of the same data, so the dispute is unresolvable and each side reads the other as arguing in bad faith. A gap has a counterparty built in, so the differential frame **manufactures an enemy structurally** — regardless of whether the numbers are bad. Second axis: *one legible criterion standing in for a multivariate reason* (WMD; and the diagnostic inverse where the criterion is **satisfied** and the policy continues anyway). Collects derivative-vs-level and absolute-vs-relative specimens that predate it
 - [The Birthmark and the Search for Truth](./the-birthmark.md) — every knowledge system has imperfections; five principles for approaching truth; realist correction to postmodernism
 - [The Stance-Independence Retreat](./stance-independence-retreat.md) — diagnoses the retreat from "mind-independent" to "stance-independent" as a rename; attack set for the reframing
+- [Where Concepts Live](./where-concepts-live.md) — the materialist's positive account of universals: a concept is a trained detector in one mind, the sameness lives upstream in the shared world, and edge-case disagreement is *predicted*. The trained-network upgrade to the transistor analogy; three tiers (chair / seven / non-contradiction)
 - [The Regress Problem](./the-regress-problem.md) — Agrippa's trilemma stated canonically (brute fact / regress / loop → all unjustified first principles), plus the two exits: the performative escape and structure-evaluation. The floor that makes the convergence method necessary
 
 ## Open threads
 
 - **Verification-layer thesis page** — accumulated state as the thing being verified against. Currently only in memory; deserves its own page.
-- **Convergence limits** — every culture developed rain dances too. When does convergence indicate truth vs shared cognitive bias? Needs a principled answer.
+- **Convergence limits** — every culture developed rain dances too. When does convergence indicate truth vs shared cognitive bias? Needs a principled answer. *(Partially answered by [Where Concepts Live](./where-concepts-live.md): agreement from the **data** vs. agreement from the **architecture** — rain dances are adversarial examples; the test is whether agreement survives a change of substrate.)*
 - **Self-reference** — to argue logic is constructed, you use logic. Fatal circularity or normal feature of foundational inquiry? (Partly answered by [The Regress Problem](./the-regress-problem.md): it's the performative escape — denial presupposes what it denies — not circularity.)
 
 ## Objectivist engagement

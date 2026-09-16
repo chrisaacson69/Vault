@@ -200,4 +200,5 @@ permalink: /tags/philosophy/
 - [Logics In Production](../research/philosophy/logic-and-math/logics-in-production.md)
 - [Malpass vs Dyer — TAG and the Laws of Logic](../research/debates/malpass-dyer-tag-logic.md)
 - [The Parity Move](../research/philosophy/epistemology/the-parity-move.md)
+- [Where Concepts Live](../research/philosophy/epistemology/where-concepts-live.md)
 - [Abortions Should Remain Readily Available (prep)](../research/debates/abortion-readily-available-prep.md) — personhood as a legal construction the Constitution never names (*Roe* concedes it "collapses" the case); capacity can't be the criterion (the newborn); evictionism used for its conclusion only — the property frame grants removal, not death

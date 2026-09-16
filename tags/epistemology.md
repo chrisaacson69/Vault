@@ -109,3 +109,4 @@ permalink: /tags/epistemology/
 - [Logics In Production](../research/philosophy/logic-and-math/logics-in-production.md)
 - [Malpass vs Dyer — TAG and the Laws of Logic](../research/debates/malpass-dyer-tag-logic.md)
 - [The Parity Move](../research/philosophy/epistemology/the-parity-move.md)
+- [Where Concepts Live](../research/philosophy/epistemology/where-concepts-live.md)

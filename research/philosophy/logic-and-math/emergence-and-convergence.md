@@ -69,6 +69,8 @@ A computer represents "2 + 2 = 4" as voltage patterns in transistors. The voltag
 
 This is the template for everything in the vault's framework: logic, mathematics, morality, consciousness.
 
+> *Refinement (2026-09-16):* the transistor is the **deterministic** case — it explains convergence and says nothing about divergence. [Where Concepts Live](../epistemology/where-concepts-live.md) upgrades it to the **trained network**: same architecture + same data + different seed ⇒ different weights, agreement in the centre, disagreement at the edges — which is what two minds trained on one world actually look like.
+
 ### The Emergence Thesis
 
 **Organized matter produces immaterial structures that are real, functional, and substrate-independent.**
