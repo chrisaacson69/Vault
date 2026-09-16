@@ -9,7 +9,7 @@ title: "DJ Blend Tool Test Plan — Retrieve, Fit, Close the Gaps"
 > An ordered plan to pull in the candidate tools for the two-track blend problem, test each against
 > one fixed transition, and see which of the open gaps (critic, closed loop, A/B log) each one closes.
 
-**Links:** [Crossover Calibration](./dj-crossover-calibration.md) (the H1/H2 design this plan executes), [DJ EQ Blending Technique](./dj-eq-blending.md) (the gap table), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md) (verified tooling, 2026-07-22), [CyborgDJ](../projects/cyborgdj/README.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md), [Oracles as Objective Functions](./oracles-as-objective-functions.md), [The Three-Layer Method](./karpathy-three-layer-method.md)
+**Links:** [Eyes and Ears for LLMs](./eyes-and-ears-for-llms.md) — the theory Phase 3 sits in: verifiable vs statistical layers, Harmonix Set as the external oracle that makes contamination checkable, [Crossover Calibration](./dj-crossover-calibration.md) (the H1/H2 design this plan executes), [DJ EQ Blending Technique](./dj-eq-blending.md) (the gap table), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md) (verified tooling, 2026-07-22), [CyborgDJ](../projects/cyborgdj/README.md), [Camelot From YouTube](../projects/camelot-from-youtube/README.md), [Oracles as Objective Functions](./oracles-as-objective-functions.md), [The Three-Layer Method](./karpathy-three-layer-method.md)
 
 *Status: plan, not results. Every "pass criterion" below is a bar to clear, not a number achieved.*
 
