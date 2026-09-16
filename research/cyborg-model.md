@@ -243,6 +243,7 @@ The human's role throughout is the prefrontal cortex: deciding what to attend to
 - How do organizations support humans through the pacing challenge?
 - As AI handles more cognitive execution, does the remaining human work become more or less satisfying?
 - How does the cyborg model interact with the physical world — what happens when robots close the execution gap?
+- **The Quality row has drifted (2026-09-16).** The table assigns *"Is this technically correct?" — tests, validation, consistency* to the AI side and reserves taste for the human. Seven months of decompiler work moved it: the correctness checks that held were human-directed drops to a lower artifact (bytecode), and agent-authored tests are the oracle that collapses (tests written to pass — [Oracles Are Objective Functions](./oracles-as-objective-functions.md)). The sharper split is not correctness vs. quality but **running the check (AI) vs. gating the criteria (human)** — see [Jevons for Software](./economics/jevons-software-demand.md) §4a. Revise the row, or is the Feb table right and the decompiler experience the exception?
 - Can humans develop new forms of judgment that only emerge when working with AI? (Skills that didn't exist before the partnership)
 
 ## Tags
