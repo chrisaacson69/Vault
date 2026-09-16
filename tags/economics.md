@@ -111,3 +111,4 @@ permalink: /tags/economics/
 - [Is the DSA a Force for Good in America? (Word War R3 — Medeiros vs. Bourdeau)](../research/debates/wordwar-r3-dsa-medeiros-bourdeau.md)
 - [Nationalism vs. Socialism (Word War R3 — Summerhays vs. Charsky)](../research/debates/wordwar-r3-nationalism-socialism-summerhays-charsky.md)
 - [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)
+- [Jevons for Software — Why Cheaper Code May Mean More Spend, Not Less](../research/economics/jevons-software-demand.md) — cheaper code → more software spend iff |ε| > 1; +spend ≠ +coders; only generation got cheap

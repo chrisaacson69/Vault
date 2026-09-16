@@ -9,7 +9,7 @@ layout: layouts/page.njk
 # Career Strategy — The Performative Loop
 > The job search IS the portfolio. Every tool we build to land the role proves we can do the role.
 
-**Links:** [Career](./README.md), [Role Landscape](./role-landscape.md), [Tools Roadmap](./tools-roadmap.md), [Level 6 — Direct Execution](../research/level-6-direct-execution.md), [The Cyborg Model](../research/cyborg-model.md), [Performative Grounding — Lineage](../research/philosophy/morality/performative-grounding-lineage.md)
+**Links:** [Career](./README.md), [Role Landscape](./role-landscape.md), [Tools Roadmap](./tools-roadmap.md), [Level 6 — Direct Execution](../research/level-6-direct-execution.md), [The Cyborg Model](../research/cyborg-model.md), [Performative Grounding — Lineage](../research/philosophy/morality/performative-grounding-lineage.md), [Jevons for Software](../research/economics/jevons-software-demand.md) (the demand-side case for the strategy: if software demand is elastic, total volume rises while generation gets cheap — and specification/verification is the input that didn't)
 
 ## The Core Insight
 

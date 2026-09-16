@@ -9,7 +9,7 @@ permalink: /research/arithmetic-as-a-purchase/
 # Arithmetic as a Purchase — Sixty Years of Paying for Multiply
 > IBM sold multiplication on the 1401 for **$325 a month**. Thirty years later Nintendo sold it inside a cartridge. The ability to multiply quickly has been a *line item* for the entire history of computing — and the three ways of coping with not affording it recur, unchanged, from core memory to the NPU.
 
-**Links:** [Arithmetic Scarcity and the 3D Problem](./gaming/arithmetic-scarcity-3d.md) *(the games-side hub this generalizes)*, [Battlezone](./gaming/battlezone-mathbox.md), [Stellar 7](./gaming/stellar7-software-3d.md), [NES Mappers Reference](./nes/mappers-reference.md) *(the MMC5 multiplier)*, [Nobunaga's Ambition (SNES) compiled native](./gaming/na1-snes-native-port.md) *(vault-internal specimen)*, [Computation and Information Theory](./computation-and-information.md)
+**Links:** [Arithmetic Scarcity and the 3D Problem](./gaming/arithmetic-scarcity-3d.md) *(the games-side hub this generalizes)*, [Battlezone](./gaming/battlezone-mathbox.md), [Stellar 7](./gaming/stellar7-software-3d.md), [NES Mappers Reference](./nes/mappers-reference.md) *(the MMC5 multiplier)*, [Nobunaga's Ambition (SNES) compiled native](./gaming/na1-snes-native-port.md) *(vault-internal specimen)*, [Computation and Information Theory](./computation-and-information.md), [Jevons for Software](./economics/jevons-software-demand.md) *(names what this page's demand side is: a sixty-year Jevons specimen — multiply got cheap and got spent, not saved)*
 
 **Status:** timeline / evidence page. Well-grounded on the entries below; gaps flagged inline. Built to test one claim — *fast arithmetic was priced, not assumed* — against the widest span of hardware available.
 

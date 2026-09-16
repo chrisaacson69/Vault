@@ -14,3 +14,4 @@ permalink: /tags/career/
 - [Active Postings](../career/active-postings.md)
 - [Presentation Generator Spec](../career/presentation-generator-spec.md)
 - [Job Shortlist — 2026-04-20](../career/job-shortlist-2026-04-20.md) — Five current openings: remote or hybrid/onsite in AZ/IL, $150k+, matching AI Engineer / Agentic AI / Director-level strategy from [role-landscape.md](../career/role-landscape.md).
+- [Jevons for Software — Why Cheaper Code May Mean More Spend, Not Less](../research/economics/jevons-software-demand.md) — cheaper code → more software spend iff |ε| > 1; +spend ≠ +coders; only generation got cheap

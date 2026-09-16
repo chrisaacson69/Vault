@@ -10,14 +10,14 @@ permalink: /tags/_index/
 - [6502](./6502.md) — 23 files
 - [65816](./65816.md) — 8 files
 - [agent-teams](./agent-teams.md) — 5 files
-- [agents](./agents.md) — 23 files
-- [ai](./ai.md) — 58 files
+- [agents](./agents.md) — 24 files
+- [ai](./ai.md) — 59 files
 - [assembly](./assembly.md) — 17 files
 - [atari-2600](./atari-2600.md) — 1 file
 - [audio-processing](./audio-processing.md) — 8 files
 - [battletech](./battletech.md) — 1 file
 - [c](./c.md) — 1 file
-- [career](./career.md) — 7 files
+- [career](./career.md) — 8 files
 - [chess-engine](./chess-engine.md) — 1 file
 - [civilizational-cycles](./civilizational-cycles.md) — 14 files
 - [claude](./claude.md) — 1 file
@@ -32,7 +32,7 @@ permalink: /tags/_index/
 - [debates](./debates.md) — 86 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 104 files
+- [economics](./economics.md) — 105 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 102 files
@@ -82,7 +82,7 @@ permalink: /tags/_index/
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 11 files
 - [snes](./snes.md) — 12 files
-- [software-engineering](./software-engineering.md) — 7 files
+- [software-engineering](./software-engineering.md) — 8 files
 - [strategy](./strategy.md) — 29 files
 - [tools](./tools.md) — 4 files
 - [transcription](./transcription.md) — 1 file
