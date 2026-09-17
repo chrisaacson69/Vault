@@ -10,6 +10,8 @@ title: "Where Concepts Live"
 
 **Links:** [The Parity Move](./the-parity-move.md) — the leveler this page builds on top of, [Emergence and Convergence](../logic-and-math/emergence-and-convergence.md) — the vault's stated position, which this page refines, [Relational Objectivity](./relational-objectivity.md), [Epistemology](./README.md), [Dyer vs. Molyneux](../../debates/wordwar-final-genetic-engineering-jones-thunder.md#-god-vs-god--jay-dyer-vs-stefan-molyneux-and-the-vault-has-seen-this-argument-before) — the specimen, [Malpass vs. Dyer](../../debates/malpass-dyer-tag-logic.md), [Logics in Production](../logic-and-math/logics-in-production.md), [Formal Systems and Approximation](../logic-and-math/formal-systems-and-approximation.md) — *when the math stops fitting, we change the math*, run on the fifth postulate, [What Is a Number?](../logic-and-math/what-is-a-number.md) — the child: the Benacerraf datum sourced; two incompatible set-theoretic sevens, agreeing below `ω` and diverging above it
 
+**Also feeds** [The Constitutive/Elective Distinction](../morality/constitutive-elective.md#logic-and-mathematics) — Trunk 1 borrows this page's defence wholesale for the moral case.
+
 **Trunk:** [Trunk 2 — Verification Epistemology](../the-four-trunks.md#trunk-2--verification-epistemology).
 
 ---

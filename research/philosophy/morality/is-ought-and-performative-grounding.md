@@ -20,6 +20,8 @@ Just because something *is* a certain way does not mean it *ought* to be. Observ
 
 An "ought" can be derived from an "is" *when constraints are defined*. "If you are sick, you ought to see a doctor" — but only if you value living longer. The ought is real but conditional (Kant called these *hypothetical imperatives*).
 
+> **Precision worth holding: hypothetical ≠ non-universal.** The contrast Kant drew is hypothetical vs. **categorical** (unconditional, binding regardless of ends) — *not* hypothetical vs. universal. "If you want to live, don't drink bleach" binds every agent, everywhere, timelessly; only its *instantiation* is contingent. Conflating the two axes concedes "so morality is relative to whoever wants what," which the conditional reading never said. Stated as a triple: **conditional in form, objective in content, universal in scope.** This is the same three-way split that [What Is a Number?](../logic-and-math/what-is-a-number.md) and [Where Concepts Live](../epistemology/where-concepts-live.md#holding-the-line-against-the-upgrade--structures-are-instantiated-not-inhabited) defend for mathematics — see [the transfer](./constitutive-elective.md#logic-and-mathematics).
+
 The spectrum of constraints:
 - **Tight:** "If you want to not die today, eat." Nearly universal, but a hunger striker opts out.
 - **Loose:** "If you're a social creature, cooperate." Broad, but a hermit rejects the premise.
