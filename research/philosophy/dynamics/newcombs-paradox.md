@@ -8,6 +8,8 @@ title: "Newcomb's Paradox — Pre-commitment, Decision Theory, and Agent Type"
 # Newcomb's Paradox — Pre-commitment, Decision Theory, and Agent Type
 > Two boxes, one choice, and the question that splits smart people 50/50. The answer reveals how you think about rationality, free will, and what kind of agent you are.
 
+**Applied:** [The Objectivism Boundary — the grenade test](../morality/objectivism-boundary.md#the-grenade-test--where-act-level-egoism-goes-tautological) — this page's pre-commitment resolution is what answers *is it moral to jump on a grenade?*: the jumper is the MAD retaliation, and Rand's act-level justification makes her a **two-boxer about ethics**.
+
 **Source:** [This Paradox Splits Smart People 50/50](https://www.youtube.com/watch?v=Ol18JoeXlVI) — Veritasium (Derek Muller)
 **Transcript:** [newcomb-paradox-transcript.txt](../../../raw/videos/newcomb-paradox-transcript.txt)
 **Links:** [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md), [The Gödel Governance Problem](./the-godel-governance-problem.md), [Gaming — Game Theory](../../gaming/README.md), [The Nash Bargaining Problem](../../gaming/nash-bargaining-problem.md), [The Multiplayer Coalition Problem](../../gaming/multiplayer-coalition-problem.md), [Morality](../morality/README.md), [Performative Grounding](../morality/performative-grounding-lineage.md), [The SAVE Act and the Suffrage Question](../../debates/save-act-suffrage-hoppian.md), [Legal Theory](../morality/legal-theory/README.md), [D&D Spell Damage Model](../../gaming/dnd-spell-damage-model.md)

@@ -8,7 +8,7 @@ title: "The Objectivism Boundary"
 # The Objectivism Boundary — how much of it the vault takes on, and where it really differs
 > The agreement with Objectivism is **ontological and deep**: value is relational, morality requires agents, the oughts are hypothetical, and there are no unchosen duties. The disagreement is **about what fills the middle** — Rand grounds the conditional in *life* and a normative human essence; the vault grounds it in *action* and the structure of agency. Four live differences survive contact with an actual Objectivist stating the position, and one of them sits directly under the vault's own mathematics.
 
-**Links:** [The Constitutive/Elective Distinction](./constitutive-elective.md) — Trunk 1, the position this page measures against, [Is-Ought and Performative Grounding](./is-ought-and-performative-grounding.md) — the bridge the vault uses where Rand uses the choice to live, [Objectivist Metaethics — A Call-In Specimen](../../debates/objectivism-metaethics-callin.md) — the source, [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Where Concepts Live](../epistemology/where-concepts-live.md) — the concepts account that rules out *man qua man*, [What Is a Number?](../logic-and-math/what-is-a-number.md) — the page that needs the analytic/synthetic distinction Objectivism denies, [Scope Confusion](./scope-confusion.md) — the tool for the explanatory-vs-normative level slip, [Open Problems](./open-problems.md) — the EGT/population grounding this page reconciles with individual beneficiaries, [LLMs as Praxeological Actors](../../economics/llm-praxeology.md) — the action-axiom framing the vault already runs on, [Wilson vs Objectivism](../../debates/wilson-objectivism-stance-dependence.md) — the prior specimen, where the Objectivist argued the vault's side
+**Links:** [The Constitutive/Elective Distinction](./constitutive-elective.md) — Trunk 1, the position this page measures against, [Is-Ought and Performative Grounding](./is-ought-and-performative-grounding.md) — the bridge the vault uses where Rand uses the choice to live, [Objectivist Metaethics — A Call-In Specimen](../../debates/objectivism-metaethics-callin.md) — the source, [Stance-Independence Retreat](../epistemology/stance-independence-retreat.md), [Relational Objectivity](../epistemology/relational-objectivity.md), [Where Concepts Live](../epistemology/where-concepts-live.md) — the concepts account that rules out *man qua man*, [What Is a Number?](../logic-and-math/what-is-a-number.md) — the page that needs the analytic/synthetic distinction Objectivism denies, [Scope Confusion](./scope-confusion.md) — the tool for the explanatory-vs-normative level slip, [Open Problems](./open-problems.md) — the EGT/population grounding this page reconciles with individual beneficiaries, [LLMs as Praxeological Actors](../../economics/llm-praxeology.md) — the action-axiom framing the vault already runs on, [Newcomb's Paradox](../dynamics/newcombs-paradox.md) — the pre-commitment machinery the grenade test runs on; Rand as a two-boxer about ethics, [Insurance](../../economics/insurance.md) — the pooling structure of disposition-level justification, [Wilson vs Objectivism](../../debates/wilson-objectivism-stance-dependence.md) — the prior specimen, where the Objectivist argued the vault's side
 
 **Trunk:** A boundary survey of [Trunk 1 — Normative Ontology](../the-four-trunks.md#trunk-1--normative-ontology).
 
@@ -69,6 +69,48 @@ The Objectivist host describes Rand's method as **inductive**: *"she bases her a
 
 But it describes the **method of discovery**, not the **structure of justification** — and Peikoff's systematic presentation (*OPAR*, the lecture courses) is an ordered chain where each step licenses the next, which is precisely what makes attacking a single link worthwhile. Chris has done exactly that. Both are true at different levels, and the durable difference is narrower than "inductive vs. deductive": it is whether the system is **revisable**. The vault is adopt-hold-retire with open questions on every page; Objectivism is a closed system (and its own schism — Kelley's open system vs. the orthodox one — falls along this line).
 
+## The grenade test — where act-level egoism goes tautological
+
+The stress test Chris puts to Objectivists: **is it moral to jump on a grenade?** The standard reply is that the individual makes his own calculation of what he values, and the jump is whatever that calculation returns. Pressed on why a man who wants to live would end his life for others: *"but he values others more than himself."*
+
+**That reply saves egoism by making it unfalsifiable.** If every act — including dying — counts as self-interested because the actor preferred it, then *act in your self-interest* is compatible with every possible action and has no normative content left. A theory that cannot be violated is not doing normative work. Chris: *"huh?"*
+
+### Be fair to Rand first — the seam is not where it looks
+
+Rand handles more of this than the caricature allows. **"The Ethics of Emergencies"** (in *The Virtue of Selfishness*) covers sacrifice for **constitutive** values directly: a man may risk his life for his wife, and letting her die in order to go on living would itself be the sacrifice. So Chris's own example — *"it seems perfectly feasible for a father to sacrifice himself for the sake of his family"* — is a case Rand **agrees** with.
+
+The framework strains elsewhere:
+
+| Case | Rand's construal | Strain |
+|---|---|---|
+| wife, child, family | values constitutive of the self; preserving them *is* preserving the self | none — both frameworks agree |
+| squadmate of six weeks | must be construed as a held value | real — his loss does not hollow out your life |
+| anonymous stranger (kidney, drowning child) | hardest to construe at all | severe |
+
+So the disagreement is narrower and more interesting than "Objectivism cannot handle altruism." It is: **what sets the radius?** Rand answers with the individual's introspected value-hierarchy. Chris answers with the behaviour loop — *"the level of sacrifice and for whom is what is being negotiated."* **Rand's answer relocates the question into psychology; Chris's explains the hierarchy's shape.**
+
+### The vault's answer already exists — under the name pre-commitment
+
+[Newcomb's Paradox](../dynamics/newcombs-paradox.md) states it: *"the question isn't what do you choose in the moment, but what kind of agent would you wire yourself to be"* — with MAD as the lethal case, where *"the commitment works precisely because you can't back out"* even though retaliating, once the attack lands, is irrational. That page puts the vault *"firmly in the one-box camp"* and says the whole framework is built on pre-commitment.
+
+**The grenade is the retaliation.** Executing the commitment is locally catastrophic; the commitment has value only because it is genuine and non-revocable. Which names the seam precisely:
+
+> **Rand is a two-boxer about ethics.** She justifies at the level of the **act**, so each act must serve the actor — which is exactly what forces the unfalsifiable value-hierarchy at the margin. The vault justifies at the level of the **disposition**, so it can hold that the trait is individually beneficial *in expectation* and that this instance is a net loss *for the actor*, with no contradiction.
+
+That is Chris's *"altruism is a societal good that can help an individual, but only at the abstract level"* made precise: **the justification lives at the level of the disposition, not the act.** The structure is the vault's own account of [insurance](../../economics/insurance.md) — hedging catastrophic, low-probability events by pooling: everyone's expected position improves, and the one who claims pays everything. The grenade is the claim event.
+
+### What sets the radius — with confidence levels, not assertions
+
+- **Kin** — Hamilton's rule (`r·B > C`). The father is `r = 0.5`. Clean, and it is why the family case is the one both frameworks agree on.
+- **Squadmates** — reciprocal altruism (Trivers) plus in-group selection. **Group selection is genuinely contested** (Dawkins vs. D. S. Wilson); flagged, not asserted.
+- **Anonymous strangers** — plausibly the disposition firing **outside its training distribution**, machinery tuned for small groups misapplied at scale. Same shape as [Where Concepts Live](../epistemology/where-concepts-live.md)'s treatment of rain dances as *the adversarial examples of human cognition* — a detector firing on a non-instance.
+
+### What this does not buy
+
+- **EGT explains the disposition; it does not justify it.** The is–ought gap reappears at population scale, which [Open Problems](./open-problems.md) already flags (*does EGT uniquely select cooperation, or relocate the indeterminacy into "which initial population?"*). The selection story cannot carry the normative load; [performative grounding](./is-ought-and-performative-grounding.md) still has to.
+- **The commitment answer has its own seam.** Why not *appear* committed and defect when it counts? The reply — that simulated commitment is unreliable under real scrutiny, so the disposition must be genuine to be credible — is an empirical bet, not a proof.
+- **Part of the dispute is the word.** "Altruism" is technical for Rand: the doctrine that others' needs create *unchosen claims* on you. She would say benevolence and love are not altruism at all, and the vault agrees with her rejection of duty-altruism. But only part — the grenade for a stranger is a real strain, not a terminological one.
+
 ## Chris's repair to Rand — the performative contradiction
 
 Rand's weak point is the one the caller found and could not press: *how do we get from prudential facts to ethical conclusions — is it stipulation?* The honest Objectivist answer is that ethics **just is** the prudential given the choice to live, which makes the antecedent load-bearing and unargued. Nozick pressed the same point in "On the Randian Argument" (1971).
@@ -83,7 +125,7 @@ Chris closes it from the other side:
 
 ## Open Questions
 
-- **The society/individual distinction needs its own conversation.** Chris: *"society exists for its citizens, not in spite of them… Exploring this distinction might require further conversation."* The level-slip diagnosis above is the *guard*, not the positive account — what a society legitimately is, on an action-based grounding, is not yet written anywhere in the vault.
+- ~~**The society/individual distinction needs its own conversation.**~~ **SUBSTANTIALLY ANSWERED 2026-09-17** by the grenade test above: the positive account is **disposition-level justification** (pre-commitment / one-boxing), with the radius set by the behaviour loop rather than by introspection. **Residue:** (a) group selection is contested, so the squadmate tier rests on disputed mechanism; (b) *why not merely appear committed?* is answered by an empirical bet, not an argument; (c) what a society legitimately **is**, on an action-based grounding, is still unwritten — the level-slip diagnosis remains a guard, not an account.
 - **Does the constructions-are-chosen argument survive without the analytic/synthetic distinction?** If it does, difference 3 shrinks to a vocabulary dispute. If it does not, the vault is committed to a distinction a major ally rejects, and should say why Quine's attack on it does not also land here.
 - **Is the action-base really cheaper than the life-base?** "An agent who chose death still has an ought-structure" is asserted above, not argued. It needs the case worked: what *are* the norms of an agent pursuing death, and do they look like norms or like a degenerate case?
 - **Which Peikoff links has Chris already attacked, and did they hold?** Recorded as a claim in conversation with no specimen in the vault. Without it, difference 5 rests on memory.

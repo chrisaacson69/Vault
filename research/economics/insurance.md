@@ -8,7 +8,7 @@ title: "Insurance"
 # Insurance
 > Insurance has exactly one legitimate function — hedging catastrophic, low-probability events. Everything else it does makes things worse.
 
-**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Words of Wisdom](../../notes/words-of-wisdom.md)
+**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Words of Wisdom](../../notes/words-of-wisdom.md), [The Objectivism Boundary](../philosophy/morality/objectivism-boundary.md) — borrows this page's pooling structure: altruism as a hedge whose claim event is catastrophic for the claimant and positive-expectation for everyone ex ante
 
 ## The Core Principle
 
