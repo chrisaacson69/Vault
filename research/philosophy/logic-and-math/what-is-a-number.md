@@ -101,6 +101,8 @@ But the datum cuts both ways, and the vault should not overclaim it:
 
 The reply has to be **in rebus**: the structure is not free-floating, it is instantiated. Any ω-sequence of physical things realises it, which is precisely why the set-theoretic construction is arbitrary and why counting works on coconuts. Same move as [the parity move](../epistemology/the-parity-move.md), one floor up — and it inherits the same limit: it does not answer *why is the world regular enough to instantiate it*, and should not pretend to.
 
+**The defence is written up in full** at [Where Concepts Live → Holding the line against the upgrade](../epistemology/where-concepts-live.md#holding-the-line-against-the-upgrade--structures-are-instantiated-not-inhabited): the chess test (rules die with implementers; what survives is a conditional), the infinitude fork that makes *which structures are real?* the **Platonist's** dilemma rather than the materialist's, Benacerraf's own 1973 *Mathematical Truth* as the counterweight to his 1965 result, the revision histories of chess and of mathematics, *a chisel existed before David* against Wigner, and the split that settles it — **concede existence-real, keep objectivity-real**.
+
 Keep the fact/concept line sharp, as [Relational Objectivity](../epistemology/relational-objectivity.md) requires: **that there were seven objects on the table is mind-independent; the concept *seven* is not, and the set-theoretic object *seven* is not even unique.**
 
 ## The programmer's version
@@ -111,7 +113,7 @@ Keep the fact/concept line sharp, as [Relational Objectivity](../epistemology/re
 
 - **Does the "edge case is `ω`" point survive for someone who never thinks about infinity?** The claim that two minds hold genuinely different concepts of seven is cashed out at a boundary most minds never visit. That may make it a *weaker* everyday claim (the divergence is unreachable in practice) even as it is a *stronger* formal one.
 - **Is there an analogous named divergence point for non-contradiction?** [Where Concepts Live](../epistemology/where-concepts-live.md) rates that the hardest tier. Paraconsistent logic is the rival formalism, but is there a specific question — an `ω` for logic — where two untrained reasoners provably part ways?
-- **Does structuralism actually help the materialist, or is it a Trojan horse?** If the structure is the universal and the structure is abstract, the conceptualist has conceded the interesting half. The *in rebus* reply is stated above but not defended against the obvious objection (there are not enough physical objects to instantiate the higher infinities).
+- ~~**Does structuralism actually help the materialist, or is it a Trojan horse?** If the structure is the universal and the structure is abstract, the conceptualist has conceded the interesting half.~~ **ANSWERED 2026-09-17** → [Holding the line against the upgrade](../epistemology/where-concepts-live.md#holding-the-line-against-the-upgrade--structures-are-instantiated-not-inhabited). Not a Trojan horse: *which structures are real* is the Platonist's fork (plenitude makes "real" idle; anything else is instantiation or a brute posit), and the winning move is to concede existence-real and keep objectivity-real. **Still open within it:** the higher infinities have no physical instantiation to point at, which the if-thenist conditional covers formally but not comfortably.
 
 ## Tags
 

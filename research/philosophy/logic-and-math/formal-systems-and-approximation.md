@@ -8,7 +8,7 @@ title: "Formal Systems and Approximation"
 # Formal Systems and Approximation
 > Euclidean geometry is the worked example of what a formal system *is*: axioms chosen, theorems derived, objects idealized, reality approximated. Every move that broke it has an exact counterpart in logic — including the one nobody notices, that a proposition is as idealized as a point.
 
-**Links:** [Logic and Mathematics](./README.md), [The Absoluteness Claim](./the-absoluteness-claim.md), [The Translation Problem](./the-translation-problem.md), [The Consistency Defeater](./the-consistency-defeater.md), [Aristotelian Logic](./aristotelian-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Gödel Against Himself](../../../notes/godel-against-himself.md), [The SQL Argument](./the-sql-argument.md), [Theorems With Absurd Readings](./theorems-with-absurd-readings.md), [Logics In Production](./logics-in-production.md)
+**Links:** [Logic and Mathematics](./README.md), [The Absoluteness Claim](./the-absoluteness-claim.md), [The Translation Problem](./the-translation-problem.md), [The Consistency Defeater](./the-consistency-defeater.md), [Aristotelian Logic](./aristotelian-logic.md), [Non-Classical Logics](./non-classical-logics.md), [Gödel Against Himself](../../../notes/godel-against-himself.md), [The SQL Argument](./the-sql-argument.md), [Theorems With Absurd Readings](./theorems-with-absurd-readings.md), [Logics In Production](./logics-in-production.md), [Where Concepts Live](../epistemology/where-concepts-live.md) — uses this page's *always the approximation* thesis as evidence that mathematics has a **revision history**, which an eternal structure should not have, [What Is a Number?](./what-is-a-number.md)
 
 ---
 
