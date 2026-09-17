@@ -110,3 +110,4 @@ permalink: /tags/epistemology/
 - [Malpass vs Dyer — TAG and the Laws of Logic](../research/debates/malpass-dyer-tag-logic.md)
 - [The Parity Move](../research/philosophy/epistemology/the-parity-move.md)
 - [Where Concepts Live](../research/philosophy/epistemology/where-concepts-live.md)
+- [What Is a Number?](../research/philosophy/logic-and-math/what-is-a-number.md) — von Neumann vs. Zermelo ordinals; two incompatible sevens, identical arithmetic; the Benacerraf datum and structuralism

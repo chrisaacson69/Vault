@@ -35,7 +35,7 @@ permalink: /tags/_index/
 - [economics](./economics.md) — 105 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
-- [epistemology](./epistemology.md) — 103 files
+- [epistemology](./epistemology.md) — 104 files
 - [ethics](./ethics.md) — 6 files
 - [externalities](./externalities.md) — 3 files
 - [fiction](./fiction.md) — 1 file
@@ -54,9 +54,9 @@ permalink: /tags/_index/
 - [law](./law.md) — 1 file
 - [libertarian-law](./libertarian-law.md) — 31 files
 - [llm-limitations](./llm-limitations.md) — 16 files
-- [logic](./logic.md) — 29 files
+- [logic](./logic.md) — 30 files
 - [machine-learning](./machine-learning.md) — 6 files
-- [mathematics](./mathematics.md) — 33 files
+- [mathematics](./mathematics.md) — 34 files
 - [meta-musing](./meta-musing.md) — 17 files
 - [metaphysics](./metaphysics.md) — 2 files
 - [methodology](./methodology.md) — 17 files
@@ -69,7 +69,7 @@ permalink: /tags/_index/
 - [objectivism](./objectivism.md) — 17 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 195 files
+- [philosophy](./philosophy.md) — 196 files
 - [politics](./politics.md) — 49 files
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file

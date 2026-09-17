@@ -9,7 +9,7 @@ permalink: /research/philosophy/logic-and-math/
 # Philosophy of Logic and Mathematics
 > Logic and math are human constructions that model real patterns — extraordinary maps, but still maps. Spans Trunks 2 and 3.
 
-**Links:** [The Four Trunks](../the-four-trunks.md), [Philosophy](../README.md), [Morality](../morality/README.md), [Emergence, Convergence, and the Strange Loop](./emergence-and-convergence.md), [LLM Grounding Problem](../../llm-grounding-problem.md), [Computation and Information Theory](../../computation-and-information.md), [Formal Systems and Approximation](./formal-systems-and-approximation.md), [The Consistency Defeater](./the-consistency-defeater.md), [The SQL Argument](./the-sql-argument.md), [Theorems With Absurd Readings](./theorems-with-absurd-readings.md), [Logics In Production](./logics-in-production.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Philosophy](../README.md), [Morality](../morality/README.md), [Emergence, Convergence, and the Strange Loop](./emergence-and-convergence.md), [LLM Grounding Problem](../../llm-grounding-problem.md), [Computation and Information Theory](../../computation-and-information.md), [Formal Systems and Approximation](./formal-systems-and-approximation.md), [The Consistency Defeater](./the-consistency-defeater.md), [The SQL Argument](./the-sql-argument.md), [Theorems With Absurd Readings](./theorems-with-absurd-readings.md), [Logics In Production](./logics-in-production.md), [What Is a Number?](./what-is-a-number.md)
 
 **Trunk:** This folder spans [Trunk 2 — Verification Epistemology](../the-four-trunks.md#trunk-2--verification-epistemology) (convergence across independent logical traditions) and [Trunk 3 — Emergence Metaphysics](../the-four-trunks.md#trunk-3--emergence-metaphysics) (formal patterns as emergent from organized cognition). The folder name is retained for historical reasons and may be reorganized once the Trunk 3 name settles.
 
@@ -70,6 +70,7 @@ Three domains, same structural-realism move. See [Morality](../morality/README.m
 - [The SQL Argument](./the-sql-argument.md) — the opener — three-valued SQL, `NULL = NULL` is not TRUE, and the breakfast-next-Tuesday fork that makes the epistemic rescue cost him free will
 - [Theorems With Absurd Readings](./theorems-with-absurd-readings.md) — argue from theorems, not mistakes — the drinker paradox worked line by line, and explosion as a valid proof of God and of no-God
 - [Logics In Production](./logics-in-production.md) — rival consistent logics that ship — excluded middle as an opt-in axiom in Coq/Lean, fuzzy control walked through with its own refutation, independent civilizations
+- [What Is a Number?](./what-is-a-number.md) — the Benacerraf datum: von Neumann vs. Zermelo ordinals, two incompatible sevens that agree on all arithmetic; the two folk intuitions (*how many* vs. *how far along*) are one notion below infinity and two above it
 
 ## Suggested reading
 
