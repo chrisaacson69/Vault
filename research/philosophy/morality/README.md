@@ -9,7 +9,7 @@ permalink: /research/philosophy/morality/
 # Morality — First Principles Exploration
 > Naturalistic moral framework built from bedrock concepts upward. Anchor page for Trunk 1.
 
-**Links:** [The Four Trunks](../the-four-trunks.md), [Philosophy](../README.md), [Economics — Value and Profit](../../economics/value-and-profit.md), [Scope Confusion](./scope-confusion.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Philosophy](../README.md), [Economics — Value and Profit](../../economics/value-and-profit.md), [Scope Confusion](./scope-confusion.md), [The Objectivism Boundary](./objectivism-boundary.md)
 
 **Trunk:** [Trunk 1 — Normative Ontology](../the-four-trunks.md#trunk-1--normative-ontology). Working name: *constitutive realism*.
 

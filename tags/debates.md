@@ -94,3 +94,4 @@ permalink: /tags/debates/
 - [Malpass vs Dyer — TAG and the Laws of Logic](../research/debates/malpass-dyer-tag-logic.md) — the 2019 technical version: concedes alternative formal systems, claims Gödel as an ally, denies being an Aristotelian; the later corpus drops every technical thread
 - [Abortions Should Remain Readily Available (prep)](../research/debates/abortion-readily-available-prep.md) — live debate prep (Neg, DMZ, left-leaning room). The resolution is *easy*, not *legal*: **remain** is false inherency post-*Dobbs*, **readily** an undefined degree word. Built from the Aff's own history, data and principles; the court-order plan framed as a warrant
 - [Where Concepts Live](../research/philosophy/epistemology/where-concepts-live.md)
+- [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered

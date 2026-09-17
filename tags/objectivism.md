@@ -24,3 +24,5 @@ permalink: /tags/objectivism/
 - [HoP Ep 14: Aristotle's Epistemology](../research/philosophy/tangents/history-of-philosophy/14-aristotle-epistemology.md)
 - [HoP Ep 15: Aristotle — Father of Logic](../research/philosophy/tangents/history-of-philosophy/15-aristotle-logic.md)
 - [Capitalism vs Socialism: Which Is the Moral System? (1984)](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md) — Peikoff and Ridpath defending capitalism in primary-source form; companion to the Peikoff lecture analyses
+- [The Objectivism Boundary](../research/philosophy/morality/objectivism-boundary.md) — agreement is ontological (hypothetical oughts, no unchosen duties); the seam is life-vs-action, *man qua man*, the analytic/synthetic rejection, and egoism vs. EGT
+- [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered

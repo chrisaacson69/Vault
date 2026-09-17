@@ -203,3 +203,5 @@ permalink: /tags/philosophy/
 - [Where Concepts Live](../research/philosophy/epistemology/where-concepts-live.md)
 - [Abortions Should Remain Readily Available (prep)](../research/debates/abortion-readily-available-prep.md) — personhood as a legal construction the Constitution never names (*Roe* concedes it "collapses" the case); capacity can't be the criterion (the newborn); evictionism used for its conclusion only — the property frame grants removal, not death
 - [What Is a Number?](../research/philosophy/logic-and-math/what-is-a-number.md) — von Neumann vs. Zermelo ordinals; two incompatible sevens, identical arithmetic; the Benacerraf datum and structuralism
+- [The Objectivism Boundary](../research/philosophy/morality/objectivism-boundary.md) — agreement is ontological (hypothetical oughts, no unchosen duties); the seam is life-vs-action, *man qua man*, the analytic/synthetic rejection, and egoism vs. EGT
+- [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered
