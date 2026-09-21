@@ -33,3 +33,4 @@ permalink: /tags/objectivism/
 - [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — Rothbard's trilemma as a false trichotomy; "potential to argue" as the universality ground
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — Rothbard's will-inalienability restated as abandonment; "will schmill"
 - [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — Rand's "mere potentiality" rejected by relocating potential to before conception — and then relied on
+- [LiquidZulu Course 6 — Defensive Force](../research/philosophy/liquidzulu/course-06-defensive-force.md) — the categorical ought promised; the smoker and cognitive dissonance

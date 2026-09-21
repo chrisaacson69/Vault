@@ -9,7 +9,7 @@ title: "Defensive Force, Collateral Damage, and the Defense/Retribution Distinct
 > When is collateral damage justified, and who bears responsibility?
 
 **Source:** Discord discussion (lights, Austrian Eleutheria, dr.sus, ST_Misfit) — 2026-03-02/03
-**Links:** [Legal Theory](./README.md), [Mens Rea](./mens-rea.md), [Government Formation](./government-formation.md), [The Godel Governance Problem](../../dynamics/the-godel-governance-problem.md), [Morality](../README.md), [Scope Confusion](../scope-confusion.md)
+**Links:** [Legal Theory](./README.md), [Mens Rea](./mens-rea.md), [Government Formation](./government-formation.md), [The Godel Governance Problem](../../dynamics/the-godel-governance-problem.md), [Morality](../README.md), [Scope Confusion](../scope-confusion.md), [LiquidZulu Course 6 — Defensive Force](../../liquidzulu/course-06-defensive-force.md) — the ancap twin of this page (exclusion by the means required; the human-body shield as causationism) — and it has no imminence case at all, which makes open question 1 here a question for him too
 
 ## Context
 
@@ -92,7 +92,7 @@ Applying the framework to the specific case:
 
 ## Open Questions
 
-1. **The imminence line** — where exactly does "preparing to attack" become "attacking"? The ongoing aggression requirement is clear at the extremes but fuzzy in the middle.
+1. **The imminence line** — where exactly does "preparing to attack" become "attacking"? The ongoing aggression requirement is clear at the extremes but fuzzy in the middle. **Cross-check (2026-09-21):** LiquidZulu's seven-chapter course, which otherwise matches this page on defense, contains no imminence, threat, or brandishing case at all — see [course ch. 6 §6](../../liquidzulu/course-06-defensive-force.md#6-what-is-not-here--threats-imminence-initiation). The gap is shared, not ours alone.
 2. **Structural aggression scope** — if a head of state counts as ongoing structural aggression, how far down the chain does this extend? Every soldier? Every tax collector? Where does the structural aggression end and mere association begin?
 3. **Restitution for death** — what does "making whole" mean when the victim is dead? (Already flagged in legal theory upcoming topics)
 

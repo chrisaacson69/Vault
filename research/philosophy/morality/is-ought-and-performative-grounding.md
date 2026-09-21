@@ -8,7 +8,7 @@ title: "The Is-Ought Problem and Performative Grounding"
 # The Is-Ought Problem and Performative Grounding
 > The is-ought gap dissolves — not through logical bridging, but because the questioner is already standing on the other side.
 
-**Links:** [Morality](./README.md), [Performative Grounding — Lineage](./performative-grounding-lineage.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Scope Confusion](./scope-confusion.md), [The Regress Problem](../epistemology/the-regress-problem.md)
+**Links:** [Morality](./README.md), [Performative Grounding — Lineage](./performative-grounding-lineage.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Scope Confusion](./scope-confusion.md), [The Regress Problem](../epistemology/the-regress-problem.md), [LiquidZulu Course 6 — Defensive Force](../liquidzulu/course-06-defensive-force.md) — Kinsella's dialogical estoppel as a live specimen of the *weak* retortion form (the act as an assertion), including his own smoker counterexample
 
 ---
 

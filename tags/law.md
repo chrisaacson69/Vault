@@ -13,3 +13,4 @@ permalink: /tags/law/
 - [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — the donut problem; ownership = exclusion vs ownership = direction, two definitions in one chapter
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — fraud as theft-by-trick (intent-defined) vs the intent-blind breach rule; intestacy as abandonment
 - [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — age of majority as arbitrary; courts hearing the child's testimony; notification relabelled as a negative duty
+- [LiquidZulu Course 6 — Defensive Force](../research/philosophy/liquidzulu/course-06-defensive-force.md) — restitution on actus reus, retribution on mens rea; "antecedent rights must prevail" returns as a patch
