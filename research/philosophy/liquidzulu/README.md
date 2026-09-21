@@ -39,7 +39,8 @@ The vault's other recurring interlocutors (Wilson, Mullally) are spread across d
 | Argumentation ethics | Hoppe, Randized | lineage §4 objections (liberty vs claim right; scope) land unchanged | disagree on the over-derivation; his ownership/possession retortion is the better move |
 | Base of the conditional | life (Rand's words) but *action* in practice | action | **closer than he thinks** — see the death-standard question |
 | Edges of a life | not addressed | conception/birth, death/inheritance are where the theory doesn't meet reality (Chris) | **question for LZ** |
-| Final arbiter | none needed; independent judges converge on discovered law | jurisdiction problem; the city-state record; **Chris: "I agree more with Rand"** | disagree |
+| Final arbiter | none needed; independent judges converge on discovered law | jurisdiction problem; the city-state record; **Chris: "I agree more with Rand"** — the two dismissing assumptions are *war is expensive so they'll negotiate* and *there is a truth and it can be discovered*; Rand's **"competing governments"** is the accurate name | disagree |
+| What ancapistan looks like | "can't predict what doesn't exist" (restaurant analogy) | **Chris: weak — "trust me bro"; he has a picture and won't commit to avoid confrontation** | disagree; hold him to the course |
 | Theory of definitions | Aristotelian essence-realism; "pragmatism" a slur | trained detectors + constructed≠arbitrary; his own criterion is functional | disagree — the seam into the epistemology trunk |
 | Method | theorist; deductive; rejects empirics as "pragmatism" | verification independence = drop to a lower artifact; experiments already run count | disagree — **Chris: this is what makes his theory weaker** |
 
@@ -56,11 +57,12 @@ Because he is a living philosopher, these are meant to be asked, not filed.
 3. **Bodily autonomy:** is a punch a conflict over a scarce means, or is autonomy a second root? What is lost if it is the second?
 4. **The arbiter:** Rand's objection was about *honest disagreement among fully rational men*, not about criminals. What, other than negotiation, resolves two competing courts that both read "reality" and reach opposite verdicts?
 5. **Your criterion for definitions is "the requirements of man's conceptual faculty."** That is a functional test. What distinguishes it from the pragmatism you treat as a slur?
+6. **Commit to a picture.** You say you cannot predict a market that does not exist, but the restaurant analogy fails: a bad restaurant fails locally, a bad rights-enforcement equilibrium fails as a war. What is your best concrete guess for how two firms with opposite verdicts on the same case settle it — and what would count as that mechanism *failing*?
 
 ## Open Questions
 
 - Should the vault's other recurring interlocutors (the Wilson cluster) be retrofitted into this hub-per-thinker pattern, or is it specific to essayists? (Structural; Chris's call.)
-- Which of LZ's *other* essays to take next — his legal-theory course (the NAP → full derivation he refers to at 108:21), or the IP video he closes on?
+- ~~Which of LZ's *other* essays to take next?~~ **Decided 2026-09-21: the course.** The IP video is too specific; the course is where he lays everything out top to bottom and is the source of most of these ideas — and where the picture of ancapistan he won't commit to here should surface.
 
 ## Tags
 
