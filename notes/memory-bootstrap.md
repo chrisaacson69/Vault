@@ -32,6 +32,24 @@ automatically from the project cwd; the authoritative value is whatever director
 `~/.claude/projects/`. If unsure, list that folder and match the slugified cwd. This directory is
 **machine-local and never committed** (it holds private politics/career/personal pages).
 
+### 1a. The home-directory stub router (added 2026-09-21)
+
+The router only auto-loads when the session's cwd is the vault. Opened from the home directory or a
+sibling project, the harness loads *that* project's `memory/MEMORY.md` instead, and the kernel's
+`MEMORY-ROUTER` canary silently fails (observed 2026-09-21: a session started in `C:\Users\Chris.Isaacson`
+loaded the home project's auto-memory and none of the vault's areas). The fix is a **pointer-only stub**
+at the top of the home project's index — `~/.claude/projects/<home-slug>/memory/MEMORY.md` — that:
+
+1. names the real router's path (`~/.claude/projects/<vault-slug>/memory/MEMORY.md`);
+2. says *if the router token did not arrive this session, read that file now*;
+3. carries **no** router content and — **critically** — **not the token literal itself**: the heartbeat's
+   §1g asserts each token lives in exactly two files (the kernel table + its own layer). Refer to it as
+   "the `MEMORY-ROUTER` canary" and let the kernel's table supply the full literal.
+
+Recreate it on a new machine after step 2 of §6. It is a *findability* device, not a load device — the
+router still has to be read by hand when the token is missing; the stub just makes sure the reader
+knows where it is.
+
 ## 2. File types (encoded in BOTH the filename prefix and `metadata.type`)
 
 | Prefix | `metadata.type` | What | Tier |
