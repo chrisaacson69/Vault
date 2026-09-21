@@ -8,7 +8,7 @@ title: "Business Cycles"
 # Business Cycles
 > Boom-bust cycles are natural market phenomena — the cost of decentralized learning under uncertainty. Government doesn't cause them. Government makes them catastrophic.
 
-**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md)
+**Links:** [Economics](./README.md), [Risk and Entrepreneurship](./risk-and-entrepreneurship.md), [Value and Profit](./value-and-profit.md), [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md), [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md), [LiquidZulu Course 4 — Contract Theory](../philosophy/liquidzulu/course-04-contract-theory.md) — the Rothbardian FRB-is-fraud claim at full strength; his own definition of fraud (deception) clears disclosed reserves, and he recovers "fraud" by stipulating what a bank is
 
 ## The Thesis
 

@@ -18,3 +18,4 @@ permalink: /tags/natural-law/
 - [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — universal law from the LNC retortion; "rights simply are"
 - [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — the NAP as a chosen axiom presented as self-evident
 - [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — first-comer derived by excluding only *taking*; Georgism straw-manned
+- [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — inalienability of the body from the argument-from-argument and from abandonment

@@ -112,3 +112,4 @@ permalink: /tags/economics/
 - [Nationalism vs. Socialism (Word War R3 — Summerhays vs. Charsky)](../research/debates/wordwar-r3-nationalism-socialism-summerhays-charsky.md)
 - [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)
 - [Jevons for Software — Why Cheaper Code May Mean More Spend, Not Less](../research/economics/jevons-software-demand.md) — cheaper code → more software spend iff |ε| > 1; +spend ≠ +coders; only generation got cheap
+- [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — fractional-reserve banking as fraud only by stipulating what "bank" means; disclosed FRB cleared by his own definition
