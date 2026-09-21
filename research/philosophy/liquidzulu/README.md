@@ -87,7 +87,8 @@ Because he is a living philosopher, these are meant to be asked, not filed.
 9. **(ch. 1, "rights simply are")** In a world with no agents, what does that sentence refer to? If the answer is "nothing — but given agents and scarcity the norm follows," that is an agent-dependent account. Is that not the "source of rights" you reject?
 10. **(ch. 2, your own test)** You define an axiom as a proposition one must accept in order to dispute it, against mathematics' "arbitrarily chosen" ones. I can dispute the NAP at length without aggressing against you; I cannot dispute non-contradiction without using it. By your definition, which kind is the NAP?
 11. **(ch. 2, the midget and the hitman)** If a will in the chain does not break causation because the tank was a black box to A, is the hitman a black box to the boss? If agency grounds self-ownership (ch. 1), how can the theory treat an agent as a mechanism when convenient?
-12. **(ch. 2, the seedy bar)** If an insult can communicate consent to a fight, words license violence against the speaker. State the rule: which words, to whom, license what?
+12. **(ch. 2, the seedy bar)** If an insult can communicate consent to a fight, words license violence against the speaker. State the rule: which words, to whom, license what? — And does the man who swings first not have agency? *(Chris: he does; the swinger is the aggressor, full stop.)*
+13. **(pending — initiation)** Is firing a bullet *near* someone aggression? If brandishing is "initiation of conflict," then initiation covers acts that touch no property and no body — so is "conflict" wider than mutually exclusive actions over a scarce means, or is there a second root? *(Raised by Chris at ch. 2; to be pressed where he defines initiation.)*
 
 ## Open Questions
 
