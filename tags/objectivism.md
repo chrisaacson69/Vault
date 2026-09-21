@@ -29,3 +29,4 @@ permalink: /tags/objectivism/
 - [LiquidZulu](../research/philosophy/liquidzulu/README.md) — an open Objectivist (Objectivism = the philosophy of the primacy of existence) who derives anarcho-capitalism from it
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — Rand praised then broken with: "politics" is a frozen abstraction, law is the valid branch; the lifeboat section as an action-base argument
 - [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — "source of rights = primacy of consciousness" as the intrinsicist badge on a constitutive account
+- [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — self-evidence as the Objectivist axiom-standard, applied to the NAP and failed

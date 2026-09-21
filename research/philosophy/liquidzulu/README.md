@@ -45,8 +45,9 @@ The vault's other recurring interlocutors (Wilson, Mullally) are spread across d
 | The "natural law" label (ch. 1) | rights are *discovered*; "source of rights" = primacy of consciousness (never defined) | **Chris: they are *derived from the NAP axiom*; you must accept the axioms first, and "discovered" hides that step**; the retortion covers LNC, not step 2 | disagree — the Platonic part |
 | Logic (ch. 1) | classical only; LNC retortion carries the system | the three laws unbundled: tautology + bookkeeping rule + one empirical bet | disagree, mild — matters where LNC is asked to do metaphysical work |
 | Ground of rights (ch. 1) | "rights simply are"; any *source* of rights = primacy of consciousness | mind-dependent **and** constrained (constitutive realism); vacuity test | **he is inside our framework — Move 3 — and doesn't know it**; same pattern as definitions |
-| Where legal knowledge lives (ch. 1) | principles armchair-complete; judges only *apply* | principles grown; adjudication *generates*, precedent aggregates (Hayek) | disagree — **the theoretical root of the arbiter row**: on his account honest disagreement is error; on ours it is the initial condition |
-| Intent in classification (ch. 1, provisional) | Kinsella's intent criterion in the foundations (action vs behaviour) | Chris: aggression is binary, intent irrelevant to classification ([mens rea](../morality/legal-theory/mens-rea.md)); **law can be discovered without mens rea — no reason to accept Kinsella's framing** | **watch ch. 6** |
+| Where legal knowledge lives (ch. 1–2) | principles armchair-complete; judges only *apply* — but ch. 2's mailbox and *Restatement* examples concede that the content of "aggression" is conventional/aggregated | principles grown; adjudication *generates*, precedent aggregates (Hayek) | disagree in doctrine, **conceded in his examples** — the theoretical root of the arbiter row |
+| Intent / causation in classification (ch. 2) | Kinsella black box + foreseeability (from the *Restatement of Torts*): a will in the chain does not break it; boss and goons equally liable; getaway driver liable for the murder | Chris's [Free Will Principle](../morality/legal-theory/mens-rea.md#the-free-will-principle): free will in the chain assigns proximate cause; cause *stops* at the informed agent; no foreseeability standard; **law is discoverable without Kinsella's framing** | **disagree — the sharpest concrete split so far** |
+| Axiom status of the NAP (ch. 2) | self-evident, LNC-grade | fails his own test — disputable without violation; pragmatic indispensability at most | disagree — **his definition decides it against him** |
 | Method | theorist; deductive; rejects empirics as "pragmatism" | verification independence = drop to a lower artifact; experiments already run count | disagree — **Chris: this is what makes his theory weaker** |
 
 ## Sources — his own vault
@@ -64,8 +65,8 @@ LZ publishes everything as source: **[liquidzulu.github.io](https://liquidzulu.g
 ## The course, chapter by chapter (in his `n:` order)
 
 1. [The Nature of Law](./course-01-the-nature-of-law.md) — the axiom layer. *Just* is **defined** as *argumentatively justifiable* at step 2 and the rest is that definition unpacked; property enters by definition at step 5 (Chris's prediction, confirmed); polylogism refuted only by dropping the index; positivism quoted right, argued wrong; **"rights simply are" fails the vacuity test and his next sentence supplies the constitutive grounding** — *constitutive realism wearing an intrinsicist badge*. Agrees with the vault on legislation vs discovery but keeps the code armchair-complete, which is the theoretical root of the arbiter disagreement.
-2. The Non-Aggression Principle — *next*
-3. Homesteading and Property Rights
+2. [The Non-Aggression Principle](./course-02-the-nap.md) — the axiom chapter. **By his own definition of *axiom* (must be accepted to be disputed) the NAP is not one** — it can be disputed without being violated, LNC cannot — so it is a *chosen* axiom presented as self-evident; the argument-from-argument proves a norm *of* argumentation, not *from* it (liberty/claim-right and scope objections untouched); rights-scepticism refuted only for objectors. **Intent enters classification here, not ch. 6**: Kinsella's black-box causation + foreseeability (mob boss and goons *equally* liable; getaway driver liable for the murder) — the direct negation of the vault's [Free Will Principle](../morality/legal-theory/mens-rea.md#the-free-will-principle). The mailbox/seedy-bar examples concede that the content of "aggression" is conventional, which ch. 1's doctrine denies.
+3. Homesteading and Property Rights — *next*
 4. Contract Theory
 5. The Rights of Children
 6. Defensive Force and Proportionality
@@ -84,6 +85,9 @@ Because he is a living philosopher, these are meant to be asked, not filed.
 7. **(ch. 1, step 2)** Why should *just* mean *argumentatively justifiable* rather than any other candidate? What selects that definition, other than "you are arguing right now" — and does that not presuppose it?
 8. **(ch. 1, polylogism)** The polylogist asserts "just-under-A" and "unjust-under-B," not "just and not-just." What licenses dropping the index before finding the contradiction?
 9. **(ch. 1, "rights simply are")** In a world with no agents, what does that sentence refer to? If the answer is "nothing — but given agents and scarcity the norm follows," that is an agent-dependent account. Is that not the "source of rights" you reject?
+10. **(ch. 2, your own test)** You define an axiom as a proposition one must accept in order to dispute it, against mathematics' "arbitrarily chosen" ones. I can dispute the NAP at length without aggressing against you; I cannot dispute non-contradiction without using it. By your definition, which kind is the NAP?
+11. **(ch. 2, the midget and the hitman)** If a will in the chain does not break causation because the tank was a black box to A, is the hitman a black box to the boss? If agency grounds self-ownership (ch. 1), how can the theory treat an agent as a mechanism when convenient?
+12. **(ch. 2, the seedy bar)** If an insult can communicate consent to a fight, words license violence against the speaker. State the rule: which words, to whom, license what?
 
 ## Open Questions
 

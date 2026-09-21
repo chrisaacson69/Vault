@@ -41,3 +41,4 @@ permalink: /tags/libertarian-law/
 - [LiquidZulu](../research/philosophy/liquidzulu/README.md) — hub; ledger of where his ancap legal theory meets the vault's
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — scarcity→conflict→NAP without self-ownership; Hoppe on Rand's base; private defense vs the jurisdiction problem
 - [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — the six-step chain to law = ethics applied to conflicts; polylogism; positivism; legislation vs judge-found law
+- [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — Kinsella's black-box causation + foreseeability vs the vault's Free Will Principle; rights-scepticism; the seedy bar

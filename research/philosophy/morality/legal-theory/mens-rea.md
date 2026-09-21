@@ -8,7 +8,7 @@ title: "Mens Rea in Libertarian Law"
 # Mens Rea in Libertarian Law
 > Debate: does criminal intent (mens rea) have a place in a legal system built on the NAP and natural law?
 
-**Links:** [Legal Theory](./README.md), [Morality](../README.md), [Scope Confusion](../scope-confusion.md), [Measurement, Causality, and Free Will](../../metaphysics/measurement-causality.md)
+**Links:** [Legal Theory](./README.md), [Morality](../README.md), [Scope Confusion](../scope-confusion.md), [Measurement, Causality, and Free Will](../../metaphysics/measurement-causality.md), [LiquidZulu Course 2 — The NAP](../../liquidzulu/course-02-the-nap.md) — the opposing specimen: Kinsella's black-box causation and foreseeability stated as the content of the NAP; the case table (courier, hitman, getaway driver, evil midget) run against the Free Will Principle
 
 ## Positions
 

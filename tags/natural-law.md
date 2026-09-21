@@ -16,3 +16,4 @@ permalink: /tags/natural-law/
 - [LiquidZulu](../research/philosophy/liquidzulu/README.md) — anarchism as the rejection of legal authoritarianism; law is discovered, not decreed
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — the natural-law case laid out against TIK, the ancoms, Hobbes, Rand and Peikoff
 - [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — universal law from the LNC retortion; "rights simply are"
+- [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — the NAP as a chosen axiom presented as self-evident
