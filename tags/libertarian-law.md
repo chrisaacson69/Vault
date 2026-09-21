@@ -46,3 +46,4 @@ permalink: /tags/libertarian-law/
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — title-transfer theory, no breach, aleatory contracts, no debtors' prison, voluntary slavery, the last will
 - [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — guardianship as homesteaded right; Hersum's harm-is-active-only; evictionism; AI self-ownership and link-over-title
 - [LiquidZulu Course 6 — Defensive Force](../research/philosophy/liquidzulu/course-06-defensive-force.md) — dialogical estoppel, same-form proportionality, mens rea vs actus reus, defense as exclusion, the human-body sword and shield
+- [LiquidZulu Course 7 — Law as a Subset of Ethics](../research/philosophy/liquidzulu/course-07-law-subset-of-ethics.md) — against the "virtuous crime"; the lifeboat; Rothbard read as narrowing law, not splitting the ought; Graf's value-free praxeology answered

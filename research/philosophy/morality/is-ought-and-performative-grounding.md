@@ -8,7 +8,7 @@ title: "The Is-Ought Problem and Performative Grounding"
 # The Is-Ought Problem and Performative Grounding
 > The is-ought gap dissolves — not through logical bridging, but because the questioner is already standing on the other side.
 
-**Links:** [Morality](./README.md), [Performative Grounding — Lineage](./performative-grounding-lineage.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Scope Confusion](./scope-confusion.md), [The Regress Problem](../epistemology/the-regress-problem.md), [LiquidZulu Course 6 — Defensive Force](../liquidzulu/course-06-defensive-force.md) — Kinsella's dialogical estoppel as a live specimen of the *weak* retortion form (the act as an assertion), including his own smoker counterexample
+**Links:** [Morality](./README.md), [Performative Grounding — Lineage](./performative-grounding-lineage.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Scope Confusion](./scope-confusion.md), [The Regress Problem](../epistemology/the-regress-problem.md), [LiquidZulu Course 6 — Defensive Force](../liquidzulu/course-06-defensive-force.md) — Kinsella's dialogical estoppel as a live specimen of the *weak* retortion form (the act as an assertion), including his own smoker counterexample, [LiquidZulu Course 7](../liquidzulu/course-07-law-subset-of-ethics.md) — a specimen that claims to *derive* the NAP as a true ought from is-statements; the syllogism embeds its ought and slides ¬O(A) → O(¬A) — the contrast case for this page's dissolution-not-derivation
 
 ---
 

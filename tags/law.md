@@ -14,3 +14,4 @@ permalink: /tags/law/
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — fraud as theft-by-trick (intent-defined) vs the intent-blind breach rule; intestacy as abandonment
 - [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — age of majority as arbitrary; courts hearing the child's testimony; notification relabelled as a negative duty
 - [LiquidZulu Course 6 — Defensive Force](../research/philosophy/liquidzulu/course-06-defensive-force.md) — restitution on actus reus, retribution on mens rea; "antecedent rights must prevail" returns as a patch
+- [LiquidZulu Course 7 — Law as a Subset of Ethics](../research/philosophy/liquidzulu/course-07-law-subset-of-ethics.md) — the suicide-grab as a crime one ought not commit — what "ought is ought" plus ch. 5 entails
