@@ -207,3 +207,4 @@ permalink: /tags/philosophy/
 - [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered
 - [LiquidZulu](../research/philosophy/liquidzulu/README.md) — hub for a living anarcho-Objectivist: system-map, agree/disagree ledger, questions for him
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — his whole system via the critics; death-is-not-an-action; the jurisdiction collision; definitions vs the vault
+- [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — *just* defined as *justifiable*; "rights simply are" vs the vacuity test; explication vs generation in legal discovery

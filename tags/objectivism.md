@@ -28,3 +28,4 @@ permalink: /tags/objectivism/
 - [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered
 - [LiquidZulu](../research/philosophy/liquidzulu/README.md) — an open Objectivist (Objectivism = the philosophy of the primacy of existence) who derives anarcho-capitalism from it
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — Rand praised then broken with: "politics" is a frozen abstraction, law is the valid branch; the lifeboat section as an action-base argument
+- [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — "source of rights = primacy of consciousness" as the intrinsicist badge on a constitutive account

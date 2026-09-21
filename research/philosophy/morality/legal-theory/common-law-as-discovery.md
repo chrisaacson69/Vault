@@ -5,7 +5,7 @@ created: 2026-09-09
 # Common Law as a Discovery Procedure
 > Legislation is central planning for conduct and meets the calculation objection head-on. Adjudication doesn't demand the information in advance — it generates it at the dispute, from the parties who hold it. Statute plans; precedent discovers.
 
-**Links:** [The Slack in the Law](./slack-in-the-law.md) (**the parent specimen** — the calculation argument arrived there), [Aggregation vs. Sorting](./aggregation-vs-sorting.md) (*voting aggregates, markets sort* — adjudication belongs in the sorting column), [Mens Rea in Libertarian Law](./mens-rea.md), [Government Formation](./government-formation.md), [The Gödel Governance Problem](../../dynamics/the-godel-governance-problem.md) (*we need what we cannot complete*), [Registration and Scope Creep](./registration-and-scope-creep.md)
+**Links:** [The Slack in the Law](./slack-in-the-law.md) (**the parent specimen** — the calculation argument arrived there), [Aggregation vs. Sorting](./aggregation-vs-sorting.md) (*voting aggregates, markets sort* — adjudication belongs in the sorting column), [Mens Rea in Libertarian Law](./mens-rea.md), [Government Formation](./government-formation.md), [The Gödel Governance Problem](../../dynamics/the-godel-governance-problem.md) (*we need what we cannot complete*), [Registration and Scope Creep](./registration-and-scope-creep.md), [LiquidZulu Course 1](../../liquidzulu/course-01-the-nature-of-law.md) — draws the same nomos/thesis line but keeps the principles armchair-complete: discovery-as-explication vs this page's discovery-as-generation
 
 ## Where this came from
 

@@ -15,3 +15,4 @@ permalink: /tags/natural-law/
 - [Sitch vs. Ryan Mullally — Birthright Citizenship & Natural Law](../research/debates/sitch-mullally-birthright-citizenship.md) — the natural-law laundering diagnosis: cooperation isn't "natural" (default nature is defect), it's the constructed structure that escapes the jungle; Coolidge/Aquinas via Mullally (deist natural-law realist)
 - [LiquidZulu](../research/philosophy/liquidzulu/README.md) — anarchism as the rejection of legal authoritarianism; law is discovered, not decreed
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — the natural-law case laid out against TIK, the ancoms, Hobbes, Rand and Peikoff
+- [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — universal law from the LNC retortion; "rights simply are"

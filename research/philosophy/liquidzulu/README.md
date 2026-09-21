@@ -34,7 +34,7 @@ The vault's other recurring interlocutors (Wilson, Mullally) are spread across d
 | Topic | LZ | Vault | Status |
 |---|---|---|---|
 | Root of law | scarcity → conflict → NAP, no self-ownership step | same derivation, [self-ownership page](../morality/legal-theory/self-ownership-and-property-rights.md) | **agree** (independent confirmation) |
-| Bodily autonomy | a scarce means; assault = conflict over it | "bodies are not property" but still first application of conflict avoidance; **Chris: a second root, not property** | **open** — inside the vault too |
+| Bodily autonomy | a scarce means; assault = conflict over it — **installed by definition at ch. 1 step 5**, not derived | "bodies are not property" but still first application of conflict avoidance; **Chris: a second root, not property** | **open** — inside the vault too |
 | The word "anarchy" | must be fought; definitions are objectively correct | **Chris: drop it** — common tongue = lawlessness; language fix removes the critiques | disagree — and the thorn is self-inflicted by his concept-realism |
 | Argumentation ethics | Hoppe, Randized | lineage §4 objections (liberty vs claim right; scope) land unchanged | disagree on the over-derivation; his ownership/possession retortion is the better move |
 | Base of the conditional | life (Rand's words) but *action* in practice | action | **closer than he thinks** — see the death-standard question |
@@ -42,6 +42,9 @@ The vault's other recurring interlocutors (Wilson, Mullally) are spread across d
 | Final arbiter | none needed; independent judges converge on discovered law | jurisdiction problem; the city-state record; **Chris: "I agree more with Rand"** — the two dismissing assumptions are *war is expensive so they'll negotiate* and *there is a truth and it can be discovered*; Rand's **"competing governments"** is the accurate name | disagree |
 | What ancapistan looks like | "can't predict what doesn't exist" (restaurant analogy) | **Chris: weak — "trust me bro"; he has a picture and won't commit to avoid confrontation** | disagree; hold him to the course |
 | Theory of definitions | Aristotelian essence-realism; "pragmatism" a slur | trained detectors + constructed≠arbitrary; his own criterion is functional | disagree — the seam into the epistemology trunk |
+| Ground of rights (ch. 1) | "rights simply are"; any *source* of rights = primacy of consciousness | mind-dependent **and** constrained (constitutive realism); vacuity test | **he is inside our framework — Move 3 — and doesn't know it**; same pattern as definitions |
+| Where legal knowledge lives (ch. 1) | principles armchair-complete; judges only *apply* | principles grown; adjudication *generates*, precedent aggregates (Hayek) | disagree — **the theoretical root of the arbiter row**: on his account honest disagreement is error; on ours it is the initial condition |
+| Intent in classification (ch. 1, provisional) | Kinsella's intent criterion in the foundations (action vs behaviour) | Chris: aggression is binary, intent irrelevant to classification ([mens rea](../morality/legal-theory/mens-rea.md)) | **watch ch. 6** |
 | Method | theorist; deductive; rejects empirics as "pragmatism" | verification independence = drop to a lower artifact; experiments already run count | disagree — **Chris: this is what makes his theory weaker** |
 
 ## Sources — his own vault
@@ -56,6 +59,16 @@ LZ publishes everything as source: **[liquidzulu.github.io](https://liquidzulu.g
 
 - [Anarcho-Capitalism: Responding to the Critics](./responding-to-the-critics.md) (2025-01-21, 116 min) — the introduction: the whole system laid out against TIK, the ancoms, Hobbes, Rand and Peikoff. Verdict on the page.
 
+## The course, chapter by chapter (in his `n:` order)
+
+1. [The Nature of Law](./course-01-the-nature-of-law.md) — the axiom layer. *Just* is **defined** as *argumentatively justifiable* at step 2 and the rest is that definition unpacked; property enters by definition at step 5 (Chris's prediction, confirmed); polylogism refuted only by dropping the index; positivism quoted right, argued wrong; **"rights simply are" fails the vacuity test and his next sentence supplies the constitutive grounding** — *constitutive realism wearing an intrinsicist badge*. Agrees with the vault on legislation vs discovery but keeps the code armchair-complete, which is the theoretical root of the arbiter disagreement.
+2. The Non-Aggression Principle — *next*
+3. Homesteading and Property Rights
+4. Contract Theory
+5. The Rights of Children
+6. Defensive Force and Proportionality
+7. Law as a Subset of Ethics (elaboration)
+
 ## Questions for LZ
 
 Because he is a living philosopher, these are meant to be asked, not filed.
@@ -66,6 +79,9 @@ Because he is a living philosopher, these are meant to be asked, not filed.
 4. **The arbiter:** Rand's objection was about *honest disagreement among fully rational men*, not about criminals. What, other than negotiation, resolves two competing courts that both read "reality" and reach opposite verdicts?
 5. **Your criterion for definitions is "the requirements of man's conceptual faculty."** That is a functional test. What distinguishes it from the pragmatism you treat as a slur?
 6. **Commit to a picture.** You say you cannot predict a market that does not exist, but the restaurant analogy fails: a bad restaurant fails locally, a bad rights-enforcement equilibrium fails as a war. What is your best concrete guess for how two firms with opposite verdicts on the same case settle it — and what would count as that mechanism *failing*?
+7. **(ch. 1, step 2)** Why should *just* mean *argumentatively justifiable* rather than any other candidate? What selects that definition, other than "you are arguing right now" — and does that not presuppose it?
+8. **(ch. 1, polylogism)** The polylogist asserts "just-under-A" and "unjust-under-B," not "just and not-just." What licenses dropping the index before finding the contradiction?
+9. **(ch. 1, "rights simply are")** In a world with no agents, what does that sentence refer to? If the answer is "nothing — but given agents and scarcity the norm follows," that is an agent-dependent account. Is that not the "source of rights" you reject?
 
 ## Open Questions
 
