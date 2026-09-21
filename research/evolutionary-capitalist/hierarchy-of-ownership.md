@@ -9,7 +9,7 @@ title: "The Hierarchy of Ownership: Rothbard's Contradiction Between the Body an
 > If self-ownership and land ownership are both absolute, they negate each other when all land is claimed. Who wins? The landlord.
 
 **Source:** [YouTube video](https://www.youtube.com/watch?v=5mHbLaYywAs) (5:17, uploaded 2025-11-06, 21 views)
-**Links:** [Channel Overview](./README.md), [Self-Ownership and Property Rights](../philosophy/morality/legal-theory/self-ownership-and-property-rights.md), [The Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md)
+**Links:** [Channel Overview](./README.md), [Self-Ownership and Property Rights](../philosophy/morality/legal-theory/self-ownership-and-property-rights.md), [The Godel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [LiquidZulu Course 3 — Homesteading](../philosophy/liquidzulu/course-03-homesteading.md) — the ancap side stated at full strength: de Jasay's *let exclusion stand*, enclosure owns the interior — exclusion promoted from response to definition
 
 ## His Argument (Steel-Manned)
 

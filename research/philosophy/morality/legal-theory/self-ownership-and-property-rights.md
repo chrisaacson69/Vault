@@ -9,7 +9,7 @@ title: "Self-Ownership and the Property Rights Derivation"
 > You don't need self-ownership to ground property rights — and the standard chain that tries to is the weak link in libertarian theory.
 
 **Source:** Discord discussion (lights, Austrian Eleutheria, Lurker) + vault analysis · **Independent confirmation (2026-09-21):** [LiquidZulu — Responding to the Critics](../../liquidzulu/responding-to-the-critics.md#2-the-correct-problem-scarcity--conflict--nap) ([raw](../../../../raw/videos/2026-09-21%20liquidzulu-ancap-responding-to-critics.md), 3:40 & 86:38) — an anarcho-Objectivist who also skips the self-ownership step and roots law in scarcity → conflict → NAP
-**Links:** [Legal Theory](./README.md), [Morality](../README.md), [Mens Rea](./mens-rea.md), [Government Formation](./government-formation.md)
+**Links:** [Legal Theory](./README.md), [Morality](../README.md), [Mens Rea](./mens-rea.md), [Government Formation](./government-formation.md), [LiquidZulu Course 3 — Homesteading](../../liquidzulu/course-03-homesteading.md) — the apodictic version of this page's comparative derivation; agrees on exclusive direct control as the fact, files it under "ownership" anyway
 
 ## The Standard Libertarian Chain
 

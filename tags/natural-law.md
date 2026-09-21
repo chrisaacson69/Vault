@@ -17,3 +17,4 @@ permalink: /tags/natural-law/
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — the natural-law case laid out against TIK, the ancoms, Hobbes, Rand and Peikoff
 - [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — universal law from the LNC retortion; "rights simply are"
 - [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — the NAP as a chosen axiom presented as self-evident
+- [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — first-comer derived by excluding only *taking*; Georgism straw-manned

@@ -209,3 +209,4 @@ permalink: /tags/philosophy/
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — his whole system via the critics; death-is-not-an-action; the jurisdiction collision; definitions vs the vault
 - [LiquidZulu Course 1 — The Nature of Law](../research/philosophy/liquidzulu/course-01-the-nature-of-law.md) — *just* defined as *justifiable*; "rights simply are" vs the vacuity test; explication vs generation in legal discovery
 - [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — the NAP vs his own definition of *axiom*; argument-from-argument yields a norm of argumentation, not from it
+- [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — first use apodictic vs comparative; the false-dichotomy pattern; exclusion vs scarcity
