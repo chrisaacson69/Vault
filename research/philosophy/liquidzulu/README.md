@@ -98,11 +98,13 @@ LZ publishes everything as source: **[liquidzulu.github.io](https://liquidzulu.g
 
 **Where the theory is weakest, in Chris's order:** homesteading (the two-diggers case; the donut; group ownership); the edges of a life (bridged by hacks at both ends); the missing theory of threats (initiation never defined for anything that touches no property); "retribution requires mens rea" (no room for the punitive independent of mind); and the final arbiter (a judge is summoned at every classification the axiom cannot make, while the doctrine says the code is complete).
 
+**Chris's closing read (2026-09-21).** *Fair, and the last chapter makes it solid.* When the ethics is challenged (the drowning child, the ball on the lawn) it bottoms out in **"well, you just should"** — and that has drawn enough pushback that many libertarians now hold the theory as **a legal theory, not an ethical system**. Which is fair — and it is Graf's position, the one ch. 7 was written against.
+
 **What the vault got from him:** an independent confirmation of the self-ownership-free derivation; a live test on neglect and the action/inaction asymmetry (now answered by his own ch. 7 — the asymmetry is the enforceable tier); a shared gap on imminence; the two-diggers case for the shared-ownership page; and 28 questions for a living philosopher.
 
 ## Questions for LZ
 
-Because he is a living philosopher, these are meant to be asked, not filed.
+Because he is a living philosopher, these are meant to be asked, not filed. **Field note (Chris):** as open as he seems, he is in practice *resistant* to debate — the corporation / group-ownership example was shut down and dismissed quickly on approach, and the two-diggers case was answered as **"a Mr. Beast game"** (i.e. the stubbornness contest of ch. 3 §2, accepted as the answer rather than as the problem). Expect the questions to need a written, on-the-record form rather than a comment thread.
 
 1. **Before agency:** on an action/argumentation base, what derives the rights of a fetus or an infant, who neither act praxeologically nor argue? If the answer is "potential," how is that not the intrinsicism you reject? — *Answered in ch. 5: it is potential ("might in the future be able to"), and he does not treat it as intrinsicism. The follow-ups are questions 20–22.*
 2. **At death:** if "at the moment of death there is no one to speak of," who owns the estate at that instant? If a will is a title transfer completed in life, what makes a dead man's instruction bind the living without the authority's-say-so you define anarchism against? — *Answered in ch. 4 (transfer conditioned on death; intestacy = abandonment); the follow-up is question 17.*
@@ -135,6 +137,7 @@ Because he is a living philosopher, these are meant to be asked, not filed.
 
 ## Open Questions
 
+- **Shared ownership is the live thread.** Chris has already run the corporation and two-diggers cases at him (dismissed; "a Mr. Beast game"); the vault's own challenges in the same family — **marriage**, partnerships, the other shared-ownership cases queued on the legal-theory README — are where the ancap theory has no answer and the vault has a page to write.
 - **The course is complete (7/7, 2026-09-21). Next moves, Chris's call:** (a) put the 28 questions to him — comments, his *So, you want to debate LiquidZulu* protocol, or a written open letter; (b) the *shared ownership* page, with the two-diggers case and ch. 3 §4 as the foil; (c) the *neglect / enforceability* test on the action-inaction page, now that ch. 7 has placed it; (d) his other scripts (open borders; the 2023 TIK piece).
 - Should the vault's other recurring interlocutors (the Wilson cluster) be retrofitted into this hub-per-thinker pattern, or is it specific to essayists? (Structural; Chris's call.)
 - ~~Which of LZ's *other* essays to take next?~~ **Decided 2026-09-21: the course** — and it turned out to exist as source (see *Sources*). The IP video is too specific; the course is where he lays everything out top to bottom and is the source of most of these ideas — and where the picture of ancapistan he won't commit to here should surface. Plan: one page per chapter under this hub, in `n:` order, the ledger and the questions updated after each.
