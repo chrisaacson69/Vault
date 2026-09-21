@@ -112,3 +112,4 @@ permalink: /tags/epistemology/
 - [Where Concepts Live](../research/philosophy/epistemology/where-concepts-live.md)
 - [What Is a Number?](../research/philosophy/logic-and-math/what-is-a-number.md) — von Neumann vs. Zermelo ordinals; two incompatible sevens, identical arithmetic; the Benacerraf datum and structuralism
 - [The Objectivism Boundary](../research/philosophy/morality/objectivism-boundary.md) — agreement is ontological (hypothetical oughts, no unchosen duties); the seam is life-vs-action, *man qua man*, the analytic/synthetic rejection, and egoism vs. EGT
+- [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — definitions as objectively correct vs the trained-detector account; his functional criterion vs his rejection of "pragmatism"

@@ -43,6 +43,10 @@ Action (praxeology) and morality aren't identical. Praxeological success = "did 
 - [The Constitutive Middle — Two Dialectics](./constitutive-middle-dialectics.md) — operational playbook: walking a *global anti-realist* (logic is constitutive, demonstrable in the act) and a *theistic realist* (read the law off the nature; God = Author, not truth-maker; Grotius) to constitutive realism. Quick-recall card up top.
 - [Open Problems](./open-problems.md) — unresolved tensions and dissolved ones
 
+## External specimens
+
+- [LiquidZulu](../liquidzulu/README.md) — a living anarcho-Objectivist who takes Objectivism's base and rejects its politics; the ledger of where he and this framework diverge (bodily autonomy as a second root, the final arbiter, definitions) lives on the hub
+
 ## Applied: Legal Theory
 
 Legal norms are constitutive of cooperative rule-systems — applied Trunk 1. See [Legal Theory](./legal-theory/README.md).

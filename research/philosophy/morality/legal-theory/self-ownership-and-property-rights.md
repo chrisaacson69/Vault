@@ -8,7 +8,7 @@ title: "Self-Ownership and the Property Rights Derivation"
 # Self-Ownership and the Property Rights Derivation
 > You don't need self-ownership to ground property rights — and the standard chain that tries to is the weak link in libertarian theory.
 
-**Source:** Discord discussion (lights, Austrian Eleutheria, Lurker) + vault analysis
+**Source:** Discord discussion (lights, Austrian Eleutheria, Lurker) + vault analysis · **Independent confirmation (2026-09-21):** [LiquidZulu — Responding to the Critics](../../liquidzulu/responding-to-the-critics.md#2-the-correct-problem-scarcity--conflict--nap) ([raw](../../../../raw/videos/2026-09-21%20liquidzulu-ancap-responding-to-critics.md), 3:40 & 86:38) — an anarcho-Objectivist who also skips the self-ownership step and roots law in scarcity → conflict → NAP
 **Links:** [Legal Theory](./README.md), [Morality](../README.md), [Mens Rea](./mens-rea.md), [Government Formation](./government-formation.md)
 
 ## The Standard Libertarian Chain
@@ -95,6 +95,12 @@ Under exclusive bodily control? The hitman's neurons fired. The hitman's finger 
 ### lights' Concession
 
 In the follow-up discussion, lights agreed: "Scarcity is the base, it makes ownership relevant in the first place." Self-ownership is what happens when you apply the scarcity/conflict-avoidance principle to bodies — it's not a separate foundational concept. It's the first application of the same principle that grounds all property rights. Self-ownership and property rights are siblings derived from the same source, not a parent-child derivation chain.
+
+## Independent Confirmation — and a Question Back at This Page
+
+LiquidZulu's system ([Responding to the Critics](../../liquidzulu/responding-to-the-critics.md), 2025) arrives at the conflict-avoidance root without ever routing through self-ownership: "to say that a given entity is scarce is to say that men can come into conflicts over its use, where a conflict is defined as mutually exclusive actions … thus anarcho-capitalism holds the non-aggression principle as the fundamental starting point." Two independent arrivals at the same root is evidence the root is load-bearing.
+
+But the discussion (2026-09-21) opened a question **against this page**, not only against him. Chris: *"I don't think all law is about scarcity, it can also be about personal autonomy … the way ancaps tie this is to say you 'own yourself' and an assault is 'damaging your property' — trying to tie everything back to property law. I don't think the NAP is only property."* This page agrees bodies are not property — but it still grounds bodily autonomy as "the first application of conflict avoidance — your body is the first scarce resource." So the live question is whether bodily autonomy is **a case of scarcity-conflict** (this page, LZ) or **a second root** (Chris). Filed on the LZ page's Open Questions; it is also question 3 in the [hub's questions for LZ](../../liquidzulu/README.md#questions-for-lz).
 
 ## The Semantic Residue
 

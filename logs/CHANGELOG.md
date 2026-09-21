@@ -11,6 +11,14 @@ created: 2026-07-20
 
 ---
 
+## 2026-09-21
+
+**New thinker hub: [LiquidZulu](../research/philosophy/liquidzulu/README.md)** — a living anarcho-Objectivist (Rothbard/Hoppe on a Peikoff base) to be read essay by essay, with a running agree/disagree ledger and **questions to put to him**, since he answers comments. First specimen: [Anarcho-Capitalism: Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) (2025-01-21, 116 min, full transcript captured via `tools/fetch-youtube-transcript.py`).
+
+**What it did to existing pages.** ⭐ The [self-ownership page](../research/philosophy/morality/legal-theory/self-ownership-and-property-rights.md)'s scarcity→conflict derivation gets an **independent confirmation** (LZ never routes through self-ownership either) — and a question back at it from Chris: is bodily autonomy a case of scarcity-conflict or a **second root**? The [Objectivism Boundary](../research/philosophy/morality/objectivism-boundary.md)'s open question *"what are the norms of an agent pursuing death?"* receives an **answer-attempt on file, not adopted**: LZ's *death is not an action* — an action-base argument in Rand's vocabulary — at the price Chris named, silence at the **edges of a life** (conception/birth, death/inheritance). The [lineage page](../research/philosophy/morality/performative-grounding-lineage.md) gains a **Randized Hoppe** variant, with the note that his *ownership≠possession* retortion is the better, vault-shaped move. [Government Formation](../research/philosophy/morality/legal-theory/government-formation.md)'s jurisdiction problem now records the ancap reply (negotiation, asserted at all stakes) and Chris's verdict: *"I agree more with Rand about a final arbiter — we have run this experiment out many, many times."*
+
+**Chris's reads, on the pages:** "anarchy" is the weakest claim and should be dropped (common tongue = lawlessness; a language fix removes the critiques — and the vault adds that LZ *can't* take that exit because his concept-realism forbids it); LZ is a theorist who rejects empirics, with "pragmatism" a slur, which is what makes the theory weaker — while his own criterion for definitions ("the requirements of man's conceptual faculty") is functional.
+
 ## 2026-09-07
 
 **Word War round 2 closed out and round 3 registered.** New review [Abortion Should Be Legal Nationwide (Kewl Vic vs. Octavius Thunder)](../research/debates/wordwar-r2-abortion-vic-thunder.md) — the **seventh and last round-2 debate**, since [match 3 (Brunet vs. Tareyak) turns out to have been a bye](../research/debates/word-war-debate-series.md#round-2-results--complete-updated-2026-09-07), which removed the bracket's best argument-quality specimen without a contested loss.

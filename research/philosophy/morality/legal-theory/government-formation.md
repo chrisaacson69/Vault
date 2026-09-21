@@ -55,6 +55,8 @@ Two REAs with conflicting judgments about a dispute between their clients have e
 2. **Negotiate** — works for routine disputes, fails for existential ones. When the stakes are high enough, negotiation breaks down into option 3.
 3. **Force** — and now you have warfare between competing governance providers.
 
+**The ancap reply on record (LiquidZulu, 2025).** [Responding to the Critics](../../liquidzulu/responding-to-the-critics.md#6-private-defense-and-the-sore-spot) ([raw](../../../../raw/videos/2026-09-21%20liquidzulu-ancap-responding-to-critics.md), 47:37 & 113:19) answers Rand's Smith/Jones version of this exact scenario: "neither firm wants to go to random war, so they would investigate who the aggressor is and seek damages," and an arbiter of last resort is a "razor of Damocles" — the more independent the judges, the better, because law is discovered and competing arbitrators converge on it. That is **option 2, asserted to hold at all stakes**; it does not engage the record below. Chris (2026-09-21): *"I agree more with Rand than LZ about a final arbiter. We have run this experiment out in reality many, many times, and 'rationality' usually does not prevail."*
+
 ### The City-State Analogy
 
 This pattern has been run thousands of times in history. Greek poleis, Italian city-states, feudal lords, Hanseatic League cities — each was effectively its own REA with jurisdiction over its territory/members. The result was consistent: consolidation through either federation, conquest, or absorption by larger powers.

@@ -1,0 +1,67 @@
+---
+status: active
+created: 2026-09-21
+published: true
+layout: layouts/page.njk
+title: "LiquidZulu"
+permalink: /research/philosophy/liquidzulu/
+---
+# LiquidZulu — a living anarcho-Objectivist, read against the vault
+> A YouTube philosopher (handle *LiquidZulu*) who extends Rothbard and Hoppe from a Randian base: entered through Peikoff, keeps Objectivist metaphysics and epistemology, and rejects Rand's politics because Rand rejects anarchy. Big-L libertarian, natural-law, aggressively anti-Kantian and anti-"pragmatist." **He is alive and answers comments, so this series can interrogate rather than only annotate.**
+
+**Links:** [Philosophy](../README.md), [Morality](../morality/README.md), [Legal Theory](../morality/legal-theory/README.md), [The Objectivism Boundary](../morality/objectivism-boundary.md) — the vault's own map of how much Objectivism it takes on; LZ is the same shape from the other side, [Performative Grounding — Lineage](../morality/performative-grounding-lineage.md) — where his Hoppe sits, [Government Formation](../morality/legal-theory/government-formation.md) — the jurisdiction problem he has to answer
+
+**Trunk:** an external specimen for [Trunk 1 — Normative Ontology](../the-four-trunks.md#trunk-1--normative-ontology) with a live seam into the epistemology trunk (his theory of definitions).
+
+---
+
+## Why a hub for a person
+
+The vault's other recurring interlocutors (Wilson, Mullally) are spread across debate pages because they show up *in debates*. LZ produces **essays** — a system stated in his own order, with a wiki and a course behind it — so the right unit is a hub that holds the system-map and the running list of divergences, with one page per essay as the specimen. Chris's framing for the series: *"more intro philosophy than direct critiques, even though there are plenty of those too … the big point is to introduce LZ and show how he thinks — his strengths and weaknesses."*
+
+## His system in one pass (from the first essay)
+
+1. **Anarchism** = rejection of *legal authoritarianism* (law from an authority's say-so). The state = monopoly on force **+ legal positivism**. Natural law = law is objective and discovered.
+2. **The valid branch is law, not politics.** Rand's "what should government do?" is a frozen abstraction that smuggles the state into the question. The real question: means are scarce, so men can conflict — *how should conflicts be handled?* Three answers: jungle / mixed / NAP; the first two collapse (possession≠ownership retortion; arbitrary particularisation; primacy of consciousness), leaving the NAP.
+3. **Hoppe without Kant.** Argument-from-argument kept; the a priori discarded as "mysticism." His replacement vocabulary: *epilology* (the science of free will = praxeology + thymology), *conceptual vs perceptual* instead of *a priori vs a posteriori*. Genealogy claim: Rothbard was essentially an Objectivist.
+4. **Open Objectivism, his way:** Objectivism = *the philosophy of the primacy of existence* (genus: philosophy; differentia: explicit application of that primacy). Not "what Rand believed," not "true philosophy."
+5. **Ethics as a guide to action, not survival.** Death is not an action, so it cannot be a standard; principles cannot be dropped "just this once"; emergencies are usually the fruit of earlier negligence.
+6. **Private defense** = Hoppe's insurance model, plus "law is discovered, so competing arbitrators converge."
+7. **Definitions are objectively correct or incorrect**; nominalism (Hobbes) is epistemic suicide; package-deals and frozen abstractions are the two tools he reaches for most.
+
+## Where he and the vault stand — the running ledger
+
+| Topic | LZ | Vault | Status |
+|---|---|---|---|
+| Root of law | scarcity → conflict → NAP, no self-ownership step | same derivation, [self-ownership page](../morality/legal-theory/self-ownership-and-property-rights.md) | **agree** (independent confirmation) |
+| Bodily autonomy | a scarce means; assault = conflict over it | "bodies are not property" but still first application of conflict avoidance; **Chris: a second root, not property** | **open** — inside the vault too |
+| The word "anarchy" | must be fought; definitions are objectively correct | **Chris: drop it** — common tongue = lawlessness; language fix removes the critiques | disagree — and the thorn is self-inflicted by his concept-realism |
+| Argumentation ethics | Hoppe, Randized | lineage §4 objections (liberty vs claim right; scope) land unchanged | disagree on the over-derivation; his ownership/possession retortion is the better move |
+| Base of the conditional | life (Rand's words) but *action* in practice | action | **closer than he thinks** — see the death-standard question |
+| Edges of a life | not addressed | conception/birth, death/inheritance are where the theory doesn't meet reality (Chris) | **question for LZ** |
+| Final arbiter | none needed; independent judges converge on discovered law | jurisdiction problem; the city-state record; **Chris: "I agree more with Rand"** | disagree |
+| Theory of definitions | Aristotelian essence-realism; "pragmatism" a slur | trained detectors + constructed≠arbitrary; his own criterion is functional | disagree — the seam into the epistemology trunk |
+| Method | theorist; deductive; rejects empirics as "pragmatism" | verification independence = drop to a lower artifact; experiments already run count | disagree — **Chris: this is what makes his theory weaker** |
+
+## Essays reviewed
+
+- [Anarcho-Capitalism: Responding to the Critics](./responding-to-the-critics.md) (2025-01-21, 116 min) — the introduction: the whole system laid out against TIK, the ancoms, Hobbes, Rand and Peikoff. Verdict on the page.
+
+## Questions for LZ
+
+Because he is a living philosopher, these are meant to be asked, not filed.
+
+1. **Before agency:** on an action/argumentation base, what derives the rights of a fetus or an infant, who neither act praxeologically nor argue? If the answer is "potential," how is that not the intrinsicism you reject?
+2. **At death:** if "at the moment of death there is no one to speak of," who owns the estate at that instant? If a will is a title transfer completed in life, what makes a dead man's instruction bind the living without the authority's-say-so you define anarchism against?
+3. **Bodily autonomy:** is a punch a conflict over a scarce means, or is autonomy a second root? What is lost if it is the second?
+4. **The arbiter:** Rand's objection was about *honest disagreement among fully rational men*, not about criminals. What, other than negotiation, resolves two competing courts that both read "reality" and reach opposite verdicts?
+5. **Your criterion for definitions is "the requirements of man's conceptual faculty."** That is a functional test. What distinguishes it from the pragmatism you treat as a slur?
+
+## Open Questions
+
+- Should the vault's other recurring interlocutors (the Wilson cluster) be retrofitted into this hub-per-thinker pattern, or is it specific to essayists? (Structural; Chris's call.)
+- Which of LZ's *other* essays to take next — his legal-theory course (the NAP → full derivation he refers to at 108:21), or the IP video he closes on?
+
+## Tags
+
+[philosophy](../../../tags/philosophy.md), [objectivism](../../../tags/objectivism.md), [libertarian-law](../../../tags/libertarian-law.md), [natural-law](../../../tags/natural-law.md)

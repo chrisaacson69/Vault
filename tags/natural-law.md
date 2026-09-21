@@ -13,3 +13,5 @@ permalink: /tags/natural-law/
 - [Mens Rea in Libertarian Law](../research/philosophy/morality/legal-theory/mens-rea.md) — Debate: does criminal intent (mens rea) have a place in a legal system built on the NAP and natural law?
 - [The Scope Confusion Thesis](../research/philosophy/morality/scope-confusion.md) — Most political and legal disagreements are not about values — they're about which enforcement mechanism is appropriate for a given norm.
 - [Sitch vs. Ryan Mullally — Birthright Citizenship & Natural Law](../research/debates/sitch-mullally-birthright-citizenship.md) — the natural-law laundering diagnosis: cooperation isn't "natural" (default nature is defect), it's the constructed structure that escapes the jungle; Coolidge/Aquinas via Mullally (deist natural-law realist)
+- [LiquidZulu](../research/philosophy/liquidzulu/README.md) — anarchism as the rejection of legal authoritarianism; law is discovered, not decreed
+- [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — the natural-law case laid out against TIK, the ancoms, Hobbes, Rand and Peikoff

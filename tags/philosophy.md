@@ -205,3 +205,5 @@ permalink: /tags/philosophy/
 - [What Is a Number?](../research/philosophy/logic-and-math/what-is-a-number.md) — von Neumann vs. Zermelo ordinals; two incompatible sevens, identical arithmetic; the Benacerraf datum and structuralism
 - [The Objectivism Boundary](../research/philosophy/morality/objectivism-boundary.md) — agreement is ontological (hypothetical oughts, no unchosen duties); the seam is life-vs-action, *man qua man*, the analytic/synthetic rejection, and egoism vs. EGT
 - [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered
+- [LiquidZulu](../research/philosophy/liquidzulu/README.md) — hub for a living anarcho-Objectivist: system-map, agree/disagree ledger, questions for him
+- [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — his whole system via the critics; death-is-not-an-action; the jurisdiction collision; definitions vs the vault
