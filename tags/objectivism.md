@@ -32,3 +32,4 @@ permalink: /tags/objectivism/
 - [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — self-evidence as the Objectivist axiom-standard, applied to the NAP and failed
 - [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — Rothbard's trilemma as a false trichotomy; "potential to argue" as the universality ground
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — Rothbard's will-inalienability restated as abandonment; "will schmill"
+- [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — Rand's "mere potentiality" rejected by relocating potential to before conception — and then relied on

@@ -8,6 +8,7 @@ discussion: folded-in
 
 **Date:** 2026-09-07 (premiered 2026-09-03) · Word War Debate Contender Series, **Round 2 / round of 16, match 4**
 **Source:** [YouTube — Word War Debate](https://www.youtube.com/watch?v=BYpksPp_8qk) · [Transcript](../../raw/debates/transcript-BYpksPp_8qk.txt) · [cleaned](../../raw/debates/transcript-BYpksPp_8qk-clean.txt)
+**See also:** [LiquidZulu Course 5 — The Rights of Children](../philosophy/liquidzulu/course-05-childrens-rights.md) — an ancap theorist reaching Chris's "conception is a capturable event" and "the child is not the mother's body" independently, then deriving evictionism from them.
 **Prompt:** *"Abortion should be legal nationwide."*
 **Participants:** **Octavius Thunder** (**Aff** — for legality, opens first) vs. **Kewl Vic** (**Neg** — against)
 **Moderator:** **Monica Perez** — *The Monica Perez Show*; **her fourth round of round 2**, after [suffrage](./wordwar-r2-womens-suffrage-tejeda-aftermath.md), [Iran](./wordwar-r2-iran-war-summerhays-cruz.md) and [amnesty](./wordwar-r2-amnesty-jones-owlish.md)

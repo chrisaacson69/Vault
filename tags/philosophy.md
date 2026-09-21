@@ -211,3 +211,4 @@ permalink: /tags/philosophy/
 - [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — the NAP vs his own definition of *axiom*; argument-from-argument yields a norm of argumentation, not from it
 - [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — first use apodictic vs comparative; the false-dichotomy pattern; exclusion vs scarcity
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — ownership ≠ saleability conceded; the corpse clause; the will vs the no-gap rule
+- [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — the encrypted-testament device as the will hack reversed; potential conceded as the ground of rights

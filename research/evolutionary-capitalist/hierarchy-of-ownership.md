@@ -72,7 +72,7 @@ The "oops, no more land" framing — which recurs across modern heterodox econom
 ## Open Questions
 
 1. **His "high bidder" alternative** — does it actually solve the problem he identifies, or does it create a new version of the same hierarchy? (Who runs the bidding? Who enforces reallocation from low bidders to high bidders?)
-2. **The children edge case** — the vault's conflict avoidance framework handles this better than Rothbard's "absolute" framing, but it still needs explicit development. Children are the first scarce-resource conflict (parents and children can't both have exclusive control), and the resolution norm needs spelling out.
+2. **The children edge case** — the vault's conflict avoidance framework handles this better than Rothbard's "absolute" framing, but it still needs explicit development. Children are the first scarce-resource conflict (parents and children can't both have exclusive control), and the resolution norm needs spelling out. **Answer-attempt on file (2026-09-21):** [LiquidZulu Course 5](../philosophy/liquidzulu/course-05-childrens-rights.md) — guardianship as a scarce, homesteaded *right to raise*, the child's future will as an encrypted testament; it works as a hack and imports "proximity," link-over-title, and "neglect is not harm" by fiat.
 3. **Privacy as his lever** — several of his videos attack privacy as enabling bad actors. This connects to the vault's [press freedom](../philosophy/dynamics/press-freedom-and-governance.md) analysis (observation as enforcement mechanism). Worth comparing frameworks.
 
 ## Tags

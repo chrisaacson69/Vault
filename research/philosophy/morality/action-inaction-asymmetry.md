@@ -8,7 +8,7 @@ title: "The Action/Inaction Asymmetry"
 # The Action/Inaction Asymmetry
 > Action is singular and defined. Inaction is the infinite, undefined complement. This asymmetry grounds the negative/positive rights distinction.
 
-**Links:** [Morality](./README.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md), [Conspiracy and Pre-Crime](../../../notes/sketch-conspiracy-and-precrime.md), [Force Doctrine](./force-doctrine.md) (the rights-as-force reduction this corollary bounds), [LaCorte Urban-Rural Review](../../debates/lacorte-urban-rural-divide.md) (specimen)
+**Links:** [Morality](./README.md), [The Weighting Problem](../epistemology/weighting-problem.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md), [Conspiracy and Pre-Crime](../../../notes/sketch-conspiracy-and-precrime.md), [Force Doctrine](./force-doctrine.md) (the rights-as-force reduction this corollary bounds), [LaCorte Urban-Rural Review](../../debates/lacorte-urban-rural-divide.md) (specimen), [LiquidZulu Course 5 — Children](../liquidzulu/course-05-childrens-rights.md) — the asymmetry taken to its end: "refusing to feed a child is not harm"; the live test of whether the asymmetry is the whole ethics or only the enforceable tier
 
 ---
 

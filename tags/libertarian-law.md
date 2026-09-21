@@ -44,3 +44,4 @@ permalink: /tags/libertarian-law/
 - [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — Kinsella's black-box causation + foreseeability vs the vault's Free Will Principle; rights-scepticism; the seedy bar
 - [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — homesteading, borders, stalemates, Georgism, self-ownership, group ownership, the Blockean proviso, de Jasay's let-exclusion-stand
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — title-transfer theory, no breach, aleatory contracts, no debtors' prison, voluntary slavery, the last will
+- [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — guardianship as homesteaded right; Hersum's harm-is-active-only; evictionism; AI self-ownership and link-over-title

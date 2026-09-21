@@ -12,3 +12,4 @@ permalink: /tags/law/
 - [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — foreseeability imported from the Restatement of Torts one chapter after positivism was called a non-theory; the mailbox as convention
 - [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — the donut problem; ownership = exclusion vs ownership = direction, two definitions in one chapter
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — fraud as theft-by-trick (intent-defined) vs the intent-blind breach rule; intestacy as abandonment
+- [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — age of majority as arbitrary; courts hearing the child's testimony; notification relabelled as a negative duty

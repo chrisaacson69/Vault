@@ -19,3 +19,4 @@ permalink: /tags/natural-law/
 - [LiquidZulu Course 2 — The NAP](../research/philosophy/liquidzulu/course-02-the-nap.md) — the NAP as a chosen axiom presented as self-evident
 - [LiquidZulu Course 3 — Homesteading](../research/philosophy/liquidzulu/course-03-homesteading.md) — first-comer derived by excluding only *taking*; Georgism straw-manned
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — inalienability of the body from the argument-from-argument and from abandonment
+- [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — conception as the only principled discontinuity; neglect is not harm
