@@ -44,6 +44,14 @@ The vault's other recurring interlocutors (Wilson, Mullally) are spread across d
 | Theory of definitions | Aristotelian essence-realism; "pragmatism" a slur | trained detectors + constructed≠arbitrary; his own criterion is functional | disagree — the seam into the epistemology trunk |
 | Method | theorist; deductive; rejects empirics as "pragmatism" | verification independence = drop to a lower artifact; experiments already run count | disagree — **Chris: this is what makes his theory weaker** |
 
+## Sources — his own vault
+
+LZ publishes everything as source: **[liquidzulu.github.io](https://liquidzulu.github.io)**, repo `LiquidZulu/liquidzulu.github.io` (branch `source`, **CC0**). On this machine it is cloned as the sibling `liquidzulu-wiki` (resolve via `.claude/local-paths.md`, pinned commit `4f30b83`, 2026-06-04) — a git clone at a pinned commit is an immutable source, so **the text is not copied into `raw/`; pages point at the repo by path and heading**. What is in it:
+
+- **The course — *The Fundamentals of Libertarian Ethics*** (`src/content/libertarian-ethics/`, 2023-04-25, ~37.5k words, seven chapters in `n:` order): 1 *The Nature of Law* · 2 *The Non-Aggression Principle* · 3 *Homesteading and Property Rights* · 4 *Contract Theory* (self-sale into slavery, fractional-reserve banking) · 5 *The Rights of Children* (groundwork, abortion — *"at conception and conception only"* — AI self-ownership) · 6 *Defensive Force and Proportionality* · 7 *Law as a Subset of Ethics*. Pay-what-you-want video, free text, copyleft. **This is the top-to-bottom statement and the source of most of what the first essay asserts.**
+- **Scripts** (`src/content/scripts/`): *Answering TIK's Questions to Ancaps* (2023 — earlier than, and distinct from, the 2025 video), open borders, AI art, the anti-environment manifesto, *So, you want to debate LiquidZulu* (2024 — how he takes challenges; relevant to *Questions for LZ*).
+- Absent from the course: **inheritance / title at death** — question 2 below has no answer in his own corpus.
+
 ## Essays reviewed
 
 - [Anarcho-Capitalism: Responding to the Critics](./responding-to-the-critics.md) (2025-01-21, 116 min) — the introduction: the whole system laid out against TIK, the ancoms, Hobbes, Rand and Peikoff. Verdict on the page.
@@ -62,7 +70,7 @@ Because he is a living philosopher, these are meant to be asked, not filed.
 ## Open Questions
 
 - Should the vault's other recurring interlocutors (the Wilson cluster) be retrofitted into this hub-per-thinker pattern, or is it specific to essayists? (Structural; Chris's call.)
-- ~~Which of LZ's *other* essays to take next?~~ **Decided 2026-09-21: the course.** The IP video is too specific; the course is where he lays everything out top to bottom and is the source of most of these ideas — and where the picture of ancapistan he won't commit to here should surface.
+- ~~Which of LZ's *other* essays to take next?~~ **Decided 2026-09-21: the course** — and it turned out to exist as source (see *Sources*). The IP video is too specific; the course is where he lays everything out top to bottom and is the source of most of these ideas — and where the picture of ancapistan he won't commit to here should surface. Plan: one page per chapter under this hub, in `n:` order, the ledger and the questions updated after each.
 
 ## Tags
 
