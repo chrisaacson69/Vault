@@ -35,3 +35,4 @@ permalink: /tags/objectivism/
 - [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — Rand's "mere potentiality" rejected by relocating potential to before conception — and then relied on
 - [LiquidZulu Course 6 — Defensive Force](../research/philosophy/liquidzulu/course-06-defensive-force.md) — the categorical ought promised; the smoker and cognitive dissonance
 - [LiquidZulu Course 7 — Law as a Subset of Ethics](../research/philosophy/liquidzulu/course-07-law-subset-of-ethics.md) — Rand's "every is implies an ought" and Peikoff on evaders, quoted as the categorical ought — and conditional on the choice to live in the same sentences
+- [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule

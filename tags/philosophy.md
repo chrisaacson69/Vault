@@ -214,3 +214,4 @@ permalink: /tags/philosophy/
 - [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — the encrypted-testament device as the will hack reversed; potential conceded as the ground of rights
 - [LiquidZulu Course 6 — Defensive Force](../research/philosophy/liquidzulu/course-06-defensive-force.md) — estoppel from the act as the weak retortion form; "ought is ought" vs hypothetical oughts
 - [LiquidZulu Course 7 — Law as a Subset of Ethics](../research/philosophy/liquidzulu/course-07-law-subset-of-ethics.md) — the syllogism that embeds its ought; the life-base as Chris's repair to Rand without scope; "ought is ought" collapsing into hypothetical oughts
+- [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule

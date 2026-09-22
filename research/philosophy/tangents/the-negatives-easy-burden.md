@@ -8,7 +8,7 @@ title: "The Negative's Easy Burden — Weaponized Regress and the Concede-Reloca
 # The Negative's Easy Burden
 > Negating is structurally cheaper than affirming. Formal systems *know* this and compensate for it; informal "bloodsports" debate doesn't — which hands the skeptic a free edge. The cure isn't to out-justify the regress (impossible), it's to concede the true core fast and force the regress symmetric on the one joint that's left.
 
-**Links:** [Formal Debate Concepts](../../debates/formal-debate-concepts.md) — this page is the deep store for that inventory's **presumption / burden of proof** entry,  [Easy to Critique, Hard to Build](./easy-to-critique-hard-to-build.md) — **the sibling asymmetry**: this page is *building vs. picking* inside an exchange; that one is *forecasting costs vs. benefits* about a venture, [The Fallacy Fallacy](./the-fallacy-fallacy.md), [Agrippa's Trilemma](../../debates/agrippa-axioms-wilson-whatever.md), [Definitional Control (Noerr)](../../debates/noerr-logic-feelings-humane.md), [Force Doctrine — The Theory](../morality/force-doctrine.md), [Symmetry Breaking](../dynamics/symmetry-breaking.md), [The squirrel specimen — Word War feminism rerun](../../debates/wordwar-feminism-rerun-david-tareyak.md)
+**Links:** [Formal Debate Concepts](../../debates/formal-debate-concepts.md) — this page is the deep store for that inventory's **presumption / burden of proof** entry,  [Easy to Critique, Hard to Build](./easy-to-critique-hard-to-build.md) — **the sibling asymmetry**: this page is *building vs. picking* inside an exchange; that one is *forecasting costs vs. benefits* about a venture, [The Fallacy Fallacy](./the-fallacy-fallacy.md), [Agrippa's Trilemma](../../debates/agrippa-axioms-wilson-whatever.md), [Definitional Control (Noerr)](../../debates/noerr-logic-feelings-humane.md), [Force Doctrine — The Theory](../morality/force-doctrine.md), [Symmetry Breaking](../dynamics/symmetry-breaking.md), [The squirrel specimen — Word War feminism rerun](../../debates/wordwar-feminism-rerun-david-tareyak.md), [Warren Smith's Controlled Comparison](../../debates/warren-smith-review-regress-pressure.md) — **the style generalised from Wilson to Wilson-and-Dyer, plus the three-respondent gradient**
 
 ---
 
@@ -48,12 +48,88 @@ The instinct is to **out-justify the regress** — answer "why?" forever. This i
 4. **Name the wall as shared.** *"This regress ends nowhere for either of us. The question was never who can ask 'why' longest — it's who has the better axiom. Same bedrock; now compare."* That one sentence dissolves the asymmetry the whole tactic runs on.
 5. **Relocate to the one joint.** What's left is a single disagreement (e.g. structure vs divine-will as the ground of rights), now a *symmetric* standoff — where, via Euthyphro, the skeptic's side is often the *worse* off, not the better.
 
-## Worked specimen — Andrew Wilson
+## Worked specimen — Andrew Wilson (and Jay Dyer: it is a style, not a man)
 
 Wilson is the type case: he takes the negative posture ("rights don't exist, only force") to claim presumption, runs weaponized Agrippa + freezing, and in unstructured formats reaps the uncompensated easy-burden edge. He is *hard to pin down only if you let him roam* — defend everything, chase every "why?". Pin him by conceding the field down to the one hill.
 
 - **Specimen (tactics on display, not reviewed here):** [Reparation & Systemic Racism Debate — Andrew Wilson vs Austin Offscript](https://www.youtube.com/watch?v=Cq9boZ4au8o) (RattlesnakeTV, 2026-06-19, 2:09:30).
 - **Where the counter is vindicated:** the force-doctrine cluster reviews show that when the *real* flank is pressed, Wilson states the structural thesis *against himself* — [Do Atheists Benefit…](../../debates/wilson-atheists-benefit-christian-society.md) (justification conceded as empirical/structural), the O3 exchange in [Christians' Right to Rule](../../debates/wilson-christians-right-to-rule.md), and [Trent vs Kyla](../../debates/trent-horn-vs-notsoerudite-christian-nationalism.md) (the asymmetric standard dismantled by parity). His praxis is sounder than his theory, so meeting the praxis and contesting only the label is the winning play.
+
+### It is not one man — and that makes the counter preparable
+
+> **Chris (2026-09-22):** *"Both Dyer and Wilson are famous for attacking someone's position without
+> actually giving their own."*
+
+This page was written around Wilson as *the* type case. The correction: the posture is a
+**recognised style with a reputation**, run by at least two prominent practitioners. That is not a
+cosmetic widening. A one-off tactic must be diagnosed live, mid-exchange, under time pressure — the
+condition under which nobody executes the counter-doctrine well. A style with a reputation can be
+**prepared for before you sit down**: you know the "why?" ladder is coming, you know no positive
+thesis will be offered, and steps 1–4 can be rehearsed rather than improvised.
+
+The specimen that makes the generalisation visible is a *review* rather than a debate —
+[Warren Smith's controlled comparison](../../debates/warren-smith-review-regress-pressure.md) —
+which runs the identical ladder against two respondents on two unrelated topics (immigration; the
+grounding of rights) and shows it is the same script both times.
+
+### The gradient — and why Kyla is the hard case for this page
+
+Three respondents, one attack, ordered by how much of the counter-doctrine they attempted:
+
+| Respondent | Attempted steps 3–4 (*make him build* / *name the wall as shared*)? | Outcome |
+|---|---|---|
+| **Brian** ([Warren's review](../../debates/warren-smith-review-regress-pressure.md)) | No — attempted a sideways exit (*"this is a word game"*, *"I'm not here to do philosophy"*) | Attrition; conceded his position was *"relative and subjective"* while still prescribing policy |
+| **Kyla** ([Agrippa's Trilemma vs Wilson](../../debates/agrippa-axioms-wilson-whatever.md); also vs Dyer) | **Yes** — Chris: *"at least she tried to get them to also commit"* | **Still struggled** |
+| **The Objectivist** ([Wilson vs Objectivism](../../debates/wilson-objectivism-stance-dependence.md)) | Stated his own terminus — *"facts are a brute, facts are ground zero"* — but never turned it around | Held ground; failed to convert |
+
+**Brian and the Objectivist confirm this page. Kyla's case corrects it.** She reached for exactly
+the move prescribed here — force the regress symmetric — and it did not rescue the exchange. Chris's
+diagnosis (2026-09-22), which supersedes two earlier guesses:
+
+> *"Kyla lost because she did not understand at that time that Agrippa only gets you to **parity** —
+> neither side can ground their claims. When she ran it, she was like: 'no, but you are wrong
+> because you can't beat Agrippa, so that is why I am right!' **It was that last step that fails.**"*
+
+She did not under-run the counter; she **over-ran** it, converting the leveler into a victory
+condition. That is the over-deployment error [The Parity Move](../epistemology/the-parity-move.md)
+names in its *Scope Discipline* section — the leveler is the door, not the room — and it is worse
+than simply failing to answer, because it is **self-undermining in public**: if nobody can ground
+their claims, that includes her. The room hears her supply the premise that defeats her own
+conclusion.
+
+## The fifth step: give closure, then take the initiative
+
+The counter-doctrine above stops at *relocate to the one joint*. The Kyla specimen shows what is
+missing — a rule about **sequencing**, and the reason the symmetry demand so often reads as evasion
+even when it is valid.
+
+> **Chris:** *"What needs to be done is an honest admission of what you are claiming and its limits,
+> and then advocating the other side does the same. **To complete the answer to the question shows
+> the audience you are not trying to evade.**… The negative has the easier burden, so you have to
+> give closure to the inquiry and then mount your own offensive. It will be natural for the negative
+> to stay on the offensive, but **you have to break this initiative.** Chess :)"*
+
+**5. Close the inquiry, then seize the initiative.**
+
+- **Complete the answer — including its limits.** Not *answer better*; **finish**. State what you
+  claim and where it stops. The admission of limits is what converts an answer into *closure* rather
+  than another rung the interrogator can stand on. It is also the honest version of steps 1 and 4
+  applied to yourself before you apply them to him.
+- **Closure is what the audience is scoring.** The evidence is the reviewer in the specimen: Warren
+  keeps asking *"but why?"* on Brian's behalf every time Brian goes sideways — a *sympathetic third
+  party* continuing the interrogation because the answer is unfinished. **The audience does not stop
+  the regress; a completed answer does.** This is the mechanism behind the audience-legibility
+  problem: a symmetry demand made *before* the debt is paid is indistinguishable from a dodge,
+  because you still owe an answer and everyone can hear it.
+- **Then take the initiative — and expect to have to take it.** *It will be natural for the negative
+  to stay on the offensive.* Initiative is not transferred when you finish speaking; it is seized,
+  and the side with the cheaper burden has every incentive to keep it. So step 3's *"why is God
+  good?"* is **not a question you ask and wait on — it is a tempo move**, and it only works after
+  your own obligation is discharged. That is the point at which the room will grant it to you.
+
+The chess framing is the right one and worth keeping: the negative holds the initiative by default
+because picking costs less than building. Closure is how you stop defending; the symmetry demand is
+how you attack. **Doing them in the wrong order loses both.**
 
 ## The inverse specimen — surrendering the easy burden
 
@@ -94,6 +170,14 @@ The reason is structural rather than stylistic, and it is worth stating as a rul
 So the counters split by judge type: before a trained judge flowing arguments, take the tactical line and win on the flow; before a lay audience, take the framing line, and let the opponent's refusal to defend the general claim be the thing the room notices on its own. This is the same lesson the [Word War bracket](../../debates/word-war-debate-series.md) keeps producing from the other direction — that the more a winning move depends on the format's machinery, the less of it survives contact with an audience ballot.
 
 ## Where it's still hard
+
+**Over-running the counter loses as surely as under-running it (added 2026-09-22).** See the Kyla
+row in [the gradient](#the-gradient--and-why-kyla-is-the-hard-case-for-this-page): she demanded
+symmetry correctly and then took one step too many, treating *"you can't beat Agrippa"* as a reason
+she was right. Parity is a **draw**, and a draw claimed as a win is self-refuting in front of a
+room. Steps 1–5 are necessary, not sufficient — and step 5's sequencing (close, *then* attack) is
+the part most likely to be skipped under pressure, because demanding symmetry feels like progress
+while completing your own answer feels like retreat.
 
 The concede-relocate counter shrinks the fight to the right joint but does not *win* it for free. The "structure grounds rights" third door is a **promissory note** until you can specify the grounding structure for a given right *without* smuggling in an intuition — [force-doctrine's Open Q2](../morality/force-doctrine.md) ("how independently specifiable is structural fitness, really?"). Against the skeptic it's enough to *name* the third door and force symmetry; to carry the *positive* case you still have to walk through it.
 

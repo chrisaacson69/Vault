@@ -95,3 +95,4 @@ permalink: /tags/debates/
 - [Abortions Should Remain Readily Available (prep)](../research/debates/abortion-readily-available-prep.md) — live debate prep (Neg, DMZ, left-leaning room). The resolution is *easy*, not *legal*: **remain** is false inherency post-*Dobbs*, **readily** an undefined degree word. Built from the Aff's own history, data and principles; the court-order plan framed as a warrant
 - [Where Concepts Live](../research/philosophy/epistemology/where-concepts-live.md)
 - [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered
+- [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule
