@@ -15,13 +15,32 @@ title: "Andrew Wilson vs Objectivism: Stance Dependence and the Grounding of Rig
 
 ---
 
-> ⚠ **This page is the only record (noted 2026-09-22).** ProphetDivinityy was identified by vault
-> research, but **no further content by him was ever found** — no channel, no second appearance, no
-> better-stated version of these arguments anywhere. A [reviewer clipping this debate](./warren-smith-review-regress-pressure.md)
-> still calls him *"an anonymous 20-year-old."* So this transcript plus this page is the complete
-> surviving statement of his case, and anything not extracted here is lost rather than merely
-> unindexed. Chris's standing preference — *"I would rather people learn the objectivist's points"*
-> — makes this page's completeness a priority over its polish.
+> ⚠ **Superseded within the day — he does have a corpus, and it is small (2026-09-22).** An earlier
+> version of this banner said no further content by him existed. **That was wrong**, and it was wrong
+> in the way the vault's grounding rule warns about: *"we searched and found nothing"* was treated as
+> a finding rather than as a failed search. Chris then found the channels.
+>
+> **What exists** (Chris's find; not independently verified here — `www.youtube.com` is SNI-blocked
+> on this machine, so nothing below was fetched):
+> - A **YouTube channel**, **~7–9 videos total** — small enough to review exhaustively.
+> - A **TikTok**, which is where the Wilson debate on this page was hosted.
+> - ⭐ **A debate against [LiquidZulu](../philosophy/liquidzulu/README.md) on whether Objectivism is
+>   *open or closed*.** That is a direct bridge between two vault clusters that were being worked
+>   separately, and it puts him in the Kelley/TAS-vs-Peikoff/ARI fight that
+>   [The Objectivism Boundary](../philosophy/morality/objectivism-boundary.md) is adjacent to.
+> - ⚠ **Handle spelling unresolved:** this page has recorded **@ProphetDivinityy**; Chris reports
+>   **@PhrophetDivinityy**. The transposition may be a deliberate stylisation or a typo on either
+>   side. Confirm before citing.
+>
+> **Chris's hypothesis, recorded as testable:** *"my guess is he is most active on TikTok, as this is
+> where the Wilson debate was hosted… LZ is also on YouTube, so maybe this channel is only for
+> debates co-hosted on YouTube."* **Test:** if true, every YouTube upload should have a
+> YouTube-native counterpart — i.e. each video's opponent runs a YouTube channel and the debate
+> appears on both. A single YouTube upload whose opponent is TikTok-only would falsify it.
+>
+> **What survives of the preservation point:** the corpus is real but *thin*, and if the centre of
+> gravity is TikTok then the bulk of it sits on the platform this vault can least reliably capture
+> or transcribe. So completeness on this page still matters — just not because it is the only copy.
 
 ## Context
 
