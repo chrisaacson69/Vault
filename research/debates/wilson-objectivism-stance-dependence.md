@@ -15,6 +15,14 @@ title: "Andrew Wilson vs Objectivism: Stance Dependence and the Grounding of Rig
 
 ---
 
+> ⚠ **This page is the only record (noted 2026-09-22).** ProphetDivinityy was identified by vault
+> research, but **no further content by him was ever found** — no channel, no second appearance, no
+> better-stated version of these arguments anywhere. A [reviewer clipping this debate](./warren-smith-review-regress-pressure.md)
+> still calls him *"an anonymous 20-year-old."* So this transcript plus this page is the complete
+> surviving statement of his case, and anything not extracted here is lost rather than merely
+> unindexed. Chris's standing preference — *"I would rather people learn the objectivist's points"*
+> — makes this page's completeness a priority over its polish.
+
 ## Context
 
 Andrew Wilson — a theistic moral realist who has appeared across multiple vault debates — faces Objectivists on Eduardo's TikTok panel. The original prompts were broad bait (healthcare as a right, socialism good, capitalism bad), but the real exchange that emerged is about whether Objectivist ethics can ground moral facts at all. The primary Objectivist voice is ProphetDivinityy; Eduardo owns the channel but doesn't speak in this clip.
