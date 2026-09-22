@@ -17,6 +17,7 @@
 *.webp
 *.docx
 *.html
+*.xml
 
 # Always track markdown (Web Clipper drops, processed articles)
 !*.md
