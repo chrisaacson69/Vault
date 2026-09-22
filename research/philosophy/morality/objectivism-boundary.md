@@ -125,6 +125,16 @@ Chris closes it from the other side:
 
 **Specimen of the overextension (2026-09-21):** [LiquidZulu's course, ch. 7](../liquidzulu/course-07-law-subset-of-ethics.md#3-dismantling-humes-guillotine--the-life-base-arrives) makes exactly this move — to argue is to have chosen life — and concludes *"life is undeniably good"* and *"the true is the good"*; the same chapter's substantive oughts ("grow crops in the sun, other things being equal") are all conditional on that choice, which is this page's point made by the other side.
 
+## Chris's position: Objectivism is an open system — and this page is his evidence (2026-09-22)
+
+The open/closed quarrel (is Objectivism a finished system fixed by Rand's writings, or a framework that can be extended and corrected?) came up via [Stayton](../../debates/wilson-objectivism-stance-dependence.md), who debated [LiquidZulu](../liquidzulu/README.md) on exactly this. Chris's verdict, and his reason:
+
+> *"Now that it is explained, I think Objectivism is an open system — **we have already pointed out several places where it could be improved.**"*
+
+The argument is **self-referential, and that is its strength**: this page is a list of places where the vault engages Objectivism critically and the engagement is *productive* rather than a rejection — the agreement in "What the vault takes on" is real, and the differences in "Where it really differs" are corrections a system could absorb, not refutations that would end it. **A closed system cannot be improved, only accepted or left**; a system that visibly rewards correction is behaving like an open one. See also the [grenade test](#the-grenade-test--where-act-level-egoism-goes-tautological) and [Chris's repair to Rand](#chriss-repair-to-rand--the-performative-contradiction) — both are improvements offered from inside rather than attacks from outside.
+
+⚠ **This is a claim about the system, not a reading of the literature.** Neither the Kelley/TAS nor the Peikoff/ARI case has been read here, and the vault does not know which side Stayton takes despite his Objective Standard Institute affiliation. The nearest thing on file is **LZ's own third position** — open Objectivism as *"the philosophy of the primacy of existence"* by genus/differentia, between Kelley/Hicks and ARI ([LZ §4](../liquidzulu/responding-to-the-critics.md#4-the-rand-arc--praise-first-then-the-break)) — which Chris's verdict sits close to. **Related:** on the *libertarianism vs Objectivism* question that Stayton's rejoinder is about, Chris takes **more of LZ's side**.
+
 ## Open Questions
 
 - ~~**The society/individual distinction needs its own conversation.**~~ **SUBSTANTIALLY ANSWERED 2026-09-17** by the grenade test above: the positive account is **disposition-level justification** (pre-commitment / one-boxing), with the radius set by the behaviour loop rather than by introspection. **Residue:** (a) group selection is contested, so the squadmate tier rests on disputed mechanism; (b) *why not merely appear committed?* is answered by an empirical bet, not an argument; (c) what a society legitimately **is**, on an action-based grounding, is still unwritten — the level-slip diagnosis remains a guard, not an account.

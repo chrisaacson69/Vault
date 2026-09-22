@@ -58,6 +58,23 @@ Which yields the division of labour the candidate needed:
 
 > **The performative escape earns *inescapability within assertion*. Reliance earns *moral*.** Two different jobs, and running them together is what made the triviality charge stick — the escape was being asked to deliver a moral conclusion it cannot reach on its own.
 
+### The 2×2 is also a diagnosis of argumentation ethics (added 2026-09-22)
+
+Chris restated the cell independently, and in restating it noticed what it does to a *different* argument:
+
+> *"'One should think' passes the argumentation test, but not the reality test. Otoh 'one should live' seems to be the reverse!"*
+
+That is the table above (semantic ↔ pragmatic) under two new names, and the pairing is the point. **Argumentation ethics needs a norm that wins both columns at once** — it runs the *semantic* test (deny this while arguing and you refute yourself) and then spends the proceeds as *pragmatic, political* content (therefore self-ownership, homesteading, the NAP). The vault's own 2×2 says the columns come apart, and the two flagship norms come apart in **opposite directions**:
+
+| | argumentation / semantic test | reality / pragmatic test |
+|---|---|---|
+| **"one should think"** | **passes** — your denial asks me to accept it because you reasoned to it | **fails** — people live largely unthinking, and manage |
+| **"one should live"** | **fails** — being alive while you argue does not make living obligatory | **passes** — it is the precondition of every other value |
+
+So the norm AE would need sits in a cell neither flagship occupies, and nothing here suggests that cell is populated by anything but non-contradiction. **This is the vault's independent route to [Stayton's double bind](./performative-grounding-lineage.md#major-objections)** — he gets there by splitting the universalization premise into three readings and showing only the strongest reaches the conclusion; this gets there by observing that the test which licenses the inference and the test which supplies the content are different tests. Same diagnosis, different instrument, which is the kind of agreement worth having.
+
+Note the direction of the second row: *"one should live"* is the **Objectivist** starting point, and its failure on the semantic test is exactly why the Objectivist in [that debate](../../debates/wilson-objectivism-stance-dependence.md) could not seal the regress by argument alone — and, plausibly, why he went on to publish against argumentation ethics rather than adopt it.
+
 So the candidate survives, downgraded and sharpened: **not an absolute, but a real, narrow, non-trivial norm** — practice-relative in its self-defeat, moral by way of reliance, and sitting exactly where the universality↔implementability curve predicts (maximally implementable, tightly domain-bounded). Note also that it does **not** rescue grounding facts #2 and #3 (*you should live*, *you should exist*), which the Mullally call left in tension with capital punishment: neither is semantically self-defeating to deny, so both fall to the pragmatic column, where the argument is Move 2 territory rather than performative.
 
 ## 3. The Timescale Problem
