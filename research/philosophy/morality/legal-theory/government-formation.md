@@ -111,6 +111,38 @@ When exit is blocked, voice is the only remaining lever. But voice (voting, prot
 
 **This is actually the strongest argument for the REA model** even though it fails on jurisdiction. If you could switch governance providers, the market discipline would prevent the degradation. The state solves the jurisdiction problem but at the cost of making exit nearly impossible — which removes the very feedback mechanism that would keep it honest. The tradeoff is structural: jurisdiction resolution vs. market discipline. The state buys the first and loses the second.
 
+## The Choice-Distance Gradient — a second, independent limit on market provision
+
+*Chris, 2026-09-23, prompted by [TIK's ancap video](../../tik-anarcho-capitalism.md), where the same worry appears without a mechanism.*
+
+The jurisdiction problem above says private providers **clash**. This says something different and prior: for some services, **the demand cannot be expressed in advance at all.** It is the market's own operating principle turned into a limit rather than an outside critique.
+
+> **Chris:** *"If I was to guess at the mechanic, I would argue that it is **choice**. Free market is based on choice, and **the further the effect is from the immediate choice, the harder it is for a market to provide.** Best we have is something like insurance — but how does one know they might need armed men to protect from invasion before it happens?"*
+
+**Why this is worth having as its own argument.** The standard objection here is *public goods* — non-rivalrous, non-excludable, therefore under-provided. That is welfare economics, and an Austrian can and does refuse the whole apparatus. The choice-distance argument concedes the ancaps their premise and still gets the result: **markets allocate by choice, so a market can only supply what someone can choose to buy *before* they need it.** Nothing here appeals to market failure, efficiency, or social welfare functions.
+
+It also **predicts an ordering**, which a blanket "the market can't do defense" does not:
+
+| Service | Distance from the buyer's choice | Market provision |
+|---|---|---|
+| **Roads** | you use it, repeatedly, and know you will | **historically demonstrated** — US private turnpikes existed in quantity |
+| **Fire** | foreseeable, individually insurable, local | plausible |
+| **Police / security** | rarer, but the risk is estimable and continuous | **partly demonstrated** — private security firms exist now |
+| **National defense** | you cannot know you will need armed men against an invader until the invader arrives | **the hard case** |
+
+> **Chris:** *"I do think mostly there will be roads and fire service, but law and order is a higher hurdle, as well as protection. While I think a market can create 'police', like we have private security firms, assuming this can work for nationwide defense is a bit rough of an argument."*
+
+**The insurance objection, and why it does not close the gap.** [Insurance](../../../economics/insurance.md) is the market's existing instrument for buying against events you cannot time — so why not defense insurance? Because insurance prices a *distribution* over many independent draws, and an invasion is a single correlated event that either happens to everyone in the territory or to no one. There is no diversifiable pool, and the policyholder cannot form a demand signal from a risk he has no way to estimate until it is realised.
+
+**The historical answer was militia** — and Chris's verdict is that it names the real cost rather than solving it: *"militia was the historical answer, but this requires a bit of coordination that didn't always work so well."* Militia is not a market solution; it is a **standing pre-commitment by people who cannot price the risk**, which is closer to a norm than to a purchase.
+
+**How this sits beside the jurisdiction problem.** They are independent failure modes, and an ancap answer to one does not touch the other:
+
+- **Jurisdiction:** two providers with incompatible rulings, and no higher authority. A *conflict-resolution* failure.
+- **Choice-distance:** one provider, no competitor, no conflict — and still no customer, because nobody can express the demand ahead of the event. A *demand-formation* failure.
+
+Polycentric-law answers (arbitration networks, reciprocity agreements) address the first. They do not address the second, because the second is not about how providers get along.
+
 ## The Structure Question — What Government Should Look Like
 
 ### Benevolent Dictator — Theoretical Optimum, Practical Impossibility
