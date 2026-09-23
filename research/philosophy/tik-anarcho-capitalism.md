@@ -92,7 +92,9 @@ Single page, no `tik/` cluster. The stated reason for return is **method affinit
 
 3. **Item 3 is the weakest passage and carries the most weight.** *Whatever the market has not built was not wanted* makes market outcomes definitionally identical to demand — unfalsifiable, and it skips free-riding and coordination entirely. Note he does not need it: the seen/unseen argument stands on its own without it.
 
-4. **"Men aren't always rational" misreads praxeology.** Rothbard's rational actor means **means-ends directed**, not wise or correct. If this is genuinely part of why he hesitates on ancap, the hesitation rests on a terminological slip — in a video whose thesis is that everyone is confused by terms.
+4. ~~**"Men aren't always rational" misreads praxeology.**~~ **Withdrawn 2026-09-23 — Chris: *"I just took this as a joke."*** The seed treated *"clearly he had never met a millennial"* as a load-bearing terminological error. It is a gag, and reading a thesis into a gag is overreading. Chris grants the underlying distinction — *"economics don't mean it the same as the general definition"* (praxeological *rational* = means-ends directed, not wise) — and declines to hang anything on it.
+
+   **What survives is smaller and more interesting: the remark is disconnected from his own objection.** The non-joke sentence after it — *"men aren't always rational, and that irrationality results in problems"* — sets up nothing, because his sticking point never uses it. *"If there is a market for a state, can we really deny the market?"* goes through whether or not anyone is irrational: **wanting a state can be perfectly means-ends rational for the person who wants one.** So the strongest version of his objection does not need the irrationality premise at all, and is stronger without it.
 
 5. **The corporations claim is the testable one**, and it is where he splits from the Mises Institute. Are corporations state creations (limited liability, charter, regulatory moat) or market products? This is checkable history, not definition.
 
