@@ -55,11 +55,40 @@ Because the fight they are actually in is about **socialism**, which is defined 
 
 If control is what matters and control is exercised by excluding, then ownership was always a proxy. The criterion that survives is the one about the exclusion right — who holds it, and against whom.
 
+## What the line is *for* — it allocates jurisdiction, not just vocabulary
+
+⭐ **The reframe that explains why everyone wants this line crisp (Chris, 2026-09-23).**
+
+> *"The 'clean' line might be the only relevant one: **run by govt = public, not = private** — as the distinction is really about **where the responsibilities of govt lie.** And this is why the question wants a clean resolution: **if we can declare something as independently 'public', it lies in the hands of the govt; if it is 'private', it does not.**"*
+
+The definition is not descriptive, it is **allocative**. *Public* is not merely a label for a kind of entity; it is the finding that licenses an authority to act. That recasts the whole TIK/LZ dispute: **both men are trying to settle a jurisdictional question by lexical means** — get the word, get the authority. It also explains why the fight never ends, and why the word is worth capturing (see [The Load-Bearing Word § CAPTURE](../../../debates/the-load-bearing-word.md)). A term that assigns jurisdiction will always be contested by whoever wants the jurisdiction.
+
+**So there are two questions wearing one word**, and the criteria above answer different ones:
+
+| Question | What it asks | Criterion that answers it |
+|---|---|---|
+| **Ontological** | what kind of thing is this? | **access** — who may be excluded |
+| **Jurisdictional** | whose responsibility is it? | **the clean line** — run by government or not |
+
+Chris holds both, and the clean line is the operative one *because it is the one that has consequences*. The access criterion still does the work the clean line cannot: it is what shows **TIK's Alphabet classification is wrong** (a market-funded, gate-keeping company is private on both criteria), and it is what lets you say a *newly* nationalised industry changed category rather than merely changed hands.
+
+### The confiscation move — how "public good" does the work
+
+> **Chris:** *"Even in the family unit model, it is likely that a leader role confiscates a private item in the name of 'the public good'. **'Take Johnny's stick away because he is hurting other people with it'** — no, the solution is to get Johnny to change his behavior. The stick is a tool; if taken away, he will find another."*
+
+This is the allocative point at its smallest scale, and it shows the mechanism: **declaring a thing public is how an authority acquires the right to act on it.** The private item does not change in nature; it is *reclassified*, and the reclassification is the whole of the justification.
+
+⭐ **And the vault already holds the objection, under a different name.** Chris's [Free Will Principle](./mens-rea.md#the-free-will-principle) says **free will in the causal chain assigns proximate cause to the free agent** — cause stops at the informed agent and does not pass through him to his instruments. Johnny exercised his will; cause stops with Johnny. **Confiscating the stick treats the tool as the cause**, which is the same error, pointed downstream, as treating a hitman as a mechanism of the man who hired him. The remedy belongs where the causation stopped.
+
+The generalisation is the part worth keeping: **instrument-directed remedies misidentify the cause, and their failure mode is substitution** — *"if taken away, he will find another."* An agent-directed remedy has no equivalent evasion, because there is nothing to substitute for the agent.
+
 ## Open Questions
 
-1. ⚠ **The hard case: state facilities that exclude.** A prison, a military base, a restricted archive — these exclude aggressively and are unambiguously public. Does the criterion misclassify them? Two candidate repairs, unresolved: **(a)** the test is not access to *premises* but who may be excluded from *the entity itself* — nobody may opt out of the state that runs the prison, whereas anyone may decline to deal with Alphabet; **(b)** distinguish exclusion **by title** (an owner, private) from exclusion **by decree over property no one holds title to** (an authority, public). (b) looks closer, and it re-imports something like the consent/compulsion test as a second axis.
-2. **Is *access* one axis or two?** Chris says both *"the state idea is more correct"* than TIK's hierarchy **and** *"it is about access."* If the political sense (state vs non-state) and the property sense (excludable vs not) are separate axes, a 2×2 would classify better than either alone — and would explain why one word doing both jobs produces the package deal in the first place.
-3. **Does this survive the commons?** A public park is non-excluding *and* has an owner (the council) who can close it at night. Is it public because nobody is excluded in practice, or does the latent exclusion right make it private property the state happens to open?
+1. ~~**The hard case: state facilities that exclude.**~~ **LARGELY RESOLVED 2026-09-23.** Chris: *"yes, the government does exclude hard. Your fix, 'cannot opt out', is probably better."* So the test is exclusion **from the entity**, not from the premises — nobody may opt out of the state that runs the prison, whereas anyone may decline to deal with Alphabet. Two residues he flagged, both real:
+   - **Could they operate without exclusion at all?** *"It would be easy to argue that these state facilities should allow access, and this is corruption — but there is real concern if they could continue to operate without exclusion."* So some state exclusion is functional rather than corrupt, and the criterion does not by itself say which is which.
+   - ⭐ **The prison is less of a counterexample than it looks:** *"it is easy to get into prison if you try hard enough :)"* Said as a joke and it does real work — a prison does not exclude by **identity or price**, it selects by **conduct**, and entry is open to anyone who qualifies. That is a different relation from a corporate building, which excludes you for being you.
+2. **Compulsion is a property, not a necessary condition** *(Chris's correction to the second candidate repair)*. Consent-vs-compulsion tracks the public/private split reliably enough to be diagnostic, but it does not define it — so it belongs as a **marker**, not a second axis. He notes it may help locate what government is responsibly *for*, *"but this has its problems too (military)"* — a volunteer military is non-compulsory and unambiguously public, which is the counterexample that keeps compulsion from being definitional.
+3. **Does this survive the commons?** A public park is non-excluding *and* has an owner (the council) who can close it at night. Is it public because nobody is excluded in practice, or does the latent exclusion right make it private property the state happens to open? **The clean line answers instantly** (run by government → public), which is one more point in its favour as the operative criterion.
 
 ## Tags
 [philosophy](../../../../tags/philosophy.md), [law](../../../../tags/law.md), [libertarian-law](../../../../tags/libertarian-law.md), [economics](../../../../tags/economics.md), [politics](../../../../tags/politics.md)

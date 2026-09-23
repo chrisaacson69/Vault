@@ -64,6 +64,12 @@ Two things make it more than a third opinion:
 
 The line is at 18:10 — Alphabet is *"'private' in the sense that you or I can't just put our feet up on the CEO's desk, **but** it's still a 'public' entity because it is a public hierarchy."* On the access criterion that clause **is the test**, and it returns *private*. TIK produces the decisive fact himself and files it as a figure of speech, because his criterion has already told him where the answer must land. **This is the cleanest evidence in the video for the package-deal charge** — the word *public* is being carried by the hierarchy sense while the exclusion sense, sitting right there in the same sentence, is waved off.
 
+### Scope note: the economics is deliberately not adjudicated
+
+> **Chris:** *"He starts into a long economic diatribe which he gets a lot wrong, and I am not sure this matters much to the thesis, so let's get to the next concern."*
+
+Roughly minutes 19–66 and 93–100 — calculation, subjective value, the 1920-vs-1929 comparison, firm size, the Labour Theory of Value, exploitation. **Recorded as flagged-not-settled by explicit decision**, not by oversight: seeds 5, 6 and 7 below stand open, and the definitional thesis does not depend on them either way. If the economics is later worked, it is its own page.
+
 ## Discussion Seeds
 
 1. ⭐ **The package-deal charge is testable from inside the video, and it lands.** TIK runs **two criteria** for *public* and they disagree on the same case:
