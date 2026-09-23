@@ -101,6 +101,30 @@ Once you know which term is load-bearing, both dirty moves become legible. They 
 
 **In both cases the fix is the same:** get the definition on the record **before** the evidence is presented, so the boundary can't be redrawn once it becomes inconvenient.
 
+### ⭐ Fifth type — CAPTURE: the shift arrives already done (added 2026-09-23)
+
+The three moves above are made **in the room**, against a term the room shares at the start. Capture is different in kind: **a completed historical shift in the word's sense**, which arrives at the debate already finished. The speaker never has to widen or narrow anything, because the population now holds *two live senses sincerely* — and the equivocation runs between **generations of the word** rather than between two readings offered on the spot.
+
+> **Chris (2026-09-23):** *"I agree that they are not 'arbitrary' labels, but **this doesn't mean people have a shared understanding of the terms either.**"*
+
+**The mechanism, in his words** — it is a motte-and-bailey whose motte was built by history rather than by the speaker:
+
+> *"It allows people to say the word is doing work when used for the 'intended' purpose, but then also try to smuggle in what it is not intended for."*
+
+The new sense does the arguing; the old sense supplies the **reference and authority** that make the claim sound established rather than proposed. Nobody has to defend the bridge between them, because in most listeners' heads the word is simply one word.
+
+**Chris's specimen: *gender*.** His account — before roughly the 1960s the term was effectively 1:1 with *sex*, the same notion in a different grammatical dress; it has since been pushed toward *gender expression*, and the combined use lets a claim licensed by the expression sense borrow the authority of the sex sense. ⚠ **Symmetric-grounding note, per the vault's own standard:** the opposing account is that the split is a *clarification* of two genuinely distinct things, and it has a documented academic lineage (Money 1955; Stoller 1968) predating popular usage. **Chris's charge does not require that account to be false** — he is charging that the *joint* use equivocates, not that distinguishing the two is illegitimate. Stated that way the two accounts are compatible, and the disagreement is over whether the equivocation is incidental or load-bearing. The vault has not worked that question; it is recorded here as his position with the counter-account named.
+
+**Why this type needs its own entry: the page's universal fix does not work on it.** *Get the definition on the record before the evidence* assumes a room that will converge once the term is pinned. Under capture, pinning it **splits the audience** — half hear the pinned definition as a correction and half as a redefinition, and the speaker who pins it pays a cost the other does not.
+
+**The remedy specific to capture — mint an uncaptured word.** This is [TIK's move](../philosophy/tik-anarcho-capitalism.md) and Chris endorses it:
+
+> *"Instead of trying to get everyone to accept that anarchy ≠ lawlessness, and that 'capitalism' (the slur) is good, **you just get people to like your new idea (competing governments)**."*
+
+Note what the proposed replacement does that the captured pair cannot. ***Anarcho-capitalism*** negates something people want (*an-archy* = no rule = no order) and then invokes a term coined as a slur. ***Competing governments*** **states the mechanism**, keeps the thing people actually want (government), and relocates the argument to the only question worth having — *does the competition work?* **A good replacement term is not a euphemism; it is the thesis stated in words that have not already been spent.**
+
+⚠ **The honest cost, which Chris names himself:** *"we both argue (poorly) that the words being used do more harm than good, and yet we both don't know better terms."* Minting is easy to prescribe and hard to do — and a coined term with no constituency is just a word nobody uses. *competing governments* is the first candidate on file that survives its own test.
+
 ## Part 3 — Operating rules
 
 1. **Identify the load-bearing word before you prepare anything else.** It is rarely the topic noun. Ask: *which single word, if my opponent's reading is adopted, do I lose regardless of my evidence?*

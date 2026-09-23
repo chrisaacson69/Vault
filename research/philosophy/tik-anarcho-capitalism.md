@@ -84,9 +84,46 @@ On that reading, **not knowing where the lines go is not a defect of the positio
 
 Single page, no `tik/` cluster. The stated reason for return is **method affinity rather than agreement** — which matches the pattern across this page: the convergences (the slur, the label, corporations, market-for-a-state) are all arrived at *independently*, which is what makes them worth recording. Agreement reached by the same route is a data point; agreement reached by a different route is evidence.
 
+### Chris resolves the tension: non-arbitrary ≠ shared
+
+The seed asked whether TIK contradicts himself — insisting the terms have correct content, then junking them for their connotations. He does not, and the distinction that dissolves it is one sentence:
+
+> **Chris:** *"I agree that they are not 'arbitrary' labels, but **this doesn't mean people have a shared understanding of the terms either.**"*
+
+Two separate properties, and LZ's argument only secures the first:
+
+- **Determinate content** — the concept has correct boundaries, discoverable, not a matter of convention. *LZ is right; Chris agrees; TIK's first fourteen minutes assume it.*
+- **Shared uptake** — the word reliably transmits that content to a listener. *A contingent, empirical fact about a speech community, which a word can simply lose.*
+
+So *"the concept is determinate"* and *"the word no longer conveys it"* are consistent, and TIK's closing minute is about the **second**. What looked like nominalism is a claim about the instrument, not about the essence. **Both men are right about different things, which is why the argument between them never resolves.**
+
+### Chris: how a captured word does its damage — and why that argues for minting
+
+He supplies the mechanism LZ's *"more harm than good"* asserts, using ***gender*** as the specimen: pre-1960s effectively 1:1 with *sex*; since pushed toward *gender expression*. The harm is not the new sense — it is the **pair**:
+
+> *"It allows people to say the word is doing work when used for the 'intended' purpose (gender expression), but then also try to smuggle in what it is not intended for."*
+
+The new sense does the arguing; the old sense supplies the reference and authority that make the claim sound established rather than proposed, and **nobody has to defend the bridge**, because to most listeners it is one word. That is a motte-and-bailey whose motte was built by history instead of by the speaker.
+
+**Promoted** to [The Load-Bearing Word → fifth type, CAPTURE](../debates/the-load-bearing-word.md#-fifth-type--capture-the-shift-arrives-already-done). It earns a type of its own because that page's universal fix — *pin the definition before the evidence* — **does not work on it**: pinning a captured word splits the audience rather than converging it, since both senses are sincerely held. (⚠ The gender specimen is filed with its counter-account named — the sex/gender split has an academic lineage predating popular usage, and Chris's charge is about the *joint* use equivocating, not about distinguishing being illegitimate.)
+
+**And it is why he lands on TIK's side of the naming question:**
+
+> *"Instead of trying to get everyone to accept that anarchy ≠ lawlessness, and that 'capitalism' (the slur) is good, **you just get people to like your new idea (competing governments)**."*
+
+⭐ ***Competing governments*** is the first replacement term on file that survives its own test. *Anarcho-capitalism* negates something people want (*an-archy* = no rule = no order) and then invokes a word coined as a slur — it has to win two rehabilitations before it can make its case. *Competing governments* **states the mechanism**, keeps the thing people want, and moves the argument straight to the only question worth having. **A good replacement is not a euphemism; it is the thesis in words that have not already been spent.**
+
+### Chris: the conversation should be about solvency, not gangsters
+
+> *"I love the idea that the market can help select and direct government behavior, **I just question its solvency** — and **this should be the focus of the conversation, not if there will be gangsters and lawlessness.**"*
+
+This closes the page on itself. TIK **opens** by mocking the lawlessness strawman (black shirts, burning roads) and spends his first minutes clearing it away. Chris's point is that clearing it away is the whole job of the naming problem — *anarcho-capitalism* forces every conversation to start there — and that the real objection was never chaos. **It is solvency: can the market actually supply this?** Which is precisely the question his own [choice-distance gradient](./morality/legal-theory/government-formation.md#the-choice-distance-gradient--a-second-independent-limit-on-market-provision) is built to ask, and which it answers *differently by service* rather than in one verdict.
+
+So the three pieces line up into one position: **rename it so the conversation can start (capture), grant the mechanism is attractive (market discipline on government), and press the one objection that is actually load-bearing (solvency, service by service).**
+
 ## Discussion Seeds
 
-1. **He is an essentialist for fourteen minutes and a nominalist in the last one.** The video's premise is that *"people don't know what these terms actually mean"* and he will *"set the record straight"* — definitions have correct content. The closing says the terms should be abandoned because of how they land on audiences. **That is the exact charge LZ levelled** — *definitions are not arbitrary labels… package deals are not valid concepts*, the nominalism traced through Hobbes. Is this a real contradiction, or is "the word is misleading" compatible with "the concept is determinate"?
+1. ~~**He is an essentialist for fourteen minutes and a nominalist in the last one.**~~ **RESOLVED 2026-09-23 — see the Discussion. Not a contradiction: *non-arbitrary* and *shared* are different properties.**
 
 2. **The sticking point is Nozick, and the vault has the reply.** *A market for a state* is the invisible-hand argument of *Anarchy, State, and Utopia*. The ancap answer runs through the LZ course: a state is not "a service someone bought," it is a **territorial monopoly imposed on non-consenters** — so the market-for-a-state framing equivocates between a voluntarily-funded protection agency (permitted) and a coercive monopoly (forbidden, because you cannot consent on a third party's behalf). Refusing it is not "going against the market." **Does that actually dissolve his problem, or relocate it?**
 
