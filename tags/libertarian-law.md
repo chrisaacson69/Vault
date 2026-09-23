@@ -47,3 +47,4 @@ permalink: /tags/libertarian-law/
 - [LiquidZulu Course 5 — Children](../research/philosophy/liquidzulu/course-05-childrens-rights.md) — guardianship as homesteaded right; Hersum's harm-is-active-only; evictionism; AI self-ownership and link-over-title
 - [LiquidZulu Course 6 — Defensive Force](../research/philosophy/liquidzulu/course-06-defensive-force.md) — dialogical estoppel, same-form proportionality, mens rea vs actus reus, defense as exclusion, the human-body sword and shield
 - [LiquidZulu Course 7 — Law as a Subset of Ethics](../research/philosophy/liquidzulu/course-07-law-subset-of-ethics.md) — against the "virtuous crime"; the lifeboat; Rothbard read as narrowing law, not splitting the ought; Graf's value-free praxeology answered
+- [TIK on Anarcho-Capitalism](../research/philosophy/tik-anarcho-capitalism.md) — first capture of TIKhistory in his own voice; the choice-distance gradient and the market-for-a-state objection

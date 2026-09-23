@@ -151,6 +151,8 @@ to an *optimization criterion*. So "you'd actually need more power than you admi
 refutation; it just relocates where the minimum sits and leaves the criterion untouched. (The vault
 has long-form treatment of what libertarians count as the minimum necessary power.)
 
+> **Reaffirmed 2026-09-23, with the consequence spelled out.** Chris: *"I am a min-cap, but I also don't know exactly where the lines should be drawn."* On the criterion reading above, **that is not a gap in the position — it is the position.** A criterion does not oblige you to have already computed its argmin. The same reading is what makes TIK's *voluntary taxation* fallback legible as line-drawing rather than policy: see [TIK on Anarcho-Capitalism](../philosophy/tik-anarcho-capitalism.md#chris-voluntary-taxation-is-line-drawing-and-it-is-the-same-project-as-min-cap), where the line turns out to keep sliding — a state funded voluntarily has no coercive monopoly on revenue, so the "minimum" there arguably names zero.
+
 ### The harvest: the axis-count problem and the two-party problem are the SAME problem
 
 Chris's proposed escape is the portable idea:

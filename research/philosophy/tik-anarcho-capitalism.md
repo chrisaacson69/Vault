@@ -1,7 +1,7 @@
 ---
 status: active
 created: 2026-09-23
-discussion: pending
+discussion: folded-in
 published: true
 layout: layouts/page.njk
 title: "TIK on Anarcho-Capitalism — Almost, But the Terms Have to Go"
@@ -64,6 +64,26 @@ Its methodological virtue, worth stating: it reaches the conclusion **without we
 
 Worth flagging for what it does to the [LiquidZulu](./liquidzulu/README.md) ledger: TIK is filed there as the *target* of LZ's attacks (the package-deal charge, the nominalism-through-Hobbes genealogy). On **this** question the standing is reversed — TIK's objection is the stronger one, and Chris's verdict is that LZ's replies did not fully meet it.
 
+### Chris: voluntary taxation is line-drawing, and it is the same project as min-cap
+
+> *"I took this as him trying to find the line of its purpose, much like me. **I am a min-cap, but I also don't know exactly where the lines should be drawn.**"*
+
+TIK's fallback — *"if a state does exist, taxation should be voluntary"* — reads on this interpretation not as a policy proposal but as **an attempt to name the minimum**: what is the least a government can be and still be the thing you kept it for?
+
+⭐ **The worry in the second half already has an answer on file, and it is Chris's own.** The [min-cap position](../debates/freitas-tucker-third-party.md#chris-on-the-min-cap-position-the-minimum-is-the-minimum) recorded in the vault is precisely that **minarchism is an optimization criterion, not a quantum of power**:
+
+> *"If the 'minimum' amount of power needed is what is needed to stop this corruption, then that is the minimum."*
+
+On that reading, **not knowing where the lines go is not a defect of the position — it is the position.** A criterion does not require you to have already computed its argmin; "you'd actually need more power than you admit" relocates the minimum and leaves the criterion untouched. So *"I don't know exactly where the lines should be drawn"* is consistent with min-cap in a way it would **not** be consistent with a fixed-quantum minarchism.
+
+**What voluntary taxation does to the line, though, is sharper than TIK notices.** A state whose revenue is voluntary has no coercive monopoly on revenue — and on the ancap definition of a state (a territorial monopoly sustained by aggression), that is most of what made it a state. So the "fallback" is closer to a **restatement of the destination** than to a stopping point between here and there: he answers *how much state* with a figure that arguably names zero. Which makes it a good specimen of the line-drawing problem rather than a solution to it — the honest minimum keeps sliding until it stops being the thing you were bounding. Compare [Government Formation → open question on positive vs negative rights](./morality/legal-theory/government-formation.md#open-questions), which is the same line asked from the other end.
+
+### Housekeeping: no folder, and why TIK is worth returning to
+
+> *"We don't need a folder. I am not sure how many videos of his I will use, but **I like his approach for the most part. We go about things similarly, even if we have slightly different conclusions.**"*
+
+Single page, no `tik/` cluster. The stated reason for return is **method affinity rather than agreement** — which matches the pattern across this page: the convergences (the slur, the label, corporations, market-for-a-state) are all arrived at *independently*, which is what makes them worth recording. Agreement reached by the same route is a data point; agreement reached by a different route is evidence.
+
 ## Discussion Seeds
 
 1. **He is an essentialist for fourteen minutes and a nominalist in the last one.** The video's premise is that *"people don't know what these terms actually mean"* and he will *"set the record straight"* — definitions have correct content. The closing says the terms should be abandoned because of how they land on audiences. **That is the exact charge LZ levelled** — *definitions are not arbitrary labels… package deals are not valid concepts*, the nominalism traced through Hobbes. Is this a real contradiction, or is "the word is misleading" compatible with "the concept is determinate"?
@@ -77,3 +97,4 @@ Worth flagging for what it does to the [LiquidZulu](./liquidzulu/README.md) ledg
 5. **The corporations claim is the testable one**, and it is where he splits from the Mises Institute. Are corporations state creations (limited liability, charter, regulatory moat) or market products? This is checkable history, not definition.
 
 ## Tags
+[philosophy](../../tags/philosophy.md), [economics](../../tags/economics.md), [libertarian-law](../../tags/libertarian-law.md), [politics](../../tags/politics.md), [free-markets](../../tags/free-markets.md)

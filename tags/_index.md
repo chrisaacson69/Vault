@@ -32,7 +32,7 @@ permalink: /tags/_index/
 - [debates](./debates.md) — 89 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 106 files
+- [economics](./economics.md) — 107 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 107 files
@@ -40,7 +40,7 @@ permalink: /tags/_index/
 - [externalities](./externalities.md) — 3 files
 - [fiction](./fiction.md) — 1 file
 - [food-safety](./food-safety.md) — 1 file
-- [free-markets](./free-markets.md) — 21 files
+- [free-markets](./free-markets.md) — 22 files
 - [free-will](./free-will.md) — 7 files
 - [game-ai](./game-ai.md) — 25 files
 - [game-design](./game-design.md) — 11 files
@@ -52,7 +52,7 @@ permalink: /tags/_index/
 - [javascript](./javascript.md) — 1 file
 - [koei](./koei.md) — 9 files
 - [law](./law.md) — 8 files
-- [libertarian-law](./libertarian-law.md) — 40 files
+- [libertarian-law](./libertarian-law.md) — 41 files
 - [llm-limitations](./llm-limitations.md) — 16 files
 - [logic](./logic.md) — 30 files
 - [machine-learning](./machine-learning.md) — 6 files
@@ -69,8 +69,8 @@ permalink: /tags/_index/
 - [objectivism](./objectivism.md) — 29 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 208 files
-- [politics](./politics.md) — 49 files
+- [philosophy](./philosophy.md) — 209 files
+- [politics](./politics.md) — 50 files
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 2 files
