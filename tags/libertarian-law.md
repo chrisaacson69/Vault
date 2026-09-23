@@ -50,3 +50,4 @@ permalink: /tags/libertarian-law/
 - [TIK on Anarcho-Capitalism](../research/philosophy/tik-anarcho-capitalism.md) — first capture of TIKhistory in his own voice; the choice-distance gradient and the market-for-a-state objection
 - [TIK — Public vs Private](../research/philosophy/tik-public-vs-private.md) — the video LZ attacks by name; the package-deal charge tested from inside it
 - [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria
+- [LiquidZulu vs Liam Stayton — Open or Closed Objectivism?](../research/debates/lz-stayton-open-closed-objectivism.md) — what fixes the reference of a philosophy's name: its essence, or the corpus its author designated

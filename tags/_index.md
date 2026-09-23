@@ -29,13 +29,13 @@ permalink: /tags/_index/
 - [constitutional-law](./constitutional-law.md) — 4 files
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 11 files
-- [debates](./debates.md) — 89 files
+- [debates](./debates.md) — 90 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 109 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
-- [epistemology](./epistemology.md) — 107 files
+- [epistemology](./epistemology.md) — 108 files
 - [ethics](./ethics.md) — 9 files
 - [externalities](./externalities.md) — 3 files
 - [fiction](./fiction.md) — 1 file
@@ -52,7 +52,7 @@ permalink: /tags/_index/
 - [javascript](./javascript.md) — 1 file
 - [koei](./koei.md) — 9 files
 - [law](./law.md) — 9 files
-- [libertarian-law](./libertarian-law.md) — 43 files
+- [libertarian-law](./libertarian-law.md) — 44 files
 - [llm-limitations](./llm-limitations.md) — 16 files
 - [logic](./logic.md) — 30 files
 - [machine-learning](./machine-learning.md) — 6 files
@@ -66,10 +66,10 @@ permalink: /tags/_index/
 - [natural-law](./natural-law.md) — 15 files
 - [nes](./nes.md) — 19 files
 - [nobunagas-ambition](./nobunagas-ambition.md) — 1 file
-- [objectivism](./objectivism.md) — 29 files
+- [objectivism](./objectivism.md) — 30 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 211 files
+- [philosophy](./philosophy.md) — 212 files
 - [politics](./politics.md) — 52 files
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
