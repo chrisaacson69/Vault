@@ -42,6 +42,21 @@ This is not a separate principle from the vault's dynamics; it's an instance of 
 
 And the same page's second move transfers: the mean **shifts with substrate conditions** (courage in wartime ≠ courage in peacetime). Optimal scale shifts with **transaction-cost conditions** — and technology *moves the curves*. The printing press, the railroad, the corporation, the container ship, the internet, and now AI each re-price coordination, so the efficient boundary of firms and states is a moving target, not a constant. (The platform-giant + gig-economy split is one symptom: digital coordination lowered some internal costs enough to enable continent-spanning firms *and* lowered market transaction costs enough to push other activity back out to contractors — the curves moved in both directions at once.)
 
+## What large firms actually lack — bids, not prices (Chris, 2026-09-23)
+
+A common Austrian-adjacent claim, stated by [TIK](../philosophy/tik-public-vs-private.md) and by others, is that firms become inefficient at scale because **there are no prices inside a firm** — no internal exchange, therefore no calculation, therefore no way to know if you are efficient. Chris's correction, and it repairs the argument rather than rejecting it:
+
+> *"This is inaccurate. Most companies do very well tracking prices even internally. The issue is more that **they don't compete.** It is fine to know your widget cost $3.75 to make, but the question isn't asked **if it could be made or bought cheaper.** So the company knows if it is making a profit or not; **what is lacking is the bidding process.**"*
+
+**The distinction matters because the naive version is empirically false and the repaired one is not.** Firms have cost accounting, transfer pricing, activity-based costing and internal chargebacks; a large firm usually knows its unit costs to the penny. What it does not have is the **counterfactual**: the price a rival would have charged. A cost is a number about *your* process; a **bid** is information about *everyone else's*. Only the second tells you whether the process should exist.
+
+⭐ **And this lands exactly on Coase's margin.** *"Could it be made or bought cheaper"* **is** the make-or-buy question — the boundary condition above. So the two literatures converge: the reason the firm's boundary stops expanding is that beyond some point internal provision cannot be *evaluated*, and it cannot be evaluated because nobody bid against it. **Profitability is a whole-firm signal; it does not decompose.** A firm can be comfortably profitable while carrying a division that a market would have replaced, and nothing in its accounts will say so.
+
+Two consequences worth keeping:
+
+1. **It explains why the failure is slow and invisible.** A missing price produces chaos immediately (the socialist-calculation case). A missing *bid* produces nothing at all — just a number that looks fine. That is why large-firm inefficiency accumulates quietly rather than announcing itself.
+2. **It predicts the remedy that firms actually use**: competitive tendering, outsourcing pilots, internal markets, benchmarking against external suppliers. These are all attempts to manufacture a bid where none arises naturally — which would be pointless if the problem were really an absence of prices.
+
 ## The historical validation — decentralization won
 
 The vault has already reached the empirical verdict this page supplies the *reason* for. [Christian-structural-advantage](../philosophy/dynamics/christian-structural-advantage.md) credits Europe's divergence not to scale or unified sovereignty but to **fragmentation**:

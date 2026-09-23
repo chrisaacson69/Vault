@@ -20,6 +20,10 @@ Both are attempts to say what makes an entity *public*, and both are stated as d
 
 **LiquidZulu — collective vs individual.** The correct criterion is whether the owner is one person or many, because *"group ownership is a contradiction in terms."*
 
+⭐ **TIK's criterion has a third defect, internal to it: it is a threshold on a continuum with no principled cut.** Chris: *"At best we can argue that these are 'publicly owned' in that there is > 1 owner, but this reaches a threshold argument — **how many owners does there have to be before it is 'public'?** And since LZ doesn't believe in shared ownership, he might argue > 1 :)"*
+
+That is a sorites, and it is worse for TIK than the package-deal charge, because it needs no rival theory to bite. *Number of owners* and *height in a hierarchy* are both continuous, so any cut is arbitrary — and the joke finds the reductio: **the only non-arbitrary cut on that axis is two**, which is LZ's, and which classifies a married couple's business as public. **An axis whose only principled cut point is absurd is the wrong axis.** Access has no such problem: an exclusion right is present or it is not.
+
 **They fail in opposite directions**, which is the useful part:
 
 - LZ's rule makes every partnership, joint-stock company and joint bank account a **contradiction in terms** — it proves too much, and denies an ordinary institution rather than classifying it.

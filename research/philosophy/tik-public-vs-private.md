@@ -64,6 +64,28 @@ Two things make it more than a third opinion:
 
 The line is at 18:10 — Alphabet is *"'private' in the sense that you or I can't just put our feet up on the CEO's desk, **but** it's still a 'public' entity because it is a public hierarchy."* On the access criterion that clause **is the test**, and it returns *private*. TIK produces the decisive fact himself and files it as a figure of speech, because his criterion has already told him where the answer must land. **This is the cleanest evidence in the video for the package-deal charge** — the word *public* is being carried by the hierarchy sense while the exclusion sense, sitting right there in the same sentence, is waved off.
 
+### Chris's verdict: the dispute is interdisciplinary, and neither man has the third discipline
+
+> *"TIK is more of a historian than an economist; otoh, LZ is more philosopher than an economist, so they butt heads, but **lack the language to resolve it.**"*
+
+The cleanest diagnosis on this page. The question — *what makes an entity public?* — is **simultaneously** etymological, philosophical and economic, and each man is expert in one leg of it and amateur in the one that would settle it. TIK reads meaning off history; LZ reads it off conceptual necessity; **neither reaches for the economics**, which is where *ownership*, *control* and *exclusion* actually come apart. That is why the argument produces heat without converging, and it is a better explanation than either being careless.
+
+> *"I think this got into LZ's radar because TIK mentions ancap a few times (cute derivation that Marx/Engels were ancaps!) and **LZ has to point out when people differ from his philosophy.**"*
+
+So the engagement is **incidental rather than substantive** — not LZ answering TIK's central thesis, but LZ patrolling a boundary. Which fits what the vault found from the other side: the package-deal charge lands, but it is a charge against TIK's *criterion*, not an engagement with his history.
+
+### Chris: the reception is evidence of what the message actually was
+
+> *"I think he does his audience a disservice here. He actually provides good insights to much of this, but the comments are like 'well researched' or 'that big companies are like government makes a lot of sense!' — shows that he is sending the wrong message."*
+
+An unusual and useful test: **judge the message by what the audience carried away, not by what the strongest reading would support.** The takeaway being repeated is the *misclassification* (big companies ≈ government), not the real insight (state control does not require ownership; the calculation problem is real). When the memorable line is the one that is wrong and the sound one passes unremarked, the presentation has mis-weighted its own content — which is a criticism of the **rhetoric**, not of the research, and it is compatible with Chris's closing: *"it isn't all bad."*
+
+### Final verdict
+
+> *"105+ minutes and **the argument is more with the definitions than it is with the conclusions.** I think the video deserves critique on the main disagreement point, and I wish his economic language and thought were cleaner, but it isn't all bad."*
+
+Which is the page's own finding restated: the conclusions (fascism is not free-market capitalism; the Third Reich's economy was state-directed; calculation matters) are largely defensible and largely conventional among the historians he cites. **The load is carried by the definitions, and that is where the video is weakest** — three separate defects in one criterion: two unreconciled tests ([the package deal](#discussion-seeds)), a threshold with no principled cut ([the sorites](./morality/legal-theory/public-private-boundary.md)), and the decisive fact waved off in an aside (the CEO's desk).
+
 ### Scope note: the economics is deliberately not adjudicated
 
 > **Chris:** *"He starts into a long economic diatribe which he gets a lot wrong, and I am not sure this matters much to the thesis, so let's get to the next concern."*
@@ -85,7 +107,7 @@ Roughly minutes 19–66 and 93–100 — calculation, subjective value, the 1920
 
 5. **"Exploitation cannot happen in a free market… you can always leave."** The weakest passage, and the vault has the machinery: [the exit problem](./morality/legal-theory/government-formation.md) — free association without free dissociation. **He argues that the state forecloses exit** (correctly) **and then assumes the labour market never does.** The asymmetry is unexamined.
 
-6. **"Firms cannot grow large naturally" overstates a real result.** The internal-calculation argument gives a **bound** on firm size, not an impossibility — see [Theory of the Firm](../economics/theory-of-the-firm.md) (Coase: firms grow until internal costs exceed market transaction costs). The true claim is *there is a ceiling*; the claim made is *large firms are always artificial*.
+6. **"Firms cannot grow large naturally" overstates a real result.** The internal-calculation argument gives a **bound** on firm size, not an impossibility — see [Theory of the Firm](../economics/theory-of-the-firm.md) (Coase: firms grow until internal costs exceed market transaction costs). The true claim is *there is a ceiling*; the claim made is *large firms are always artificial*. **Repaired 2026-09-23** — Chris: firms track internal costs perfectly well; what they lack is **bids**, not prices. *"It is fine to know your widget cost $3.75 to make, but the question isn't asked if it could be made or bought cheaper."* Written up at [Theory of the Firm § what large firms actually lack](../economics/theory-of-the-firm.md#what-large-firms-actually-lack--bids-not-prices-chris-2026-09-23) — and it lands on Coase's make-or-buy margin, so the two literatures converge.
 
 7. ⚠ **Two checkable historical claims, flagged not adjudicated.** (a) *"The 1929 recession lasted 17 years, until 1946"* rests on Higgs's regime-uncertainty thesis and is contested. (b) **Nazi privatisation** — TIK says it never happened; there is a literature arguing it did (Bel, 2006), and interestingly **his own answer concedes its mechanism**: ownership transferred, control retained. Per the vault's symmetric-grounding standard these are marked as open, not settled.
 
