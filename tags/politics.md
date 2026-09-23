@@ -57,3 +57,5 @@ permalink: /tags/politics/
 - [Common Law as a Discovery Procedure](../research/philosophy/morality/legal-theory/common-law-as-discovery.md)
 - [Abortions Should Remain Readily Available (prep)](../research/debates/abortion-readily-available-prep.md) — the Aff's own history as the case: Roe permitted regulation and post-viability bans; *safe, legal and rare* (1989→Clinton) had "rare" struck from the 2012 platform; the court order as *nemo iudex in causa sua*, pre-answered by judicial-bypass law
 - [TIK on Anarcho-Capitalism](../research/philosophy/tik-anarcho-capitalism.md) — first capture of TIKhistory in his own voice; the choice-distance gradient and the market-for-a-state objection
+- [TIK — Public vs Private](../research/philosophy/tik-public-vs-private.md) — the video LZ attacks by name; the package-deal charge tested from inside it
+- [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria

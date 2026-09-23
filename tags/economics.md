@@ -114,3 +114,5 @@ permalink: /tags/economics/
 - [Jevons for Software — Why Cheaper Code May Mean More Spend, Not Less](../research/economics/jevons-software-demand.md) — cheaper code → more software spend iff |ε| > 1; +spend ≠ +coders; only generation got cheap
 - [LiquidZulu Course 4 — Contract Theory](../research/philosophy/liquidzulu/course-04-contract-theory.md) — fractional-reserve banking as fraud only by stipulating what "bank" means; disclosed FRB cleared by his own definition
 - [TIK on Anarcho-Capitalism](../research/philosophy/tik-anarcho-capitalism.md) — first capture of TIKhistory in his own voice; the choice-distance gradient and the market-for-a-state objection
+- [TIK — Public vs Private](../research/philosophy/tik-public-vs-private.md) — the video LZ attacks by name; the package-deal charge tested from inside it
+- [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria

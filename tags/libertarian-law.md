@@ -48,3 +48,5 @@ permalink: /tags/libertarian-law/
 - [LiquidZulu Course 6 — Defensive Force](../research/philosophy/liquidzulu/course-06-defensive-force.md) — dialogical estoppel, same-form proportionality, mens rea vs actus reus, defense as exclusion, the human-body sword and shield
 - [LiquidZulu Course 7 — Law as a Subset of Ethics](../research/philosophy/liquidzulu/course-07-law-subset-of-ethics.md) — against the "virtuous crime"; the lifeboat; Rothbard read as narrowing law, not splitting the ought; Graf's value-free praxeology answered
 - [TIK on Anarcho-Capitalism](../research/philosophy/tik-anarcho-capitalism.md) — first capture of TIKhistory in his own voice; the choice-distance gradient and the market-for-a-state objection
+- [TIK — Public vs Private](../research/philosophy/tik-public-vs-private.md) — the video LZ attacks by name; the package-deal charge tested from inside it
+- [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria
