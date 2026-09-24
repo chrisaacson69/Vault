@@ -14,7 +14,27 @@ title: "Inflation"
 
 "Inflation is always and everywhere a monetary phenomenon." — Milton Friedman
 
-Many Austrians adopt this line or go further: some define inflation *as* monetary expansion, making price increases a secondary effect they call "price inflation." This definitional move makes their claim tautologically true — if inflation *means* money supply growth, then of course only money supply growth causes inflation. But it's empirically empty. It tells you nothing about why the prices at the grocery store went up this month.
+Many Austrians adopt this line or go further: some define inflation *as* monetary expansion, making price increases a secondary effect they call "price inflation." This definitional move makes their claim tautologically true — if inflation *means* money supply growth, then of course only money supply growth causes inflation. As a claim about grocery prices it's empty: it tells you nothing about why the prices at the grocery store went up this month. **But as a definition it is more defensible than this page first allowed. See [The defensible core](#the-defensible-core-of-the-austrian-definition-2026-09-24) below.**
+
+### The defensible core of the Austrian definition (2026-09-24)
+
+**Chris's reconsideration:** the vault later concluded ([Measuring Inflation](./measuring-inflation.md)) that there is no objective price level, and that "inflation" names two things: **(a) currency depreciation** and **(b) real resource cost**. That undercuts this page's own framing. If no price level exists, the only coherent meaning of *general* inflation is the currency side, and the Austrian definition picks exactly that:
+> *"We find products going in and out of use just because technology changes, and supply shocks, so I am def in agreement individual prices go up and down, but we never really got a good way to measure overall price level, so in a way MV=PT confirms the Austrian idea if we assume M and P move in sync."*
+
+**Chris's original criticism still holds** for individual prices: technology and supply shocks move them regardless of money.
+
+**The three-way split that reconciles both:**
+| Layer | What moves it | What it is |
+|---|---|---|
+| **Money side** | Monetary expansion (net of money demand / velocity) | Currency depreciation, sense (a): the Austrian definition, correctly scoped |
+| **Real side** | Output and productivity (the T in MV = PT) | Real impoverishment or enrichment, sense (b), not debasement |
+| **Relative prices** | Supply and demand for particular goods, technology turnover | Composition change; Chris's original objection lives here |
+
+**The caveats (Claude):**
+- *"M and P in sync"* is the classical quantity-theory assumption (V and T held constant). [Equation of Exchange](./equation-of-exchange.md) shows V is not stable, so the sync holds as a **definition**, not a **prediction**.
+- The goods side can move the "general" level too: a supply shock that destroys output with M and V fixed raises average prices (same money, fewer goods). That is sense (b), so money is the only source of *currency* depreciation, not the only thing that moves prices in general.
+- *The Austrian position is internally forced:* Mises and Hayek rejected "the price level" as a meaningful aggregate, so they *had* to define inflation on the money side. *(From memory; verify the citations.)*
+- *History:* Adam Smith didn't use the word "inflation" (he discussed debasement and the American-silver price rise). The quantity theory runs from Bodin and the Salamanca school through Hume and Cantillon, and "inflation of the currency" looks like 19th-century usage. *(Verify before citing.)*
 
 The corrected view: monetary expansion is the only *permanent* source of inflation. But it is not the only source. Multiple forces cause prices to rise, and they operate on different timescales, through different mechanisms, with different resolutions.
 
@@ -139,7 +159,7 @@ When Austrians say "inflation is only monetary," they're making a claim about a 
 | Claim | Orthodox Austrian/Monetarist | Corrected view |
 |-------|------------------------------|----------------|
 | Only monetary expansion causes inflation | Yes | No — but it's the only *permanent* cause |
-| Supply shocks are "not really inflation" | Yes (relative price changes only) | Wrong — they're real inflation with real effects, just transient |
+| Supply shocks are "not really inflation" | Yes (relative price changes only) | Half right. They are real price increases with real effects (transient), but they are sense (b) (real cost) or relative-price change, **not currency depreciation**. See [the defensible core](#the-defensible-core-of-the-austrian-definition-2026-09-24) |
 | Technology-driven price increases aren't inflation | Definitionally excluded | They're real price increases that affect real purchasing power |
 | "The price level" is a meaningful concept | Assumed | No — it requires subjective weighting (Weinstein/Murphy) |
 | Control the money supply, control inflation | Yes | Partially — you eliminate the permanent source but not the transient ones |

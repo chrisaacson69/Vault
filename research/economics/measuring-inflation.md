@@ -174,7 +174,7 @@ So: *no price level* ✅. *No progress* ❌. The pack weight is fixed; what the 
 
 ---
 
-This is not a measurement error to be corrected. It is **two distinct real phenomena sharing one word** — and most disputes about whether people are "better off" are two parties each measuring a different one and assuming the other is lying. When people say *inflation* they almost always mean **(a)**. When they argue about living standards, wages, or poverty, the load-bearing quantity is **(b)** — and it is routinely measured with an instrument built for (a).
+This is not a measurement error to be corrected. It is **two distinct real phenomena sharing one word** — and most disputes about whether people are "better off" are two parties each measuring a different one and assuming the other is lying. When people say *inflation* they almost always mean **(a)**. (This is also why the Austrian definition of inflation as monetary expansion is more defensible than [Inflation](./inflation.md#the-defensible-core-of-the-austrian-definition-2026-09-24) first allowed: with no price level, sense (a) is the only coherent referent for *general* inflation.) When they argue about living standards, wages, or poverty, the load-bearing quantity is **(b)** — and it is routinely measured with an instrument built for (a).
 
 ## 5. The other measures — and why the good ones inherit the problem
 
