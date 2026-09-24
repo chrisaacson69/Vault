@@ -11,7 +11,7 @@ discussion: folded-in
 **Participants:** Spencer Summerhays (**Aff** — therapy *doesn't* work) vs. Michael Gilkison (**Neg** — "the prompt is complete BS")
 **Moderator:** **Ryan Mullally** — the fourth moderator in the bracket, and a [recurring vault figure](./sitch-mullally-birthright-citizenship.md)
 **Duration:** 1:14 · 163 views · **Result:** pending at review time
-**Vault relevance:** [Word War series hub](./word-war-debate-series.md), [Constructed ≠ Arbitrary](../philosophy/constructed-not-arbitrary.md), [Reading Outcome Statistics](../philosophy/epistemology/reading-outcome-statistics.md)
+**Vault relevance:** [Word War series hub](./word-war-debate-series.md), [Constructed ≠ Arbitrary](../philosophy/constructed-not-arbitrary.md), [Reading Outcome Statistics](../philosophy/epistemology/reading-outcome-statistics.md), [Failure as Mandate](../philosophy/dynamics/failure-as-mandate.md) (this page is its *disciplined* specimen: prolonging incentive → inefficiency, not failure)
 
 ---
 

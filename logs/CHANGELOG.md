@@ -11,6 +11,12 @@ created: 2026-07-20
 
 ---
 
+## 2026-09-24
+
+**Video review: [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md)** (discussion folded in). The video blames charisma and evolved brains. Chris moved the ratchet to **delegation**: we hand off governing to avoid understanding it, and that only self-corrects while we can still grade the delegate. Complexity, decades of lag, and the lack of any observable counterfactual (the video's own Brexit claim is an example) break the grading.
+
+**New thesis: [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md).** Preservation → creation → **inversion**: failure becomes the case for more authority. The inversion is the stronger sibling of the small-pain note's "loop never closes on the actor." It reconciles Chris's earlier therapy-debate stance (a perverse incentive predicts inefficiency, not failure) through a **two-part check**: a rival who can collect the reward for solving the problem (IP and regulatory moats remove this; insulin and evergreening) and a customer who can tell when they're done (credence goods, Chris: *"it is hard on the 'customer' to know when they no longer need service!"*). Also records Chris's IP position for the first time: moderate, not abolitionist.
+
 ## 2026-09-21
 
 **New thinker hub: [LiquidZulu](../research/philosophy/liquidzulu/README.md)** — a living anarcho-Objectivist (Rothbard/Hoppe on a Peikoff base) to be read essay by essay, with a running agree/disagree ledger and **questions to put to him**, since he answers comments. First specimen: [Anarcho-Capitalism: Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) (2025-01-21, 116 min, full transcript captured via `tools/fetch-youtube-transcript.py`).

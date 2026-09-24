@@ -11,7 +11,7 @@ title: "Representatives Should Pass Competence Tests to Vote on Legislation"
 **Date:** 2026-04-20 (pending)
 **Format:** Live debate
 **Position:** Con
-**Vault relevance:** [Pool vs Kyla: Suffrage and Stakeholdership](./pool-kyla-suffrage-taxation.md), [SAVE Act and Suffrage](./save-act-suffrage-hoppian.md), [Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Weinstein x Murphy: Gauge Theory Applied to Economics](./weinstein-murphy-gauge-theory-economics.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Constitutive/Elective](../philosophy/morality/constitutive-elective.md)
+**Vault relevance:** [Pool vs Kyla: Suffrage and Stakeholdership](./pool-kyla-suffrage-taxation.md), [SAVE Act and Suffrage](./save-act-suffrage-hoppian.md), [Gödel Governance Problem](../philosophy/dynamics/the-godel-governance-problem.md), [Weinstein x Murphy: Gauge Theory Applied to Economics](./weinstein-murphy-gauge-theory-economics.md), [Scope Confusion](../philosophy/morality/scope-confusion.md), [Constitutive/Elective](../philosophy/morality/constitutive-elective.md), [Plato's Ship of State](./plato-ship-of-state-charisma-ratchet.md) (a video that prescribes the competence filter this page argues against)
 
 ---
 

@@ -219,3 +219,5 @@ permalink: /tags/philosophy/
 - [TIK — Public vs Private](../research/philosophy/tik-public-vs-private.md) — the video LZ attacks by name; the package-deal charge tested from inside it
 - [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria
 - [LiquidZulu vs Liam Stayton — Open or Closed Objectivism?](../research/debates/lz-stayton-open-closed-objectivism.md) — what fixes the reference of a philosophy's name: its essence, or the corpus its author designated
+- [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails
+- [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing

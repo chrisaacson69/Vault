@@ -21,3 +21,5 @@ permalink: /tags/civilizational-cycles/
 - [Lyn Alden on Long-Term Trade Deficit Unsustainability — A Vault Framework Engagement](../research/economics/lyn-alden-trade-deficit-analysis.md) — Lyn Alden's [trade deficit analysis](https://www.lynalden.com/trade-deficit/) makes a careful, multi-level argument for the unsustainability of long-term trade deficits — operat…
 - [Structural-Institutional Analysts](../research/philosophy/dynamics/civilizational-cycles/structural-institutional.md) — Turchin, Tainter, Olson, Dalio — those who identify specific mechanisms (complexity, institutions, elites, debt) that cause civilizational decay.
 - [The Fiscal Pressure Must Leak Somehow — All of the Above](../notes/fiscal-pressure-must-leak-somehow.md) — Sketch-tier musing.
+- [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails
+- [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing

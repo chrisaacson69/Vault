@@ -59,3 +59,5 @@ permalink: /tags/politics/
 - [TIK on Anarcho-Capitalism](../research/philosophy/tik-anarcho-capitalism.md) — first capture of TIKhistory in his own voice; the choice-distance gradient and the market-for-a-state objection
 - [TIK — Public vs Private](../research/philosophy/tik-public-vs-private.md) — the video LZ attacks by name; the package-deal charge tested from inside it
 - [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria
+- [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails
+- [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing

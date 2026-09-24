@@ -9,7 +9,7 @@ title: "Episode 12: Plato's Political Philosophy — Collectivism & the Philosop
 > The tripartite soul scales up to a tripartite state: philosopher-kings rule absolutely, the military enforces, and the masses obey — producing a totalitarian collectivism that Plato himself admitted wouldn't work in practice, yet insisted was the only rational option.
 
 **Source:** [YouTube](https://www.youtube.com/watch?v=00RrV7E7PGk) (36:42)
-**Links:** [Series Index](./README.md), [Episode 11: Plato's Ethics](./11-plato-ethics.md)
+**Links:** [Series Index](./README.md), [Episode 11: Plato's Ethics](./11-plato-ethics.md), [Plato's Ship of State (video review)](../../../debates/plato-ship-of-state-charisma-ratchet.md)
 
 ---
 

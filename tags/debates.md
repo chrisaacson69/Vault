@@ -97,3 +97,4 @@ permalink: /tags/debates/
 - [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered
 - [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule
 - [LiquidZulu vs Liam Stayton — Open or Closed Objectivism?](../research/debates/lz-stayton-open-closed-objectivism.md) — what fixes the reference of a philosophy's name: its essence, or the corpus its author designated
+- [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails

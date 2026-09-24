@@ -19,7 +19,7 @@ permalink: /tags/_index/
 - [c](./c.md) — 1 file
 - [career](./career.md) — 8 files
 - [chess-engine](./chess-engine.md) — 1 file
-- [civilizational-cycles](./civilizational-cycles.md) — 14 files
+- [civilizational-cycles](./civilizational-cycles.md) — 16 files
 - [claude](./claude.md) — 1 file
 - [code-golf](./code-golf.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
@@ -29,10 +29,10 @@ permalink: /tags/_index/
 - [constitutional-law](./constitutional-law.md) — 4 files
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 11 files
-- [debates](./debates.md) — 90 files
+- [debates](./debates.md) — 91 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 109 files
+- [economics](./economics.md) — 110 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 108 files
@@ -69,8 +69,8 @@ permalink: /tags/_index/
 - [objectivism](./objectivism.md) — 30 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 212 files
-- [politics](./politics.md) — 52 files
+- [philosophy](./philosophy.md) — 214 files
+- [politics](./politics.md) — 54 files
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 2 files
