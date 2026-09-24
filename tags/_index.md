@@ -32,7 +32,7 @@ permalink: /tags/_index/
 - [debates](./debates.md) — 91 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 110 files
+- [economics](./economics.md) — 111 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 108 files
@@ -40,7 +40,7 @@ permalink: /tags/_index/
 - [externalities](./externalities.md) — 3 files
 - [fiction](./fiction.md) — 1 file
 - [food-safety](./food-safety.md) — 1 file
-- [free-markets](./free-markets.md) — 22 files
+- [free-markets](./free-markets.md) — 23 files
 - [free-will](./free-will.md) — 7 files
 - [game-ai](./game-ai.md) — 25 files
 - [game-design](./game-design.md) — 11 files

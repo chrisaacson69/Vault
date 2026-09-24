@@ -105,6 +105,7 @@ These are topics the vault's own files explicitly call for but that haven't been
 ### 3.9 Money, Competition, and Capital Theory
 - **Missing from:** economics research broadly
 - **Why needed:** The economics section covers value, profit, risk, and insurance but never treats money (as a medium of exchange distinct from barter), competition (as a process, not an outcome), or capital structure. These are foundational for the business model work.
+- **Status (2026-09-24):** money *seeded* at [What Is Money?](../research/economics/what-is-money.md); competition and capital structure still open.
 
 ### 3.10 The Insurance Transition Path
 - **Referenced in:** [research/economics/insurance.md](../research/economics/insurance.md) — Open Questions

@@ -117,3 +117,4 @@ permalink: /tags/economics/
 - [TIK — Public vs Private](../research/philosophy/tik-public-vs-private.md) — the video LZ attacks by name; the package-deal charge tested from inside it
 - [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria
 - [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing
+- [What Is Money?](../research/economics/what-is-money.md) — seed: store of value vs medium of exchange; free banking vs Rothbardian

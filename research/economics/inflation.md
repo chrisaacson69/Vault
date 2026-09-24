@@ -8,7 +8,7 @@ title: "Inflation"
 # Inflation
 > Inflation has many causes. Only one is permanent. The Austrian error is treating the permanent cause as the only cause.
 
-**Links:** [Economics](./README.md), [Business Cycles](./business-cycles.md), [Value and Profit](./value-and-profit.md), [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md), [Gauge Theory Applied to Economics — Weinstein x Murphy](../debates/weinstein-murphy-gauge-theory-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md)
+**Links:** [Economics](./README.md), [Business Cycles](./business-cycles.md), [Value and Profit](./value-and-profit.md), [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md), [Gauge Theory Applied to Economics — Weinstein x Murphy](../debates/weinstein-murphy-gauge-theory-economics.md), [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md), [What Is Money?](./what-is-money.md)
 
 ## The Orthodox Claim
 
