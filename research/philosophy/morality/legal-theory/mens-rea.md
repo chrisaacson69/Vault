@@ -245,6 +245,41 @@ The legal question is: was property violated, and by whom? This is an objective 
 
 **Connection to the civilizational cycle:** The [master cycle](../../dynamics/civilizational-cycles/README.md) describes societies moving from voluntary cooperation through institutional capture to coercion. One mechanism: moral claims get codified into law during the consolidation phase ("it works, so mandate it"), become tools for control during the capture phase, and produce the legitimacy crisis during the coercion phase. Mens rea's long history — from Roman law through common law to the Model Penal Code — may be an instance of this ratchet.
 
+## Hate-Crime Enhancements: The Same Objections, One Layer Up (2026-09-29)
+
+> **Chris:** *"they are garbage for all the same reasons on the mens-rea page. any violent crime is a crime of hate.. it is built into the system. A crime like 'hateful' graffiti has all the same objections as any other free speech would have. **You can't regulate emotion away.**"*
+
+This arrived via [No One May Dictate](../no-one-may-dictate.md), whose master line is *"society dictates behavior, not preferences."* A sentence enhancement for motive is where the law comes closest to punishing a preference.
+
+**This page's objections, applied one layer up:**
+
+| This page's objection | Applied to the enhancement |
+|---|---|
+| [Mind reading is dirty](#the-dirty-mind-reading-problem) | Motive gets proven from the defendant's speech, associations, tattoos and reading, and *Mitchell* (below) permits speech as evidence of motive. It is mind reading with the defendant's own expression as the evidence. |
+| Law shouldn't judge character | The enhancement is a character surcharge: the same act draws more punishment because the offender's views are worse. |
+| [The malicious-actor loophole](#the-perverse-incentives-argument) | The offender who keeps his views to himself avoids the surcharge, and the one who announces them pays it. It punishes candor, not the act. |
+| [Scope confusion](#the-scope-confusion-argument-2026-02-22) | "Hate" is a morality-scope judgment escalated into law. |
+| Speech | The graffiti case: the vandalism is already a crime, and the surcharge attaches to the *message*. |
+
+**"Any violent crime is a crime of hate."** Hostility toward the victim is built into every violent offense and already priced into its base penalty. So the enhancement doesn't punish hate. It punishes *which* hate: animus toward a protected category rather than animus toward a person. That difference lives in the offender's views, not in his act.
+
+**The defense, at full strength (symmetric grounding).** *Wisconsin v. Mitchell*, 508 U.S. 476 (1993), unanimously upheld an enhancement for intentionally selecting an assault victim by race. Its reasoning has three parts:
+- The statute targets conduct, not belief.
+- Motive has always been a sentencing factor.
+- Bias-inspired conduct inflicts greater individual and societal harm: it is *"more likely to provoke retaliatory crimes, inflict distinct emotional harms on their victims, and incite community unrest."*
+
+The boundary is *R.A.V. v. City of St. Paul*, 505 U.S. 377 (1992). An ordinance against symbols (a burning cross, a swastika) that arouse anger *"on the basis of race, color, creed, religion or gender"* was struck down as content-based.
+
+**Answering the defense with this page's own tools:**
+- **Retaliation and community unrest are harms done by other people's free choices.** The [Free Will Principle](#the-free-will-principle) stops cause at the free agent who retaliates or riots. It is the same reason the orator isn't liable for the riot.
+- **Distinct emotional harm is real, but it is harm at the victim.** Restitution measured at the victim can price it without asking what the offender was thinking; this is the page's *"focus on the victim"* ([The Fork](#the-fork)). An intent-blind law can compensate a greater harm. What it can't do is surcharge a belief.
+- **"It targets conduct, not belief."** The conduct is already punished by the base offense. The one thing the enhancement adds is the motive.
+- **R.A.V. already concedes the graffiti point.** Scalia: St. Paul had *"sufficient means at its disposal to prevent such behavior without adding the First Amendment to the fire."* The act was punishable as the act, and the content-based layer was the defect. Chris's graffiti case has the same shape. See the vault's free-speech work: the [hate-speech 1A prep](../../../../notes/debate-prep-hate-speech-1a.md) and the [Word War hate-speech round](../../../debates/wordwar-hate-speech-mcpherson-thunder.md).
+
+**Why this version is harder to answer than the usual critique.** The standard reply to critics of enhancements (the academic case against them is Jacobs & Potter, *Hate Crimes: Criminal Law and Identity Politics*, 1998) is that they prove too much: *"you accept grading by intent (murder vs. manslaughter), so why not by motive?"* That reply doesn't reach Chris. He rejects intent-grading in law as well, on this page, so his objection to the enhancement isn't special pleading; it is the same rule. A critique that keeps mens rea has to defend a line between intent and motive, and this one needs no such line.
+
+**"You can't regulate emotion away."** This is [Force Doctrine's voluntary layer](../force-doctrine.md) again: force reaches acts and is impotent over inner states. A surcharge doesn't remove the hatred. It prices *announcing* it, which is the loophole above.
+
 ## Open Questions
 
 ### Resolved or Partially Resolved
@@ -259,7 +294,8 @@ The legal question is: was property violated, and by whom? This is an objective 
 - How do **insurance markets** interact with this framework? Would insurers effectively reinstate mens rea through pricing?
 - **Duress edge cases:** If A holds a gun to B's head and says "kill C or I kill you" — B exercises free will technically, but under extreme constraint. Does the free will principle still assign proximate cause to B? Chris's preliminary answer: yes, B is liable to C, and A is liable to B for the threat. But this needs stress-testing.
 - **Degrees of information:** The free will principle hinges on whether the agent was "informed." But information is a spectrum, not binary. Partially informed participants (someone who suspects but doesn't know) need a cleaner treatment.
-- **Connection to free speech:** The incitement analysis implies strong free speech protections. Worth connecting formally to the [free speech debate](./README.md) listed in upcoming topics.
+- **Connection to free speech:** The incitement analysis implies strong free speech protections. Worth connecting formally to the [free speech debate](./README.md) listed in upcoming topics. *(Partly done 2026-09-29: [Hate-Crime Enhancements](#hate-crime-enhancements-the-same-objections-one-layer-up-2026-09-29) runs the graffiti case through* R.A.V. *)*
+- **Threats and intimidation.** A true threat is an act, but identifying one leans on context and on how a reasonable listener takes it. *Virginia v. Black* (2003) lets a state ban cross burning done *with intent to intimidate*. Where does "objective threat" end and mind reading begin? This is the live edge of the intent-blind rule, and the one place the hate-crime objection above has to hold its line.
 
 ## Key Thinkers Referenced
 

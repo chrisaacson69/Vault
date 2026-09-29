@@ -21,6 +21,8 @@ created: 2026-07-20
 
 **Registered** the pending [Laffer interview](../research/debates/laffer-interview-incentives.md) (its discussion was never completed).
 
+**Same day, the thesis kept going.** Chris dissolved its harm question: *"society dictates behavior, not preferences.. you can 'prefer' to kill all the people you want, you just can't act on that."* That is his own intent-blind rule from [Mens Rea](../research/philosophy/morality/legal-theory/mens-rea.md), applied socially. The mens rea page then gained **§ Hate-Crime Enhancements**: the same objections one layer up, with *Wisconsin v. Mitchell* (1993) stated at full strength and answered by the Free Will Principle and restitution measured at the victim, and *R.A.V.* (1992) covering the graffiti case. Also fixed a stale Load-Bearing Word anchor on two pages.
+
 ## 2026-09-24
 
 **Video review: [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md)** (discussion folded in). The video blames charisma and evolved brains. Chris moved the ratchet to **delegation**: we hand off governing to avoid understanding it, and that only self-corrects while we can still grade the delegate. Complexity, decades of lag, and the lack of any observable counterfactual (the video's own Brexit claim is an example) break the grading.
