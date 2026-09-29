@@ -280,6 +280,22 @@ The boundary is *R.A.V. v. City of St. Paul*, 505 U.S. 377 (1992). An ordinance 
 
 **"You can't regulate emotion away."** This is [Force Doctrine's voluntary layer](../force-doctrine.md) again: force reaches acts and is impotent over inner states. A surcharge doesn't remove the hatred. It prices *announcing* it, which is the loophole above.
 
+### The cross and the chair: ban the token and the meaning moves
+
+> **Chris:** *"the cross burning is a great example on why all of this doesn't work. As long as no one is hurt/burnt, what is the difference between burning a cross and burning a chair? In fact it is wild that even if you take the cross as a symbol of Christianity, what does burning it do? This is a great example in that symbols and language are 'arbitrary' placeholders that only have meaning when that meaning is shared across participants. If people switched to burning chairs instead, would it be any different? Thus the absurdity of it all.. **Ban X, people do Y instead**.. again goes to my idea that you can't legislate hate."*
+
+**The token is arbitrary, and the convention isn't.** That is how to read the scare-quoted "arbitrary." It matches [Constructed ≠ Arbitrary](../../constructed-not-arbitrary.md): the shared meaning is load-bearing, but any object can carry it. A ban aimed at the token hits the half that doesn't matter. The meaning re-attaches to a chair, a number or a hand sign, and the law has to chase it token by token.
+
+**Meaning defeats a token law on two axes.** Chris's [hate-speech prep](../../../../notes/debate-prep-hate-speech-1a.md) already held the *time* axis: a definition *"will be wrong within a generation as social norms shift"* (drift). The chair adds the *token* axis: the meaning moves to a new carrier (substitution). Both follow from one fact, that meaning is shared convention. The only thing a law can reach without chasing is the **act**: the threat, the trespass, the vandalism, the assault. Acts are token-neutral.
+
+**The defense, at full strength, and why it concedes the point.** *Virginia v. Black*, 538 U.S. 343 (2003), let a state ban cross burning done *with intent to intimidate*, because of the cross's long history as a signal of impending violence. The answer is that the history *is* the shared meaning, and shared meaning transfers. **Black's own facts make Chris's case:**
+- Barry Black lit a cross at a Klan rally, on private property, with the owner's consent. That is expression.
+- Elliott and O'Mara burned one in their Black neighbor's yard. That is a threat.
+
+It is the same token in both cases, and what separates them is the act and where it was aimed. The Court struck down the statute's provision that made any cross burning *prima facie* evidence of intent to intimidate, which is to say it refused to let the token stand in for the act.
+
+**The same principle as Johnny's stick.** A symbol ban is an [instrument-directed remedy](./public-private-boundary.md#the-confiscation-move--how-public-good-does-the-work), and its failure mode is substitution: *"if taken away, he will find another."* The stick was a physical instrument; the cross is a symbolic one. That is two specimens of one rule in two domains. The vault's own remedy for a captured word, [minting a new one](../../../debates/the-load-bearing-word.md#-fifth-type--capture-the-shift-arrives-already-done-added-2026-09-23), is the same mechanism run on purpose.
+
 ## Open Questions
 
 ### Resolved or Partially Resolved
@@ -295,7 +311,7 @@ The boundary is *R.A.V. v. City of St. Paul*, 505 U.S. 377 (1992). An ordinance 
 - **Duress edge cases:** If A holds a gun to B's head and says "kill C or I kill you" — B exercises free will technically, but under extreme constraint. Does the free will principle still assign proximate cause to B? Chris's preliminary answer: yes, B is liable to C, and A is liable to B for the threat. But this needs stress-testing.
 - **Degrees of information:** The free will principle hinges on whether the agent was "informed." But information is a spectrum, not binary. Partially informed participants (someone who suspects but doesn't know) need a cleaner treatment.
 - **Connection to free speech:** The incitement analysis implies strong free speech protections. Worth connecting formally to the [free speech debate](./README.md) listed in upcoming topics. *(Partly done 2026-09-29: [Hate-Crime Enhancements](#hate-crime-enhancements-the-same-objections-one-layer-up-2026-09-29) runs the graffiti case through* R.A.V. *)*
-- **Threats and intimidation.** A true threat is an act, but identifying one leans on context and on how a reasonable listener takes it. *Virginia v. Black* (2003) lets a state ban cross burning done *with intent to intimidate*. Where does "objective threat" end and mind reading begin? This is the live edge of the intent-blind rule, and the one place the hate-crime objection above has to hold its line.
+- **Threats and intimidation.** A true threat is an act, but identifying one leans on context and on how a reasonable listener takes it. *Virginia v. Black* (2003) lets a state ban cross burning done *with intent to intimidate*. Where does "objective threat" end and mind reading begin? This is the live edge of the intent-blind rule, and the one place the hate-crime objection above has to hold its line. *Partial answer (2026-09-29, [the cross and the chair](#the-cross-and-the-chair-ban-the-token-and-the-meaning-moves)):* what makes a burning a threat is the act and its shared public meaning, and both of those can be observed. The token decides nothing, and nothing inside the speaker's head has to be read. What stays open is how far "shared" has to reach, since a coded symbol is shared only among the people who know the code.
 
 ## Key Thinkers Referenced
 
