@@ -70,7 +70,7 @@ So: **a self-designated proper name, whose designator explicitly disowned the la
 
 **But Chris's first point survives that reply intact.** Even granting the kidnapping was wrong, *"what is pragmatism?"* is still not answered by *"it is Peirce's philosophy."* The normative defence protects the **naming**, and the content question is untouched. **Which is the whole of the open case, stated without needing to win the naming fight at all.**
 
-*(Filed also as a specimen for [The Load-Bearing Word § CAPTURE](./the-load-bearing-word.md#-fifth-type--capture-the-shift-arrives-already-done): a term whose coiner tried to reclaim it and lost.)*
+*(Filed also as a specimen for [The Load-Bearing Word § CAPTURE](./the-load-bearing-word.md#-fifth-type--capture-the-shift-arrives-already-done-added-2026-09-23): a term whose coiner tried to reclaim it and lost.)*
 
 ## Discussion Seeds
 

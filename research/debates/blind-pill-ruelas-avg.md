@@ -165,7 +165,11 @@ This round has one failure per side: AVG *labels* (*"definist fallacy," "appeal 
 
 > **Chris:** *"I think much of the point of the discussion is that even 'pressure' is misguided, and one should not let society dictate your preferences. What this leaves open is the age-old question of preferences vs anti-social behavior.. killing someone should not be a 'preference'. But no one has shown any real harm in mate-selection. As for the broadcasting bit.. yeah, that opens you up to judgement, but otoh, this is the line advice lies on.. just because someone says something works for them, doesn't mean it works for everyone.. Critique here is natural."*
 
-On [No One May Dictate](../philosophy/morality/no-one-may-dictate.md#open-questions), the questions about pressure and broadcasting are now **resolved in place**, and the harm boundary (preference vs. anti-social behavior) is opened as a new question.
+On [No One May Dictate](../philosophy/morality/no-one-may-dictate.md#open-questions), the questions about pressure and broadcasting are now **resolved in place**. The harm boundary (preference vs. anti-social behavior) was opened as a new question and then dissolved:
+
+> **Chris:** *"society dictates behavior, not preferences.. you can 'prefer' to kill all the people you want, you just can't act on that."*
+
+That makes *preference ≠ conduct* the thesis's master line. It is also his own intent-blind rule from the [mens rea debate](../philosophy/morality/legal-theory/mens-rea.md), applied to social pressure instead of law.
 
 ## Toolkit / Vault Position *(as developed with Chris)*
 

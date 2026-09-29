@@ -105,7 +105,7 @@ He supplies the mechanism LZ's *"more harm than good"* asserts, using ***gender*
 
 The new sense does the arguing; the old sense supplies the reference and authority that make the claim sound established rather than proposed, and **nobody has to defend the bridge**, because to most listeners it is one word. That is a motte-and-bailey whose motte was built by history instead of by the speaker.
 
-**Promoted** to [The Load-Bearing Word → fifth type, CAPTURE](../debates/the-load-bearing-word.md#-fifth-type--capture-the-shift-arrives-already-done). It earns a type of its own because that page's universal fix — *pin the definition before the evidence* — **does not work on it**: pinning a captured word splits the audience rather than converging it, since both senses are sincerely held. (⚠ The gender specimen is filed with its counter-account named — the sex/gender split has an academic lineage predating popular usage, and Chris's charge is about the *joint* use equivocating, not about distinguishing being illegitimate.)
+**Promoted** to [The Load-Bearing Word → fifth type, CAPTURE](../debates/the-load-bearing-word.md#-fifth-type--capture-the-shift-arrives-already-done-added-2026-09-23). It earns a type of its own because that page's universal fix — *pin the definition before the evidence* — **does not work on it**: pinning a captured word splits the audience rather than converging it, since both senses are sincerely held. (⚠ The gender specimen is filed with its counter-account named — the sex/gender split has an academic lineage predating popular usage, and Chris's charge is about the *joint* use equivocating, not about distinguishing being illegitimate.)
 
 **And it is why he lands on TIK's side of the naming question:**
 
