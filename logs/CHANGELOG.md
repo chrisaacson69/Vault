@@ -11,6 +11,16 @@ created: 2026-07-20
 
 ---
 
+## 2026-09-29
+
+**Debate review: [The Blind Pill Is a Net Positive for Men (Ruelas vs. AVG)](../research/debates/blind-pill-ruelas-avg.md)** (discussion folded in). The earliest Ruelas specimen on file (June 2026). Chris's read is **the right position, badly argued**. The Aff spends the round narrating his trap instead of running it, and misfiles the one answer that conceded his thesis. Rebuilt as a question about jurisdiction, the dilemma is valid.
+
+**New thesis: [No One May Dictate](../research/philosophy/morality/no-one-may-dictate.md).** Partner choice is not for outsiders to dictate; judgment is free, but even pressure overreaches. Compelled inclusion and compelled exclusion are the same claim. Three lines: judging ≠ dictating, preference ≠ conduct, preference ≠ advice. It is grounded in two existing instruments: [Scope Confusion](../research/philosophy/morality/scope-confusion.md)'s enforceability gradient and [Force Doctrine](../research/philosophy/morality/force-doctrine.md)'s voluntary layer. Chris's defense of the absurd example: a church girl passes everyone's review, so it tests nothing.
+
+**[The Fallacy Fallacy](../research/philosophy/tangents/the-fallacy-fallacy.md) gains two entries.** *Label or narrate: the answer to both is to demonstrate* (Chris: labeling under-explains, narrating over-explains), and *appeal to emotion* as a misapplied label, since biography is evidence when motive is on trial.
+
+**Registered** the pending [Laffer interview](../research/debates/laffer-interview-incentives.md) (its discussion was never completed).
+
 ## 2026-09-24
 
 **Video review: [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md)** (discussion folded in). The video blames charisma and evolved brains. Chris moved the ratchet to **delegation**: we hand off governing to avoid understanding it, and that only self-corrects while we can still grade the delegate. Complexity, decades of lag, and the lack of any observable counterfactual (the video's own Brexit claim is an example) break the grading.

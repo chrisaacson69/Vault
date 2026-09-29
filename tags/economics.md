@@ -118,3 +118,4 @@ permalink: /tags/economics/
 - [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria
 - [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing
 - [What Is Money?](../research/economics/what-is-money.md) — seed: store of value vs medium of exchange; free banking vs Rothbardian
+- [Arthur Laffer Interview — "All I Think About Is Incentives"](../research/debates/laffer-interview-incentives.md) — incentives as the whole of economics; pressed on monopoly, 2008, China and the pre-1913 tariff state

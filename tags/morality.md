@@ -70,3 +70,4 @@ permalink: /tags/morality/
 - [The Objectivism Boundary](../research/philosophy/morality/objectivism-boundary.md) — agreement is ontological (hypothetical oughts, no unchosen duties); the seam is life-vs-action, *man qua man*, the analytic/synthetic rejection, and egoism vs. EGT
 - [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered
 - [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule
+- [No One May Dictate](../research/philosophy/morality/no-one-may-dictate.md) — partner choice is not for outsiders to dictate; compelled inclusion and compelled exclusion are the same claim

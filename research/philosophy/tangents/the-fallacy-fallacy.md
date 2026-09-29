@@ -52,6 +52,7 @@ The proper response: "Point to the specific step where I jumped from a descripti
 - **Appeal to authority** — citing an expert's published, peer-reviewed findings in their area of expertise is not an appeal to authority. The fallacy applies when the authority is irrelevant (a celebrity endorsing medicine) or when the appeal substitutes for argument.
 - **Slippery slope** — not all slope arguments are fallacious. If each step in the chain has a demonstrated mechanism, it's a *causal prediction*, not a slippery slope. (See: [Registration and Scope Creep](../morality/legal-theory/registration-and-scope-creep.md) — the historical pattern of regulatory expansion is documented, not hypothetical.)
 - **Ad hominem** — questioning whether a person's conflict of interest affects their *evidence* is not ad hominem. The fallacy is dismissing the argument *because of* the person rather than evaluating the argument itself.
+- **Appeal to emotion** — when the charge is about *motive*, the origin of a preference is evidence about motive, not a substitute for argument. In the [blind-pill debate](../../debates/blind-pill-ruelas-avg.md) the Neg called a man's preference a "psychopathic instinct," then ruled his deaf mother out as an appeal to emotion. That excluded the one piece of evidence that bore on the charge she had made.
 
 ## The Meta-Pattern: Strange Loops in Fallacy Hunting
 
@@ -73,6 +74,19 @@ It tells you where to look for problems, not that you've found one. The work is 
 - If the argument is invalid, is the conclusion still defensible on other grounds?
 
 A fallacy label without a "why" is an assertion of authority — "I know the taxonomy better than you, therefore I win." That's not reasoning. That's credentialism wearing logic's clothes.
+
+## Label or narrate: the answer to both is to demonstrate
+
+> **Chris:** *"this is usually a mistake made often.. This has ties to 'the fallacy fallacy' where someone just makes a statement instead of explaining themselves, though here, they are over-explaining when they should just demonstrate.. but that is why I linked them, **the answer to both is to just demonstrate.**"*
+
+Fallacy-labeling **under-explains**: it names a break without showing it. Its mirror **over-explains**: it narrates the speaker's own move (*"you're falling into my trap," "this is working exactly as I designed it"*) instead of making it. They look like opposites and fail the same way. **Each replaces the argument with a claim *about* the argument**, and the audience has no way to check that claim. So the cure is the same for both: **demonstrate.** Show the specific step that breaks, or ask the question and let the answer do the work.
+
+**A paired specimen, one failure per side.** In [the blind-pill debate](../../debates/blind-pill-ruelas-avg.md), the Neg *labels* (*"definist fallacy," "appeal to emotion," "appeal to common sense fallacy"*). The Aff *narrates*: *tool* appears 114 times in the transcript, and the trap is announced as working two dozen times. His one real demonstration got buried under his own commentary: the argument from his mother at 23:06 is followed immediately by *"Now you're trapped in the dilemma still."* The contrast case is the same debater two months later, in the [Word War feminism round](../../debates/wordwar-feminism-relationships-ruelas-anton.md): he asks *"humiliation or liberation?"*, takes the answer, and stops with *"That's all I had to ask."* It is the same forced choice, demonstrated instead of narrated.
+
+**Why narrating costs more than it looks:**
+- It discloses the structure, and a trap described in advance is a weaker trap.
+- It spends concessions instead of banking them.
+- It moves the fight to the meta level, where the narrator is weakest.
 
 ## Connection to Scope Confusion
 

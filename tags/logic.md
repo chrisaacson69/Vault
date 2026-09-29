@@ -37,3 +37,4 @@ permalink: /tags/logic/
 - [Malpass vs Dyer — TAG and the Laws of Logic](../research/debates/malpass-dyer-tag-logic.md) — the 2019 technical version: concedes alternative formal systems, claims Gödel as an ally, denies being an Aristotelian; the later corpus drops every technical thread
 - [The Parity Move](../research/philosophy/epistemology/the-parity-move.md) — apply the “account for your foundation” demand symmetrically; kills the uniqueness claim, not the conclusion. Euthyphro is the moral instance; *the leveler is the door, not the room*
 - [What Is a Number?](../research/philosophy/logic-and-math/what-is-a-number.md) — von Neumann vs. Zermelo ordinals; two incompatible sevens, identical arithmetic; the Benacerraf datum and structuralism
+- [The Blind Pill (Ruelas vs. AVG)](../research/debates/blind-pill-ruelas-avg.md) — a coiner defending his definition against a clip of himself; a "dilemma" whose two answers get their consequences by stipulation

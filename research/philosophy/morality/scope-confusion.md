@@ -226,7 +226,7 @@ The synthesis — one set of norms, three enforcement regimes, scope confusion a
 
 3. **Map the ethics nesting structure.** How do overlapping ethical regimes at different scales (family, profession, community, nation) interact? When they conflict, what determines which one the individual prioritizes? Ostrom's polycentric governance is a starting point — the individual navigates competing jurisdictions by cost-benefit analysis of social acceptance in each.
 
-4. **Stress-testing against hard cases.** The easy cases (murder = law, diet = morality) aren't interesting. The hard cases are: hate speech, drug policy, assisted suicide, polygamy, prostitution, mandatory insurance. Can the enforceability gradient + principled gate predict where the political fight will be?
+4. **Stress-testing against hard cases.** The easy cases (murder = law, diet = morality) aren't interesting. The hard cases are: hate speech, drug policy, assisted suicide, polygamy, prostitution, mandatory insurance. Can the enforceability gradient + principled gate predict where the political fight will be? *Worked instance: partner choice, in [No One May Dictate](./no-one-may-dictate.md). Demands to include and demands to exclude both escalate an individual-tier norm to social enforcement.*
 
 5. **Engage with Fuller's *inner morality of law*.** Fuller argues law has inherent procedural requirements (generality, publicity, non-retroactivity, clarity, consistency, constancy, possibility of compliance). These may map to the principled gate — structural constraints on what *qualifies* for institutional enforcement regardless of content.
 

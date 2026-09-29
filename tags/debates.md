@@ -98,3 +98,5 @@ permalink: /tags/debates/
 - [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule
 - [LiquidZulu vs Liam Stayton — Open or Closed Objectivism?](../research/debates/lz-stayton-open-closed-objectivism.md) — what fixes the reference of a philosophy's name: its essence, or the corpus its author designated
 - [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails
+- [The Blind Pill (Ruelas vs. AVG)](../research/debates/blind-pill-ruelas-avg.md) — a coiner defending his definition against a clip of himself; a "dilemma" whose two answers get their consequences by stipulation
+- [Arthur Laffer Interview — "All I Think About Is Incentives"](../research/debates/laffer-interview-incentives.md) — incentives as the whole of economics; pressed on monopoly, 2008, China and the pre-1913 tariff state

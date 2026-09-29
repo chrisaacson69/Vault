@@ -221,3 +221,4 @@ permalink: /tags/philosophy/
 - [LiquidZulu vs Liam Stayton — Open or Closed Objectivism?](../research/debates/lz-stayton-open-closed-objectivism.md) — what fixes the reference of a philosophy's name: its essence, or the corpus its author designated
 - [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails
 - [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing
+- [No One May Dictate](../research/philosophy/morality/no-one-may-dictate.md) — partner choice is not for outsiders to dictate; compelled inclusion and compelled exclusion are the same claim

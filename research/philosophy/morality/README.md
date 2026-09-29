@@ -37,6 +37,7 @@ Action (praxeology) and morality aren't identical. Praxeological success = "did 
 - [Performative Grounding — Philosophical Lineage](./performative-grounding-lineage.md) — Aristotle through Hoppe; 2,400-year tradition
 - [The Constitutive/Elective Distinction](./constitutive-elective.md) — replaces objective/subjective; morality mind-dependent AND constitutive; the vacuity test
 - [Scope Confusion](./scope-confusion.md) — most political disagreements are scope errors; enforceability gradient
+- [No One May Dictate](./no-one-may-dictate.md) — partner choice is not for outsiders to dictate; inclusion and exclusion demands are the same claim; judging ≠ dictating, preference ≠ conduct ≠ advice
 - [Deontology vs. Consequentialism](./deontology-consequentialism.md) — false dichotomy; deontology as cached consequentialism
 - [Action/Inaction Asymmetry](./action-inaction-asymmetry.md) — grounds negative/positive rights
 - [Debate FAQ](./debate-faq.md) — living document of objections and responses

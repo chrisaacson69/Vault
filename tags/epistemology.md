@@ -115,3 +115,4 @@ permalink: /tags/epistemology/
 - [LiquidZulu — Responding to the Critics](../research/philosophy/liquidzulu/responding-to-the-critics.md) — definitions as objectively correct vs the trained-detector account; his functional criterion vs his rejection of "pragmatism"
 - [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule
 - [LiquidZulu vs Liam Stayton — Open or Closed Objectivism?](../research/debates/lz-stayton-open-closed-objectivism.md) — what fixes the reference of a philosophy's name: its essence, or the corpus its author designated
+- [The Blind Pill (Ruelas vs. AVG)](../research/debates/blind-pill-ruelas-avg.md) — a coiner defending his definition against a clip of himself; a "dilemma" whose two answers get their consequences by stipulation

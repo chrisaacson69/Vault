@@ -61,3 +61,4 @@ permalink: /tags/politics/
 - [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria
 - [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails
 - [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing
+- [Arthur Laffer Interview — "All I Think About Is Incentives"](../research/debates/laffer-interview-incentives.md) — incentives as the whole of economics; pressed on monopoly, 2008, China and the pre-1913 tariff state

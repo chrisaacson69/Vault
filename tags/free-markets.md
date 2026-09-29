@@ -30,3 +30,4 @@ permalink: /tags/free-markets/
 - [Freitas & Christian — "JD Vance’s Dollar Bombshell" (reserve currency)](../research/debates/freitas-vance-reserve-currency.md) — Hayekian knowledge-problem rejoinder to Vance’s *Christian guardrails* argument (if not Christian guardrails, then government guardrails — and no planner has the knowledge); Friedman would share the diagnosis, locate the cause in fiat. `discussion: pending`
 - [TIK on Anarcho-Capitalism](../research/philosophy/tik-anarcho-capitalism.md) — first capture of TIKhistory in his own voice; the choice-distance gradient and the market-for-a-state objection
 - [What Is Money?](../research/economics/what-is-money.md) — seed: store of value vs medium of exchange; free banking vs Rothbardian
+- [Arthur Laffer Interview — "All I Think About Is Incentives"](../research/debates/laffer-interview-incentives.md) — incentives as the whole of economics; pressed on monopoly, 2008, China and the pre-1913 tariff state

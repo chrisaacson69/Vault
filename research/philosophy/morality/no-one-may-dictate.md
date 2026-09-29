@@ -1,0 +1,56 @@
+---
+status: active
+created: 2026-09-29
+---
+# No One May Dictate — Partner Choice and Outsider Review
+> Whom you date or marry is not for outsiders to dictate. People will judge, and that can't be stopped and needn't be, but judgment carries no authority over the choice. The principle runs both ways: *"you must date outside your preference"* and *"you must not date her for that"* are the same claim pointed in opposite directions.
+
+**Links:** [Scope Confusion](./scope-confusion.md) — the enforceability gradient this applies, [Force Doctrine](./force-doctrine.md) — the voluntary layer, [The Parity Move](../epistemology/the-parity-move.md), [The Fallacy Fallacy](../tangents/the-fallacy-fallacy.md)
+
+**Origin:** Chris, reviewing [Ruelas vs. AVG on "the blind pill"](../../debates/blind-pill-ruelas-avg.md) (2026-09-29). The debate is the specimen; this page is the principle.
+
+## The claim
+
+> **Chris:** *"someone's dating preferences are not for outsider review."* … *"people will always judge, **'no one may dictate' is the main point here**.. it is wrong to let society dictate your preferences."*
+
+> **Chris:** *"Objecting to a preference to blind women is no different to objecting not dating outside your race or any other 'not politically correct' preference."*
+
+## Three lines that keep it honest
+
+1. **Judging is not dictating.** Opinion is free and inevitable; the question is authority. You may think someone's choice unwise, say so, and decline to date such a person yourself. You may not claim the standing to decide it for them, and *pressure* already overreaches, since it is an attempt to steer the choice (Open Question 1).
+2. **A preference is not conduct.** The preference is private; conduct toward a person is public. Isolating a partner or cultivating her helplessness is reviewable, and the principle doesn't protect it. The review's conduct test applies: a provider builds the other person's independence, and a predator cultivates her helplessness.
+3. **A preference is not advice.** A preference broadcast as advice is reviewable *as advice*: does it work for the people who follow it? At worst it is bad advice (Chris: the "church pill," the "supermarket pill"). That doesn't make it a verdict on the adviser's own preference, and it doesn't make it "horrendous."
+
+## It runs both ways
+
+| Direction | The demand | Where it comes from |
+|---|---|---|
+| Compelled **inclusion** | "You can't discriminate; date outside your preference." | Critiques of preferences that are "not politically correct," e.g. not dating outside your race (the "sexual racism" argument) |
+| Compelled **exclusion** | "You must not date her for that." | AVG against the blind pill. Historically this is the dominant direction, up to anti-miscegenation law, struck down in *Loving v. Virginia* (1967) |
+
+Both share one structure: **a harm theory about a *category*** (the excluded group's dignity, the included group's vulnerability) **is used to license dictating an *individual's* choice.** The answer is the same in both directions: show harm in conduct toward a person, not in a preference about a category. A principle that rejects only one direction is a preference about outcomes, not a principle about standing.
+
+## Why the absurd case is the right test
+
+> **Chris:** *"his point was that making it absurd like this illustrates the key point in a way that 'a church girl' would not."*
+
+The *church pill* makes the same argument (a suggestion about where to look), and it passes every conservative listener's review. So it cannot show whether a listener holds the principle or merely approves of the preference. The blind pill is chosen *because* it trips the reflex. Conduct is held virtuous by stipulation and approval is removed, so any objection left over is an objection to the choice itself, which is a claim to dictate it. That is the same reason a free-speech principle only becomes visible when it protects speech you dislike. On Chris's reading the design is sound and the failure was execution: the specimen narrated the trap instead of running it.
+
+## Why dictating fails here twice over
+
+- **It is out of scope.** On the [enforceability gradient](./scope-confusion.md#the-enforceability-gradient), the regime that should enforce a norm tracks how far people agree about it. Agreement on *whom to love* is individual, the same tier as "wake up at 5am," so the regime is personal judgment. Social sanction escalates it to the ethics tier. Scope Confusion lists *sexuality* in the contested middle; this page takes a side on one slice of it, the choice of partner.
+- **It cannot produce what it demands.** Partner choice sits in [Force Doctrine's voluntary layer](./force-doctrine.md#the-true-core--what-sticks), where force is constitutively impotent: compelled assent isn't belief, and compelled love isn't love. Pressure can change whom someone is seen with, not the attraction it demands. The specimen's objector found this exit herself: *"I don't allow men to do anything. Force doctrine, baby."*
+
+## Specimens
+
+- [The Blind Pill — Ruelas vs. AVG (2026-06-09)](../../debates/blind-pill-ruelas-avg.md): the principle deployed as a deliberately provocative case. The objector, an Orthodox anti-feminist, claimed review authority anyway (*"predatory," "psychopathic instinct"*). Her force-doctrine line was the one answer that declined that authority, and the proponent misfiled it as a concession to his script.
+
+## Open Questions
+
+1. ~~**Where does pressure become dictating?**~~ ✅ **Answered by Chris (2026-09-29): the line comes earlier than sanction.** *"I think much of the point of the discussion is that even 'pressure' is misguided, and one should not let society dictate your preferences."* Judgment, meaning opinion, is the ceiling. Pressure, meaning any attempt to steer the choice (shaming, social cost, family leverage), is already over it. The rule has two sides: society shouldn't apply pressure, and the individual shouldn't yield to it.
+2. **"Preferences are socially shaped."** This is the strongest reply from the inclusion side: society already shaped the preference, so "society may not dictate" is incoherent. A candidate answer is that shaping by exposure is not dictating by sanction. *Untested.*
+3. ~~**Public figures.**~~ ✅ **Answered by Chris:** broadcasting *"opens you up to judgement, but otoh, this is the line advice lies on.. just because someone says something works for them, doesn't mean it works for everyone.. Critique here is natural."* Broadcast advice invites critique of the **generalization** (it works for me, so it works for everyone). That critique is judgment, and it still grants no authority over the adviser's own preference.
+4. **Preference vs. anti-social behavior: where is the harm boundary?** Chris: *"What this leaves open is the age-old question of preferences vs anti-social behavior.. killing someone should not be a 'preference'. But no one has shown any real harm in mate-selection."* The principle protects preferences, not harmful conduct dressed up as a preference. For symmetric grounding: the inclusion side does claim harm, but at the **category** level (the dignity or self-esteem of excluded groups). This page's answer is that category-level harm doesn't license dictating an individual's choice. Whether any **individual-level** harm follows from a partner preference as such is the open empirical question, and on Chris's read nobody has shown one.
+
+## Tags
+[philosophy](../../../tags/philosophy.md), [morality](../../../tags/morality.md), [ethics](../../../tags/ethics.md)
