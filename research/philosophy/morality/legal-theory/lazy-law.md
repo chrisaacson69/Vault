@@ -3,7 +3,7 @@ status: active
 created: 2026-09-29
 ---
 # Lazy Law — Banning the Tool Because the Wrong Is Hard to Reach
-> Chris's term. When the real wrong is expensive to reach one case at a time, law regulates a proxy that is cheap to reach: the **tool**. The fix over-reaches, because every innocent use is caught. It also under-reaches, because the determined wrongdoer switches tools (*ban X, people do Y*). And the whole time, it looks like a solution.
+> Chris's term. When the real wrong is expensive to reach one case at a time, law regulates a proxy that is cheap to reach: the **tool**. The fix over-reaches, because every innocent use is caught. It also under-reaches, because the determined wrongdoer switches tools (*ban X, people do Y*). And it changes **who wins**: take away an equalizer and the stronger party prevails. The whole time, it looks like a solution.
 
 **Links:** [Public/Private Boundary § the confiscation move](./public-private-boundary.md#the-confiscation-move--how-public-good-does-the-work) — where the substitution rule was first stated (Johnny's stick), [Mens Rea § The cross and the chair](./mens-rea.md#the-cross-and-the-chair-ban-the-token-and-the-meaning-moves), [The Free Will Principle](./mens-rea.md#the-free-will-principle), [The Slack in the Law](./slack-in-the-law.md), [Common Law as a Discovery Procedure](./common-law-as-discovery.md), [Registration and Scope Creep](./registration-and-scope-creep.md), [Scope Confusion](../scope-confusion.md), [Failure as Mandate](../../dynamics/failure-as-mandate.md), [No One May Dictate](../no-one-may-dictate.md)
 
@@ -23,6 +23,17 @@ created: 2026-09-29
    - **over-reach:** every innocent use of the tool is caught;
    - **under-reach:** the determined wrongdoer substitutes another tool.
 4. **It looks like a solution.** A broad rule feels like doing something ([Scope Confusion](../scope-confusion.md)). When substitution defeats it, the failure becomes the argument for the next ban, *ban Y too* ([Failure as Mandate](../../dynamics/failure-as-mandate.md)).
+
+5. **It changes who wins, not what happens.** This is the cost that over-reach and under-reach both miss:
+
+   > **Chris:** *"the reason why victim is important is that 'death by beating' is usually done by the bigger guy.. the point is the gun, as a tool, is an **equalizer**.. it allows a frail woman to have a chance against a 250 lb man. I argue that everything that makes it harder to get a gun makes it harder for a woman to defend herself.. **these laws don't change human behavior, they only change the makeup of who succeeds**."*
+
+   Take away the tool that levels a physical mismatch, and violence moves to methods where strength decides. The determined attacker substitutes. The weaker defender has nothing to substitute *with*. So lazy law is not neutral between the parties it disarms. It shifts the odds toward whoever needs the tool least. This is also Chris's earlier "victim makeup" claim (round 2, below), now stated as a **mechanism**; the population data behind it is still unverified.
+
+   **Symmetric grounding: the strongest counter, and how the thesis absorbs it.**
+   - **The equalizer works for the abuser too.** An abuser's access to a gun is one of the strongest risk factors for intimate-partner femicide (Campbell et al., 2003).
+   - **Defensive use is badly measured.** Estimates of defensive gun use differ by more than an order of magnitude between surveys (Kleck & Gertz's national survey vs. the NCVS).
+   - **The thesis already has the answer:** disarm the *wielder* with a record of the act, not the tool. Taking guns from people under domestic-violence restraining orders, upheld in *United States v. Rahimi* (2024), targets a specific person because of what he did. That is the opposite of lazy law, and it leaves the woman's own access untouched.
 
 **This is the Slack page's gradient, one step earlier.** [The Slack in the Law](./slack-in-the-law.md#-the-system-already-gravitates-to-the-cheap-measurements--this-is-a-diagnosis-not-a-forecast) records Chris's diagnosis that *enforcement* drifts toward whatever is cheapest to detect. Lazy law is the same drift at *drafting*: the rule gets written around whatever is cheapest to define.
 
@@ -90,7 +101,7 @@ Case-by-case aim is expensive, and [Common Law as a Discovery Procedure](./commo
      - Australia's firearm homicide was already falling before the 1996 National Firearms Agreement, and structural-break tests find no acceleration afterward (Lee & Suardi, *Contemporary Economic Policy* 28(1), 2010).
      - Even the study most favorable to the agreement ([Chapman et al., *JAMA* 2016](https://jamanetwork.com/journals/jama/fullarticle/2530362)) reports that non-firearm homicide and suicide fell by *more* than firearm deaths did. That is the "everything went down" pattern.
      - In the [AIC data](https://www.aic.gov.au/publications/cfi/cfi141), the firearm share of homicides fell from 26% (1989–90) to about 14% (2001–02, 2013–14). Knives remained the leading weapon throughout (34–41%) and beatings were about a quarter.
-     - ⚠ Those are *shares*, and total homicide also fell. They don't settle whether beatings rose in absolute numbers, as Chris recalls. His **victim-mix claim** (more women, elderly and children) found **no data in this pass**, so it is his claim, to verify.
+     - ⚠ Those are *shares*, and total homicide also fell. They don't settle whether beatings rose in absolute numbers, as Chris recalls. His **victim-mix claim** (more women, elderly and children) found **no data in this pass**, so it is his claim, to verify. *(Round 4 restated it as a mechanism, the equalizer; see The mechanism, point 5.)*
    - **The other side's strongest homicide point is mass shootings.** Chapman et al. count 13 fatal mass shootings from 1979 to 1996 and none from 1997 to May 2016.
    - **Suicide runs the other way, and suicide is the impulsive argument's home ground.** [Leigh & Neill (2010)](https://www.researchgate.net/publication/46442595_Do_Gun_Buybacks_Save_Lives_Evidence_from_Panel_Data) find significant reductions in gun suicide, and they argue against substitution: the late-1990s rise in non-firearm suicide came mainly in the states that handed in the *fewest* guns. The coal-gas case (Kreitman, 1976) is also about suicide.
 
