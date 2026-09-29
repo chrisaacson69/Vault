@@ -33,6 +33,8 @@ created: 2026-07-20
 
 **Lazy Law, round 4: the equalizer.** Chris: *"these laws don't change human behavior, they only change the makeup of who succeeds."* Added as the mechanism's fifth step. A tool that levels a physical mismatch, once removed, shifts the odds toward the stronger party. Symmetric counter recorded (an abuser's gun access as a femicide risk factor; defensive-use estimates that disagree tenfold) and absorbed by the thesis's own cure: disarm the *wielder* with a record of the act (*Rahimi*, 2024), not the tool.
 
+**Correction, same day.** Chris supplied the source for his coroner anecdote (Daily Herald, 2014-08-28). It reports a medical-examiner suicide ruling with witnesses saying the man stepped in front of the train, and gives **no liability motive**. The anecdote is marked as checked and not supporting. The general point now rests on a documented case instead: *Maughan* (UKSC 2020) lowered the standard of proof for a suicide conclusion, and the ONS saw deaths move from *undetermined* to *self-harm*, which gives #3 a concrete repair: count across the categories a rule can shuffle.
+
 ## 2026-09-24
 
 **Video review: [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md)** (discussion folded in). The video blames charisma and evolved brains. Chris moved the ratchet to **delegation**: we hand off governing to avoid understanding it, and that only self-corrects while we can still grade the delegate. Complexity, decades of lag, and the lack of any observable counterfactual (the video's own Brexit claim is an example) break the grading.
