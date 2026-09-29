@@ -311,6 +311,14 @@ It is the same token in both cases, and what separates them is the act and where
 
 **The irony is structural.** An intent-blind legal order is possible, since restitution doesn't need a verdict on the mind. A manner-of-death statistic is not intent-blind, because the category *is* the intent. [Reading Outcome Statistics #3](../../epistemology/reading-outcome-statistics.md#3-stated-reason--cause--a-survey-category-is-not-a-mechanism) carries the consequence for anyone reading the numbers.
 
+**The categories are not even consistent about intent.** *Suicide* versus *accident* requires the examiner to find the decedent's intent. *Homicide* explicitly does not. In the medical examiners' own guide, homicide means death from *"a volitional act committed by another person to cause fear, harm, or death"*; intent to kill is not required, and the classification is *"a 'neutral' term [that] neither indicates nor implies criminal intent, which remains a determination within the province of legal processes"* ([NAME, 2002](https://www.charlydmiller.com/LIB03/2002NAMEmannerofdeath.html)). The public reads the word the other way, and that gap is the hazard:
+
+> **Chris:** *"too often are we relying on coroner reports to speak to motive facts. We saw this most historically with George Floyd, with large impacts."*
+
+In that case the [Hennepin County Medical Examiner](https://content.govdelivery.com/attachments/MNHENNE/2020/06/01/file_attachments/1464238/2020-3700%20Floyd,%20George%20Perry%20Update%206.1.2020.pdf) ruled the manner *homicide*, with the cause given as *"cardiopulmonary arrest complicating law enforcement subdual, restraint, and neck compression"*. The office itself noted that this is *"not a legal determination of culpability or intent."* The intent questions went to a jury. In public, though, *"ruled a homicide"* was widely heard as a finding about motive. It is the [Load-Bearing Word's *capture*](../../../debates/the-load-bearing-word.md#-fifth-type--capture-the-shift-arrives-already-done-added-2026-09-23) problem in a death certificate: a technical term with an everyday twin, where the everyday sense does the persuading.
+
+*Chris's scope note:* *"this is a minor tangent, and it only speaks to mens rea and the validity of the statistics."*
+
 ## Open Questions
 
 ### Resolved or Partially Resolved
