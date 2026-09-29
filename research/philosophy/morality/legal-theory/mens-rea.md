@@ -298,6 +298,19 @@ It is the same token in both cases, and what separates them is the act and where
 
 **Generalized as [Lazy Law](./lazy-law.md)** (Chris, 2026-09-29): *"the crime is terrorism, but since this is hard to write into law, they go after the simpler things instead and think they are solving."*
 
+## Manner of Death: Mens Rea Without a Defendant (2026-09-29)
+
+> **Chris:** *"now what makes this interesting is the mens rea :) one of the articles claims the man 'calmly' took 3 steps forward onto the tracks before being hit, making it appear intentional.. others involve alcohol.."* *(Neither detail appears in the four reports checked; both are recorded as his recollection.)*
+
+**Every *suicide* or *accident* ruling is an intent finding made after death.** The examiner reads intent off behavior, with no defendant, no adversary and no appeal: *"walked onto the tracks as the train approached and faced the train"*, *"stepped off the platform in front of the moving train"*. The finding then becomes the statistic that policy arguments run on, the means-restriction case in [Lazy Law](./lazy-law.md#open-questions) among them. Chris's objection that behavioral evidence is [mind reading with extra steps](#the-dirty-mind-reading-problem) doesn't reach the *law* here, since no one is being punished. **It reaches the data:** a suicide count is only as good as the intent inferences it is built from.
+
+**What Cook County's own records show** ([`tools/cook-county-rail-deaths.py`](../../../../tools/cook-county-rail-deaths.py), 2014 to September 2026):
+- **The office does distinguish.** Of 472 rail deaths, 219 were ruled suicide and 219 accident.
+- **Intoxication pushes toward accident.** Where ethanol is recorded as a contributing cause, all 10 cases were ruled accidents. That is the textbook mens rea move: intoxication weighs against intent.
+- **But it can't be tested properly from the public data.** Only 21 of 472 records list any contributing cause at all.
+
+**The irony is structural.** An intent-blind legal order is possible, since restitution doesn't need a verdict on the mind. A manner-of-death statistic is not intent-blind, because the category *is* the intent. [Reading Outcome Statistics #3](../../epistemology/reading-outcome-statistics.md#3-stated-reason--cause--a-survey-category-is-not-a-mechanism) carries the consequence for anyone reading the numbers.
+
 ## Open Questions
 
 ### Resolved or Partially Resolved

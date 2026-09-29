@@ -109,6 +109,19 @@ against each other on every run** — plus the per-round dice table against the 
 Risk odds, and the martingale identity behind the closed form. That mutual check is the
 point: the reduction is not faster (both are O(A·D)/2), it is a second oracle.
 
+## cook-county-rail-deaths.py — how the Cook County ME classifies train deaths (research query, not a vault gate)
+
+Like `risk-battle-odds.py`, a *research* tool kept next to the pages it backs ([Reading Outcome Statistics #3](../research/philosophy/epistemology/reading-outcome-statistics.md), [Mens Rea § Manner of death](../research/philosophy/morality/legal-theory/mens-rea.md)), so the published numbers can be re-derived. It queries the county's open Medical Examiner Case Archive (Socrata `cjeq-bs86`) and prints rail deaths by year and manner, the ethanol subset, and a case list for one city.
+
+- **Two definitions, both printed:** the office's own *train* tag, and whole-word `TRAIN(S)` in the cause fields *or* the tag. The tag was applied unevenly in 2015–16, which fakes a post-2016 drop in the suicide share, so read the text definition.
+- **Pitfalls it encodes:** a substring match picks up `RESTRAINT`/`STRAIN`, and SoQL's three-valued logic makes `NOT (x LIKE ...)` silently drop NULL rows. The second one caught the first ad-hoc query; see [The SQL Argument](../research/philosophy/logic-and-math/the-sql-argument.md).
+
+```
+py -3 tools/cook-county-rail-deaths.py [--city "DES PLAINES"]
+```
+
+**First run (2026-09-29):** 472 rail deaths from 2014 to September 2026, 219 suicide and 219 accident. The ethanol subset was 10 of 10 accident. Des Plaines had 12 cases, and all five at the station address were suicide.
+
 ## vault-backlinks.py — materialize backlinks (the "emit backlinks" half) — BUILT, not applied
 
 Derives the reverse walk and writes it into a marked, auto-generated `## Backlinks` block at the

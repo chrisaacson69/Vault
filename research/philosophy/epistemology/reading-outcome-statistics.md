@@ -57,6 +57,10 @@ This is the most common failure of the five, because the label is doing double d
     | 2019-08-25 | [Sun-Times](https://chicago.suntimes.com/2019/8/25/20832086/person-struck-metra-des-plaines-up-nw-delays) | None given: *"An autopsy Monday ruled her death a suicide"* |
 
     Three of the four describe a deliberate act, and the fourth gives no basis either way. None mentions alcohol, liability or a dispute. **The cluster shows rulings following the reported evidence; it doesn't show coding bent by liability.** The test that could still show it is at the pattern level: the medical examiner's share of rail pedestrian deaths ruled suicide, compared with other jurisdictions.
+  - **The pattern-level test, run the same day** on the Cook County Medical Examiner's own case archive ([`tools/cook-county-rail-deaths.py`](../../../tools/cook-county-rail-deaths.py)):
+    - **The office rules plenty of train deaths accidents.** Of 472 rail deaths from 2014 to September 2026, 219 were ruled suicide and 219 accident.
+    - **Des Plaines (12 cases):** all five at the downtown station address were ruled suicide. The three accidents were at crossings and roads (Wolf Road, River Road), and one case was undetermined.
+    - **The data held a second specimen of this very diagnostic.** In 2015–16 the office applied its own *train* tag mostly to suicides. The tagged series therefore shows the suicide share falling from 88% (2016) to about 50% (2017 on). Counted by cause text instead, 2016 was 67%. **Most of the apparent drop is a change in recording, not in rulings.** A smaller gap remains (63% for 2014–16 vs. 47% since), but that split was chosen after looking at the data, so it is suggestive only.
 
 The incentives run both ways: stigma, burial and insurance rules can push toward *accident*, while a lower evidential bar pushes toward *suicide*. **Repair:** ask what each category costs, and whom, before reading a trend in it. If a legal standard can move cases between categories, sum across them.
 
