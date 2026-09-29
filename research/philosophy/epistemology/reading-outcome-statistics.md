@@ -3,10 +3,10 @@ status: active
 created: 2026-08-06
 published: true
 layout: layouts/page.njk
-title: "Reading Outcome Statistics — Five Diagnostics"
+title: "Reading Outcome Statistics — Six Diagnostics"
 ---
 # Reading Outcome Statistics
-> Five ways a true number produces a false conclusion. Each has a one-line repair, and each is a question the person citing the statistic usually cannot answer.
+> Six ways a true number produces a false conclusion. Each has a one-line repair, and each is a question the person citing the statistic usually cannot answer.
 
 **Links:** [The Weighting Problem](./weighting-problem.md), [Absolutes and Differentials](./absolutes-and-differentials.md) — **§3 (*stated reason ≠ cause*) at civilizational scale**: war justifications as buckets-that-sound-like-mechanisms, plus the trigger-vs-cause and pattern-does-not-establish-intent guards, [Relational Objectivity](./relational-objectivity.md), [Scope Confusion](../morality/scope-confusion.md), [Generational Attribution](../dynamics/generational-attribution.md), [Epistemology](./README.md)
 
@@ -42,6 +42,8 @@ This is the most common failure of the five, because the label is doing double d
 
 **Repair:** name the defect out loud — *that is a form field, not a mechanism; which of these does it mean?* Circling it without naming it reads as evasion and loses the exchange, even when the objection is correct.
 
+**The same holds for official categories, not just self-reports: a category that carries consequences gets chosen with the consequences in view.** Chris's example (2026-09-29): a man falls from a platform and is run over by a train, and the coroner records *suicide* because *accident* would make the village liable for an unsafe platform. *"Is a slip off a roof an accident or suicide? Much of the problem is how the legal system treats the two."* A suicide series inherits whatever incentives shape its coding, and they run both ways: stigma, burial and insurance rules can push toward *accident*, and liability can push toward *suicide*. **Repair:** ask what each category costs, and whom, before reading a trend in it.
+
 ## 4. Scope the beneficiary
 
 *"Did X help?"* is unanswerable until you say **whom**, because individual experience and aggregate institutional health are different variables that can move in opposite directions.
@@ -66,9 +68,21 @@ Watch for the same shape wherever a *standard* meets a *survey*: "adequate" budg
 
 **Repair, general form:** before comparing two statistics, check that they are **the same kind of statistic**. Floor-to-mean is the common case; mean-to-median and stock-to-flow are its siblings.
 
+## 6. A ban guarantees its own metric
+
+> **Chris (2026-09-29):** *"of course GUN violence decreased after the bans, but I don't care how someone is killed, just that they are.. that mass shootings went down.. fine, but how about the total number of homicides?"*
+
+Remove an instrument and the instrument-specific rate has to fall: fewer guns, fewer gun deaths. Citing that fall as proof the policy worked is close to a tautology. It is the same shape as #5, a comparison that cannot come out any other way. The question the policy was meant to answer is whether the **harm** fell, and harm is method-neutral. If the killings moved to knives and fists, the instrument metric fell and nothing was saved.
+
+**Repair:** *what happened to the total, by every method, compared with the same trend in places without the policy?* A fall in the total that matches the background decline *is* the background decline.
+
+**It cuts both ways, so run it on your own side first.** "Gun ownership rose while gun homicides fell" is the same instrument metric pointed the other way, and it needs the same total-and-baseline check. A narrower subset such as *mass shootings* is still an instrument metric: a real effect on it can sit alongside no effect on the total.
+
+**Specimen:** the Australian (1996) and UK (1997) gun laws, worked through on [Lazy Law](../morality/legal-theory/lazy-law.md#open-questions). The study most favorable to the Australian law reports non-firearm deaths falling faster than firearm deaths, and in England and Wales total homicide *rose* every year from 1998 to 2003 before falling.
+
 ## How These Compose
 
-They stack, and stacking is where the damage happens. A statistic can be jurisdictionally underspecified (1), measured across a transition (2), built from self-reported categories (3), scoped to a population selected by the very thing under study (4), and compared against a quantity of a different kind (5) — while every individual number remains accurate. **Compounded, five correct numbers can support a conclusion opposite to the truth.**
+They stack, and stacking is where the damage happens. A statistic can be jurisdictionally underspecified (1), measured across a transition (2), built from self-reported categories (3), scoped to a population selected by the very thing under study (4), compared against a quantity of a different kind (5), and measured on the instrument a policy removed rather than on the harm (6), while every individual number remains accurate. **Compounded, six correct numbers can support a conclusion opposite to the truth.**
 
 They also connect outward. Once past these five, the [Weighting Problem](./weighting-problem.md) is next: even with clean measurements, the *aggregation function* remains a choice. And [Generational Attribution](../dynamics/generational-attribution.md) adds the attribution-side companion — mechanism, differential, and counterfactual — for when the statistic is being used to assign responsibility rather than to describe.
 
@@ -84,9 +98,11 @@ They also connect outward. Once past these five, the [Weighting Problem](./weigh
 
 - **[Poverty in America Is a Sign of Exploitation](../../debates/poverty-exploitation-prep.md)** — **the specimen that supplied #5**, and it came from a live round rather than a reading. Chris argued the *subsistence* definition; his opponents answered with published studies on the cost of living across states, showing official poverty thresholds sitting well below those figures. On examination **every study used the state AVERAGE cost of living** — so the thresholds were below them *by construction*, and the evidence established nothing it appeared to establish. Chris: *"and thus of course it was above poverty by definition :)"* True numbers, reputable sources, empty finding. Generalized on [Subsistence vs. Participation](../../economics/subsistence-vs-participation.md), where the same swap is the standard move for retiring the subsistence standard without arguing against it.
 
+- **[Lazy Law](../morality/legal-theory/lazy-law.md)** — **the specimen that supplied #6**, plus the official-category extension of #3. The Australian and UK gun laws are read on the total rather than the instrument, and suicide coding bends with what each category costs.
+
 ## Open Questions
 
-1. ~~**Is there a fifth?**~~ **RESOLVED — yes, and it arrived from a different source than the first four.** #5 (*a floor is not a mean*) came out of Chris's poverty debate rather than the feminism round, which is mild evidence the family is real rather than an artefact of one transcript. The original suspicion stands for the *next* candidates: composition-fallacy and base-rate failures still feel adjacent but may belong to a different family (inference *from* a statistic vs. reading *of* one). **Is there a sixth?** Stock-vs-flow is the strongest candidate — it is #5's sibling and appears constantly in debt and wealth arguments.
+1. ~~**Is there a fifth?**~~ **RESOLVED — yes, and a sixth followed.** #6 (*a ban guarantees its own metric*) came from a third source, Chris's [lazy-law](../morality/legal-theory/lazy-law.md) thread (2026-09-29). **The fifth arrived from a different source than the first four.** #5 (*a floor is not a mean*) came out of Chris's poverty debate rather than the feminism round, which is mild evidence the family is real rather than an artefact of one transcript. The original suspicion stands for the *next* candidates: composition-fallacy and base-rate failures still feel adjacent but may belong to a different family (inference *from* a statistic vs. reading *of* one). **Is there a sixth?** Stock-vs-flow is the strongest candidate — it is #5's sibling and appears constantly in debt and wealth arguments.
 2. **Where does #2 shade into #4?** A transition that changes *who participates* is both a window problem and a denominator problem. Possibly one failure viewed from two angles.
 3. **Does naming a defect out loud reliably beat circling it?** §3 asserts it does, from a single specimen where the un-naming lost. Worth watching whether the explicit form actually lands with non-expert audiences, or whether it reads as jargon.
 
