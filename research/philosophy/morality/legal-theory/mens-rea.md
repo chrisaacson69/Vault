@@ -296,6 +296,8 @@ It is the same token in both cases, and what separates them is the act and where
 
 **The same principle as Johnny's stick.** A symbol ban is an [instrument-directed remedy](./public-private-boundary.md#the-confiscation-move--how-public-good-does-the-work), and its failure mode is substitution: *"if taken away, he will find another."* The stick was a physical instrument; the cross is a symbolic one. That is two specimens of one rule in two domains. The vault's own remedy for a captured word, [minting a new one](../../../debates/the-load-bearing-word.md#-fifth-type--capture-the-shift-arrives-already-done-added-2026-09-23), is the same mechanism run on purpose.
 
+**Generalized as [Lazy Law](./lazy-law.md)** (Chris, 2026-09-29): *"the crime is terrorism, but since this is hard to write into law, they go after the simpler things instead and think they are solving."*
+
 ## Open Questions
 
 ### Resolved or Partially Resolved

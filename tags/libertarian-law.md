@@ -51,3 +51,4 @@ permalink: /tags/libertarian-law/
 - [TIK — Public vs Private](../research/philosophy/tik-public-vs-private.md) — the video LZ attacks by name; the package-deal charge tested from inside it
 - [The Public/Private Boundary](../research/philosophy/morality/legal-theory/public-private-boundary.md) — the line is drawn by exclusion, not ownership; TIK and LZ as the two failed criteria
 - [LiquidZulu vs Liam Stayton — Open or Closed Objectivism?](../research/debates/lz-stayton-open-closed-objectivism.md) — what fixes the reference of a philosophy's name: its essence, or the corpus its author designated
+- [Lazy Law](../research/philosophy/morality/legal-theory/lazy-law.md) — banning the tool because the wrong is hard to reach; over-reach plus substitution (*ban X, people do Y*)

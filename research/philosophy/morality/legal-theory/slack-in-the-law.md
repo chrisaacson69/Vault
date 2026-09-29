@@ -5,7 +5,7 @@ created: 2026-09-09
 # The Slack in the Law
 > Enforcement cost is what has kept **liability defaults** apart from **conduct commands**. Automation makes patrolling free and silently promotes the first into the second — changing what a rule *is* without changing a word of what it *says*.
 
-**Links:** [Registration and Scope Creep](./registration-and-scope-creep.md), [Mens Rea in Libertarian Law](./mens-rea.md), [Government Formation](./government-formation.md), [The Technology-Governance Gap](../../dynamics/technology-governance-gap.md), [Technology → Culture → Politics](../../dynamics/technology-culture-politics.md) · **Specimen:** [Flock Cameras — Summerhays vs. Rex Jones](../../../debates/wordwar-sf2-flock-cameras-summerhays-jones.md)
+**Links:** [Registration and Scope Creep](./registration-and-scope-creep.md), [Mens Rea in Libertarian Law](./mens-rea.md), [Government Formation](./government-formation.md), [The Technology-Governance Gap](../../dynamics/technology-governance-gap.md), [Technology → Culture → Politics](../../dynamics/technology-culture-politics.md) · **Specimen:** [Flock Cameras — Summerhays vs. Rex Jones](../../../debates/wordwar-sf2-flock-cameras-summerhays-jones.md) · **Drafting-stage twin:** [Lazy Law](./lazy-law.md) — the cheap-measurement gradient applied when the rule is written, not when it is enforced
 
 ## The claim
 

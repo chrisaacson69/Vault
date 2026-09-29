@@ -222,3 +222,4 @@ permalink: /tags/philosophy/
 - [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails
 - [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing
 - [No One May Dictate](../research/philosophy/morality/no-one-may-dictate.md) — partner choice is not for outsiders to dictate; compelled inclusion and compelled exclusion are the same claim
+- [Lazy Law](../research/philosophy/morality/legal-theory/lazy-law.md) — banning the tool because the wrong is hard to reach; over-reach plus substitution (*ban X, people do Y*)

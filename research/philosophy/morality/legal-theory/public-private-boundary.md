@@ -88,6 +88,8 @@ The generalisation is the part worth keeping: **instrument-directed remedies mis
 
 **Second specimen, a symbolic one (2026-09-29).** The same rule governs symbol bans. Chris, on cross burning: *"If people switched to burning chairs instead, would it be any different?… Ban X, people do Y instead."* The symbol is the instrument, and the failure mode is again substitution: the shared meaning re-attaches to a new token. It is worked out in [Mens Rea § The cross and the chair](./mens-rea.md#the-cross-and-the-chair-ban-the-token-and-the-meaning-moves), where *Virginia v. Black*'s own facts (the same token as rally expression and as a threat on a neighbor's lawn) make the case.
 
+**Crystallized (2026-09-29) as [Lazy Law](./lazy-law.md):** Chris's name for the general pattern. Law bans the tool because the act is hard to reach, and this section's substitution rule is half of why it fails.
+
 ## Open Questions
 
 1. ~~**The hard case: state facilities that exclude.**~~ **LARGELY RESOLVED 2026-09-23.** Chris: *"yes, the government does exclude hard. Your fix, 'cannot opt out', is probably better."* So the test is exclusion **from the entity**, not from the premises — nobody may opt out of the state that runs the prison, whereas anyone may decline to deal with Alphabet. Two residues he flagged, both real:
