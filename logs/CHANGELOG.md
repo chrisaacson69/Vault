@@ -35,6 +35,8 @@ created: 2026-07-20
 
 **Correction, same day.** Chris supplied the source for his coroner anecdote (Daily Herald, 2014-08-28). It reports a medical-examiner suicide ruling with witnesses saying the man stepped in front of the train, and gives **no liability motive**. The anecdote is marked as checked and not supporting. The general point now rests on a documented case instead: *Maughan* (UKSC 2020) lowered the standard of proof for a suicide conclusion, and the ONS saw deaths move from *undetermined* to *self-harm*, which gives #3 a concrete repair: count across the categories a rule can shuffle.
 
+**Then four cases instead of one.** Chris found three more Des Plaines station deaths (2011, 2017, 2019), all ruled suicide. Read closely, three reports describe a deliberate act ("intentionally jumped", "stepped off the platform in front of the moving train", "walked onto the tracks… and faced the train") and one gives no basis. None mentions alcohol or liability. They're tabled on #3 as rulings that follow the evidence; the pattern-level test is named.
+
 ## 2026-09-24
 
 **Video review: [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md)** (discussion folded in). The video blames charisma and evolved brains. Chris moved the ratchet to **delegation**: we hand off governing to avoid understanding it, and that only self-corrects while we can still grade the delegate. Complexity, decades of lag, and the lack of any observable counterfactual (the video's own Brexit claim is an example) break the grading.
