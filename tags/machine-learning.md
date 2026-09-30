@@ -13,3 +13,4 @@ permalink: /tags/machine-learning/
 - [OOP Neurons](../projects/oop-neurons/README.md)
 - [Energy-Based Models](../research/energy-based-models.md) — Hopfield/Boltzmann lineage returning with modern compute; learned energy functions as the substrate for constraint-satisfaction reasoning
 - [Eyes and Ears for LLMs — the Audio Translator](../research/eyes-and-ears-for-llms.md) — why music is 40 years behind vision on the same NN layers (no free supervision signal); train a probe on a pretrained embedding, never an encoder from scratch
+- [Pluto on the Brood War Ladder — APM Beats Strategy, and Why the Gradient Went There](../research/gaming/pluto-broodwar-apm-over-strategy.md) — An RL-trained Brood War bot (**Pluto**), hacked onto the official Remastered ladder by a third party, reached effective #1 and beat a top-7 Protoss with a build every human heur…

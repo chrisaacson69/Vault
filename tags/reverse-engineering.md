@@ -44,3 +44,4 @@ permalink: /tags/reverse-engineering/
 - [ROTK2 — Sangokushi II (SNES)](../projects/game-annotation/snes/rot3k2-snes/README.md) — The first KOEI **SNES** title reversed, and the title that proved the portable VM from both sides.
 - [SNES system tools — `snes-decompiler`](../projects/game-annotation/snes/tools/README.md) — The **target-agnostic** substrate for taking apart *any* SNES cart: 65C816, LoROM/HiROM detection,
 - [The comparison studies — paired deep-reads](../projects/game-annotation/comparisons/README.md) — The four titles the series started as, organized in **paired comparisons**.
+- [Aerobiz (SNES)](../projects/game-annotation/snes/aerobiz-snes/README.md) — The third KOEI SNES title, and the first one that isn't a port of a decompiled NES game.

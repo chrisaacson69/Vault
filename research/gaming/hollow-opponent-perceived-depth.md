@@ -39,7 +39,7 @@ The shallowness makes the strategy *crisper*, not absent:
 
 ## What this opens
 
-- **Comparative AI-archetype study.** Is "argmin-weakest + threshold" a *Koei house pattern* across the 80s–90s catalog, or did later titles add lookahead/coalition? The next apples-to-apples specimen is **Aerobiz (NES)** — likely an even simpler opponent, low competitive interaction (mostly a race-to-finish), but a rich *sim* whose mechanics (flight-load economics: 2 flights/day on a small plane vs 3 flights/week on a big one) are the real object. A separate working note.
+- **Comparative AI-archetype study.** Is "argmin-weakest + threshold" a *Koei house pattern* across the 80s–90s catalog, or did later titles add lookahead/coalition? The next apples-to-apples specimen is **Aerobiz (SNES)** — *corrected 2026-09-30: there was never an NES/Famicom version; it shipped on Super Famicom, FM Towns, PC-98, Mega Drive and X68000* — now under decompilation ([Aerobiz (SNES)](../../projects/game-annotation/snes/aerobiz-snes/README.md); its AI candidate is the `ALGO` module). Likely an even simpler opponent, low competitive interaction (mostly a race-to-finish), but a rich *sim* whose mechanics (flight-load economics: 2 flights/day on a small plane vs 3 flights/week on a big one) are the real object. A separate working note.
 - **Random-start viability, made computable.** This is the [dominance-frontier lens](../dominance-frontier-lens.md)'s open question with a tractable instance: with the AI known to be argmin-weakest, "can fief X escape the bottom trap?" becomes a *simulation* against the verified econ engine, not a judgment call. Candidate seeds: is Yamato unwinnable? Can Hida grow fast enough, with luck, to escape? **A queued sim, not a debate.**
 
 ## Tags

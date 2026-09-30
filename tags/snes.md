@@ -19,3 +19,4 @@ permalink: /tags/snes/
 - [KOEI tools — the shared engine toolchain](../projects/game-annotation/koei/README.md) — **Tools node, not a title index.** One studio, one bytecode-VM engine lineage, two consoles.
 - [ROTK2 — Sangokushi II (SNES)](../projects/game-annotation/snes/rot3k2-snes/README.md) — The first KOEI **SNES** title reversed, and the title that proved the portable VM from both sides.
 - [SNES system tools — `snes-decompiler`](../projects/game-annotation/snes/tools/README.md) — The **target-agnostic** substrate for taking apart *any* SNES cart: 65C816, LoROM/HiROM detection,
+- [Aerobiz (SNES)](../projects/game-annotation/snes/aerobiz-snes/README.md) — The third KOEI SNES title, and the first one that isn't a port of a decompiled NES game.

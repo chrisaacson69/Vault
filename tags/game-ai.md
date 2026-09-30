@@ -32,3 +32,4 @@ permalink: /tags/game-ai/
 - [Subgraph Trade Engine — Implementation Spec](../research/gaming/monopoly/subgraph-trade-engine-spec.md) — Combining the build frontier with subgraph-driven trade search to create a complete Monopoly decision engine.
 - [KOEI AI & combat evolution (5-decompiler study)](../research/gaming/koei-ai-combat-evolution.md)
 - [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)
+- [Pluto on the Brood War Ladder — APM Beats Strategy, and Why the Gradient Went There](../research/gaming/pluto-broodwar-apm-over-strategy.md) — An RL-trained Brood War bot (**Pluto**), hacked onto the official Remastered ladder by a third party, reached effective #1 and beat a top-7 Protoss with a build every human heur…

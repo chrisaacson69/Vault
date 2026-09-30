@@ -23,7 +23,7 @@ theses → [KOEI's portable VM](../../../../research/gaming/koei-snes-portable-v
 | Status | ✅ **re-walked & complete** — ~1,316 bytecode routines named across 26 code modules, 4 data blobs documented |
 | Depends on | `koei-snes` → `snes-decompiler` |
 
-⚠️ **Not cloned on this machine** (2026-07-21).
+Clone status is per-machine — resolve via `.claude/local-paths.md`.
 
 ## What it contributed
 

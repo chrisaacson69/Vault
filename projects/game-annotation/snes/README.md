@@ -27,9 +27,10 @@ koei-snes           KOEI SNES VM engine layer       ← family-specific   → ..
 |---|---|---|---|
 | [rot3k2-snes/](./rot3k2-snes/README.md) | `rot3k2-snes-decompiler` | ROTK2 (USA), LoROM 1 MiB, SRAM 32 KiB | ✅ complete — ~1,316 routines across 26 modules |
 | [gemfire-snes/](./gemfire-snes/README.md) | `Gemfire-snes-decompiler` | Gemfire (USA), LoROM 1 MiB, SRAM 8 KiB | ✅ complete — 591 routines across 11 overlay modules |
+| [aerobiz-snes/](./aerobiz-snes/README.md) | `AeroBiz-decompiler` | Aerobiz (USA), LoROM 1 MiB, SRAM 8 KiB | 🔬 recon #1 (2026-09-30) — 22 WRAM modules, 479 routines, 99 syscalls. First KOEI SNES title with **no NES twin**; its recon caught the shared `$D8` decode bug in both titles above |
 | _(no folder yet)_ | `na1-snes-decompiler` | NA1 (USA), **HiROM** 512 KiB, SRAM 8 KiB | 🔬 recon+ — **the engine exception: no bytecode VM.** Compiled straight to native 65C816 instead of the shared VM, so the koei-snes VM tools do not apply; needs a native 65816→C decompiler. See [na1-snes-native-port](../../../research/gaming/na1-snes-native-port.md). |
 
-⚠️ **rot3k2-snes and gemfire-snes are not cloned on this machine** (2026-07-21) — see `.claude/local-paths.md`.
+Clone status is per-machine, so it is not recorded here — resolve each repo through `.claude/local-paths.md`.
 
 Both titles also shipped on NES, which is what makes this node the *other half* of the portable-VM
 proof: [rot3k2](../nes/rot3k2/README.md) and [gemfire](../nes/gemfire/README.md) are their oracles.

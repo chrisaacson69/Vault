@@ -21,7 +21,7 @@ thesis → [Gemfire (SNES) fully decompiled](../../../../research/gaming/gemfire
 | Status | ✅ complete — **all 591 bytecode routines named across 11 WRAM overlay modules** |
 | Depends on | `koei-snes` → `snes-decompiler` |
 
-⚠️ **Not cloned on this machine** (2026-07-21).
+Clone status is per-machine — resolve via `.claude/local-paths.md`.
 
 ## What it contributed
 
