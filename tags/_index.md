@@ -11,7 +11,7 @@ permalink: /tags/_index/
 - [65816](./65816.md) — 9 files
 - [agent-teams](./agent-teams.md) — 5 files
 - [agents](./agents.md) — 24 files
-- [ai](./ai.md) — 61 files
+- [ai](./ai.md) — 62 files
 - [assembly](./assembly.md) — 17 files
 - [atari-2600](./atari-2600.md) — 1 file
 - [audio-processing](./audio-processing.md) — 9 files
@@ -32,7 +32,7 @@ permalink: /tags/_index/
 - [debates](./debates.md) — 93 files
 - [decompilation](./decompilation.md) — 2 files
 - [defi](./defi.md) — 1 file
-- [economics](./economics.md) — 112 files
+- [economics](./economics.md) — 113 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 109 files

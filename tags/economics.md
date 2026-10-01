@@ -104,6 +104,7 @@ permalink: /tags/economics/
 - [Coordination Without a Coordinator](../research/economics/coordination-without-a-coordinator.md)
 - [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md) — the two definitions of poverty; Adam Smith’s linen shirt; **Chris’s ratchet** — participation is a negotiated state, so the bar can never be cleared by growth
 - [Econ Nerds — "Three Myths about Inequality"](../research/debates/econ-nerds-inequality-myths.md) — specimen; PSZ vs Auten–Splinter and the ~40% of income invisible to tax returns
+- [Dad Saves America — Jevons, Say's Law](../research/debates/dad-saves-america-jevons-says-law.md) — specimen; supply creates demand (the reverse of the supply omission); cross-sector transmission
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — eliminating inequality is achievable, attested, and universally rejected — so it is not the goal; the functional/destabilising curve, and why the normative question is hostage to the measurement question
 - [Human Constancy](../research/philosophy/human-constancy.md) — what the participation ratchet actually requires: ends drift slower than means, not human nature is constant
 - [The Lemonade Stand Experiment](../research/economics/lemonade-stand-agents.md) — Claude Opus 4.7 vs GPT-5.5 running real lemonade stands: $65 and $42 revenue against ~$10k losses each. **Visibility of a constraint is necessary but not sufficient — the objective must encode it too** (they saw the ledger and spent anyway; the goal was revenue, not profit)
