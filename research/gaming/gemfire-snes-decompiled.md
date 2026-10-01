@@ -61,6 +61,26 @@ offset-0 damage varied severe (comroot/AI: 110 corrections + 67 undiscovered rou
 cannot tell which without re-walking. This is **"accumulated state IS the verification layer"** made
 concrete: doing the walk a second time is how the errors surface.
 
+## ⚠ Correction (2026-09-30): the third pass caught what both earlier passes shared
+The [Aerobiz (SNES)](../../projects/game-annotation/snes/aerobiz-snes/README.md) recon is the third KOEI SNES
+title. It re-derived the VM's operand sizes from the handler code itself, reading every handler and executing
+it on a 65C816 emulator, rather than taking them from the shared toolchain. It found that **`$D8` is `jz a16`**,
+with a 2-byte absolute operand, not `brz r8`.
+
+- **Why the tool got it wrong:** the old derivation followed only the fall-through path, and the unreachable
+  code after `$D8`'s `BEQ`/`BNE` pair belongs to `$E3`'s relative branch.
+- **The damage here:** the handlers are identical in all three titles, so this title's shipped listings are
+  wrong at every `$D8`. Of the walker-reachable sites, 1,346 print a wrong target (2,780 in ROTK2), and each is
+  followed by a phantom instruction.
+- **Why nobody saw it:** the address high byte (`$20–$5F`) decodes as a zero-operand op, so the decode
+  re-syncs at once. The old walkers had no conflict or dead-opcode check, so "0 decode errors" could not fail.
+- **Other wrong shared names:** the `C2–C9` compares were named for their complements, `B9/BA` are mod, and
+  `BD` is a shift.
+
+The second pass above could catch ROTK2's *title-specific* error. It could not catch this one, because both
+titles ran through the same tool, so the error was common-mode. The toolchain is fixed in `koei-snes`.
+Re-grading this title's names is deferred and itemized in the `koei-snes` re-grade backlog.
+
 ## The layered source — the deliverable both titles now ship
 The symbol tables were the hard part; with them, the readable **source** falls out in three layers,
 mirroring how the program is built: **assembly** (`native.asm` — the native 65C816 kernel/VM engine),
