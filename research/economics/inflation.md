@@ -183,6 +183,7 @@ The corrected position says: controlling M eliminates the only *permanent* ratch
 - [Measuring Inflation](./measuring-inflation.md) — the promoted measurement page: household-level heterogeneity (6–9pp IQR), the disaggregation ladder and why it bottoms out, and the three disciplines that replace "the right index"
 - [The Weighting Problem](../philosophy/epistemology/weighting-problem.md) — the formal reason CPI is subjective: objective measurements don't produce objective composite judgments
 - [Yarvin x McCormack — Fake Science of Economics](../debates/yarvin-mccormack-fake-science-economics.md) — Z1 as real inflation; inelastic money supply argument; maturity mismatching as spurious money creation
+- [r/g](./r-vs-g.md) — falling rates as an unnoticed wealth transfer, sized: about a third of 1989–2017 equity growth (§4)
 - [Weinstein x Murphy — Gauge Theory Applied to Economics](../debates/weinstein-murphy-gauge-theory-economics.md) — "the price level" is a fiction; Divisia index; Boskin Commission as political operation; path dependence as Cantillon effect
 - [Evo-Cap: Optimal Money Supply](../evolutionary-capitalist/optimal-money-supply.md) — Cantillon effect as distributional distortion from monetary expansion
 - [Civilizational Cycles](../philosophy/dynamics/civilizational-cycles/README.md) — Dalio's debt cycle as the long-run consequence of permanent monetary inflation; Olson's institutional sclerosis as productivity-decline inflation

@@ -75,6 +75,7 @@ permalink: /tags/debates/
 - [Formal Debate Concepts — A Portable Inventory](../research/debates/formal-debate-concepts.md) — fiat, topicality, inherency, kritik, turns; analysis not prediction
 - [Worked Examples — The Impossibility Floor, With Arithmetic](../research/debates/voting-paradox-worked-examples.md) — method page / evidence bank for the [CGP Grey STV](../research/debates/cgp-grey-stv-too-good.md) refutation; theory-last deployment order
 - [Econ Nerds — "Three Myths about Inequality"](../research/debates/econ-nerds-inequality-myths.md) — one-voice explainer; two theses promoted, and two of my own claims corrected on the page
+- [Tom Bilyeu × Economics Explained — "Wealth Is Fiction"](../research/debates/bilyeu-wealth-is-fiction-economics-explained.md) — reaction-video review on inequality; spawned the r/g page
 - [Subsistence vs. Participation](../research/economics/subsistence-vs-participation.md)
 - [Aggregation vs. Sorting — Why Collective Choice Keeps Collapsing to Two](../research/philosophy/morality/legal-theory/aggregation-vs-sorting.md) — There are exactly two ways to reconcile many preferences: **aggregate** them into one outcome (voting), or **sort** people among many outcomes (markets/exit).
 - [The Represented Unit — What an Upper Chamber Is For, and What Breaks When You Swap It](../research/philosophy/morality/legal-theory/represented-unit.md) — A bicameral upper chamber exists to represent the **pre-existing power centers whose consent was required to form the union at all** — barons in England, states in America, the…
