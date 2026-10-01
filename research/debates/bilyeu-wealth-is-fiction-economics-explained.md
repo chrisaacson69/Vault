@@ -95,6 +95,11 @@ Falling rates and monetary expansion move wealth toward asset holders **without 
 
 So the thesis page is about the **ratio** r/g as the contested variable, not about Piketty's inequality as a settled conclusion. Both sides get grounded to equal depth (the vault's symmetric-grounding rule). → [r/g — The Return on Capital vs. Growth](../economics/r-vs-g.md).
 
+### After the source check: Chris's close on r/g
+> **Chris:** *"I don't want to attribute housing too much to zoning, as these trends seem more macro. To be honest, I think I have come to a close that r > g, as this is what forces investment; the difference is possibly risk. We see wealth disappear not just via inheritance mechanisms, but also mal-investment. But a key point on why capital tends to beat wages is risk variance."*
+
+Two outcomes. My positional-goods reading of Rognlie's housing is demoted: Chris sees the housing trend as macro, not zoning. And Chris's own position, **r > g as a risk premium** (necessary to induce investment, with fortunes lost to mal-investment as well as to heirs), went onto the thesis page as a clearly marked position, [r/g §7](../economics/r-vs-g.md), kept out of the neutral sections.
+
 ## Vault Connections
 - [Econ Nerds — Inequality Myths](./econ-nerds-inequality-myths.md) — the earlier specimen on the same ground (PSZ vs. A–S, poverty, timing)
 - [Productivity–Pay Gap](../economics/productivity-pay-gap.md) — the 72%/9% chart is an identity; consumption vs. share

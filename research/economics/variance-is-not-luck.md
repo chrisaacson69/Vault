@@ -89,6 +89,7 @@ When someone argues *"X is impossible without luck"* (or *"success is just luck"
 6. **Check the residual honestly.** Are the draws repeatable and diversifiable? If genuinely not, the fatalist has the better of it — say so.
 
 ## Specimens (downward ledger)
+- **[r/g §7](./r-vs-g.md)** — Chris: capital beats wages because of **risk variance**. r > g is the expected return on a high-variance claim, and survivors on the wealth lists are the variance's winners, not the mean.
 
 Kept here so the thesis points *down* at its evidence rather than only receiving links up:
 
