@@ -119,6 +119,19 @@ So Mesen 2, which we already use, can do everything BizHawk did for the bot. No 
 - **Mappy (real-time):** the lookahead harness is the method the architecture-first rule predicts for a real-time game.
 - **Zelda itself:** needs a ROM (Chris: *"at best we might try to get the Zelda ROM"*). With it, the 37:02 input log in the AIBeatsZelda repo is a ready **acceptance test** for our harness: replay it and see whether it reaches Zelda. *(A cross-emulator replay may desync. Mesen and BizHawk can differ on power-on RAM contents and timing, so their RAM hash is not expected to match. A desync is itself a finding about emulator equivalence.)*
 
+### Decision (2026-10-01): build it as layered projects, Zelda first as the oracle
+> **Chris:** *"This harness can be shared with at least all NES games, and parts of it might work with any Mesen game, so we seem to have a similar split as KOEI/NES. So probably this will be multiple projects. Let's see if we can port this to Zelda first so we have an oracle :) Then we can try Mappy as a test bed (we discovered it already has a move list to run the attract mode), and then we can move on to the strategy games. This will also hide a layer for now, but the idea will be to keep it modular, so when we do need to plug in KOEI, it isn't a complete restructure."*
+
+**Layering** (the same dependency shape as `snes-decompiler` → `koei-snes` → title repos):
+1. **Mesen-generic core** (any console Mesen runs): `bridge.lua` socket server, lockstep, save/load via an exec hook, RAM read/hash; the Python client and its input recorder; `--testRunner` scouts.
+2. **NES layer:** the controller button map, battery-save wiping for replay, the NMI vector as the per-frame exec hook (read from the ROM).
+3. **Game adapters:** Zelda (oracle), Mappy (real-time test bed), then a KOEI adapter. That adapter is the layer "hidden for now," so the core must not assume anything game-specific.
+
+**Order and why:**
+1. **Zelda = the oracle.** The AIBeatsZelda run's `runs/run6/inputs.txt` is plain text, one line per frame from power-on (136,526 frames; header `valid_from_poweron=True`), and the run ends in a known state (`VERIFICATION.txt`: Level 9 room 32, 8.5/13 hearts, 29 rupees, Magical Sword). If our harness replays it to that ending, input injection and lockstep are proven. A cross-emulator desync is the expected failure to understand, not a bug to hide. Note: `VERIFICATION.txt` reports **23,406 lag frames** (frames where the game never polls the pad), so input must be applied **per emulated frame**, not per poll, to line up with a BizHawk movie. Needs Chris's own ROM dump: *Legend of Zelda, The (USA) (Rev 1)*. The repo has no license file, so its log is a **local test input only**, never vendored.
+2. **Mappy = the test bed:** a real-time game whose attract mode already carries a move list.
+3. **The strategy games:** the KOEI adapter, the survey sweep, and the Mesen-vs-Python-VM behavioral oracle.
+
 ## Vault Connections
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
 - [Slay — Evaluation](./slay-evaluation.md) — eval beats depth
