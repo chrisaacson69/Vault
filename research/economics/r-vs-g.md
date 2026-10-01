@@ -96,6 +96,7 @@ This is a position, not a neutral summary, so it sits outside §§2–3. Three c
 
 ## Open Questions
 - **Is Chetty's mobility decline an r/g story at all?** Chris's original claim. The baseline problem stands (the 1940 cohort was measured from the valley), but the mechanism Chetty measured is the **distribution of labor-earnings growth**, which Piketty puts outside r − g. Does a channel connect them, for example through GLL's labor-to-capital shift?
+- **Rognlie vs. GLL: did non-housing capital gain share?** Rognlie says the rise is all housing; GLL find 40% of equity growth from a labor→shareholder shift. Different measures and windows; the post-2000 corporate profit share is the lead *(unverified)*. If it rose, the "it's all housing" critique weakens. Cross-listed on [Productivity–Pay Gap](./productivity-pay-gap.md).
 - **Risk or scale?** (§7) Do larger fortunes earn more because they bear more risk (Chris's premium story) or because scale earns more for the same risk (Piketty's)? Fagereng et al. have risk-adjusted measures that may answer it.
 - **Is net σ the crux?** If one parameter decides whether the mechanism self-limits, what are Piketty–Zucman's own estimates? (Not yet checked.)
 - **Which top-share series do we trust?** Saez–Zucman (22%) vs. Smith–Zidar–Zwick (15.7%). It's the same pattern as the [PSZ vs. Auten–Splinter](../debates/econ-nerds-inequality-myths.md) income fight: the method choice *is* the result.

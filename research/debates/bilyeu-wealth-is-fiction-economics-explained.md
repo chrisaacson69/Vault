@@ -100,6 +100,16 @@ So the thesis page is about the **ratio** r/g as the contested variable, not abo
 
 Two outcomes. My positional-goods reading of Rognlie's housing is demoted: Chris sees the housing trend as macro, not zoning. And Chris's own position, **r > g as a risk premium** (necessary to induce investment, with fortunes lost to mal-investment as well as to heirs), went onto the thesis page as a clearly marked position, [r/g §7](../economics/r-vs-g.md), kept out of the neutral sections.
 
+### Closing: the EE items left over, and the framing ick
+**Taxes.** Chris: the 90% top marginal rate "was a marginal rate no one really paid," and he remembers earlier research showing effective rates barely moved over the 20th century and breaking down net taxes by bracket, so the top 1%'s ~38% share of federal income tax didn't surprise him, and *"there is good reason to believe that the US has one of the most progressive tax systems."* **⚠ Vault check:** that research is **not in the vault**. The only hit is a passing "91% top marginal rate" in the [Boomers debate](./wordwar-boomers-economy-jones-meyers.md). It looks like a discussion that was never persisted, so it's logged under Open Questions to redo and file.
+
+**Offshore, the other way round.** Chris: *"We touched on offshore holdings of US wealth, but not really the other way around"*, meaning foreign wealth parked in the US. An interesting aside, not pursued.
+
+**The productivity–pay ick is a framing complaint.**
+> **Chris:** *"The page states that productivity/pay has no gap, but what they ARE seeing is the rise in income inequality. 'Wages' tend to be mostly lower-income families and this is declining, while it is getting absorbed by the high-income families via asset transfer/inflation. To be honest, my main criticism is the framing: 'more money is going to the rich' is the accurate interpretation, not that we are no longer being paid for our increased output. Much of the discussion today has been to show that is impossible."*
+
+Filed on [Productivity–Pay Gap §3](../economics/productivity-pay-gap.md) as "the accurate headline," with GLL's 40% labor→shareholder figure as the measured size of the capital half. The thread that ties the session together: output ≡ income (the [Say's-law loop](./dad-saves-america-jevons-says-law.md)), so output can't go unpaid. The live question is only **who** receives it.
+
 ## Vault Connections
 - [Econ Nerds — Inequality Myths](./econ-nerds-inequality-myths.md) — the earlier specimen on the same ground (PSZ vs. A–S, poverty, timing)
 - [Productivity–Pay Gap](../economics/productivity-pay-gap.md) — the 72%/9% chart is an identity; consumption vs. share
@@ -109,6 +119,8 @@ Two outcomes. My positional-goods reading of Rognlie's housing is demoted: Chris
 - [Dad Saves America — Jevons, Say's Law](./dad-saves-america-jevons-says-law.md) — the previous review; negotiation carves the pie
 
 ## Open Questions
+- **Effective tax rates over the 20th century, and net taxes by bracket.** Chris recalls doing this research; the vault has no record of it. Redo it with sources (effective rates by income group over time; the share of federal taxes by bracket) and file it, probably on [Taxation and Unrealized Gains](../economics/taxation-and-unrealized-gains.md) or its own page.
+- **Foreign wealth held in the US** (the inbound side of offshore holdings). An aside Chris flagged.
 - Speaker attribution in the reaction transcript is still to verify against the audio (EE's own lines can now be checked against its clean transcript).
 
 ## Tags
