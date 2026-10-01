@@ -82,6 +82,43 @@ The bot did arrive at a toggle (the playbook's per-room tag: *avoid unless the r
 4. **Carried state carries mistakes.** *"This is something I still have to warn against. If the agent is keeping state from the beginning, they are carrying mistakes forward. I advocated for fresh sessions to avoid this issue, but this didn't stop issues in memory and such. I think we get better at this, but being able to purge context/memory of bugs is something to watch for."* The bot's version: one knockback written as a permanent fact poisoned 37 of 40 attempts, and the fix was a **clean slate per attempt** (J-29). Fresh sessions purge *context*; they don't purge *memory files*, which is exactly where the bot's poison lived (its persistent knowledge base).
 5. **The human held the criteria.** *"Yup, cyborg model."* → [The Cyborg Model](../cyborg-model.md).
 
+## The toolset gap, and what to add
+> **Chris:** *"What I wanted for this page last is the toolset. We seem to do everything that this experiment did except for being able to feed inputs into the emulator itself. We never explored this, though we did explore Lua scripts, and these might not have the resolution we would need for clean gameplay. So maybe we can add some tools to our toolset?"*
+
+**What we have vs. what the bot had:**
+
+| Capability | AIBeatsZelda | Our toolset today |
+|---|---|---|
+| Read RAM / state | bridge `read` | ✅ Mesen Lua `emu.read`, `.dmp` dumps (`capture-test.py`) |
+| Watch writes / exec | — | ✅ `addMemoryCallback` loggers (`na1-decompiler/nobunaga/tools/lua/`) |
+| Run game logic offline | — | ✅ (stronger) the validated Python VM (`run-effect.py`), run on SRAM dumps |
+| Decode ROM tables / read the code | community disassembly + own decoders | ✅ (stronger) we *produce* the disassembly and decompiled C |
+| **Inject controller input** | bridge `hold buttons n frames` | ❌ never built |
+| **Programmatic savestates** | bridge `save`/`load` (~1 ms) | ❌ (manual GUI dumps only) |
+| **Lockstep control from Python** | socket, blocking per command | ❌ |
+| **Headless, parallel instances** | six BizHawk scouts | ❌ |
+| **Replay verification** | input log from power-on → RAM SHA-1 | ❌ (our verifier is bytecode-level, not behavioral) |
+| Automated survey sweep | `tactics.py`, `secrets.py` | ◐ manual: `capture-test.py` pre → act → post → diff |
+
+**Resolution is not the problem. Verified 2026-10-01 against Mesen 2's own source** (`SourMesen/Mesen2` master: `Core/Debugger/LuaApi.cpp`, `ScriptingContext.cpp`, `UI/Utilities/CommandLineHelper.cs`):
+- `emu.setInput(buttons, port, subport)` sets controller bits, and the event list includes **`inputPolled`**, which fires *each time the game reads the pad*. That is finer than per-frame.
+- `emu.createSavestate()` returns the whole state as a string, and `emu.loadSavestate(s)` restores it. **Catch:** both must be called *inside an exec memory callback for the main CPU* (the source errors otherwise), so the bridge saves/loads from an exec hook on an address the game runs every frame (e.g. its NMI handler, from the ROM vector).
+- **LuaSocket** is built in, but disabled by default: enable *Script → Settings → Restrictions → Allow I/O & OS access* and *Allow network access*.
+- **`--testRunner [lua script] [rom]`** runs headless. That gives the parallel scouts.
+
+So Mesen 2, which we already use, can do everything BizHawk did for the bot. No second emulator is needed. *(Our installed build's version is unchecked; step 0 is confirming it has these.)*
+
+**Proposed tools** (target-agnostic, one home, with the journal's scars built in from day one):
+1. **`bridge.lua`**: a socket server inside Mesen with the four verbs (hold buttons for *n* frames / read RAM ranges / save state / load state, plus a RAM hash). **Blocks between commands, so no frame runs that Python didn't ask for** (J-08).
+2. **`harness.py`**: the Python client. **Every frame goes through one input recorder** (J-19). `replay(log)` runs from power-on with a **wiped battery save** (J-15, J-46) and compares the RAM SHA-1.
+3. **`survey.py`**: the automated `capture-test`. From one savestate, run N variants, read a RAM predicate **when it settles** (J-23), and print a ranked table. Each attempt starts from a **clean slate** (J-29).
+4. **`scouts.py`**: N `--testRunner` instances on N ports for parallel search.
+
+**What it would buy us:**
+- **NA1 / the KOEI titles:** turn `capture-test`'s manual pre/post into a sweep (every command × every fief from one save). It also gives a **behavioral oracle** for the decompiled sim: the same inputs into Mesen and into the Python VM should give the same SRAM.
+- **Mappy (real-time):** the lookahead harness is the method the architecture-first rule predicts for a real-time game.
+- **Zelda itself:** needs a ROM (Chris: *"at best we might try to get the Zelda ROM"*). With it, the 37:02 input log in the AIBeatsZelda repo is a ready **acceptance test** for our harness: replay it and see whether it reaches Zelda. *(A cross-emulator replay may desync. Mesen and BizHawk can differ on power-on RAM contents and timing, so their RAM hash is not expected to match. A desync is itself a finding about emulator equivalence.)*
+
 ## Vault Connections
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
 - [Slay — Evaluation](./slay-evaluation.md) — eval beats depth
