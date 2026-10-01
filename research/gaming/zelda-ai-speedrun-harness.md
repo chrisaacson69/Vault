@@ -63,6 +63,11 @@ The journal's order was **experiment → ROM tables → disassembly** (J-02/03 b
 
 **Glitches.** Chris: controller glitches are fine (*"TAS runs exploit anything they can"*), but the run's glitchless rules force a different route, one he knows less well. So the comparison with the 27:40 record is between two categories, not one.
 
+**Screen scrolling, as Chris described it.**
+> **Chris:** *"Screen scrolling is a controller glitch that takes advantage of the input buffer in the game. Basically you are feeding the controller multiple inputs before they are read, and this will allow things such as block clipping and screen scrolling. Screen scrolling is an input buffer trick done on the edge of the screen where you give opposing inputs. The game takes these inputs into the screen change (scroll) routine and thinks the player is scrolling the screen in the opposite direction. Because of this, it puts Link on the opposite side of the screen and allows him to continue that way. So this can be used to skip screens very quickly, or even better, get over boundaries that are normally there, such as a wall, or even wrapping to the other side of the map. This trick only works left/right in practice, as up/down gets blocked by the game interface at the top: Link still appears in that interface, but he gets stuck, as the scroll routine doesn't expect him there."*
+
+Read as RE, a glitch is a **precondition the game's code never checks**. The scroll routine trusts the input direction without checking it against where Link actually is. That is the bot's *"the instrument, not the game"* turned around: there the bot's own checks had no failure mode for a class of error; here the **game's** check has none for a class of input. It also bears on "data first": a glitch like this is a fact about the code, so it is in principle readable from the scroll routine in the disassembly, and a frame-level savestate search over input combinations is the empirical way to find it. Both of those were tools the bot already had; its rules, not its method, kept it off this path. *(Mechanism as described by Chris; not verified against the disassembly here.)*
+
 **Two rules promoted** to the project SDK (`projects/CLAUDE.md`), 2026-10-01: *zero yield is a wrong-path signal* (from J-22 and Chris's ghost-chasing) and *a learned fact records its cause, or it isn't recorded* (from J-29 and Chris's carried-state warning).
 
 ### Speedrunning is avoiding gameplay: the avoid/fight toggle
@@ -87,7 +92,7 @@ The bot did arrive at a toggle (the playbook's per-room tag: *avoid unless the r
 - [Variance Is Not Luck](../economics/variance-is-not-luck.md) — "a run is one draw"
 
 ## Open Questions
-- **Screen scrolling:** Chris to describe; is it a technique the bot could have discovered from RAM/code alone?
+- **Verify screen scrolling against the disassembly:** find the scroll routine's input read and the missing position check. Could the bot's harness have discovered it by search, given a rule set that allowed it?
 - **Specimens not yet filed:** eval-beats-depth (→ [Slay](./slay-evaluation.md)), search-hides-bugs (→ [Oracles](../oracles-as-objective-functions.md)), the cyborg split (→ [Cyborg Model](../cyborg-model.md)).
 - **A bot on our decompiled source** (seed 1): NA1's sim plus the capture-test survey, or a Mappy lookahead harness as a behavioral oracle?
 
