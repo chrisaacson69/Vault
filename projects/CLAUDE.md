@@ -44,6 +44,13 @@ projects/ → game-annotation → nes → koei → <game>      (taxonomy of apps
   Mechanical work → a deterministic generator; genuinely-unknown reads → fan out agents (throttle in waves).
 - **Label as you go is a GOAL, not cleanup** — name every address/table/var back into the registry before
   session end. Scope sessions to ONE task; registries make breaking cheap.
+- **Zero yield is a wrong-path signal, not a call for more effort.** A search, walk or probe that keeps returning
+  zero successes is evidence the *space* is wrong (a missing tool, a false assumption, a ghost), not that it needs more
+  tries. Stop and re-question the premise before widening the search. [[feedback_zero_yield_wrong_path]]
+- **A learned fact records its cause, or it isn't recorded.** Anything written to a persistent store (memory,
+  knowledge file, registry) carries the evidence that produced it, so a bug-derived fact can be found and evicted
+  later. A fact from an *ambiguous* failure (more than one candidate cause) is not written at all. Fresh sessions purge
+  context, not stores. [[feedback_learned_fact_carries_cause]]
 - **Findings flow BACK to the vault.** A confirmed result or reusable pattern is *harvested* up: a topic memory
   + its area index, or a `research/` page (the thesis), with the project as its dated specimen. Don't let
   knowledge die in the app repo. (Flow ops: spawn ↓ / harvest ↑ / crystallize ↑, each registering its link.)

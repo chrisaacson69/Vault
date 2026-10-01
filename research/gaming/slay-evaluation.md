@@ -8,7 +8,7 @@ title: "Slay — Evaluation & Search (the 1v1 case)"
 # Slay — Evaluation & Search (the 1v1 case)
 > The evaluation function and search design for two-player Slay, and three theses that generalize past it: the cut/join graph duality, realizable-treasury (use-it-or-lose-it), and eval-beats-depth in wide-branching games.
 
-**Links:** [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) (the N≥3 wall; this page is the tractable 1v1 base case), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Gaming](./README.md), [Economics](../economics/README.md)
+**Links:** [Zelda AI harness](./zelda-ai-speedrun-harness.md) (a 3-step lookahead was no better than 2; scoring fixes won: eval beats depth, independently), [The Multiplayer Coalition Problem](./multiplayer-coalition-problem.md) (the N≥3 wall; this page is the tractable 1v1 base case), [Slay](../../projects/slay/README.md), [Slay-C](../../projects/slay-c/README.md), [Gaming](./README.md), [Economics](../economics/README.md)
 
 ## Framing — at 1v1 the algorithm question is moot
 

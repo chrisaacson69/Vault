@@ -1,0 +1,95 @@
+---
+status: active
+created: 2026-10-01
+discussion: folded-in
+---
+# An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers
+> A creator had Claude Code, working as a coding agent, build a bot that beats *The Legend of Zelda* (NES) from power-on: **37:02, glitchless, replay-verified**, after ten days, ~25,000 lines of Python and a **46-entry journal** the agent kept as it went. The AI never plays live (it thinks in seconds; Link needs a decision every frame). It **writes the player**, a deterministic program that does. This page is about **technique**: the source is the closest external specimen yet to the vault's own RE-and-build-with-LLMs method, on a **real-time** game, from the *consumer* side of a disassembly.
+
+**Date:** reviewed 2026-10-01
+**Source (video):** [YouTube — "AI learns to beat Zelda"](https://www.youtube.com/watch?v=mBalZml520o) (48:16; ~11 min narrated, then the 37-min run, no commentary) — [transcript](../../raw/videos/transcript-mBalZml520o.txt) · [clean](../../raw/videos/transcript-mBalZml520o-clean.txt)
+**Source (primary, much richer):** [bearsgaming-ui/AIBeatsZelda](https://github.com/bearsgaming-ui/AIBeatsZelda) @ `e0c705e` (2026-09-23): `release.zip` holds the harness, `journal/` (46 entries), `knowledge/` (playbook, routes, decoded ROM tables), and the run's input log + `VERIFICATION.txt`. **Read in full for this review**; cited below as *J-nn* (journal entry). Third-party code, not copied into the vault.
+**Vault relevance:** [Oracles Are Objective Functions](../oracles-as-objective-functions.md), [Slay — Evaluation](./slay-evaluation.md) (eval beats depth), [Contract vs. Substrate](../contract-vs-substrate.md), [Jevons for Software §4a](../economics/jevons-software-demand.md) (gating the criteria), [LLM Agents Across Games](./llm-agents-across-games.md), [Pluto on the Brood War Ladder](./pluto-broodwar-apm-over-strategy.md), [Variance Is Not Luck](../economics/variance-is-not-luck.md)
+
+---
+
+## The architecture (what was actually built)
+1. **Hands.** A Lua script inside BizHawk (the TAS community's emulator) listening on a socket, with **four verbs**: hold buttons for *n* frames, read state, save a bookmark, load a bookmark (plus screenshot). Everything else is built from those (J-01).
+2. **Eyes = RAM, not pixels.** All game state comes from 2 KB of RAM: positions, hearts, the 12 monster slots' types and positions, the decoded tile grid. Addresses came from fan memory maps, **several wrong** (the wiki's game-mode table had two values swapped), found by testing (J-01, J-04).
+3. **Lockstep invariant.** *"Every frame of the run must be one the script explicitly asked for."* Learned when the bridge's 50 ms yield let the emulator run ~300 unrequested frames whenever Python paused. Same state and same inputs gave different results, which looked like nondeterminism (J-08).
+4. **Learned terrain.** BFS over 8-px steps; unknown tiles assumed walkable; a failed step with **exactly one** unknown tile marks it solid *forever* (a persistent knowledge file). Two unknowns teach nothing (J-02, J-03).
+5. **Segment search.** The game is cut into **341 segments** (roughly one per room). From the bookmark at each door: 60–90 **seeded** attempts across six emulators, each scored to **one number** (frames, plus prices for hearts and bombs: a bomb in hand = 220 frames). Keep the best, bookmark its end, move on. A lossless `OverBudget` cutoff kills attempts that can no longer win (J-05, J-06, J-40).
+6. **Lookahead fighter.** Every 8 frames: snapshot, try **9 macros** (4 walks, 4 swings, wait), roll each forward ~14 frames, score (death −100,000; half-heart −800; enemy HP +60; kill +150; facing a Darknut's shield −60; a pull toward strike spots), play the best. It beat the five-Darknut room **first try** after hand-written reactive fighters failed hundreds of times (J-11). *"Those prices are Link's personality"* (narration).
+7. **Survey tool** (`tactics.py`, `secrets.py`). Snapshot a room, replay a few seconds once per (weapon × position), or try every item from every reachable square, and print a ranked table. *"It costs about two minutes. It cannot be wrong"* (J-20, J-22, J-23).
+8. **Reading the cartridge and the disassembly.** The ROM's door tables decoded (0 open, 1 wall, 4 bombable, 5 locked, 7 shutter). A **flood-fill over the door graph** found each dungeon's boss wing as an orphan component joined by a staircase (J-20). Ganon's exact rules, the whirlwind counter and the kill-cycle drop table came from the community disassembly (J-31, J-32, J-41). The overworld decoder matches **98/98** walked screens.
+9. **A calibrated route model.** A Dijkstra router plus an errand-order planner, calibrated on run 3's 110 crossings. It **reproduced run 3 at 41.33 min vs. 41.26 real**, then **predicted run 4 at 39.24; it came in at 39.25** (J-41, J-42).
+10. **Verification.** The whole input log is replayed from power-on in a fresh emulator with a wiped battery save, and the final 2 KB of RAM is compared by SHA-1. Every run is "MATCH" or it isn't a run (J-01, J-15, J-46).
+
+**Trajectory:** 1:43 → 57:40 → 41:15 → 39:15 → 37:19 → **37:02** (human glitched record 27:40). Final split: 16:31 scrolls/menus/fanfares, 12:05 fights, 7:34 walking empty rooms (J-45).
+
+## Lessons the journal states in its own words
+- **"Research first, experiment second."** The emulator confirms facts and finds the fastest execution; it does not rediscover what the community wrote down twenty years ago (J-10).
+- **"The instrument, not the game."** Seven times the bot's *own check* was what was broken: a projectile counted as boss HP, a boss that left the room read as dead, a whirlwind taken as evidence, a 360-frame timeout on a 380-frame ride, a rupee counter read **at the first instant it moved instead of when it settled** (J-17, J-21, J-24, J-26).
+- **"Test your instrument on a question you already know the answer to before you believe its 'no'"** (J-25).
+- **"Reaching for it is the discipline, not building it."** The survey tool existed a day before the Pols Voice fight it would have solved in two minutes (J-24).
+- **Poisoned memory.** A knockback or an old man's text freeze got recorded as "this move is impossible" *permanently*. 37 of 40 failures came from one wrong memory. Fix: a clean slate per attempt; a failure caused by a hit or a blocker is not scenery (J-15, J-29, J-40).
+- **Search hides bugs.** For ten days about half of all perpendicular swings went out **sideways** (an 8-px grid slide). The search quietly filtered the failures, so nothing "broke"; the planner just *learned that flank attacks don't work* and circled. Found only by printing every decision of one fight. After the fix, **an average first try beat what fifty rehearsals used to find** (J-43).
+- **Path-dependent residue.** Detours "rational at the moment written … none of them rational from the finished map": three dungeons entered twice. Removed by re-planning from the finished map (J-37, J-39).
+- **"When a change makes things worse, revert it before reasoning about it"** (J-36).
+- **A run is one draw.** Boss variance swamps tightening; the agent stops rolling rather than chase noise (J-40, J-45).
+
+## Discussion seeds
+1. **Same method, opposite end of the disassembly.** Our projects *produce* decompiled source; this bot *consumed* one (aldonunez's Zelda disassembly) and that is what cracked Ganon, the drop table and the whirlwind. Is "a bot or route planner that runs on our decompiled source" the demo that makes our architecture visible (*structure over demos*), e.g. NA1's verified econ sim already being half of one? (NA1 already has the *survey* pattern in manual form: `capture-test.py` pre → move → post → diff, and `run-effect.py` running a handler from an SRAM dump. The Zelda bot automates that sweep: every option from one snapshot, ranked.)
+2. **Architecture-first, confirmed from outside.** The vault's rule: classify the game first (turn-based = walkable call tree; real-time = data plus dispatch). This is the real-time case, and the method that fell out (savestate search plus lookahead plus RAM reading) is exactly what that classification predicts. Mappy is our real-time specimen. Would a lookahead harness on Mappy be a **behavioral oracle** for its decompiled logic: same inputs, compare RAM?
+3. **"The instrument, not the game" sharpens two vault rules.** The common-mode-error page says a checker with no failure mode for an error class reports zero errors forever. The journal adds two operational tests: **read a value when it settles, not when it changes**, and **calibrate the detector on a known positive before trusting its "no."** Promote to the RE-method rules?
+4. **Search hides bugs: an optimizer as a bug-masker.** [Oracles Are Objective Functions](../oracles-as-objective-functions.md) has "all-pass = a standard optimised against." The sideways sword is the mirror image: **selection filters out a systematic error instead of exposing it**, and the behavior adapts around it. Our multi-pass label walks also keep "what passes." Do we have a sideways-sword anywhere? (The KOEI `$D8` bug two passes shared is the nearest cousin.)
+5. **The human held the criteria, not the code.** Every big correction came from the owner watching: the boomerang sitting in the B slot during the Dodongo fight, "that orange thing needs to be whistled," "go through them," "passive is losing." He wrote no code. That is [Jevons §4a](../economics/jevons-software-demand.md)'s "gating the criteria" observed in the wild. Specimen for the thesis?
+6. **Lookahead depth vs. evaluation.** A three-step lookahead was "no better than two, costs more" (J-43); the big gains came from fixing *what was scored* and *what was simulated* (the facing fix). That is [Slay's](./slay-evaluation.md) *eval beats depth*, independently. Add as a specimen?
+7. **The journal is a scar ledger, and a better one than ours?** Every entry: problem, tried, wrong, changed. It is the scar-ledger pattern (specimen: [Hangman](./hangman-solving-both-sides.md)) written as narrative, and it doubled as the documentary's script. Our session logs vs. per-project journals: is there something to adopt?
+
+## Discussion
+
+### "No cheats" isn't well defined, and that's fine
+> **Chris:** *"I find it interesting that he said 'no cheats', but I am not sure this is well defined! A good example is actually NA1 from our vault: we can read RAM and know the state of all fiefs on the map, something a human can't do. Is reading all of Zelda RAM the same? If the AI learns how to screen scroll, is this cheating? To be honest, I don't think this is a problem. TAS runs exploit anything they can about the code to find a faster way."*
+
+The run's rules (README) constrain **inputs** (controller only, no memory writes) and **techniques** (no screen scrolling, no block clips). They say nothing about **information**: the bot sees all of RAM, a superhuman view, exactly like our NA1 tools seeing every fief. So "no cheats" means *"no writes, no glitches,"* not *"human information."* The TAS tradition draws the line only at the input log. Chris will describe screen scrolling later.
+
+### Data first: the bot took the long way round
+> **Chris:** *"What I find amusing is that the first try to figure out how to move, the engine enumerated all of the directions in-game to build its map. Only later on did it find the data that builds the maps and use it to confirm its pre-built map was accurate. I would jump straight to the data! And to this: yes, it took way too long to read the source code. This would have answered many questions upfront, and is the main reason I started the disassembly projects!"*
+
+The journal's order was **experiment → ROM tables → disassembly** (J-02/03 bump-mapping, J-07/J-20 door tables, J-31 Ganon's code, J-41 overworld decoder: 98/98). Chris's order is the reverse: **read the data and code first, then experiment to confirm.** The bot's own late rule (*"research first, experiment second,"* J-10) is the same lesson, learned by paying for it. This is also the vault's *label data earlier in the pipeline* rule (strings, schemas and RAM globals before the code walk), now from a consumer of a disassembly instead of a producer.
+
+**Correction on provenance (Chris asked).** Chris had the impression the bot found the map data in the ROM itself, and **for the maps, it did**: the dungeon door/room tables (J-07, J-20) and all 128 overworld screens (J-41) were decoded *by the bot from the ROM*, and the overworld decoder was trusted only after matching **98/98** screens it had walked. What was borrowed was (a) the **RAM address map** (fan-made, several entries wrong, J-01/J-04), (b) the community **disassembly** for game logic (Ganon, drops, the whirlwind), and (c) community **maps and cave lists**, wrong at least five times (J-23, J-35). Chris: *"this does explain it, and I think we 'fact-check' the oracle because of it. If the bot found ROM and could draw screens, this is better grounding."* Ranked by grounding: **self-decoded ROM, verified against play** > the community disassembly > fan RAM maps > community maps and walkthroughs. Only the first was never wrong in the journal.
+
+**Glitches.** Chris: controller glitches are fine (*"TAS runs exploit anything they can"*), but the run's glitchless rules force a different route, one he knows less well. So the comparison with the 27:40 record is between two categories, not one.
+
+**Two rules promoted** to the project SDK (`projects/CLAUDE.md`), 2026-10-01: *zero yield is a wrong-path signal* (from J-22 and Chris's ghost-chasing) and *a learned fact records its cause, or it isn't recorded* (from J-29 and Chris's carried-state warning).
+
+### Speedrunning is avoiding gameplay: the avoid/fight toggle
+> **Chris:** *"Speedrunners learn fairly early that avoiding as much gameplay as possible is the key to fast runs. It is fine to build a good combat engine, but most of the time you avoid combat, only doing it when required. The ability to toggle between avoid and combat is a key component. And when I watched the run, I noticed the pathing wasn't the same as the top runners, so even as the author admitted, there is much improvement to be had."*
+
+The bot did arrive at a toggle (the playbook's per-room tag: *avoid unless the route says fight*; J-39's door-table audit: "rooms whose exit is open or locked are crossed, not cleared"). But it reached it late, and the route still differs from the human record's (J-41: the 27:40 route is 3-4-1-5-2-7-MS-6-8-9 and uses glitches this run forbids, but its pathing is not only glitches).
+
+### The five lessons, against our own projects
+1. **The instrument, not the game.** *"Yes, we ran into this a lot... still running into it with the latest decompile! And this is fine: we don't know what we don't know. But we learned the lesson that an 'oracle' is only the best we know so far."* This is the [contract-vs-substrate](../contract-vs-substrate.md) point: the floor is adopted, not discovered.
+2. **Search hides bugs.** *"Also something we ran into with the decompiler: we chased after ghosts and the space just constantly grew because of it. Knowing when you are going down a wrong path is a big deal."* The journal has a wrong-path detector worth keeping: *"a segment grinding for many minutes with zero successes means the room contains something the sword cannot touch"* (J-22). Persistent zero yield is a signal about the **search space**, not about effort.
+3. **Errors compound early; the landscape clears them.** *"This is something we need to deal with more. The first decompile I ended up doing 3x. Errors early on did compound, and this is fine. We didn't know what we were doing, so of course there was error, but as the landscape became clearer, those errors were eliminated and we got better results."* (Same arc as J-37's "rational at the moment written, not from the finished map," and the vault's ROTK2 re-walk.)
+4. **Carried state carries mistakes.** *"This is something I still have to warn against. If the agent is keeping state from the beginning, they are carrying mistakes forward. I advocated for fresh sessions to avoid this issue, but this didn't stop issues in memory and such. I think we get better at this, but being able to purge context/memory of bugs is something to watch for."* The bot's version: one knockback written as a permanent fact poisoned 37 of 40 attempts, and the fix was a **clean slate per attempt** (J-29). Fresh sessions purge *context*; they don't purge *memory files*, which is exactly where the bot's poison lived (its persistent knowledge base).
+5. **The human held the criteria.** *"Yup, cyborg model."* → [The Cyborg Model](../cyborg-model.md).
+
+## Vault Connections
+- [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
+- [Slay — Evaluation](./slay-evaluation.md) — eval beats depth
+- [Contract vs. Substrate](../contract-vs-substrate.md) — the knowledge files and decoded tables as substrate; the replay hash as the adopted floor
+- [Jevons for Software §4a](../economics/jevons-software-demand.md) — the human gating criteria
+- [LLM Agents Across Games](./llm-agents-across-games.md) — LLMs *playing* fail on mechanics; here the LLM *builds* the player and never plays
+- [Pluto on the Brood War Ladder](./pluto-broodwar-apm-over-strategy.md) — another machine player in a real-time game
+- [Variance Is Not Luck](../economics/variance-is-not-luck.md) — "a run is one draw"
+
+## Open Questions
+- **Screen scrolling:** Chris to describe; is it a technique the bot could have discovered from RAM/code alone?
+- **Specimens not yet filed:** eval-beats-depth (→ [Slay](./slay-evaluation.md)), search-hides-bugs (→ [Oracles](../oracles-as-objective-functions.md)), the cyborg split (→ [Cyborg Model](../cyborg-model.md)).
+- **A bot on our decompiled source** (seed 1): NA1's sim plus the capture-test survey, or a Mappy lookahead harness as a behavioral oracle?
+
+## Tags
+[game-ai](../../tags/game-ai.md) · [agents](../../tags/agents.md) · [reverse-engineering](../../tags/reverse-engineering.md) · [nes](../../tags/nes.md) · [methodology](../../tags/methodology.md)

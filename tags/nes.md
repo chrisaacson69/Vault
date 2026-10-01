@@ -26,3 +26,4 @@ permalink: /tags/nes/
 - [ROTK1 — Sangokushi (NES)](../projects/game-annotation/nes/ro3k/README.md) — The earliest title in the KOEI NES decompiler family, and the baseline the other four are read
 - [ROTK2 — Sangokushi II (NES)](../projects/game-annotation/nes/rot3k2/README.md) — Design clock **1989**; Famicom port 1990.
 - [The comparison studies — paired deep-reads](../projects/game-annotation/comparisons/README.md) — The four titles the series started as, organized in **paired comparisons**.
+- [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — NES Zelda bot, glitchless 37:02
