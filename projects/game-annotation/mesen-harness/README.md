@@ -24,7 +24,7 @@ project SDK → [projects/CLAUDE.md](../../CLAUDE.md)
 then a KOEI adapter). Same dependency shape as `snes-decompiler` → `koei-snes` → titles.
 
 **Status (2026-10-01):** scaffolded and pushed; no code yet. Milestone 1 = replay the AIBeatsZelda
-run-6 input log from power-on. Blocked on a Rev 1 ROM (the local dump is a different revision; see the design page).
+run-6 input log from power-on. The local Rev 1 dump matches the run's ROM hash (verified 2026-10-01).
 
 ## Tags
 [nes](../../../tags/nes.md) · [python](../../../tags/python.md) · [tools](../../../tags/tools.md) · [game-ai](../../../tags/game-ai.md)
