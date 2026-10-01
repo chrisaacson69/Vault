@@ -34,3 +34,4 @@ permalink: /tags/game-ai/
 - [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)
 - [Pluto on the Brood War Ladder — APM Beats Strategy, and Why the Gradient Went There](../research/gaming/pluto-broodwar-apm-over-strategy.md) — An RL-trained Brood War bot (**Pluto**), hacked onto the official Remastered ladder by a third party, reached effective #1 and beat a top-7 Protoss with a build every human heur…
 - [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — an LLM writes the player; savestate search plus lookahead; replay-verified 37:02
+- [mesen-harness — drive Mesen 2 from Python](../projects/game-annotation/mesen-harness/README.md) — console-agnostic core of the emulator harness: Lua socket bridge + lockstep Python client.

@@ -22,3 +22,4 @@ permalink: /tags/python/
 - [CyborgDJ](../projects/cyborgdj/README.md) — Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
 - [democracy3-solver](../projects/democracy3-solver/README.md) — "Solve" Positech's Democracy 3 by extracting its game-data model and running optimization on it.
 - [DJ Blend Tool Test Plan — Retrieve, Fit, Close the Gaps](../research/dj-blend-tool-test-plan.md) — Ordered plan to retrieve the candidate blend tools and test each on one fixed transition, closing the critic / closed-loop / A/B-log gaps.
+- [mesen-harness — drive Mesen 2 from Python](../projects/game-annotation/mesen-harness/README.md) — console-agnostic core of the emulator harness: Lua socket bridge + lockstep Python client.

@@ -42,7 +42,7 @@ permalink: /tags/_index/
 - [food-safety](./food-safety.md) — 1 file
 - [free-markets](./free-markets.md) — 24 files
 - [free-will](./free-will.md) — 7 files
-- [game-ai](./game-ai.md) — 27 files
+- [game-ai](./game-ai.md) — 28 files
 - [game-design](./game-design.md) — 11 files
 - [game-theory](./game-theory.md) — 43 files
 - [games](./games.md) — 63 files
@@ -64,7 +64,7 @@ permalink: /tags/_index/
 - [morality](./morality.md) — 65 files
 - [music](./music.md) — 11 files
 - [natural-law](./natural-law.md) — 15 files
-- [nes](./nes.md) — 20 files
+- [nes](./nes.md) — 22 files
 - [nobunagas-ambition](./nobunagas-ambition.md) — 1 file
 - [objectivism](./objectivism.md) — 30 files
 - [opus-4-6](./opus-4-6.md) — 1 file
@@ -74,7 +74,7 @@ permalink: /tags/_index/
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 2 files
-- [python](./python.md) — 15 files
+- [python](./python.md) — 16 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
 - [reverse-engineering](./reverse-engineering.md) — 39 files
@@ -84,7 +84,7 @@ permalink: /tags/_index/
 - [snes](./snes.md) — 13 files
 - [software-engineering](./software-engineering.md) — 8 files
 - [strategy](./strategy.md) — 30 files
-- [tools](./tools.md) — 4 files
+- [tools](./tools.md) — 6 files
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files
 - [workflow](./workflow.md) — 5 files

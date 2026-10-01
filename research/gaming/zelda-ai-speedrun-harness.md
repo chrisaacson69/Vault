@@ -133,6 +133,7 @@ So Mesen 2, which we already use, can do everything BizHawk did for the bot. No 
 3. **The strategy games:** the KOEI adapter, the survey sweep, and the Mesen-vs-Python-VM behavioral oracle.
 
 ## Vault Connections
+- **The build:** [mesen-harness](../../projects/game-annotation/mesen-harness/README.md) (core) → [nes-harness](../../projects/game-annotation/nes/harness/README.md) (NES layer), scaffolded 2026-10-01
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
 - [Slay — Evaluation](./slay-evaluation.md) — eval beats depth
 - [Contract vs. Substrate](../contract-vs-substrate.md) — the knowledge files and decoded tables as substrate; the replay hash as the adopted floor
