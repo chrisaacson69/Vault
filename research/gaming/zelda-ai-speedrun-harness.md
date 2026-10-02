@@ -163,6 +163,11 @@ Checked against the run's own `VERIFICATION.txt` (final RAM SHA-1 `3115e31f…66
 
 So the attract script is a frame-exact *seed*, not a solution: surviving round 1 is the search loop's first job.
 
+**Step 2 (2026-10-02): the search plays round 1.** `emu-harness`'s `segment_search` works from a checkpoint. It runs 32 sampled 96-frame segments across 8 headless Mesen workers, about 370 fps each, and keeps the best one that survives. The Mappy adapter (`game-annotation` `mappy/mappy_search.py`) cleared round 1 with **no deaths in 3,292 frames (54.8 s of play), in 169 s wall time**. Replaying the log from power-on, with no savestates, gives RAM identical to the search's last checkpoint. Three lessons, in the order they showed up:
+- **Greedy plus backtracking gets trapped.** The best candidate can survive its own segment and still end where every continuation dies, and greedy picks the same trap again after each backtrack. The fix was a **lookahead probe**: keep a candidate only if one of 8 random continuations survives. Also, a dead end counts against its parent, so backtracking escalates.
+- **Blind search stalls; one gradient fixes it.** Scoring by items taken then points, the search reached 8 of 10 items and then wandered for 70+ segments while the cats got deadlier. Survivors per batch fell to 3 of 32. Adding the distance to the nearest remaining item, read from the item table at `$0260`, cleared the round in 33 segments with no backtracks. This is the [objective-function](../oracles-as-objective-functions.md) lesson again: the RE told the search what "closer" means.
+- The game knowledge (RAM map, death, the gradient) lives in the adapter. The loop knows none of it.
+
 ## Vault Connections
 - **The build:** [emu-harness](../../projects/game-annotation/emu-harness/README.md): backends (Mesen 2, BizHawk) × machines (NES); began 2026-10-01 as `mesen-harness` + `nes-harness`, merged 2026-10-02 (Decision 2)
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
