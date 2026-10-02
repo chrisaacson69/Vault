@@ -27,5 +27,4 @@ permalink: /tags/nes/
 - [ROTK2 — Sangokushi II (NES)](../projects/game-annotation/nes/rot3k2/README.md) — Design clock **1989**; Famicom port 1990.
 - [The comparison studies — paired deep-reads](../projects/game-annotation/comparisons/README.md) — The four titles the series started as, organized in **paired comparisons**.
 - [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — NES Zelda bot, glitchless 37:02
-- [mesen-harness — drive Mesen 2 from Python](../projects/game-annotation/mesen-harness/README.md) — console-agnostic core of the emulator harness: Lua socket bridge + lockstep Python client.
-- [nes-harness — NES layer of the Mesen harness](../projects/game-annotation/nes/harness/README.md) — pad map, battery-save wipe, NMI-vector frame hook over `mesen-harness`.
+- [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.

@@ -26,7 +26,7 @@ koei-nes            KOEI Famicom VM engine layer    ← family-specific   → ..
 `nes-render` **graduated out of NA1** the moment Mappy needed it — the SDK's shared-lib rule working as
 intended: a second consumer turns a helper into a real dependency with exactly one home.
 
-**Harness stack** (separate from the decompiler stack): [mesen-harness](../mesen-harness/README.md) (core) → [nes/harness](./harness/README.md) (`nes-harness`, NES layer) → game adapters.
+**Harness** (separate from the decompiler stack): [emu-harness](../emu-harness/README.md), whose `machines/nes` is the NES layer (pad map, battery wipe, power-on RAM fill) → game adapters.
 
 ## Titles
 

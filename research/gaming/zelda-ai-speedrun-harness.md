@@ -132,8 +132,14 @@ So Mesen 2, which we already use, can do everything BizHawk did for the bot. No 
 2. **Mappy = the test bed:** a real-time game whose attract mode already carries a move list.
 3. **The strategy games:** the KOEI adapter, the survey sweep, and the Mesen-vs-Python-VM behavioral oracle.
 
+### Decision 2 (2026-10-02): one repo, emulators and machines as plug-ins (supersedes the repo split above)
+The first build replayed run 6 in Mesen but needed **BizHawk as a second emulator**: for the drift test, BizHawk was the more faithful reference (the run was recorded in it) and it ran faster, which matters for search. *(This revises "no second emulator is needed" in the toolset section above.)* A second emulator broke the layering's premise: Decision 1 stacked the emulator at the bottom (`mesen-harness` → `nes-harness` → adapters), but the NES layer is true on any emulator and a game adapter needs the machine, not the emulator. Emulator and machine are **orthogonal axes**, and a repo per cell multiplies.
+> **Chris:** *"I think 1 is good too.. for instance mesen can support SNES and other machines, and I am not sure Bizhawk can.. so the combinitorics you mention will probably need some configuration glue anyway.. so let's merge and clean up, and make sure we keep good directory habits too."*
+
+**Result:** [emu-harness](../../projects/game-annotation/emu-harness/README.md), with `backends/{mesen,bizhawk}` × `machines/nes`. Game adapters still live in each game's repo. The SDK's "factor out a shared lib when a second consumer needs it" rule cuts the same way: the only outside consumers are the adapters, so the parts inside are plugins, not packages. Modularity is held by import rules and a shared replay test, not by repo walls. A second lesson from the same session: the agent judged runs by whether the emulator window was visible, so minimizing it caused retry loops and, eventually, a desktop screen capture that work security flagged. Now a run reports itself (exit code plus output file), and screen capture is blocked by a hook.
+
 ## Vault Connections
-- **The build:** [mesen-harness](../../projects/game-annotation/mesen-harness/README.md) (core) → [nes-harness](../../projects/game-annotation/nes/harness/README.md) (NES layer), scaffolded 2026-10-01
+- **The build:** [emu-harness](../../projects/game-annotation/emu-harness/README.md): backends (Mesen 2, BizHawk) × machines (NES); began 2026-10-01 as `mesen-harness` + `nes-harness`, merged 2026-10-02 (Decision 2)
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
 - [Slay — Evaluation](./slay-evaluation.md) — eval beats depth
 - [Contract vs. Substrate](../contract-vs-substrate.md) — the knowledge files and decoded tables as substrate; the replay hash as the adopted floor

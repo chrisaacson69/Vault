@@ -37,7 +37,7 @@ Per [Author Web, Derive Hierarchy](../../method/author-web-derive-hierarchy.md),
 |---|---|
 | [comparisons/](./comparisons/README.md) | Adventure · Mappy · Utopia · M.U.L.E. — both arcs, one monorepo |
 | [koei/](./koei/README.md) | **the shared KOEI toolchain** — `koei-nes` + `koei-snes`, the engine reversal, the portable-VM finding |
-| [mesen-harness/](./mesen-harness/README.md) | **the emulator harness core** — drive Mesen 2 from Python; console layers + game adapters build on it |
+| [emu-harness/](./emu-harness/README.md) | **the emulator harness** — drive Mesen 2 / BizHawk from Python; backends × machines as plug-ins, game adapters build on it |
 | [nes/](./nes/README.md) | 6502 + PPU substrate → [tools/](./nes/tools/README.md) + 7 title repos |
 | [snes/](./snes/README.md) | 65C816 substrate → [tools/](./snes/tools/README.md) + 2 title repos |
 | [civ-revolution/](./civ-revolution/README.md) | the next title by a **different method** — no decompilation available, so game-design analysis |
