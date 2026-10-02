@@ -138,6 +138,13 @@ The first build replayed run 6 in Mesen but needed **BizHawk as a second emulato
 
 **Result:** [emu-harness](../../projects/game-annotation/emu-harness/README.md), with `backends/{mesen,bizhawk}` × `machines/nes`. Game adapters still live in each game's repo. The SDK's "factor out a shared lib when a second consumer needs it" rule cuts the same way: the only outside consumers are the adapters, so the parts inside are plugins, not packages. Modularity is held by import rules and a shared replay test, not by repo walls. A second lesson from the same session: the agent judged runs by whether the emulator window was visible, so minimizing it caused retry loops and, eventually, a desktop screen capture that work security flagged. Now a run reports itself (exit code plus output file), and screen capture is blocked by a hook.
 
+### Replay result (2026-10-02): BizHawk is bit-exact; Mesen is frame-exact for 42%, then one RNG step apart
+Checked against the run's own `VERIFICATION.txt` (final RAM SHA-1 `3115e31f…668ff`), using the per-frame 2 KB RAM traces in `emu-harness`:
+- **BizHawk 2.11.1 / quickerNES replaying the `.bk2`: exact.** The last trace record's RAM SHA-1 equals the recorded one, all 2,048 bytes. This is a confirmed per-frame reference for the whole run.
+- **Mesen replaying `inputs.txt` (`--offset -1`): all 2,048 bytes identical to BizHawk on every frame through record 57,317** (about 42% of the run, Level 8 room 63). The only earlier differences are zero-page temporaries and the stack, which resync within 1–3 frames. At **57,318** two bytes split first (`$0FF` bit 7, `$328`). On the next frame the block at `$018–$024` differs by what looks like **one extra shift** (e.g. `16/2c`, `1a/34`). That fits Zelda's RNG advancing once more in one emulator, i.e. a one-frame timing or lag difference at that moment. Lag flags then disagree on 12.5k frames, and Link dies about 600 frames later.
+- **So "more accurate" here means "the emulator that recorded the movie."** quickerNES is the core the bot ran. Whether Mesen or quickerNES is closer to real hardware at frame 57,318 is open (see below). For replaying another emulator's movie, bit-exactness to the *recording* emulator is the criterion that matters.
+- Unverified readings, still to check against the disassembly: `$0FF` as the PPUCTRL shadow (bit 7 = NMI enable) and `$018–$024` as the RNG.
+
 ## Vault Connections
 - **The build:** [emu-harness](../../projects/game-annotation/emu-harness/README.md): backends (Mesen 2, BizHawk) × machines (NES); began 2026-10-01 as `mesen-harness` + `nes-harness`, merged 2026-10-02 (Decision 2)
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
@@ -149,6 +156,7 @@ The first build replayed run 6 in Mesen but needed **BizHawk as a second emulato
 - [Variance Is Not Luck](../economics/variance-is-not-luck.md) — "a run is one draw"
 
 ## Open Questions
+- **Frame 57,318:** what makes Mesen and quickerNES disagree there (an NMI-enable edge, `$0FF` bit 7)? Which one matches real hardware? Can a Mesen setting close it, or do search loops have to stay on one emulator?
 - **Verify screen scrolling against the disassembly:** find the scroll routine's input read and the missing position check. Could the bot's harness have discovered it by search, given a rule set that allowed it?
 - **Specimens not yet filed:** eval-beats-depth (→ [Slay](./slay-evaluation.md)), search-hides-bugs (→ [Oracles](../oracles-as-objective-functions.md)), the cyborg split (→ [Cyborg Model](../cyborg-model.md)).
 - **A bot on our decompiled source** (seed 1): NA1's sim plus the capture-test survey, or a Mappy lookahead harness as a behavioral oracle?
