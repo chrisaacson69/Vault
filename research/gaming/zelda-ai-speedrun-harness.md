@@ -145,6 +145,17 @@ Checked against the run's own `VERIFICATION.txt` (final RAM SHA-1 `3115e31f…66
 - **So "more accurate" here means "the emulator that recorded the movie."** quickerNES is the core the bot ran. Whether Mesen or quickerNES is closer to real hardware at frame 57,318 is open (see below). For replaying another emulator's movie, bit-exactness to the *recording* emulator is the criterion that matters.
 - Unverified readings, still to check against the disassembly: `$0FF` as the PPUCTRL shadow (bit 7 = NMI enable) and `$018–$024` as the RNG.
 
+### Direction (2026-10-02): a search-based TAS generator, Mappy first
+**Run 6 is a replay, not the AI.** The `.bk2` and `inputs.txt` are the *output*. The AI is the release's `zelda/` package plus `fullgame.py` (about 7,300 lines, *"the player the AI wrote for itself"*) and its `knowledge/` files. It plays **341 segments**, each a randomly seeded input search across six BizHawk instances, keeping the best success. So the player is itself a **TAS generator**, and runs are not reproducible by design (README: *"expect a time near 37 minutes, not exactly this one"*). The repo has no license, so its code, like its log, is local-only: anything in `emu-harness` is our own.
+
+**Decision:** put the general search loop in `emu-harness` (from a savestate: N variants → score → keep best → record → checkpoint) and the per-game parts in an adapter in the game's repo (RAM map, segment boundaries, success, objective). First target: **Mappy, in Mesen** (headless).
+> **Chris:** *"It has been shown that Mappy repeats after a given number of levels, so I think a high score bot is "free" if we can get it to play without dying, and "most rounds" should be infinite. I think the speedruns are based on time to level X, so this would be it's goal. but maybe we start, as you say, jsut trying to replicate attract mode in a real game. Mesen is probably best for this as it is headless."*
+
+**Step 1, the adapter's oracle:** feed Mappy's own attract-mode script into a *real* game and see if it clears the stage. The script (`$FFE1`) was decoded from `$D9C7` and **verified** against a headless Mesen attract run: 22 commands, frame-exact (details in `game-annotation` Mappy chapter 6). Open before running it:
+- Which pad button produces the door action in real play: the real path writes `$22` to `$040E`, the demo path pulses it with `inc`. Read `read_and_decode_input` (`$C258`).
+- Which frame after Start lines up with the demo's first command.
+- Whether the cats' behavior (and any RNG) matches the demo's, or the script dies once real play diverges. That divergence would be the first finding.
+
 ## Vault Connections
 - **The build:** [emu-harness](../../projects/game-annotation/emu-harness/README.md): backends (Mesen 2, BizHawk) × machines (NES); began 2026-10-01 as `mesen-harness` + `nes-harness`, merged 2026-10-02 (Decision 2)
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
@@ -156,6 +167,7 @@ Checked against the run's own `VERIFICATION.txt` (final RAM SHA-1 `3115e31f…66
 - [Variance Is Not Luck](../economics/variance-is-not-luck.md) — "a run is one draw"
 
 ## Open Questions
+- **Mappy's demo script in a real game:** does the 22-command attract track clear round 1 when fed through the pad? If not, where does it diverge, and is that the RNG?
 - **Frame 57,318:** what makes Mesen and quickerNES disagree there (an NMI-enable edge, `$0FF` bit 7)? Which one matches real hardware? Can a Mesen setting close it, or do search loops have to stay on one emulator?
 - **Verify screen scrolling against the disassembly:** find the scroll routine's input read and the missing position check. Could the bot's harness have discovered it by search, given a rule set that allowed it?
 - **Specimens not yet filed:** eval-beats-depth (→ [Slay](./slay-evaluation.md)), search-hides-bugs (→ [Oracles](../oracles-as-objective-functions.md)), the cyborg split (→ [Cyborg Model](../cyborg-model.md)).
