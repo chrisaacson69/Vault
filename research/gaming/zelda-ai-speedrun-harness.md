@@ -156,6 +156,13 @@ Checked against the run's own `VERIFICATION.txt` (final RAM SHA-1 `3115e31f…66
 - Which frame after Start lines up with the demo's first command.
 - Whether the cats' behavior (and any RNG) matches the demo's, or the script dies once real play diverges. That divergence would be the first finding.
 
+**Step 1 result (2026-10-02): remote control works.** `game-annotation`'s `mappy/demo_in_real_game.py` presses Start in headless Mesen, then plays the 25-byte script through the pad from the frame after the player goes live. Player x, y, movement and state match attract on every one of the demo's 1,259 frames, and the cats match too. The open items above resolved:
+- **Door action:** an A (or B) press for one frame. Real play copies the "A or B pressed" history `$22` into `$040E`.
+- **Alignment:** script byte 0 lines up with the frame after the player goes live.
+- **The demo is not a stage clear.** It ends when a cat catches Mappy (state `$08`, `$4B`=1) with 5 of 10 items left. In the real game this costs a life. That corrects a static-read claim in ch6.
+
+So the attract script is a frame-exact *seed*, not a solution: surviving round 1 is the search loop's first job.
+
 ## Vault Connections
 - **The build:** [emu-harness](../../projects/game-annotation/emu-harness/README.md): backends (Mesen 2, BizHawk) × machines (NES); began 2026-10-01 as `mesen-harness` + `nes-harness`, merged 2026-10-02 (Decision 2)
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
@@ -167,7 +174,7 @@ Checked against the run's own `VERIFICATION.txt` (final RAM SHA-1 `3115e31f…66
 - [Variance Is Not Luck](../economics/variance-is-not-luck.md) — "a run is one draw"
 
 ## Open Questions
-- **Mappy's demo script in a real game:** does the 22-command attract track clear round 1 when fed through the pad? If not, where does it diverge, and is that the RNG?
+- ~~**Mappy's demo script in a real game:** does the 22-command attract track clear round 1 when fed through the pad?~~ **Resolved 2026-10-02:** it replays frame-exact, but neither run clears the stage: the demo ends when a cat catches Mappy (see Step 1 result above).
 - **Frame 57,318:** what makes Mesen and quickerNES disagree there (an NMI-enable edge, `$0FF` bit 7)? Which one matches real hardware? Can a Mesen setting close it, or do search loops have to stay on one emulator?
 - **Verify screen scrolling against the disassembly:** find the scroll routine's input read and the missing position check. Could the bot's harness have discovered it by search, given a rule set that allowed it?
 - **Specimens not yet filed:** eval-beats-depth (→ [Slay](./slay-evaluation.md)), search-hides-bugs (→ [Oracles](../oracles-as-objective-functions.md)), the cyborg split (→ [Cyborg Model](../cyborg-model.md)).
