@@ -177,6 +177,18 @@ So the attract script is a frame-exact *seed*, not a solution: surviving round 1
 
 All four robust logs replay from power-on to the goal. **The search seed's variance (2,399–4,863) swamps the cost of robustness.** So the greedy optimizer is the bottleneck, not the seed. RNG manipulation can't be priced until the search is near-optimal for a fixed seed.
 
+**Step 4 (2026-10-02): beam search and item routes.** Beam search keeps 8 checkpoints per step, at most one per (items left, floor), so different item orders survive side by side. Planned routes are exact shortest tours (Held-Karp) over |Δposition| + floor cost; the search's gradient then aims at the route's next item.
+
+| method | phase(s) | frames, live → last item |
+|---|---|---|
+| greedy | 60 | 3,407 (best of 3) |
+| **beam** | 60 | **2,364** (2,792 / 2,364 / pruned) |
+| greedy | 4 phases | 2,399 (best of 2) |
+| beam | 4 phases | 3,102 (best of 2) |
+| beam + planned route | 60 | 2,706 (best of 8 routes) |
+
+Beam helps a single phase clearly. **Planned routes lost to the beam's own choice of order**, because the cost model is wrong: one same-floor hop on the top floor (item 4 → 0) took 771 frames, so geometry (trampoline shafts, doors) dominates distance. The route idea needs a measured travel-time graph, converted from the decoded level data (ch8), not a guessed metric. All logs replay from power-on.
+
 ## Vault Connections
 - **The build:** [emu-harness](../../projects/game-annotation/emu-harness/README.md): backends (Mesen 2, BizHawk) × machines (NES); began 2026-10-01 as `mesen-harness` + `nes-harness`, merged 2026-10-02 (Decision 2)
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
