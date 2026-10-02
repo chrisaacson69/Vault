@@ -168,6 +168,15 @@ So the attract script is a frame-exact *seed*, not a solution: surviving round 1
 - **Blind search stalls; one gradient fixes it.** Scoring by items taken then points, the search reached 8 of 10 items and then wandered for 70+ segments while the cats got deadlier. Survivors per batch fell to 3 of 32. Adding the distance to the nearest remaining item, read from the item table at `$0260`, cleared the round in 33 segments with no backtracks. This is the [objective-function](../oracles-as-objective-functions.md) lesson again: the RE told the search what "closer" means.
 - The game knowledge (RAM map, death, the gradient) lives in the adapter. The loop knows none of it.
 
+**Step 3 (2026-10-02): seeds and time.** Mappy has no separate RNG. The only hidden state carried into a round is the free-running frame counter `$21`, whose phase is set by when Start is pressed. With the same in-round inputs from 7 Start timings, the player, items and first cats match exactly, and the later cats diverge (`seed_test.py`). So the search plays a candidate on a **set of seeds** (savestates at different phases): it must survive all of them and scores its worst. The clock stops at the last item, and restarts must beat the best time.
+
+| mode | restarts | frames from live to last item |
+|---|---|---|
+| TAS, one phase (Start@60) | 3 | 4,863 / 3,739 / **3,407** |
+| robust, 4 phases | 2 | **2,399** / pruned |
+
+All four robust logs replay from power-on to the goal. **The search seed's variance (2,399–4,863) swamps the cost of robustness.** So the greedy optimizer is the bottleneck, not the seed. RNG manipulation can't be priced until the search is near-optimal for a fixed seed.
+
 ## Vault Connections
 - **The build:** [emu-harness](../../projects/game-annotation/emu-harness/README.md): backends (Mesen 2, BizHawk) × machines (NES); began 2026-10-01 as `mesen-harness` + `nes-harness`, merged 2026-10-02 (Decision 2)
 - [Oracles Are Objective Functions](../oracles-as-objective-functions.md) — the scoring loopholes (walked out and called the room "cleared"; never attacked) are the *wrong objective* box
@@ -180,6 +189,7 @@ So the attract script is a frame-exact *seed*, not a solution: surviving round 1
 
 ## Open Questions
 - ~~**Mappy's demo script in a real game:** does the 22-command attract track clear round 1 when fed through the pad?~~ **Resolved 2026-10-02:** it replays frame-exact, but neither run clears the stage: the demo ends when a cat catches Mappy (see Step 1 result above).
+- **Mappy: what does phase manipulation buy?** Only measurable once the search converges for a fixed seed (beam search, item-route planning). Also: which cat routine reads `$21`, and is 256 phases the whole seed space?
 - **Frame 57,318:** what makes Mesen and quickerNES disagree there (an NMI-enable edge, `$0FF` bit 7)? Which one matches real hardware? Can a Mesen setting close it, or do search loops have to stay on one emulator?
 - **Verify screen scrolling against the disassembly:** find the scroll routine's input read and the missing position check. Could the bot's harness have discovered it by search, given a rule set that allowed it?
 - **Specimens not yet filed:** eval-beats-depth (→ [Slay](./slay-evaluation.md)), search-hides-bugs (→ [Oracles](../oracles-as-objective-functions.md)), the cyborg split (→ [Cyborg Model](../cyborg-model.md)).
