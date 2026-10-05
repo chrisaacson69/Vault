@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Fetch a YouTube transcript from a network that SNI-blocks www.youtube.com.
 
-Use `yt-dlp` first -- it is simpler and works on any unfiltered network. Reach for
-this only when yt-dlp cannot connect (see memory feedback_yt_dlp_transcripts).
+On Chris's work network this is the FIRST thing to try -- yt-dlp, curl, WebFetch and
+a normal Chrome tab are all blocked there. (`yt-dlp` is simpler on an unfiltered
+network; see memory feedback_yt_dlp_transcripts.) A ConnectionAbortedError
+[WinError 10053] in ws.recv() is transient: rerun up to ~3x before debugging.
 
 WHY THIS EXISTS -- three independent walls, each needing a different trick:
 

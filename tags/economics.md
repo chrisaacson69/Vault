@@ -106,6 +106,7 @@ permalink: /tags/economics/
 - [Econ Nerds — "Three Myths about Inequality"](../research/debates/econ-nerds-inequality-myths.md) — specimen; PSZ vs Auten–Splinter and the ~40% of income invisible to tax returns
 - [Dad Saves America — Jevons, Say's Law](../research/debates/dad-saves-america-jevons-says-law.md) — specimen; supply creates demand (the reverse of the supply omission); cross-sector transmission
 - [Tom Bilyeu × Economics Explained — "Wealth Is Fiction"](../research/debates/bilyeu-wealth-is-fiction-economics-explained.md) — specimen; Rognlie, Chetty, P/E, rates as an unnoticed transfer
+- [Bravos Research — "Treasury Twist" + "Stealth Tax"](../research/debates/bravos-treasury-twist-debt-reset.md) — specimen: news event → fear narrative → sales pitch; bill-funded buybacks, stablecoins as T-bill buyers, "net liquidity", fact-checked
 - [r/g — The Return on Capital vs. Growth](../research/economics/r-vs-g.md) — neutral thesis on Piketty's r > g; the dispute lives in the conditions, not the ratio
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — eliminating inequality is achievable, attested, and universally rejected — so it is not the goal; the functional/destabilising curve, and why the normative question is hostage to the measurement question
 - [Human Constancy](../research/philosophy/human-constancy.md) — what the participation ratchet actually requires: ends drift slower than means, not human nature is constant

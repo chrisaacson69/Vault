@@ -139,6 +139,20 @@ Dated evidence that this note absorbs. The pattern to watch: a commentator prese
      monetary accommodation (3) and the inflation tax (4). Directly sharpens open thread 1's
      "geopolitical disruption to dollar-system" candidate.
 
+- **[Bravos Research — "Treasury twist" + "stealth tax"](../research/debates/bravos-treasury-twist-debt-reset.md)**
+  (2026-09/10, two fund-marketing videos built on the same news) — each video sells a *different*
+  horn as "the secret plan." **Chris's read: both are fear-driven sales pitches, not analysis.**
+  1. ***Treasury twist.*** The claim: move the debt from long bonds into bills, and let stablecoins
+     soak up the bills. In this note's terms, that **reopens channel (2)** through *private* emerging-market
+     savers who are fleeing their own currencies. Central banks are the opposite case: the Freitas
+     "just stop using it" horn has them leaving the dollar. The plan then depends on channel (3), a Fed
+     that keeps short rates low. That is fiscal dominance, which the video describes without naming.
+  2. ***Stealth tax.*** The claim: inflate the debt away through the Cantillon effect. That is horn (4).
+  **What's portable (Claude, for discussion):** the two horns partly cancel each other. A shorter
+  average maturity (horn 2's mechanism) means the debt reprices within months, which blunts how much
+  surprise inflation (horn 4) can erode it. Sellers of "the plan" rarely check whether their horns are
+  compatible with each other.
+
   **Chris's framing caution from that page, which belongs here too:** the distributional pain is real
   (see the last open thread below), but stating it as a **differential** — *who has more than me* —
   licenses blame and produces an enemy, where stating it in **absolutes** — *is the problem being
