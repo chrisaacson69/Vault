@@ -62,3 +62,4 @@ permalink: /tags/politics/
 - [Plato's Ship of State — Charisma Over Competence](../research/debates/plato-ship-of-state-charisma-ratchet.md) — delegation is the ratchet; charisma-over-competence is how grading fails
 - [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing
 - [Arthur Laffer Interview — "All I Think About Is Incentives"](../research/debates/laffer-interview-incentives.md) — incentives as the whole of economics; pressed on monopoly, 2008, China and the pre-1913 tariff state
+- [Protection Against the Gradient](../research/philosophy/dynamics/protection-against-the-gradient.md) — Chris's entropy thesis: borders/tariffs/moats/trust as local order against equalizing flows; owners-vs-workers split; last-round reputation problem

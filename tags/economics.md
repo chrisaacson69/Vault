@@ -107,6 +107,7 @@ permalink: /tags/economics/
 - [Dad Saves America — Jevons, Say's Law](../research/debates/dad-saves-america-jevons-says-law.md) — specimen; supply creates demand (the reverse of the supply omission); cross-sector transmission
 - [Tom Bilyeu × Economics Explained — "Wealth Is Fiction"](../research/debates/bilyeu-wealth-is-fiction-economics-explained.md) — specimen; Rognlie, Chetty, P/E, rates as an unnoticed transfer
 - [Bravos Research — "Treasury Twist" + "Stealth Tax"](../research/debates/bravos-treasury-twist-debt-reset.md) — specimen: news event → fear narrative → sales pitch; bill-funded buybacks, stablecoins as T-bill buyers, "net liquidity", fact-checked
+- [Magpie — Wallerstein's critique of capitalism](../research/debates/magpie-wallerstein-capitalism-critique.md) — grounding-rule review; thick/thin = personal vs impersonal exchange; repeatability; protection decays like entropy; the inalienable-ownership fix inverts Hoppe
 - [r/g — The Return on Capital vs. Growth](../research/economics/r-vs-g.md) — neutral thesis on Piketty's r > g; the dispute lives in the conditions, not the ratio
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — eliminating inequality is achievable, attested, and universally rejected — so it is not the goal; the functional/destabilising curve, and why the normative question is hostage to the measurement question
 - [Human Constancy](../research/philosophy/human-constancy.md) — what the participation ratchet actually requires: ends drift slower than means, not human nature is constant
@@ -123,3 +124,4 @@ permalink: /tags/economics/
 - [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing
 - [What Is Money?](../research/economics/what-is-money.md) — seed: store of value vs medium of exchange; free banking vs Rothbardian
 - [Arthur Laffer Interview — "All I Think About Is Incentives"](../research/debates/laffer-interview-incentives.md) — incentives as the whole of economics; pressed on monopoly, 2008, China and the pre-1913 tariff state
+- [Protection Against the Gradient](../research/philosophy/dynamics/protection-against-the-gradient.md) — Chris's entropy thesis: borders/tariffs/moats/trust as local order against equalizing flows; owners-vs-workers split; last-round reputation problem

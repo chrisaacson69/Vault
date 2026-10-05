@@ -89,6 +89,7 @@ Chris raised this on seeing a second, similar video ([`xIzc-k_dEsQ`](../../raw/v
 
 - The confusion came from the *genre*, not the economics. These videos are built to make you fear something and then buy the fix. They aren't built to explain anything, so trying to follow them as explanations fails.
 - **The part he'd keep:** "it is possible that the Fed is trying new policy that might change the Treasury curve, and there might be opportunity there." The underlying events are real: bill-funded buybacks, the Fed buying bills again, a hike while the 30y sits above 5.5%. A shift in the yield curve is a legitimate question. Chris is "less interested in this", so it's parked, not pursued.
+- **Chris on the opportunity (after the "All of the Above" tie-back):** "It is very likely others see this too and are looking to see how to invest for it… some of it will be contradictory, so making bets and being right is probably an opportunity." The contradictions between the sellers' horns are tradeable. If many buyers hedge the *wrong* horn, the right horn is underpriced. Being right about which channel actually carries the pressure is worth something.
 - **Value of the reviews:** low unless the fact-check turns up something. Kept as a lean specimen: a record of what the genre looks like, not an analysis of what it argues.
 
 ## Discussion seeds
