@@ -100,6 +100,12 @@ So the thesis page is about the **ratio** r/g as the contested variable, not abo
 
 Two outcomes. My positional-goods reading of Rognlie's housing is demoted: Chris sees the housing trend as macro, not zoning. And Chris's own position, **r > g as a risk premium** (necessary to induce investment, with fortunes lost to mal-investment as well as to heirs), went onto the thesis page as a clearly marked position, [r/g §7](../economics/r-vs-g.md), kept out of the neutral sections.
 
+### Clarification (2026-10-05, after the [EE negative-gearing review](./ee-australia-negative-gearing.md)) — "macro, not zoning" restated
+Chris sharpened the earlier position. It was a point about **timescale**, not a denial of zoning:
+> "The trends they were talking about seemed larger and covered more length than 'simple' arguments about zoning, which tends to come and go. I fully admit zoning is a real current problem with house affordability, probably along with HOAs, which is another type of zoning :)"
+
+So: **zoning and HOAs are a real *current* drag on affordability, but they are local and cyclical.** The multi-decade housing-share trend needs a longer, macro driver (Chris's r > g as a risk premium, §7 of [r/g](../economics/r-vs-g.md)). The two operate at different altitudes. Chris's HOA anecdotes are on the [Magpie page](./magpie-wallerstein-capitalism-critique.md#discussion).
+
 ### Closing: the EE items left over, and the framing ick
 **Taxes.** Chris: the 90% top marginal rate "was a marginal rate no one really paid," and he remembers earlier research showing effective rates barely moved over the 20th century and breaking down net taxes by bracket, so the top 1%'s ~38% share of federal income tax didn't surprise him, and *"there is good reason to believe that the US has one of the most progressive tax systems."* **⚠ Vault check:** that research is **not in the vault**. The only hit is a passing "91% top marginal rate" in the [Boomers debate](./wordwar-boomers-economy-jones-meyers.md). It looks like a discussion that was never persisted, so it's logged under Open Questions to redo and file.
 
