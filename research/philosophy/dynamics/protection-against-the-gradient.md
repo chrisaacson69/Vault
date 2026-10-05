@@ -71,6 +71,18 @@ Chris frames this as **his take on a live, charged issue with proponents on both
 - **Claude's grounding:** Chris's dilution point is a recognised position, and it is **Borjas's** critique of local-area studies. A local shock spreads nationally as natives move away and capital moves in. That makes city comparisons *understate* the effect, which is why Borjas measures across national skill groups instead. The measurement problem is real, and the undocumented-labour data problem compounds it.
 - **Position adopted:** argue from the frictionless worst case (Caplan's own thought experiment) for **direction**. The observed effects are a small, partly hidden fraction, so they can confirm the sign without settling the size.
 
+## Friction is the rate, the gradient is the destination (Chris, 2026-10-05)
+> "Caplan's experiment assumed no friction, which I agree is impossible, but that only showed what it gravitates to… friction will prevent complete evening out, and to be honest, the immigration guards are there to make this friction as high as possible. This is the same as the main contention of the civ-cycle: all we can do is hope to help slow the ratchet."
+
+- **The frictionless model gives the attractor; friction sets the speed.** This is how Chris reconciles using Caplan for the worst case while calling it impossible. It also ties this page to [Civilizational Cycles](./civilizational-cycles/README.md): the end state is not avoidable, but the *rate* is a policy choice.
+- **The same logic should discipline HOAs and unions**, and fails for the same reason:
+  > "Without friction, the competition should keep them honest. They should have to prove their worth. Would I be better off keeping my dues and fixing everything myself? Very possibly. Unions should be free to enter/exit, and should have to also earn their dues… but we also see here friction that allows corruption."
+- **Claude's synthesis, a partial answer to the open question below:** friction is *neutral*. It is a rate parameter that always favours whoever **currently holds the position**.
+  - Against an *outside* gradient (migration, competition), the holder is the insider, so friction is protection.
+  - Against the holder's *own members* (HOA board vs owners, union leadership vs workers), the holder is the incumbent manager, so friction is unaccountability.
+  - Same mechanism, different counterparty. Whether friction is good depends on whose position it guards.
+  - *(Union grounding: US right-to-work laws and Janus v. AFSCME (2018, public-sector agency fees) are exactly the "free to exit, must earn dues" lever. Claude, from memory, unverified.)*
+
 ## Specimens
 - [Magpie — Wallerstein's critique of capitalism](../../debates/magpie-wallerstein-capitalism-critique.md) (2026-10-05): **where this thesis was born.** Magpie's claim 3 (profit from protection, eroded by markets) prompted Chris's entropy reading. His claim 8 (inalienable ownership) is a failed attempt to abolish the last round.
 - [Bravos Research videos](../../debates/bravos-treasury-twist-debt-reset.md) (2026-10-05): sellers of rival "secret plans". Chris: contradictions between them are a betting opportunity, i.e. tradeable gradients.
@@ -78,7 +90,7 @@ Chris frames this as **his take on a live, charged issue with proponents on both
 ## Open Questions
 - **Is the *number* of protected pockets constant while each one decays?** This is Chris's "hop to the next pocket" against Wallerstein's perpetual cycle of making and breaking monopolies. If constant, what sets the number?
 - **Which protections are worth their cost?** "Defying entropy is what life is about" licenses *trying*. It doesn't rank tariffs vs borders vs licensing by what each one costs to maintain against what it shields.
-- **Friction cuts both ways.** Mobility friction is *protection* against an equalizing flow (borders, migration). The same friction *disables* competition as a discipline: HOAs as Tiebout "competing governments" fail because exit means moving house ([Chris's HOA specimen](../../debates/magpie-wallerstein-capitalism-critique.md#discussion)). Is there a general rule for when friction helps the insider and when it only shields the incumbent from accountability?
+- **Friction cuts both ways.** Mobility friction is *protection* against an equalizing flow (borders, migration). The same friction *disables* competition as a discipline: HOAs as Tiebout "competing governments" fail because exit means moving house ([Chris's HOA specimen](../../debates/magpie-wallerstein-capitalism-critique.md#discussion)). Is there a general rule for when friction helps the insider and when it only shields the incumbent from accountability? *(Partly answered above: friction favours the current holder. Open: how do you tell, case by case, whose position is being guarded?)*
 - **Does the trust variant have a cure short of serfdom?** Caps on how much any one person can take (segregated client funds, liability, clawbacks) shrink the last-round prize. Do they hold up at scale?
 - Open gaps from the grounding pass: the Chamber of Commerce's position over time; party-split Gallup figures for the 1990s; Amiti et al. on consumer prices; Caplan (2019) text; Saiz & Wachter in detail.
 
