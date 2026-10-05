@@ -95,6 +95,17 @@ Chris went down the claims in order, leaving 2 and 3 for last (2026-10-05).
 
 *Claude's tie-in:* an HOA is a small-scale version of the Hoppe/Yarvin **private government** Magpie wanted to rescue in claim 8. It is ownership-based, contractual and opt-in at purchase, and it still produces petty overreach and a **chilling effect on third parties** (contractors fearing litigation). Ownership alignment did not prevent it. That is a live specimen against "give the captain ownership and governance improves," at least at the micro scale.
 
+**Chris, continued: "competing governments" where the competition isn't doing its job.**
+> "HOAs are a good example of 'competing governments', and in practice they have shown to even be corrupt… move to a new neighborhood? It seems the 'competition' isn't doing its job."
+
+- **Balance, in his own words.** His current HOA "has been pretty good": lawn work is fine, and fencing and roofing went well, though "a bit pricy". The only issues have been the long driveway replacement and complaints about a garbage can left out an extra night. A previous HOA set unreasonable limits on lawn and house decorations.
+- "I have no doubt that someone is profiting off of the work that is being done."
+- *Claude: why the competition fails.* The theory is **Tiebout's "voting with your feet"** (1956), which assumes costless mobility. In practice:
+  1. **Exit costs a house move**, the biggest transaction most people make.
+  2. **Bundling:** the HOA is priced once, at purchase, and its rules can be amended by majority after you're locked in.
+  3. **A principal–agent layer:** management companies and vendor contracts sit between owners and the money, which is where Chris's "someone is profiting" lives. Large documented frauds exist, e.g. the Las Vegas HOA-takeover prosecutions of the 2000s–10s *(from memory, unverified)*.
+- **The cross-link:** this is the same frictionless assumption Chris rejected in Caplan's open-borders model, with the sign flipped. There, friction *slows* leveling and acts as protection. Here, friction *kills* the competition that was supposed to discipline the government. → noted on [Protection Against the Gradient](../philosophy/dynamics/protection-against-the-gradient.md).
+
 **Claude's replies (for Chris to accept or push back on):**
 - **7.** This is the criterion of embarrassment. It rules out *one* motive, self-interest, but it says nothing about truth. He uses it to boost confidence in the synthesis that the evidence then contradicts.
 - **8, the problem he's actually solving:** an owner who can *exit* can extract value and leave others with the losses; private equity is his motivating case. The usual fixes keep the exit and restore downside exposure:

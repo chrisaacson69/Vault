@@ -78,6 +78,7 @@ Chris frames this as **his take on a live, charged issue with proponents on both
 ## Open Questions
 - **Is the *number* of protected pockets constant while each one decays?** This is Chris's "hop to the next pocket" against Wallerstein's perpetual cycle of making and breaking monopolies. If constant, what sets the number?
 - **Which protections are worth their cost?** "Defying entropy is what life is about" licenses *trying*. It doesn't rank tariffs vs borders vs licensing by what each one costs to maintain against what it shields.
+- **Friction cuts both ways.** Mobility friction is *protection* against an equalizing flow (borders, migration). The same friction *disables* competition as a discipline: HOAs as Tiebout "competing governments" fail because exit means moving house ([Chris's HOA specimen](../../debates/magpie-wallerstein-capitalism-critique.md#discussion)). Is there a general rule for when friction helps the insider and when it only shields the incumbent from accountability?
 - **Does the trust variant have a cure short of serfdom?** Caps on how much any one person can take (segregated client funds, liability, clawbacks) shrink the last-round prize. Do they hold up at scale?
 - Open gaps from the grounding pass: the Chamber of Commerce's position over time; party-split Gallup figures for the 1990s; Amiti et al. on consumer prices; Caplan (2019) text; Saiz & Wachter in detail.
 
