@@ -1,7 +1,7 @@
 ---
 status: active
 created: 2026-10-05
-discussion: pending
+discussion: folded-in
 ---
 # Economics Explained — "Australia Might Have Solved Its Housing Crisis" (Negative Gearing Ends)
 > EE argues Australia's May 2026 budget took the tax fuel out of its housing market by quarantining negative-gearing losses on established properties. Prices are already falling, and compulsory voting is what made the reform politically possible.
@@ -70,6 +70,13 @@ discussion: pending
     - Investors leaving established stock sell mostly to owner-occupiers, often former renters, so rental supply and rental demand shrink together and the net effect on rents is ambiguous.
     - Builders and tradespeople are already constrained (EE says so itself). The new-build premium may be **capitalized into new-build and land prices** rather than producing more homes.
     - A 30% minimum tax on gains lowers the expected return on *all* new investment, new builds included.
+
+**Chris's close (2026-10-05) — "it makes sense now."**
+- **The personal analogue:** Chris once got a tax surprise when he found his stock-market loss was capped against his income. *(Claude: the US caps net capital losses at $3,000 a year against ordinary income, with the rest carried forward.)* "Now I see that they are just trying to separate the two": earned income on one side, investment ("passive") income on the other.
+- **His prediction:**
+  > "Savvy investors will find a way to separate their income from this 'passive' income so it will net out."
+
+  The rule shifts behaviour, not totals. Claude notes the routes are visible in the budget's own exclusions: buy new builds, hold through super funds or widely held trusts (both excluded), or go build-to-rent. The US version produced the same responses through real-estate-professional status and cost-segregation studies. The burden lands on the *unsophisticated* investor, the one-property landlord. That is the protection-against-the-gradient pattern again: the well-advised find the gap.
 
 ## Tags
 [economics](../../tags/economics.md)
