@@ -29,6 +29,8 @@ When the discrete position is asserted:
 - **Open borders / closed borders.** Symmetric destinations; the directional truth is "adjust migration policy in response to integration capacity" — context-dependent.
 - **Free speech absolutism.** "No limits" destination; "limits should be very narrow and structurally-motivated" direction.
 
+- **Marxism as an extrapolated trendline** (Chris, 2026-10-05, from [Keen vs a Marxist channel](../research/debates/keen-vs-marxist-machines-value.md)). "Marx = what goes wrong when one tries to take a trendline too far." The direction is true: automation makes goods cheaper (TVs, phones, software). The destination is false: prices fall to zero, exchange value disappears, capitalism implodes into communism. It needs an "impossible zero cost", and cheaper output draws more demand instead ([Jevons](../research/economics/jevons-software-demand.md)). A further feature this specimen adds: **the destination is protected from falsification** ("history hasn't ended"), so failures count only as delays.
+
 In each case, the movement's banner is the destination; the defensible argument is the direction; the destination attracts the opposing force; the direction is where the actual policy lies.
 
 ## Aristotle got there first

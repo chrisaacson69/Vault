@@ -108,6 +108,7 @@ permalink: /tags/economics/
 - [Tom Bilyeu × Economics Explained — "Wealth Is Fiction"](../research/debates/bilyeu-wealth-is-fiction-economics-explained.md) — specimen; Rognlie, Chetty, P/E, rates as an unnoticed transfer
 - [Bravos Research — "Treasury Twist" + "Stealth Tax"](../research/debates/bravos-treasury-twist-debt-reset.md) — specimen: news event → fear narrative → sales pitch; bill-funded buybacks, stablecoins as T-bill buyers, "net liquidity", fact-checked
 - [Magpie — Wallerstein's critique of capitalism](../research/debates/magpie-wallerstein-capitalism-critique.md) — grounding-rule review; thick/thin = personal vs impersonal exchange; repeatability; protection decays like entropy; the inalienable-ownership fix inverts Hoppe
+- [Keen vs a Marxist channel — can machines create value?](../research/debates/keen-vs-marxist-machines-value.md) — LTV, use vs exchange value, falling rate of profit; Marx as an overextended trendline
 - [r/g — The Return on Capital vs. Growth](../research/economics/r-vs-g.md) — neutral thesis on Piketty's r > g; the dispute lives in the conditions, not the ratio
 - [The Inequality Optimum](../research/economics/inequality-optimum.md) — eliminating inequality is achievable, attested, and universally rejected — so it is not the goal; the functional/destabilising curve, and why the normative question is hostage to the measurement question
 - [Human Constancy](../research/philosophy/human-constancy.md) — what the participation ratchet actually requires: ends drift slower than means, not human nature is constant
