@@ -76,6 +76,19 @@ Here is what makes this foundational rather than partisan. The optimal-scale law
 
 The correct frame is **subsidiarity**: each *function* has its own optimal scale (defense may optimize continental, schooling local, trade global), set by that function's transaction costs. There is no end-goal collective — only a function-relative, condition-relative optimum. This is why the principle sits beneath left and right: both sides routinely commit the same category error of treating a particular scale as a terminal value, when the theory says **sacralizing any fixed scale is the error** — collectives are instruments with optimal sizes, not ends, and the optimum moves.
 
+## Specimen: the HOA as a firm that bundles two functions (Chris, 2026-10-05)
+Chris's large HOA (400+ homes, his estimate) is a Coasean collective. Its real value is **bulk bargaining**: driveways and roofing contracts "probably in the $millions", weekly lawn care in the $10ks. The trouble is that it bundles bulk purchasing with **control over timing and scope**:
+> "Did I need a roof? Did I need a driveway?… the theory is the ability to take advantage of bulk pricing without losing control over what is done."
+
+Chris floated an insurance-like structure: owners file claims for work. He named the risks himself: free-riding and risk-sharing problems.
+
+*Claude's notes:*
+1. **Part of the bulk discount *is* the timing.** Vendors discount for **batch density**: one mobilization, a whole street in a week. Unbundling control from purchasing partly unbundles the discount too. The realistic middle is a pre-negotiated price schedule with **opt-in batch windows** (e.g. a roof window each spring). Owners choose *whether* and *when*; the vendor gets volume only if enough owners opt in.
+2. **Chris's own [Insurance](./insurance.md) principle argues against the claims model.** Insurance is for catastrophic, low-probability events. Roofs and driveways are *predictable wear*, so a claims pool invites the moral hazard and adverse selection that page describes. The fitting instrument is a **sinking fund** (per-owner or reserve), not insurance.
+3. **In this page's terms:** the HOA's boundary is set past the optimum for *control* but at it for *purchasing*. The fix is to shrink the scope (purchasing co-op) while keeping the size (400 homes of bargaining power).
+
+Context: [Magpie review — HOAs as competing governments](../debates/magpie-wallerstein-capitalism-critique.md#discussion), [Protection Against the Gradient](../philosophy/dynamics/protection-against-the-gradient.md) (friction favours the current holder).
+
 ## What this underpins
 
 This page is the foundation several vault conclusions silently stand on: christian-advantage's decentralization verdict, the [Gödel-governance](../philosophy/dynamics/the-godel-governance-problem.md) worry about the scale of *power* (a monopoly is a collective past its optimal size whose outward pressure has been suppressed), and the diagnosis (on [the unreplaced-event page](../philosophy/dynamics/unreplaced-event.md)) that a foundation myth which sacralizes one scale fails when conditions move the optimum.

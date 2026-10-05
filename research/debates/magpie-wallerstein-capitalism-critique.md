@@ -105,6 +105,7 @@ Chris went down the claims in order, leaving 2 and 3 for last (2026-10-05).
   2. **Bundling:** the HOA is priced once, at purchase, and its rules can be amended by majority after you're locked in.
   3. **A principal–agent layer:** management companies and vendor contracts sit between owners and the money, which is where Chris's "someone is profiting" lives. Large documented frauds exist, e.g. the Las Vegas HOA-takeover prosecutions of the 2000s–10s *(from memory, unverified)*.
 - **The cross-link:** this is the same frictionless assumption Chris rejected in Caplan's open-borders model, with the sign flipped. There, friction *slows* leveling and acts as protection. Here, friction *kills* the competition that was supposed to discipline the government. → noted on [Protection Against the Gradient](../philosophy/dynamics/protection-against-the-gradient.md).
+- **Where HOAs add value:** bulk bargaining. Chris's unbundling idea (bulk pricing without losing control) is filed as a specimen on [Theory of the Firm](../economics/theory-of-the-firm.md).
 
 **Claude's replies (for Chris to accept or push back on):**
 - **7.** This is the criterion of embarrassment. It rules out *one* motive, self-interest, but it says nothing about truth. He uses it to boost confidence in the synthesis that the evidence then contradicts.
