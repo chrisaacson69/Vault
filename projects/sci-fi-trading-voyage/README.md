@@ -15,6 +15,7 @@ created: 2026-10-06
 - All 25 stops recorded. Timing runs measured travel at exactly 2.0 s/Gm with no fixed overhead, so profit/hr = margin ÷ distance.
 - Best route: Proxima → AlphaCentA (ResearchData3), only 7 Gm apart, about 30× ahead of the next best (BlackGoldStar ↔ Troy).
 - Lesson worth keeping: the highest-margin trade ranked 8th once distance and empty return legs were counted. **Rank by margin per distance for the whole cycle, not margin per load.**
+- **Goods come in whole units, so hold size is a threshold, not just a quantity.** ResearchData3 is 100,000 per unit, so a fleet of 25,200 haulers can't run the best route at all, while 3 × 130,000 earns about 40× more. `--ships` packs each hold with an unbounded knapsack.
 - Next: fleet selection. Fleets are capped at 100 CP, so maximise cargo/CP × speed while keeping enough combat strength for pirates. The `--json` output is the interface for that tool.
 
 ## Tags
