@@ -6,6 +6,7 @@ permalink: /tags/games/
 ---
 # games
 
+- [Sci-Fi Trading Voyage](../projects/sci-fi-trading-voyage/README.md) — trade-route calculator, profit/hr over two-stop round trips
 - [HeroClix](../projects/heroclix/README.md) — dial data + official rules joined; exact Markov combat model
 - [Monopoly](../projects/monopoly/README.md) — Monopoly engine with Markov-chain AI
 - [Slay](../projects/slay/README.md) — hex strategy game recreation with AI

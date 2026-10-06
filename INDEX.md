@@ -25,6 +25,7 @@ permalink: /INDEX/
 - [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
 - [HeroClix](./projects/heroclix/README.md) — dial data (333 sets / 14,659 units) + official rules, joined; rebuilding the exact Markov combat model (active)
 - [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
+- [Sci-Fi Trading Voyage](./projects/sci-fi-trading-voyage/README.md) — trade-route calculator: ranks two-stop round trips by profit/hr from a 25-stop price + coordinate snapshot; the next step is fleet selection under a 100 CP cap (active)
 - [democracy3-solver](./projects/democracy3-solver/README.md) — "solve" Democracy 3 by extracting its CSV game-data model into a faithful equilibrium simulator, then optimizing policy vectors (LP/MILP) for max vote share (active)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
 - [OOP Neurons](./projects/oop-neurons/README.md) — object-oriented neural network on GPU; neurons as proper objects; exploring what OOP reveals vs matrix multiplication (concept)

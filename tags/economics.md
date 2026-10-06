@@ -7,6 +7,7 @@ permalink: /tags/economics/
 # economics
 > Files related to economic theory, trade, and business.
 
+- [Sci-Fi Trading Voyage](../projects/sci-fi-trading-voyage/README.md) — trade-route calculator for a game economy (margin per distance)
 - [Economics (overview)](../research/economics/README.md)
 - [Slay — Evaluation & Search (the 1v1 case)](../research/gaming/slay-evaluation.md) — realizable-treasury as the Slay instance of "cash is intercept, not slope"; territory economy, upkeep drag, connectivity as the unit-tier unlock
 - [Technology → Culture → Politics](../research/philosophy/dynamics/technology-culture-politics.md) — material/economic conditions as the deepest causal layer driving culture and then politics (NAFTA/China/automation → single-industry-town collapse → realignment)

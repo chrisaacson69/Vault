@@ -7,6 +7,7 @@ permalink: /tags/python/
 # python
 > Projects and files using Python.
 
+- [Sci-Fi Trading Voyage](../projects/sci-fi-trading-voyage/README.md)
 - [Batch Resize](../projects/batch-resize/README.md)
 - [HeroClix](../projects/heroclix/README.md)
 - [Camelot From YouTube](../projects/camelot-from-youtube/README.md)
