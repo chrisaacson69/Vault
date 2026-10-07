@@ -17,6 +17,7 @@ created: 2026-10-06
 - Best route: Proxima → AlphaCentA (ResearchData3), only 7 Gm apart, about 30× ahead of the next best (BlackGoldStar ↔ Troy).
 - Lesson worth keeping: the highest-margin trade ranked 8th once distance and empty return legs were counted. **Rank by margin per distance for the whole cycle, not margin per load.**
 - **Goods come in whole units, so hold size is a threshold, not just a quantity — but the threshold is the *fleet's* pooled hold, not each ship's.** The game's loading logs proved the pooling (a fleet of ≤2,000-cargo ships loaded 9 units of a 4,000-size good). The earlier claim here, that 25,200-cargo haulers couldn't carry ResearchData3 (100,000/unit), was wrong; it assumed separate holds. `--ships` packs the pooled hold with an unbounded knapsack.
+- **Prices are premiums over a fixed class average** (2026-10-07). A good's trailing digit is its class, with averages of 0.295 per cargo unit for class 1, 10 for class 2, and about 25–30 for class 3. Stops sell near the average; every premium is on the buy side, so margin ≈ class average × (buyer's multiple − 1). This is why a ×3 premium on a class-1 good is worth less than a ×1.5 premium on a class-2 good. `--premiums` tracks the premiums by class per day, to test Chris's guess that class 3 takes over later in the event.
 - Next: fleet selection. Each route has a CP cap set by its level, so maximise cargo/CP × speed while keeping enough combat strength for pirates. The `--json` output is the interface for that tool.
 
 ## Tags
