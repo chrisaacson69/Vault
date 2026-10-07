@@ -12,11 +12,12 @@ created: 2026-10-06
 
 ## Status (2026-10-06)
 
-- All 25 stops recorded. Timing runs measured travel at exactly 2.0 s/Gm with no fixed overhead, so profit/hr = margin ÷ distance.
+- All 25 stops recorded. Travel time = distance × 10,000 / warp seconds, no fixed overhead. Stopwatch runs at warp 5,000 and warp 2,250 match it to the second; route levels add +N% profit.
+- **The game's own $/hr figure is not ground truth.** Treating it as the oracle chose the wrong speed model (it matched twice by coincidence). The stopwatch was the lower artifact. The game's figure is still unexplained (~0.7× under a pooled-hold model).
 - Best route: Proxima → AlphaCentA (ResearchData3), only 7 Gm apart, about 30× ahead of the next best (BlackGoldStar ↔ Troy).
 - Lesson worth keeping: the highest-margin trade ranked 8th once distance and empty return legs were counted. **Rank by margin per distance for the whole cycle, not margin per load.**
 - **Goods come in whole units, so hold size is a threshold, not just a quantity.** ResearchData3 is 100,000 per unit, so a fleet of 25,200 haulers can't run the best route at all, while 3 × 130,000 earns about 40× more. `--ships` packs each hold with an unbounded knapsack.
-- Next: fleet selection. Fleets are capped at 100 CP, so maximise cargo/CP × speed while keeping enough combat strength for pirates. The `--json` output is the interface for that tool.
+- Next: fleet selection. Each route has a CP cap set by its level, so maximise cargo/CP × speed while keeping enough combat strength for pirates. The `--json` output is the interface for that tool.
 
 ## Tags
 [games](../../tags/games.md), [python](../../tags/python.md), [economics](../../tags/economics.md)
