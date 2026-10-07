@@ -13,10 +13,10 @@ created: 2026-10-06
 ## Status (2026-10-06)
 
 - All 25 stops recorded. Travel time = distance × 10,000 / warp seconds, no fixed overhead. Stopwatch runs at warp 5,000 and warp 2,250 match it to the second; route levels add +N% profit.
-- **The game's own $/hr figure is not ground truth.** Treating it as the oracle chose the wrong speed model (it matched twice by coincidence). The stopwatch was the lower artifact. The game's figure is still unexplained (~0.7× under a pooled-hold model).
+- **The game's own $/hr figure is not ground truth.** Treating it as the oracle chose the wrong speed model (it matched twice by coincidence). The stopwatch was the lower artifact. Now explained: profit = listed margin × (1 + route bonus + ~45% global), the fleet's cargo is one pooled hold, and leg time = distance × 10,000 / warp. That matches the game's figure within 0.5% on every clean row. The game's own loading and sale logs were the grounding, not its summary figure.
 - Best route: Proxima → AlphaCentA (ResearchData3), only 7 Gm apart, about 30× ahead of the next best (BlackGoldStar ↔ Troy).
 - Lesson worth keeping: the highest-margin trade ranked 8th once distance and empty return legs were counted. **Rank by margin per distance for the whole cycle, not margin per load.**
-- **Goods come in whole units, so hold size is a threshold, not just a quantity.** ResearchData3 is 100,000 per unit, so a fleet of 25,200 haulers can't run the best route at all, while 3 × 130,000 earns about 40× more. `--ships` packs each hold with an unbounded knapsack.
+- **Goods come in whole units, so hold size is a threshold, not just a quantity — but the threshold is the *fleet's* pooled hold, not each ship's.** The game's loading logs proved the pooling (a fleet of ≤2,000-cargo ships loaded 9 units of a 4,000-size good). The earlier claim here, that 25,200-cargo haulers couldn't carry ResearchData3 (100,000/unit), was wrong; it assumed separate holds. `--ships` packs the pooled hold with an unbounded knapsack.
 - Next: fleet selection. Each route has a CP cap set by its level, so maximise cargo/CP × speed while keeping enough combat strength for pirates. The `--json` output is the interface for that tool.
 
 ## Tags
