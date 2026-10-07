@@ -46,3 +46,4 @@ permalink: /tags/reverse-engineering/
 - [The comparison studies — paired deep-reads](../projects/game-annotation/comparisons/README.md) — The four titles the series started as, organized in **paired comparisons**.
 - [Aerobiz (SNES)](../projects/game-annotation/snes/aerobiz-snes/README.md) — The third KOEI SNES title, and the first one that isn't a port of a decompiled NES game.
 - [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — RAM as eyes, ROM tables decoded, disassembly read; the instrument-not-the-game lessons
+- [The AI Decomp Wave — Outside Confirmation](../research/ai-decomp-wave.md) — agent decompilation's "answer key" = the vault's correctness oracle; flashy ports/mods vs. mechanics; idea/expression legality

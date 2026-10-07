@@ -11,7 +11,7 @@ permalink: /tags/_index/
 - [65816](./65816.md) — 9 files
 - [agent-teams](./agent-teams.md) — 5 files
 - [agents](./agents.md) — 25 files
-- [ai](./ai.md) — 62 files
+- [ai](./ai.md) — 63 files
 - [assembly](./assembly.md) — 17 files
 - [atari-2600](./atari-2600.md) — 1 file
 - [audio-processing](./audio-processing.md) — 9 files
@@ -20,7 +20,7 @@ permalink: /tags/_index/
 - [career](./career.md) — 8 files
 - [chess-engine](./chess-engine.md) — 1 file
 - [civilizational-cycles](./civilizational-cycles.md) — 16 files
-- [claude](./claude.md) — 1 file
+- [claude](./claude.md) — 2 files
 - [code-golf](./code-golf.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [collectivism](./collectivism.md) — 2 files
@@ -30,7 +30,7 @@ permalink: /tags/_index/
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 11 files
 - [debates](./debates.md) — 94 files
-- [decompilation](./decompilation.md) — 2 files
+- [decompilation](./decompilation.md) — 3 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 121 files
 - [education](./education.md) — 3 files
@@ -46,7 +46,7 @@ permalink: /tags/_index/
 - [game-design](./game-design.md) — 11 files
 - [game-theory](./game-theory.md) — 44 files
 - [games](./games.md) — 64 files
-- [grounding](./grounding.md) — 10 files
+- [grounding](./grounding.md) — 11 files
 - [history](./history.md) — 28 files
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
@@ -77,7 +77,7 @@ permalink: /tags/_index/
 - [python](./python.md) — 17 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
-- [reverse-engineering](./reverse-engineering.md) — 39 files
+- [reverse-engineering](./reverse-engineering.md) — 40 files
 - [risk](./risk.md) — 6 files
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 11 files
@@ -88,4 +88,4 @@ permalink: /tags/_index/
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files
 - [workflow](./workflow.md) — 5 files
-- [youtube](./youtube.md) — 4 files
+- [youtube](./youtube.md) — 5 files
