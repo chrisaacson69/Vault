@@ -9,3 +9,4 @@ permalink: /tags/decompilation/
 
 - [DREAM — goto-free control-flow structuring](../research/reverse-engineering/dream-goto-free-structuring.md) — reaching-conditions (not node splitting) resolve shared tails; practical, beats Hex-Rays/Phoenix; the koei-snes vm_struct testbed
 - [KOEI's portable VM (SNES ROTK2 reversal)](../research/gaming/koei-snes-portable-vm.md) — 512 named routines, layered source, Mesen .mlb, C-lift + DREAM structuring experiments
+- [The AI Decomp Wave — Outside Confirmation](../research/ai-decomp-wave.md) — agent decompilation's "answer key" = the vault's correctness oracle; flashy ports/mods vs. mechanics; idea/expression legality
