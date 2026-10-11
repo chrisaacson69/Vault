@@ -21,7 +21,7 @@ created: 2026-10-11
 | 1 | Planet struct (0xB8 × 108) from save-name stride; ship-design struct (0x44); per-planet orbit ships (24 B) |
 | 2 | Build accumulators, planet flags/enums; researched-tech lists (6 × 60 u8, count-gated); research is probabilistic |
 | 3 | Diplomacy block via save before/after diffs + file splicing; mood (−100..+100), treaty enum, diplomat meters; `players[6]` absorbs "game state"; year |
-| 4 | Save-file analyzer; RAM↔disk block reorderings; **Ghidra: logic is in STARMAP.EXE, ORION.EXE is a loader**; 32-bit fields detected by paired 16-bit writes |
+| 4 | Save-file analyzer; RAM↔disk block reorderings; **Ghidra: turn logic is in STARMAP.EXE** (ORION.EXE "a loader" per stream — too strong: it holds new-game data, e.g. the race-relations table at 0x22D6A); 32-bit fields detected by paired 16-bit writes |
 | 5 | Fleets en route (260 × 28 B), transports (100 × 18 B); hard caps; failed DOSBox↔Ghidra address join (manual delta 0x7DD0) |
 | 6 | Game settings, 4 trailing per-planet arrays; **random-events block decoded by forcing one event at a time** |
 | 7 | Spy reports (year-made + per-field highest-tech watermark); terraforming/refit not stored; "player unknown" = global game state |

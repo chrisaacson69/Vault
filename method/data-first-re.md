@@ -14,7 +14,7 @@ title: "Data-First RE"
 *Classify the architecture first.* The vault's ROM projects (NA1, KOEI) are static images at fixed
 addresses: a call tree is walkable and every runtime PC *is* a disassembly address. A DOS `MZ`
 executable is not: the loader picks a base segment, applies relocations, and the program may load
-further code (overlays, a second EXE — MOO1's `ORION.EXE` is a loader for `STARMAP.EXE`). The same
+further code (overlays, a second EXE — MOO1's `ORION.EXE` (setup, new-game data) hands off to `STARMAP.EXE` (turn engine)). The same
 byte has one address in Ghidra and another, run-dependent one in the emulator. Every static↔runtime
 hop costs a manual join, so a code-first walk pays that tax on every step.
 

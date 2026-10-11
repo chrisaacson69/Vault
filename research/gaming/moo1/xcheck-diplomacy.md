@@ -3,7 +3,7 @@ status: draft
 created: 2026-10-11
 ---
 # MOO1 Diplomacy — Three-Way Cross-Check
-> Stream (RAM pokes on the v1.3 binary) × Official Strategy Guide ch.5/11 × 1oom source, mechanic by mechanic. The four diplomat meters are the OSG's temporary modifiers (treaty/trade/tech/peace); threaten −220 and the trade ramp reproduce exactly in 1oom code; several OSG claims are v1.3 bugs. **Draft — verdicts marked OCR-SUSPECT / UNRESOLVED await Chris's rulings (Questions section).**
+> Stream (RAM pokes on the v1.3 binary) × Official Strategy Guide ch.5/11 × 1oom source, mechanic by mechanic. The four diplomat meters are the OSG's temporary modifiers (treaty/trade/tech/peace); threaten −220 and the trade ramp reproduce exactly in 1oom code; several OSG claims are v1.3 bugs. **Draft — OCR rulings received 2026-10-11; behavioural questions deferred to our own RE.**
 
 **Source:** [raw/videos/moo1-re/](../../../raw/videos/moo1-re/README.md) via the [stream digest](./zappatic-re-stream.md) — <https://www.youtube.com/playlist?list=PLZVzPYU15yts>
 **Source:** [raw/books/moo1-osg/](../../../raw/books/moo1-osg/README.md) — OSG OCR text; `OSG:NNNN`/`LNNNN` cite its line numbers
@@ -242,6 +242,19 @@ offer menu: prod=min(prodA,prodB)/4; head=floor25(prod)−cur; head<125 → cur+
 23. **OCR sanity (trivial).** "-1-91 to -1-100" (L25627) = +91 to +100. "-i30" (L26130) = +30, which the code's trust cap of 30 confirms. "-40 to -h 40" (L26162) = −40 to +40. "8 to 1 5" (L27886) = 8 to 15. No answer needed unless one is wrong.
 
 ---
+
+## Rulings & resolutions — OCR checks (Chris, 2026-10-11)
+Chris checked the printed OSG: OCR faithful on all five. Remaining differences are **OSG ≠ binary**; the code decides.
+
+| Q | Printed OSG (Chris) | Code / binary | Verdict |
+|---|---|---|---|
+| D1 relation bands | Relaxed +7..+18, Neutral −6..+6, Unease −7..−18 — a −100..+100 scale bracketed every ~11–12 | labels by `rel/12` → Neutral −11..+11 | OSG ≠ binary (band edges); ch.5 L8926 (−12..−23) is closer to the code |
+| D2 Klackon↔Silicoid start | +7 both ways; chart values sit on 0/7/19/31 breaks; fine print: −5 for being at war | **ORION.EXE file offset 0x22D6A** holds the full 10×10 `int16` table byte-identical to 1oom `tbl_orion_race_relation` (`game_new.c:50`, ×12 at `:917`); cells [Klackon][Silicoid] = [Silicoid][Klackon] = **−1** → −12 | **Binary-verified: OSG wrong.** First direct read of the original EXE. |
+| D17 trade DP/turn | Table 11-5: +1..+5; text: 1..X, X = 1 + (% of smaller economy)/5 — Chris: consistent, max when economies equal | flat `d3` on a 50% roll each turn, independent of trade size (`game_turn.c:341-349`) | OSG ≠ binary |
+| D18 tech gift | text: 12 DP × (gift level / their avg level); table: +6 DP and +5 permanent Core Reaction up to +30 | `(2d8 + tech/4)·k/10` | OSG ≠ binary; OSG internally 12 vs 6 |
+| D22 Human bonus | +60 | +50 (`game_ai_classic.c:3745, :4075`) | OSG ≠ binary |
+
+Remaining diplomacy questions are play-behaviour; Chris treats diplomacy as a black box → resolve by our own RE, not lore.
 
 ## Resolved from transcripts (coordinator, 2026-10-11)
 - **Q11 (−300):** Part 4 [~3:25:00] — he had entered the threaten/break menu repeatedly before the readout ("they all have negative effects"); in v1.3 each entry costs −100 on all four meters (`game_audience.c:726` WASBUG), so −300 is consistent with three entries and needs no trade-break penalty. *Consistent, not proven.*
