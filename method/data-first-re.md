@@ -40,7 +40,7 @@ the same probe**:
 | Official strategy guide (MOO1: the OSG, Emrich & Hughes) | mechanics, AI rules in prose | written outside the code; 1oom credits it for mechanics + AI |
 | Third-party RE (MOO1: zappatic's struct JSON) | layout | same method as ours, different hands |
 
-Disagreement between rungs is the signal: the MOO1 stream's struct file summed to 59,014 bytes; 1oom
+The rungs are not interchangeable: a guide documents **intent**, the binary is **actual**, and a reimplementation that chose to reproduce-or-fix each bug (1oom's `list_gamediff`) **catalogues the gap** — so a guide-vs-probe disagreement is often a real bug, not noise. A domain expert who knows the bug lore is a rung of its own. Disagreement between rungs is the signal: the MOO1 stream's struct file summed to 59,014 bytes; 1oom
 said 59,036; the 22-byte gap was a real unmapped tail (game-over/winner/election), not noise.
 
 ## Fixing the join instead of avoiding it (open)

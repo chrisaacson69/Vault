@@ -41,9 +41,9 @@ Real-mode segment relocation means a runtime `seg:off` doesn't equal the Ghidra 
 ## Findings new to the vault (behavioural, from his pokes)
 - **Hard caps:** 260 fleets en route (all players), 100 transports. Save is fixed-size, 108 planet slots always reserved. *(1oom agrees: `enroute_num` 0..259, `transport_num` 0..99.)* Distinct from the OSG's **32,000-ship limit**, which is ships per *stack* (display cap; true limit a u16) — see [OSG capture](../../../raw/books/moo1-osg/README.md), ch.15.
 - **Transports** use the attacker's armor/weapon tech **at arrival**, not at launch.
-- **Diplomacy:** 4 per-relationship diplomat meters recover each turn; diplomat withdrawn when any ≤ −100 (an earlier −55 was retracted); breaking a trade treaty sets all to −300; refused tech exchange −30; tech tribute +10 on meter 4. Mood is recomputed each turn. Trade proposals step +25 BC.
+- **Diplomacy:** 4 per-relationship diplomat meters recover each turn; diplomat withdrawn when any ≤ −100 (an earlier −55 was retracted); breaking a trade treaty sets all to −300; refused tech exchange −30; tech tribute +10 on meter 4. Mood is recomputed each turn. Trade proposals step +25 BC. Two of these are **v1.3 bugs**, per 1oom `doc/list_gamediff.txt`: a money tribute doing nothing (OSG says it should work), and merely *entering* the threaten/break-treaty dialogue costing a large temporary penalty.
 - **Random events:** a 411-word events block; per-event state (0 none / 1 trigger / 2 ongoing) + planet/player + progress. Comet: progress vs signed target, years-to-impact countdown; pirates: random positive progress decaying below 0; space crystal / amoeba: wait counter → move, leave after visiting ≥ 5 planets; quake damage random and not stored. Hold **Alt** on the main screen to disable events.
-- **Research:** chance appears near ~90% of base cost, ~50% at 2×, ~99% at 3×; progress decays at 0% allocation; overshoot lost on completion. (Formula: see 1oom / OSG.)
+- **Research:** chance appears near ~90% of base cost, ~50% at 2×, ~99% at 3×; progress decays at 0% allocation; overshoot lost on completion. ⚠ These are **displayed** percentages — v1.3's tech screen shows **half the true probability** (known bug; Chris; 1oom `doc/list_gamediff.txt`). Formula: 1oom / OSG.
 - **Not stored:** relocation delay (= travel time), refit progress, terraform cap (base + tech).
 
 ## Cross-checked against independent sources (2026-10-11)
@@ -51,6 +51,9 @@ Real-mode segment relocation means a runtime `seg:off` doesn't equal the Ghidra 
 - **Year:** 1oom stores `year=1` at start, displays `year + 2299` — the stream's three phrasings all reduce to this.
 - **"Chat said the source exists" (Part 6 ~3:40):** chat isn't in the VOD audio, so unresolved. 1oom is the only public source-level artifact found. A regular viewer **"Darkstar"** fed him the original's skip-intro argument (`YOMAMA`, documented in 1oom `doc/usage_common.txt`) and the scrapped-ships insight; the legacy 1oom mirror is `github.com/darkstar/1oom`. Suggestive, **not established**.
 - His symbol file's `crc32 0xBF0B8580` matches neither Steam v1.3 EXE (ORION `0x6237FE7B`, STARMAP `0x63B00693`); he runs the eXoDOS build. Unresolved.
+
+## Known v1.3 bugs — read measurements through them
+The stream measures the *binary*; the OSG describes *intent*; 1oom catalogues the gap (`doc/list_gamediff.txt`, `doc/list_pbxnum.txt`, `doc/pbxin_fixbugs.txt`, ~94 `WASBUG` comments in `src/`). Chris knows the lore and can arbitrate: e.g. ship stacks display-capped at 32,000 from a signed-16 wrap (1oom clamps `game_num_limit_ships = 32000`), research % displayed at half. **Before recording any stream or OSG number as a mechanic, check it against this list.**
 
 ## Open Questions
 - What does `crc32` hash — file, loaded image, or a different build? Does his RAM map hold on Steam v1.3?
