@@ -66,6 +66,7 @@ Games aren't a side interest — they're how Chris thinks. The same frameworks t
 - [MOO1 Optimal Strategy](./moo1/optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
 - [MOO1 MIRR Analysis](./moo1/mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
 - [zappatic RE Stream](./moo1/zappatic-re-stream.md) — digest of a 36h DOS teardown of MOO1: data-first method, save/RAM layout, caps, diplomacy meters, random events; cross-checked vs 1oom
+- [Diplomacy cross-check](./moo1/xcheck-diplomacy.md) · [Random events cross-check](./moo1/xcheck-events.md) — stream × OSG × 1oom, mechanic by mechanic (drafts)
 
 ### Master of Magic — [master-of-magic/](./master-of-magic/)
 - [Economic Analysis](./master-of-magic/README.md) — BV + MIRR applied to all units, buildings, and spells; "balance through imbalance" tested quantitatively

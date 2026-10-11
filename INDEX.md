@@ -262,6 +262,8 @@ permalink: /INDEX/
     - [MOO1 Optimal Strategy](./research/gaming/moo1/optimal-strategy.md) — race tiers, opening theory, tech priorities, ship design via BV, diplomacy, endgame paths
     - [MOO1 MIRR Analysis](./research/gaming/moo1/mirr-analysis.md) — MIRR-based investment decision: factory vs colonizer; financial metric for opening theory
     - [zappatic — Reverse Engineering MOO1 (stream digest)](./research/gaming/moo1/zappatic-re-stream.md) — 9-VOD/36h DOS teardown, data-first (save → RAM → struct JSON); method worth stealing, the DOS segment-relocation wall, new caps/diplomacy/event facts; cross-checked vs 1oom (save = 59,036 B, year + 2299). Per-part notes in `zappatic-stream/`
+    - [MOO1 Diplomacy — Three-Way Cross-Check](./research/gaming/moo1/xcheck-diplomacy.md) — stream × OSG × 1oom: the 4 diplomat meters = OSG temporary modifiers; threaten −220 and trade ramp reproduced from code; v1.3 bugs vs OSG intent (draft, awaiting Chris's rulings)
+    - [MOO1 Random Events — Three-Way Cross-Check](./research/gaming/moo1/xcheck-events.md) — events-block field map, odds formula, OSG numbers the binary contradicts (comet/pirate HP, nova, quake, Guardian); draft, awaiting Chris's rulings
   - Master of Magic — [research/gaming/master-of-magic/](./research/gaming/master-of-magic/)
     - [Economic Analysis](./research/gaming/master-of-magic/README.md) — BV + MIRR applied to all units, buildings, spells; "balance through imbalance" tested quantitatively
     - [Tier System and MIRR](./research/gaming/master-of-magic/tier-system-and-mirr.md) — time-gated tiers as investment decisions; Wraith rush, Halfling Slinger stacking, building option value

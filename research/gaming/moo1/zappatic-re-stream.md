@@ -10,6 +10,8 @@ created: 2026-10-11
 
 **Links:** [Data-First RE](../../../method/data-first-re.md) (the thesis this is a specimen of) · [MOO1 Optimal Strategy](./optimal-strategy.md) · [MOO1 Opening Optimizer](../../../projects/moo1-opening-optimizer/README.md) · [The Rosetta Stone Method](../../../method/rosetta-stone-method.md) · [The Anchor Method](../../../method/anchor-method.md)
 
+**Three-way cross-checks (stream × OSG × 1oom):** [diplomacy](./xcheck-diplomacy.md) · [random events](./xcheck-events.md)
+
 **Per-part notes:** [1](./zappatic-stream/part01.md) · [2](./zappatic-stream/part02.md) · [3](./zappatic-stream/part03.md) · [4](./zappatic-stream/part04.md) · [5](./zappatic-stream/part05.md) · [6](./zappatic-stream/part06.md) · [7a+7b](./zappatic-stream/part07.md) · [8](./zappatic-stream/part08.md)
 
 ## Timeline

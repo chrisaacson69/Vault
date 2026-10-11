@@ -49,3 +49,5 @@ permalink: /tags/reverse-engineering/
 - [The AI Decomp Wave — Outside Confirmation](../research/ai-decomp-wave.md) — agent decompilation's "answer key" = the vault's correctness oracle; flashy ports/mods vs. mechanics; idea/expression legality
 - [zappatic — Reverse Engineering MOO1](../research/gaming/moo1/zappatic-re-stream.md) — stream digest: data-first DOS RE, save/RAM layout, caps, diplomacy, events; cross-checked vs 1oom
 - [Data-First RE](../method/data-first-re.md) — name the data first when the static↔runtime address join is broken (DOS real mode); the oracle ladder
+- [MOO1 Diplomacy — Three-Way Cross-Check](../research/gaming/moo1/xcheck-diplomacy.md) — stream × OSG × 1oom, diplomacy mechanics
+- [MOO1 Random Events — Three-Way Cross-Check](../research/gaming/moo1/xcheck-events.md) — stream × OSG × 1oom, random events
