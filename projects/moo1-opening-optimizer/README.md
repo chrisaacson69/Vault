@@ -115,9 +115,10 @@ This creates a decision boundary problem:
 
 - **Language:** Python. This is an economic sim, not a performance-critical combat sim. Thousands of 100-turn simulations run in seconds.
 - **Validation — four independent oracles** (see [Data-First RE](../../method/data-first-re.md) → oracle ladder):
-  - **1oom** (https://github.com/1oom-fork/1oom) — GPL C recreation of the v1.3 DOS engine; *the* formula source, closer to the original than RotP. Reads/writes original saves (`game_save_moo13.c`).
-  - **The Official Strategy Guide** (Emrich & Hughes) — mechanics + AI rules in prose; 1oom credits it. Archive.org has an OCR text layer, avoiding the 142 MB PDF.
+  - **1oom** (https://github.com/1oom-fork/1oom) — GPL C recreation of the v1.3 DOS engine; *the* formula source, closer to the original than RotP. Reads/writes original saves (`game_save_moo13.c`). **Read-only for us:** we can't contribute upstream (and the project is currently dormant) — findings it lacks live in our repos/vault, not in PRs.
+  - **The Official Strategy Guide** (Emrich & Hughes; 1oom's "OSG") — mechanics + AI rules in prose, incl. App. A *Next Turn Sequence of Play*. OCR text captured: [raw/books/moo1-osg/](../../raw/books/moo1-osg/README.md) (chapter→line locator inside); the PDF is still the source for tables.
   - **RotP** (Remnants of the Precursors) — Java remake; useful but *modernized* (diplomacy notably changed), so not ground truth for the original.
+  - *Not an oracle:* **FreeOrion** — its author describes it as MOO-inspired, not canonical.
   - **zappatic's struct JSON + stream** — save/RAM layout and behavioural facts (caps, diplomacy meters, events): [stream digest](../../research/gaming/moo1/zappatic-re-stream.md).
   - Player-verified tables (GOG forum, Realms Beyond) remain a fifth, empirical check.
 - **Output:** Tables and plots. Matplotlib for visualization. The key deliverable is a set of guidelines, not a tool the player runs live.

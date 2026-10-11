@@ -39,7 +39,7 @@ created: 2026-10-11
 Real-mode segment relocation means a runtime `seg:off` doesn't equal the Ghidra address of the same code/data; his symbols even drift between segments (`3813`/`6813`/`8813`) across runs. He bridged it once by byte-pattern search (delta 0x7DD0) and Ghidra's auto-analysis left the target undisassembled. He then mostly stopped using code at all. See [Data-First RE](../../../method/data-first-re.md) for what this implies for us.
 
 ## Findings new to the vault (behavioural, from his pokes)
-- **Hard caps:** 260 fleets en route (all players), 100 transports. Save is fixed-size, 108 planet slots always reserved. *(1oom agrees: `enroute_num` 0..259, `transport_num` 0..99.)*
+- **Hard caps:** 260 fleets en route (all players), 100 transports. Save is fixed-size, 108 planet slots always reserved. *(1oom agrees: `enroute_num` 0..259, `transport_num` 0..99.)* Distinct from the OSG's **32,000-ship limit**, which is ships per *stack* (display cap; true limit a u16) — see [OSG capture](../../../raw/books/moo1-osg/README.md), ch.15.
 - **Transports** use the attacker's armor/weapon tech **at arrival**, not at launch.
 - **Diplomacy:** 4 per-relationship diplomat meters recover each turn; diplomat withdrawn when any ≤ −100 (an earlier −55 was retracted); breaking a trade treaty sets all to −300; refused tech exchange −30; tech tribute +10 on meter 4. Mood is recomputed each turn. Trade proposals step +25 BC.
 - **Random events:** a 411-word events block; per-event state (0 none / 1 trigger / 2 ongoing) + planet/player + progress. Comet: progress vs signed target, years-to-impact countdown; pirates: random positive progress decaying below 0; space crystal / amoeba: wait counter → move, leave after visiting ≥ 5 planets; quake damage random and not stored. Hold **Alt** on the main screen to disable events.
@@ -54,7 +54,8 @@ Real-mode segment relocation means a runtime `seg:off` doesn't equal the Ghidra 
 
 ## Open Questions
 - What does `crc32` hash — file, loaded image, or a different build? Does his RAM map hold on Steam v1.3?
-- Trade-income ramp and the unknown "goes-negative → news, counts at 606" field (Part 8) — check 1oom.
+- Diplomacy meters vs the OSG's "diplomacy points" / relations bar (ch.11) and the event mechanics vs ch.14 — the next cross-check.
+- Trade-income ramp (OSG ch.5) and the unknown "goes-negative → news, counts at 606" field (Part 8) — check 1oom.
 - His remaining `unknownN` fields: 1oom's `game_save_moo13.c` names them; a field-by-field merge would close most.
 
 ## Tags
