@@ -243,6 +243,10 @@ offer menu: prod=min(prodA,prodB)/4; head=floor25(prod)−cur; head<125 → cur+
 
 ---
 
+## Resolved from transcripts (coordinator, 2026-10-11)
+- **Q11 (−300):** Part 4 [~3:25:00] — he had entered the threaten/break menu repeatedly before the readout ("they all have negative effects"); in v1.3 each entry costs −100 on all four meters (`game_audience.c:726` WASBUG), so −300 is consistent with three entries and needs no trade-break penalty. *Consistent, not proven.*
+- **Q16 (−55):** Part 3 [~1:30:00] — found by poking a single meter while noting "it might be affected by these values too"; matches the code's second diplomat-gone clause (trust + lowest meter + personality ≤ −100), not a standalone −55 threshold.
+
 ## Gaps
 
 - **Which copy is master.** The stream twice says the opponent's record overwrites player 0's (S4 [2:00:00]; S5 [3:20:00]; S6 [0:15:00]). 1oom's end-of-turn copy (`game_turn.c:435-444`) makes the lower index master. If that is v1.3-faithful, the AI→human drift would be discarded every turn. **Probe:** poke player 0's relation, end the turn with no events, and watch which side survives.
