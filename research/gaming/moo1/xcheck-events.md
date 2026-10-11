@@ -3,7 +3,7 @@ status: draft
 created: 2026-10-11
 ---
 # MOO1 Random Events — Three-Way Cross-Check
-> Stream (forced events on the v1.3 binary) × Official Strategy Guide ch.14–15 × 1oom source. Field map of the 822-byte events block, odds formula (year − last-event-year, scaled by difficulty, of 512), and the OSG numbers the binary contradicts. **Draft — verdicts marked OCR-SUSPECT / UNRESOLVED await Chris's rulings (Questions section).**
+> Stream (forced events on the v1.3 binary) × Official Strategy Guide ch.14–15 × 1oom source. Field map of the 822-byte events block, odds formula (year − last-event-year, scaled by difficulty, of 512), and the OSG numbers the binary contradicts. **Draft — OCR rulings received 2026-10-11 (see Rulings); play-experience questions still open.**
 
 **Source:** [raw/videos/moo1-re/](../../../raw/videos/moo1-re/README.md) via the [stream digest](./zappatic-re-stream.md) — <https://www.youtube.com/playlist?list=PLZVzPYU15yts>
 **Source:** [raw/books/moo1-osg/](../../../raw/books/moo1-osg/README.md) — OSG OCR text; `OSG:NNNN`/`LNNNN` cite its line numbers
@@ -242,6 +242,25 @@ Each one should be answerable in one line from the printed OSG or from play expe
 18. Lore: the OSG's "Why Me?" says good events go to weak players by production. Did that ever match your experience, or did events feel human-targeted? The code makes humans 5× as likely per planet.
 
 ---
+
+## Rulings & resolutions (2026-10-11)
+Chris checked the printed OSG against the PDF: **its OCR is faithful on every number asked**, so each remaining OSG-vs-code disagreement is a real **OSG ≠ binary** difference, not noise. Rule (Chris): *the code decides*; caveat: "code" = 1oom until our own STARMAP.EXE read confirms it.
+
+| Q | Printed OSG (Chris) | Code (1oom @42e9c0b) | Verdict |
+|---|---|---|---|
+| E1 odds by difficulty | 1, 4/3, 3/2, 8/5, 2 | ×½, ⅔, ¾, ⅘, 1 (`game_event.c:193-`) → same ratios | **AGREE** (all three) |
+| E2 first possible event | turn 50 | last-event-year starts 40 → ~year 41+ | OSG ≠ binary |
+| E3 comet HP / damage | 400–600; 1/5/25/125 per hull size | (d5+10+diff)×25 = 275–475 (`:356`); hull damage per report | HP: OSG ≠ binary; damage: AGREE |
+| E4 pirates | 300–450 HP; 60–90% trade loss | (d5+10+diff)×30 = 330–570 (`:362`); hp/6 = 55–95% | OSG ≠ binary |
+| E5 plague | loss 5–10%/turn; cure 3–10× | loss (d6+4)% = 5–10% (`:420`); cure (d8+2·diff)× (`:299`) | loss **AGREE**; cure OSG ≠ binary (matches only on Easy) |
+| E6 nova | 5–15 | 7–15 | OSG ≠ binary |
+| E7 nova factories | "80 to 100 percent" (OCR L33734) | 80/85/90% | OSG ≠ binary (minor) |
+| E8 amoeba new max pop | 10–25 | 10/15/20 | OSG ≠ binary |
+| E9 quake | ≥30 pop; −21–30% pop; −31–80% factories | pop ≥ 50 (`:228`); (d10+20)% pop, (d50+30)% factories (`:472-473`) | effects **AGREE**; threshold OSG ≠ binary |
+| E10/11 Guardian | 6,000–10,000 HP; shield/beam/missile def 5–9 (Table 15-1, OCR L34302-34328) | HP 2,000/4,000/6,000/8,000/10,000 (`game_parsed.c:126-170`) | OSG ≠ binary — **stream measured 2,000** (Part 8), a value only the code produces |
+| E16 overlay text | "Events Off" | "No Events" (1oom; Chris sees "No Events" in game) | OSG ≠ binary (cosmetic) |
+
+Play-experience questions E12–E15, E17–E18 remain open.
 
 ## Gaps
 
