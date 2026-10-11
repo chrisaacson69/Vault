@@ -73,3 +73,4 @@ permalink: /tags/games/
 - [zappatic — Reverse Engineering MOO1](../research/gaming/moo1/zappatic-re-stream.md) — stream digest: data-first DOS RE, save/RAM layout, caps, diplomacy, events; cross-checked vs 1oom
 - [MOO1 Diplomacy — Three-Way Cross-Check](../research/gaming/moo1/xcheck-diplomacy.md) — stream × OSG × 1oom, diplomacy mechanics
 - [MOO1 Random Events — Three-Way Cross-Check](../research/gaming/moo1/xcheck-events.md) — stream × OSG × 1oom, random events
+- [moo1-re](../projects/moo1-re/README.md) — MOO1 DOS v1.3 reverse engineering: dual save decoder, EXE table verifier

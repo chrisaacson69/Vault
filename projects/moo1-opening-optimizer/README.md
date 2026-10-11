@@ -13,6 +13,8 @@ permalink: /projects/moo1-opening-optimizer/
 
 **Code:** https://github.com/chrisaacson69/moo1-opening-optimizer
 
+**Verified mechanics come from:** [moo1-re](../moo1-re/README.md)
+
 ## Motivation
 
 The [MOO1 strategy analysis](../../research/gaming/moo1/optimal-strategy.md) identifies the 2nd colony ship timing as the first big strategic decision — and shows it's a tractable optimization problem. The conventional wisdom ("build 100 factories first, then colonize") is likely wrong for long-horizon games, but proving it requires simulation because the variables interact:

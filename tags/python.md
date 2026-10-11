@@ -24,3 +24,4 @@ permalink: /tags/python/
 - [democracy3-solver](../projects/democracy3-solver/README.md) — "Solve" Positech's Democracy 3 by extracting its game-data model and running optimization on it.
 - [DJ Blend Tool Test Plan — Retrieve, Fit, Close the Gaps](../research/dj-blend-tool-test-plan.md) — Ordered plan to retrieve the candidate blend tools and test each on one fixed transition, closing the critic / closed-loop / A/B-log gaps.
 - [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.
+- [moo1-re](../projects/moo1-re/README.md) — MOO1 reverse-engineering tools (stdlib Python)

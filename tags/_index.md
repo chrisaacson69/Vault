@@ -45,7 +45,7 @@ permalink: /tags/_index/
 - [game-ai](./game-ai.md) — 28 files
 - [game-design](./game-design.md) — 11 files
 - [game-theory](./game-theory.md) — 44 files
-- [games](./games.md) — 67 files
+- [games](./games.md) — 68 files
 - [grounding](./grounding.md) — 11 files
 - [history](./history.md) — 28 files
 - [insurance](./insurance.md) — 1 file
@@ -74,10 +74,10 @@ permalink: /tags/_index/
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 2 files
-- [python](./python.md) — 17 files
+- [python](./python.md) — 18 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
-- [reverse-engineering](./reverse-engineering.md) — 44 files
+- [reverse-engineering](./reverse-engineering.md) — 45 files
 - [risk](./risk.md) — 6 files
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 11 files
