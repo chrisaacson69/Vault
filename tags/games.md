@@ -70,3 +70,4 @@ permalink: /tags/games/
 - [democracy3-solver](../projects/democracy3-solver/README.md) — "Solve" Positech's Democracy 3 by extracting its game-data model and running optimization on it.
 - [Aerobiz (SNES)](../projects/game-annotation/snes/aerobiz-snes/README.md) — The third KOEI SNES title, and the first one that isn't a port of a decompiled NES game.
 - [Pluto on the Brood War Ladder — APM Beats Strategy, and Why the Gradient Went There](../research/gaming/pluto-broodwar-apm-over-strategy.md) — An RL-trained Brood War bot (**Pluto**), hacked onto the official Remastered ladder by a third party, reached effective #1 and beat a top-7 Protoss with a build every human heur…
+- [zappatic — Reverse Engineering MOO1](../research/gaming/moo1/zappatic-re-stream.md) — stream digest: data-first DOS RE, save/RAM layout, caps, diplomacy, events; cross-checked vs 1oom

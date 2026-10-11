@@ -8,7 +8,7 @@ title: "Master of Orion — Optimal Play Strategy"
 # Master of Orion — Optimal Play Strategy
 > Derived strategy for the original 1993 4X. Race selection, opening theory, tech priorities, ship design through the BattleValue lens, diplomacy, and endgame paths.
 
-**Links:** [Gaming](../README.md), [BattleValue](../battle-value.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md)
+**Links:** [Gaming](../README.md), [BattleValue](../battle-value.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Bilateral Trade Valuation](../bilateral-trade-valuation.md), [Risk and Entrepreneurship](../../economics/risk-and-entrepreneurship.md), [zappatic RE stream](./zappatic-re-stream.md) (memory-level evidence for diplomacy, events, caps)
 
 ## Why MOO1
 
@@ -152,6 +152,14 @@ MOO1's AI is self-interested, not anti-player. AIs try to maximize their own sta
 This means:
 - You can exploit alliance dynamics. If two AIs are at war, ally with one and you'll quickly reach maximum friendship.
 - Spy failures crash relations, but shared enemies restore them. Run espionage during wars when the friendship buffer absorbs the fallout.
+
+### Under the hood (memory-level evidence)
+
+From [zappatic's RE stream](./zappatic-re-stream.md) — behavioural, from RAM pokes; formulas to be confirmed against 1oom / the OSG:
+- Each relationship carries **4 diplomat meters** that recover every turn. If **any** reaches −100 the diplomat is withdrawn and audiences close. Breaking a trade treaty sets all four to −300 — a long freeze, not a dent. A refused tech exchange costs −30; a tech tribute is +10 on one meter, while a money tribute moved nothing.
+- **Mood** (−100..+100) is recomputed each turn, so it trends back toward a computed value rather than storing your goodwill.
+- **Transports fight with the attacker's tech at arrival**, not at launch: a mid-flight armor breakthrough upgrades troops already in space.
+- **Hard caps:** 260 fleets en route (all empires combined) and 100 transports — relevant to swarm tactics late in huge galaxies.
 
 ### Espionage Strategy
 
@@ -705,6 +713,7 @@ The convergence principle should still apply — once the numbers exist, the con
 
 ## Sources
 
+- **zappatic** — *Reverse Engineering Master of Orion* (Twitch VODs, 2026). Capture: [raw/videos/moo1-re/](../../../raw/videos/moo1-re/README.md) — <https://www.youtube.com/playlist?list=PLZVzPYU15yts>. Digest: [zappatic-re-stream](./zappatic-re-stream.md).
 - **Alan Emrich & Tom Hughes** — *Master of Orion Strategy Guide* (MicroProse, 1994). Coined the term "4X." Comprehensive race analysis and strategic framework. Available on [Archive.org](https://archive.org/details/MasterOfOrionStrategyGuide).
 - **StrategyWiki** — [Master of Orion](https://strategywiki.org/wiki/Master_of_Orion), [Best Races](https://strategywiki.org/wiki/Master_of_Orion/Best_races), [Warship Design](https://strategywiki.org/wiki/Master_of_Orion/Warship_design), [Spying](https://strategywiki.org/wiki/Master_of_Orion/Spying), [Diplomacy](https://strategywiki.org/wiki/Master_of_Orion/Diplomacy)
 - **CivFanatics** — [Race Selection and Balance](https://forums.civfanatics.com/threads/race-selection-in-moo1-and-balance.519900/), [Tactical Combat](https://forums.civfanatics.com/threads/moo1-tactical-combat.228446/)
