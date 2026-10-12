@@ -11,6 +11,10 @@ created: 2026-07-20
 
 ---
 
+## 2026-10-12
+
+**Ingest: [Wordle — Solved for the List, Compressed for the Human](../research/gaming/wordle-solved.md)** (Ballpark Figures, "I Solved Wordle*"; discussion folded in). Chris: the perfect tree proves the game is solvable but is too much to memorize, humans win by guessing well, and a steady 4 is a good player. Kudos to the guaranteed win in six. **Corrected** [Hangman — Solving Both Sides](../research/gaming/hangman-solving-both-sides.md) in place: Wordle *was* solved exactly (2022), and 3b1b's entropy bot is within 0.01 of the optimum. Closed its "direct sequel" question.
+
 ## 2026-09-29
 
 **Debate review: [The Blind Pill Is a Net Positive for Men (Ruelas vs. AVG)](../research/debates/blind-pill-ruelas-avg.md)** (discussion folded in). The earliest Ruelas specimen on file (June 2026). Chris's read is **the right position, badly argued**. The Aff spends the round narrating his trap instead of running it, and misfiles the one answer that conceded his thesis. Rebuilt as a question about jurisdiction, the dilemma is valid.

@@ -44,8 +44,8 @@ permalink: /tags/_index/
 - [free-will](./free-will.md) — 7 files
 - [game-ai](./game-ai.md) — 28 files
 - [game-design](./game-design.md) — 11 files
-- [game-theory](./game-theory.md) — 44 files
-- [games](./games.md) — 64 files
+- [game-theory](./game-theory.md) — 45 files
+- [games](./games.md) — 65 files
 - [grounding](./grounding.md) — 11 files
 - [history](./history.md) — 28 files
 - [insurance](./insurance.md) — 1 file
@@ -56,7 +56,7 @@ permalink: /tags/_index/
 - [llm-limitations](./llm-limitations.md) — 16 files
 - [logic](./logic.md) — 31 files
 - [machine-learning](./machine-learning.md) — 7 files
-- [mathematics](./mathematics.md) — 34 files
+- [mathematics](./mathematics.md) — 35 files
 - [meta-musing](./meta-musing.md) — 17 files
 - [metaphysics](./metaphysics.md) — 2 files
 - [methodology](./methodology.md) — 18 files
@@ -83,7 +83,7 @@ permalink: /tags/_index/
 - [simulation](./simulation.md) — 11 files
 - [snes](./snes.md) — 13 files
 - [software-engineering](./software-engineering.md) — 8 files
-- [strategy](./strategy.md) — 30 files
+- [strategy](./strategy.md) — 31 files
 - [tools](./tools.md) — 5 files
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files

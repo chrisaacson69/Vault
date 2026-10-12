@@ -55,6 +55,7 @@ permalink: /tags/games/
 - [Stellar 7 (1983) — The Same Game Without the Coprocessor](../research/gaming/stellar7-software-3d.md) — Damon Slye's Apple II Battlezone-alike; same genre and CPU family, no math box, frame budget within 7% — the closest thing to a controlled experiment on what a coprocessor was worth
 - [Risk — The Attrition Constant](../research/gaming/risk-attrition-odds.md) — a Risk battle solved exactly as an absorbing Markov chain; the 3-vs-2 dice cap fixes the engagement frontage regardless of stack size, so attrition is Lanchester-LINEAR and concentration of force buys nothing
 - [Hangman — Solving Both Sides](../research/gaming/hangman-solving-both-sides.md) — Ballpark Figures' third specimen vs 3Blue1Brown's entropy Wordle bot; the first to solve the *chooser* as well as the guesser, and the one that inverts Battleship's max-entropy minimax result
+- [Wordle — Solved for the List, Compressed for the Human](../research/gaming/wordle-solved.md) — Ballpark Figures' fourth specimen; the exact solve is list-bound, the human-sized compressions (SLANT/PRICE, guaranteed-win four-word opener) are the payoff
 - [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)
 - [Bandit Kings of Ancient China (NES)](../projects/game-annotation/nes/bk/README.md) — **Game 6** in the KOEI NES decompiler family — decompile order, not release order.
 - [Gemfire (NES, 1992)](../projects/game-annotation/nes/gemfire/README.md) — **Game 7** in the KOEI NES decompiler family (decompile order, not release order — L'Empereur is

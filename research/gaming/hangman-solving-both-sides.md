@@ -12,6 +12,8 @@ discussion: folded-in
 
 > ⚠ **Sourcing note.** The hangman script is a *pre-production draft* — it carries `FILL IN`, `TALK HERE`, and `CONFIRM THIS` markers. Verbatim prose is trustworthy; blanks are not. Quantities below come from the blog post and the repo's committed data notes, not from script placeholders.
 
+**Sequel specimen:** [Wordle — Solved for the List, Compressed for the Human](./wordle-solved.md) — the Wordle video this page predicted (2026-10-11). It **corrects two claims below** (marked ✎).
+
 **Links:** [Battleship — 30 Billion Boards](./battleship-board-analysis.md) (**the parent specimen** — same creator; this page *inverts* half its conclusion), [Yahtzee — 259 Trillion → 405 Million](./yahtzee-solved.md) (same creator, the state-space-collapse sibling), [Symmetry Breaking](../philosophy/dynamics/symmetry-breaking.md), [The Dominance-Frontier Lens](../dominance-frontier-lens.md), [Monopoly — Frontier Trade Theory](./monopoly/frontier-trade-theory.md) (the frontier form of the same collapse-the-search-space thread), [Catan — 47k Empirical](./catan-47k-empirical.md), [The Hollow Opponent](./hollow-opponent-perceived-depth.md)
 
 ---
@@ -42,16 +44,18 @@ Both authors reach that fork. Ballpark names it — via Jan Misali, that the han
 | Endgame | needs a patch — entropy will spend the last guess on a word that cannot win | falls out as the recursion's base case |
 | Result | 4.124 → 3.6 (with prior) → 3.43 (with answer list + 2-ply) | optimal or certified-bounded for every word length |
 
-Ballpark identifies *why* the proxy is nearly free in his game: there are many ways for a letter to be in a word but only one way for it not to be, so the hit-maximizing guess is usually already the information-maximizing guess. **That coincidence is why greedy is near-optimal in hangman and merely decent in Wordle.** Wordle's 3⁵-way feedback partition pulls the two apart, which is exactly where 3b1b has to build machinery — a fitted regression `f(bits) → expected remaining guesses` — to decide when to stop learning and go for the win.
+Ballpark identifies *why* the proxy is nearly free in his game: there are many ways for a letter to be in a word but only one way for it not to be, so the hit-maximizing guess is usually already the information-maximizing guess. ~~**That coincidence is why greedy is near-optimal in hangman and merely decent in Wordle.**~~ ✎ *Corrected 2026-10-12:* 3b1b's entropy bot with the answer list (3.43) is within **0.01** of the exact Wordle optimum (3.42, [Wordle page](./wordle-solved.md)). The big gap was the word list (4.12 → 3.43), not information-vs-wins, which strengthens the "one parameter" section below. Wordle's 3⁵-way feedback partition pulls the two apart, which is exactly where 3b1b has to build machinery — a fitted regression `f(bits) → expected remaining guesses` — to decide when to stop learning and go for the win.
 
 He also settles a standing claim: Jan Misali conjectured greedy was optimal for hangman. Verdict — **"wrong in theory, but mostly correct in practice."** The exact solve's headline gain over greedy is **~6% at length 11 (0.500 → 0.469 misses, exact)**.
 
 ## Why hangman is solvable and Wordle isn't — the size illusion
 
+> ✎ **Corrected 2026-10-12.** The heading's premise is wrong: **Wordle was solved exactly in early 2022** (dynamic programming over color groups; SALET 3.42 — see [Wordle — Solved](./wordle-solved.md)). "Two plies" was 3b1b's limit, not the game's. Wordle is tractable because the **answer set is only 2,315 words**, so groups shrink fast and sub-problems repeat. That still supports this section's actual lesson (*shape and reconvergence beat nominal size*). Only the Wordle-is-intractable example was wrong.
+
 Hangman *looks* bigger (34,483 words, lengths 1–20+) and Wordle *looks* tiny (five letters). Tractability runs the other way, and the reason is **branching, not size**:
 
 - **Hangman** branches ≤26 ways per node and positions collapse hard — the same remaining-word set reached by a different guess order is one position. Memoize on the word set, prune letters that cannot appear, seed with greedy for early cutoffs, and most lengths solve exactly.
-- **Wordle** branches 243 ways per node across ~13,000 candidate guesses, over a 6-guess horizon. 3b1b's ceiling is two plies.
+- **Wordle** branches 243 ways per node across ~13,000 candidate guesses, over a 6-guess horizon. 3b1b's ceiling is two plies *(his, not the game's; see the correction above)*.
 
 This is the vault's recurring **collapse-the-search-space** thread ([Yahtzee](./yahtzee-solved.md) 259T → 405M; [Battleship](./battleship-board-analysis.md) 30,093,975,536 enumerated; [Monopoly's frontier](./monopoly/frontier-trade-theory.md)) — and hangman contributes the sharpest version of its lesson: **what determines tractability is the branching factor and the rate at which distinct paths reconverge, not the nominal size of the space.** Ballpark expected the easy video precisely because he measured size (six orders of magnitude below Battleship) rather than shape.
 
@@ -136,7 +140,7 @@ Three thresholds worth keeping straight:
 - **Does the flatness reversal generalize?** "Substrate homogeneity bounds the indifference set" is synthesis across the two videos, not a claim either author makes. What is the third test case — a substrate of intermediate lumpiness?
 - **Adversarial Wordle.** Nobody appears to have applied Ballpark's `freq_search` to Wordle's answer list. Would it find a suffix collapse, or does Wordle's positional feedback defeat the mechanism? *(Absurdle is adjacent but a different object — adversarial *evaluation* with no commitment, vs. an adversarial *prior*. Verify what exists before treating this as open.)*
 - **Is "collapse the space as a weapon" already in the vault under another name?** It is the mirror of the reduction thread running through Yahtzee, Battleship, and Monopoly's frontier.
-- **The direct sequel is coming.** Ballpark's blog closes by saying his **next video is Wordle** — the same author applying solve-the-tree + adversarial-chooser to the exact game 3b1b treated with entropy. This page should have a slot for it.
+- ~~**The direct sequel is coming.**~~ **Resolved 2026-10-12** → [Wordle — Solved](./wordle-solved.md). The tier-list pipeline was reused as predicted. The adversarial chooser was moved to a Patreon bonus video (not ingested), so the *Adversarial Wordle* question above stays open.
 
 ## Tags
 
