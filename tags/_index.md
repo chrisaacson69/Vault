@@ -29,14 +29,14 @@ permalink: /tags/_index/
 - [constitutional-law](./constitutional-law.md) — 4 files
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 11 files
-- [debates](./debates.md) — 95 files
+- [debates](./debates.md) — 96 files
 - [decompilation](./decompilation.md) — 3 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 121 files
 - [education](./education.md) — 3 files
 - [entrepreneurship](./entrepreneurship.md) — 1 file
 - [epistemology](./epistemology.md) — 109 files
-- [ethics](./ethics.md) — 10 files
+- [ethics](./ethics.md) — 11 files
 - [externalities](./externalities.md) — 3 files
 - [fiction](./fiction.md) — 1 file
 - [food-safety](./food-safety.md) — 1 file
@@ -61,7 +61,7 @@ permalink: /tags/_index/
 - [metaphysics](./metaphysics.md) — 2 files
 - [methodology](./methodology.md) — 20 files
 - [mmc1](./mmc1.md) — 2 files
-- [morality](./morality.md) — 65 files
+- [morality](./morality.md) — 66 files
 - [music](./music.md) — 11 files
 - [natural-law](./natural-law.md) — 15 files
 - [nes](./nes.md) — 21 files
@@ -69,7 +69,7 @@ permalink: /tags/_index/
 - [objectivism](./objectivism.md) — 30 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
-- [philosophy](./philosophy.md) — 216 files
+- [philosophy](./philosophy.md) — 217 files
 - [politics](./politics.md) — 56 files
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file

@@ -223,3 +223,4 @@ permalink: /tags/philosophy/
 - [Failure as Mandate](../research/philosophy/dynamics/failure-as-mandate.md) — failure becomes the case for more authority when competition and customer grading are both missing
 - [No One May Dictate](../research/philosophy/morality/no-one-may-dictate.md) — partner choice is not for outsiders to dictate; compelled inclusion and compelled exclusion are the same claim
 - [Lazy Law](../research/philosophy/morality/legal-theory/lazy-law.md) — banning the tool because the wrong is hard to reach; over-reach plus substitution (*ban X, people do Y*)
+- [Chris vs. Claude — Non-Uniqueness to Moral Grounding](../research/debates/claude-nonuniqueness-moral-grounding.md) — agent-conditional grounding stress-tested by Claude; action-based universalization, moral-luck symmetry, functional core, exit test

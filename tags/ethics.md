@@ -17,3 +17,4 @@ permalink: /tags/ethics/
 - [Objectivist Metaethics — A Call-In Specimen](../research/debates/objectivism-metaethics-callin.md) — an Objectivist states Rand's metaethics straight; the caller's stipulation-or-deduction question goes unanswered
 - [LiquidZulu Course 7 — Law as a Subset of Ethics](../research/philosophy/liquidzulu/course-07-law-subset-of-ethics.md) — one ought with two enforcement tiers, conceded by the drowning-children principle; error as immorality
 - [No One May Dictate](../research/philosophy/morality/no-one-may-dictate.md) — partner choice is not for outsiders to dictate; compelled inclusion and compelled exclusion are the same claim
+- [Chris vs. Claude — Non-Uniqueness to Moral Grounding](../research/debates/claude-nonuniqueness-moral-grounding.md) — Foot + Hayek + EGT as the landing; kind-level standing vs capacity; exit test for elective vs coercive arrangements

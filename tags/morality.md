@@ -72,3 +72,4 @@ permalink: /tags/morality/
 - [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule
 - [No One May Dictate](../research/philosophy/morality/no-one-may-dictate.md) — partner choice is not for outsiders to dictate; compelled inclusion and compelled exclusion are the same claim
 - [Lazy Law](../research/philosophy/morality/legal-theory/lazy-law.md) — banning the tool because the wrong is hard to reach; over-reach plus substitution (*ban X, people do Y*)
+- [Chris vs. Claude — Non-Uniqueness to Moral Grounding](../research/debates/claude-nonuniqueness-moral-grounding.md) — action reveals the all-things-considered judgment, not a norm; universalize the reason; definition first, detector second
