@@ -13,6 +13,8 @@ permalink: /projects/moo1-opening-optimizer/
 
 **Code:** https://github.com/chrisaacson69/moo1-opening-optimizer
 
+**Verified mechanics come from:** [moo1-re](../moo1-re/README.md)
+
 ## Motivation
 
 The [MOO1 strategy analysis](../../research/gaming/moo1/optimal-strategy.md) identifies the 2nd colony ship timing as the first big strategic decision — and shows it's a tractable optimization problem. The conventional wisdom ("build 100 factories first, then colonize") is likely wrong for long-horizon games, but proving it requires simulation because the variables interact:
@@ -114,7 +116,13 @@ This creates a decision boundary problem:
 ## Technical Notes
 
 - **Language:** Python. This is an economic sim, not a performance-critical combat sim. Thousands of 100-turn simulations run in seconds.
-- **Validation:** Compare simulator output against known MOO1 behavior. The RotP (Remnants of the Precursors) Java source code has the exact formulas and could serve as ground truth. The GOG forum and Realms Beyond threads have player-verified growth tables to check against.
+- **Validation — four independent oracles** (see [Data-First RE](../../method/data-first-re.md) → oracle ladder):
+  - **1oom** (https://github.com/1oom-fork/1oom) — GPL C recreation of the v1.3 DOS engine; *the* formula source, closer to the original than RotP. Reads/writes original saves (`game_save_moo13.c`). **Read-only for us:** we can't contribute upstream (and the project is currently dormant) — findings it lacks live in our repos/vault, not in PRs.
+  - **The Official Strategy Guide** (Emrich & Hughes; 1oom's "OSG") — mechanics + AI rules in prose, incl. App. A *Next Turn Sequence of Play*. OCR text captured: [raw/books/moo1-osg/](../../raw/books/moo1-osg/README.md) (chapter→line locator inside); the PDF is still the source for tables.
+  - **RotP** (Remnants of the Precursors) — Java remake; useful but *modernized* (diplomacy notably changed), so not ground truth for the original.
+  - *Not an oracle:* **FreeOrion** — its author describes it as MOO-inspired, not canonical.
+  - **zappatic's struct JSON + stream** — save/RAM layout and behavioural facts (caps, diplomacy meters, events): [stream digest](../../research/gaming/moo1/zappatic-re-stream.md).
+  - Player-verified tables (GOG forum, Realms Beyond) remain a fifth, empirical check.
 - **Output:** Tables and plots. Matplotlib for visualization. The key deliverable is a set of guidelines, not a tool the player runs live.
 
 ## Connections

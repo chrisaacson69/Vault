@@ -55,6 +55,7 @@ Topics are explored through adversarial debate — Chris takes one position, Cla
 
 - Marriage under natural law
 - Shared ownership — foil on file: [LiquidZulu Course 3 §4](../../liquidzulu/course-03-homesteading.md#4-the-impossibility-of-group-ownership--on-the-impossibility-of-group-ownership), the strongest ancap statement of the *no* answer (co-owners cannot both win a dispute), whose own company example is co-ownership under one name
+- Abandonment & residency-franchise — Chris's rule (title lost only by declaration or death without transfer) and the open renter/hotel/$1-invitee voting lines: [Mentis Wave borders review](../../../debates/liquidzulu-mentis-wave-borders.md)
 - Fraud as aggression without mens rea
 - 1A scope — "speech" vs "expression"; can 1789 text cover 2026 landscape
 - 2A as preventive check — amendment's purpose is deterrence, not last-resort revolution
