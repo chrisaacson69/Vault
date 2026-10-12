@@ -41,6 +41,8 @@ review](../../debates/lacorte-urban-rural-divide.md) ("land doesn't vote" → ri
 
 The principle isn't "inaction is always acceptable." Deliberate inaction in the face of specific, identifiable obligation *you agreed to* can be evaluable — a lifeguard who watches someone drown has a contracted duty. But the obligation comes from the prior *action* of accepting the role, not from a general duty to act.
 
+**Lineage:** Philippa Foot reaches the same structure by the doing/allowing route. *"It takes more to justify an interference than to justify the withholding of goods and services"* (1984). Negative rights outweigh positive ones, and a doctor's duty to sustain life comes from **contract**, not general charity (1977). Her known weak point is Thomson's **bystander** trolley, which this page also has to answer. See [Foot §5](./foot-natural-goodness.md#5-the-sheriff-is-foots-own-case-and-she-separates-it-from-the-trolley).
+
 This also explains why the [conspiracy/pre-crime](../../../notes/sketch-conspiracy-and-precrime.md) framework works: the breakable chain test asks whether the agent has *acted* to make harm unbreakable, or merely *not prevented* a chain that others could still break. Action creates liability; inaction does not, absent a specific contractual commitment.
 
 ## Tags

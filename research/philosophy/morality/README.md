@@ -40,6 +40,7 @@ Action (praxeology) and morality aren't identical. Praxeological success = "did 
 - [No One May Dictate](./no-one-may-dictate.md) — partner choice is not for outsiders to dictate; inclusion and exclusion demands are the same claim; judging ≠ dictating, preference ≠ conduct ≠ advice
 - [Deontology vs. Consequentialism](./deontology-consequentialism.md) — false dichotomy; deontology as cached consequentialism
 - [Action/Inaction Asymmetry](./action-inaction-asymmetry.md) — grounds negative/positive rights
+- [Philippa Foot — Natural Goodness](./foot-natural-goodness.md) — the vault's nearest ancestor, read from sources: functional core, the 1972 view she retracted, Sheriff vs. trolley
 - [Debate FAQ](./debate-faq.md) — living document of objections and responses
 - [The Constitutive Middle — Two Dialectics](./constitutive-middle-dialectics.md) — operational playbook: walking a *global anti-realist* (logic is constitutive, demonstrable in the act) and a *theistic realist* (read the law off the nature; God = Author, not truth-maker; Grotius) to constitutive realism. Quick-recall card up top.
 - [Open Problems](./open-problems.md) — unresolved tensions and dissolved ones

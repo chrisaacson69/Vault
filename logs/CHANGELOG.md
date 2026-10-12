@@ -13,6 +13,8 @@ created: 2026-07-20
 
 ## 2026-10-12
 
+**Foot deep-dive:** [Philippa Foot — Natural Goodness](../research/philosophy/morality/foot-natural-goodness.md), sourced from SEP plus the 1967 primary excerpt ([manifest](../raw/articles/2026-10-12%20foot-sources.md)). All four from-memory claims checked: 3 verified, 1 partial (NG ch. 6 "happy wicked" unverified). Findings: the vault's hypothetical-imperative row is Foot's retracted 1972 view; Sheriff ≠ trolley (corrected on the Sheriff page). Promoted: functional core → Objectivism Boundary §2 and Wilson; exit test → Constructed ≠ Arbitrary; Foot lineage → action-inaction.
+
 **Ingest: [Wordle — Solved for the List, Compressed for the Human](../research/gaming/wordle-solved.md)** (Ballpark Figures, "I Solved Wordle*"; discussion folded in). Chris: the perfect tree proves the game is solvable but is too much to memorize, humans win by guessing well, and a steady 4 is a good player. Kudos to the guaranteed win in six. **Corrected** [Hangman — Solving Both Sides](../research/gaming/hangman-solving-both-sides.md) in place: Wordle *was* solved exactly (2022), and 3b1b's entropy bot is within 0.01 of the optimum. Closed its "direct sequel" question.
 
 **Ingest: [Pokémon Gen 1 — 170,000 Sampled Battles](../research/gaming/pokemon-gen1-1v1-tournament.md)** (Gym Leader Matt; discussion folded in). A methodology critique: the fixed-policy AI means every matchup could be solved exactly, the AI was tuned until the ranking looked healthy, and the bracket is mostly chance. Chris's evolution-dominance hunch was checked against the pokered disassembly: 56/72 edges are strictly dominated. Linked from the [D&D tournament page](../research/gaming/dnd-monster-tournament-markov.md) as an external example of its thesis.
