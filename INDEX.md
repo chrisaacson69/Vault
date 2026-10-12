@@ -24,6 +24,7 @@ permalink: /INDEX/
 - [Slay-C](./projects/slay-c/README.md) — C port of Slay engine for performance and deep search (active)
 - [BattleTech Simulator](./projects/battletech-simulator/README.md) — Monte Carlo combat sim to derive empirical BattleValue and find bargains in official BV2 (planning)
 - [HeroClix](./projects/heroclix/README.md) — dial data (333 sets / 14,659 units) + official rules, joined; rebuilding the exact Markov combat model (active)
+- [Pokémon G1 Battle Solver](./projects/pokemon-g1-battle-solver/README.md) — exact absorbing-chain solutions for Gen 1 1v1 battles, grounded in the pokered disassembly; evolution-dominance check done (56/72 edges) (active)
 - [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
 - [moo1-re](./projects/moo1-re/README.md) — Master of Orion 1 (DOS v1.3) reverse engineering, data-first: dual save decoder (zappatic × 1oom, 41/41), EXE byte-search verifier for 1oom tables (active)
 - [Sci-Fi Trading Voyage](./projects/sci-fi-trading-voyage/README.md) — trade-route calculator: ranks two-stop round trips by profit/hr from a 25-stop price + coordinate snapshot; the next step is fleet selection under a 100 CP cap (active)

@@ -8,6 +8,7 @@ permalink: /tags/games/
 
 - [Sci-Fi Trading Voyage](../projects/sci-fi-trading-voyage/README.md) — trade-route calculator, profit/hr over two-stop round trips
 - [HeroClix](../projects/heroclix/README.md) — dial data + official rules joined; exact Markov combat model
+- [Pokémon G1 Battle Solver](../projects/pokemon-g1-battle-solver/README.md) — exact Gen 1 1v1 battles from the pokered disassembly; evolution dominance as a check on the AI
 - [Monopoly](../projects/monopoly/README.md) — Monopoly engine with Markov-chain AI
 - [Slay](../projects/slay/README.md) — hex strategy game recreation with AI
 - [Slay-C](../projects/slay-c/README.md) — C port of Slay engine for performance

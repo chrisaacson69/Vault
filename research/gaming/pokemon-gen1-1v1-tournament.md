@@ -9,6 +9,8 @@ discussion: folded-in
 **Source:** [Gym Leader Matt — "I Simulated 170,000 Battles to Rank All Generation 1 Pokémon"](../../raw/videos/2026-10-09%20gym-leader-matt-170k-battles-gen1.md) — <https://www.youtube.com/watch?v=PvMYjcQg75M> (51:32, 2026-10-09; auto-caption transcript)
 **Data:** [pret/pokered](https://github.com/pret/pokered) `data/pokemon/base_stats/*.asm` + `evos_moves.asm` (fetched 2026-10-12; Red/Blue only, so Yellow-only learnsets are not covered)
 
+**Project:** [Pokémon G1 Battle Solver](../../projects/pokemon-g1-battle-solver/README.md) — this page's critique turned into code (started 2026-10-12; `tools/dominance.py` reproduces the 48/56 counts below).
+
 **Links:** [D&D Monster Tournament — Exact Markov Chains](./dnd-monster-tournament-markov.md) (**the method this video should have used** — fixed policy ⇒ Markov chain), [Risk — The Attrition Constant](./risk-attrition-odds.md) (the exact-chain treatment carried through), [The Dominance-Frontier Lens](../dominance-frontier-lens.md) (the evolution-dominance prune), [Wordle — Solved](./wordle-solved.md) and [Hangman — Solving Both Sides](./hangman-solving-both-sides.md) (Ballpark Figures: exact solving and the "trust in the list" parameter), [Catan — 47k Empirical](./catan-47k-empirical.md) (another large-sample ranking), [Transpilation as Grounding](../transpilation-as-grounding.md) (disassembly as oracle)
 
 ---
