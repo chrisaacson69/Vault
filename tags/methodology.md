@@ -27,3 +27,4 @@ permalink: /tags/methodology/
 - [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — search hides bugs; zero yield = wrong path; learned facts carry their cause
 - [zappatic — Reverse Engineering MOO1](../research/gaming/moo1/zappatic-re-stream.md) — stream digest: data-first DOS RE, save/RAM layout, caps, diplomacy, events; cross-checked vs 1oom
 - [Data-First RE](../method/data-first-re.md) — name the data first when the static↔runtime address join is broken (DOS real mode); the oracle ladder
+- [Pokémon Gen 1 — 170,000 Sampled Battles a Fixed Policy Could Solve Exactly](../research/gaming/pokemon-gen1-1v1-tournament.md) — AI tuned until the ranking looked healthy; ground truth (his own solo-run rankings) never used; dominance as a check that never runs the sim

@@ -51,3 +51,4 @@ permalink: /tags/game-theory/
 - [Wordle — Solved for the List, Compressed for the Human](../research/gaming/wordle-solved.md) — exact DP solve over a fixed answer list; hard mode turns natural word families into worst cases, the hangman chooser's weapon occurring naturally
 - [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)
 - [Protection Against the Gradient](../research/philosophy/dynamics/protection-against-the-gradient.md) — Chris's entropy thesis: borders/tariffs/moats/trust as local order against equalizing flows; owners-vs-workers split; last-round reputation problem
+- [Pokémon Gen 1 — 170,000 Sampled Battles a Fixed Policy Could Solve Exactly](../research/gaming/pokemon-gen1-1v1-tournament.md) — fixed policy ⇒ exact absorbing chain per matchup; dominance holds under optimal play, so an inversion flags the heuristic AI

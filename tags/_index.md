@@ -42,10 +42,10 @@ permalink: /tags/_index/
 - [food-safety](./food-safety.md) — 1 file
 - [free-markets](./free-markets.md) — 24 files
 - [free-will](./free-will.md) — 7 files
-- [game-ai](./game-ai.md) — 28 files
+- [game-ai](./game-ai.md) — 29 files
 - [game-design](./game-design.md) — 11 files
-- [game-theory](./game-theory.md) — 45 files
-- [games](./games.md) — 69 files
+- [game-theory](./game-theory.md) — 46 files
+- [games](./games.md) — 70 files
 - [grounding](./grounding.md) — 11 files
 - [history](./history.md) — 28 files
 - [insurance](./insurance.md) — 1 file
@@ -59,7 +59,7 @@ permalink: /tags/_index/
 - [mathematics](./mathematics.md) — 35 files
 - [meta-musing](./meta-musing.md) — 17 files
 - [metaphysics](./metaphysics.md) — 2 files
-- [methodology](./methodology.md) — 20 files
+- [methodology](./methodology.md) — 21 files
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 66 files
 - [music](./music.md) — 11 files
@@ -80,7 +80,7 @@ permalink: /tags/_index/
 - [reverse-engineering](./reverse-engineering.md) — 45 files
 - [risk](./risk.md) — 6 files
 - [scope-confusion](./scope-confusion.md) — 15 files
-- [simulation](./simulation.md) — 11 files
+- [simulation](./simulation.md) — 12 files
 - [snes](./snes.md) — 13 files
 - [software-engineering](./software-engineering.md) — 8 files
 - [strategy](./strategy.md) — 31 files
