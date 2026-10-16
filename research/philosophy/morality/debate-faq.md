@@ -12,13 +12,32 @@ title: "Morality — Debate FAQ"
 
 ---
 
+## Phrasebook — say what you mean, not what they'll hear
+
+Chris's terms carry meanings the audience doesn't share, so they get heard in the everyday sense, which is the weak form, and rejected on sight. (Chris: *"the words presuppose meanings that not many share."*) The same failure as [The Load-Bearing Word](../../debates/the-load-bearing-word.md), aimed at our own side. Built from the [2026-10-10 Claude chat](../../debates/claude-nonuniqueness-moral-grounding.md) review; extend as new specimens arrive.
+
+| Chris says | They hear | Say instead |
+|---|---|---|
+| "you're alive, so it's a performative contradiction" | "being alive proves you *ought* to live" (is→ought; *"I breathe while asserting 'don't breathe'"*) | "your acting shows you've already made your agency your end; I'm arguing from *your* end, not mine" |
+| "if you value yours, assume others value theirs" | a fact about *them*, so "so what?" | "the reason **you** value yours is a reason that applies to theirs; it has no name on it" ([Gewirth step](./performative-grounding-lineage.md#5-alan-gewirth--the-principle-of-generic-consistency)) |
+| "it doesn't survive contact" | "might makes right" / "wrong only if caught" | lead with the **definition** (inconsistent with his own reasons), then the **detector** ("and here's the evidence it doesn't last") |
+| "evidence is always left behind" | "wrong only if caught" | **moral-luck symmetry:** bad luck can't make a good choice wrong, so good luck (not getting caught) can't make a bad choice right |
+| "fits reality" | "whatever works / survives" | "consistent with what agents are and need" |
+| "actions reveal what you believe" | "the smoker doesn't know smoking is bad" | "action reveals your all-things-considered judgment at that moment — not a rule for everyone" |
+| "evolution removes the unfit" | some *people* are unfit (the low-IQ premise) | "selection removes unfit *rules*; the beneficiary stays the individual" ([Objectivism Boundary](./objectivism-boundary.md)) |
+| "that's non-unique" | the technical policy-debate term (impact happens anyway) | "that proves too much": the warrant doesn't pick out the target |
+
+**The structural rule behind the table: definition first, detector second.** Detector stories ("this variant eventually fails because…") are contingent, so an opponent can always stipulate the failure away, and each round needs a fresh answer, which *looks* like goalpost-moving. One definitional sentence answers every variant; the detectors become corroboration.
+
+---
+
 ## Grounding Morality
 
 ### "Where do morals come from without God?"
 
 **The short answer:** From agency. To act is to value. To value is to be subject to moral evaluation. Agency and morality are coextensive — you can't have one without the other. God is unnecessary to this chain.
 
-**The full argument:** [Performative grounding](./README.md). The person asking "why be moral?" has already answered the question — they're alive, acting, choosing to ask. Their behavior demonstrates a preference for continued existence that their words pretend to question. Denying your existence, consciousness, or agency requires using all three. See also: [Performative Grounding — Lineage](./performative-grounding-lineage.md) for 2,400 years of independent precedent (Aristotle, Apel, Gewirth, Hoppe, Korsgaard).
+**The full argument:** [Performative grounding](./README.md). The person asking "why be moral?" is already acting, and acting shows they have taken their own agency as an end. **Don't pitch that as "so you contradict yourself"** (*doing X doesn't entail you should do X*; see the [repaired retortion form](./is-ought-and-performative-grounding.md#two-tests-and-the-repaired-retortion-form)). Pitch it as **identifying their premise**: the oughts are conditional on that end, and their own action shows the condition is met. Then universalize the *reason*: why they value their agency (being an agent) applies to everyone else's. Denying your existence, consciousness, or agency *in an assertion* still requires using all three; that part is airtight. See also: [Performative Grounding — Lineage](./performative-grounding-lineage.md) for 2,400 years of independent precedent (Aristotle, Apel, Gewirth, Hoppe, Korsgaard).
 
 **If they push TAG:** "Only God can ground morality/logic/uniformity." Two independent demolitions: (1) TAG is question-begging — "only God provides a universal ground" IS the conclusion restated as a premise; (2) the vault provides an alternative ground (agency), so "only God" is factually false. See [bridge planning](../../../notes/bridge-logic-to-morality.md) for the full two-vector attack.
 
@@ -124,6 +143,8 @@ But in every case, people evaluate outcomes constantly. The soldier who refuses 
 2. **The weighting problem** — "greatest good for the greatest number" requires an aggregation function that is itself subjective.
 3. **Action/inaction asymmetry** — killing one is an action (singular, evaluable). Not saving five is part of the infinite complement.
 4. **Scope confusion** — the scenario smuggles in law-scope enforcement (you MUST sacrifice one) for what is actually a morality-scope question (should you?).
+
+**If they add "…and no one ever finds out":** don't fight the stipulation ("evidence is always left behind" reads as *wrong only if caught*). Use **moral-luck symmetry**: the act is judged by the choice under foreseeable knowledge, the same reason bad luck on a left turn doesn't make the turn wrong. Getting away with it is good luck; it changes the outcome, not the wrongness. *Groundhog Day* is the fiction version: total impunity, and manipulation still fails to reach the agent's own end. See [the specimen](../../debates/claude-nonuniqueness-moral-grounding.md#seed-1c--does-universalization-freeze-an-adaptive-system).
 
 ---
 

@@ -8,7 +8,7 @@ title: "Formal Debate Concepts — A Portable Inventory"
 # Formal Debate Concepts — A Portable Inventory
 > Competitive debate spent a century naming the moves. Informal debate uses none of the vocabulary and re-derives the moves badly, or misses them entirely. This is the inventory: each concept, what it means, why it **globalizes** past the format that produced it, and the specimen where the vault watched someone need it and not have it.
 
-**Links:** [Online Debates](./README.md), [The Load-Bearing Word](./the-load-bearing-word.md), [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md), [Easy to Critique, Hard to Build](../philosophy/tangents/easy-to-critique-hard-to-build.md), [Word War series hub](./word-war-debate-series.md)
+**Links:** [Online Debates](./README.md), [The Load-Bearing Word](./the-load-bearing-word.md), [The Negative's Easy Burden](../philosophy/tangents/the-negatives-easy-burden.md), [Easy to Critique, Hard to Build](../philosophy/tangents/easy-to-critique-hard-to-build.md), [Word War series hub](./word-war-debate-series.md), [Chris vs. Claude — Non-Uniqueness to Moral Grounding](./claude-nonuniqueness-moral-grounding.md)
 
 ---
 

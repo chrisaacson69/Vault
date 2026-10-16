@@ -67,6 +67,18 @@ The second favourite move is **low-N cherry-picking**: one society dressed diffe
 
 The discipline: when someone offers variation as proof of arbitrariness, ask what the *invariant* is and make them explain it. If the sole counterexample to a near-universal is a **myth**, that is the strongest possible confirmation of the pattern, not a refutation of it.
 
+## The Exit Test — Which Rulebook Applies
+
+A construction with no coercion behind it has nothing for universalization to catch. It is **elective**, and you judge it by this page's test: is it good at its job? But a construction can be held in place by force while looking voluntary. The test that tells the two apart is **exit**:
+
+1. **Can a member leave, own property, refuse?**
+2. **Open exit → elective.** Judge it by fitness (design time and run time, as above).
+3. **Blocked exit → coercive, however happy the members are.** Judge it by universalization ([Force Doctrine](./morality/force-doctrine.md)), because blocking exit is aggression.
+
+Adopted 2026-10-12 from Chris's **soft-farm mythos** (a culture that teaches women that motherhood is their fulfilment, with no overt coercion): [Chris vs. Claude seed 4](../debates/claude-nonuniqueness-moral-grounding.md#seed-4--foot-needs-a-human-nature-the-vault-says-no-essence-of-man). A mythos enforced by **blocked exit** (no property, no education, honor violence) is coercion in costume. The cleanest specimen is *Logan's Run*: a pleasant society whose exit is enforced by Sandmen. The test builds on **exit + voice** (Hirschman), already in the vault at [The Represented Unit](./morality/legal-theory/represented-unit.md). Foot draws the same line from the other side: the kind's reproductive *capacity* is a fact, but a member's *choice* is judged as reasoning, not by that capacity ([Foot §4](./morality/foot-natural-goodness.md#4-not-what-survives--foot-says-so-explicitly)).
+
+**Known gap: *Brave New World*.** Exit is nominally open, but desire is engineered so that nobody wants to leave. That's [manufactured option space](../debates/coconut-island-and-manufactured-option-space.md) turned inward, and the exit test alone passes it. *(Open Q5.)*
+
 ## The Severance — How "Arbitrary" Gets Installed
 
 The dismissal rarely *argues* that a construction is arbitrary. It **defines** it that way, upstream, and collects the conclusion later. The move is a **severance**: cut the construction loose from the substrate it was built on, and the design-time constraint disappears by fiat.
@@ -205,6 +217,7 @@ So deploy it as an **existence proof against the dichotomy**, never as a theory 
 2. **How long is the run-time window?** "It has to work in reality" is only a real constraint if failure is punished on some timescale. Constructions can be propped up well past their functional life by subsidy or coercion. Does the test degrade to unfalsifiable when the feedback loop is long enough? Connects to the [Gödel Governance Problem](./dynamics/the-godel-governance-problem.md).
 3. **Does this collapse into functionalism about everything?** If every construction has a job, is there any construction that is genuinely elective — decoration with no spec? The [constitutive/elective](./morality/constitutive-elective.md) gradient says yes (fashion, taste), so the boundary question from that page's Open Q1 reappears here in a new setting.
 4. **Convergence for non-normative constructions.** Trunk 2 uses independent convergence as evidence of tracking something real. Does that transfer cleanly to constructions like money and marriage — where independent invention is well documented — or does shared biology/material pressure explain it without the construction tracking anything?
+5. **Engineered desire (Brave New World).** The exit test passes a society where exit is open but nobody is made able to want it. Candidate supplement: late Foot judges *reasoning* against human need, so manufactured wanting might count as an induced **defect of will** ([Foot](./morality/foot-natural-goodness.md), Open Questions). Also bears on Q2: coercion that props up a failing construction usually shows up as blocked exit.
 
 ## Tags
 

@@ -195,7 +195,7 @@ The agent-relative category has serious pedigree:
 | Thinker | Framework | Key Contribution |
 |---------|-----------|-----------------|
 | **John Locke** | Primary vs. secondary qualities | Secondary qualities (color, taste) depend on the perceiver but aren't arbitrary — determined by object-perceiver interaction |
-| **Philippa Foot** | Natural goodness (*Natural Goodness*, 2001) | "Good roots" for an oak is an objective relational fact. "Good character" for a human works the same way — relative to what the organism *is*. The relation to the organism doesn't make it subjective; it makes it biological |
+| **Philippa Foot** ([deep-dive](../morality/foot-natural-goodness.md)) | Natural goodness (*Natural Goodness*, 2001) | "Good roots" for an oak is an objective relational fact. "Good character" for a human works the same way — relative to what the organism *is*. The relation to the organism doesn't make it subjective; it makes it biological |
 | **Mark Johnston** | Response-dependence theory | Properties can be *constituted* by agent responses and still be objective. "X is red iff disposed to look red to normal observers under normal conditions" — response-dependent but not arbitrary |
 | **Peter Railton** | Moral realism ("Moral Realism," 1986) | Moral facts are relational facts about what promotes non-moral goodness for agents. Objective, but wouldn't exist without agents |
 | **Derek Parfit** | Agent-relative vs. agent-neutral reasons | Some reasons for action depend on who you are without being merely subjective |

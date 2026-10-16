@@ -170,6 +170,7 @@ hunt in Deliverable 3.
 - Does the SRD dump cover the tournament's monsters, or do some come from non-SRD books?
 - Ties/timeouts: what happens to mutual-regeneration stalemates with no absorbing state reachable?
 - Graduates to a `projects/` pointer once a repo exists; research page for now.
+- **External specimen, 2026-10-12:** [Pokémon Gen 1 — 170,000 Sampled Battles](./pokemon-gen1-1v1-tournament.md) is this page's thesis met in the wild. Its battle AI is a fixed priority policy on both sides, so every matchup is an exact absorbing chain, yet it was run as 15 Monte Carlo samples per pair. It also adds a check this page could borrow: **evolution dominance** (56/72 Gen 1 edges strictly dominated, from the pokered disassembly), a correctness test for the AI and movesets that never runs the sim.
 
 ## Tags
 
