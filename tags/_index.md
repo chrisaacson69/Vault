@@ -20,7 +20,7 @@ permalink: /tags/_index/
 - [career](./career.md) — 8 files
 - [chess-engine](./chess-engine.md) — 1 file
 - [civilizational-cycles](./civilizational-cycles.md) — 16 files
-- [claude](./claude.md) — 2 files
+- [claude](./claude.md) — 3 files
 - [code-golf](./code-golf.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [collectivism](./collectivism.md) — 2 files
@@ -30,7 +30,7 @@ permalink: /tags/_index/
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 11 files
 - [debates](./debates.md) — 95 files
-- [decompilation](./decompilation.md) — 3 files
+- [decompilation](./decompilation.md) — 4 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 121 files
 - [education](./education.md) — 3 files
@@ -77,7 +77,7 @@ permalink: /tags/_index/
 - [python](./python.md) — 18 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
-- [reverse-engineering](./reverse-engineering.md) — 45 files
+- [reverse-engineering](./reverse-engineering.md) — 46 files
 - [risk](./risk.md) — 6 files
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 11 files
@@ -88,4 +88,4 @@ permalink: /tags/_index/
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files
 - [workflow](./workflow.md) — 5 files
-- [youtube](./youtube.md) — 5 files
+- [youtube](./youtube.md) — 6 files

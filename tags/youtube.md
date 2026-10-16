@@ -11,3 +11,4 @@ permalink: /tags/youtube/
 - [Basic Logic — "How Immigration Replaced the Woke Left"](../research/debates/basic-logic-immigration-woke.md) — Basic Logic, 8:35, published 2026-08-20. Commentary monologue. `discussion: folded-in`
 - [Econ Nerds — "Three Myths about Inequality"](../research/debates/econ-nerds-inequality-myths.md) — Econ Nerds, 14:26, published 2026-01-21. `discussion: folded-in`
 - [The AI Decomp Wave — Outside Confirmation](../research/ai-decomp-wave.md) — agent decompilation's "answer key" = the vault's correctness oracle; flashy ports/mods vs. mechanics; idea/expression legality
+- [REA (Reverse Engineer Anything) — Candidate Tool](../research/reverse-engineering/rea-candidate-tool.md) — MCP harness driving Ghidra/IDA for an agent; candidate for STARMAP diplomacy/event code, not installed; calibrate on a known table first
