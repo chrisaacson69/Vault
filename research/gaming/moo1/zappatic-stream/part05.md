@@ -124,7 +124,7 @@ Save-file order as of this session: planets (108 records) → ships-on-route[260
 
 ## Open questions / unresolved
 - The last 3 u16 of ShipOnRoute (values 1/0/0 and 256) and the 4 unknown u16 of ShipTransport (one is crash-critical). [0:35:00] [3:35:00]
-- Getting Ghidra's segment mapping to match DOSBox, finding why the fleet-count code isn't found in Ghidra, and whether there's a hardcoded 260 bound check in code. [1:05:00]–[1:50:00]
+- Getting Ghidra's segment mapping to match DOSBox, finding why the fleet-count code isn't found in Ghidra, and whether there's a hardcoded 260 bound check in code. [1:05:00]–[1:50:00] *(Mapping + fleet-count parts answered 2026-10-16 → [REA page](../../../reverse-engineering/rea-candidate-tool.md#open-questions): the `inc [CC86]` is at file `0x6CE39` (heard "~6C39"), inside FBOV overlay #71 at offset `0x1839`. Ghidra doesn't load overlays, which is why it couldn't be found. The 260 bound check is still open.)*
 - Whether fleets beyond 260 are dropped or corrupt memory. [2:10:00]
 - Meaning of the 411-word "totally unknown" block (maybe ship-related, given its position in the save). [3:55:00]–[4:10:00]
 - Why the planetary reserve didn't increase despite the "placed in planetary reserve" message, and where reserve transfers end up. [4:05:00]–[4:10:00]

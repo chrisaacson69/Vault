@@ -43,15 +43,20 @@ the same probe**:
 The rungs are not interchangeable: a guide documents **intent**, the binary is **actual**, and a reimplementation that chose to reproduce-or-fix each bug (1oom's `list_gamediff`) **catalogues the gap** — so a guide-vs-probe disagreement is often a real bug, not noise. A domain expert who knows the bug lore is a rung of its own. **The cheapest binary rung: a table sweep.** Parse every hard-coded table out of the reimplementation's source and byte-search the original executables for it (both widths, both signednesses). A full hit makes that table binary-verified with no debugger and no address join; a near-hit with a few differing indices flags a reimplementation change; absence proves nothing (computed, packed, or archive data). MOO1: 23 of 53 1oom integer tables byte-identical in v1.3, and the hits sorted themselves by executable (setup data in `ORION.EXE`, turn logic in `STARMAP.EXE`) — a module map for free. Gotcha: C `uint8_t` tables were often 16-bit words in the original, so search widths the source doesn't declare. Disagreement between rungs is the signal: the MOO1 stream's struct file summed to 59,014 bytes; 1oom
 said 59,036; the 22-byte gap was a real unmapped tail (game-over/winner/election), not noise.
 
-## Fixing the join instead of avoiding it (open)
-The stream abandoned code because the join was manual. It needn't be: for a single relocated image
-the delta should be one constant per run (load segment − Ghidra's base, 0x1000 by default),
-recoverable from the PSP or one byte-pattern match. Overlays break this into one delta per overlay.
-*Hypothesis for MOO1 — untested.* If it holds, data-first becomes data-*led*, with code fully reachable.
+## Fixing the join instead of avoiding it (verified 2026-10-16)
+The stream abandoned code because the join was manual, but it's arithmetic. In **linear** addresses
+(never raw seg:off): the root module is at `(PSP+0x10)×16 + (file_off − header)`, one constant per
+run. Overlays add one term: Borland FBOV code loads at `<buffer>:0000`, so a runtime offset *is* the
+offset into that overlay. Verified live on MOO1 (Steam DOSBox 0.74, both EXEs) by reading guest RAM
+read-only from outside, with no debugger: PSP observed from its MCB, ~99.97% of relocations and
+31/31 binary-verified tables at the predicted addresses, and zappatic's fleet-count write found at
+overlay #71 + `0x1839`. **Data-first becomes data-led**: data still names things first, but code is now reachable.
+The verifier is the loader's own relocation table, an oracle the formula didn't come from.
+Evidence: moo1-re `notes/dos-address-join.md`, tool `tools/dos_addr.py`.
 
 ## Open Questions
-- Is the MOO1 STARMAP image one relocation delta, or overlaid?
-- Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? Survey what other DOS RE projects use before choosing.
+- ~~Is the MOO1 STARMAP image one relocation delta, or overlaid?~~ **Resolved 2026-10-16** → [above](#fixing-the-join-instead-of-avoiding-it-verified-2026-10-16): both. One delta for the root (all data + 19 tables), plus 25 FBOV overlays (code only), each at `<buffer>:0000`.
+- Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? Survey what other DOS RE projects use before choosing. *(Half answered 2026-10-16: the **address join** needs no debugger, since a read-only host-side RAM read plus the formula is enough. **Watchpoints** still need one. The Steam DOSBox is a stock 0.74 build with no debugger.)*
 
 ## Tags
 [methodology](../tags/methodology.md) · [reverse-engineering](../tags/reverse-engineering.md)

@@ -158,5 +158,5 @@ All addresses are as heard. RAM addresses are in the game's DS 3A8E unless noted
 - **Game-state unknowns 83–88:** signed? Purpose unknown [7a 1:55:00].
 - **Refit timing:** it felt instantaneous, so the mechanic may not be fully understood [7a 0:45:00].
 - **Large unchanging unknown block** in ships & research [7a 1:05:00].
-- **Ghidra relocation:** code found at runtime still can't be mapped into Ghidra [7a 1:40:00][7a 2:45:00].
+- ~~**Ghidra relocation:** code found at runtime still can't be mapped into Ghidra [7a 1:40:00][7a 2:45:00].~~ **Resolved 2026-10-16** → [REA page](../../../reverse-engineering/rea-candidate-tool.md#open-questions): the root module maps by formula from the PSP, and overlay code by in-overlay offset (verified live on the Steam build).
 - **Tool fixes he wants:** a script error pane, the selection length, the diff after reload, search in the save viewer, and more disassembly lines than DOSBox-X shows [various].
