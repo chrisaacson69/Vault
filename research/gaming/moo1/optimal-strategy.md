@@ -149,6 +149,8 @@ From Lanchester's Square Law (derived in the [BattleValue](../battle-value.md#la
 
 MOO1's AI is self-interested, not anti-player. AIs try to maximize their own standing, not gang up on the human. The galaxy typically divides into two mega-alliances or descends into chaos — rarely three stable blocs.
 
+**Personality drives budgets (binary-verified, v1.3):** each AI's slider split is drawn from a per-personality weight table in STARMAP.EXE (`moo1-re` `notes/ai-slider-weights.md`). Only the **Ecologist** weights eco heavily; Technologists lean tech; any AI at war switches to a ship-heavy row. (1oom misreads the eco column and inverts this — play v1.3 or account for it.)
+
 This means:
 - You can exploit alliance dynamics. If two AIs are at war, ally with one and you'll quickly reach maximum friendship.
 - Spy failures crash relations, but shared enemies restore them. Run espionage during wars when the friendship buffer absorbs the fallout.

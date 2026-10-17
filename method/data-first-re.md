@@ -54,6 +54,19 @@ overlay #71 + `0x1839`. **Data-first becomes data-led**: data still names things
 The verifier is the loader's own relocation table, an oracle the formula didn't come from.
 Evidence: moo1-re `notes/dos-address-join.md`, tool `tools/dos_addr.py`.
 
+## Reading code without a decompiler (MOO1, 2026-10-17)
+With the address join solved, a plain disassembler (Capstone, 16-bit) was enough — the reimplementation's
+C *is* the decompilation, and the question is only whether the original's instructions agree with it.
+- **Derive the data segment by voting.** Every binary-verified table must be referenced from code by its
+  DS offset; try each candidate DGROUP base and count verified tables that appear as memory operands. MOO1
+  STARMAP: one base explained 14/16 tables, the runner-up 7/16 — unambiguous, no debugger.
+- **Fingerprint, then disassemble.** Linear-sweep disassembly desyncs in mixed code/data and silently
+  misses routines. Search the *raw bytes* for the instruction encoding of the routine's distinctive
+  constants (e.g. `83 /7 ib` with 0x60→0x5B→0x51→0x47), then disassemble backwards from the hit.
+- **"Absent" tables are often stride-padded.** The sweep missed MOO1's AI weight table because the
+  original rows were 15 words and the reimplementation kept 9. Found by code, the table matched value
+  for value — and exposed a reimplementation bug (wrong column read) that no table comparison could have.
+
 ## Open Questions
 - ~~Is the MOO1 STARMAP image one relocation delta, or overlaid?~~ **Resolved 2026-10-16** → [above](#fixing-the-join-instead-of-avoiding-it-verified-2026-10-16): both. One delta for the root (all data + 19 tables), plus 25 FBOV overlays (code only), each at `<buffer>:0000`.
 - Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? Survey what other DOS RE projects use before choosing. *(Half answered 2026-10-16: the **address join** needs no debugger, since a read-only host-side RAM read plus the formula is enough. **Watchpoints** still need one. The Steam DOSBox is a stock 0.74 build with no debugger.)*
