@@ -69,14 +69,22 @@ C *is* the decompilation, and the question is only whether the original's instru
 
 ## Getting decompilers past Borland overlays (MOO1, 2026-10-17)
 Decompilers load only an FBOV program's root module (half of STARMAP.EXE was invisible). Fix it by
-**de-overlaying**: place every overlay at a fixed segment above DGROUP, turn each overlay's fixup block
-into MZ relocations, and patch each 5-byte stub entry `INT 3Fh <off> 00` into `JMP FAR <off>:<seg>` —
+**de-overlaying**: place every overlay at a fixed segment above DGROUP, translate each overlay's fixup words — **segment-table index × 8, not image segments** — through
+the FBOV segment table and turn them into MZ relocations; then turn the fixup block, and patch each 5-byte stub entry `INT 3Fh <off> 00` into `JMP FAR <off>:<seg>` —
 one statically linked image, every call resolved. Validate against invariants the rewrite didn't use
 (every fixup word is a root segment; every entry lands on a prologue; root bytes change only inside
 entries). If the decompiler still aborts on the whole image, feed **each overlay as a raw blob at its
 de-overlay segment with fixups applied for the decompiler's base** — root calls then carry the same
 addresses as a root-only run, so per-overlay outputs join up and crashes stay local. MOO1: 987 typed
 procedures across STARMAP (Reko 0.12.5), plus Reko's runtime ID — Borland C v3.
+
+**A range check is not a semantic check (MOO1, 2026-10-17).** The first de-overlay validated "every
+fixup word is below the image's last segment" — true, and meaningless: the words were segment-table
+indices × 8 that *happened* to be in range, so every overlay→root call pointed at garbage. It surfaced
+only when one function (the RNG) appeared at two addresses. The test that discriminates is semantic:
+*do the resolved far calls land on function entries?* (index reading 4,449 + 599 stub entries + 608 asm
+helpers of 5,656; image reading 815). Validate a decoding by what it must *mean*, not by what it must
+fit in.
 
 ## Open Questions
 - ~~Is the MOO1 STARMAP image one relocation delta, or overlaid?~~ **Resolved 2026-10-16** → [above](#fixing-the-join-instead-of-avoiding-it-verified-2026-10-16): both. One delta for the root (all data + 19 tables), plus 25 FBOV overlays (code only), each at `<buffer>:0000`.
