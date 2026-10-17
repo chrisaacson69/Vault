@@ -493,8 +493,8 @@ Reusable moves that emerged from the discussion (portable ones promoted to
 
 ## Open Questions
 
-- **Does *may* have an equilibrium?** If restored, does state discretion re-drift to full direct election
-  within a generation, making repeal a one-generation reprieve? (Neither Jake nor Ryan touches this.)
+- ↪ **Does *may* have an equilibrium?** → tracked at [The Represented Unit](../philosophy/morality/legal-theory/represented-unit.md#open-questions).
+  (Neither Jake nor Ryan touches this.)
 - **Is the 17th load-bearing or a correlate of Wickard?** Chris's answer: wrong question — treat the
   Progressive Era (16th + 17th + Wickard) as a *package*; the amendments are complements, not substitutes.
 - **The administrative state's principal** — agencies serve at the President's pleasure (can't abolish the

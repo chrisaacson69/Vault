@@ -112,7 +112,7 @@ And the real frontier: grounding-with-an-oracle is the *known* cure — **findin
 - What's the minimal canonical-rewrite catalog that maximizes transfer — and where do its rules genuinely conflict (guard-clause vs nested-if)?
 - Can the asm-differential certifier become the project's *progress metric*, replacing "% gotos removed" with "% subs whose structure matches the bytecode"? That reframes the stalled "60%" from a ceiling into a mislabeled ruler.
   - *2026-10-07:* the matching-decomp community uses a stronger version — recompile the C byte-for-byte — and a **C→KOEI-bytecode recompiler** would bring that here, certifying the C itself rather than its branch edges. See [The AI Decomp Wave](./ai-decomp-wave.md).
-- Same eviction question as [the cache hierarchy](../notes/context-cache-hierarchy.md): how do you detect readability drift in a *regenerated* codebase across tool versions?
+- ↪ **Detecting readability drift in a *regenerated* codebase** → tracked at [Practicality vs. Precision](./principled-llm-code.md#open-questions) (the same eviction question as [the cache hierarchy](../notes/context-cache-hierarchy.md)).
 
 ## Tags
 [ai](../tags/ai.md), [llm-limitations](../tags/llm-limitations.md), [grounding](../tags/grounding.md), [software-engineering](../tags/software-engineering.md), [methodology](../tags/methodology.md)

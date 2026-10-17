@@ -75,7 +75,7 @@ The path to grounded AI isn't better language models. It's giving simulation eng
 
 ## Open Questions
 
-- Do multimodal models (vision + language) meaningfully close the grounding gap, or is this a deeper architectural issue requiring embodiment?
+- ~~Do multimodal models (vision + language) meaningfully close the grounding gap, or is this a deeper architectural issue requiring embodiment?~~ **Resolved 2026-09-16** → [The LLM Grounding Problem](./llm-grounding-problem.md#open-questions) / [Eyes and Ears for LLMs](./eyes-and-ears-for-llms.md): partly, and only where the modality has a physical oracle.
 - As AI handles more cognitive execution, does the remaining human work (judgment, grounding, physical presence) become more or less valuable? The [cyborg model](./cyborg-model.md) says more — it's the scarce input.
 - Is there a formal relationship between the cognitive/motor split and the [conservation of complexity](../notes/conservation-of-complexity.md)? Moving computation from one layer to the other should conserve total work.
 
