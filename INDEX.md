@@ -28,6 +28,7 @@ permalink: /INDEX/
 - [MOO1 Opening Optimizer](./projects/moo1-opening-optimizer/README.md) — economic simulator for MOO1 opening theory: optimal colony ship timing across race/planet/distance (planning)
 - [moo1-re](./projects/moo1-re/README.md) — Master of Orion 1 (DOS v1.3) reverse engineering, data-first: dual save decoder (zappatic × 1oom, 41/41), EXE byte-search verifier for 1oom tables (active)
 - [Sci-Fi Trading Voyage](./projects/sci-fi-trading-voyage/README.md) — trade-route calculator: ranks two-stop round trips by profit/hr from a 25-stop price + coordinate snapshot; the next step is fleet selection under a 100 CP cap (active)
+- [bw-combat-matrix](./projects/bw-combat-matrix/README.md) — Brood War equal-cost counter matrix: .dat-decoded stats (BWAPI-verified), OpenBW damage rules, Lanchester square-law efficiency per unit pair; a matchup-specific [BattleValue](./research/gaming/battle-value.md) specimen (active)
 - [democracy3-solver](./projects/democracy3-solver/README.md) — "solve" Democracy 3 by extracting its CSV game-data model into a faithful equilibrium simulator, then optimizing policy vectors (LP/MILP) for max vote share (active)
 - [Triangular Arbitrage](./projects/triangular-arbitrage/README.md) — currency & crypto arbitrage (DeFi/Solana path under investigation)
 - [OOP Neurons](./projects/oop-neurons/README.md) — object-oriented neural network on GPU; neurons as proper objects; exploring what OOP reveals vs matrix multiplication (concept)

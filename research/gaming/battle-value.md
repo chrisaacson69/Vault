@@ -314,6 +314,7 @@ The table above is *genres*; these are the in-vault pages that actually use BV, 
 - [CoM Spell Counter-Graph](./master-of-magic/com-counter-graph.md) — counters as edges that drive a unit's effective BV.
 - [Capability Without Leverage](./capability-without-leverage.md) — BV→0 in a bad matchup is the combat instance of that thesis.
 - [MOO1 Optimal Strategy](./moo1/optimal-strategy.md) — BV for fleet comparison / ship design in the 4X setting.
+- [bw-combat-matrix](../../projects/bw-combat-matrix/README.md) — BV/Cost made **matchup-specific** for Brood War: E = (cost_B/cost_A)·√(TTK_BA/TTK_AB) from exact whole-hit duels, so armor, damage type, shields and regen (the "armor gets circular" complication) are resolved per pair by simulation; shares the melee blind spot the Hercules warning names (no range or splash).
 - [BattleTech Simulator](../../projects/battletech-simulator/README.md) — Monte-Carlo combat sim to derive empirical BV and find BV2 bargains.
 
 ## Connection to Economics
