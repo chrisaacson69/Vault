@@ -206,7 +206,8 @@ learning rate) is a **dial**: base model (too general) → sweet spot → regurg
   on source-separated data, supports "bass on top of existing drums"). Go to B only if A's layers sound
   like strangers; check which of these actually ships weights first (reuse > rebuild).
 **Oracle — a ladder, cheapest and verifiable first, ears last:**
-1. *Separation* — stems re-sum to the mix (small residual). Verifiable.
+1. *Separation* — stems re-sum to the mix (small residual). Verifiable. Answers the
+   [test plan](./dj-blend-tool-test-plan.md)'s open *re-summation artifacts are unmeasured* too.
 2. *Rhythm* — G1's grid detector on each generated stem locks to the requested BPM. Verifiable.
 3. *Key* — G3 on bass/lead output matches the prompt. Verifiable.
 4. *Copying* — embedding distance (G4's index) from each output to its nearest training clip; too

@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1032 questions on 217 pages — 962 open, 62 resolved, 8 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
+**1033 questions on 217 pages — 963 open, 62 resolved, 8 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -36,7 +36,7 @@ title: "Open Questions Registry"
 - `cf68dc` [REA (Reverse Engineer Anything) — Candidate Tool and Harness Teardown](../research/reverse-engineering/rea-candidate-tool.md) L52 — Does the root-module formula hold on a second DOSBox match with an observed PSP? If so, it answers the addres… *(2026-10-16)* *(no link)*
 - `1c4111` [REA (Reverse Engineer Anything) — Candidate Tool and Harness Teardown](../research/reverse-engineering/rea-candidate-tool.md) L50 — Does Ghidra load STARMAP.EXE's overlays? *(2026-10-16)* *(no link)*
 - `3195ec` [zappatic MOO1 RE stream — Part 7a+7b notes](../research/gaming/moo1/zappatic-stream/part07.md) L161 — Ghidra relocation: *(2026-10-16)*
-- `98d497` [Data-First RE](../method/data-first-re.md) L58 — Is the MOO1 STARMAP image one relocation delta, or overlaid? *(2026-10-16)*
+- `98d497` [Data-First RE](../method/data-first-re.md) L90 — Is the MOO1 STARMAP image one relocation delta, or overlaid? *(2026-10-16)*
 - `7999cb` [Hangman: Solving Both Sides — and the One Parameter That Separates Two Methods](../research/gaming/hangman-solving-both-sides.md) L143 — The direct sequel is coming. *(2026-10-12)*
 - `ebf513` [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) L203 — Mappy's demo script in a real game: *(2026-10-02)* *(no link)*
 - `49c978` [No One May Dictate — Partner Choice and Outsider Review](../research/philosophy/morality/no-one-may-dictate.md) L58 — The edge where law weighs a motive. *(2026-09-29)*
@@ -98,7 +98,7 @@ title: "Open Questions Registry"
 ## Open, by page
 
 ### [Data-First RE](../method/data-first-re.md)
-- `ca748b` L59 — Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? S…
+- `ca748b` L91 — Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? S…
 
 ### [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md)
 - `8ccfd5` L80 — What's the actual multiplier?
@@ -799,11 +799,12 @@ title: "Open Questions Registry"
 - `6d4b16` L76 — Privacy as his lever
 
 ### [Eyes and Ears for LLMs — the Audio Translator](../research/eyes-and-ears-for-llms.md)
-- `b5da36` L190 — G2's line: is a section boundary really verifiable from the waveform alone, or does novelty detection only agree with humans on genres with a drop? H…
-- `53c5da` L192 — Does discogs-effnet's 400-style head already cover the DJ vocabulary well enough that G5 is a relabeling rather than a probe?
-- `6e67c2` L194 — What is the minimum labeled-track count at which a G5 probe beats a zero-shot CLAP text query?
-- `866c27` L195 — Native-audio LLMs (Gemini, GPT-4o audio) — speech-biased today; is there a test that shows whether they read music structure at all, so the page know…
-- `8c9934` L197 — Oracle contamination generalizes: any layer whose reference is the tool's own prior output. Is there a mechanical check (provenance on every referenc…
+- `b5da36` L239 — G2's line: is a section boundary really verifiable from the waveform alone, or does novelty detection only agree with humans on genres with a drop? H…
+- `53c5da` L241 — Does discogs-effnet's 400-style head already cover the DJ vocabulary well enough that G5 is a relabeling rather than a probe?
+- `6e67c2` L243 — What is the minimum labeled-track count at which a G5 probe beats a zero-shot CLAP text query?
+- `866c27` L244 — Native-audio LLMs (Gemini, GPT-4o audio) — speech-biased today; is there a test that shows whether they read music structure at all, so the page know…
+- `8c9934` L246 — Oracle contamination generalizes: any layer whose reference is the tool's own prior output. Is there a mechanical check (provenance on every referenc…
+- `62b602` L248 — G7: does Demucs separate this library's synth layers well enough to train on, or does other need a finer separator first? And do any of the stem-cond…
 
 ### [Arithmetic Scarcity and the 3D Problem](../research/gaming/arithmetic-scarcity-3d.md)
 - `94ec0f` L256 — The measured coprocessor gap is 9×, not 25-35×
@@ -817,10 +818,10 @@ title: "Open Questions Registry"
 - `9f3e5b` L264 — One negative specimen, anecdotal.
 
 ### [BattleValue — A Universal Combat Comparison Metric](../research/gaming/battle-value.md)
-- `325862` L338 — Does BV generalize to non-symmetric combat?
-- `8f67e8` L339 — Mixed-composition armies:
-- `8b0da5` L340 — Is there a BV-equivalent for non-combat interactions?
-- `beb413` L341 — Historical validation:
+- `325862` L339 — Does BV generalize to non-symmetric combat?
+- `8f67e8` L340 — Mixed-composition armies:
+- `8b0da5` L341 — Is there a BV-equivalent for non-combat interactions?
+- `beb413` L342 — Historical validation:
 
 ### [Bilateral Trade Valuation](../research/gaming/bilateral-trade-valuation.md)
 - `ff2d59` L437 — N-player interaction:
@@ -918,10 +919,10 @@ title: "Open Questions Registry"
 - `3f097b` L275 — Dynamic reserve integration:
 
 ### [Master of Orion — Optimal Play Strategy](../research/gaming/moo1/optimal-strategy.md)
-- `026dae` L709 — Can the opening be solved?
-- `878ed1` L710 — BV validation:
-- `bdf93d` L711 — Remnants of the Precursors (RotP):
-- `3dc497` L712 — AI exploits:
+- `026dae` L711 — Can the opening be solved?
+- `878ed1` L712 — BV validation:
+- `bdf93d` L713 — Remnants of the Precursors (RotP):
+- `3dc497` L714 — AI exploits:
 
 ### [zappatic — Reverse Engineering Master of Orion (stream digest)](../research/gaming/moo1/zappatic-re-stream.md)
 - `f66d91` L62 — What does crc32 hash — file, loaded image, or a different build? Does his RAM map hold on Steam v1.3?
