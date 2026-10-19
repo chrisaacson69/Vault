@@ -26,6 +26,13 @@ the blocks-world robot-arm era, and remembers two systems: a Spotify recommender
 tracks "extremely well" from audio-derived tags (melodic, four-on-the-floor…), and a Microsoft
 Research project building 3D models from many photographs of one object.
 
+**2026-10-19 addendum (G7):** a second discussion turned the page from *reading* sound to *generating*
+it. Chris: large generative music models "generalize too much" — they are far from the genres he
+plays — so the idea is a model narrowed to a pre-selected ~500-track DJ library that generates riffs
+in those styles, as **sound** (not MIDI, "the music is layered and complex"), broken into stems for
+tunable control. The three stem-model papers cited in G7 were web-checked that day; weight
+availability was not.
+
 ## The premise, corrected in three places
 
 1. **The room video is not an LLM doing geometry.** Video → frames → 3D is photogrammetry:
@@ -176,6 +183,46 @@ overlap < 10 ms), which the engine can measure; (b) *statistical*: Chris's A/B a
 transition — the [crossover-calibration](./dj-crossover-calibration.md) harness already logs these.
 **State:** the JSON spec and engine exist; the input document does not.
 
+### G7 — Stem-wise riff generation in *your* style (generative, statistical, *yours*)
+**Goal:** generate short, bar-aligned audio riffs — per stem (drums / bass / leads-pads) — that sound
+like the curated library and unlike the broad output of general text-to-music models.
+**The objective is the curation.** The loss stays the base model's own (next audio token, or
+denoising); picking the 500 tracks *is* the statement of what to optimize for. A from-scratch model on
+~33 h of audio would get the narrowness without the musical knowledge; a fine-tune keeps the base
+model's knowledge and narrows its distribution. How hard the fine-tune pushes (LoRA rank, steps,
+learning rate) is a **dial**: base model (too general) → sweet spot → regurgitating the training tracks.
+**Example:** `{"stem": "bass", "bpm": 124, "key": "8A", "bars": 8, "style": "progressive house, driving"}`
+→ an 8-bar 124-BPM bass loop in 8A that locks to a drum loop generated the same way.
+**Architecture, staged:**
+- **A — one adapter per stem.** Separate the library into stems, fine-tune one LoRA per stem on a
+  pretrained audio generator. Layers cohere only through the shared grid (G1 cuts every clip to the
+  bar at a fixed tempo; G3 fixes the key). Cheap, standard; per-stem dials (tight drums, loose pads).
+- **B — stems conditioned on each other** (bass *hears* the drums). The research line already exists:
+  [StemGen](https://arxiv.org/abs/2312.08723) (ByteDance, 2023 — generates a stem from the audio
+  context, not a text prompt; trained on ~145 h Slakh + ~500 h licensed stems),
+  [Diff-A-Riff](https://arxiv.org/abs/2406.08384) (Sony CSL, 2024 — latent-diffusion accompaniment
+  conditioned on context + text/audio style reference), and
+  [MusicGen-Stem](https://arxiv.org/abs/2501.01757) (Meta/HUJI, 2025 — bass / drums / other, trained
+  on source-separated data, supports "bass on top of existing drums"). Go to B only if A's layers sound
+  like strangers; check which of these actually ships weights first (reuse > rebuild).
+**Oracle — a ladder, cheapest and verifiable first, ears last:**
+1. *Separation* — stems re-sum to the mix (small residual). Verifiable.
+2. *Rhythm* — G1's grid detector on each generated stem locks to the requested BPM. Verifiable.
+3. *Key* — G3 on bass/lead output matches the prompt. Verifiable.
+4. *Copying* — embedding distance (G4's index) from each output to its nearest training clip; too
+   close = the dial is past the sweet spot. Measurable.
+5. *Taste* — Chris's ears, only on output that passed 1–4. Statistical.
+**Known hazard:** Demucs was trained mostly on rock/pop; its `other` stem lumps pads, leads, arps and
+FX in electronic music, and bleed becomes training data — the model learns the artifacts as style.
+MusicGen-Stem's own three-stem split has the same coarse `other`.
+**Licensing:** MusicGen weights are non-commercial; Stable Audio Open's license is more permissive.
+Outputs from a fine-tune on commercial tracks are a gray area for release, fine for personal use. The
+library audio and the fine-tuned weights never go in this (public) repo.
+**Data arithmetic:** 500 tracks × ~15 eight-bar segments ≈ 7.5 k clips per stem — thin from scratch,
+reasonable for LoRA.
+**State:** nothing built. The first step is a **no-training pilot** — separate ~20 library tracks, run
+check 1, and listen to `other`; if it is mush, the stem plan changes before anything is spent.
+
 ## Requirements — to be derived from the goals
 
 *Stub, by design.* Chris: "we can see if we can't get the requirements afterwards." Each goal above
@@ -183,7 +230,8 @@ fixes an output schema, an oracle, and a pass threshold; requirements fall out a
 oracle needs on disk (Harmonix audio alignment, a labeled-pairs file for G4, a label file for G5),
 (b) the environment (torch + `beat_this` + Essentia on Windows — `allin1`'s NATTEN block is the known
 hazard), and (c) the order — G1 → G2 → G6 gives an end-to-end path before any training; G4/G5 are the
-first place a NN gets *trained* rather than reused.
+first place a NN gets *trained* rather than reused (a probe); G7 is the first *generative* training, and
+its stem-separation pilot gates it.
 
 ## Open Questions
 
@@ -196,6 +244,9 @@ first place a NN gets *trained* rather than reused.
   they read *music* structure at all, so the page knows when tier 3 stops being necessary?
 - Oracle contamination generalizes: any layer whose reference is the tool's own prior output. Is
   there a mechanical check (provenance on every reference file) worth adding to the test plan?
+- G7: does Demucs separate *this* library's synth layers well enough to train on, or does `other` need
+  a finer separator first? And do any of the stem-conditioned models (StemGen, Diff-A-Riff,
+  MusicGen-Stem) ship usable weights, making stage B a reuse instead of a build?
 
 ## Tags
 [ai](../tags/ai.md), [grounding](../tags/grounding.md), [music](../tags/music.md), [audio-processing](../tags/audio-processing.md), [machine-learning](../tags/machine-learning.md), [cyborg](../tags/cyborg.md), [llm-limitations](../tags/llm-limitations.md)
