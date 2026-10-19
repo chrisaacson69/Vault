@@ -24,6 +24,8 @@ py -3 tools/vault-fix-links.py     # repair broken links by unique-basename matc
 py -3 tools/vault-tagindex.py      # 1c: derive tags/<tag>.md from each page's `## Tags` (--write)
 py -3 tools/tag-counts.py          # 1c: recompute `- N files` in tags/_index.md (--write)
 py -3 tools/vault-backlinks.py     # materialize derived Backlinks sections (--write)
+py -3 tools/open-questions.py      # open-questions registry; exit 1 = stale (--write). Triage its
+                                   # answered-elsewhere / re-ask / marker-drift sections with Chris
 ```
 
 Order matters: pages → `vault-tagindex.py` → `tag-counts.py`. Each layer derives from the one below.

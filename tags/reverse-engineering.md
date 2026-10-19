@@ -47,6 +47,7 @@ permalink: /tags/reverse-engineering/
 - [Aerobiz (SNES)](../projects/game-annotation/snes/aerobiz-snes/README.md) — The third KOEI SNES title, and the first one that isn't a port of a decompiled NES game.
 - [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — RAM as eyes, ROM tables decoded, disassembly read; the instrument-not-the-game lessons
 - [The AI Decomp Wave — Outside Confirmation](../research/ai-decomp-wave.md) — agent decompilation's "answer key" = the vault's correctness oracle; flashy ports/mods vs. mechanics; idea/expression legality
+- [REA (Reverse Engineer Anything) — Candidate Tool and Harness Teardown](../research/reverse-engineering/rea-candidate-tool.md) — MCP harness driving Ghidra/IDA; teardown vs. our harness (borrow: evidence records, unknowns registry); blocked on MOO1 because half of STARMAP is an FBOV overlay; 8-bit = raw 6502 only
 - [zappatic — Reverse Engineering MOO1](../research/gaming/moo1/zappatic-re-stream.md) — stream digest: data-first DOS RE, save/RAM layout, caps, diplomacy, events; cross-checked vs 1oom
 - [Data-First RE](../method/data-first-re.md) — name the data first when the static↔runtime address join is broken (DOS real mode); the oracle ladder
 - [MOO1 Diplomacy — Three-Way Cross-Check](../research/gaming/moo1/xcheck-diplomacy.md) — stream × OSG × 1oom, diplomacy mechanics

@@ -94,7 +94,7 @@ Applying the framework to the specific case:
 
 1. **The imminence line** — where exactly does "preparing to attack" become "attacking"? The ongoing aggression requirement is clear at the extremes but fuzzy in the middle. **Cross-check (2026-09-21):** LiquidZulu's seven-chapter course, which otherwise matches this page on defense, contains no imminence, threat, or brandishing case at all — see [course ch. 6 §6](../../liquidzulu/course-06-defensive-force.md#6-what-is-not-here--threats-imminence-initiation). The gap is shared, not ours alone.
 2. **Structural aggression scope** — if a head of state counts as ongoing structural aggression, how far down the chain does this extend? Every soldier? Every tax collector? Where does the structural aggression end and mere association begin?
-3. **Restitution for death** — what does "making whole" mean when the victim is dead? (Already flagged in legal theory upcoming topics)
+3. ↪ **Restitution for death** → tracked at [Mens Rea in Libertarian Law](./mens-rea.md#still-open).
 
 ## Tags
 [philosophy](../../../../tags/philosophy.md), [libertarian-law](../../../../tags/libertarian-law.md), [morality](../../../../tags/morality.md)

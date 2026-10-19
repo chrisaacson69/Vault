@@ -57,7 +57,7 @@ title: "Objectivist Metaethics — A Call-In Specimen"
 
 ## Open Questions
 
-- The society/individual distinction is flagged by Chris as needing its own conversation; the level-slip diagnosis is a guard, not a positive account.
+- ~~The society/individual distinction is flagged by Chris as needing its own conversation; the level-slip diagnosis is a guard, not a positive account.~~ **Resolved 2026-09-17** → [The Objectivism Boundary](../philosophy/morality/objectivism-boundary.md#the-grenade-test--where-act-level-egoism-goes-tautological): the positive account is disposition-level justification. The residue (what a society legitimately *is*) is tracked [there](../philosophy/morality/objectivism-boundary.md#open-questions).
 - The host is unnamed in the auto-captions ("Ben" and "Dan" both appear). If the channel is identified later, fill it in rather than guessing.
 
 ## Tags

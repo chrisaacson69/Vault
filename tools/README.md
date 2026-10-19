@@ -12,7 +12,7 @@ checkable — and because a solver that lives next to its page cannot go unfinda
 
 **Consumers — the skills that must run these rather than re-implement them:**
 [`/vault-heartbeat`](../.claude/skills/vault-heartbeat/SKILL.md) (its whole structural pass is
-`vault-graph` + `vault-tagindex` + `tag-counts`) and [`/vault-sync`](../.claude/skills/vault-sync/SKILL.md)
+`vault-graph` + `vault-tagindex` + `tag-counts` + `open-questions`) and [`/vault-sync`](../.claude/skills/vault-sync/SKILL.md)
 (step 4 → `tag-counts.py`). *Registered 2026-08-26, after a heartbeat hand-rolled its own broken-link
 and tag checkers because nothing routed it here — the index existed, the pointer to it didn't.
 Unfindable capability gets rebuilt; that is what the pointer is for.*
@@ -87,6 +87,45 @@ py -3 tools/vault-tagindex.py --write    # apply
 First apply (2026-06-08): 41 tag files reconciled — broken links **178 → 117**, ~200 missing
 memberships added (`+48 philosophy`, `+29 morality`, …, the hand-maintained index's rot). The
 remaining 117 broken links are non-tag (INDEX deep-links, a few wrong-path bugs) — a separate pass.
+
+## open-questions.py — the open-questions registry (the recall half of reuse-over-rebuild)
+
+Derives [notes/open-questions.md](../notes/open-questions.md) from every page's `## Open Questions`
+section, so a question can be matched against the vault by a tool rather than by remembering to grep.
+Fixes the failure named in [Vault/CLAUDE.md](../CLAUDE.md), *Check the open questions*. Modelled on
+REA's `record_unknown` ([REA candidate tool](../research/reverse-engineering/rea-candidate-tool.md)), but
+**derived**: the pages stay the source of truth and the registry is a pure function of them.
+
+- **Status comes from the existing marker.** `~~question~~ note` or a leading ✅ = resolved; anything
+  else is open, including "MOSTLY RESOLVED". Links in the note = *resolved by*; first date = when.
+- **A re-ask is fixed by a pointer, not a strike.** Keep the question at one home; replace the other
+  copy with `- ↪ **label** → [home](…)`. A ↪ item counts as *moved*: neither open nor paired. (Striking
+  it would re-flag the pair as *possibly answered elsewhere*.) Two items that already link to each
+  other's page never pair; the link is the fix.
+- **ID** = 6 hex of the question text with markup stripped, so striking it through keeps the ID. No
+  revision counter (REA needs one for a live multi-writer store; git is ours). No *contradicted-by*
+  field: nothing on the pages marks it, so it would be a guess.
+- **Report:** *possibly answered elsewhere* (open question worded like one resolved on another page),
+  *possible re-asks* (two open questions on different pages, Jaccard ≥ 0.3), *marker drift* (says
+  RESOLVED but isn't struck), and resolved-without-link. It reports these; it never edits a page.
+- **`--find`** ranks every question (open and resolved, plus note and page title) against a new finding,
+  IDF-weighted. Deciding whether the finding *answers* one is inference; this narrows it to ten lines.
+
+```
+py -3 tools/open-questions.py                 # report; exit 1 if the registry is stale
+py -3 tools/open-questions.py --write         # regenerate notes/open-questions.md
+py -3 tools/open-questions.py --find "TEXT"   # run before filing a finding or question as new
+```
+
+**First run (2026-10-16):** 1,032 questions on 217 pages (981 open, 51 resolved); 2 possibly answered
+elsewhere, 15 possible re-asks, 5 marker drifts, 19 resolved without a link. The top *answered
+elsewhere* hit is real: the multimodal-grounding question resolved on
+[LLM Grounding Problem](../research/llm-grounding-problem.md) on 2026-09-16 is still open on
+[Cognitive vs. Motor](../research/cognitive-vs-motor.md). `--find "is there a fifth"` ranks
+`reading-outcome-statistics.md`'s question first, the match CLAUDE.md says was found only by luck.
+**First triage (2026-10-16, with Chris):** both *answered elsewhere* hits resolved, the 5 drifts
+converted, and 9 re-asks given one home each, which added the ↪ and cross-link rules above. The 3 that
+remain (insurance/scope-confusion ×2, zappatic part 1/6) are false positives and were left on purpose.
 
 ## risk-battle-odds.py — exact Risk battle odds (research solver, not a vault gate)
 

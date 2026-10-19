@@ -70,8 +70,8 @@ This confirms the vault's rule *"durability is the detector; the given structure
 ## Open Questions
 
 - **Bystander trolley:** does the vault's asymmetry explain why the bystander may turn, where Foot's version doesn't?
-- **Kind vs. capacity (seed 5):** Foot's framework is kind-relative but says nothing about animal standing in these sources. Does "standing by the kind's generic" (option c) need a third tier for animals? Ground both sides symmetrically.
-- **Brave New World:** late Foot judges *reasoning* against human need. Can engineered desire count as a **defect of will** even when the exit is open? That may be the supplement the exit test needs.
+- ↪ **Kind vs. capacity (seed 5)** → tracked at [Chris vs. Claude — Non-Uniqueness](../../debates/claude-nonuniqueness-moral-grounding.md#open-questions). Foot's side of it: her framework is kind-relative but says nothing about animal standing in these sources.
+- ↪ **Brave New World** → tracked at [Constructed ≠ Arbitrary](../constructed-not-arbitrary.md#open-questions), Q5. Foot's contribution there is the candidate supplement: late Foot judges *reasoning* against human need, so engineered desire might count as a **defect of will**.
 - **The happy wicked:** that *Natural Goodness* ch. 6 asks this question is unverified (only "goodness and happiness" is confirmed). Read ch. 6 before citing it.
 - **Primary texts still unread:** NG in full, Thompson's *Life and Action*, MSHI (1972). Everything here is via SEP plus one primary excerpt.
 
