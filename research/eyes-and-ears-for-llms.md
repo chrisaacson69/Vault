@@ -223,6 +223,11 @@ library audio and the fine-tuned weights never go in this (public) repo.
 reasonable for LoRA.
 **State:** nothing built. The first step is a **no-training pilot** — separate ~20 library tracks, run
 check 1, and listen to `other`; if it is mush, the stem plan changes before anything is spent.
+*2026-10-19:* pilot tooling ready, library not yet on the GPU box. [Camelot From
+YouTube](../projects/camelot-from-youtube/README.md)'s `env_demucs` was rebuilt (Python 3.14, torch
+2.11+cu128, demucs 4.1, RTX 5060 Ti); `separate_stems.py` now decodes via Demucs' ffmpeg reader
+(torchaudio 2.11 needs TorchCodec) and gains `--float` (unclamped stems); `resum_check.py` is check 1.
+Smoke test on a synthetic 30 s clip: −36 dB residual, so re-summation is measurable, not a tautology.
 
 ## Requirements — to be derived from the goals
 
