@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1033 questions on 217 pages — 963 open, 62 resolved, 8 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
+**1037 questions on 218 pages — 966 open, 62 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -266,18 +266,23 @@ title: "Open Questions Registry"
 - `728841` L343 — Can the two defences be reconciled?
 - `90bebb` L344 — Parked deliverable — a live-call prep script.
 - `170991` L353 — Is the "gnostic" resemblance load-bearing or incidental?
-- `0c3717` L354 — Is Chris's "morality is condition-based" compatible with Mullally's constant-principle/varying-application split, or genuinely opposed?
+- `647c4a` L354 — Is Chris's "morality is condition-based" compatible with Mullally's constant-principle/varying-application split, or genuinely opposed? Partial answe…
 
 ### [Chris vs. Claude — Non-Uniqueness to Moral Grounding](../research/debates/claude-nonuniqueness-moral-grounding.md)
 - `45e7a9` L173 — Seed 3 has a new input:
 - `e75230` L175 — Kind vs. capacity for standing:
-- `c2e96a` L176 — Untouched seeds:
-- `ff1e27` L177 — Smaller doors:
+- `c2e96a` L177 — Untouched seeds:
+- `ff1e27` L178 — Smaller doors:
 
 ### [Dad Saves America — Jevons, Say's Law, and Why Wages Are Made, Not Negotiated](../research/debates/dad-saves-america-jevons-says-law.md)
 - `0e19c9` L92 — Title, upload date and host name not captured from the transcript.
 - `fb5567` L93 — Energy ↔ GDP
 - `ea45a3` L94 — Alienation under AI:
+
+### [Chris vs. a Deontologist — "One Should Not Torture Unicorns"](../research/debates/deontologist-unicorn-torture.md)
+- `1b799b` L61 — Is "no P-bearer ⟹ no moral fact" just the vacuous truth of the conditional restated, or a substantive claim? If it's only the former, the deontologis…
+- `d40036` L62 — Does lopsided error cost (§4) give a rule (precaution for possible sentience), and does that rule hold up against Pascal's-mugging cases (tiny probab…
+- `915840` L63 — Which level does the word "morality" name: rule form, or application? Most of the absolute-vs-relative fight may be a disagreement over that.
 
 ### [Formal Debate Concepts — A Portable Inventory](../research/debates/formal-debate-concepts.md)
 - `df45d6` L156 — Does an inventory change how the vault reads rounds, or only how it names what it already saw? Two of twelve concepts here (inherency, non-uniqueness…

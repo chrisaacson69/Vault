@@ -74,3 +74,4 @@ permalink: /tags/morality/
 - [Lazy Law](../research/philosophy/morality/legal-theory/lazy-law.md) — banning the tool because the wrong is hard to reach; over-reach plus substitution (*ban X, people do Y*)
 - [Chris vs. Claude — Non-Uniqueness to Moral Grounding](../research/debates/claude-nonuniqueness-moral-grounding.md) — action reveals the all-things-considered judgment, not a norm; universalize the reason; definition first, detector second
 - [Philippa Foot — Natural Goodness, Read Against the Vault](../research/philosophy/morality/foot-natural-goodness.md) — sourced (SEP + 1967 primary): functional core without essence; she abandoned the hypothetical-imperative view the vault holds; Sheriff ≠ trolley; not "what survives"
+- [Chris vs. a Deontologist — "One Should Not Torture Unicorns"](../research/debates/deontologist-unicorn-torture.md) — no P-bearer ⟹ no moral fact; lopsided error costs give the deontologist's conclusion without an absolute

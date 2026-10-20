@@ -116,3 +116,4 @@ permalink: /tags/epistemology/
 - [Warren Smith's Controlled Comparison](../research/debates/warren-smith-review-regress-pressure.md) — one interrogation script, three respondents; the failure gradient and the closure-then-initiative rule
 - [LiquidZulu vs Liam Stayton — Open or Closed Objectivism?](../research/debates/lz-stayton-open-closed-objectivism.md) — what fixes the reference of a philosophy's name: its essence, or the corpus its author designated
 - [The Blind Pill (Ruelas vs. AVG)](../research/debates/blind-pill-ruelas-avg.md) — a coiner defending his definition against a clip of himself; a "dilemma" whose two answers get their consequences by stipulation
+- [Chris vs. a Deontologist — "One Should Not Torture Unicorns"](../research/debates/deontologist-unicorn-torture.md) — priors as induction: application by analogy can be overturned; rule certainty does not carry over to application

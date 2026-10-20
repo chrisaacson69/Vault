@@ -103,3 +103,4 @@ permalink: /tags/debates/
 - [The Blind Pill (Ruelas vs. AVG)](../research/debates/blind-pill-ruelas-avg.md) — a coiner defending his definition against a clip of himself; a "dilemma" whose two answers get their consequences by stipulation
 - [Arthur Laffer Interview — "All I Think About Is Incentives"](../research/debates/laffer-interview-incentives.md) — incentives as the whole of economics; pressed on monopoly, 2008, China and the pre-1913 tariff state
 - [Chris vs. Claude — Non-Uniqueness to Moral Grounding](../research/debates/claude-nonuniqueness-moral-grounding.md) — Chris vs Claude chat; why the performative move gets instant rejection, and the phrasebook that fixes it
+- [Chris vs. a Deontologist — "One Should Not Torture Unicorns"](../research/debates/deontologist-unicorn-torture.md) — the unicorn line meets a conditional universal; grant the conditional, refuse the drift to knowledge

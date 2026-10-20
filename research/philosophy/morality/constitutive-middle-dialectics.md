@@ -35,6 +35,15 @@ move: no humans ⟹ no murder ⟹ nothing to be right or wrong about). The oppon
   preference.* The parity cases are counterexamples with no moral baggage attached, which is exactly
   why they're the cheapest way to break the inference.
 
+**⚠ The deontologist's fallback — "fine, but *one should not torture unicorns*"** ([specimen](../../debates/deontologist-unicorn-torture.md)):
+- **Grant the conditional:** *"Yes, for anything that can suffer. That's a rule about suffering, not
+  unicorns, and suffering only exists where something can suffer."* A conditional over an empty
+  class is vacuously true; granting it costs nothing.
+- **Watch the drift:** the claim is *nothing there ⟹ no fact* (existence). Don't let it turn into
+  *can't know ⟹ can't judge* (knowledge). Priors answer the second, not the first.
+- **Name the slide:** the rule's certainty doesn't carry over to its application. "The conditional
+  is universal" doesn't give you "we *know* this thing has the property."
+
 **Facing a GLOBAL anti-realist (Lance-type — denies even logical/epistemic norms):**
 - **Don't** show a moral fact (he'll correctly relativize it to a stance). **Show a logical one** — he's anti-realist about logic too, and *can't deny it without using it.*
 - **Open:** *"You can't argue there are no binding norms of argument without relying on binding norms of argument."*

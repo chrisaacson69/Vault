@@ -351,7 +351,7 @@ than the triviality exchange.
   *generator* skill that assembles one from vault pages on demand. Given the failure above was
   "wrong card loaded," the generator is the better fit — but the written card is the cheaper test.
 - **Is the "gnostic" resemblance load-bearing or incidental?** The self-authenticating-interior-grounding parallel is real. Does grounding morality *from inside the act of reasoning* carry any of the costs usually charged against interior-certainty epistemologies — and does Mullally's externally-grounded natural law avoid them, or just relocate them to an unknowable eternal law?
-- Is Chris's "morality is condition-based" compatible with Mullally's constant-principle/varying-application split, or genuinely opposed?
+- Is Chris's "morality is condition-based" compatible with Mullally's constant-principle/varying-application split, or genuinely opposed? *Partial answer 2026-10-20:* compatible at the rule-form level; they differ on instantiation and grounding. See the level table at [Deontologist — Unicorns](./deontologist-unicorn-torture.md#categorical-subdivided--the-question-re-asked).
 
 ## Tags
 
