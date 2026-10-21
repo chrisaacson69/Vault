@@ -51,7 +51,7 @@ KOEI NES titles? That fork picks the strategy — walk native code, or build a t
 
 ## Tooling — grounded, running, reusable
 
-Logical name **`snes-decompiler`** → `github.com/chrisaacson69/snes-decompiler` *(local, not yet pushed)*
+Logical name **`snes-decompiler`** → `github.com/chrisaacson69/snes-decompiler` *(public, pushed 2026-10-21)*
 · relative `../snes-decompiler`. It is the SNES analog of the NES shared layers (`nes-render` / `koei-nes`),
 built in two layers just like the NES side (generic CPU decoder + cart wiring):
 

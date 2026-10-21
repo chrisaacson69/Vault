@@ -15,7 +15,7 @@ method → [Breaking Down an SNES Cart](../../../../research/gaming/snes-cartrid
 | Field | Value |
 |-------|-------|
 | Logical name | `snes-decompiler` |
-| GitHub | `github.com/chrisaacson69/snes-decompiler` *(local, not yet created/pushed)* |
+| GitHub | `github.com/chrisaacson69/snes-decompiler` *(public, pushed 2026-10-21)* |
 | Sibling path | `../snes-decompiler` (resolved via `.claude/local-paths.md`) |
 | Entry point | `CONTEXT.md` → the vault teardown page → `tools/` |
 | Depends on | the SNESdev Wiki (grounding); no shared code lib |
