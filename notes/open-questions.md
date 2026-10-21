@@ -1343,10 +1343,10 @@ title: "Open Questions Registry"
 - `e7ec02` L155 — Deterministic interpretations:
 
 ### [The Constitutive/Elective Distinction — Replacing Objective vs Subjective](../research/philosophy/morality/constitutive-elective.md)
-- `efc385` L224 — Is the constitutive/elective boundary sharp or gradient?
-- `c6688e` L225 — Can something shift from elective to constitutive?
-- `b4e321` L226 — Does the theist have a stronger version?
-- `78bb1c` L227 — Can you get someone to accept this reframe in a live debate?
+- `efc385` L226 — Is the constitutive/elective boundary sharp or gradient?
+- `c6688e` L227 — Can something shift from elective to constitutive?
+- `b4e321` L228 — Does the theist have a stronger version?
+- `78bb1c` L229 — Can you get someone to accept this reframe in a live debate?
 
 ### [Deontology vs. Consequentialism: The False Dichotomy](../research/philosophy/morality/deontology-consequentialism.md)
 - `6c8a28` L160 — How fast can the cache update?

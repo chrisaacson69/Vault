@@ -42,6 +42,8 @@ The debate is stuck because the vocabulary is broken, not because the question i
 | **Mind-independent** | Mass, chemistry, gravitational relationships | (empty — if it's mind-independent and structural, it's just physics) |
 | **Mind-dependent** | **Morality, nutrition, danger** | Ice cream preference, fashion, aesthetic taste |
 
+**Rand's three theories of the good are exactly the three filled cells:** intrinsic = top-left, subjective = bottom-right, objective = bottom-left. She also leaves out the impossible top-right cell, so her vocabulary is this table with the empty cell already removed. Because "objective" vs. "subjective" sounds like a pair of opposites, the three-option question ("intrinsic, or a fact about how things relate to us that we can get wrong?") is the easiest way to state the table in a live argument ([Relational Objectivity § Rand](../epistemology/relational-objectivity.md#rands-three-theories-of-the-good--the-debate-ready-version)). The [four categories](../epistemology/relational-objectivity.md) add one more cut: they split the top row into intrinsic (Cat 1) and relational (Cat 2), and Cat 2 is the stepping stone in the argument.
+
 The missing cell — mind-dependent but constitutive — is where morality lives. The traditional vocabulary has no word for it because "objective" was already taken by the top row and "subjective" was taken by the bottom-right.
 
 ## Why "Constitutive" and "Elective"
