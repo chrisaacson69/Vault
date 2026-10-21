@@ -8,7 +8,7 @@ title: "Relational Objectivity — The Four-Category Ontology of Facts"
 # Relational Objectivity — The Four-Category Ontology of Facts
 > Not all facts are intrinsic properties of isolated objects. Some facts live in relationships — between objects, between agents and reality, or between agents and their own states. Relational does not mean subjective.
 
-**Links:** [The Four Trunks](../the-four-trunks.md), [Epistemology](./README.md), [Morality](../morality/README.md), [The Weighting Problem](./weighting-problem.md), [Stance-Independence Retreat](./stance-independence-retreat.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md), [Logic and Mathematics](../logic-and-math/README.md), [Wilson vs Objectivism](../../debates/wilson-objectivism-stance-dependence.md), [Newcomb's Paradox](../dynamics/newcombs-paradox.md), [Performative Grounding](../morality/performative-grounding-lineage.md)
+**Links:** [The Four Trunks](../the-four-trunks.md), [Epistemology](./README.md), [Morality](../morality/README.md), [The Weighting Problem](./weighting-problem.md), [Stance-Independence Retreat](./stance-independence-retreat.md), [Measurement, Causality, and Free Will](../metaphysics/measurement-causality.md), [Logic and Mathematics](../logic-and-math/README.md), [Wilson vs Objectivism](../../debates/wilson-objectivism-stance-dependence.md), [Newcomb's Paradox](../dynamics/newcombs-paradox.md), [Performative Grounding](../morality/performative-grounding-lineage.md), [Objectivism Boundary](../morality/objectivism-boundary.md), [Deontologist — Unicorns](../../debates/deontologist-unicorn-torture.md)
 
 **Trunk:** This page is a core statement of [Trunk 2 — Verification Epistemology](../the-four-trunks.md#trunk-2--verification-epistemology). The working name for the trunk's position is *constitutive convergence*.
 
@@ -201,6 +201,21 @@ The agent-relative category has serious pedigree:
 | **Derek Parfit** | Agent-relative vs. agent-neutral reasons | Some reasons for action depend on who you are without being merely subjective |
 | **Christine Korsgaard** | Sources of normativity (*The Sources of Normativity*, 1996) | Normative claims are agent-relative but *binding* — you can't opt out because bindingness comes from the structure of agency itself |
 | **Kit Fine** | Formal ontology of relations | Rigorous formal treatment: relational (polyadic) properties are as "real" as intrinsic (monadic) properties — just multi-place rather than single-place |
+| **Ayn Rand** | Intrinsic / subjective / objective ("What Is Capitalism?", 1965) | The good is "an aspect of reality *in relation to man*," discovered rather than invented. "Of value to whom and for what?" Objectivity is a relation between consciousness and reality, not the absence of consciousness. See below |
+
+### Rand's three theories of the good — the debate-ready version
+
+Rand rejects the two-way split (objective = mind-independent, subjective = opinion) and names three positions ([Salmieri](https://courses.aynrand.org/wp-content/uploads/2018/12/Gregory_SalmieriAyn_Rands_Conception_of_Valuing.pdf), [New Ideal](https://newideal.aynrand.org/economic-theory-and-conceptions-of-value-part-1/)):
+
+| Rand | The good is… | This page |
+|---|---|---|
+| **Intrinsic** | in the thing itself, "regardless of context and consequences" | Category 1. What "mind-independent" usually means |
+| **Subjective** | whatever a consciousness says, detached from reality | Category 4 |
+| **Objective** | "an evaluation of the facts of reality by man's consciousness according to a rational standard of value" | **Category 3** |
+
+**Why it's the most useful version in live argument:** people treat objective and subjective as opposites, so nobody defends the subjective option. The real choice is **intrinsic vs. objective**, and intrinsic goodness is hard to defend once stated plainly ("is a sunset good in an empty universe?"). Rand's "objective" packs in the error test (you can be wrong about the relation), which nearly everyone grants. **The line:** *"By objective, do you mean true with no one around (intrinsic), or a fact about how things relate to us that we can get wrong (objective)? Medicine is the second kind. So is morality."* Rand's "intrinsic" is Reading B of [stance-independence](./stance-independence-retreat.md#two-readings-of-stance-independent); her "objective" is Reading A plus the error test.
+
+Rand's question *"of value to whom and for what?"* is also the [unicorn point](../../debates/deontologist-unicorn-torture.md): with nobody for something to be valuable to, the question has no answer.
 
 **Foot** and **Korsgaard** are the most directly relevant:
 - Foot gives the cleanest version: moral facts are natural relational facts, the same kind of thing as "good roots for an oak." Biological, not Platonic.
@@ -229,6 +244,7 @@ Each tradition draws lines in different places, and none produces all four categ
 | **Johnston/Pettit** — response-dependence | Response-independent vs. response-dependent | 1-2 vs. 3-4 (lumped together) |
 | **Parfit** — agent-relative/agent-neutral | Reasons that depend on who you are vs. not | Split within 3 only |
 | **Foot** — natural goodness | Biological relational facts → moral facts | Uses 2 as *analogy* for 3, but doesn't taxonomize |
+| **Rand** — intrinsic/subjective/objective | Good in the thing vs. in the mind vs. in the relation | 1 vs. 4 vs. 3. No separate 2 (her split is about value, not all facts) |
 | **Mackie** — moral error theory | "Queerness" of agent-involving objective facts | Identifies the category-3-shaped hole and says nothing fills it |
 | **Primary/secondary/tertiary qualities** | Three-level quality hierarchy | Primary ≈ 1, secondary ≈ 3, tertiary ≈ contested 3/4 — but no clean category 2 |
 | **E.J. Lowe** — *The Four-Category Ontology* (2006) | Substances, kinds, modes, attributes | A different four-part system entirely — categorizes the structure of reality, not the mind-dependence spectrum |

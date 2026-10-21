@@ -1205,16 +1205,16 @@ title: "Open Questions Registry"
 - `d5d2f6` L131 — Does naming a defect out loud reliably beat circling it?
 
 ### [Relational Objectivity — The Four-Category Ontology of Facts](../research/philosophy/epistemology/relational-objectivity.md)
-- `1717ea` L262 — The boundary gradient.
-- `8605a9` L264 — Does category 2 actually need to be separate from category 1?
-- `63130b` L266 — Cross-species agent-relative facts.
-- `192b22` L268 — Can category 4 facts become category 3?
-- `3619cf` L270 — The relationship between categories 2 and 3 under measurement-causality.
+- `1717ea` L278 — The boundary gradient.
+- `8605a9` L280 — Does category 2 actually need to be separate from category 1?
+- `63130b` L282 — Cross-species agent-relative facts.
+- `192b22` L284 — Can category 4 facts become category 3?
+- `3619cf` L286 — The relationship between categories 2 and 3 under measurement-causality.
 
 ### [The Stance-Independence Retreat — A Rename, Not a Repair](../research/philosophy/epistemology/stance-independence-retreat.md)
-- `de9747` L218 — Is there a defensible (A)-only reading of "stance-independent" that doesn't collapse into the constitutive claim?
-- `f929fa` L219 — Do any metaethicists defend (B) directly post-vacuity?
-- `263cf8` L220 — Can the stance-independence move be rehabilitated by coupling it with a specific constitutive mechanism?
+- `de9747` L220 — Is there a defensible (A)-only reading of "stance-independent" that doesn't collapse into the constitutive claim?
+- `f929fa` L221 — Do any metaethicists defend (B) directly post-vacuity?
+- `263cf8` L222 — Can the stance-independence move be rehabilitated by coupling it with a specific constitutive mechanism?
 
 ### [The Parity Move](../research/philosophy/epistemology/the-parity-move.md)
 - `687dbb` L178 — Does parity work against an opponent who concedes it up front?

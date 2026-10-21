@@ -21,10 +21,23 @@ You say *morality concerns how minds decide, so it can never be mind-independent
 move: no humans ⟹ no murder ⟹ nothing to be right or wrong about). The opponent pockets it —
 *"see, you even admit it can't be **objective**"* — and the exchange dissolves into arguing what
 "objective" means, which you lose by default because you conceded first.
+- **Prevent it — never say "mind-dependent."** People hear "depends on opinion." Say *"morality is
+  about agents, the way medicine is about bodies."* The subject matter involves minds; the truth
+  depends on the facts.
+- **Offer Rand's three options** ([source](../epistemology/relational-objectivity.md#rands-three-theories-of-the-good--the-debate-ready-version)):
+  *"By objective, do you mean true with no one around (intrinsic), or a fact about how things relate
+  to us that we can get wrong (objective)? Medicine is the second kind. So is morality."* Nobody
+  picks subjective; intrinsic is hard to defend once stated plainly.
 - **Do not defend the concession. Run parity instead** ([relational objectivity](../epistemology/relational-objectivity.md), the **cyanide test**):
   *"'Cyanide is poisonous to humans' is also mind-dependent — remove all humans and it's poisonous to
   no one. Does that make the LD50 a matter of opinion? Can toxicologists be wrong? Do independent
-  labs converge?"*
+  labs converge?"* For a case about *minds*, not bodies: *"sleep deprivation impairs judgment"* is
+  entirely about minds, and nobody calls it opinion.
+- **Why parity works — the two readings:** "mind-independent" means either **(A) not up to anyone's
+  opinion** or **(B) true even if no minds existed**. They argue from B ("morality needs agents") to
+  a conclusion about A ("so it's opinion"). Cyanide fails B and passes A, so failing B never implies
+  failing A. Same split for [stance-independence](../epistemology/stance-independence-retreat.md#two-readings-of-stance-independent):
+  *"Not because of anyone's attitude? Agreed. True with no agents at all? Then true of what?"*
 - **Then charge the burden:** *"Your definition of 'objective' makes toxicology, nutrition,
   medicine, economics and game theory subjective too. Either accept that, or tell me what makes
   morality the special case."* **Now they owe the account of "objective," not you.**

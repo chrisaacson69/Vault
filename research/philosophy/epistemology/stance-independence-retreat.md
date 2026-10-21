@@ -37,6 +37,8 @@ These are not minor variants. They live on different axes:
 
 The realist typically asserts (A)-strength and defends (B)-strength consequences, or vice versa. Pin them to one and the other retreat closes.
 
+**The same split in Rand's vocabulary:** Reading B is her **intrinsic** theory (good in the thing, regardless of anyone). Reading A plus "you can be wrong about it" is her **objective** theory (good as an aspect of reality *in relation to* us). That three-option question is the plain-language way to force the choice. See [Relational Objectivity § Rand](./relational-objectivity.md#rands-three-theories-of-the-good--the-debate-ready-version).
+
 ## Why the Retreat Happens
 
 The vacuity test kills (B). *"Strip the minds out of the universe — what does 'stealing is wrong' refer to?"* Nothing. Same for "all humans have equal moral worth" (no humans, no worth, no referent). The realist noticed this failure — or has been shown it — and needed a term that:

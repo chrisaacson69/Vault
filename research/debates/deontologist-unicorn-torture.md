@@ -9,7 +9,7 @@ discussion: folded-in
 **Date:** about 2026-10-13 (recounted by Chris on 2026-10-20, "a week back")
 **Source:** Chris's account in session. **No transcript.** Quotes below are Chris's paraphrase, not verbatim.
 **Participants:** Chris vs. an unnamed deontologist
-**Links:** [Chris vs. Mullally](./chris-mullally-callin.md) (origin of the unicorn line), [Chris vs. Claude — Non-Uniqueness](./claude-nonuniqueness-moral-grounding.md) (the Anne Frank / maxim-description exchange, `[19–20]`), [Constitutive Middle — Dialectics](../philosophy/morality/constitutive-middle-dialectics.md), [Relational Objectivity](../philosophy/epistemology/relational-objectivity.md), [Morality Framework](../philosophy/morality/README.md), [Deontology vs. Consequentialism](../philosophy/morality/deontology-consequentialism.md)
+**Links:** [Chris vs. Mullally](./chris-mullally-callin.md) (origin of the unicorn line), [Chris vs. Claude — Non-Uniqueness](./claude-nonuniqueness-moral-grounding.md) (the Anne Frank / maxim-description exchange, `[19–20]`), [Constitutive Middle — Dialectics](../philosophy/morality/constitutive-middle-dialectics.md), [Relational Objectivity](../philosophy/epistemology/relational-objectivity.md) (Rand's "of value to whom and for what?"), [Morality Framework](../philosophy/morality/README.md), [Deontology vs. Consequentialism](../philosophy/morality/deontology-consequentialism.md)
 
 ---
 
