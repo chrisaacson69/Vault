@@ -493,6 +493,8 @@ DawDreamer remains an unexercised fallback.
   Files API docs — text, images, PDF, plain text only), so an LLM "ear" is necessarily the feature pipeline
   emitting text + plots. Whether reading those plots adds anything is Phase 6 of the
   [test plan](./dj-blend-tool-test-plan.md); scriptable DAW APIs remain untested.
+  *MCP now has a design, 2026-10-21* (not built): dj-score's services as MCP tools, with CyborgDJ as the
+  controller ([CyborgDJ as Controller](./cyborgdj-inference-interface.md)).
 - Whether pyCrossfade, Automix/M-DJCUE, or any commercial DJ tool exposes a programmatic interface.
 
 ---

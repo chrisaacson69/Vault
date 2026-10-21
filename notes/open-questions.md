@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1041 questions on 219 pages — 970 open, 62 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
+**1044 questions on 220 pages — 973 open, 62 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -56,7 +56,7 @@ title: "Open Questions Registry"
 - `d65c27` [The Slack in the Law](../research/philosophy/morality/legal-theory/slack-in-the-law.md) L350 — Is the slack load-bearing, or a rationalisation of a mess? *(2026-09-09)*
 - `fb6a6c` [Is Feminism Helping Modern Relationships? (David S. vs. Tareyak) — the rerun](../research/debates/wordwar-feminism-rerun-david-tareyak.md) L227 — Result pending *(2026-09-01)*
 - `997171` [The Word War Debate Contender Series — Bracket Tracker](../research/debates/word-war-debate-series.md) L1976 — Can any round separate legibility from reach? *(2026-09-01)*
-- `ec3fe6` [The Cyborg Model](../research/cyborg-model.md) L240 — Can the vault develop the equivalent of "intuition" — fast, cached retrieval paths that skip the full INDEX.m… *(2026-08-26)*
+- `ec3fe6` [The Cyborg Model](../research/cyborg-model.md) L242 — Can the vault develop the equivalent of "intuition" — fast, cached retrieval paths that skip the full INDEX.m… *(2026-08-26)*
 - `9b2b6e` [Praxis: Agent Teams vs. the Theory](../research/economics/praxis-agent-teams.md) L121 — How do we design a "vending machine 2.0" experiment that applies the structural lessons? *(2026-08-24)*
 - `853e26` [Media Pipeline — controlled md → video](../projects/media-pipeline/README.md) L56 — What is the content equivalent of a Class B bug? *(2026-08-24)*
 - `37a530` [Is Political Party Loyalty Illogical? (Kung Fu Joe vs. Kewl Vic)](../research/debates/wordwar-party-loyalty-joe-vic.md) L164 — Result *(2026-08-18)*
@@ -227,14 +227,19 @@ title: "Open Questions Registry"
 - `ac29c5` L151 — Do agent-authored tests fail this way at a measurable rate?
 
 ### [The Cyborg Model](../research/cyborg-model.md)
-- `38cf2c` L239 — At what vault scale does INDEX.md-based retrieval (thalamic routing) break down, requiring embedding search (something more like parallel sensory pro…
-- `422a9b` L241 — Neural plasticity / self-modifying skills:
-- `ec4e9e` L242 — What's the optimal agent-to-human ratio for different types of work?
-- `46b001` L243 — How do organizations support humans through the pacing challenge?
-- `7458ec` L244 — As AI handles more cognitive execution, does the remaining human work become more or less satisfying?
-- `6fba16` L245 — How does the cyborg model interact with the physical world — what happens when robots close the execution gap?
-- `269eab` L246 — The Quality row has drifted (2026-09-16).
-- `38af59` L247 — Can humans develop new forms of judgment that only emerge when working with AI? (Skills that didn't exist before the partnership)
+- `38cf2c` L241 — At what vault scale does INDEX.md-based retrieval (thalamic routing) break down, requiring embedding search (something more like parallel sensory pro…
+- `422a9b` L243 — Neural plasticity / self-modifying skills:
+- `ec4e9e` L244 — What's the optimal agent-to-human ratio for different types of work?
+- `46b001` L245 — How do organizations support humans through the pacing challenge?
+- `7458ec` L246 — As AI handles more cognitive execution, does the remaining human work become more or less satisfying?
+- `6fba16` L247 — How does the cyborg model interact with the physical world — what happens when robots close the execution gap?
+- `269eab` L248 — The Quality row has drifted (2026-09-16).
+- `38af59` L249 — Can humans develop new forms of judgment that only emerge when working with AI? (Skills that didn't exist before the partnership)
+
+### [CyborgDJ as Controller — the Interface Between Inference and the Engines](../research/cyborgdj-inference-interface.md)
+- `5ded8d` L84 — Is MCP needed, or does a CLI with JSON output suffice for Claude Code? MCP adds typed schemas, discoverable tools and use outside a shell (claude.ai,…
+- `99ae94` L87 — What does the knob sweep score? H1 says the crossover is derivable from stems; H2 says the perceptual tolerance is coarse (calibration). The scorer i…
+- `21f048` L89 — Which renders count as verified, and against what threshold (beat offset in ms, bass overlap in dB)?
 
 ### [1984 — Capitalism vs Socialism: Which Is the Moral System?](../research/debates/1984-peikoff-ridpath-vs-vickers-caplan-capitalism-socialism.md)
 - `02b96d` L200 — The performative-grounding move Peikoff doesn't make.
@@ -1500,7 +1505,7 @@ title: "Open Questions Registry"
 - `880fbc` L76 — Does the governance framing survive scale?
 
 ### [Well-Structured Python at Scale](../research/well-structured-python.md)
-- `c4e259` L104 — What is the minimum constitution for a solo/LLM-assisted repo — pyproject + mypy + one import-linter layers contract? Is that enough to stop accretio…
-- `5e8e78` L105 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question on Principled LLM Code)? Camelot is the…
-- `ae5c2f` L106 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "domain" the pure analysis functions and…
-- `a48d62` L107 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable package with plug-ins, per the projects…
+- `c4e259` L106 — What is the minimum constitution for a solo/LLM-assisted repo — pyproject + mypy + one import-linter layers contract? Is that enough to stop accretio…
+- `5e8e78` L107 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question on Principled LLM Code)? Camelot is the…
+- `ae5c2f` L108 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "domain" the pure analysis functions and…
+- `a48d62` L109 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable package with plug-ins, per the projects…

@@ -10,8 +10,8 @@ permalink: /tags/_index/
 - [6502](./6502.md) — 23 files
 - [65816](./65816.md) — 9 files
 - [agent-teams](./agent-teams.md) — 5 files
-- [agents](./agents.md) — 25 files
-- [ai](./ai.md) — 63 files
+- [agents](./agents.md) — 26 files
+- [ai](./ai.md) — 64 files
 - [assembly](./assembly.md) — 17 files
 - [atari-2600](./atari-2600.md) — 1 file
 - [audio-processing](./audio-processing.md) — 10 files
@@ -20,7 +20,7 @@ permalink: /tags/_index/
 - [career](./career.md) — 8 files
 - [chess-engine](./chess-engine.md) — 1 file
 - [civilizational-cycles](./civilizational-cycles.md) — 16 files
-- [claude](./claude.md) — 3 files
+- [claude](./claude.md) — 4 files
 - [code-golf](./code-golf.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [collectivism](./collectivism.md) — 2 files
@@ -62,7 +62,7 @@ permalink: /tags/_index/
 - [methodology](./methodology.md) — 21 files
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 68 files
-- [music](./music.md) — 12 files
+- [music](./music.md) — 13 files
 - [natural-law](./natural-law.md) — 15 files
 - [nes](./nes.md) — 21 files
 - [nobunagas-ambition](./nobunagas-ambition.md) — 1 file

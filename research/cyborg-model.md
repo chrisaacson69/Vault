@@ -189,6 +189,8 @@ The DJ set pipeline is the cyborg model in miniature. Every role in the distribu
 
 This is the cyborg model's leverage equation in action: one human's creative judgment (track selection, transition design, energy philosophy) multiplied by AI execution (analysis, mixing, rendering) produces a result neither could achieve alone. The human can't time-stretch 11 tracks to beat-perfect alignment. The AI can't decide to "break Camelot intentionally because the texture matters more than the harmony."
 
+**Next step (2026-10-21): CyborgDJ as controller.** Chris's proposal: the analysis library becomes the tool surface (an MCP server), inference holds the set, and the code does the busywork. Planning calls tools directly (as with REA); knob tuning runs as a deterministic sweep the human judges (as with the Zelda bot). Design and decisions: [CyborgDJ as Controller](./cyborgdj-inference-interface.md).
+
 See: [Set Mastering Pipeline](../projects/set-mastering/README.md), [Programmatic DJ Mixing Tools](./programmatic-dj-mixing-tools.md), [DJ Set 1](../projects/dj-set-1/README.md)
 
 ## The Vault as Brain Architecture
