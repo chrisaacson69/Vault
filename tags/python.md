@@ -25,3 +25,4 @@ permalink: /tags/python/
 - [DJ Blend Tool Test Plan — Retrieve, Fit, Close the Gaps](../research/dj-blend-tool-test-plan.md) — Ordered plan to retrieve the candidate blend tools and test each on one fixed transition, closing the critic / closed-loop / A/B-log gaps.
 - [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.
 - [moo1-re](../projects/moo1-re/README.md) — MOO1 reverse-engineering tools (stdlib Python)
+- [Well-Structured Python at Scale](../research/well-structured-python.md) — large Python = language + constitution + checkers; Cosmic Python distilled; camelot specimen

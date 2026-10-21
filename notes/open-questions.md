@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1037 questions on 218 pages — 966 open, 62 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
+**1041 questions on 219 pages — 970 open, 62 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -1479,7 +1479,7 @@ title: "Open Questions Registry"
 - `5e33c2` L180 — Memory-layer LM mitigation.
 
 ### [Practicality vs. Precision — Legacy Slop and Principled LLM Code](../research/principled-llm-code.md)
-- `fdd1cc` L65 — What's the minimum persistent spec that actually holds an LLM to principled code across sessions — a CLAUDE.md architecture section? A living ADR log…
+- `99603a` L65 — What's the minimum persistent spec that actually holds an LLM to principled code across sessions — a CLAUDE.md architecture section? A living ADR log…
 - `37432f` L66 — Can the LLM be made to propose refactors continuously (entropy-reduction pressure) rather than only on request — turning section 3's default trajecto…
 - `5d3844` L67 — How do you detect drift in the generated codebase the way The Context Cache Hierarchy detects drift in the memory layer? Same eviction-policy questio…
 
@@ -1498,3 +1498,9 @@ title: "Open Questions Registry"
 - `f79141` L74 — Is legibility stable under pressure?
 - `6a9ffc` L75 — Emergent-language literature
 - `880fbc` L76 — Does the governance framing survive scale?
+
+### [Well-Structured Python at Scale](../research/well-structured-python.md)
+- `c4e259` L104 — What is the minimum constitution for a solo/LLM-assisted repo — pyproject + mypy + one import-linter layers contract? Is that enough to stop accretio…
+- `5e8e78` L105 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question on Principled LLM Code)? Camelot is the…
+- `ae5c2f` L106 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "domain" the pure analysis functions and…
+- `a48d62` L107 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable package with plug-ins, per the projects…

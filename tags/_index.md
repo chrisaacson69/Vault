@@ -74,7 +74,7 @@ permalink: /tags/_index/
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 3 files
-- [python](./python.md) — 18 files
+- [python](./python.md) — 19 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
 - [reverse-engineering](./reverse-engineering.md) — 46 files
@@ -82,7 +82,7 @@ permalink: /tags/_index/
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 13 files
 - [snes](./snes.md) — 13 files
-- [software-engineering](./software-engineering.md) — 8 files
+- [software-engineering](./software-engineering.md) — 9 files
 - [strategy](./strategy.md) — 31 files
 - [tools](./tools.md) — 5 files
 - [transcription](./transcription.md) — 1 file
