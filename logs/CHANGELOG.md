@@ -11,6 +11,11 @@ created: 2026-07-20
 
 ---
 
+## 2026-10-21
+
+**New project: [dj-score](../projects/dj-score/README.md)** — the camelot audit from [Well-Structured Python §7](../research/well-structured-python.md) ran (imports + use cases per module, measured duplication, Phase 3 grid evidence, G7 stem roadmap) and produced the shared library as its own repo; camelot stays the UI and becomes a consumer alongside CyborgDJ. All five registration artifacts via `/new-project` (local repo, public remote, resolver row, pointer page, INDEX); audit clean for all DJ repos. Per-tool verdicts live in the repo's `MIGRATION.md`, not the vault. Decisions: grid swap to the in-house comb-tempo rigid grid (no per-track Rekordbox run; `beat_this` an optional downbeat voter); `analyze_stems.py` folds as an unvalidated probe that the G7 pilot grades rather than being retired blind.
+
+
 ## 2026-10-12
 
 **Foot deep-dive:** [Philippa Foot — Natural Goodness](../research/philosophy/morality/foot-natural-goodness.md), sourced from SEP plus the 1967 primary excerpt ([manifest](../raw/articles/2026-10-12%20foot-sources.md)). All four from-memory claims checked: 3 verified, 1 partial (NG ch. 6 "happy wicked" unverified). Findings: the vault's hypothetical-imperative row is Foot's retracted 1972 view; Sheriff ≠ trolley (corrected on the Sheriff page). Promoted: functional core → Objectivism Boundary §2 and Wilson; exit test → Constructed ≠ Arbitrary; Foot lineage → action-inaction.
