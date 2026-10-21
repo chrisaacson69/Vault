@@ -14,10 +14,10 @@ permalink: /projects/dj-score/
 
 ## State
 
-Ledger steps 1–2 landed (2026-10-21): golden fixtures, `domain/model.py`, and the one strict cache store,
-verified against camelot's own loader. Next is step 3 (domain leaves). Python ≥ 3.11, `src` layout; layers `cli → bootstrap → (adapters | services) → ports → domain`
+Ledger steps 1–2 built and verified locally (2026-10-21) but **uncommitted**: the repo is code-only, and
+commits wait on deciding where generated data and fixtures live. Python ≥ 3.11, `src` layout; layers `cli → bootstrap → (adapters | services) → ports → domain`
 enforced by import-linter, core kept free of plotting/UI/ML/IO packages. Migration from camelot is
-copy → repoint → delete; the per-tool keep / fold / retire verdicts and the order live **in the repo** at
+copy → repoint → archive (nothing is purged; retired tools and their outputs move to camelot's `archive/`); the per-tool keep / fold / retire verdicts and the order live **in the repo** at
 `MIGRATION.md` — that file is the single source; this page only points at it.
 
 ## Tags
