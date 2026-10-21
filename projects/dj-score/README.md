@@ -14,9 +14,10 @@ permalink: /projects/dj-score/
 
 ## State
 
-Ledger steps 1–3 committed (2026-10-21): model, the one cache store, and the domain leaves (key, spectral,
-collision, alignment, rhythm, cues) plus their plots. Each is oracle-tested against camelot's original. Code-only:
-fixtures are generated locally. Next is step 4 (services; camelot's UI repoints to them). Python ≥ 3.11, `src` layout; layers `cli → bootstrap → (adapters | services) → ports → domain`
+Ledger steps 1–4 done (2026-10-21), archiving deferred until all extraction is finished. dj-score holds the model,
+the cache store, every analysis module and the services. camelot's UI now runs on them, verified by a replayed-
+session oracle against the pre-repoint UI. Code-only: fixtures are generated locally. Next is step 5 (`dj-score` CLI
+subcommands replace camelot's CLIs). Python ≥ 3.11, `src` layout; layers `cli → bootstrap → (adapters | services) → ports → domain`
 enforced by import-linter, core kept free of plotting/UI/ML/IO packages. Migration from camelot is
 copy → repoint → archive (nothing is purged; retired tools and their outputs move to camelot's `archive/`); the per-tool keep / fold / retire verdicts and the order live **in the repo** at
 `MIGRATION.md` — that file is the single source; this page only points at it.
