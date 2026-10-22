@@ -17,7 +17,7 @@ permalink: /projects/dj-score/
 Ledger steps 1–5 done (2026-10-21), archiving deferred until all extraction is finished. dj-score holds the model,
 the cache store, every analysis module and the services. camelot's UI now runs on them, verified by a replayed-
 session oracle against the pre-repoint UI. Every camelot CLI now has a `dj-score` subcommand. Code-only: fixtures are
-generated locally. Camelot extraction complete (2026-10-22: nothing left to harvest, per a Breeder hand-label evaluation). Next: step 6, the grid swap, which adds phrase phase and intro back-extrapolation; then the CyborgDJ audit and step 7. Python ≥ 3.11, `src` layout; layers `cli → bootstrap → (adapters | services) → ports → domain`
+generated locally. Camelot extraction complete (2026-10-22: nothing left to harvest, per a Breeder hand-label evaluation). Camelot's retired tools are archived locally (2026-10-22). Tracks now live in a shared, local-only music library (`../music`: originals, plus `analysis/<track>/` for derived files), resolved for every tool by dj-score `adapters/library`. Next: the comb grid as an optional second grid (step 6 prep), then the CyborgDJ audit: code, data (same cleanup as camelot) and whether the mixer is its own library. Python ≥ 3.11, `src` layout; layers `cli → bootstrap → (adapters | services) → ports → domain`
 enforced by import-linter, core kept free of plotting/UI/ML/IO packages. Migration from camelot is
 copy → repoint → archive (nothing is purged; retired tools and their outputs move to camelot's `archive/`); the per-tool keep / fold / retire verdicts and the order live **in the repo** at
 `MIGRATION.md` — that file is the single source; this page only points at it.
