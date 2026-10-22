@@ -71,8 +71,8 @@ Zelda owner did (he wrote no code and supplied every big correction).
 ## Limits
 - MCP is request/response. The knob loop needs a **playback surface for the human**, and camelot's UI already
   has one (pygame playback, markers).
-- The renderer decodes MP3 through ffmpeg, which Application Control blocks on the work machine, so knob trials there
-  need WAV sources.
+- *Corrected 2026-10-22:* the renderer's MP3 decode (ffmpeg) and time-stretch (rubberband) both run on the work
+  machine. Application Control blocks only `ffprobe`, which Demucs needs, so stem separation runs elsewhere.
 
 ## What this changes next
 The CyborgDJ audit (before [migration](../projects/dj-score/README.md) step 7) sorts each script by the loop it
