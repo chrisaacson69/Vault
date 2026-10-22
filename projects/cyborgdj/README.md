@@ -10,7 +10,7 @@ permalink: /projects/cyborgdj/
 > Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
 
 **Repo:** [cyborgdj](https://github.com/chrisaacson69/cyborgdj)
-**Links:** [Eyes and Ears for LLMs](../../research/eyes-and-ears-for-llms.md) — the translator goals (G1–G6) whose text surface this engine executes, [DJ Set 1](../dj-set-1/README.md), [Set Mastering](../set-mastering/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md), [The Cyborg Model](../../research/cyborg-model.md), [DJ EQ Blending Technique](../../research/dj-eq-blending.md), [Multi-Genre & Wide-BPM Mixing](../../research/dj-multi-genre-mixing.md), [DJ Blend Tool Test Plan](../../research/dj-blend-tool-test-plan.md), [dj-score](../dj-score/README.md) — shared analysis library; replaces the forked `scripts/{spectral_collision,export_rekordbox,analyze_track}.py` and the stale `camelot/` copy, [CyborgDJ as Controller](../../research/cyborgdj-inference-interface.md) — decided 2026-10-21: CyborgDJ becomes the controller; dj-score is its tool surface
+**Links:** [dj-render](../dj-render/README.md) — the render library CyborgDJ's engine became (2026-10-22), [dj-score](../dj-score/README.md) — the analysis library, [Eyes and Ears for LLMs](../../research/eyes-and-ears-for-llms.md) — the translator goals (G1–G6) whose text surface this engine executes, [DJ Set 1](../dj-set-1/README.md), [Set Mastering](../set-mastering/README.md), [Camelot From YouTube](../camelot-from-youtube/README.md), [Programmatic DJ Mixing Tools](../../research/programmatic-dj-mixing-tools.md), [The Cyborg Model](../../research/cyborg-model.md), [DJ EQ Blending Technique](../../research/dj-eq-blending.md), [Multi-Genre & Wide-BPM Mixing](../../research/dj-multi-genre-mixing.md), [DJ Blend Tool Test Plan](../../research/dj-blend-tool-test-plan.md), [dj-score](../dj-score/README.md) — shared analysis library; replaces the forked `scripts/{spectral_collision,export_rekordbox,analyze_track}.py` and the stale `camelot/` copy, [CyborgDJ as Controller](../../research/cyborgdj-inference-interface.md) — decided 2026-10-21: CyborgDJ becomes the controller; dj-score is its tool surface
 
 ## Overview
 
@@ -38,17 +38,10 @@ audio, so it waits on listening tests (a Foss A/B: "a little cleaner") and an ob
 
 ## Architecture
 
-```
-cyborgdj/
-├── engine/       # the renderer, behind an import-linter boundary: no analysis code
-│   ├── mix.py, loader.py, stretcher.py, crossfader.py, effects.py
-│   └── paths.py  # a spec finds its tracks and renders from where it lives
-└── cli.py
-scripts/          # controller-side tools (spectral_terrain, snap_cues_to_bars)
-```
-
-The engine needs grid *results* (tempo, downbeat, bar frames), never analysis algorithms; analysis is dj-score's.
-It already has a second consumer, so it may become its own library ([controller design](../../research/cyborgdj-inference-interface.md)).
+CyborgDJ is now the **controller** over two libraries: [dj-score](../dj-score/README.md) measures and
+[dj-render](../dj-render/README.md) renders (split out 2026-10-22, because the dependencies differ: the renderer needs
+no librosa, analysis needs no Rubber Band). The repo keeps the CLI and controller-side scripts; the MCP layer is to
+sit over both libraries ([controller design](../../research/cyborgdj-inference-interface.md)).
 
 ## Transition Features
 

@@ -16,6 +16,7 @@ permalink: /tags/music/
 - [Multi-Genre & Wide-BPM Mixing](../research/dj-multi-genre-mixing.md)
 - [CyborgDJ](../projects/cyborgdj/README.md)
 - [dj-score](../projects/dj-score/README.md) — the shared DJ-analysis library behind Camelot and CyborgDJ
+- [dj-render](../projects/dj-render/README.md)
 - [Crossover Calibration — Measuring the EQ Cutoff Instead of Guessing It](../research/dj-crossover-calibration.md) — Design for a tool that finds the EQ crossover frequency for a transition by measurement and a
 - [DJ Blend Tool Test Plan — Retrieve, Fit, Close the Gaps](../research/dj-blend-tool-test-plan.md) — Ordered plan to retrieve the candidate blend tools and test each on one fixed transition, closing the critic / closed-loop / A/B-log gaps.
 - [Eyes and Ears for LLMs — the Audio Translator](../research/eyes-and-ears-for-llms.md) — the audio translator for LLMs stated as goals with examples and oracles — grid, structure, key, sounds-like, DJ-vocabulary probe, text surface

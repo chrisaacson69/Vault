@@ -22,6 +22,7 @@ permalink: /tags/python/
 - [OOP Neurons](../projects/oop-neurons/README.md)
 - [CyborgDJ](../projects/cyborgdj/README.md) — Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
 - [dj-score](../projects/dj-score/README.md) — the shared DJ-analysis library behind Camelot and CyborgDJ
+- [dj-render](../projects/dj-render/README.md)
 - [democracy3-solver](../projects/democracy3-solver/README.md) — "Solve" Positech's Democracy 3 by extracting its game-data model and running optimization on it.
 - [DJ Blend Tool Test Plan — Retrieve, Fit, Close the Gaps](../research/dj-blend-tool-test-plan.md) — Ordered plan to retrieve the candidate blend tools and test each on one fixed transition, closing the critic / closed-loop / A/B-log gaps.
 - [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.

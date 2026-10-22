@@ -12,6 +12,7 @@ permalink: /tags/audio-processing/
 - [Programmatic DJ Mixing Tools](../research/programmatic-dj-mixing-tools.md)
 - [CyborgDJ](../projects/cyborgdj/README.md) — Human writes the score, machine executes the mix — a programmatic DJ mixing engine.
 - [dj-score](../projects/dj-score/README.md) — the shared DJ-analysis library behind Camelot and CyborgDJ
+- [dj-render](../projects/dj-render/README.md)
 - [DJ EQ Blending Technique](../research/dj-eq-blending.md) — How pro DJs use EQ — not the crossfader — as the primary transition tool.
 - [Multi-Genre & Wide-BPM Mixing](../research/dj-multi-genre-mixing.md) — Crossing genre and tempo boundaries on purpose; stems, tempo bridges, and key-shift as spec primitives.
 - [Crossover Calibration — Measuring the EQ Cutoff Instead of Guessing It](../research/dj-crossover-calibration.md) — Design for a tool that finds the EQ crossover frequency for a transition by measurement and a

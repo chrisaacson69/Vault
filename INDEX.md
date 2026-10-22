@@ -7,7 +7,7 @@ permalink: /INDEX/
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-10-21 — full dated history in [logs/CHANGELOG.md](./logs/CHANGELOG.md).
+**Last updated:** 2026-10-22 — full dated history in [logs/CHANGELOG.md](./logs/CHANGELOG.md).
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -15,6 +15,7 @@ permalink: /INDEX/
 - [Media Pipeline](./projects/media-pipeline/README.md) — *(draft, not started)* the harness for controlled **`md` → video**; homes the generator list per the standing 2026-05-29 ask, and **extends `career-slides`' working md→Marp→PNG→ffmpeg spine rather than rebuilding it**. Thesis from three 2026 specimens (Genspark's Lemonade OS, Pezzza's training dashboard, Stefan 3D AI's Unreal-MCP stack): **output quality tracks harness quality more than model quality** — plus the boundary discipline of naming what the AI does badly and keeping a human there
 - [CyborgDJ](./projects/cyborgdj/README.md) — programmatic DJ mixing engine; JSON spec in, mixed audio out (active)
 - [dj-score](./projects/dj-score/README.md) — the shared DJ-analysis library (grid, key, events, spectral, collision, Rekordbox) that Camelot's UI and CyborgDJ both depend on; extracted from Camelot per the well-structured-python plan (active)
+- [dj-render](./projects/dj-render/README.md) — the render library (mix spec → audio: stretch, EQ, crossfade, gain), split out of CyborgDJ's engine; dj-score measures, dj-render renders, CyborgDJ controls both (active)
 - [DJ Set 1](./projects/dj-set-1/README.md) — 11-track progressive/trance mix, texture-over-harmony philosophy (planning)
 - [Set Mastering](./projects/set-mastering/README.md) — automated DJ mix execution pipeline + light mastering (planning)
 - [Monopoly](./projects/monopoly/README.md) — Monopoly engine with Markov-chain AI and strategic trading (active)
