@@ -11,6 +11,10 @@ created: 2026-07-20
 
 ---
 
+## 2026-10-22
+
+**[dj-score](../projects/dj-score/README.md): camelot's extraction is complete.** The two remaining harvest items were settled by scoring six event detectors against the Breeder hand labels, by time. The labels' times were checked against both their written timestamps and the original plot data. Every label sits on a phrase boundary, so a "fire every 8 bars" baseline scores 6/10, and nothing beat it convincingly. `full_drop` existed only in a docstring, and dj-score's stem mode already combines stems the same way. camelot's micro "fill detector" is a phrase-position prior, tuned on the same track. Both are archived with nothing ported. The useful finding is dj-score's own: it reports phrase events a bar late, because its grid is never extended back over a late-starting intro (checked against the stems beat by beat). That is now part of step 6, with the Breeder labels as its pass test. Chris's point stands that what a listener notices differs from what a graph shows: more hand-labelled tracks are the precondition for tuning events.
+
 ## 2026-10-21
 
 **New page: [CyborgDJ as Controller](../research/cyborgdj-inference-interface.md)** (from discussion). Chris's proposal: dj-score is (nearly) an MCP server, and CyborgDJ becomes the controller, so inference directs while the code does the busywork. The page draws on the two references it came from. The Zelda bot put inference at *authoring* time over a run-time verb socket; REA puts inference on MCP tools at *run* time. The design uses both: tool calls for planning and verification, and a deterministic sweep for the unsolved tuning-knob problem, with the February 300/450 Hz pair as the scorer's known answer. Linked from the Cyborg Model, Zelda, REA, crossover-calibration and DJ-tools pages (whose "MCP: untested" item now points here); the CyborgDJ audit will sort scripts by which loop they serve.
