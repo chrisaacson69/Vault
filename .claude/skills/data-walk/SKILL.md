@@ -90,7 +90,7 @@ writer + the regen guard — the Workflow returns data, writes nothing
 3. **APPLY — write + regen + guard + commit (deterministic):**
    - Write survivors to the right toml section: ROM data → `[prg.bankN]`, RAM/SRAM → `[ram]`
      (one `"0xADDR" = { name, comment = summary }` line each; the `summary` is the comment verbatim).
-   - Regen: `py -3 tools/mesen-labels.py --mlb --asm` then `py -3 tools/decompile-all.py`.
+   - Regen: `py -3.14 tools/mesen-labels.py --mlb --asm` (`--mlb` uses emu-harness's shared exporter) then `py -3 tools/decompile-all.py`.
    - **GUARD (the data variant):** the decompiled diff must be **pure `0xADDR`→name substitutions**
      (incl. `name[idx]` when `annotate_array_access` fires on a labeled base) — zero logic lines.
      ⚠️ Unlike the code walk's single-bank guard, a data addr is referenced from MANY banks, so the
