@@ -18,27 +18,37 @@ A programmatic DJ mixing engine that reads structured JSON specs and produces co
 
 The mix lives in a JSON spec file — change a bar number, re-render, listen, repeat.
 
+## Status (2026-10-22)
+
+Cleaned up by the [dj-score](../dj-score/README.md) migration's step 7 audit (the repo's `AUDIT.md`). The repo holds
+code only: tracks live in the shared, local-only music library (`../music`); mix projects (specs, renders, notes)
+live in `music/CyborgProjects/<project>/` (Preach = DJ Set 1b, Loud, dinka-giga-mix, EZ). Superseded scripts are
+archived locally. **Open:** every spec renders on camelot's contaminated tempogram BPMs (up to 0.86% off the
+measured tempo), compensated by hand-set downbeats; switching the renderer to the library's comb grid changes the
+audio, so it waits on listening tests (a Foss A/B: "a little cleaner") and an objective verify step.
+
 ## Tech Stack
 
 | Library | Role |
 |---------|------|
-| **soundfile** | Audio I/O (WAV, FLAC) |
-| **librosa** | Beat detection, BPM analysis |
-| **pyrubberband** | Time-stretching (Rubber Band Library) |
-| **pedalboard** | EQ, filtering, gain (Spotify, JUCE-based) |
+| **soundfile** (+ ffmpeg for MP3) | Audio I/O |
+| **pyrubberband** (Rubber Band CLI) | Time-stretching |
+| **scipy** | EQ, filtering, first-downbeat onsets |
 | **numpy** | Array math for mixing and crossfades |
 
 ## Architecture
 
 ```
 cyborgdj/
-├── loader.py        # Audio I/O, beat detection, bar grid computation
-├── stretcher.py     # Time-stretch via pyrubberband
-├── crossfader.py    # Crossfade math — fade curves, overlap mixing
-├── effects.py       # EQ and gain via scipy (split_3band, apply_eq, etc.)
-├── engine.py        # Orchestrator — reads spec, coordinates everything
-└── cli.py           # Command-line interface
+├── engine/       # the renderer, behind an import-linter boundary: no analysis code
+│   ├── mix.py, loader.py, stretcher.py, crossfader.py, effects.py
+│   └── paths.py  # a spec finds its tracks and renders from where it lives
+└── cli.py
+scripts/          # controller-side tools (spectral_terrain, snap_cues_to_bars)
 ```
+
+The engine needs grid *results* (tempo, downbeat, bar frames), never analysis algorithms; analysis is dj-score's.
+It already has a second consumer, so it may become its own library ([controller design](../../research/cyborgdj-inference-interface.md)).
 
 ## Transition Features
 
@@ -58,7 +68,7 @@ Per-band EQ automation subsumes fader automation, 3-band EQ ramp, decoupled fade
 ## Pipeline Position
 
 Part of the full cyborg DJ workflow:
-1. **Camelot** analyzes tracks (BPM, key, structure, events)
+1. **dj-score** analyzes tracks (grid, key, events, spectra; formerly Camelot)
 2. **DJ Set 1** describes the mix (track order, transitions, creative intent)
 3. **CyborgDJ** executes the mix from JSON spec
 4. **Set Mastering** applies light mastering polish
