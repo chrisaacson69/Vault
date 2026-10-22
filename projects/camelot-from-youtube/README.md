@@ -10,7 +10,7 @@ permalink: /projects/camelot-from-youtube/
 > Music analysis tool for detecting key, BPM, structure, and energy at the phrase level.
 
 **Repo:** `https://github.com/chrisaacson69/camelot_from_youtube`
-**Links:** [DJ Set 1](../dj-set-1/README.md), [Order Playlist](../order-playlist/README.md), [Set Mastering Pipeline](../set-mastering/README.md), [CyborgDJ](../cyborgdj/README.md), [Multi-Genre & Wide-BPM Mixing](../../research/dj-multi-genre-mixing.md), [Well-Structured Python at Scale](../../research/well-structured-python.md) — this repo is its first specimen (CLI pile → GUI; restructure next), [dj-score](../dj-score/README.md) — the shared library this repo's analysis code is migrating into; camelot stays the UI and has run on it since 2026-10-21
+**Links:** [Two Libraries Out of a Grown Tool](../../research/dj-library-extraction.md) — the extraction and its lessons (2026-10-22), [DJ Set 1](../dj-set-1/README.md), [Order Playlist](../order-playlist/README.md), [Set Mastering Pipeline](../set-mastering/README.md), [CyborgDJ](../cyborgdj/README.md), [Multi-Genre & Wide-BPM Mixing](../../research/dj-multi-genre-mixing.md), [Well-Structured Python at Scale](../../research/well-structured-python.md) — this repo is its first specimen (CLI pile → GUI; restructure next), [dj-score](../dj-score/README.md) — the shared library this repo's analysis code is migrating into; camelot stays the UI and has run on it since 2026-10-21
 
 ## Overview
 

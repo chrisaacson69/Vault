@@ -14,7 +14,7 @@ permalink: /tags/_index/
 - [ai](./ai.md) — 64 files
 - [assembly](./assembly.md) — 17 files
 - [atari-2600](./atari-2600.md) — 1 file
-- [audio-processing](./audio-processing.md) — 11 files
+- [audio-processing](./audio-processing.md) — 12 files
 - [battletech](./battletech.md) — 1 file
 - [c](./c.md) — 1 file
 - [career](./career.md) — 8 files
@@ -62,7 +62,7 @@ permalink: /tags/_index/
 - [methodology](./methodology.md) — 21 files
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 68 files
-- [music](./music.md) — 14 files
+- [music](./music.md) — 15 files
 - [natural-law](./natural-law.md) — 15 files
 - [nes](./nes.md) — 21 files
 - [nobunagas-ambition](./nobunagas-ambition.md) — 1 file
@@ -74,7 +74,7 @@ permalink: /tags/_index/
 - [praxis](./praxis.md) — 3 files
 - [profit](./profit.md) — 1 file
 - [projects](./projects.md) — 3 files
-- [python](./python.md) — 21 files
+- [python](./python.md) — 22 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
 - [reverse-engineering](./reverse-engineering.md) — 46 files
@@ -82,7 +82,7 @@ permalink: /tags/_index/
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 13 files
 - [snes](./snes.md) — 13 files
-- [software-engineering](./software-engineering.md) — 9 files
+- [software-engineering](./software-engineering.md) — 10 files
 - [strategy](./strategy.md) — 31 files
 - [tools](./tools.md) — 5 files
 - [transcription](./transcription.md) — 1 file

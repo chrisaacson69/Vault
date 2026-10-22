@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1044 questions on 220 pages — 973 open, 62 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
+**1047 questions on 221 pages — 973 open, 65 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -32,6 +32,9 @@ title: "Open Questions Registry"
 ## Resolved
 > Newest first. *(no link)* = the note doesn't say where it was answered.
 
+- `a48d62` [Well-Structured Python at Scale](../research/well-structured-python.md) L110 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable… *(2026-10-22)*
+- `ae5c2f` [Well-Structured Python at Scale](../research/well-structured-python.md) L109 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "… *(2026-10-22)*
+- `5e8e78` [Well-Structured Python at Scale](../research/well-structured-python.md) L108 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question… *(2026-10-22)*
 - `d2c691` [REA (Reverse Engineer Anything) — Candidate Tool and Harness Teardown](../research/reverse-engineering/rea-candidate-tool.md) L53 — Should the vault adopt an unknowns registry (REA's recordunknown) as a tool over the ## Open Questions sectio… *(2026-10-16)*
 - `cf68dc` [REA (Reverse Engineer Anything) — Candidate Tool and Harness Teardown](../research/reverse-engineering/rea-candidate-tool.md) L52 — Does the root-module formula hold on a second DOSBox match with an observed PSP? If so, it answers the addres… *(2026-10-16)* *(no link)*
 - `1c4111` [REA (Reverse Engineer Anything) — Candidate Tool and Harness Teardown](../research/reverse-engineering/rea-candidate-tool.md) L50 — Does Ghidra load STARMAP.EXE's overlays? *(2026-10-16)* *(no link)*
@@ -636,6 +639,11 @@ title: "Open Questions Registry"
 - `650e43` L197 — Does the Phase 1 JND vary by pair, or is it stable across the catalog? (One pair answers nothing about this.)
 - `7417fc` L198 — Re-summation artifacts of stems remain unmeasured — Phase 2 never renders from stems, so this stays open.
 - `9cf424` L199 — Where does the derived crossover live once computed — in the spec (authored) or computed at render time from the analysis cache (a real dependency on…
+
+### [Two Libraries Out of a Grown Tool — the dj-score / dj-render Extraction](../research/dj-library-extraction.md)
+- `5c9df1` L107 — Once the renderer reads the library's comb grid, do the hand-set firstbeatsample overrides become unnecessary across the Preach set, or does the ear…
+- `d0fa11` L109 — Which objective measure of a rendered overlap tracks what Chris hears on dense tracks (a "warble" from faded kicks), so the verify loop can stand in…
+- `eb8d9c` L111 — Can phrase phase (which bar opens a phrase) be estimated from the audio without a learned model, or does it need beatthis-style learning like the dow…
 
 ### [The Dominance-Frontier Lens](../research/dominance-frontier-lens.md)
 - `4db1e6` L50 — Can "random-start viability" be made a computable test (search every seed for a non-dominated path) rather than a judgment call? — NA1 supplies a tra…
@@ -1505,7 +1513,4 @@ title: "Open Questions Registry"
 - `880fbc` L76 — Does the governance framing survive scale?
 
 ### [Well-Structured Python at Scale](../research/well-structured-python.md)
-- `c4e259` L106 — What is the minimum constitution for a solo/LLM-assisted repo — pyproject + mypy + one import-linter layers contract? Is that enough to stop accretio…
-- `5e8e78` L107 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question on Principled LLM Code)? Camelot is the…
-- `ae5c2f` L108 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "domain" the pure analysis functions and…
-- `a48d62` L109 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable package with plug-ins, per the projects…
+- `e0e07c` L107 — What is the minimum constitution for a solo/LLM-assisted repo — pyproject + mypy + one import-linter layers contract? Is that enough to stop accretio…

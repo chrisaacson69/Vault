@@ -28,3 +28,4 @@ permalink: /tags/python/
 - [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.
 - [moo1-re](../projects/moo1-re/README.md) — MOO1 reverse-engineering tools (stdlib Python)
 - [Well-Structured Python at Scale](../research/well-structured-python.md) — large Python = language + constitution + checkers; Cosmic Python distilled; camelot specimen
+- [Two Libraries Out of a Grown Tool — the dj-score / dj-render Extraction](../research/dj-library-extraction.md)

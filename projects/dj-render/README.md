@@ -10,7 +10,7 @@ permalink: /projects/dj-render/
 > The render library: a DJ mix spec in, mixed audio out (time-stretch, EQ, crossfade, gain). dj-score measures; dj-render renders; CyborgDJ is the controller over both.
 
 **Repo:** [dj-render](https://github.com/chrisaacson69/dj-render) — logical name `dj-render`, sibling `../dj-render` (next to `dj-score` and `cyborgdj`). Python ≥ 3.11, `src` layout; numpy, scipy, soundfile, pyrubberband (Rubber Band CLI and ffmpeg on `PATH`).
-**Links:** [dj-score](../dj-score/README.md) — the analysis library it pairs with, [CyborgDJ](../cyborgdj/README.md) — the controller that consumes it, [CyborgDJ as Controller](../../research/cyborgdj-inference-interface.md) — the MCP layer meant to sit over both libraries, [Crossover Calibration](../../research/dj-crossover-calibration.md) — the knob sweep that will render trials through it, [Well-Structured Python at Scale](../../research/well-structured-python.md)
+**Links:** [Two Libraries Out of a Grown Tool](../../research/dj-library-extraction.md) — the extraction and its lessons (2026-10-22), [dj-score](../dj-score/README.md) — the analysis library it pairs with, [CyborgDJ](../cyborgdj/README.md) — the controller that consumes it, [CyborgDJ as Controller](../../research/cyborgdj-inference-interface.md) — the MCP layer meant to sit over both libraries, [Crossover Calibration](../../research/dj-crossover-calibration.md) — the knob sweep that will render trials through it, [Well-Structured Python at Scale](../../research/well-structured-python.md)
 
 ## State
 
