@@ -34,5 +34,10 @@ trace; Zelda Rev 1 smoke test deterministic). BizHawk has a `.bk2` RAM-trace scr
 cross-emulator drift; `replay_log --offset -1` aligns against BizHawk movies (run 6). Known debt:
 `machines/nes` still subclasses the Mesen backend, to be split when BizHawk gets a Python client.
 
+**Status (2026-10-22): becoming the console-RE toolset.** The NES/SNES decompiler tools (koei-nes,
+koei-snes, snes-decompiler, nes-render, per-title copies) fold in as plugins, REA-style. The repo's
+`MIGRATION.md` holds the audit (339 files; jobs done up to 7 times) and the move order. Step 0 is done:
+an installable package (`pip install -e`, `py -3.14`) whose layer rules are import contracts run in pytest.
+
 ## Tags
 [nes](../../../tags/nes.md) · [python](../../../tags/python.md) · [tools](../../../tags/tools.md) · [game-ai](../../../tags/game-ai.md)
