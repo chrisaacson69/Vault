@@ -72,7 +72,7 @@ Per batch (loop until `prep` reports 0 anon = bank done):
 
 1. **PREP — next batch + auto-seeds (deterministic):**
    ```
-   py -3 tools/label-walk-prep.py <bank> --batch-clusters 3 [--landmarks "<bank-specific context>"] --json
+   py -3.14 tools/label-walk-prep.py <bank> --batch-clusters 3 [--landmarks "<bank-specific context>"] --json
    ```
    Emits `{bank, clusters:[first 3 leaves-first], seeds}` — `seeds` auto-pulls every already-named
    sub in the bank from the toml. Pass `--landmarks` ONCE per bank for the analytical context a
@@ -87,7 +87,7 @@ Per batch (loop until `prep` reports 0 anon = bank done):
    full result is also written to the task-output file (path in the completion notice).
 3. **APPLY — write + regen + guard + commit (deterministic, HARD-GATED):**
    ```
-   py -3 tools/label-walk-apply.py <bank> <task-output-file.json> --commit
+   py -3.14 tools/label-walk-apply.py <bank> <task-output-file.json> --commit
    ```
    Writes survivors to `[prg.bankN]` (verdict/confidence-flagged, `summary` as the comment, REFUTED
    → `helper_<addr>`, dedup + collision guard), regens (`mesen-labels.py --mlb --asm` +

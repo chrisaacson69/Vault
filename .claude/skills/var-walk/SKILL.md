@@ -70,7 +70,7 @@ Each batch the toml grows and the next `prep` returns the next un-done subs (one
 
 1. **PREP — next batch + role vocabulary (deterministic):**
    ```
-   py -3 tools/var-walk-prep.py <bank> --batch 8 [--landmarks "<bank-specific context>"] --json
+   py -3.14 tools/var-walk-prep.py <bank> --batch 8 [--landmarks "<bank-specific context>"] --json
    ```
    Emits `{bank, subs:[{addr,name,slots}], seeds}` — `seeds` is the role-inference vocabulary
    (province fields, helper arg semantics, the conservatism rule). Pass `--landmarks` once per bank
@@ -84,7 +84,7 @@ Each batch the toml grows and the next `prep` returns the next un-done subs (one
    the full result is also written to the task-output file (path in the completion notice).
 3. **APPLY — write + regen + guard + commit (deterministic, HARD-GATED):**
    ```
-   py -3 tools/var-walk-apply.py <bank> <task-output-file.json> --commit
+   py -3.14 tools/var-walk-apply.py <bank> <task-output-file.json> --commit
    ```
    Writes `[vars.bankN."0xADDR"]` sections (CONFIRMED/AMENDED slots; REFUTED → a `# left positional`
    note so the sub still counts as processed), regens (`decompile-all.py`), then **HARD-FAILS (exit 2)**
