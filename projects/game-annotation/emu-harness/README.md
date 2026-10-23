@@ -38,6 +38,9 @@ cross-emulator drift; `replay_log --offset -1` aligns against BizHawk movies (ru
 koei-snes, snes-decompiler, nes-render, per-title copies) fold in as plugins, REA-style. The repo's
 `MIGRATION.md` holds the audit (339 files; jobs done up to 7 times) and the move order. Step 0 is done:
 an installable package (`pip install -e`, `py -3.14`) whose layer rules are import contracts run in pytest.
+Rows A, A2, D, B and the generic half of E are done (2026-10-23): one `.mlb` exporter, one native-floor
+tool, and one shared 6502 recursive descent. A CPU-log benchmark measured every disassembler, and
+nes-disasm6 is now a plugin.
 
 ## Tags
 [nes](../../../tags/nes.md) · [python](../../../tags/python.md) · [tools](../../../tags/tools.md) · [game-ai](../../../tags/game-ai.md)
