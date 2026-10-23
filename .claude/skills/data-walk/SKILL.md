@@ -53,10 +53,10 @@ grouping IS the provenance the names come from. A region is done when its fronti
 Mechanical→scripts, analytical→agents. Most data is named with **zero agents**.
 
 1. **ORACLE (deterministic, zero agents) — ROM strings.** The decoded ASCII *is* the ground truth,
-   so no verifier is needed. `py -3 tools/rom-xref.py strings --toml` emits ready `msg_<slug>` lines
+   so no verifier is needed. `py -3.14 tools/rom-xref.py strings --toml` emits ready `msg_<slug>` lines
    → paste into `[prg.bankN]`. (297 strings landed this way in one pass.)
 2. **PROVENANCE (deterministic, zero agents) — ROM tables/blobs.** Named from the referencing named
-   sub, honest by construction. `py -3 tools/rom-xref.py tables --toml` emits `<refsub>_data_<addr>`
+   sub, honest by construction. `py -3.14 tools/rom-xref.py tables --toml` emits `<refsub>_data_<addr>`
    (or `jumptab_<addr>` only when content-verified as a clean code-pointer table); the bucket
    heuristic + byte preview live in the COMMENT, not the name (*vague-but-correct beats
    specific-but-wrong*). (125 tables landed this way.)
@@ -74,8 +74,8 @@ writer + the regen guard — the Workflow returns data, writes nothing
 
 1. **PREP — list the analytical frontier (deterministic):**
    ```
-   py -3 tools/rom-xref.py frontier --class tbl        # ROM tables still unlabeled
-   py -3 tools/data-xref.py hot --unlabeled --min 3    # RAM vars by ref-count
+   py -3.14 tools/rom-xref.py frontier --class tbl        # ROM tables still unlabeled
+   py -3.14 tools/data-xref.py hot --unlabeled --min 3    # RAM vars by ref-count
    ```
    Build the `targets` array: `[{addr, refsubs, preview, rw?}]` (the frontier output already carries
    the referencing subs + a byte/count preview — copy them in so agents start with the provenance).
