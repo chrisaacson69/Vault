@@ -30,7 +30,7 @@ Then route the request.
 
 | Ask | Tool | Invocation (from `PROJ`) |
 |---|---|---|
-| Render a fief tactical map | `render-fief-from-ppu.py` | `py tools/render-fief-from-ppu.py <fief>`  (`--list` shows available PPU dumps) |
+| Render a fief tactical map | `render-fief-from-ppu.py` | `py -3.14 tools/render-fief-from-ppu.py <fief>`  (`--list` shows available PPU dumps). **py -3.14**: it and `render-text` / `render-portrait` / `render-strategic-map` / `run-animation` (and their importers, e.g. `render-fief-truecolor`, `batch-render-anims`) draw through emu-harness's shared renderer, which plain `py` (3.9) can't import. |
 | **Render a fief map straight from ROM (no capture)** | `render-rom-to-map.py` | `py tools/render-rom-to-map.py <province> [--scenario 17\|50]` · validate a dump: `… --sram traces/<dump>.dmp`. Seeds province `$6F63` + scenario `$6D9D`, runs populate `$8903`, decodes `$7BFD`. Verified byte-exact on Mino (17-fief) AND Tanba/Ezo (50-fief, 55/55 cells). |
 | **Render the WHOLE atlas from ROM** | `render-rom-atlas.py` | `py tools/render-rom-atlas.py [--scenario 17\|50]` — all 50 (or 17) fiefs → `atlas/rom-50/` + terrain-distribution table + anomaly flags. All 50 verified clean; reproduces every hand-captured fief's terrain counts. |
 | Render the 17-fief strategic atlas | `render-strategic-atlas.py` | `py tools/render-strategic-atlas.py`  (no args; composites the 17 tactical maps + adjacency) |
