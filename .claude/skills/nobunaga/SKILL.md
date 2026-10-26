@@ -35,7 +35,7 @@ Then route the request.
 | **Render the WHOLE atlas from ROM** | `render-rom-atlas.py` | `py tools/render-rom-atlas.py [--scenario 17\|50]` — all 50 (or 17) fiefs → `atlas/rom-50/` + terrain-distribution table + anomaly flags. All 50 verified clean; reproduces every hand-captured fief's terrain counts. |
 | Render the 17-fief strategic atlas | `render-strategic-atlas.py` | `py tools/render-strategic-atlas.py`  (no args; composites the 17 tactical maps + adjacency) |
 | Render the 50-fief adjacency graph | `render-strategic-50.py` | `py tools/render-strategic-50.py [rom] [out.png]`  (*separate tool — there is no `--variant`*) |
-| Test a command's effect | snap protocol | `py tools/capture-test.py <tag> pre` → make the move → `… <tag> post` → `… <tag> diff [--fief N]`; `--note "..."` on pre/post for provenance. See `commands/README.md`. |
+| Test a command's effect | snap protocol | `py -3.14 tools/capture-test.py <tag> pre` → make the move → `… <tag> post` → `… <tag> diff [--fief N]` (py -3.14: the Mesen Debugger folder comes from emu-harness); `--note "..."` on pre/post for provenance. See `commands/README.md`. |
 | Run an effect handler in the emulator | `run-effect.py` | `py tools/run-effect.py <grow\|build\|dam\|give…> <sram_pre.dmp> [amount]` |
 | Analyze the VM opcode table | `analyze-vm-opcodes.py` | `py tools/analyze-vm-opcodes.py <survey\|dispatch\|classify>` |
 | Decompile a bytecode sub → C | `vm_decompile.py` | `py tools/vm_decompile.py disasm/bank_NN_vm.asm <addr_hex>`  (`_vm.asm` exists for banks 00/01/02/15 only — see ROADMAP epic) |
@@ -48,7 +48,7 @@ Then route the request.
 | Find a named address | `mesen-labels.toml` | grep it — **never re-trace a known label** |
 | **Update Mesen with the latest labels** | `mesen-labels.py` | `py -3.14 tools/mesen-labels.py --mlb` (emu-harness's shared exporter; it also prints registry defects) → writes `Nobunaga's Ambition (USA).mlb` beside the ROM. Mesen 2 **auto-loads** it (same basename, same folder) on next ROM load; or in Mesen: Debugger → File → Workspace → Import Labels. Run this after adding labels to `mesen-labels.toml` so the debugger reflects them. Add `--asm` to also refresh `disasm/bank_NN_named.asm` (named native disasm; bank 15 = full call-site propagation). `mesen-labels.toml` is the single source of truth — edit it, then re-project. |
 | What is this dump / capture provenance | `data-index.py` | `py tools/data-index.py scan` (backlog) · `… auto` (bulk-classify by naming convention) · `… add <file> --note "…"` · `… show` |
-| **Find / fetch a Mesen dump** (battle SaveRam, tracelog) | `mesen-dump.py` | `py tools/mesen-dump.py list` · `… path [name] [--trace]` · `… get [name] [--trace]` (copies into `traces/` + registers provenance). Convention: `.dmp`=SRAM, `.txt`=tracelog; **no name → latest by timestamp**. `name` is a case-insensitive substring. Resolves Mesen's `Debugger\` output dir. |
+| **Find / fetch a Mesen dump** (battle SaveRam, tracelog) | `mesen-dump.py` | `py -3.14 tools/mesen-dump.py list` · `… path [name] [--trace]` · `… get [name] [--trace]` (copies into `traces/` + registers provenance). Convention: `.dmp`=SRAM, `.txt`=tracelog; **no name → latest by timestamp**. `name` is a case-insensitive substring. Resolves Mesen's `Debugger\` output dir. |
 | What's the frontier / what's next | — | show `PROJ/ROADMAP.md` |
 
 **Emulator pattern** (for `nobunaga_vm.py`-based runs): load SRAM → switch bank → set `vm_pc`/`vm_sp` (pre-allocate locals!) → run. Details in `CONTEXT.md`.
