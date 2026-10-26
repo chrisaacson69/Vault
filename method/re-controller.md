@@ -194,6 +194,15 @@ game-annotation `063687f`, `06b32e6`.
   switch. **A checked keep must be recorded:** until `apply_names` wrote "Kept", a name someone had verified
   looked exactly like one nobody had read, so a coverage count could not tell them apart. The earlier pass's
   34 render-thread and sound routines still carry that gap.
+- **The ROM data, named** (game-annotation `3e10dee`..`008cbb7`). `/data-walk` ran on Mappy by *shape*, not
+  by filename. Its frontier tools are NA1's, so Mappy got its own: one lists every absolute operand into
+  undecoded PRG, with the named routines that read it (58 elements → 0). The other follows each labelled
+  pointer table to its blobs, taking the table's length from what its reader indexes (106 blobs). All of
+  it is provenance naming with no agents. Two presentation gaps surfaced on the way, both from Chris's
+  eye or the guard: the 6502 vectors printed as `.byte`, and the listing began at the first routine, so
+  the 49-byte copyright at `$C000` was missing. That copyright is also the cat AI's random source.
+  **Check that a listing shows every byte exactly once**: here the only repeats are the three known
+  bit-skip overlaps.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
