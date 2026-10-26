@@ -180,6 +180,11 @@ game-annotation `063687f`, `06b32e6`.
   Two old names were wrong about *who*: `player_caught` holds only for slot 0, and
   `check_object_player_collision` never involves the player. Graded after against the published
   disassembly's 13 state comments: no disagreement, and 10 states it leaves blank are now named.
+- **The bonus-round table** (game-annotation `d1fa1c6`). No play log reaches a bonus round, so the census
+  gained a warp: poke one byte (the round number) so that clearing round 1 enters a bonus round, and poke
+  the player onto the goal to reach the last two states. **A warp is evidence for what a handler does, not
+  for how the game gets there**, so the gate records it as a warp. Graded after: 10/10 agree. That includes
+  a state the sibling calls "unused", for which the census and a code scan had independently found no writer.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
