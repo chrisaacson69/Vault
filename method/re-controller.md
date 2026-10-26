@@ -174,6 +174,12 @@ game-annotation `063687f`, `06b32e6`.
   Recall went from 99.4% to 100.0%, and a CDL over three play logs now finds no executed byte left
   undecoded. **A later phase is an oracle for an earlier one:** the gate passed at 99.4%, and only naming,
   by asking who writes a byte, found the hole.
+- **The object state machine** (game-annotation `2e9be69`). 42 renames and 5 new labels: the 21 handlers by
+  state, the shared transitions, the doors, the door wave and the dropped objects. The evidence was the code
+  plus a census of three play logs (each state's runs and successors, and each write with its writer's PC).
+  Two old names were wrong about *who*: `player_caught` holds only for slot 0, and
+  `check_object_player_collision` never involves the player. Graded after against the published
+  disassembly's 13 state comments: no disagreement, and 10 states it leaves blank are now named.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
