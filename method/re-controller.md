@@ -154,6 +154,14 @@ game-annotation `063687f`, `06b32e6`.
   call tree by hand from the vectors before seeing it; graded against that, 27 of 31 pairs are direct
   edges and 4 pass through one roll-into, and it exposed two edge bugs. The graph also renders as an
   interactive call-tree page (generated from `call_graph.json`).
+- **Naming, in progress** (game-annotation `ef9093a`). Three guarded batches (renames only, every listing byte
+  unchanged): 26 renames, 21 new labels. **The better coverage made the code nameable.** `$C141` had been
+  read as a table-overrun artifact; once the overrun was fixed it was plainly the game thread's frame
+  yield, with 15 callers. That exposed Mappy's two threads with two stacks (Chris: the render loop draws at
+  vblank, the engine runs when it is not drawing); chapter 1's "one stack" is corrected. The sound engine
+  and its 18 stream opcodes are named, checked against every stream's ending. The top-down pass over the
+  render thread renamed 6, among them `flush_dirty_attribute_bytes` (it never cleared anything). The game
+  thread's top-down pass and the variable names come next.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
