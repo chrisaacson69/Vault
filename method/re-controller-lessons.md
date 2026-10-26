@@ -3,14 +3,14 @@ status: draft
 created: 2026-10-26
 published: false
 layout: layouts/page.njk
-title: "RE Controller Lessons"
+title: "RE Build Tool Lessons"
 ---
-# RE Controller — lessons, by phase
+# RE Build Tool — lessons, by phase
 > What the disassembly projects learned about *how* to run one, harvested 2026-10-26 from the memory store,
 > the vault's method and research pages, the walk skills and the title repos' entry docs. Each is one line;
-> the [controller](./re-controller.md) cites these phase by phase. A reference page: read the phase you are in.
+> the [build tool](./re-controller.md) cites these phase by phase. A reference page: read the phase you are in.
 
-**Links:** [The RE Controller](./re-controller.md)
+**Links:** [The RE Build Tool](./re-controller.md)
 
 **Source keys.** `mem:<slug>` = a memory topic file (local, not in this repo). `<repo>:<path>` = a title
 repo by logical name (resolve through `.claude/local-paths.md`). Vault pages are linked. Kind:

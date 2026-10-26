@@ -3,15 +3,15 @@ status: draft
 created: 2026-10-26
 published: false
 layout: layouts/page.njk
-title: "The RE Controller"
+title: "The RE Build Tool"
 ---
-# The RE Controller — an LLM interface to the toolset, plus a phase plan
+# The RE Build Tool — an LLM interface to the toolset, plus a phase plan
 > The emu-harness consolidation (rows A–R, closed 2026-10-26) gave every disassembly project one tool
-> library. What is missing is the **controller**: an agent-facing guide that knows the order of work,
-> what proves each phase done, and where each project stands. It mirrors
+> library. What is missing is a **build tool** (first called the controller): an agent-facing guide that knows the
+> order of work, what proves each phase done, and where each project stands. It mirrors
 > [CyborgDJ as Controller](../research/cyborgdj-inference-interface.md): the library is the tool
 > surface (MCP-shaped), inference holds the plan, deterministic code does the busywork. **Draft for review;
-> nothing built yet.**
+> nothing built yet; Chris's decisions of 2026-10-26 are below.**
 
 **Links:** [Lessons, by phase](./re-controller-lessons.md) (the ~90 lessons this folds in, with sources) ·
 [CyborgDJ as Controller](../research/cyborgdj-inference-interface.md) (the same pattern for DJ work) ·
@@ -56,7 +56,7 @@ the substrate is the value*, so CLI-with-JSON first and MCP when a non-shell cli
 
 ## Half 2 — the phase plan
 Every phase names its tools and the **gate** that proves it done. Inference is spent only where a lower
-artifact can check it.
+artifact can check it, and sequentially.
 
 | # | Phase | VM track (KOEI) | Native track | Gate (exit) |
 |---|---|---|---|---|
@@ -74,31 +74,45 @@ Each phase also ends with **register and hand back**: update the project's state
 vault, and write a "next session" entry. One phase or one revisit per session.
 
 ## Per-project state
-A phase table in each repo's `CONTEXT.md`: phase, status (done / partial / n.a.), the gate's last result
-and date, the emu-harness commit it ran on, and open revisit items. `status` reads it; a session
-starts from the first phase that isn't done, or whose gate is stale against the current toolset.
+Each project keeps its own **roadmap of where it is**: a phase table (phase, status done / partial / n.a.,
+the gate's last result and date, the emu-harness commit it ran on, open revisit items). The tool reads it
+(`status`) and starts a session at the first phase that isn't done, or whose gate is stale against the
+current toolset. The tool and its manual live in emu-harness; nothing project-specific lives there.
 
-## Tensions to decide (from the harvest)
-1. **Sibling oracles.** "Use the NES oracle earlier" vs "derive blind, then grade". *Proposed:* consult
-   the sibling as a **check after each derivation**, never as derivation input.
-2. **Agents.** The walk skills fan out; GemFire/BK walked strictly sequentially; Chris saw a week's tokens
-   burn in two days. *Proposed:* sequential by default, fan out only for genuinely-unknown reads in bulk.
-3. **Who writes.** Auto-write the verifier's survivors, or the coordinator re-grounds each one first?
-4. **Refuted names.** A mechanism or provenance name is fine; an information-free address key is not.
-5. **Fix now or defer.** Toolset bugs are the foundation and get fixed now; project artifacts wait for
-   their revisit.
-6. **Data walk placement.** Already reconciled: the pure lane goes early (phase 3), provenance and
-   analytical walks go in naming (phase 5).
+## Decisions (Chris, 2026-10-26)
+- **Homes.** The phase manual and the tool live in **emu-harness**, outside the title repos (each
+  disassembly is its own project, as CyborgDJ sits outside its libraries). **Per-project state lives in
+  each project**: a roadmap of where it is. *"I get that I said 'controller', but it is basically a build
+  tool for each project."*
+- **Sessions and agents.** One project per session. An agent per phase is fine; spamming agents for
+  inference is not. The trouble was the tokens/hour cap: agents burned it fast *and* used more tokens in
+  total. *"rather have high-quality inference sequentally than burn tokens on cross talk."* Waiting for a
+  linear pass is acceptable.
+- **Interface.** Keep it simple (a CLI) while trying it out. It may replace some existing skills.
+- **Oracles.** The aim is to **become the oracle**; sources are often untrustworthy. The failure seen most
+  was the tool **copying oracle code instead of deriving fresh**. So a reference grades a finished
+  derivation and is never its input, and a disagreement is settled by the lower artifact, which can
+  show the reference was wrong. *"often the goal is to become the oracle as often the source is not
+  trustworthy."*
+- **Naming.** Bottom-up, then a top-down verify: that gave the best quality and may be enough. Whether a
+  third pass adds value is open. **No generic names** where avoidable.
+- **Fix now or defer.** Fix the toolset now; project revisits come later.
 
-## First use
-The per-project revisits in emu-harness `MIGRATION.md`, one session each: "controller, audit UW" walks
-UW's phases, reruns each gate on the finished toolset, and works the logged items as known findings.
+## Tensions, as resolved
+1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
+2. Agents: sequential inference by default, an agent per phase at most.
+3. Who writes: the verified survivors of the bottom-up + top-down passes; a third pass only if it earns it.
+4. Refuted names: mechanism or provenance names, never address keys.
+5. Fix now or defer: toolset now, projects at their revisit.
+6. Data walk placement: the pure lane early, provenance and analytical walks in naming.
 
 ## Open Questions
-- Home: manual in emu-harness beside `MIGRATION.md`, skill in the vault (like `/label-walk`)? Or both here?
-- State: `CONTEXT.md` block (human-first) or a machine-readable file the controller updates?
-- Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself?
-- Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)?
+- ~~Home: manual in emu-harness beside `MIGRATION.md`, skill in the vault (like `/label-walk`)? Or both here?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): manual and tool in emu-harness, state in each project.
+- ~~State: `CONTEXT.md` block (human-first) or a machine-readable file the controller updates?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): each project keeps its own roadmap of where it is.
+- ~~Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): one project per session, sequential inference.
+- ~~Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): keep it simple while trying it out.
+- Which existing skills does the build tool replace (`/label-walk`, `/data-walk`, `/var-walk`, `/nobunaga`)?
+- Does a third naming pass, after bottom-up and top-down, add value?
 
 ## Tags
 [reverse-engineering](../tags/reverse-engineering.md) · [methodology](../tags/methodology.md) · [agent-teams](../tags/agent-teams.md) · [claude](../tags/claude.md)
