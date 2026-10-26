@@ -1,5 +1,5 @@
 ---
-status: draft
+status: active
 created: 2026-10-26
 published: false
 layout: layouts/page.njk
@@ -10,8 +10,10 @@ title: "The RE Build Tool"
 > library. What is missing is a **build tool** (first called the controller): an agent-facing guide that knows the
 > order of work, what proves each phase done, and where each project stands. It mirrors
 > [CyborgDJ as Controller](../research/cyborgdj-inference-interface.md): the library is the tool
-> surface (MCP-shaped), inference holds the plan, deterministic code does the busywork. **Draft for review;
-> nothing built yet; Chris's decisions of 2026-10-26 are below.**
+> surface (MCP-shaped), inference holds the plan, deterministic code does the busywork. **Chris's
+> decisions of 2026-10-26 are below. Built 2026-10-26:** the manual (emu-harness `PHASES.md`), the phase
+> table (`emu_harness/build/phases.toml`), the first verb `status`, and the roadmap template; first trial
+> on Mappy (see [Built](#built-2026-10-26)).
 
 **Links:** [Lessons, by phase](./re-controller-lessons.md) (the ~90 lessons this folds in, with sources) ·
 [CyborgDJ as Controller](../research/cyborgdj-inference-interface.md) (the same pattern for DJ work) ·
@@ -97,6 +99,23 @@ current toolset. The tool and its manual live in emu-harness; nothing project-sp
 - **Naming.** Bottom-up, then a top-down verify: that gave the best quality and may be enough. Whether a
   third pass adds value is open. **No generic names** where avoidable.
 - **Fix now or defer.** Fix the toolset now; project revisits come later.
+
+## Built (2026-10-26)
+- **Manual:** emu-harness `PHASES.md`: per phase, the commands (CLIs where they exist; *library* where a
+  title tool calls the function, each a candidate verb), the gate, and the lessons from the
+  [lessons page](./re-controller-lessons.md). A test holds its headings and gate lines to `phases.toml`.
+- **`py -3.14 -m emu_harness status <project> [--json]`** reads `<project>/re-roadmap.toml` and starts
+  the session at the first phase not done, or done with a **stale** gate: each phase lists the library
+  paths its gate depends on, and a commit after the gate's recorded emu-harness commit that touches
+  them makes it stale (git is asked; "unknown" never reads as fresh). The project is a folder by the
+  sibling convention (`game-annotation/mappy`).
+- **Trial, Mappy** (emu-harness `24f306e`, game-annotation `c167ed0`): classify and recon re-checked on
+  the library; discover, data, naming, assets, live partial; structure stale (row R touched its tools);
+  9 open revisits, 4 of them new from filling the roadmap (named phantoms, address-keyed names,
+  `render_level`'s path hacks, a README CRC32 that matches no CRC of the dump). Start: discover.
+- **Format notes from the trial:** an open revisit on a *done* phase does not move the start (recon); and
+  the gate's "every jump table / 0 conflicts" parts were never measured on Mappy, so "partial" is the
+  honest status for most phases of a project built before the gates existed.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
