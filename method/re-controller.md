@@ -148,6 +148,12 @@ game-annotation `063687f`, `06b32e6`.
   in the per-address names). **The xref tool had been decoding data as code: 33% of its links were
   false**, which is where names like `$7B` = "draw_data_ptr" (really the items-left counter) came from.
   The sound engine had been named as an object system. Library candidate: the read-logging `Bus`.
+- **Structure, done** (game-annotation `5fb573c`, emu-harness `2f252ef`). A call graph with **typed
+  edges**: call, jmp, flows-into (one routine rolls into the next), dispatch, inline, task. Each routine
+  is walked by its own flow with every other entry as a stop; 275/275 reached (was 64%). Chris drew a
+  call tree by hand from the vectors before seeing it; graded against that, 27 of 31 pairs are direct
+  edges and 4 pass through one roll-into, and it exposed two edge bugs. The graph also renders as an
+  interactive call-tree page (generated from `call_graph.json`).
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.

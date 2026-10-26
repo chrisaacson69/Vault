@@ -82,6 +82,8 @@ repo by logical name (resolve through `.claude/local-paths.md`). Vault pages are
 - **P** Stack VM: unconsumed call results vanished from the C (+1,418 calls recovered later). — na1-decompiler:nobunaga/ROADMAP.md
 - **P** The lossy C invites over-reading; LLM readers read wrong structure at high confidence. — [blind regrade](../research/gaming/na1-nes-snes-blind-regrade.md)
 - **R** Install a gate the moment you can name a ground truth and a cheap check; when one wall rejects N tries, run a divergent tournament. — [Anchor Method](./anchor-method.md)
+- **R** Native call graphs need typed edges, not just JSR: a routine that rolls into the next ("flows-into"), tail jumps, table and inline dispatch, task switches. Walk each routine's own flow with the other entries as stops; a halt at an entry is the roll-into, unless it lies past an always-taken branch. — [build tool, Mappy revisit](./re-controller.md#first-revisit-mappy-2026-10-26)
+- **O** A hand-drawn call tree from the vectors is an independent grader for the generated graph: Chris's (31 pairs) matched 27 direct and 4 via one roll-into, and caught two edge bugs. — same
 
 ## Naming
 - **R** RE is multi-pass compilation backwards: the toml is the symbol table, regen between batches is the fixpoint. — mem:feedback_re_is_multipass_compilation
