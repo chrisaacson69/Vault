@@ -45,7 +45,7 @@ Then route the request.
 | Fief strategic profile (50-fief) | bulk / drill-down | all-50 table → `py tools/fief-analysis-50.py` · one fief → `py tools/profile-fief-50.py <Name…>` |
 | Simulate economy / check a formula | `econ_sim.py` | `py tools/econ_sim.py` |
 | Trace the VM headless (no GUI) | `vm-trace.py` | `py -3.14 tools/vm-trace.py <state.mss> --inputs "a,wait*40" --trigger <VMPC hex> [--out f] [--check]` — an emu-harness watch on the dispatcher; same lines as `lua/vm-trace.lua` (`--check` runs both and diffs). |
-| Decode a combat trace | `combat-trace-decode.py` | `py tools/combat-trace-decode.py <trace.txt[.gz]>` |
+| Decode a combat trace | `combat-trace-decode.py` | `py -3.14 tools/combat-trace-decode.py <trace.txt[.gz]>` (lines parsed by emu-harness; the routine-free view is emu-harness `machines/nes/trace.PPUWrites`) |
 | Find a named address | `mesen-labels.toml` | grep it — **never re-trace a known label** |
 | **Update Mesen with the latest labels** | `mesen-labels.py` | `py -3.14 tools/mesen-labels.py --mlb` (emu-harness's shared exporter; it also prints registry defects) → writes `Nobunaga's Ambition (USA).mlb` beside the ROM. Mesen 2 **auto-loads** it (same basename, same folder) on next ROM load; or in Mesen: Debugger → File → Workspace → Import Labels. Run this after adding labels to `mesen-labels.toml` so the debugger reflects them. Add `--asm` to also refresh `disasm/bank_NN_named.asm` (named native disasm; bank 15 = full call-site propagation). `mesen-labels.toml` is the single source of truth — edit it, then re-project. |
 | What is this dump / capture provenance | `data-index.py` | `py tools/data-index.py scan` (backlog) · `… auto` (bulk-classify by naming convention) · `… add <file> --note "…"` · `… show` |
