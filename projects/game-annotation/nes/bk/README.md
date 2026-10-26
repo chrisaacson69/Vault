@@ -16,7 +16,7 @@ thesis → [KOEI AI & combat evolution](../../../../research/gaming/koei-ai-comb
 | Logical name | `bk-decompiler` *(public)* · `github.com/chrisaacson69/bk-decompiler` |
 | Sibling path | `../bk-decompiler` (resolved via `.claude/local-paths.md`) |
 | Scope | **988 bytecode subs** + native floor + sound engine; 8-chapter walkthrough |
-| Depends on | `koei-nes` → `nes-render` |
+| Depends on | `koei-nes` → `emu-harness` |
 
 ⚠️ **Not cloned on this machine** (2026-07-21).
 

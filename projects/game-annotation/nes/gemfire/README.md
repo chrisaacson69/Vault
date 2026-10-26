@@ -19,7 +19,7 @@ thesis → [KOEI AI & combat evolution](../../../../research/gaming/koei-ai-comb
 | Logical name | `GemFire-decompiler` *(public)* · `github.com/chrisaacson69/GemFire-decompiler` |
 | Sibling path | `../GemFire-decompiler` (resolved via `.claude/local-paths.md`) |
 | Status | ✅ **521/521 bytecode subs named**; the KOEI Famicom VM; 8-chapter walkthrough |
-| Depends on | `koei-nes` → `nes-render` |
+| Depends on | `koei-nes` → `emu-harness` |
 
 ⚠️ **Not cloned on this machine** (2026-07-21). Note the repo name capitalizes as `GemFire-decompiler`
 while the SNES sibling is `Gemfire-snes-decompiler` — resolve by the exact logical name.

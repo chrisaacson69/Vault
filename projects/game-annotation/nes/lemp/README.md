@@ -18,7 +18,7 @@ thesis → [L'Empereur — the two-tier turn (NES→SNES design hinge)](../../..
 | Sibling path | `../LEmp-decompiler` (resolved via `.claude/local-paths.md`) |
 | Status | ✅ **all 18 code banks named, 0 errors**; docs + symbol table, no ROM |
 | Engine | NA2-era VM, **GemFire-era syscalls** |
-| Depends on | `koei-nes` → `nes-render` |
+| Depends on | `koei-nes` → `emu-harness` |
 
 ⚠️ **Not cloned on this machine** (2026-07-21).
 

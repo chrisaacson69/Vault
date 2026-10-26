@@ -32,7 +32,7 @@ skills bind to *this* node rather than to any one repo.
 | Logical name | `koei-nes` *(private)* · `github.com/chrisaacson69/koei-nes` |
 | Sibling path | `../koei-nes` (resolved via `.claude/local-paths.md`) |
 | Layout | `assets/` · `docs/` · `tools/` |
-| Depends on | `nes-render` (generic render core) |
+| Depends on | `emu-harness` (`machines/nes/ppu`, generic render core; was `nes-render`) |
 | Used by | all seven NES title repos → [nes/](../nes/README.md) |
 
 Toolchain: the **`koeivm/` package** — `cpu6502.py`, `dream.py` (goto-free structuring),

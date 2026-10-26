@@ -12,19 +12,20 @@ created: 2026-07-21
 hardware → [PPU](../../../../research/nes/ppu-reference.md) ·
 [mappers](../../../../research/nes/mappers-reference.md)
 
-## Rendering — `nes-render`
+## Rendering — `nes-render` (archived 2026-10-26)
 
 | Field | Value |
 |-------|-------|
-| Logical name | `nes-render` *(private)* · `github.com/chrisaacson69/nes-render` |
-| Sibling path | `../nes-render` (resolved via `.claude/local-paths.md`) |
-| Contents | `nes_render.py`, `na1_font_atlas.png` |
+| Logical name | `nes-render` *(private, **ARCHIVED 2026-10-26**)* · `github.com/chrisaacson69/nes-render` |
+| Sibling path | none: local clone removed 2026-10-26 |
+| Contents | now [emu-harness](../../emu-harness/README.md) `emu_harness/machines/nes/ppu.py` (+ `canvas.py`, `ppuport.py`); the archived repo's `nes_render.py` is an alias of it |
 | Role | generic PPU / rendering core; target-agnostic |
-| Depended on by | `koei-nes`, the per-title decompilers, Mappy |
+| Depended on by | nothing: the last importer, Mappy `render_level.py`, moved onto the library 2026-10-26 |
 
 **Graduated out of NA1** when Mappy needed it — the moment a second app wanted it, it became a real
 dependency with exactly one home. (The `na1_font_atlas.png` still riding along is a leftover of that
-extraction; it is NA1-specific data in a generic package.)
+extraction; it is NA1-specific data in a generic package.) **Then folded into emu-harness** (its row O,
+2026-10-23) when the console-RE toolset consolidated, and archived once nothing imported it (2026-10-26).
 
 ## Emulator integration — Mesen
 

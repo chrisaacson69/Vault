@@ -16,7 +16,7 @@ thesis → [KOEI AI & combat evolution](../../../../research/gaming/koei-ai-comb
 |-------|-------|
 | Logical name | `ro3k-decompiler` *(private)* · `github.com/chrisaacson69/ro3k-decompiler` |
 | Sibling path | `../ro3k-decompiler` (resolved via `.claude/local-paths.md`) |
-| Depends on | `koei-nes` → `nes-render` |
+| Depends on | `koei-nes` → `emu-harness` |
 
 ⚠️ **Not cloned on this machine** (2026-07-21).
 

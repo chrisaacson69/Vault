@@ -25,7 +25,7 @@ project SDK → [projects/CLAUDE.md](../../../CLAUDE.md)
 | Also carries | `na1-decompiler/lowering-atlas/` — the forward-catalog tooling |
 | Title | Nobunaga no Yabō: *Zenkokuban* · design clock **1986** · Famicom port 1988-03-18 |
 | Cart | MMC1/SOROM, 256 KB |
-| Depends on | `koei-nes` (family engine) → `nes-render` (generic render core) |
+| Depends on | `koei-nes` (family engine) → `emu-harness` (generic render core; was `nes-render`) |
 
 ⚠️ **Not cloned on this machine** (2026-07-21) — see `.claude/local-paths.md`. The four RE skills
 (`/label-walk`, `/data-walk`, `/var-walk`, `/nobunaga`) cannot run until it is.

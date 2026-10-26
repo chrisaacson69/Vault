@@ -16,7 +16,7 @@ hardware → [PPU](../../../research/nes/ppu-reference.md) · [APU](../../../res
 ## The three layers
 
 ```
-nes-render          generic PPU / render core       ← target-agnostic   → tools/
+emu-harness         generic PPU / render core       ← target-agnostic   → tools/  (machines/nes; was nes-render)
    ↑
 koei-nes            KOEI Famicom VM engine layer    ← family-specific   → ../koei/
    ↑
@@ -24,7 +24,8 @@ koei-nes            KOEI Famicom VM engine layer    ← family-specific   → ..
 ```
 
 `nes-render` **graduated out of NA1** the moment Mappy needed it — the SDK's shared-lib rule working as
-intended: a second consumer turns a helper into a real dependency with exactly one home.
+intended: a second consumer turns a helper into a real dependency with exactly one home. It later
+folded into emu-harness (`machines/nes/ppu`), and the repo was archived 2026-10-26.
 
 **Harness** (separate from the decompiler stack): [emu-harness](../emu-harness/README.md), whose `machines/nes` is the NES layer (pad map, battery wipe, power-on RAM fill) → game adapters.
 

@@ -21,7 +21,7 @@ theses → [KOEI AI & combat evolution](../../../../research/gaming/koei-ai-comb
 | Sibling path | `../rot3k2-decompiler` (resolved via `.claude/local-paths.md`) |
 | Cart | MMC5 |
 | Status | ✅ fully decompiled — all 18 bytecode banks + native floor + data-walk + memory map |
-| Depends on | `koei-nes` → `nes-render` |
+| Depends on | `koei-nes` → `emu-harness` |
 
 ⚠️ **Not cloned on this machine** (2026-07-21).
 

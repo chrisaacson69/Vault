@@ -15,8 +15,8 @@ Nesting is a dependency tree, not folders:
 
 ```
 projects/ → game-annotation → nes → koei → <game>      (taxonomy of apps)
-            game-annotation  depends on  koei-nes (shared engine lib)  depends on  nes-render (generic PPU)
-            <game repo>      depends on  koei-nes, nes-render
+            game-annotation  depends on  koei-nes (shared engine lib)  depends on  emu-harness (generic PPU)
+            <game repo>      depends on  koei-nes, emu-harness
 ```
 
 - **Global pointers (logical names):** the committed vault page refers to each repo by *logical name +
@@ -25,7 +25,8 @@ projects/ → game-annotation → nes → koei → <game>      (taxonomy of apps
   (the OS "device manager"). Missing entry → ask, don't guess. *This is the nested-repo solution — same as a
   package manager: logical deps in the manifest, resolved to local mounts.*
 - **Shared libs are real dependencies, factored out the moment a second app needs them** (the `nes-render`
-  PPU core graduated out of NA1 when Mappy needed it; `koei-nes` is the shared KOEI engine layer). Reuse >
+  PPU core graduated out of NA1 when Mappy needed it, then folded into `emu-harness` and was archived;
+  `koei-nes` is the shared KOEI engine layer). Reuse >
   rebuild; a shared lib has exactly one home and everything points at it.
 
 ## The SDK — rules for running a project

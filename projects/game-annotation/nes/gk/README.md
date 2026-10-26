@@ -17,7 +17,7 @@ thesis → [KOEI AI & combat evolution](../../../../research/gaming/koei-ai-comb
 | Logical name | `gk-decompiler` *(private)* · `github.com/chrisaacson69/gk-decompiler` |
 | Sibling path | `../gk-decompiler` (resolved via `.claude/local-paths.md`) |
 | Scope | full bytecode decompilation + architecture docs; ROM not included |
-| Depends on | `koei-nes` → `nes-render` |
+| Depends on | `koei-nes` → `emu-harness` |
 
 ⚠️ **Not cloned on this machine** (2026-07-21).
 
