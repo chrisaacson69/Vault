@@ -126,6 +126,22 @@ current toolset. The tool and its manual live in emu-harness; nothing project-sp
 - **Naming hazard:** `phases.toml` beside `PHASES.md` shared a stem on a case-insensitive disk, and a
   `.bak` of one overwrote the other; renamed `phase_table.toml`.
 
+## First revisit: Mappy (2026-10-26)
+The tool directed it (`status` → recon, then discover), one gate at a time. emu-harness `4eb3022`,
+game-annotation `063687f`, `06b32e6`.
+- **Recon:** the README CRC32 that matched no CRC of our dump is the same ROM. PRG and CHR are
+  byte-identical; only the iNES header differs (NES 2.0 vs 1.0).
+- **Discover, done.** The gate had never been *measured*, and measuring it found the passes making
+  phantoms. 19 walker conflicts → 4, all named by `passes.native.explain` (3 `BIT`-skip handler trios,
+  1 dead path after `bne`/`beq`). Two table reads ran one word into the next routine and invented
+  `$EEA9` and `$FA3F`; **`$EEA9` had been given a name** (`init_object_slots_strided`) by the June
+  walk. All 4 "stored-pointer installs" were data pointers, counters or a mis-pair. A JSR to a
+  return-address-popping dispatcher hid an inline table of **18 handlers** nobody had found. Code
+  recall vs the published disassembly 96.9% → 99.4%, graded after.
+- **The revisit list was wrong too:** 2 of the 3 listed "phantoms" are real fall-through entries
+  (traced, with JSR callers). The lower artifact settled it, as the oracle rule says.
+- **Papercut:** `status mappy` does not resolve the logical name; it needs `../game-annotation/mappy`.
+
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
 2. Agents: sequential inference by default, an agent per phase at most.

@@ -48,6 +48,10 @@ repo by logical name (resolve through `.claude/local-paths.md`). Vault pages are
 - **O** Walker conflicts are the correctness signal; mark ambiguous regions instead of guessing. — [Transpilation as Grounding](../research/transpilation-as-grounding.md)
 - **R** A code label sits on an instruction start, never an operand byte. — mem:feedback_labels_mark_code_start
 - **P** A consumer regex on an obsolete mnemonic silently emptied a call graph ("leaves-first" was address order). — mem:project_nobunaga_label_walk_skill
+- **P/O** A gate nobody measured certifies nothing: counting walker conflicts (overlaps + halts) for the first time found the idiom passes *making* phantoms, one already named. Explain each conflict by idiom (`BIT`-skip, dead path) or it counts. — [build tool, Mappy revisit](./re-controller.md#first-revisit-mappy-2026-10-26)
+- **P** A table reader must stop at its own handler and at executed code: Mappy's `$C356` read its last handler's first instruction as a 20th entry. — same
+- **P** A JSR to a dispatcher that pulls its return address never returns; the bytes after it are a table (18 handlers hidden). An "install" is a handler only if a `JMP (ind)` reads its variable. — same
+- **O** A 2-byte "routine" with JSR callers is usually a fall-through entry, not a phantom: the trace decides before anything is marked DATA. — same
 
 ## Data (the pure lane runs before naming)
 - **R** Front-load pure-oracle data: string scan, manual schema, ~25 hot RAM globals; provenance walk later. Chris: *"labeling data goes a long way to making the code clear … higher in the pipeline."* — mem:feedback_data_labeling_earlier_in_pipeline
