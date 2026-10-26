@@ -210,6 +210,8 @@ game-annotation `063687f`, `06b32e6`.
   table and offset (`door_kind`, `tramp_bounces_left`), and absolute references to one slot get a slot name
   (`slot2_cooldown`). One general catch: `$00` read as `lda $00,x` is zero page indexed by an address held in
   X, not a pointer, and naming it so makes `bcd_add` read correctly.
+- **Naming done** (game-annotation `f7ad739`, Chris): no placeholder names and no open revisits; names that are
+  only provenance stay generic but correct. Assets come next, starting with the sound.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
