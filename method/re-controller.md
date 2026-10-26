@@ -140,7 +140,7 @@ game-annotation `063687f`, `06b32e6`.
   recall vs the published disassembly 96.9% → 99.4%, graded after.
 - **The revisit list was wrong too:** 2 of the 3 listed "phantoms" are real fall-through entries
   (traced, with JSR callers). The lower artifact settled it, as the oracle rule says.
-- **Papercut:** `status mappy` does not resolve the logical name; it needs `../game-annotation/mappy`.
+- **Papercut, fixed** (emu-harness `0964b69`): `status mappy` now finds a project one level inside a sibling repo (`game-annotation/mappy`), and refuses two matches.
 - **Data, done** (game-annotation `915da27`). Every lane ran the game's own code headless: the text
   writers over each table index, the attract demo, and the sound engine one voice at a time, on a
   read-logging bus. That gives exact data extents (3,996 of 5,541 non-code bytes) and the screen text.
@@ -162,6 +162,9 @@ game-annotation `063687f`, `06b32e6`.
   and its 18 stream opcodes are named, checked against every stream's ending. The top-down pass over the
   render thread renamed 6, among them `flush_dirty_attribute_bytes` (it never cleared anything). The game
   thread's top-down pass and the variable names come next.
+- **Variables, first pass** (game-annotation `b03ad18`). 25 renamed, 10 dropped (no instruction touches
+  them). The pause flag was proven by its sprites: the row at `$C123` spells PAUSE in the sprite pattern
+  table. Shared names went from 22 to 18; the rest are gameplay state, to be named with the game thread.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
@@ -178,6 +181,9 @@ game-annotation `063687f`, `06b32e6`.
 - ~~Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): keep it simple while trying it out.
 - Which existing skills does the build tool replace (`/label-walk`, `/data-walk`, `/var-walk`, `/nobunaga`)?
 - Does a third naming pass, after bottom-up and top-down, add value?
+- Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside `game-annotation`) get its own repo, as
+  the KOEI titles did? Chris (2026-10-26): *"these early breakdowns did not get their own project folders, and
+  this might be a mistake."* For now `status` finds them inside their monorepo.
 
 ## Tags
 [reverse-engineering](../tags/reverse-engineering.md) · [methodology](../tags/methodology.md) · [agent-teams](../tags/agent-teams.md) · [claude](../tags/claude.md)
