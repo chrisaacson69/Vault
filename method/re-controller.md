@@ -203,6 +203,13 @@ game-annotation `063687f`, `06b32e6`.
   the 49-byte copyright at `$C000` was missing. That copyright is also the cat AI's random source.
   **Check that a listing shows every byte exactly once**: here the only repeats are the three known
   bit-skip overlaps.
+- **Variables, round 2** (game-annotation `e848d4e`). No variable name is shared any more (18 names had
+  covered 37 addresses), and unnamed touched addresses went from 90 to 5, each explained (one is a
+  bit-skip operand, not a variable). The game-thread naming made this mostly transcription: the proven
+  meanings were already in the routine notes. Two conventions came out of it: table fields are named by
+  table and offset (`door_kind`, `tramp_bounces_left`), and absolute references to one slot get a slot name
+  (`slot2_cooldown`). One general catch: `$00` read as `lda $00,x` is zero page indexed by an address held in
+  X, not a pointer, and naming it so makes `bcd_add` read correctly.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
