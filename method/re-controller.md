@@ -141,6 +141,13 @@ game-annotation `063687f`, `06b32e6`.
 - **The revisit list was wrong too:** 2 of the 3 listed "phantoms" are real fall-through entries
   (traced, with JSR callers). The lower artifact settled it, as the oracle rule says.
 - **Papercut:** `status mappy` does not resolve the logical name; it needs `../game-annotation/mappy`.
+- **Data, done** (game-annotation `915da27`). Every lane ran the game's own code headless: the text
+  writers over each table index, the attract demo, and the sound engine one voice at a time, on a
+  read-logging bus. That gives exact data extents (3,996 of 5,541 non-code bytes) and the screen text.
+  The object record was proven by a carry test over demo frames plus the draw code (X/Y were swapped
+  in the per-address names). **The xref tool had been decoding data as code: 33% of its links were
+  false**, which is where names like `$7B` = "draw_data_ptr" (really the items-left counter) came from.
+  The sound engine had been named as an object system. Library candidate: the read-logging `Bus`.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
