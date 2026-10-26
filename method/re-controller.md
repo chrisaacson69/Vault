@@ -185,6 +185,15 @@ game-annotation `063687f`, `06b32e6`.
   the player onto the goal to reach the last two states. **A warp is evidence for what a handler does, not
   for how the game gets there**, so the gate records it as a warp. Graded after: 10/10 agree. That includes
   a state the sibling calls "unused", for which the census and a code scan had independently found no writer.
+- **The game thread, done** (game-annotation `7d4718c`..`461d276`, chunks 4-9). All 234 routines were
+  checked against their code, grouped by subsystem rather than by depth: round setup, the per-frame
+  updaters, physics, the flows around a round, the draw path, and the leaves. The code explained the game's
+  rules: the 10 items are fixed and the doors are what change per round, trampolines heal when the player
+  touches a floor, a cat aims at the player's floor and uses a ROM byte as its RNG, the bonus round lasts
+  2,220 frames, and the last four stages repeat forever. It also turned up an unreachable invincibility
+  switch. **A checked keep must be recorded:** until `apply_names` wrote "Kept", a name someone had verified
+  looked exactly like one nobody had read, so a coverage count could not tell them apart. The earlier pass's
+  34 render-thread and sound routines still carry that gap.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
