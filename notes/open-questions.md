@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1047 questions on 221 pages — 973 open, 65 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
+**1051 questions on 222 pages — 977 open, 65 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -41,7 +41,7 @@ title: "Open Questions Registry"
 - `3195ec` [zappatic MOO1 RE stream — Part 7a+7b notes](../research/gaming/moo1/zappatic-stream/part07.md) L161 — Ghidra relocation: *(2026-10-16)*
 - `98d497` [Data-First RE](../method/data-first-re.md) L90 — Is the MOO1 STARMAP image one relocation delta, or overlaid? *(2026-10-16)*
 - `7999cb` [Hangman: Solving Both Sides — and the One Parameter That Separates Two Methods](../research/gaming/hangman-solving-both-sides.md) L143 — The direct sequel is coming. *(2026-10-12)*
-- `ebf513` [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) L203 — Mappy's demo script in a real game: *(2026-10-02)* *(no link)*
+- `ebf513` [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) L205 — Mappy's demo script in a real game: *(2026-10-02)* *(no link)*
 - `49c978` [No One May Dictate — Partner Choice and Outsider Review](../research/philosophy/morality/no-one-may-dictate.md) L58 — The edge where law weighs a motive. *(2026-09-29)*
 - `5b3cb2` [No One May Dictate — Partner Choice and Outsider Review](../research/philosophy/morality/no-one-may-dictate.md) L53 — Preference vs. anti-social behavior: where is the harm boundary? *(2026-09-29)*
 - `5afa6a` [No One May Dictate — Partner Choice and Outsider Review](../research/philosophy/morality/no-one-may-dictate.md) L50 — Where does pressure become dictating? *(2026-09-29)* *(no link)*
@@ -102,6 +102,12 @@ title: "Open Questions Registry"
 
 ### [Data-First RE](../method/data-first-re.md)
 - `ca748b` L91 — Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? S…
+
+### [The RE Controller](../method/re-controller.md)
+- `da2306` L98 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here?
+- `01db67` L99 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates?
+- `5a9146` L100 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself?
+- `8eeaf6` L101 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)?
 
 ### [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md)
 - `8ccfd5` L80 — What's the actual multiplier?
@@ -1093,11 +1099,11 @@ title: "Open Questions Registry"
 - `9db406` L80 — Hard mode as a constraint lens:
 
 ### [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md)
-- `3fa5df` L204 — Mappy: what does phase manipulation buy?
-- `46a868` L205 — Frame 57,318:
-- `b26d5b` L206 — Verify screen scrolling against the disassembly:
-- `dd5535` L207 — Specimens not yet filed:
-- `ff32ad` L208 — A bot on our decompiled source
+- `3fa5df` L206 — Mappy: what does phase manipulation buy?
+- `46a868` L207 — Frame 57,318:
+- `b26d5b` L208 — Verify screen scrolling against the disassembly:
+- `dd5535` L209 — Specimens not yet filed:
+- `ff32ad` L210 — A bot on our decompiled source
 
 ### [H-Neurons: The Neural Basis of Hallucination](../research/h-neurons.md)
 - `93df60` L169 — Do different model families (GPT, Claude, Gemini, Llama) have meaningfully different H-neuron densities? Would this explain the personality differenc…

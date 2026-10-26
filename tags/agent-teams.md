@@ -12,3 +12,4 @@ permalink: /tags/agent-teams/
 - [Praxis: Agent Teams vs. the Theory](../research/economics/praxis-agent-teams.md) — the economic theory of why agent teams work (the Line Manager → COO → CEO decision-class hierarchy)
 - [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md) — Nate B.
 - [The Substrate Is the Governing Mechanism](../research/substrate-as-governance.md) — Agents coordinating through a shared store is read as the thing that makes them ungovernable.
+- [The RE Controller](../method/re-controller.md) — draft: an LLM verb surface over emu-harness plus a phase plan with a gate per phase, the CyborgDJ controller pattern applied to disassembly projects

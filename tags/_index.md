@@ -9,7 +9,7 @@ permalink: /tags/_index/
 
 - [6502](./6502.md) — 23 files
 - [65816](./65816.md) — 9 files
-- [agent-teams](./agent-teams.md) — 5 files
+- [agent-teams](./agent-teams.md) — 6 files
 - [agents](./agents.md) — 26 files
 - [ai](./ai.md) — 64 files
 - [assembly](./assembly.md) — 17 files
@@ -20,7 +20,7 @@ permalink: /tags/_index/
 - [career](./career.md) — 8 files
 - [chess-engine](./chess-engine.md) — 1 file
 - [civilizational-cycles](./civilizational-cycles.md) — 16 files
-- [claude](./claude.md) — 4 files
+- [claude](./claude.md) — 5 files
 - [code-golf](./code-golf.md) — 1 file
 - [cognitive-motor](./cognitive-motor.md) — 1 file
 - [collectivism](./collectivism.md) — 2 files
@@ -59,7 +59,7 @@ permalink: /tags/_index/
 - [mathematics](./mathematics.md) — 35 files
 - [meta-musing](./meta-musing.md) — 17 files
 - [metaphysics](./metaphysics.md) — 2 files
-- [methodology](./methodology.md) — 21 files
+- [methodology](./methodology.md) — 23 files
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 68 files
 - [music](./music.md) — 15 files
@@ -77,7 +77,7 @@ permalink: /tags/_index/
 - [python](./python.md) — 22 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
-- [reverse-engineering](./reverse-engineering.md) — 46 files
+- [reverse-engineering](./reverse-engineering.md) — 48 files
 - [risk](./risk.md) — 6 files
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 13 files
