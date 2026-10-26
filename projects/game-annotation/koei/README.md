@@ -75,15 +75,17 @@ design.** The cross-check even caught a stale "49×24" NES memory that actually 
 
 ## Method — the pipelines bound to this toolchain
 
-`/label-walk` (subs) · `/data-walk` (ROM tables, RAM vars) · `/var-walk` (frame slots) ·
-`/nobunaga` (the NA1 tool surface). All are the same multi-pass shape — **scan → symbol-table → link →
+The label walk (subs) · the data walk (ROM tables, RAM vars) · the var walk (frame slots), all in
+emu-harness (`PHASES.md` §5, `workflows/`), with each member's facts in its `walk-context.json`; and
+`/nobunaga` (the NA1 tool surface, now in the na1-decompiler repo). All are the same multi-pass shape — **scan → symbol-table → link →
 typecheck** — over a `mesen-labels.toml` symbol table, with a deterministic regen guard gating writes.
 
-⚠️ **Known defect (2026-07-21):** the three walk skills hardcode
+~~⚠️ **Known defect (2026-07-21):** the three walk skills hardcode
 `PROJ = C:\Users\Chris.Isaacson\Vault\projects\game-annotation\nobunaga` — an old machine's username,
 and a path the project left in June 2026. A family-level skill was forced to name one member, so it
 named one, and it rotted. The fix is a **member argument resolved via `.claude/local-paths.md`**, not a
-replacement constant.
+replacement constant.~~ **Resolved 2026-10-26:** the walk skills are retired. The workflows in emu-harness
+take the member's facts (layer paths, xref commands, caveats) from its `walk-context.json`.
 
 ⚠️ **Neither engine repo is cloned on this machine** (2026-07-21).
 

@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1053 questions on 222 pages — 975 open, 69 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 20 resolved without a link.
+**1054 questions on 222 pages — 975 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -32,10 +32,11 @@ title: "Open Questions Registry"
 ## Resolved
 > Newest first. *(no link)* = the note doesn't say where it was answered.
 
-- `8eeaf6` [The RE Build Tool](../method/re-controller.md) L141 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
-- `5a9146` [The RE Build Tool](../method/re-controller.md) L140 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
-- `01db67` [The RE Build Tool](../method/re-controller.md) L139 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates? *(2026-10-26)*
-- `da2306` [The RE Build Tool](../method/re-controller.md) L138 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here? *(2026-10-26)*
+- `8e15f5` [The RE Build Tool](../method/re-controller.md) L227 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
+- `8eeaf6` [The RE Build Tool](../method/re-controller.md) L226 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
+- `5a9146` [The RE Build Tool](../method/re-controller.md) L225 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
+- `01db67` [The RE Build Tool](../method/re-controller.md) L224 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates? *(2026-10-26)*
+- `da2306` [The RE Build Tool](../method/re-controller.md) L223 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here? *(2026-10-26)*
 - `a48d62` [Well-Structured Python at Scale](../research/well-structured-python.md) L110 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable… *(2026-10-22)*
 - `ae5c2f` [Well-Structured Python at Scale](../research/well-structured-python.md) L109 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "… *(2026-10-22)*
 - `5e8e78` [Well-Structured Python at Scale](../research/well-structured-python.md) L108 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question… *(2026-10-22)*
@@ -108,8 +109,8 @@ title: "Open Questions Registry"
 - `ca748b` L91 — Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? S…
 
 ### [The RE Build Tool](../method/re-controller.md)
-- `8e15f5` L142 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)?
-- `e8bbaa` L143 — Does a third naming pass, after bottom-up and top-down, add value?
+- `e8bbaa` L228 — Does a third naming pass, after bottom-up and top-down, add value?
+- `90e8fb` L229 — Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside game-annotation) get its own repo, as the KOEI titles did? Chris (2026-10-26): "…
 
 ### [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md)
 - `8ccfd5` L80 — What's the actual multiplier?

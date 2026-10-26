@@ -9,6 +9,9 @@ title: "RE Build Tool Lessons"
 > What the disassembly projects learned about *how* to run one, harvested 2026-10-26 from the memory store,
 > the vault's method and research pages, the walk skills and the title repos' entry docs. Each is one line;
 > the [build tool](./re-controller.md) cites these phase by phase. A reference page: read the phase you are in.
+> *Sources:* a lesson citing `/label-walk`, `/data-walk` or `/var-walk` came from those vault skills, retired
+> 2026-10-26 into emu-harness (`PHASES.md` §5, `workflows/`); one citing `/nobunaga` came from the skill now in
+> the na1-decompiler repo.
 
 **Links:** [The RE Build Tool](./re-controller.md)
 

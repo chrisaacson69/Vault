@@ -9,7 +9,7 @@ base"; the knowledge base (`research/`) is one **partition** of it, alongside th
 - **Shell / OS manual** (navigate + use the vault) → *this file*. Loads when working in the vault.
 - **Per-partition rules** → each section's own header / `CLAUDE.md` (e.g. `projects/CLAUDE.md` = the project SDK). Loads when working in that partition.
 - **Router** → `memory/MEMORY.md` (pointers) → area indexes (recalled on relevance) → vault pages / repos (deep stores).
-- **Syscalls** → the skills (`vault-sync`, `vault-ingest`, `vault-heartbeat`, `label-walk`, …).
+- **Syscalls** → the skills (`vault-sync`, `vault-ingest`, `vault-heartbeat`, …). The RE walks are not vault skills: they live in emu-harness (`PHASES.md` §5, `workflows/`), with each title's facts in its `walk-context.json`.
 - **Device manager** → logical-name pointers (in `projects/`) resolved to physical mounts via per-machine `.claude/local-paths.md`.
 
 **Self-bootstrapping invariant:** everything needed to *use and maintain* the OS is committed internally (this manual, the partition rules, the memory schema). Every piece that *necessarily* lives outside the repo — the user-global kernel, the `~/.claude/.../memory/` scheduler state, the per-machine resolver — ships with **committed instructions to recreate it from zero**: the [memory cold-start bootstrap](./notes/memory-bootstrap.md) (schema + seed templates) and the [new-machine migration runbook](./notes/new-machine-migration.md) (transfer + clone). A fresh clone is never stranded.

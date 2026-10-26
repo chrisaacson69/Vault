@@ -38,7 +38,7 @@ projects/ → game-annotation → nes → koei → <game>      (taxonomy of apps
 - **Classify the problem before the method.** The architecture dictates the approach before any code is read
   (e.g. ROM RE: turn-based = walkable call tree vs real-time = data-driven dispatch). [[feedback_architecture_first_re]]
 - **RE is multi-pass compilation, backwards:** scan → symbol-table → link → typecheck. A `.toml`/registry IS
-  the symbol table; everything downstream points at it. Pipelines: `/label-walk`, `/data-walk`, `/var-walk`.
+  the symbol table; everything downstream points at it. Pipelines: the walks (emu-harness `PHASES.md` §5, `workflows/`; a title's `walk-context.json`).
 - **Reuse/convert > rebuild; one source of truth.** Drift = re-derivation; the cure is point-to-artifact
   (eviction + registration are the twin janitors). Transpile weak formal languages to a grounded one to verify.
 - **Single writer + verifier; coordinator holds context** and injects a curated working-set to subagents.

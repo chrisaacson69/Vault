@@ -27,8 +27,9 @@ project SDK → [projects/CLAUDE.md](../../../CLAUDE.md)
 | Cart | MMC1/SOROM, 256 KB |
 | Depends on | `koei-nes` (family engine) → `emu-harness` (generic render core; was `nes-render`) |
 
-⚠️ **Not cloned on this machine** (2026-07-21) — see `.claude/local-paths.md`. The four RE skills
-(`/label-walk`, `/data-walk`, `/var-walk`, `/nobunaga`) cannot run until it is.
+⚠️ **Not cloned on this machine** (2026-07-21) — see `.claude/local-paths.md`. The walks (emu-harness
+`workflows/` with `nobunaga/walk-context.json`) and the `/nobunaga` skill (now in this repo's
+`.claude/skills/`) cannot run until it is.
 
 **Reachability:** clone as a **sibling of the vault** so `../na1-decompiler/` resolves — portable
 across machines *and* readable by an agent. If a machine doesn't follow the sibling layout, its

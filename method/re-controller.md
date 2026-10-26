@@ -21,7 +21,7 @@ title: "The RE Build Tool"
 [The Rosetta Stone Method](./rosetta-stone-method.md) · [Building Swarms](./swarm-construction-rules.md) ·
 [REA teardown](../research/reverse-engineering/rea-candidate-tool.md) (inference driving RE tools over MCP) ·
 [An AI Speedruns NES Zelda](../research/gaming/zelda-ai-speedrun-harness.md) ·
-[Project SDK](../projects/CLAUDE.md) · skills `/label-walk`, `/data-walk`, `/var-walk` ·
+[Project SDK](../projects/CLAUDE.md) · the walks (emu-harness `PHASES.md` §5, `workflows/`) ·
 [emu-harness](../projects/game-annotation/emu-harness/README.md) (`MIGRATION.md` = the row table and the revisit list)
 
 ## The idea, in Chris's words
@@ -224,7 +224,7 @@ game-annotation `063687f`, `06b32e6`.
 - ~~State: `CONTEXT.md` block (human-first) or a machine-readable file the controller updates?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): each project keeps its own roadmap of where it is.
 - ~~Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): one project per session, sequential inference.
 - ~~Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): keep it simple while trying it out.
-- Which existing skills does the build tool replace (`/label-walk`, `/data-walk`, `/var-walk`, `/nobunaga`)?
+- ~~Which existing skills does the build tool replace (`/label-walk`, `/data-walk`, `/var-walk`, `/nobunaga`)?~~ **Resolved 2026-10-26** → all four leave the vault. The walks' method is emu-harness `PHASES.md` §5 and their Workflow scripts `workflows/`, with each title's facts in its `walk-context.json` (NA1's first; the old scripts' NA1 paths had gone stale). `/nobunaga` is NA1's own tool surface, so it moved into that repo.
 - Does a third naming pass, after bottom-up and top-down, add value?
 - Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside `game-annotation`) get its own repo, as
   the KOEI titles did? Chris (2026-10-26): *"these early breakdowns did not get their own project folders, and
