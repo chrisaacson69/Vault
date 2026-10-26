@@ -165,6 +165,15 @@ game-annotation `063687f`, `06b32e6`.
 - **Variables, first pass** (game-annotation `b03ad18`). 25 renamed, 10 dropped (no instruction touches
   them). The pause flag was proven by its sprites: the row at `$C123` spells PAUSE in the sprite pattern
   table. Shared names went from 22 to 18; the rest are gameplay state, to be named with the game thread.
+- **Game thread, top-down chunks 1-3** (game-annotation `35ec83e`, `fb346cc`): the skeleton, the per-frame
+  update, score and HUD, and the draw path. 28 routines and 17 variables.
+- **Naming sent discover back** (emu-harness `df306f6`, game-annotation `ecc2a29`). Before naming the object
+  states, a Mesen write-watch on the 9 state bytes logged each writer's PC. The player's state-10 writer ran
+  inside "data": 63 bytes of door handlers behind a shared `JMP ($001C)` stub reached by JSR, with the table
+  loaded in the caller, out of the back-scan's reach. The library now resolves such a stub at each caller.
+  Recall went from 99.4% to 100.0%, and a CDL over three play logs now finds no executed byte left
+  undecoded. **A later phase is an oracle for an earlier one:** the gate passed at 99.4%, and only naming,
+  by asking who writes a byte, found the hole.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
