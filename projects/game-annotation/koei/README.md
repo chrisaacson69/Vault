@@ -9,6 +9,10 @@ created: 2026-07-21
 > The titles themselves are filed under the console they run on: [nes/](../nes/README.md) ·
 > [snes/](../snes/README.md).
 
+> **2026-10-26: the toolchain lives in [emu-harness](../emu-harness/README.md)** (`emu_harness/vm/koei`,
+> with the engine docs in `vm/koei/{nes,snes}/docs/`). The `koei-nes` and `koei-snes` repos below are
+> retiring (aliases only) and are archived once their last importers move, at each title's revisit.
+
 **Links:** series hub → [Game Annotation](../README.md) · project SDK → [projects/CLAUDE.md](../../CLAUDE.md) ·
 theses → [KOEI's portable VM](../../../research/gaming/koei-snes-portable-vm.md),
 [AI & combat evolution — a five-decompiler study](../../../research/gaming/koei-ai-combat-evolution.md),
