@@ -44,6 +44,7 @@ Then route the request.
 | Province adjacency table | `adjacency.py` / `adjacency-50.py` | `py tools/adjacency.py "<rom>"` (17-fief) · `py tools/adjacency-50.py "<rom>"` (50-fief) |
 | Fief strategic profile (50-fief) | bulk / drill-down | all-50 table → `py tools/fief-analysis-50.py` · one fief → `py tools/profile-fief-50.py <Name…>` |
 | Simulate economy / check a formula | `econ_sim.py` | `py tools/econ_sim.py` |
+| Trace the VM headless (no GUI) | `vm-trace.py` | `py -3.14 tools/vm-trace.py <state.mss> --inputs "a,wait*40" --trigger <VMPC hex> [--out f] [--check]` — an emu-harness watch on the dispatcher; same lines as `lua/vm-trace.lua` (`--check` runs both and diffs). |
 | Decode a combat trace | `combat-trace-decode.py` | `py tools/combat-trace-decode.py <trace.txt[.gz]>` |
 | Find a named address | `mesen-labels.toml` | grep it — **never re-trace a known label** |
 | **Update Mesen with the latest labels** | `mesen-labels.py` | `py -3.14 tools/mesen-labels.py --mlb` (emu-harness's shared exporter; it also prints registry defects) → writes `Nobunaga's Ambition (USA).mlb` beside the ROM. Mesen 2 **auto-loads** it (same basename, same folder) on next ROM load; or in Mesen: Debugger → File → Workspace → Import Labels. Run this after adding labels to `mesen-labels.toml` so the debugger reflects them. Add `--asm` to also refresh `disasm/bank_NN_named.asm` (named native disasm; bank 15 = full call-site propagation). `mesen-labels.toml` is the single source of truth — edit it, then re-project. |
