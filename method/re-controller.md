@@ -226,6 +226,20 @@ game-annotation `063687f`, `06b32e6`.
 - **Data-structure comments** (game-annotation `9107678`): the listing opens with a RAM-structures header generated
   from vars.toml, and each ROM table carries its layout. **Comments generated from the symbol files cannot drift**
   from them. Hand-written ones could. All three repos pushed.
+- **Live verification and the assets gate: Mappy done** (emu-harness `454ec4a`, game-annotation `950eb9d`).
+  - **Live.** The game's own per-object step runs headless from every live RAM dump and reproduces the next one:
+    425,547 steps identical over 10 runs. Poked warps reach every state play never does, and a one-instruction
+    planted fault is caught.
+  - **Assets.** Just after each round type's load, live VRAM equals the game's own loaders run headless, byte for
+    byte, and Mesen's screenshot equals the library's frame pixel for pixel.
+  - **What the 15 leftover differences turned out to be.** First, blink phases. Instead of whitelisting them, the
+    run replays the game's own per-frame drawers with the frame counter, which needed the queue's one-frame lag
+    measured on Mesen. Second, a timed HUD split. Third, a sprite-priority rule the library had wrong. The last
+    two are now library fixes with tests. **Explain a residual difference by running more of the game, not by
+    listing exceptions.**
+  - A bonus round moves at once, so its snapshot frame is the one quiet frame, and the suite records why.
+  - Chapter 10 summarizes the pass and corrects chapters 7-9. Chapter 9's "object animation VM" was the sound
+    engine.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
