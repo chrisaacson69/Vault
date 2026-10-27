@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1054 questions on 222 pages — 975 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 0 marker drifts, 21 resolved without a link.
+**1057 questions on 223 pages — 978 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -27,16 +27,16 @@ title: "Open Questions Registry"
 ## Marker drift
 > Says resolved/answered in its text but isn't struck through, so it counts as open.
 
-- none
+- `31716a` [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) L206 — Mappy: what does phase manipulation buy?
 
 ## Resolved
 > Newest first. *(no link)* = the note doesn't say where it was answered.
 
-- `8e15f5` [The RE Build Tool](../method/re-controller.md) L227 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
-- `8eeaf6` [The RE Build Tool](../method/re-controller.md) L226 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
-- `5a9146` [The RE Build Tool](../method/re-controller.md) L225 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
-- `01db67` [The RE Build Tool](../method/re-controller.md) L224 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates? *(2026-10-26)*
-- `da2306` [The RE Build Tool](../method/re-controller.md) L223 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here? *(2026-10-26)*
+- `8e15f5` [The RE Build Tool](../method/re-controller.md) L257 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
+- `8eeaf6` [The RE Build Tool](../method/re-controller.md) L256 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
+- `5a9146` [The RE Build Tool](../method/re-controller.md) L255 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
+- `01db67` [The RE Build Tool](../method/re-controller.md) L254 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates? *(2026-10-26)*
+- `da2306` [The RE Build Tool](../method/re-controller.md) L253 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here? *(2026-10-26)*
 - `a48d62` [Well-Structured Python at Scale](../research/well-structured-python.md) L110 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable… *(2026-10-22)*
 - `ae5c2f` [Well-Structured Python at Scale](../research/well-structured-python.md) L109 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "… *(2026-10-22)*
 - `5e8e78` [Well-Structured Python at Scale](../research/well-structured-python.md) L108 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question… *(2026-10-22)*
@@ -109,8 +109,8 @@ title: "Open Questions Registry"
 - `ca748b` L91 — Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? S…
 
 ### [The RE Build Tool](../method/re-controller.md)
-- `e8bbaa` L228 — Does a third naming pass, after bottom-up and top-down, add value?
-- `90e8fb` L229 — Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside game-annotation) get its own repo, as the KOEI titles did? Chris (2026-10-26): "…
+- `e8bbaa` L258 — Does a third naming pass, after bottom-up and top-down, add value?
+- `90e8fb` L259 — Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside game-annotation) get its own repo, as the KOEI titles did? Chris (2026-10-26): "…
 
 ### [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md)
 - `8ccfd5` L80 — What's the actual multiplier?
@@ -151,6 +151,11 @@ title: "Open Questions Registry"
 - `895d46` L63 — Does the simplified BV formula (sqrt(A×HP)) work as a rough first approximation even for BattleTech, if you define "A" as heat-adjusted DPS and "HP"…
 - `3671ce` L64 — Are there systematic patterns in BV2 mispricing? (e.g., does BV2 consistently undervalue mechs with XL engines because it doesn't model crit vulnerab…
 - `cb44e3` L65 — Could this become a YouTube video? "We ran 10 million simulated BattleTech fights and found the most underpriced mechs" — that's a hook for the Battl…
+
+### [Taking emu-harness to the other three comparison titles](../projects/game-annotation/comparisons/harness-expansion.md)
+- `2ef0cb` L69 — Does any BizHawk core (or other scriptable emulator) cover the Atari 800 well enough for lockstep RAM traces? Altirra's scripting surface is unknown.
+- `51d3f6` L70 — Does Mesen 2 really have no 2600 core? Check the installed version before choosing a backend.
+- `bfcf8f` L71 — Does the Utopia source assemble to the shipped cartridge byte-for-byte, or is it a pre-release build?
 
 ### [Elite (NES) — elite-decompiler](../projects/game-annotation/elite/README.md)
 - `5338ff` L176 — Exact viewport geometry — how many of the 256 patterns go to the space view vs. the dashboard.
@@ -1102,7 +1107,7 @@ title: "Open Questions Registry"
 - `9db406` L80 — Hard mode as a constraint lens:
 
 ### [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md)
-- `3fa5df` L206 — Mappy: what does phase manipulation buy?
+- `31716a` L206 — Mappy: what does phase manipulation buy?
 - `46a868` L207 — Frame 57,318:
 - `b26d5b` L208 — Verify screen scrolling against the disassembly:
 - `dd5535` L209 — Specimens not yet filed:

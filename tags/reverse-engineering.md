@@ -55,3 +55,4 @@ permalink: /tags/reverse-engineering/
 - [moo1-re](../projects/moo1-re/README.md) — MOO1 DOS v1.3 reverse engineering: dual save decoder, EXE table verifier
 - [The RE Build Tool](../method/re-controller.md) — draft: an LLM verb surface over emu-harness plus a phase plan with a gate per phase, the CyborgDJ controller pattern applied to disassembly projects
 - [RE Build Tool Lessons](../method/re-controller-lessons.md) — ~90 disassembly-method lessons from the memory store, vault and title repos, sorted by phase with sources
+- [Taking emu-harness to the other three](../projects/game-annotation/comparisons/harness-expansion.md) — plan for 2600 / Intellivision / Atari 800 harness passes

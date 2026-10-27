@@ -7,13 +7,13 @@ permalink: /tags/_index/
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [6502](./6502.md) — 23 files
+- [6502](./6502.md) — 24 files
 - [65816](./65816.md) — 9 files
 - [agent-teams](./agent-teams.md) — 6 files
 - [agents](./agents.md) — 26 files
 - [ai](./ai.md) — 64 files
 - [assembly](./assembly.md) — 17 files
-- [atari-2600](./atari-2600.md) — 1 file
+- [atari-2600](./atari-2600.md) — 2 files
 - [audio-processing](./audio-processing.md) — 12 files
 - [battletech](./battletech.md) — 1 file
 - [c](./c.md) — 1 file
@@ -45,7 +45,7 @@ permalink: /tags/_index/
 - [game-ai](./game-ai.md) — 29 files
 - [game-design](./game-design.md) — 11 files
 - [game-theory](./game-theory.md) — 46 files
-- [games](./games.md) — 71 files
+- [games](./games.md) — 72 files
 - [grounding](./grounding.md) — 11 files
 - [history](./history.md) — 28 files
 - [insurance](./insurance.md) — 1 file
@@ -77,14 +77,14 @@ permalink: /tags/_index/
 - [python](./python.md) — 22 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
-- [reverse-engineering](./reverse-engineering.md) — 48 files
+- [reverse-engineering](./reverse-engineering.md) — 49 files
 - [risk](./risk.md) — 6 files
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 13 files
 - [snes](./snes.md) — 13 files
 - [software-engineering](./software-engineering.md) — 10 files
 - [strategy](./strategy.md) — 31 files
-- [tools](./tools.md) — 5 files
+- [tools](./tools.md) — 6 files
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files
 - [workflow](./workflow.md) — 5 files

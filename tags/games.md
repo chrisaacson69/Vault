@@ -77,3 +77,4 @@ permalink: /tags/games/
 - [MOO1 Random Events — Three-Way Cross-Check](../research/gaming/moo1/xcheck-events.md) — stream × OSG × 1oom, random events
 - [moo1-re](../projects/moo1-re/README.md) — MOO1 DOS v1.3 reverse engineering: dual save decoder, EXE table verifier
 - [Pokémon Gen 1 — 170,000 Sampled Battles a Fixed Policy Could Solve Exactly](../research/gaming/pokemon-gen1-1v1-tournament.md) — Gym Leader Matt's 151-Pokémon round robin, critiqued on method; evolution dominance checked from pokered
+- [Taking emu-harness to the other three](../projects/game-annotation/comparisons/harness-expansion.md) — plan for 2600 / Intellivision / Atari 800 harness passes

@@ -43,5 +43,8 @@ Rows A, A2, D, B and the generic half of E are done (2026-10-23): one `.mlb` exp
 tool, and one shared 6502 recursive descent. A CPU-log benchmark measured every disassembler, and
 nes-disasm6 is now a plugin.
 
+**Next machines (planned 2026-10-27):** 2600, Intellivision (first non-6502 CPU), Atari 800 →
+[Taking emu-harness to the other three](../comparisons/harness-expansion.md).
+
 ## Tags
 [nes](../../../tags/nes.md) · [python](../../../tags/python.md) · [tools](../../../tags/tools.md) · [game-ai](../../../tags/game-ai.md)

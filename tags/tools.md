@@ -12,3 +12,4 @@ permalink: /tags/tools/
 - [Vault Heartbeat — 2026-08-26](../logs/heartbeat-2026-08-26.md)
 - [Vault Multi-Machine Sync — Branching, Divergence, and Merge Resolution](../notes/vault-multi-machine-sync.md) — The vault runs on two machines and commits straight to `master` on both.
 - [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.
+- [Taking emu-harness to the other three](../projects/game-annotation/comparisons/harness-expansion.md) — plan for 2600 / Intellivision / Atari 800 harness passes

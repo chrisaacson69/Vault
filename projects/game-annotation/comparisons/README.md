@@ -20,7 +20,7 @@ hardware → [TIA (2600)](../../../research/atari-2600/tia-reference.md) · [PPU
 | Layout | `adventure/` · `mappy/` · `mule/` · `utopia/` · `tools/` |
 | Tools | `asm-relabel.py`, `mesen-labels.py`, `mesen-workspace.py`, `vm-disasm.py` |
 
-⚠️ **Not cloned on this machine** (2026-07-21).
+Cloned as a sibling (checked 2026-10-27; the 2026-07-21 "not cloned" note was stale).
 
 ⚠️ Its `vm-disasm.py` **predates the NA1 extraction** — verify against `na1-decompiler` before reusing
 it. The Mesen tooling here is one of three copies; see [nes/tools](../nes/tools/README.md).
@@ -60,6 +60,12 @@ lottery. A mechanism existing is not the same as a mechanism *mattering* — the
 
 [Nobunaga's Ambition](../nes/na1/README.md) opened as the third entry in this arc, then broke out of the
 comparison format entirely and became a full decompiler → [nes/](../nes/README.md).
+
+## Next: the harness on the other three
+
+Mappy went through emu-harness (all nine phases). The plan for Adventure, Utopia and M.U.L.E., and for
+giving each title its own repo, is in [Taking emu-harness to the other three](./harness-expansion.md).
+Blocked on ROM dumps.
 
 ## Why these aren't filed under a console
 
