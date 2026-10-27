@@ -329,6 +329,21 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   `is_cell_clear_of_bits`; the ROM sides with the goto form). cfg_gate stayed clean throughout, since it
   checks CFG shape, not the polarity of a rewritten condition. **A gate that passes proves only what it
   checks.** The test now checks each inversion by value and plants the textual one.
+- **Structure done: the attic, and a gate that reads the C** (emu-harness `f556de3`; na1-decompiler
+  `79ceffd`, `7ec1152`). All 32 attic scripts were read. Two were guard ideas, and one of them guarded
+  nothing: `probe-ternary-folds` ran the ROM against hand-written Python (`min`, `max`), never against
+  the printed C. **A probe that compares the ROM with the human's model checks the human, not the
+  decompiler.** Every gate had a blind spot for the C itself. The four bugs of this revisit and June
+  (compare names, the `$8B` sign, the inverter, push-order arguments) all sat in the printed C with
+  every gate green. `gates.value_probe` evaluates the printed C and requires the ROM's value; a call
+  runs its callee on the ROM, so argument order counts. Both historical bugs, replanted, fail it.
+- **Tooling that was never cleaned up gets re-read as if it were live.** NA1 built most of the toolset, so
+  it kept every generation of it: an attic that couldn't run, a registry listing ~20 engine files that
+  had moved, 23 scripts with no row at all, and a read-first file still giving the June formulas. The
+  fix: a census against the disk (imports, references, a smoke run in a throwaway worktree), then
+  delete what's done. Each deletion keeps a row in `RETIRED.md` with its verdict and restore commit.
+  **There is no attic: keep the verdict, delete the script.** The render and site tools are left for
+  the assets phase to sort.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
