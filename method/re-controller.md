@@ -287,7 +287,24 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
 - **The instrument was wrong twice and was checked each time:** a 32-bit readback that leaked the input's
   high word, and na2's profile pointing two entries past its real ext-op table. Read the table from the
   code that indexes it. The orphans were 5 dead library subs and 2 phantoms. A tighter phantom rule would
-  drop real routines in 8 other titles, so it is logged with its numbers rather than applied. Next: data.
+  drop real routines in 8 other titles, so it is logged with its numbers rather than applied.
+- **Why KOEI's syscalls return by `RTI`** (Chris): the MMC1 carts never raise an IRQ, so KOEI used the IRQ/BRK
+  vector as the syscall entry. Later titles (NA2, BK) moved to a private vector at `$FFF8`, which kept
+  machines with working interrupts compatible.
+- **Data, done** (na1-decompiler `ed1d865`, `4cba60c`). Writing even one name needed `source/` regenerated
+  first. The regen script passed absolute paths, which put this machine's directory layout into ~1,000
+  lines, and the engine writes no "do not hand-edit" banner. Both are fixed: 68 lines, each explained,
+  and two runs give identical output. **Read a regen's diff by kind before committing it.** The lanes went
+  to zero: 21 strings, 4 "tables" (3 of them short strings the lane misread as binary), and 10 of 20 hot
+  RAM addresses, the other 10 being record fields. Names came from each address's readers:
+  `player_daimyo` (compared with `fief_owner` where the game prints "Control %d") and `sram_save_signature`
+  (compared with "KOEI"). One guess was wrong and the readers caught it: `$6193` is the relations matrix,
+  and its 50 × 8 offset was a coincidence.
+- **A data name changes rendering, not just a token** (`mem_7FE1` → name, `*(byte*)((i+X))` → `name[i]`).
+  The engine's negation folding is textual too, so naming an operand flipped `!(a == b)` into `a != b`. The
+  data apply checks each name against the literal it replaced, with those forms canonicalized for the named
+  addresses only. A label planted on a code address fails it. The textual inverter goes to structure:
+  a first-match split could invert the wrong operator. Next: structure, starting with the ext-op formulas.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
