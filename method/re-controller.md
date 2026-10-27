@@ -212,6 +212,12 @@ game-annotation `063687f`, `06b32e6`.
   X, not a pointer, and naming it so makes `bcd_add` read correctly.
 - **Naming done** (game-annotation `f7ad739`, Chris): no placeholder names and no open revisits; names that are
   only provenance stay generic but correct. Assets come next, starting with the sound.
+- **Assets: the sound** (emu-harness `32244c3`, game-annotation `37eed53`). The game's sound engine runs headless,
+  and its APU stream was checked against Mesen **write for write** before anything was synthesized: replay the
+  game's triggers and engine calls in cycle order, then compare 14,045 writes. **Check the input before building the
+  player.** The synthesizer is generic (emu-harness `machines.nes.apu`, every constant from nesdev, tested against
+  its formulas), so NA1 gets it free. One finding came along: the note table is one chromatic octave, A1 to G#2,
+  within 3 cents.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
