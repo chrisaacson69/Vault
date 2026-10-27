@@ -218,6 +218,11 @@ game-annotation `063687f`, `06b32e6`.
   player.** The synthesizer is generic (emu-harness `machines.nes.apu`, every constant from nesdev, tested against
   its formulas), so NA1 gets it free. One finding came along: the note table is one chromatic octave, A1 to G#2,
   within 3 cents.
+- **Assets: the pictures** (game-annotation `6a1d564`..`883ea2d`). Every labelled picture and sprite pose is drawn by
+  the ROM's own routines, headless, in the game's palettes. The pictures named what the code could not: the "dropped
+  objects" are bells, the bonus goal is a balloon with Goro inside, the late chaser is a coin (Chris confirmed). The
+  listing now carries ASCII art and decoded text under each label, Adventure-style. **A tool should find things by
+  address, not by name:** renaming the pictures broke the first gallery, which had parsed label names.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
