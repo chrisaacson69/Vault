@@ -241,6 +241,33 @@ game-annotation `063687f`, `06b32e6`.
   - Chapter 10 summarizes the pass and corrects chapters 7-9. Chapter 9's "object animation VM" was the sound
     engine.
 
+## Second revisit: NA1 (2026-10-27)
+NA1 was the early attempt that set many of the rules, and it is the most worked-out title. It is also the
+**root of the KOEI oracle chain**: every later title took its native names from NA1, so nothing had ever
+graded NA1 (`native_floor` refuses it by design). Chris's aim for the revisit: check that the harness was
+isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
+- **Filling the roadmap re-ran the vm gates**, and one failed. `cfg_gate` diverges on 3 of 499 subs, all
+  three June "CERTIFIED" ext-op folds. Run on the ROM at the branch edges: `scale_div10_capcheck` is
+  `ab > 10c ? 0xFFFF : ⌊ab/10⌋` (the certified `⌊ab/10⌋ >= c` fails 6 of 8 edge inputs), and `math32_3arg`
+  returns `0xFFFF` for `c = 0` (the C divides by zero). The June grid had 9 points and none on a branch
+  edge. The same formulas live in the simulator, so it is an open structure revisit. **A gate passes only
+  if it can fail**, now found on the project that taught it.
+- **Recon, done.** The listed revisit (retire a legacy opcode table "still read" by two tools) had the
+  wrong premise, as Mappy's phantom list did: nothing read it. The real break was elsewhere. The appendix
+  generator read a data file through the `na1dream` alias, and **an alias forwards modules, not package
+  data**. It now reads the library's path, and the regenerated appendix picks up 4 operand lengths that
+  row F2 measured on the handlers.
+- **A guard had gone missing in a refactor.** The probe that caught NA1's 323 inverted compares (June) had
+  been atticked as "archaeology" and no longer imported, and no harness gate checks compare direction:
+  round-trip and CFG gates stay green while the C inverts every threshold. It is now
+  `gates.compare_probe` (any title: 9/9, 90/90, with a planted swap in the tests). **An attic can hold
+  guards, not just history:** the rest of NA1's attic is a revisit. Its table half used to pass silently
+  when the table was missing; that half fails now.
+- **A hand edit to a generated file** (`$A8`'s description) would have been lost on regeneration. It
+  moved into the source table.
+- **The entry doc drifted:** CONTEXT.md, the read-first file, routes to 6 tools that no longer exist. Open
+  as a presentation revisit. Next by the tool's order: discover.
+
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
 2. Agents: sequential inference by default, an agent per phase at most.
