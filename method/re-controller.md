@@ -223,6 +223,9 @@ game-annotation `063687f`, `06b32e6`.
   objects" are bells, the bonus goal is a balloon with Goro inside, the late chaser is a coin (Chris confirmed). The
   listing now carries ASCII art and decoded text under each label, Adventure-style. **A tool should find things by
   address, not by name:** renaming the pictures broke the first gallery, which had parsed label names.
+- **Data-structure comments** (game-annotation `9107678`): the listing opens with a RAM-structures header generated
+  from vars.toml, and each ROM table carries its layout. **Comments generated from the symbol files cannot drift**
+  from them. Hand-written ones could. All three repos pushed.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
