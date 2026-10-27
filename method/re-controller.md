@@ -320,6 +320,15 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   family. The simulator was "transcribed line-for-line from the C", so it inherited both bugs; it now
   imports the ROM-checked models, and its 19/19 routines still match the ROM. **A transcription of a
   derived layer carries that layer's bugs.** Point at the checked source instead.
+- **Structure, the inverter** (emu-harness `3c3900e`; na1-decompiler `518a34d`). First, recon's stale flag
+  was bookkeeping: the gates had re-run, but the row hadn't been marked. Re-run, unchanged. The scan
+  instrumented the inverter over a real decompile (103 calls) instead of grepping the C, and the bug wasn't
+  the one the revisit feared (a comparison nested in a call). It was **an already-negated condition**: the
+  textual inverter flipped the comparison *inside* `!(...)`. That's right by accident for one comparison
+  and wrong for an `||`: 3 NA1 sites read `A && !B` where the bytecode says `A || B` (`$82E9`
+  `is_cell_clear_of_bits`; the ROM sides with the goto form). cfg_gate stayed clean throughout, since it
+  checks CFG shape, not the polarity of a rewritten condition. **A gate that passes proves only what it
+  checks.** The test now checks each inversion by value and plants the textual one.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
