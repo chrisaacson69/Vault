@@ -17,7 +17,8 @@ hardware → [TIA (2600)](../../../research/atari-2600/tia-reference.md) · [PPU
 |-------|-------|
 | Logical name | `game-annotation` *(private)* · `github.com/chrisaacson69/game-annotation` |
 | Sibling path | `../game-annotation` (resolved via `.claude/local-paths.md`) |
-| Layout | `adventure/` · `mappy/` · `mule/` · `utopia/` · `tools/` |
+| Layout | `adventure/` · `mappy/` (chapters only) · `mule/` · `utopia/` · `tools/` |
+| Title repos | Mappy's code → [`mappy-decompiler`](./mappy/README.md) (split out 2026-10-27) |
 | Tools | `asm-relabel.py`, `mesen-labels.py`, `mesen-workspace.py`, `vm-disasm.py` |
 
 Cloned as a sibling (checked 2026-10-27; the 2026-07-21 "not cloned" note was stale).
@@ -33,7 +34,7 @@ display/memory architecture.*
 | Game | Platform | ROM | Status |
 |---|---|---|---|
 | Adventure | Atari 2600 | 4 KB | complete (8 chapters) |
-| Mappy | Famicom/NES | 16 KB + 8 KB CHR | complete (8 chapters) |
+| Mappy | Famicom/NES | 16 KB + 8 KB CHR | complete (10 chapters; all nine emu-harness phases) → code in [`mappy-decompiler`](./mappy/README.md) |
 
 **What the arc reveals:** 2600 (no frame buffer, beam racing, 128 bytes RAM) → NES (PPU does rendering,
 2 KB RAM, larger code budget) is roughly a **4–8× capability jump that enabled a different *kind* of
@@ -63,7 +64,7 @@ comparison format entirely and became a full decompiler → [nes/](../nes/README
 
 ## Next: the harness on the other three
 
-Mappy went through emu-harness (all nine phases). The plan for Adventure, Utopia and M.U.L.E., and for
+Mappy went through emu-harness (all nine phases) and its code now has its own repo, [`mappy-decompiler`](./mappy/README.md). The plan for Adventure, Utopia and M.U.L.E., and for
 giving each title its own repo, is in [Taking emu-harness to the other three](./harness-expansion.md).
 Blocked on ROM dumps.
 

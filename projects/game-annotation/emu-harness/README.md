@@ -19,7 +19,7 @@ project SDK → [projects/CLAUDE.md](../../CLAUDE.md)
 | Sibling path | `../emu-harness` (resolved via `.claude/local-paths.md`) |
 | Entry point | `CLAUDE.md` (layout, import rules, day-one rules) |
 | Stack | Python 3.14 + Lua inside each emulator |
-| Depended on by | game adapters in each game's own repo (Zelda first, as the oracle) |
+| Depended on by | game adapters in each game's own repo (Zelda first, as the oracle; [`mappy-decompiler`](../comparisons/mappy/README.md), the first title through all nine phases) |
 
 **Layout:** `emu_harness/backends/{mesen,bizhawk}` · `emu_harness/machines/nes` · `tools/` (replay, trace diff)
 · `spike/<backend>/`. Which backend runs which machine is configuration, not structure.

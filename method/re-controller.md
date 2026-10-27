@@ -108,7 +108,7 @@ current toolset. The tool and its manual live in emu-harness; nothing project-sp
   the session at the first phase not done, or done with a **stale** gate: each phase lists the library
   paths its gate depends on, and a commit after the gate's recorded emu-harness commit that touches
   them makes it stale (git is asked; "unknown" never reads as fresh). The project is a folder by the
-  sibling convention (`game-annotation/mappy`).
+  sibling convention (`mappy-decompiler`; until 2026-10-27 Mappy sat one level inside a sibling, `game-annotation/mappy`).
 - **Trial, Mappy** (emu-harness `24f306e`..`0c8f8a0`, game-annotation `c167ed0`..): classify and recon re-checked on
   the library; discover, data, naming, assets, live partial; structure stale (row R touched its tools);
   9 open revisits, 4 of them new from filling the roadmap (named phantoms, address-keyed names,

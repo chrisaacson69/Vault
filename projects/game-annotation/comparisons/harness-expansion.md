@@ -30,7 +30,7 @@ in **each game's own repo**, and every other harness title follows that (`*-deco
 `elite-decompiler`). Mappy is the exception: it is **61 of the 95 tracked files** in `game-annotation`,
 while the other three titles are still chapters plus a source file.
 
-- **Per-title repo:** holds the harness work (roadmap, labels, tools, listing). Mappy moves out first.
+- **Per-title repo:** holds the harness work (roadmap, labels, tools, listing). Mappy moved out first: [`mappy-decompiler`](./mappy/README.md), 2026-10-27.
 - **`game-annotation`:** keeps the chapters and the comparisons between titles, which are what it
   delivers. It links to each title's repo.
 - **No empty repos.** Create a title's repo when its harness pass starts, not before.
@@ -62,7 +62,7 @@ still unchosen).
 
 ## Next actions
 - [ ] Chris: get ROM dumps for Adventure, Utopia and M.U.L.E. (the M.U.L.E. dump will be a disk image)
-- [ ] Split `mappy/` out of `game-annotation` into its own repo (`/new-project`), leaving the chapters linked
+- [x] Split `mappy/` out of `game-annotation` into its own repo, leaving the chapters linked → [`mappy-decompiler`](./mappy/README.md) (2026-10-27)
 - [ ] Adventure: classify + recon, starting with the assemble-and-compare check
 
 ## Open Questions

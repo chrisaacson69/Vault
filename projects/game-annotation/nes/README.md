@@ -54,7 +54,7 @@ GitHub** — it may live inside `na1-decompiler`. No folder until that's verifie
 
 ## Non-KOEI NES work
 
-**Mappy (Famicom/NES)** — Namco's 16 KB platformer, 8 chapters complete. It belongs to the
+**Mappy (Famicom/NES)** — Namco's 16 KB platformer, 10 chapters complete; code in its own repo, [`mappy-decompiler`](../comparisons/mappy/README.md) (2026-10-27). It belongs to the
 **hardware-capability arc** paired against Adventure (Atari 2600), so it is indexed by
 [comparisons/](../comparisons/README.md), not here. Filing it under this node would sever the arc —
 the cross-console comparison *is* the point.

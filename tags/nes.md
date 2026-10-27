@@ -28,3 +28,4 @@ permalink: /tags/nes/
 - [The comparison studies — paired deep-reads](../projects/game-annotation/comparisons/README.md) — The four titles the series started as, organized in **paired comparisons**.
 - [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — NES Zelda bot, glitchless 37:02
 - [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.
+- [Mappy (Famicom) — `mappy-decompiler`](../projects/game-annotation/comparisons/mappy/README.md) — pointer to the Mappy code repo; the first title through all nine emu-harness phases
