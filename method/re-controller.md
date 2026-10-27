@@ -304,7 +304,22 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   The engine's negation folding is textual too, so naming an operand flipped `!(a == b)` into `a != b`. The
   data apply checks each name against the literal it replaced, with those forms canonicalized for the named
   addresses only. A label planted on a code address fails it. The textual inverter goes to structure:
-  a first-match split could invert the wrong operator. Next: structure, starting with the ext-op formulas.
+  a first-match split could invert the wrong operator.
+- **Structure, first half** (emu-harness `4a7f90b`, `54be6fe`; na1-decompiler `b237a5f`). **Fix the
+  instrument first:** `titles emulate` was a stub, so NA1's `oracle_run` became `titles.run_sub`. With it,
+  the five 32-bit helpers were re-derived from their bytecode and checked over 15,317 inputs, including
+  `$8000`, `$FFFF` and zero divisors. The June formulas had been unsigned: the bytecode sign-extends.
+  Measuring the primitives found **a ROM bug in KOEI's `sdiv32`**: a negative divisor is
+  one's-complemented, so the game divides by |d|−1. The bug is in every KOEI NES title that has the
+  handler. The appendix had stated one guard correctly all along, and the June fold contradicted it.
+- **A printed formula has no CFG.** The CFG gate had counted the overrides as CFG passes. Now each
+  override's C sits next to a model, and the gate checks the model against the ROM by value:
+  494/494 + 5/5.
+- **A sign dropped in rendering** (`$8B`'s parse): the C printed `!= 1` where the bytecode tests `!= -1`.
+  That's 5 NA1 sites, among them the arms purchase's "can't afford" sentinel, and about 370 across the
+  family. The simulator was "transcribed line-for-line from the C", so it inherited both bugs; it now
+  imports the ROM-checked models, and its 19/19 routines still match the ROM. **A transcription of a
+  derived layer carries that layer's bugs.** Point at the checked source instead.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
