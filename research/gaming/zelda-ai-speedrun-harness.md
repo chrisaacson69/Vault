@@ -203,7 +203,7 @@ Beam helps a single phase clearly. **Planned routes lost to the beam's own choic
 
 ## Open Questions
 - ~~**Mappy's demo script in a real game:** does the 22-command attract track clear round 1 when fed through the pad?~~ **Resolved 2026-10-02:** it replays frame-exact, but neither run clears the stage: the demo ends when a cat catches Mappy (see Step 1 result above).
-- **Mappy: what does phase manipulation buy?** Only measurable once the search converges for a fixed seed (beam search, item-route planning). Also: which cat routine reads `$21`, and is 256 phases the whole seed space?
+- **Mappy: what does phase manipulation buy?** Only measurable once the search converges for a fixed seed (beam search, item-route planning). ~~Also: which cat routine reads `$21`, and is 256 phases the whole seed space?~~ **Resolved 2026-10-27** → `game-annotation` Mappy chapter 10: `choose_cat_target_floor` takes bit 0 of ROM byte `$C000 + frame_counter` (the copyright text), the cats' only random source, so the seed is the one-byte phase. Next step: Mappy's `NOTES-open-threads.md`, *Future: AI play*.
 - **Frame 57,318:** what makes Mesen and quickerNES disagree there (an NMI-enable edge, `$0FF` bit 7)? Which one matches real hardware? Can a Mesen setting close it, or do search loops have to stay on one emulator?
 - **Verify screen scrolling against the disassembly:** find the scroll routine's input read and the missing position check. Could the bot's harness have discovered it by search, given a rule set that allowed it?
 - **Specimens not yet filed:** eval-beats-depth (→ [Slay](./slay-evaluation.md)), search-hides-bugs (→ [Oracles](../oracles-as-objective-functions.md)), the cyborg split (→ [Cyborg Model](../cyborg-model.md)).
