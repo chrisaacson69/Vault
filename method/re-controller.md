@@ -344,6 +344,20 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   delete what's done. Each deletion keeps a row in `RETIRED.md` with its verdict and restore commit.
   **There is no attic: keep the verdict, delete the script.** The render and site tools are left for
   the assets phase to sort.
+- **Naming, first pass: count what the reader sees, not what the registry holds** (na1-decompiler
+  `877e934`…`143acd1`). June's "bank 15: 135/135 named" was true in the TOML and false in the C.
+  142 fixed-region names were filed under the bank that first found them, so every other bank's view
+  printed `sub_XXXX`: about 1,070 call sites, and 42 bank-15 headers with no name. Moving them was a
+  guarded move, not a renaming. The one `sub_XXXX` left was a real miss: native 6502 inside a
+  bytecode bank, which discover had never walked (bank 2 `$8003`, a hex-grid step; 330/330 on the
+  ROM). The census also found 32 named RAM addresses still printing as hex at 234 sites (the engine
+  names loads, not addresses used as pointers), 191 comment mentions of retired placeholders, an
+  unlabelled SRAM name table below the hot list's threshold, and only one cross-title drift row.
+  **A name in the registry is not a name in the output; measure the output.**
+- **A bookkeeping helper needs its own planted fault.** The roadmap's close helper anchored one item
+  early, so two closing notes sat on the wrong revisits for a day while every status read correctly.
+  Found only because a phase's open count moved when nothing in it had changed. The fix asserts the
+  note and the status land in the same block.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
