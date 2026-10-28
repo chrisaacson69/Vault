@@ -404,6 +404,14 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   also corrected my own comment from the same afternoon. The verifier refused one reused slot and
   would not guess an unproven axis. **A var walk is also a top-down check of the routine names:
   collect what it contradicts.**
+- **A fixed fossil outlives its fix** (emu-harness `a3b39e6`; na1-decompiler `e693fed`…`e48d2bd`). June's
+  M3 replaced the old prototype that sent arg1..arg4 into every function, but the walk's regexes
+  and the decompiler's field rendering kept `arg[1-4]` and `range(1, 5)`, so arg5 / arg6 were never
+  named. Tracking that down exposed a second gap: positional mode counted a sub as done once it had
+  any `[vars]` section. Nine subs, including `draw_message`, had only their far-frame slots walked,
+  so they kept `arg1` for good. With per-slot tracking, bank 15 took three more batches and went
+  to 9 + 11 positional uses (the refused slots). **When a fix lands, grep for the assumption it
+  replaced; and "done" must be per item, not per container.**
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
