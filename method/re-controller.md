@@ -395,6 +395,15 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   whole batch: **114k tokens instead of ~500k**, with the verifier still independent (it gets the
   bytecode packet, never the C). In the grouped batch the verifier made its first real amendments.
   **Brief agents completely, then spend agents, not turns.**
+- **Bank 15's var walk, finished** (na1-decompiler `0f5fa50`). 19 batches, 109 subs, positional slots in
+  the C 1,033 -> 112. Grouped batches ran 108k-121k tokens. On the same batch, high effort gave the
+  same 12 names as standard, at the same tokens and 40% more time, so standard it was. The value
+  was not only the names. The slot evidence exposed routine names that were wrong or
+  under-described: `read_frame_timer` writes the timer and places the cursor sprite (renamed),
+  `cursor_nav_loop` is a digit spinner, and a "17 or 50" daimyo count was really 17 or 53. It
+  also corrected my own comment from the same afternoon. The verifier refused one reused slot and
+  would not guess an unproven axis. **A var walk is also a top-down check of the routine names:
+  collect what it contradicts.**
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
