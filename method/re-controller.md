@@ -358,6 +358,14 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   early, so two closing notes sat on the wrong revisits for a day while every status read correctly.
   Found only because a phase's open count moved when nothing in it had changed. The fix asserts the
   note and the status land in the same block.
+- **Records as C structs, guarded by reversal** (emu-harness `f44abee`; na1-decompiler `e35b8fd`). The
+  province schema had been in the profile since June, but the renderer used it only for `arg1->gold`.
+  The strided form `(i * 26) + 0x7013` never got the treatment, although an engine comment said it
+  did. It now renders as `province_table_live[i].morale`: 192 forms plus 216 `local->field`. The guard
+  is reversal: un-rendering every form must give back the old C exactly. That caught a real side
+  effect: the simplifier, which only fires on paren-free operands, started folding `!((x > 0))` once
+  the operands lost their parens. The pass moved after it. **A rendering is a rename only if it
+  inverts exactly.**
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
