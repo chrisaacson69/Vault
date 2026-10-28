@@ -377,6 +377,14 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   `[<title>.records]`, a key bk already used, and caught it only when a bk test broke; and I committed
   once with a test failing, because the commit ran in the same command as the suite. **Grep the
   profile for a key before claiming it, and never chain a commit onto a test run.**
+- **A guard that passes on an empty diff** (emu-harness `f19a0f2`; na1-decompiler `48bea76`). The
+  first var-walk calibration batch (5 subs, 10 agents, ~105k tokens per sub, every verdict citing
+  bytecode) was applied and passed its guard, but the C did not change. Since the engine moved in
+  June, the batch regen had never passed the frame-slot names, so all 135 subs of June var-walk names
+  were gone from `source/`. The pure-rename guard was satisfied by renaming nothing. Restored
+  (892 names, checked per sub), and the apply tool now fails a write that changes no C. **A
+  guard must also fail on nothing: assert that the intended change happened, not only that nothing
+  else did.**
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
