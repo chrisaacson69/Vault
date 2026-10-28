@@ -385,6 +385,16 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   (892 names, checked per sub), and the apply tool now fails a write that changes no C. **A
   guard must also fail on nothing: assert that the intended change happened, not only that nothing
   else did.**
+- **Where an agent's tokens go** (emu-harness `7748592`, `076f282`; na1-decompiler `1affc15`,
+  `f99192e`). Measured over four var-walk batches of 5 subs. The agents never wandered: 2-4 tool
+  calls each, a few KB read, and no verifier ever pulled a proposer back. The cost is **a ~50k
+  start-up write per agent** (system prompt, tool definitions, instruction files), paid once
+  however short its work is. Packing each sub's material into the prompt (Chris: "clarity of
+  purpose", the same rule as briefing a person) took turns from 46 to 18 and halved the time, but
+  barely moved the total. Once no agent needed tools, one proposer and one verifier could take the
+  whole batch: **114k tokens instead of ~500k**, with the verifier still independent (it gets the
+  bytecode packet, never the C). In the grouped batch the verifier made its first real amendments.
+  **Brief agents completely, then spend agents, not turns.**
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
