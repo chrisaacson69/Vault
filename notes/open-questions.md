@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1057 questions on 223 pages — 978 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
+**1058 questions on 223 pages — 979 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -32,11 +32,11 @@ title: "Open Questions Registry"
 ## Resolved
 > Newest first. *(no link)* = the note doesn't say where it was answered.
 
-- `8e15f5` [The RE Build Tool](../method/re-controller.md) L257 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
-- `8eeaf6` [The RE Build Tool](../method/re-controller.md) L256 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
-- `5a9146` [The RE Build Tool](../method/re-controller.md) L255 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
-- `01db67` [The RE Build Tool](../method/re-controller.md) L254 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates? *(2026-10-26)*
-- `da2306` [The RE Build Tool](../method/re-controller.md) L253 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here? *(2026-10-26)*
+- `8e15f5` [The RE Build Tool](../method/re-controller.md) L472 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
+- `8eeaf6` [The RE Build Tool](../method/re-controller.md) L471 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
+- `5a9146` [The RE Build Tool](../method/re-controller.md) L470 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
+- `01db67` [The RE Build Tool](../method/re-controller.md) L469 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates? *(2026-10-26)*
+- `da2306` [The RE Build Tool](../method/re-controller.md) L468 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here? *(2026-10-26)*
 - `a48d62` [Well-Structured Python at Scale](../research/well-structured-python.md) L110 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable… *(2026-10-22)*
 - `ae5c2f` [Well-Structured Python at Scale](../research/well-structured-python.md) L109 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "… *(2026-10-22)*
 - `5e8e78` [Well-Structured Python at Scale](../research/well-structured-python.md) L108 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question… *(2026-10-22)*
@@ -109,8 +109,9 @@ title: "Open Questions Registry"
 - `ca748b` L91 — Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? S…
 
 ### [The RE Build Tool](../method/re-controller.md)
-- `e8bbaa` L258 — Does a third naming pass, after bottom-up and top-down, add value?
-- `90e8fb` L259 — Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside game-annotation) get its own repo, as the KOEI titles did? Chris (2026-10-26): "…
+- `d70906` L473 — Does a third naming pass, after bottom-up and top-down, add value? (2026-10-28: top-down, the second pass, did. 41 renames came from the 97 riskiest…
+- `7e7d10` L476 — Can a gated inference rewrite replace the style rules and exception list for unreadable structured C? In this design a model rewrites a sub and keeps…
+- `90e8fb` L484 — Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside game-annotation) get its own repo, as the KOEI titles did? Chris (2026-10-26): "…
 
 ### [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md)
 - `8ccfd5` L80 — What's the actual multiplier?

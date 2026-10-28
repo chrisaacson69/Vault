@@ -420,6 +420,41 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   from the schema (that map then went into the seeds); a June probe's "arg2 = skill + 30" did not
   survive the generated C; and "bank complete" was checked against what the C still prints, which
   found a section-reader bug hiding a sub. **Check "done" against the output, every time.**
+- **Banks 2 and 0, and a batch size I got wrong** (na1-decompiler `1e8938a`…`708eba9`). All five code
+  banks are walked. In bank 2 I passed the batch *number* where the batch *size* went, so batches grew
+  from 4 to 11 subs. Nothing was lost, and the mistake measured scaling for free: 10-11 subs in a 97k
+  packet came back complete, at a quarter of the per-slot cost of 4-sub batches. The renamed C then
+  read as rules (the uprising roll, upkeep and desertion, the ownerless-fief auction). Two of my
+  relayed formulas were wrong, though, because I wrote them from the verifier's one-line summary
+  rather than the code: a comparison direction, and later the AI/human encoding. **A summary
+  supports a name. A formula must be read from the C.**
+- **Header statements run on entry** (emu-harness `8657242`; na1-decompiler `400513a`). Reading the
+  walked C showed a loop whose second half never runs. The structurer had lifted a rotated loop's
+  header into `while (C)` and moved the header's statements to the body bottom. They ran on every
+  pass except the first, so in 51 loops the C read a variable before setting it. 42 of those were
+  a phi's merge store and 9 were headers doing work, such as a first stat roll. cfg_gate passed all
+  51, because the control flow was unchanged. value_probe cannot evaluate loops. The fix folds a
+  store phi into its variable (780 phi lines down to 394, which was also the readability Chris
+  wanted) and bails on any other header statement. A sibling bug: 94 stored calls were re-printed
+  at their next read, so the C read as two prompts or two rolls (`60e9779`). **Name the relation
+  each gate checks, and what it cannot see. Correct-but-unread C was the oracle here.**
+- **The banner said DREAM** (emu-harness `3e075f8`; na1-decompiler `24cd0d4`). `titles.decompile`
+  never enabled DREAM or installed its hook. Only `decompile_all` and cfg_gate did. So NA1's committed
+  C had been V1-template output since the engine move, under a banner that said otherwise. Under
+  DREAM, gotos fell from 1060 to 261 and loops rose from 173 to 341. A raw run also left the
+  structure flag off for the rest of the process. **Assert the pipeline's mode from what the code
+  reports (collect's `structurer`), not from a banner.**
+- **Top-down, targeted** (na1-decompiler `bf2fcff`…`bd37529`). An exhaustive walk was estimated at
+  ~6M tokens. Instead the pass covered the 73 non-leaf names below HIGH, highest call height first.
+  Each came with its callers' C (+1) and its callees' notes (-1), and went to one reviewer and one
+  bytecode verifier per batch. 37 of 72 were renamed, falling from 6-9 per 10 at the top to about 4
+  near the bottom: names read from a routine's own body, where the callers show its role. The Riot
+  event was named a loyalty collector, an auction "succession", and a bribe "attack casualties".
+  Leaves need the other question (Chris): *does the name fit every caller, or only the first?* 3 of
+  the 25 most-shared leaves were renamed. That made 41 renames for ~1.4M tokens. **A verifier that
+  sees only renames passes a KEEP with a wrong role.** The leaf reviewer read
+  `get_province_ai_state` backwards and kept the name, so no one checked; the auction's C settled
+  it. Spot-check a sample of KEEPs too.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
@@ -435,7 +470,17 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
 - ~~Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): one project per session, sequential inference.
 - ~~Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)?~~ **Resolved 2026-10-26** → [Decisions](#decisions-chris-2026-10-26): keep it simple while trying it out.
 - ~~Which existing skills does the build tool replace (`/label-walk`, `/data-walk`, `/var-walk`, `/nobunaga`)?~~ **Resolved 2026-10-26** → all four leave the vault. The walks' method is emu-harness `PHASES.md` §5 and their Workflow scripts `workflows/`, with each title's facts in its `walk-context.json` (NA1's first; the old scripts' NA1 paths had gone stale). `/nobunaga` is NA1's own tool surface, so it moved into that repo.
-- Does a third naming pass, after bottom-up and top-down, add value?
+- Does a third naming pass, after bottom-up and top-down, add value? (2026-10-28: top-down, the
+  *second* pass, did. 41 renames came from the 97 riskiest names, at about a quarter of an
+  exhaustive walk's cost. The third is still untested.)
+- Can a **gated inference rewrite** replace the style rules and exception list for unreadable
+  structured C? In this design a model rewrites a sub and keeps its `// $addr` tags. cfg_gate
+  checks the rewrite against the bytecode, and a passing rewrite is committed as an overlay that
+  every regen re-checks. That keeps it rerunnable: tokens are spent once per sub, and the regen
+  stays deterministic. It would be aimed at the worst subs only (goto, `while (1)` and negation
+  counts), and judged for readability by blind pairwise tournament. Chris (2026-10-28): *"when
+  debugging DREAM, we often took the raw C and both of us rewrote it … this kinda turned into an
+  exception list, and became unwieldy. but maybe the idea is there."*
 - Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside `game-annotation`) get its own repo, as
   the KOEI titles did? Chris (2026-10-26): *"these early breakdowns did not get their own project folders, and
   this might be a mistake."* For now `status` finds them inside their monorepo.
