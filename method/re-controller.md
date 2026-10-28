@@ -412,6 +412,14 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   so they kept `arg1` for good. With per-slot tracking, bank 15 took three more batches and went
   to 9 + 11 positional uses (the refused slots). **When a fix lands, grep for the assumption it
   replaced; and "done" must be per item, not per container.**
+- **Banks 14 and 1, the economy and command layer** (na1-decompiler `8d95fd8`…`dbcf77d`). 19 batches,
+  104k-125k tokens each. The names now read as the game's rules: bribe = charisma + loyalty against
+  the target's plus a roll; max loan = `ratio_times10_capped(town - debt, loan_rate + 10, header -
+  gold)`; a tax change moves the daimyo's charisma by one. Two formulas matched yesterday's
+  ROM-checked models. Coordinator checks paid off three times: a pointer to daimyo +3 is luck,
+  from the schema (that map then went into the seeds); a June probe's "arg2 = skill + 30" did not
+  survive the generated C; and "bank complete" was checked against what the C still prints, which
+  found a section-reader bug hiding a sub. **Check "done" against the output, every time.**
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
