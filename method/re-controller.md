@@ -366,6 +366,17 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   effect: the simplifier, which only fires on paren-free operands, started folding `!((x > 0))` once
   the operands lost their parens. The pass moved after it. **A rendering is a rename only if it
   inverts exactly.**
+- **Naming leftovers, and a profile key that was already taken** (emu-harness `5d6a929`…`4fa7923`;
+  na1-decompiler `a9d5eab`…`3bda016`, pushed). One-dimensional arrays render by array name, declared
+  per file with the element type their shape implies. Daimyo records render as struct fields through
+  their accessors (`selected_province_daimyo_record()->charisma`). 54 duplicate strings are named by
+  reader instead of by address. Three June OPEN questions were answered from data, not reading: the
+  "keyed daimyo" is Honganji (110 SRAM dumps, not Nobunaga as guessed), "count ≥ 8" means no human
+  player is left, and a "force transfer" is a weighted average. `daimyo_table_17` holds 50 records in
+  the 50-fief game, so it was renamed. Two slips: I first put the struct tables under
+  `[<title>.records]`, a key bk already used, and caught it only when a bk test broke; and I committed
+  once with a test failing, because the commit ran in the same command as the suite. **Grep the
+  profile for a key before claiming it, and never chain a commit onto a test run.**
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
