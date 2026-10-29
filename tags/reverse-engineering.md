@@ -57,3 +57,4 @@ permalink: /tags/reverse-engineering/
 - [RE Build Tool Lessons](../method/re-controller-lessons.md) — ~90 disassembly-method lessons from the memory store, vault and title repos, sorted by phase with sources
 - [Taking emu-harness to the other three](../projects/game-annotation/comparisons/harness-expansion.md) — plan for 2600 / Intellivision / Atari 800 harness passes
 - [Mappy (Famicom) — `mappy-decompiler`](../projects/game-annotation/comparisons/mappy/README.md) — pointer to the Mappy code repo; the first title through all nine emu-harness phases
+- [The Legend of Zelda (NES) — `Zelda1-decompiler`](../projects/game-annotation/zelda1/README.md) — pointer to the Zelda 1 repo: a skeleton on the standard layout (the overworld, EXACT 128/128); the first banked native title

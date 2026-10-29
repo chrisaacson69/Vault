@@ -29,3 +29,4 @@ permalink: /tags/nes/
 - [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — NES Zelda bot, glitchless 37:02
 - [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.
 - [Mappy (Famicom) — `mappy-decompiler`](../projects/game-annotation/comparisons/mappy/README.md) — pointer to the Mappy code repo; the first title through all nine emu-harness phases
+- [The Legend of Zelda (NES) — `Zelda1-decompiler`](../projects/game-annotation/zelda1/README.md) — pointer to the Zelda 1 repo: a skeleton on the standard layout (the overworld, EXACT 128/128); the first banked native title

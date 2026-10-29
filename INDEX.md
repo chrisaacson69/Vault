@@ -7,7 +7,7 @@ permalink: /INDEX/
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-10-26 — full dated history in [logs/CHANGELOG.md](./logs/CHANGELOG.md).
+**Last updated:** 2026-10-29 — full dated history in [logs/CHANGELOG.md](./logs/CHANGELOG.md).
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -69,6 +69,7 @@ permalink: /INDEX/
     - [Gemfire (SNES)](./projects/game-annotation/snes/gemfire-snes/README.md) — `Gemfire-snes-decompiler`; LoROM 1 MiB, 8 KiB SRAM, RESET $800F. ✅ **all 591 bytecode routines named across 11 WRAM overlay modules** + data-walk; 218+48 opcodes, 82 syscalls, 88 native routines. Key finding = the per-routine native **`JSR $3287` trampoline** (body at +5), profile-driven — the discovery that invalidated and fixed the ROTK2 SNES walk
     - [Aerobiz (SNES)](./projects/game-annotation/snes/aerobiz-snes/README.md) — `AeroBiz-decompiler`; LoROM 1 MiB, 8 KiB SRAM. 🔬 recon #1 done: 22 WRAM modules / 479 routines / 99 syscalls; the first KOEI SNES title with no NES twin. Its derive-fresh recon found the shared-toolchain `$D8` bug (`jz abs16` decoded as `brz r8`) in both titles above (active)
   - [Elite (NES) — `elite-decompiler`](./projects/game-annotation/elite/README.md) — *(not a KOEI title)* the wireframe-3D-on-a-tilemap question, answered: the cart ships **CHR-RAM**, `PPUCTRL=#$10` puts background patterns at `$1000`, and the blitter's base `$e0` is set to `#$10` — **the pattern table IS the framebuffer**. Then the part that makes it work: 256 patterns can't cover 960 screen cells, so `LOIN` does **sparse, on-demand tile allocation** (find the tile a pixel lands in; reuse its pattern or grab the next free one), monochrome at 1 bit/pixel. Scaffolded 2026-08-05 with **1,142 RAM + 917 code labels converted** from Mark Moxon's annotated source — legitimate because its NTSC build is **byte-identical across all 131,072 PRG bytes** (`tools/verify_rom.py` is the gate). The vault's cleanest **create-then-check** target: the substrate was derived blind, the *allocator* was not
+  - [The Legend of Zelda (NES) — `Zelda1-decompiler`](./projects/game-annotation/zelda1/README.md) — *(not a KOEI title)* skeleton on emu-harness's standard layout (public, 2026-10-29): the overworld decoded and verified EXACT 128/128; the first banked (MMC1) native title, next to classify and recon
   - [Civilization Revolution](./projects/game-annotation/civ-revolution/README.md) — the series' next title via a **different method**: no decompilation (the original was purged by the iOS 32-bit cull), so a **strategy/game-design analysis** grounded in community tables + small exploratory models. In-vault project hub for the data + engines (tech dominance-frontier + trap-detector built; wide-vs-tall MIRR model parked on a missing measurement oracle — CivRev2 is a reskin with a too-weak tablet UI, a handheld ROM is the better-but-deferred path); thesis = [The City-Builder That Plays as a Rush](./research/gaming/civ-revolution-wide-rush.md) (active)
 
 ## Research

@@ -7,7 +7,7 @@ permalink: /tags/_index/
 # Tag Index
 > Master list of all tags used across the vault.
 
-- [6502](./6502.md) — 25 files
+- [6502](./6502.md) — 26 files
 - [65816](./65816.md) — 9 files
 - [agent-teams](./agent-teams.md) — 6 files
 - [agents](./agents.md) — 26 files
@@ -30,7 +30,7 @@ permalink: /tags/_index/
 - [crypto](./crypto.md) — 1 file
 - [cyborg](./cyborg.md) — 11 files
 - [debates](./debates.md) — 97 files
-- [decompilation](./decompilation.md) — 5 files
+- [decompilation](./decompilation.md) — 6 files
 - [defi](./defi.md) — 1 file
 - [economics](./economics.md) — 121 files
 - [education](./education.md) — 3 files
@@ -64,7 +64,7 @@ permalink: /tags/_index/
 - [morality](./morality.md) — 68 files
 - [music](./music.md) — 15 files
 - [natural-law](./natural-law.md) — 15 files
-- [nes](./nes.md) — 22 files
+- [nes](./nes.md) — 23 files
 - [nobunagas-ambition](./nobunagas-ambition.md) — 1 file
 - [objectivism](./objectivism.md) — 30 files
 - [opus-4-6](./opus-4-6.md) — 1 file
@@ -77,7 +77,7 @@ permalink: /tags/_index/
 - [python](./python.md) — 22 files
 - [pytorch](./pytorch.md) — 2 files
 - [religion](./religion.md) — 17 files
-- [reverse-engineering](./reverse-engineering.md) — 50 files
+- [reverse-engineering](./reverse-engineering.md) — 51 files
 - [risk](./risk.md) — 6 files
 - [scope-confusion](./scope-confusion.md) — 15 files
 - [simulation](./simulation.md) — 13 files

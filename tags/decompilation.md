@@ -12,3 +12,4 @@ permalink: /tags/decompilation/
 - [The AI Decomp Wave — Outside Confirmation](../research/ai-decomp-wave.md) — agent decompilation's "answer key" = the vault's correctness oracle; flashy ports/mods vs. mechanics; idea/expression legality
 - [REA (Reverse Engineer Anything) — Candidate Tool and Harness Teardown](../research/reverse-engineering/rea-candidate-tool.md) — MCP harness driving Ghidra/IDA; teardown vs. our harness (borrow: evidence records, unknowns registry); blocked on MOO1 because half of STARMAP is an FBOV overlay; 8-bit = raw 6502 only
 - [Mappy (Famicom) — `mappy-decompiler`](../projects/game-annotation/comparisons/mappy/README.md) — pointer to the Mappy code repo; the first title through all nine emu-harness phases
+- [The Legend of Zelda (NES) — `Zelda1-decompiler`](../projects/game-annotation/zelda1/README.md) — pointer to the Zelda 1 repo: a skeleton on the standard layout (the overworld, EXACT 128/128); the first banked native title
