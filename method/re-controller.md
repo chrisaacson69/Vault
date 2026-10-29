@@ -490,6 +490,10 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   silently without the ROM keeps its output committed**: the command index swallows the font error and
   returns "". The committed site turned out to publish 8 gitignored captures, and its turn-loop pages
   were four months behind their generators. **A committed build output is a second source that nothing checks.**
+  Then the ROM left the repo for a per-machine **ROM store**, found by name and checked by SHA-1 (emu-harness
+  `150263d`, na1-decompiler `5635a2d`). Routing all 16 readers through one resolver turned up a seventeenth
+  ROM: `render-fief-truecolor` read a copy in `tools/` that nobody knew about, and the fief-map batch
+  depended on it. Deleting the "duplicate" first would have broken it.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.

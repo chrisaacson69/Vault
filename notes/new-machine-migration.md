@@ -201,6 +201,7 @@ python -m <entrypoint>
 - [ ] Note the auth tokens that need re-issuing (gh, anthropic API key if separate, any cloud credentials)
 - [ ] Check `~/source/repos/codebase` (the no-remote dirty repo) — decide: discard, push to private, or copy raw
 - [ ] If `Monopoly-Bot-Richup.io/richup-integration/` matters: fork upstream, commit, push, then it joins the GitHub flow
+- [ ] Copy the **ROM store** (`~/roms/`, copyrighted, in no repo), then set `roms` in emu-harness `config.toml` (see `config.example.toml`). The tools check each ROM's SHA-1 against its profile, so a wrong or damaged copy fails loudly.
 - [ ] Decide on local-only folders (BattleTech, Drag, music explorations, car-finder, ansel, bin) — push to private repos OR copy raw OR abandon
 
 ## Recovery Notes
