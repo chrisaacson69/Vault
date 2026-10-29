@@ -456,6 +456,30 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   `get_province_ai_state` backwards and kept the name, so no one checked; the auction's C settled
   it. Spot-check a sample of KEEPs too.
 
+- **Assets, and a second track** (na1-decompiler `ada4ce1`…`3deb4a5`; emu-harness `7f4ddab`, `38e24a9`;
+  mappy-decompiler `abb6462`). Chris split the phase: extraction stays phase 7, and what is done *with*
+  the decompile (mechanics write-ups, play tools, the site) becomes a **companion track**, whose first
+  gate checks the pages against the registry. Every committed render was re-run and each difference
+  traced to two library changes, using the pre-change tool as the witness (a scratch copy with the old
+  palette reproduced 67 fief maps byte for byte). The title screen became ROM-only: the nametable in
+  the trace file is the ROM's `$A88A`. The fief-map stitches were retired. Chris: a fief map shows
+  part of a territory, not the territory. The site turned out to lag its own source, and
+  `lowering-atlas` moved to emu-harness, since its checking role is cfg_gate's.
+- **Sound is the engine, not the format.** The library runs a title's own sound engine headless.
+  The title supplies only how the game drives it: Mappy sets a trigger byte, NA1 runs a bytecode request
+  and then a native NMI tick. NA1, the first title on it, matched Mesen write for write. Getting there
+  exposed three VM gaps. The Python stand-in for `audio_control` never armed a voice. The emulated
+  `audio_load_voice` read the pointer's high byte from the wrong slot. And `Memory` ignored MMC1
+  writes, while the music driver banks in each stream byte. Mappy's outputs stayed byte-identical on
+  the library. **A VM's stand-in for a syscall is not the handler:** where the effect is the output,
+  run the ROM's kernel. The sound also corrected a name: `$0720` is "voice playing", the registry has it
+  as "mute", and the "UI confirm" cue is a looping song.
+- **The documentation gate** (`build.doccheck`) checks each `name` ($ADDR) pair a page quotes against
+  the `.mlb`. On NA1's current-state pages: 113 pairs, 12 old names, 5 moved. Its first catch was my
+  own edit from that morning. Accepting citations inside a routine then exposed data labels filed in the
+  wrong bank. **A check written for one layer finds defects in the layer below.** Process slip: I amended
+  a commit after citing its hash in two other repos; cite only pushed hashes.
+
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
 2. Agents: sequential inference by default, an agent per phase at most.
