@@ -511,6 +511,17 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   registry found them. An old name was mapped only where two sources agreed: the registry's git
   history gave its address, and the current entry at that address mentions the old name. Dated pages
   (ch9's June pass, the open-threads log) stay out of scope: they quote old names on purpose.
+- **NA1's data revisit: the misfiled labels** (emu-harness `540702d`, na1-decompiler `d3461d3`). The
+  labels doccheck found inside code were not careless filings. The decompiler named a `$8000`-`$BFFF`
+  pointer only from the code's own bank, so the June walk had filed each blob under the bank that
+  *reads* it, to get the name into the C. The cost was two wrong layers: the `.mlb` put the names on
+  code, and bank 15's section, visible to every bank, printed them inside four other banks' listings.
+  **A workaround filing points to a capability missing one layer down.** The fix went into the tool: a
+  pointer passed to a banked reader is named in the bank its argument selects. Then the decompiler took
+  the census itself, a better one than mine: 41 reads, a `$8000` that is four different blobs, and
+  existing correct labels that the misfilings had shadowed. Mine, which checked "data inside code",
+  missed misfilings that landed on another bank's data. The listings proved byte-identical, with only
+  labels removed. Recon, data and naming were re-stamped on the new hash.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
