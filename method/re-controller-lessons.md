@@ -62,7 +62,7 @@ repo by logical name (resolve through `.claude/local-paths.md`). Vault pages are
 - **O** The official manual is the schema oracle for what fields mean; where it contradicts itself, the code decides. — mem:feedback_manual_as_schema_oracle
 - **P** Schemas don't transfer between sibling engines (NA1's default mislabelled 26 BK subs); keep `field+N` until code proves it. — mem:feedback_manual_as_schema_oracle
 - **O** Confirm a field when a data value and a code role agree (ideally plus the manual); pin offsets on a caught write. — GemFire walk-method, LEmp-decompiler:docs/03
-- **P** ROM and SRAM are two representations of one record; frame locals are invisible to static grep. — na1-decompiler:nobunaga/CONTEXT.md
+- **P** ROM and SRAM are two representations of one record; frame locals are invisible to static grep. — na1-decompiler:CONTEXT.md
 - **R/P** Name the dedicated semantic globals; leave the scratch register file generic. — [KOEI SNES VM](../research/gaming/koei-snes-portable-vm.md)
 - **O** A probed field is a hypothesis until an artifact the probe didn't produce confirms it. — [Data-First RE](./data-first-re.md)
 - **R/P** Perturbation discipline: stored vs derived, one variable per test; a range check is not a semantic check. — [Data-First RE](./data-first-re.md)
@@ -76,13 +76,13 @@ repo by logical name (resolve through `.claude/local-paths.md`). Vault pages are
 ## Structure
 - **R** Foundation discipline early: verify the primitive layer against the oracle before building on it ($30–$3F fix cleared 996 sites). Chris: *"think how easy things would be if we had it right early on."* — mem:feedback_foundation_discipline_early
 - **O/P** Probe each primitive (compares, shifts, signedness) against the live handler; 323 inverted compares passed every structural gate. — mem:feedback_foundation_discipline_early
-- **O** VM ladder: byte-identical round-trip → per-opcode stack-effect audit → decompiler self-check. — na1-decompiler:nobunaga/CONTEXT.md
+- **O** VM ladder: byte-identical round-trip → per-opcode stack-effect audit → decompiler self-check. — na1-decompiler:CONTEXT.md
 - **O** Ground the opcode table in three independent sources. — mem:project_nobunaga_vm_interpreter_project
 - **R** Transpile the weak language deterministically to C; let the LLM reason in C. — [Transpilation as Grounding](../research/transpilation-as-grounding.md)
 - **R** Readability has no lower oracle: ground it as transfer fidelity; goto-count is a Goodhart trap. — mem:feedback_two_oracles_readability, [Repairing LLM Code](../research/repairing-llm-code.md)
 - **R** Structure with DREAM-style conditions, honest gotos on irreducible regions, fold gated on CFG equivalence; stop at good enough. — [DREAM](../research/reverse-engineering/dream-goto-free-structuring.md), emu-harness row G
 - **P** A gate passed 37 non-compilable subs: add an emit-integrity certifier (or recompile round-trip). — mem:feedback_two_oracles_readability
-- **P** Stack VM: unconsumed call results vanished from the C (+1,418 calls recovered later). — na1-decompiler:nobunaga/ROADMAP.md
+- **P** Stack VM: unconsumed call results vanished from the C (+1,418 calls recovered later). — na1-decompiler:ROADMAP.md
 - **P** The lossy C invites over-reading; LLM readers read wrong structure at high confidence. — [blind regrade](../research/gaming/na1-nes-snes-blind-regrade.md)
 - **R** Install a gate the moment you can name a ground truth and a cheap check; when one wall rejects N tries, run a divergent tournament. — [Anchor Method](./anchor-method.md)
 - **R** Native call graphs need typed edges, not just JSR: a routine that rolls into the next ("flows-into"), tail jumps, table and inline dispatch, task switches. Walk each routine's own flow with the other entries as stops; a halt at an entry is the roll-into, unless it lies past an always-taken branch. — [build tool, Mappy revisit](./re-controller.md#first-revisit-mappy-2026-10-26)
@@ -94,7 +94,7 @@ repo by logical name (resolve through `.claude/local-paths.md`). Vault pages are
 - **O** Then walk top-down to verify: *"a routine's first ops lie about its role."* — game-annotation:mappy/09
 - **O/R** Propose from the C, verify at the bytecode, root writes survivors (the verifier corrected 29/50 in NA1 bank 1); with no lower oracle, STOP. — mem:feedback_verification_independence_is_altitude
 - **R** Prep/apply deterministic behind a hard guard (only the target file, pure renames, exit 2 = stop). — `/label-walk`
-- **P** The label identity in a switchable window is the PRG offset; WRAM overlays need a per-module namespace. — na1-decompiler:nobunaga/CONTEXT.md
+- **P** The label identity in a switchable window is the PRG offset; WRAM overlays need a per-module namespace. — na1-decompiler:CONTEXT.md
 - **R** Generic-first: *"vague-but-correct beats specific-but-wrong."* — GemFire walk-method
 - **R** No address-keyed placeholders. Chris: *"this seems like a miss than the truth."* — mem:feedback_no_placeholder_names
 - **R** Name for what a routine does at its own level; tools find twins, inference picks the name, a lower artifact settles conflicts. — mem:feedback_routine_names_inference_over_tool
@@ -111,7 +111,7 @@ repo by logical name (resolve through `.claude/local-paths.md`). Vault pages are
 - **R** Publish conversions and analysis, never the ROM or manual. — [AI Decomp Wave](../research/ai-decomp-wave.md)
 
 ## Assets
-- **R/P** Render from ROM bytes with the real upload args; capture at runtime when a static hunt fails. — na1-decompiler:nobunaga/ROADMAP.md
+- **R/P** Render from ROM bytes with the real upload args; capture at runtime when a static hunt fails. — na1-decompiler:ROADMAP.md
 - **R** Title tools call the library for formats, decode, palettes and PPU rules (four palette copies, one wrong). — mem:feedback_title_tools_call_the_library
 - **O** The render oracle is the live PPU, through the virtual-canvas contract. — emu-harness rows O, O4
 
@@ -128,7 +128,7 @@ repo by logical name (resolve through `.claude/local-paths.md`). Vault pages are
 ## Project process
 - **R** Rule 0: read CONTEXT, the tool registry, the provenance registry, the ROADMAP before building; never hard-delete empirical dumps. — `/nobunaga`, mem:project_nobunaga_registration_layer
 - **R** One task per session, ending with a concrete "next session" entry. — mem:feedback_task_specific_sessions
-- **R** *"A diversion captured is free; a diversion chased costs the thread."* — na1-decompiler:nobunaga/ROADMAP.md
+- **R** *"A diversion captured is free; a diversion chased costs the thread."* — na1-decompiler:ROADMAP.md
 - **R** The coordinator is the single writer; sub-agents return pointers to artifacts, not claims. — mem:feedback_coordinator_subagent_context_transfer
 - **R** Mechanical work → a deterministic generator; unknown reads → fan-out. — mem:feedback_mechanical_vs_analytical_fanout
 - **R** Factor a shared library the moment a second title needs it; *"title-specific means really title-specific."* — emu-harness:MIGRATION.md

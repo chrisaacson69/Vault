@@ -21,14 +21,14 @@ project SDK → [projects/CLAUDE.md](../../../CLAUDE.md)
 | Logical name | `na1-decompiler` |
 | GitHub | `github.com/chrisaacson69/na1-decompiler` *(public)* |
 | Sibling path | `../na1-decompiler` (resolved per-machine via `.claude/local-paths.md`) |
-| Entry point | `na1-decompiler/nobunaga/CONTEXT.md` → `ROADMAP.md` |
-| Also carries | `na1-decompiler/lowering-atlas/` — the forward-catalog tooling |
+| Entry point | `na1-decompiler/CONTEXT.md` → `ROADMAP.md` (standard layout since 2026-10-29: chapters in `docs/`, tools in `tools/`, the site built by Actions) |
+| Lowering atlas | moved to emu-harness `tools/lowering-atlas/` (2026-10-29) |
 | Title | Nobunaga no Yabō: *Zenkokuban* · design clock **1986** · Famicom port 1988-03-18 |
 | Cart | MMC1/SOROM, 256 KB |
 | Depends on | `koei-nes` (family engine) → `emu-harness` (generic render core; was `nes-render`) |
 
 ⚠️ **Not cloned on this machine** (2026-07-21) — see `.claude/local-paths.md`. The walks (emu-harness
-`workflows/` with `nobunaga/walk-context.json`) and the `/nobunaga` skill (now in this repo's
+`workflows/` with `walk-context.json`) and the `/nobunaga` skill (now in this repo's
 `.claude/skills/`) cannot run until it is.
 
 **Reachability:** clone as a **sibling of the vault** so `../na1-decompiler/` resolves — portable

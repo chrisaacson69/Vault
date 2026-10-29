@@ -92,7 +92,7 @@ The bot did arrive at a toggle (the playbook's per-room tag: *avoid unless the r
 | Capability | AIBeatsZelda | Our toolset today |
 |---|---|---|
 | Read RAM / state | bridge `read` | ✅ Mesen Lua `emu.read`, `.dmp` dumps (`capture-test.py`) |
-| Watch writes / exec | — | ✅ `addMemoryCallback` loggers (`na1-decompiler/nobunaga/tools/lua/`) |
+| Watch writes / exec | — | ✅ `addMemoryCallback` loggers (`na1-decompiler/tools/lua/`) |
 | Run game logic offline | — | ✅ (stronger) the validated Python VM (`run-effect.py`), run on SRAM dumps |
 | Decode ROM tables / read the code | community disassembly + own decoders | ✅ (stronger) we *produce* the disassembly and decompiled C |
 | **Inject controller input** | bridge `hold buttons n frames` | ❌ never built |

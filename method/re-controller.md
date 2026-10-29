@@ -480,6 +480,16 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   own edit from that morning. Accepting citations inside a routine then exposed data labels filed in the
   wrong bank. **A check written for one layer finds defects in the layer below.** Process slip: I amended
   a commit after citing its hash in two other repos; cite only pushed hashes.
+- **The layout move** (na1-decompiler `8c3ff20`…`8ee1ac9`, emu-harness `03fe608`). NA1 is the first title on
+  the standard layout. The check was the gates the project already had, run from a directory outside the repo:
+  regen and labels byte-identical, the doc gate pair for pair, sound, round-trip, cfg_gate, and every
+  committed render rerun. Three choices kept it checkable. The tools were anchored to their own file
+  *before* the move, checked against the unmodified tools. The committed site was removed in its own commit,
+  so all 553 renames stayed exact (R100) and each chapter's history follows its source rather than the site
+  copy. And a bare Python in a clean checkout decided what Actions builds. **A generator that degrades
+  silently without the ROM keeps its output committed**: the command index swallows the font error and
+  returns "". The committed site turned out to publish 8 gitignored captures, and its turn-loop pages
+  were four months behind their generators. **A committed build output is a second source that nothing checks.**
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
