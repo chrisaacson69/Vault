@@ -494,6 +494,17 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   `150263d`, na1-decompiler `5635a2d`). Routing all 16 readers through one resolver turned up a seventeenth
   ROM: `render-fief-truecolor` read a copy in `tools/` that nobody knew about, and the fief-map batch
   depended on it. Deleting the "duplicate" first would have broken it.
+- **The standard is not NA1's** (mappy-decompiler `4034066`…`7934109`, emu-harness `fe9227e`). The same
+  move on Mappy, a native NROM title with no KOEI profile, to test whether the layout was title-specific.
+  It mostly held. It lacked a slot for a native title's discover tables (now `source/0-discover/`), and
+  `docs/` is optional where the chapters live in another repo. Without a profile, one `tools/paths.py`
+  holds every location plus the ROM's name and hash, so the move itself was an edit to one file. The
+  sequence was NA1's (anchor, pure renames, paths follow, ROM store), with a baseline from a foreign cwd
+  before the first edit. **The offline gates passed a broken tool; the live gate caught it.** `paths.ROM`
+  shadowed `sound_verify`'s import of the ROM *bytes* under the same name, and only `sound_verify`'s Mesen
+  run exercised that line. A bulk rename checks local definitions; it must also check imported names.
+  The README's hash the roadmap pointed to did not exist. The dump's identity came from the chapter
+  README's CRC32 and headerless SHA-1, checked against the file before its whole-file hash was adopted.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
