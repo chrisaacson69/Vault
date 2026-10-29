@@ -505,6 +505,12 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   run exercised that line. A bulk rename checks local definitions; it must also check imported names.
   The README's hash the roadmap pointed to did not exist. The dump's identity came from the chapter
   README's CRC32 and headerless SHA-1, checked against the file before its whole-file hash was adopted.
+  Then Mappy's documentation gate, over chapters that live in another repo (game-annotation `6aaff5c`,
+  mappy-decompiler `3f41fc4`): 16 renamed and 1 moved, now 0. **doccheck sees a name only next to its
+  address.** Seven stale names per page sat bare, and a scan of backticked identifiers against the
+  registry found them. An old name was mapped only where two sources agreed: the registry's git
+  history gave its address, and the current entry at that address mentions the old name. Dated pages
+  (ch9's June pass, the open-threads log) stay out of scope: they quote old names on purpose.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
