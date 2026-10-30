@@ -522,6 +522,18 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   existing correct labels that the misfilings had shadowed. Mine, which checked "data inside code",
   missed misfilings that landed on another bank's data. The listings proved byte-identical, with only
   labels removed. Recon, data and naming were re-stamped on the new hash.
+- **NA1's close-out without captures** (na1-decompiler `70e5f70`..`83c2d61`, 2026-10-30). Three
+  lessons. **An open question can be a re-ask:** the section-record fields the refile left open had
+  been in chapter 20 since June. That chapter was itself wrong on one point (the 50-fief map uses
+  sections 2-8, not 0-8), and the ROM bytes settled both. **Run the engine before trusting a name's
+  meaning:** the sound fix was framed as a renaming ("playing flag, not triangle mute"), but running
+  the ROM's own engine showed which voice carries what. Songs play on voices 1-3, and effects on
+  voice 0 duck the song's *pulse 2*, so the June chapter was wrong about the channel too. **A
+  presentation rung with no generator is a stale rung waiting to happen:** the raw 6502 listings came
+  from a deleted script, and the shared `cpu.m6502.disasm.render` turned out to reproduce all 16 byte
+  for byte, so it now runs in the regen. Documentation also had to cover links: the chapters still
+  carried 165 vault-relative footer links from before the extraction, dead on GitHub and the site. A
+  link scan of the built site (202 → 0) belongs beside doccheck.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.

@@ -27,9 +27,9 @@ project SDK → [projects/CLAUDE.md](../../../CLAUDE.md)
 | Cart | MMC1/SOROM, 256 KB |
 | Depends on | `koei-nes` (family engine) → `emu-harness` (generic render core; was `nes-render`) |
 
-⚠️ **Not cloned on this machine** (2026-07-21) — see `.claude/local-paths.md`. The walks (emu-harness
-`workflows/` with `walk-context.json`) and the `/nobunaga` skill (now in this repo's
-`.claude/skills/`) cannot run until it is.
+**Status (2026-10-30):** eight of the ten phases are done and fresh (`py -3.14 -m emu_harness status`
+in the repo). Assets and live verification wait on Mesen captures: a live-PPU match per render
+family, the sound gate beyond song 0, and the rules in the live revisit.
 
 **Reachability:** clone as a **sibling of the vault** so `../na1-decompiler/` resolves — portable
 across machines *and* readable by an agent. If a machine doesn't follow the sibling layout, its
