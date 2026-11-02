@@ -534,6 +534,21 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   for byte, so it now runs in the regen. Documentation also had to cover links: the chapters still
   carried 165 vault-relative footer links from before the extraction, dead on GitHub and the site. A
   link scan of the built site (202 → 0) belongs beside doccheck.
+- **NA1's formulas and the one structurer** (emu-harness `8915956`, 2026-11-02). Four lessons. **A
+  capture checks one point:** Give-Men, the tax direction and `pct_op` had each matched a May
+  capture and were each wrong (men ≈ morale hid a missing term, a raise-only capture hid what a cut
+  does, the observed drains fit the plain percentage too). Running the ROM's own routine over an edge
+  grid, with a planted wrong model that must fail, split all three at once; the tool is NA1's
+  `na1sim.oracle`. **A kept A/B reference becomes the default:** the template structurer stayed
+  beside DREAM after the cutover as a comparison, and its flags were the module default, so three
+  tools and the recorded CFG gate ran it without asking (the gate's "11 honest gotos" were the
+  template's count; DREAM's is 0). The cure was removal, not a corrected default: once V2 proved
+  out, Chris's point, V1 was only a version number. **A gate needs its own can-it-fail test, and
+  the mutation must change something:** DREAM's equivalence relation judged ~470 subs with no test
+  that it rejects anything; the first mutation suite "failed" on swaps that do not change the CFG
+  (a continue after a switch whose merge is the loop header), so only CFG-changing mutations count.
+  **A plant must reach the live path:** the value probe's planted inverter bug had moved into dead
+  code when DREAM took over; the plant that matters is DREAM's own negation.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
