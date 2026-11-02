@@ -22,6 +22,7 @@ permalink: /tags/strategy/
 - [NA1 — Game-Design Crucible](../research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the theses it sparked
 - [The Hollow Opponent](../research/gaming/hollow-opponent-perceived-depth.md) — how to actually beat NA1 (never be the weakest reachable neighbor) + where the residual strategy lives
 - [The Dead-Verb Test](../research/gaming/dead-verbs-mechanism-viability.md) — slots are the binding constraint, so one-shot verbs are dominated by compounding develop; Pact is redundant with don't-be-a-target; mechanism viability + "does KOEI learn?"
+- [NA1 Turn Economy — Action Slots, the Economic Index and the Winning Position](../research/gaming/na1-turn-economy.md) — the action slot is the binding constraint; win once your Economic Index exceeds everyone else's combined; 2.4% per-slot hurdle
 - [Civilization Revolution — The City-Builder That Plays as a Rush](../research/gaming/civ-revolution-wide-rush.md) — wide beats tall on the MIRR hurdle (positive ROI ≠ growth rate); Republic 1-pop-settler + per-city first-bonuses × geometric cities = unbraked snowball; gold as liquid tempo; the efficient frontier collapses to one line in 1v1
 - [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)

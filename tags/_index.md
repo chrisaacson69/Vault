@@ -44,13 +44,13 @@ permalink: /tags/_index/
 - [free-will](./free-will.md) — 7 files
 - [game-ai](./game-ai.md) — 29 files
 - [game-design](./game-design.md) — 11 files
-- [game-theory](./game-theory.md) — 46 files
-- [games](./games.md) — 72 files
+- [game-theory](./game-theory.md) — 47 files
+- [games](./games.md) — 73 files
 - [grounding](./grounding.md) — 11 files
 - [history](./history.md) — 28 files
 - [insurance](./insurance.md) — 1 file
 - [javascript](./javascript.md) — 1 file
-- [koei](./koei.md) — 9 files
+- [koei](./koei.md) — 10 files
 - [law](./law.md) — 10 files
 - [libertarian-law](./libertarian-law.md) — 45 files
 - [llm-limitations](./llm-limitations.md) — 16 files
@@ -65,7 +65,7 @@ permalink: /tags/_index/
 - [music](./music.md) — 15 files
 - [natural-law](./natural-law.md) — 15 files
 - [nes](./nes.md) — 23 files
-- [nobunagas-ambition](./nobunagas-ambition.md) — 1 file
+- [nobunagas-ambition](./nobunagas-ambition.md) — 2 files
 - [objectivism](./objectivism.md) — 30 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
@@ -83,7 +83,7 @@ permalink: /tags/_index/
 - [simulation](./simulation.md) — 13 files
 - [snes](./snes.md) — 13 files
 - [software-engineering](./software-engineering.md) — 10 files
-- [strategy](./strategy.md) — 31 files
+- [strategy](./strategy.md) — 32 files
 - [tools](./tools.md) — 6 files
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files

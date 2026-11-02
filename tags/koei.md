@@ -5,6 +5,7 @@ Genghis Khan) as decompilation + game-design specimens.
 
 - [KOEI AI & combat evolution — a five-decompiler study](../research/gaming/koei-ai-combat-evolution.md)
 - [The Dead-Verb Test — does KOEI learn?](../research/gaming/dead-verbs-mechanism-viability.md)
+- [NA1 Turn Economy — Action Slots, the Economic Index and the Winning Position](../research/gaming/na1-turn-economy.md)
 - [The Hollow Opponent — NA1's AI decoded](../research/gaming/hollow-opponent-perceived-depth.md)
 - [NA1 crucible](../research/gaming/nobunaga-crucible.md)
 - [L'Empereur — the two-tier turn (NES→SNES design hinge)](../research/gaming/lempereur-two-tier-turn.md)

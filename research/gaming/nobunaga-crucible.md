@@ -25,7 +25,7 @@ Most game-design claims are inferred from play and stay arguable. NA1's claims a
 - **[The Dead-Verb Test — Mechanism Viability and Whether KOEI Learns](./dead-verbs-mechanism-viability.md)** — most of NA1's command menu (Bribe/Ninja/Pact/Marry) is *dead*: one-shot verbs dominated by compounding develop and redundant with the don't-be-a-target policy → no home state. Generalizes to a viability test (a verb needs a state where it's the *uniquely best response*) and a falsifiable forward question for the series: does a later KOEI title give its verbs a home state? Decoded from the combat-attrition + war-commit-gate work.
 
 **Candidates still in the notes (repo + memory), worth promoting:**
-- **Turn-economy — action slots are the binding constraint** (4 decisions/year; the frontier is 4-D: terrain × count × quality × runway). A portable strategy-design thesis, currently memory-only.
+- **[NA1 Turn Economy](./na1-turn-economy.md)** — action slots are the binding constraint (one command per fief per season; the frontier is 4-D: terrain × count × quality × runway), plus Chris's Economic Index, the Winning-Position Theorem and the per-slot hurdle rate. Promoted from memory 2026-11-02.
 - **Binding-constraint determines analysis depth** — a tight multi-axis constraint (NA1) yields per-position character; a loose single-axis one (Aerobiz) goes flat. A general game-analysis lens.
 - **Equilibrium & termination under deterministic play** — the N=17 gang-up draw that motivates the randomization layer (the deterministic half of the n3 thesis).
 

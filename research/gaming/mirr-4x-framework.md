@@ -78,6 +78,7 @@ The economics parent ([Risk and Entrepreneurship](../economics/risk-and-entrepre
 - **[moo1-opening-optimizer](../../projects/moo1-opening-optimizer/README.md)** (project) — *Contributes:* the simulation substrate (Phase 5) meant to produce the missing MIRR inputs (military/research/threat ROI).
 - **[MoM — Tier System and MIRR](./master-of-magic/tier-system-and-mirr.md)** — the cross-game extension. *Contributes:* the **option-value** refinement (buildings as call options), **multiplicative stacking** (effective value is a product, not a sum — high-figure units have steeper investment curves), and the **time-window** thesis (Wraith rush as MIRR at its purest).
 - **MoM — `masterofmagic` repo** (external) — *Contributes:* the Markov battle simulator grounding tier dominance (T5 Great Drake wins 100% vs everything T3 and below), which is what makes "reach the tier first" a real return.
+- **NA1 (Nobunaga's Ambition, NES)** → [NA1 Turn Economy](./na1-turn-economy.md): the hurdle measured on a game with **hard per-fief caps** — ~10% CAGR over a 20-year playthrough ⇒ ~2.4% per action slot; a cap forces territorial expansion to keep the rate, and Chris's Winning-Position Theorem marks when compounding has already decided the game. Play-observed, not simulated.
 - *(Open slot: any future 4X specimen — Civ, Stellaris, RotP — drops in here with its own contribution line.)*
 
 ## Open questions

@@ -30,6 +30,7 @@ permalink: /tags/games/
 - [NA1 — Game-Design Crucible](../research/gaming/nobunaga-crucible.md) — index tying the Nobunaga RE repo to the theses it sparked
 - [The Hollow Opponent](../research/gaming/hollow-opponent-perceived-depth.md) — decoding the opponent collapses the depth that lived in player ignorance; it migrates to the board
 - [The Dead-Verb Test](../research/gaming/dead-verbs-mechanism-viability.md) — a verb is viable only with a home state where it's the *uniquely best response*; NA1's Bribe/Ninja/Pact/Marry are dead; falsifiable "does KOEI learn?" series scorecard
+- [NA1 Turn Economy — Action Slots, the Economic Index and the Winning Position](../research/gaming/na1-turn-economy.md) — slots, not efficiency: NA1's Economic Index, the Winning-Position Theorem and ~10% CAGR
 - [Civilization Revolution — The City-Builder That Plays as a Rush](../research/gaming/civ-revolution-wide-rush.md) — 1v1 play decodes friendly Civ into an opening decapitation rush + wide-MIRR snowball (tech win before 0 BC); building tall/culture/the city-builder identity are dead verbs; Dead-Verb specimen #2 + live MIRR confirmation
 - [CoM Anti-Colossus Counter Analysis](../research/gaming/master-of-magic/com-anti-colossus.md)
 - [CoM Spell Counter-Graph](../research/gaming/master-of-magic/com-counter-graph.md)
