@@ -612,6 +612,11 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   counts), and judged for readability by blind pairwise tournament. Chris (2026-10-28): *"when
   debugging DREAM, we often took the raw C and both of us rewrote it … this kinda turned into an
   exception list, and became unwieldy. but maybe the idea is there."*
+  **2026-11-04, Chris's position after the DREAM revisit:** the engine gets at least 95% of the way,
+  and inference is probably the answer to the exceptions, rather than title-specific plug-ins for
+  one-off improvements. His concerns stand: it can be expensive and may not be repeatable. The overlay
+  design answers both if each rewrite is committed and re-checked. Candidates: the subs DREAM does not
+  own (24 in NA1; multi-level breaks and shared switch cases). Not yet tested.
 - Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside `game-annotation`) get its own repo, as
   the KOEI titles did? Chris (2026-10-26): *"these early breakdowns did not get their own project folders, and
   this might be a mistake."* For now `status` finds them inside their monorepo.
