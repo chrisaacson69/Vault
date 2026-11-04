@@ -34,6 +34,7 @@ The two scenarios encode two unification scopes: the 17-fief map is central Hons
 ## Open Questions
 - Does the theorem hold under the AI's actual behaviour (it attacks only its weakest neighbour; [Hollow Opponent](./hollow-opponent-perceived-depth.md)), or only against rational coalitions? A sim run (na1sim) could test the threshold directly.
 - Is ∛(town·output·wealth) the right index? It omits rice and dams, which drive the rice harvest (output × dams); an index fitted to the harvest formula might predict better.
+  **Evidence, 2026-11-04:** Chris's peasant shortcut beats balance. Leaving town and output alone and giving gold and rice to the peasants reached about 3.5 times the June rotation's income by year 10 in the checked sim, because wealth feeds both harvests and the gift costs no other stat. The index scores that fief poorly, so it measures balance, not income ([`synthesis-frontier` #36](https://github.com/chrisaacson69/na1-decompiler/blob/main/docs/synthesis-frontier.md)).
 - The CAGR is from one playthrough; its spread across starts and cap rolls is unmeasured.
 
 ## Tags

@@ -567,6 +567,14 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   run. Strict runs now raise on a truncated routine too. **A ✅ in a registry is a claim with a date:**
   running every tool found three broken since the layout move, one a quick-route, one exiting 0
   having done nothing, and a capture tool overwriting a committed asset by default.
+- **NA1: an expert's shortcut through the checked sim** (2026-11-04). Three lessons. **A "tuned"
+  agent is tuned to the model that built it:** the June player gave rice in Summer and developed
+  town and output; Chris's shortcut (give to the peasants) tripled its income in one change. And the
+  sim could not express it until gold Give, the Give's charisma and the harvest's place in the
+  season were brought under the check. **Ask the player why before optimizing a habit:** I moved the
+  rice gift earlier for the income marks; Chris's Summer gift keeps rice for battle, and his reason
+  beat my formula. **An unreachable grid point still pays:** a stat above its cap is impossible in
+  play, yet that one input exposed a value arm missing from the printed C, a bug every gate passed.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
