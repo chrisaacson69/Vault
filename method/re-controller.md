@@ -549,10 +549,14 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   (a continue after a switch whose merge is the loop header), so only CFG-changing mutations count.
   **A plant must reach the live path:** the value probe's planted inverter bug had moved into dead
   code when DREAM took over; the plant that matters is DREAM's own negation.
-- **NA1's auto tasks: rules, value probe, render triage** (2026-11-04). Five lessons. **Check the code
+- **NA1's auto tasks: rules, value probe, render triage** (2026-11-04). Six lessons. **Check the code
   the sim runs, not a copy of the rule:** the rules went into the functions the strategic loop calls,
   and the sim's placeholders (a half-the-garrison revolt, an auction charging the winner's own bid)
-  were evicted, so the check guards something; the clan tier list moved when they went. **Script the
+  were evicted, so the check guards something. **Size the sample before reading a change:** 40 seeds
+  showed one clan going 57% to 92% after the rules changed, and I called that too large to be noise.
+  At 600 seeds, with each rule switched on and off alone, it was 75.5% to 77.7% and no clan's change
+  was significant; the real change was mechanical (the old rebels could never win, so the auction
+  code had never run), and a survival table could not show it. **Script the
   random draws and compare what was asked for:** with `rng_mod` scripted on both sides, the grid
   reaches every draw's edge, and logging the moduli catches a wrong `rng(n)` or a reordered draw even
   when the values agree. **A summary of the C is not the C, and the C is not evaluation order:** the
