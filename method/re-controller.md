@@ -549,6 +549,20 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   (a continue after a switch whose merge is the loop header), so only CFG-changing mutations count.
   **A plant must reach the live path:** the value probe's planted inverter bug had moved into dead
   code when DREAM took over; the plant that matters is DREAM's own negation.
+- **NA1's auto tasks: rules, value probe, render triage** (2026-11-04). Five lessons. **Check the code
+  the sim runs, not a copy of the rule:** the rules went into the functions the strategic loop calls,
+  and the sim's placeholders (a half-the-garrison revolt, an auction charging the winner's own bid)
+  were evicted, so the check guards something; the clan tier list moved when they went. **Script the
+  random draws and compare what was asked for:** with `rng_mod` scripted on both sides, the grid
+  reaches every draw's edge, and logging the moduli catches a wrong `rng(n)` or a reordered draw even
+  when the values agree. **A summary of the C is not the C, and the C is not evaluation order:** the
+  revisit's note had the human decay as `rng(2)` on men; the ROM says `rng(skill_level)` on morale.
+  And two draws in one printed expression ran right to left. **A stub that does nothing is a silent
+  green:** `install_stub` intercepted only calls with arguments, so a stub on a no-argument routine
+  was ignored without error, and the frame delay it should have skipped was most of an 18-minute
+  run. Strict runs now raise on a truncated routine too. **A ✅ in a registry is a claim with a date:**
+  running every tool found three broken since the layout move, one a quick-route, one exiting 0
+  having done nothing, and a capture tool overwriting a committed asset by default.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.

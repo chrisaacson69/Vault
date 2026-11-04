@@ -27,12 +27,13 @@ project SDK → [projects/CLAUDE.md](../../../CLAUDE.md)
 | Cart | MMC1/SOROM, 256 KB |
 | Depends on | `koei-nes` (family engine) → `emu-harness` (generic render core; was `nes-render`) |
 
-**Status (2026-11-02):** eight of the ten phases are done and fresh (`py -3.14 -m emu_harness status`
+**Status (2026-11-04):** eight of the ten phases are done and fresh (`py -3.14 -m emu_harness status`
 in the repo). The structurer is one engine now, DREAM with a region-reducer fallback; its current
-state is `docs/decompiler-structure.md`. The economy formulas are checked against the ROM's own
-routines over an edge grid (`na1sim.oracle`), which corrected Give-Men and the tax direction.
-Assets and live verification wait on Mesen captures: a live-PPU match per render family, the sound
-gate beyond song 0, and the rules in the live revisit.
+state is `docs/decompiler-structure.md`. The economy formulas and the game's rules (upkeep, luck,
+Spring, revolt, auction, bribe, Train, Hire) are checked against the ROM's own routines
+(`na1sim.oracle`), and the render and capture tools are sorted. Assets and live verification wait
+on Mesen captures: a live-PPU match per render family, the sound gate beyond song 0, `$796A`, the
+per-stat map, and a spot check of the corrected formulas in play.
 
 **Reachability:** clone as a **sibling of the vault** so `../na1-decompiler/` resolves — portable
 across machines *and* readable by an agent. If a machine doesn't follow the sibling layout, its
