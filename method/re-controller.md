@@ -575,6 +575,17 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   rice gift earlier for the income marks; Chris's Summer gift keeps rice for battle, and his reason
   beat my formula. **An unreachable grid point still pays:** a stat above its cap is impossible in
   play, yet that one input exposed a value arm missing from the printed C, a bug every gate passed.
+- **The printed C loses no live value** (emu-harness, 2026-11-04). Four lessons. **A whitelist of
+  known shapes is a list of bugs not yet found:** the merge repairs named first ops, so each past
+  value bug had added a shape and the next waited its turn. Liveness replaced the list and found 11
+  subs in NA1 and 552 across the sibling titles. **Measure an effect table on the handlers, and
+  check what the measurement can miss:** reads were run on the live ROM handlers, but a junk popped
+  pointer aimed `POPSTORE` at ROM, the store vanished, and it scored as no read; that cost a clamp
+  its floor. No gate saw it. A diff read by eye did. **A gate's own model can share the bug it
+  guards:** the structure gate recorded only backward reorders, and its repair pass trusted the same
+  view, so a block skipping forward passed both. Executing the printed C found it. **Name the
+  size-of-job metric before quoting it:** I said a census of open merges would size the sibling
+  work; it counts what stays open after the fix, not what the fix changes.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
