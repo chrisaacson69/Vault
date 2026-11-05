@@ -586,6 +586,13 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   view, so a block skipping forward passed both. Executing the printed C found it. **Name the
   size-of-job metric before quoting it:** I said a census of open merges would size the sibling
   work; it counts what stays open after the fix, not what the fix changes.
+- **NA1: a player's rules beat a searched menu, nearly** (2026-11-05). Two lessons. **Check a rule's
+  threshold against the source:** Chris's "under 70 loyalty" was exact (70 x 0.65 = 45.5, and 45 is
+  where the revolt roll cannot fail); the sim's guard was stricter and refused safe taxes. Those
+  rules took the default from about 45% to 57%, within 2 points of the best of 64 plans per fief.
+  **A correct reading of now is not a policy:** the picker reads the ROM's target choice exactly and
+  still lost as a standing rule, since fiefs unhunted today are hunted later. Margins did not help,
+  which ruled out my first explanation. Publish that result beside the win.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
