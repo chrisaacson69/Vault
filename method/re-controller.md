@@ -593,6 +593,17 @@ isolated properly. emu-harness `47e7f66`, na1-decompiler `38387b5`.
   **A correct reading of now is not a policy:** the picker reads the ROM's target choice exactly and
   still lost as a standing rule, since fiefs unhunted today are hunted later. Margins did not help,
   which ruled out my first explanation. Publish that result beside the win.
+  **Corrected 2026-11-06:** that test does not show this. The picker read the target but not the
+  budget gate, and every board had a broken setup coin. See the next entry.
+- **NA1: doubt a surprising number; the read decides whether, not how much** (2026-11-06). Chris
+  doubted a 164-man Takeda. It was the ROM's rule, but checking it showed the VM's stand-in generator
+  has an alternating low bit, so all seven setup coins landed alike and every survival figure came
+  from boards that cannot occur. A stand-in is fine for replay and wrong for distributions. Three
+  more: a static table of who *can* attack failed its check against outcomes, while the same table
+  using the ROM's own target choice predicted games (92% / 31% / 15% / 0% alive by row). Buying exactly
+  to a computed line lost twice, since the line is read before the neighbours move; the same read
+  spending all the gold won. And "a men-first plan does nothing" meant the default already did it:
+  the control (no men) cost 20-30 points. Test a plan against its absence, not against itself.
 
 ## Tensions, as resolved
 1. Sibling oracles: grade after, never derive from; the derivation aims to replace the reference.
