@@ -1,7 +1,7 @@
 ---
 status: active
 created: 2026-11-08
-discussion: pending
+discussion: folded-in
 ---
 # Monopoly — Perfect Play vs Board Odds
 > Two bot simulations of official-rules Monopoly agree on the practical rules: **trade, build aggressively (mortgage lone properties to do it), don't sit on cash, buy what you land on, don't stop at three houses, stay in jail once the board fills.** Both find trading the biggest single lever, and without it the game stalls: two of three no-trade games never end. Board Odds adds a paired-dice luck measure. Expert beats normal 71.63% one-on-one, but the same seat wins both games on 47.19% of boards, so "dice decided" that share for this matchup. Both channels' trade models are narrow (set-for-set swaps, plus cash for a set's last pieces on Board Odds), which bounds what they say about real trading.
@@ -9,7 +9,7 @@ discussion: pending
 **Source:** [Perfect Play — "The Best Monopoly Strategy, Tested on 300 Million Games"](../../../raw/videos/2026-10-13%20perfect-play-monopoly-300m-games.md) — <https://www.youtube.com/watch?v=S_2eVAaw1UM> (8:48, 2026-10-13; creator captions)
 **Source:** [Board Odds — "How Much of Monopoly Is Luck? I Simulated 100 Million Games"](../../../raw/videos/2026-11-06%20board-odds-monopoly-luck-100m-games.md) — <https://www.youtube.com/watch?v=eqzI_SjMBT4> (17:06, 2026-11-06; auto-captions)
 
-**Links:** [Simulation channels hub](./README.md), [Monopoly project](../../../projects/monopoly/README.md), [Frontier Trade Theory](../monopoly/frontier-trade-theory.md), [Capability Without Leverage](../capability-without-leverage.md)
+**Links:** [Simulation channels hub](./README.md), [Monopoly project](../../../projects/monopoly/README.md), [Frontier Trade Theory](../monopoly/frontier-trade-theory.md), [The Nash Bargaining Problem](../nash-bargaining-problem.md), [Capability Without Leverage](../capability-without-leverage.md)
 
 ---
 
@@ -61,6 +61,8 @@ Measured against the vault's [frontier trade theory](../monopoly/frontier-trade-
 - **Never trading is catastrophic.** The project's NoTrade bot won 9.2%, against 6.5% and 4.69% on the channels.
 
 **Apparent tension, explained:** Perfect Play's careful trader, which refuses lopsided swaps, does worse than one that always accepts. The project's Growth AI, which demands 35% of a set's value before selling a completing piece, wins its tournament at 30.9%. With swaps as the only trade type, refusing means no trade and a stalled game. Selectivity pays only when cash can balance a deal.
+
+**The careful trader's result is correct, not an artifact (Chris).** The right comparison is a bad trade vs *no trade*, not vs a good trade. No trade wins 4.7–9.2% across the three engines, while even the weaker set in a duel keeps real equity (light blue still loses to Boardwalk/Park Place only 6 in 10). So a lopsided swap is still +EV for the losing side. In [Nash bargaining](../nash-bargaining-problem.md) terms, both players gain over the disagreement point (no trade), and the careful trader refuses because its *partner* gains more. That is the ultimatum-game rejection, burning surplus to punish an unfair split, in bot form, and it loses for the same reason. **What the vault adds is the price, not the split:** EPT valuation locates both disagreement points and the surplus between them. Dividing that surplus is the bargaining selection problem, which the Nash page records as unsolved (a continuum of equilibria; axioms or patience have to be imported to pick one). One qualifier: the disagreement point moves. A refusal can send the partner to a third player, which makes the refuser's real no-trade position worse than the status quo.
 
 ## Caveats
 

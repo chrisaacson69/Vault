@@ -1,7 +1,7 @@
 ---
 status: active
 created: 2026-11-08
-discussion: pending
+discussion: folded-in
 ---
 # Risk — Perfect Play vs Board Odds
 > The two channels appear to disagree about Australia: Perfect Play's turtle wins 44.8%, while Board Odds calls it a trap (27.8% against ordinary players, behind South America's 41.6%). **The disagreement is a rules difference.** Perfect Play drafts territories and Board Odds deals them, and Perfect Play's own dealt-territory test drops the turtle to 24.5%. Under a deal, Australia's single entrance stops paying, and Board Odds shows its scripted follow-up into Asia costs another 8 points. The dice layer is solid on both channels: Board Odds' battle odds match the vault's exact solver to the decimal.
@@ -50,6 +50,17 @@ Our [`risk-battle-odds.py`](../../../tools/risk-battle-odds.py) (absorbing Marko
 
 **Net:** Australia is strong when you can take it cheaply (a draft against bots that don't contest it) and then sit. Under random deals it is an ordinary continent with a bad exit.
 
+## The axis neither channel varies: table temperament (Chris)
+
+Draft vs deal settles the *channel* dispute. It doesn't touch the folk claim, because "Australia is a trap" is a claim about human tables, and both channels only simulate aggressive ones.
+
+- **Australia's value depends on who contests it.** One player takes and holds it while the rest fight aimlessly elsewhere: the easily defended +2 a turn wins. Two or more players fight over it while the others absorb the board: they lose. Perfect Play's two-turtle run is this case (8% per turtle, 42% per regular). So "trap" is the wrong word. Australia is a **contested-entry** asset.
+- **Aggressive tables favour small continents.** Bots attack whenever the odds favour them, so continents get broken every few turns, bonuses never compound, and games end fast (median about 11 rounds). A continent you can actually hold beats a bigger one you can't.
+- **Conservative tables favour big ones.** At a human table, alliances and the [bystander arithmetic](../risk-attrition-odds.md) (a won battle costs about 85% of the attacking force, and breaking a continent wins its owner's grudge) mean nobody wants to spend armies cracking a continent. Africa, North America and even Europe hold, and over a longer game +3/+5 outclasses +2. **At a conservative table, what holds a big continent is the bystander, not the border.**
+- **The single entrance protects you most early.** Human players often don't hold borders at all; they consolidate the whole stack to attack. And because matched stacks of 12+ favour the attacker (attrition page), a bigger border is *easier* to break. One door matters most while stacks are small, so Australia's defensive edge shrinks as armies grow. Board Odds' bonus-per-border ratio (below) is a small-army metric.
+
+**Implication for the bots:** an engine that conserves armies (attacks only where it improves its standing against the largest bystander) should move continent values toward the human ranking. That test would separate "Australia is strong" from "Australia is strong against reckless opponents."
+
 ## Other findings
 
 - **Multiple turtles self-destruct.** Two turtles and two regulars: 8% per turtle, 42% per regular. Four turtles: median game 182 rounds [4:21–4:44].
@@ -80,6 +91,7 @@ Measured against the vault's [Risk — The Attrition Constant](../risk-attrition
 
 - Does the [attrition page](../risk-attrition-odds.md)'s "stability decays as players are eliminated" show up in these channels' game-length data?
 - South America vs Australia under a draft with odds-aware opponents was never run by either channel.
+- Does a conserving engine (the bystander rule above) reproduce the human-table ranking, with Africa / North America / Europe holding and outscoring Australia over longer games?
 
 ## Tags
 
