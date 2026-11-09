@@ -53,3 +53,5 @@ permalink: /tags/game-theory/
 - [Civilization Revolution — Project Hub](../projects/game-annotation/civ-revolution/README.md)
 - [Protection Against the Gradient](../research/philosophy/dynamics/protection-against-the-gradient.md) — Chris's entropy thesis: borders/tariffs/moats/trust as local order against equalizing flows; owners-vs-workers split; last-round reputation problem
 - [Pokémon Gen 1 — 170,000 Sampled Battles a Fixed Policy Could Solve Exactly](../research/gaming/pokemon-gen1-1v1-tournament.md) — fixed policy ⇒ exact absorbing chain per matchup; dominance holds under optimal play, so an inversion flags the heuristic AI
+- [Monopoly — Perfect Play vs Board Odds](../research/gaming/sim-channels/monopoly.md) — trade, build, don't hoard cash; trading is the biggest lever; Board Odds' paired-dice luck share (47.19% expert vs normal)
+- [Risk — Perfect Play vs Board Odds](../research/gaming/sim-channels/risk.md) — Australia strong under a draft, a trap under a deal; Board Odds' battle odds match risk-battle-odds.py

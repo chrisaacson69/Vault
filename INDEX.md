@@ -7,7 +7,7 @@ permalink: /INDEX/
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-11-02 — full dated history in [logs/CHANGELOG.md](./logs/CHANGELOG.md).
+**Last updated:** 2026-11-08 — full dated history in [logs/CHANGELOG.md](./logs/CHANGELOG.md).
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -269,6 +269,11 @@ permalink: /INDEX/
   - [LLM Game Benchmark — Outline](./research/gaming/llm-game-benchmark.md) — framework for evaluating new LLMs against the seven-game study; measurement axes, infrastructure requirements, scoring method, known limitations
   - [Catan — 47,000 Games of Empirical Findings](./research/gaming/catan-47k-empirical.md) — Ioana Roman's quantitative analysis: turn order balanced, opening predicts barely above random (27% vs 25%), Longest Road and Largest Army are symptoms not causes, city engine > road engine, Monopoly cards as timing weapons (25%→40%→55% win rates), and the **trade-efficiency paradox** — players with perfectly even trades win 8%, winners systematically overpay for position. The empirical confirmation of bilateral trade valuation across N=47k recorded games.
   - [Catan 50-Game Validation](./research/gaming/catan-50-games-validation.md) — proof-of-method on the public 50-game Kaggle dataset; aggregate city-engine winner-bias confirmed at small scale (Δ=+0.016), board-conditional refinement partially supported; theory updated to "universal city-engine bias + layered archetype effect"; methodological finding — Roman's "balanced turn order" requires snake-order placement specifically.
+  - [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](./research/gaming/sim-channels/README.md) — three YouTube channels that turn board-game strategies into bots and run millions of games; every result is a statement about the bots it was measured against. Risk dice match our exact solver; the Australia dispute is draft vs deal; Board Odds copies Perfect Play's template and shares Catan's engine with Forced Win
+    - [Monopoly — Perfect Play vs Board Odds](./research/gaming/sim-channels/monopoly.md) — trade, build, don't hoard cash; trading is the biggest lever; Board Odds' paired-dice luck share (47.19% expert vs normal)
+    - [Catan — Perfect Play vs Board Odds vs Forced Win](./research/gaming/sim-channels/catan.md) — varied openings, robber, trading agree; cities/ore-wheat/ports/seat disagreements traced to opponent and label differences
+    - [Risk — Perfect Play vs Board Odds](./research/gaming/sim-channels/risk.md) — Australia strong under a draft, a trap under a deal; Board Odds' battle odds match risk-battle-odds.py
+    - [Ticket to Ride — Perfect Play vs Board Odds (+ Minesweeper)](./research/gaming/sim-channels/ticket-to-ride.md) — the 83% hoarder is a clock exploit of slow bots; both agree on skipping the face-up locomotive
   - [Gunboat Diplomacy and Diplodocus](./research/gaming/gunboat-diplomacy-diplodocus.md) — Meta's Gunboat-only AI wins a tournament against expert humans with no language model at all; moves as costly signals; the Denmark disband; the sharpest available confirmation of the planner-LM composite thesis
   - [CaptainMeme vs. 6 Cicero (Press Diplomacy)](./research/gaming/cicero-press-diplomacy-captain-meme.md) — expert human ties Cicero for board top; the human/AI split observations (no grudge, forward-looking pure, intent-appeals fail); the N≥3 self-balancing advantage of forward-looking-pure agents; complement to Diplodocus (LM-on vs LM-off bracketing the composite architecture)
   - MOO1 Theory — [research/gaming/moo1/](./research/gaming/moo1/)

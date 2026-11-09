@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1058 questions on 223 pages — 979 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
+**1073 questions on 229 pages — 994 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -32,11 +32,11 @@ title: "Open Questions Registry"
 ## Resolved
 > Newest first. *(no link)* = the note doesn't say where it was answered.
 
-- `8e15f5` [The RE Build Tool](../method/re-controller.md) L472 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
-- `8eeaf6` [The RE Build Tool](../method/re-controller.md) L471 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
-- `5a9146` [The RE Build Tool](../method/re-controller.md) L470 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
-- `01db67` [The RE Build Tool](../method/re-controller.md) L469 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates? *(2026-10-26)*
-- `da2306` [The RE Build Tool](../method/re-controller.md) L468 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here? *(2026-10-26)*
+- `8e15f5` [The RE Build Tool](../method/re-controller.md) L621 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
+- `8eeaf6` [The RE Build Tool](../method/re-controller.md) L620 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
+- `5a9146` [The RE Build Tool](../method/re-controller.md) L619 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
+- `01db67` [The RE Build Tool](../method/re-controller.md) L618 — State: CONTEXT.md block (human-first) or a machine-readable file the controller updates? *(2026-10-26)*
+- `da2306` [The RE Build Tool](../method/re-controller.md) L617 — Home: manual in emu-harness beside MIGRATION.md, skill in the vault (like /label-walk)? Or both here? *(2026-10-26)*
 - `a48d62` [Well-Structured Python at Scale](../research/well-structured-python.md) L110 — Should shared tooling across sibling repos (the Infinite Lagrange tools, the DJ suite) become one installable… *(2026-10-22)*
 - `ae5c2f` [Well-Structured Python at Scale](../research/well-structured-python.md) L109 — For pipeline-shaped tools (audio analysis, ROM RE tooling), what replaces the repository/UoW layer — is the "… *(2026-10-22)*
 - `5e8e78` [Well-Structured Python at Scale](../research/well-structured-python.md) L108 — Can an import-linter/tach contract serve as the "persistent spec" an LLM refactors toward (the open question… *(2026-10-22)*
@@ -109,9 +109,9 @@ title: "Open Questions Registry"
 - `ca748b` L91 — Which DOS debugging stack gives watchpoints + scripting without building a front-end (DOSBox-X debugger, DOSBox-Staging, Ghidra + emulator bridge)? S…
 
 ### [The RE Build Tool](../method/re-controller.md)
-- `d70906` L473 — Does a third naming pass, after bottom-up and top-down, add value? (2026-10-28: top-down, the second pass, did. 41 renames came from the 97 riskiest…
-- `7e7d10` L476 — Can a gated inference rewrite replace the style rules and exception list for unreadable structured C? In this design a model rewrites a sub and keeps…
-- `90e8fb` L484 — Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside game-annotation) get its own repo, as the KOEI titles did? Chris (2026-10-26): "…
+- `d70906` L622 — Does a third naming pass, after bottom-up and top-down, add value? (2026-10-28: top-down, the second pass, did. 41 renames came from the 97 riskiest…
+- `df33a2` L625 — Can a gated inference rewrite replace the style rules and exception list for unreadable structured C? In this design a model rewrites a sub and keeps…
+- `90e8fb` L638 — Should an early breakdown (Mappy, Adventure, Utopia, M.U.L.E. inside game-annotation) get its own repo, as the KOEI titles did? Chris (2026-10-26): "…
 
 ### [Building Swarms — Token Rules as Architecture](../method/swarm-construction-rules.md)
 - `8ccfd5` L80 — What's the actual multiplier?
@@ -651,9 +651,9 @@ title: "Open Questions Registry"
 - `130acf` L86 — The film's "figure it out in the middle" — is that a real answer, or just a feel-good dodge?
 
 ### [DJ Blend Tool Test Plan — Retrieve, Fit, Close the Gaps](../research/dj-blend-tool-test-plan.md)
-- `650e43` L197 — Does the Phase 1 JND vary by pair, or is it stable across the catalog? (One pair answers nothing about this.)
-- `7417fc` L198 — Re-summation artifacts of stems remain unmeasured — Phase 2 never renders from stems, so this stays open.
-- `9cf424` L199 — Where does the derived crossover live once computed — in the spec (authored) or computed at render time from the analysis cache (a real dependency on…
+- `650e43` L204 — Does the Phase 1 JND vary by pair, or is it stable across the catalog? (One pair answers nothing about this.)
+- `7417fc` L205 — Re-summation artifacts of stems remain unmeasured — Phase 2 never renders from stems, so this stays open.
+- `9cf424` L206 — Where does the derived crossover live once computed — in the spec (authored) or computed at render time from the analysis cache (a real dependency on…
 
 ### [Two Libraries Out of a Grown Tool — the dj-score / dj-render Extraction](../research/dj-library-extraction.md)
 - `5c9df1` L107 — Once the renderer reads the library's comb grid, do the hand-set firstbeatsample overrides become unnecessary across the Preach set, or does the ear…
@@ -928,9 +928,9 @@ title: "Open Questions Registry"
 - `b899c9` L118 — Wizard book picks as capital allocation:
 
 ### [MIRR — 4X Strategy as Capital Allocation Under Uncertainty](../research/gaming/mirr-4x-framework.md)
-- `e894ae` L85 — Is the reinvestment rate stable enough to estimate live?
-- `36779a` L86 — Can option-value MIRR be computed cheaply for deep prerequisite chains
-- `be17f9` L87 — Does the crossover-turn structure generalize
+- `e894ae` L86 — Is the reinvestment rate stable enough to estimate live?
+- `36779a` L87 — Can option-value MIRR be computed cheaply for deep prerequisite chains
+- `be17f9` L88 — Does the crossover-turn structure generalize
 
 ### [Efficient Frontier Trade Theory](../research/gaming/monopoly/frontier-trade-theory.md)
 - `f6afb2` L240 — Reserve algorithm:
@@ -1083,6 +1083,11 @@ title: "Open Questions Registry"
 - `dd5c63` L273 — Fudge factor analysis:
 - `752d4c` L274 — Cross-game generalization:
 
+### [NA1 Turn Economy — Action Slots, the Economic Index and the Winning Position](../research/gaming/na1-turn-economy.md)
+- `bc2bc4` L35 — Does the theorem hold under the AI's actual behaviour (it attacks only its weakest neighbour; Hollow Opponent), or only against rational coalitions?…
+- `a007ae` L36 — Is ∛(town·output·wealth) the right index? It omits rice and dams, which drive the rice harvest (output × dams); an index fitted to the harvest formul…
+- `0be77a` L38 — The CAGR is from one playthrough; its spread across starts and cap rolls is unmeasured.
+
 ### [The Nash Bargaining Problem](../research/gaming/nash-bargaining-problem.md)
 - `109f2b` L188 — Can the Monopoly AI's trade stagnation be fixed by giving each AI a different δ (discount factor / time preference)? The Nash framework predicts this…
 - `8c17bd` L189 — In multiplayer Monopoly, can each player's BATNA be approximated by computing the Nash bargaining solution for every alternative bilateral pair? This…
@@ -1097,10 +1102,32 @@ title: "Open Questions Registry"
 - `a93fd0` L85 — Yellow learnsets:
 
 ### [Gaming](../research/gaming/README.md)
-- `7da029` L143 — Could a game be designed specifically as an economics teaching tool — making the price system, comparative advantage, and entrepreneurial judgment th…
-- `27fa1f` L144 — What would a 4X game look like with AI agents as advisors (cyborg model applied to gaming)?
-- `9248d2` L145 — Is there a formal relationship between game AI evaluation functions and utility theory? Both are trying to compress complex state into a scalar value.
-- `a064de` L146 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
+- `7da029` L149 — Could a game be designed specifically as an economics teaching tool — making the price system, comparative advantage, and entrepreneurial judgment th…
+- `27fa1f` L150 — What would a 4X game look like with AI agents as advisors (cyborg model applied to gaming)?
+- `9248d2` L151 — Is there a formal relationship between game AI evaluation functions and utility theory? Both are trying to compress complex state into a scalar value.
+- `a064de` L152 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
+
+### [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md)
+- `ae0055` L63 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
+- `a51ae8` L64 — Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
+- `ddb9c5` L65 — Comparison with Catan — 47k Empirical's city-engine and trade-overpay findings is the next step.
+
+### [Monopoly — Perfect Play vs Board Odds](../research/gaming/sim-channels/monopoly.md)
+- `819263` L58 — How do these compare with the Monopoly project's engine and EPT valuations? (The comparison step, not yet done.)
+- `ed7c35` L59 — Does "orange beats every set" survive in 4-player games with houses capped at 32, where the housing shortage is a weapon?
+
+### [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md)
+- `a1e680` L57 — Is Perfect Play's "41,000 real online games" Catan check the same twosheep.io data behind Catan — 47k Empirical (47,000 games)? Both find even seats.
+- `0d1f8e` L58 — Do the channels publish code or result tables? (Board Odds links Risk code; Perfect Play's engine is unpublished.)
+- `448035` L59 — Is a channel-agnostic test possible? Rerun one disputed claim (South America vs Australia under a dealt start) on one engine with both channels' oppo…
+
+### [Risk — Perfect Play vs Board Odds](../research/gaming/sim-channels/risk.md)
+- `2be57b` L68 — Does the attrition page's "stability decays as players are eliminated" show up in these channels' game-length data?
+- `bd603f` L69 — South America vs Australia under a draft with odds-aware opponents was never run by either channel.
+
+### [Ticket to Ride — Perfect Play vs Board Odds (+ Perfect Play's Minesweeper)](../research/gaming/sim-channels/ticket-to-ride.md)
+- `ef86e3` L53 — Does Board Odds' Normal pace its games like real players? It reports no game lengths, and pace is the variable the hoarder result hinges on.
+- `dc2958` L54 — Is Perfect Play's map the USA base map, and does the 2025 box change starting tickets?
 
 ### [Wordle — Solved for the List, Compressed for the Human](../research/gaming/wordle-solved.md)
 - `0e2a90` L78 — Adversarial Wordle is partly answered.

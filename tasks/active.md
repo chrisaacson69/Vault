@@ -84,7 +84,7 @@ The vault commits to evaluating systems by outcomes, not intentions, across mult
 - Restitution for death
 - Business models + agent team economics
 - Money, competition, and capital theory
-- Ingest the board-game simulation channels (`@PerfectPlaySim`, `@BoardOdds`) from a machine off the work network, then maybe compare where their results agree with ours. Their players are simple, so read each result as a statement about that player.
+- Board-game simulation channels: ~~ingest~~ **done 2026-11-08** → [sim-channels hub](../research/gaming/sim-channels/README.md) (Perfect Play, Board Odds, Forced Win; 10 videos). **Next:** compare their results with ours — Monopoly project / [frontier trade theory](../research/gaming/monopoly/frontier-trade-theory.md), [Catan 47k](../research/gaming/catan-47k-empirical.md), [Risk attrition](../research/gaming/risk-attrition-odds.md). Their players are simple, so read each result as a statement about that player.
 
 ### ~~Monopoly Theory Integration~~ — Resolved
 Repo research docs audited. Finding: vault's frontier-trade-theory and subgraph-trade-engine-spec already supersede the repo's working notes. Three missing concepts (denial value, knockout probability, empirical results) pulled into frontier-trade-theory. README mapping table expanded with status column showing what lives where. Repo's `positional-value-analysis.md` and `valuation-notes.md` are earlier working notes now captured in vault.

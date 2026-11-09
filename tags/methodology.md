@@ -30,3 +30,4 @@ permalink: /tags/methodology/
 - [Pokémon Gen 1 — 170,000 Sampled Battles a Fixed Policy Could Solve Exactly](../research/gaming/pokemon-gen1-1v1-tournament.md) — AI tuned until the ranking looked healthy; ground truth (his own solo-run rankings) never used; dominance as a check that never runs the sim
 - [The RE Build Tool](../method/re-controller.md) — draft: an LLM verb surface over emu-harness plus a phase plan with a gate per phase, the CyborgDJ controller pattern applied to disassembly projects
 - [RE Build Tool Lessons](../method/re-controller-lessons.md) — ~90 disassembly-method lessons from the memory store, vault and title repos, sorted by phase with sources
+- [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md) — three YouTube channels that turn board-game strategies into bots and run millions of games

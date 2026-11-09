@@ -11,7 +11,7 @@ discussion: folded-in
 
 **Project:** [Pokémon G1 Battle Solver](../../projects/pokemon-g1-battle-solver/README.md) — this page's critique turned into code (started 2026-10-12; `tools/dominance.py` reproduces the 48/56 counts below).
 
-**Links:** [D&D Monster Tournament — Exact Markov Chains](./dnd-monster-tournament-markov.md) (**the method this video should have used** — fixed policy ⇒ Markov chain), [Risk — The Attrition Constant](./risk-attrition-odds.md) (the exact-chain treatment carried through), [The Dominance-Frontier Lens](../dominance-frontier-lens.md) (the evolution-dominance prune), [Wordle — Solved](./wordle-solved.md) and [Hangman — Solving Both Sides](./hangman-solving-both-sides.md) (Ballpark Figures: exact solving and the "trust in the list" parameter), [Catan — 47k Empirical](./catan-47k-empirical.md) (another large-sample ranking), [Transpilation as Grounding](../transpilation-as-grounding.md) (disassembly as oracle)
+**Links:** [D&D Monster Tournament — Exact Markov Chains](./dnd-monster-tournament-markov.md) (**the method this video should have used** — fixed policy ⇒ Markov chain), [Risk — The Attrition Constant](./risk-attrition-odds.md) (the exact-chain treatment carried through), [The Dominance-Frontier Lens](../dominance-frontier-lens.md) (the evolution-dominance prune), [Wordle — Solved](./wordle-solved.md) and [Hangman — Solving Both Sides](./hangman-solving-both-sides.md) (Ballpark Figures: exact solving and the "trust in the list" parameter), [Catan — 47k Empirical](./catan-47k-empirical.md) (another large-sample ranking), [Transpilation as Grounding](../transpilation-as-grounding.md) (disassembly as oracle), [Board-Game Simulation Channels](./sim-channels/README.md) (the same genre across three channels)
 
 ---
 

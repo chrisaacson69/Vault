@@ -36,3 +36,6 @@ permalink: /tags/game-ai/
 - [An AI Speedruns NES Zelda — the Harness, the Journal, and What Transfers](../research/gaming/zelda-ai-speedrun-harness.md) — an LLM writes the player; savestate search plus lookahead; replay-verified 37:02
 - [emu-harness — drive emulators from Python](../projects/game-annotation/emu-harness/README.md) — backends (Mesen 2, BizHawk) × machines (NES) as plug-ins: lockstep, savestates, per-frame RAM traces.
 - [Pokémon Gen 1 — 170,000 Sampled Battles a Fixed Policy Could Solve Exactly](../research/gaming/pokemon-gen1-1v1-tournament.md) — a hand-built priority-checklist battle AI ("the brain"); the ranking is of (Pokémon × moveset × policy), not Pokémon
+- [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md) — three YouTube channels that turn board-game strategies into bots and run millions of games
+- [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md) — varied openings, robber, trading agree; cities/ore-wheat/ports/seat disagreements traced to opponent and label differences
+- [Ticket to Ride — Perfect Play vs Board Odds (+ Minesweeper)](../research/gaming/sim-channels/ticket-to-ride.md) — the 83% hoarder is a clock exploit of slow bots; both agree on skipping the face-up locomotive
