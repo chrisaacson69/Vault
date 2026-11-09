@@ -172,3 +172,23 @@ against the vault's "keep pages lean" rule — so it's an on-demand tool, not an
 py -3 tools/vault-backlinks.py            # dry-run summary
 py -3 tools/vault-backlinks.py --write    # apply (193 pages)
 ```
+
+## split-reaction.py — separate a reaction video's commentator from the video it plays
+
+Given a reaction capture and the original video's capture, aligns the two word
+sequences (`difflib`, autojunk off) and labels every stretch of the reaction as
+`VIDEO @<original timestamps>` or the commentator. ASR slips inside a played passage are
+absorbed; rewinds are caught by re-matching each commentary stretch against the whole
+original. Prints coverage (how much of the original was played, how much of the reaction
+is commentary). Known limit: a commentator quoting ≥ `--min-run` words aloud reads as
+VIDEO.
+
+```
+py -3 tools/split-reaction.py REACTION ORIGINAL --speaker NAME [--out PATH]
+py -3 tools/split-reaction.py --selftest
+```
+
+The output is derived and regenerable, so it is not committed. **First use (2026-11-08):**
+DandyDrew reacting to Perfect Play's Catan video. 98.0% of the original was played and
+47.4% of the reaction is commentary, in 16 commentary segments. Feeds
+[sim-channels/catan.md](../research/gaming/sim-channels/catan.md).

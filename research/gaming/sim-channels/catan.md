@@ -9,6 +9,7 @@ discussion: pending
 **Source:** [Perfect Play — "The Best Catan Strategy, Tested on 200 Million Games"](../../../raw/videos/2026-10-31%20perfect-play-catan-200m-games.md) — <https://www.youtube.com/watch?v=3XLDKvhrIjk> (12:29, 2026-10-31; auto-captions)
 **Source:** [Board Odds — "The Best Catan Strategy, Tested on 3 Million Games"](../../../raw/videos/2026-10-21%20board-odds-catan-3m-games.md) — <https://www.youtube.com/watch?v=u-LJ2lhFnY8> (13:18, 2026-10-21; auto-captions)
 **Source:** [Forced Win — "The Best Catan Strategy, Tested on 3.7 Million Games"](../../../raw/videos/2026-10-27%20forced-win-catan-3-7m-games.md) — <https://www.youtube.com/watch?v=_3h9RjWUyts> (11:02, 2026-10-27; creator captions)
+**Source:** [DandyDrew — "The Best Catan Strategy, Tested on 200 Million Games - Catan Pro Reacts"](../../../raw/videos/2026-11-04%20dandydrew-reacts-perfect-play-catan.md) — <https://www.youtube.com/watch?v=5PTM5PdqyVw> (22:51, 2026-11-04; auto-captions; split from the played video with [`tools/split-reaction.py`](../../../tools/split-reaction.py))
 
 **Links:** [Simulation channels hub](./README.md), [Catan — 47k Empirical](../catan-47k-empirical.md), [Catan 50-Game Validation](../catan-50-games-validation.md), [Capability Without Leverage](../capability-without-leverage.md) (the unleveraged port), [Bilateral Trade Valuation](../bilateral-trade-valuation.md)
 
@@ -51,6 +52,18 @@ discussion: pending
 ## Cross-check against real games
 
 Perfect Play compared with "41,000 real online games" [10:05]. The knight pattern matched: 3 knights more than double the win rate. The seat pattern did not: real seats are roughly even, and adding about 20% spot misjudgement erased the bot seat edge. Our [47k page](../catan-47k-empirical.md) (Ioana Roman, twosheep.io) also finds turn order balanced. Whether the two datasets are the same is open.
+
+## A champion's read (DandyDrew on Perfect Play)
+
+DandyDrew (USA Catan champion, top-ranked online) reacted to Perfect Play's video, playing 98% of it. The commentary was separated from the playback by aligning his capture against Perfect Play's: 47.4% of the reaction is his. Timestamps below are in his video.
+
+- **He rejects the same two takeaways the other channels contest.** He is "cool with everything with the exception of one and two" [21:25]: Perfect Play's #1 "settlements before cities" and #2 "chase the longest road". Board Odds says build cities and don't chase roads, and Forced Win's City Rusher wins its tournament. **A top player and two simulations disagree with Perfect Play at the same two points.** That is two independent lines rather than three, since Board Odds and Forced Win share the Catanatron engine. His view on #1 is mixed: he also defends settlements-first on social grounds, because an early city makes you the target [11:22].
+- **His central objection is the opponent model.** He describes human Catan as cooperative: when someone leads, the table trades heavily and gangs up [5:29]. He is "shocked" that ore-wheat-sheep, "one of the most dominant strategies in the meta", ranks near the bottom, and expects it to rise at a cooperative trading table, where social balancing lets it work without wood, brick or longest road [5:29, 17:05]. This is the hub page's *name the opponent* rule, made by a top player.
+- **The labels.** To him, Perfect Play's knight army and ore-wheat-sheep are nearly the same plan, since ore-wheat-sheep's premise *is* dev cards and largest army [3:42]. That is the same label problem the disagreement table above traces from the bots' side.
+- **A selection effect called out.** "Three knights more than double the win rate" is "obvious because you need three knights to get army" [18:55]. Perfect Play used that pattern as its match against real games, so the match is weaker than presented.
+- **Where he agrees with the data:** don't start on a port, because going coastal opens the board to everyone else [9:10]. Dev-card-first play collapses because production falls behind [12:55]. Ore and wheat come first [15:04].
+- **Mechanics the bots miss:** humans hold knights for timing instead of playing every one [20:04].
+- He corrects the pronunciation of Perfect Play's cited champion, Bo Peng [16:02].
 
 ## Caveats
 

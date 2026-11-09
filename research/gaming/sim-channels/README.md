@@ -17,7 +17,7 @@ discussion: pending
 | Game | Videos | Page |
 |---|---|---|
 | Monopoly | Perfect Play, Board Odds | [monopoly.md](./monopoly.md) |
-| Catan | Perfect Play, Board Odds, Forced Win | [catan.md](./catan.md) |
+| Catan | Perfect Play, Board Odds, Forced Win; DandyDrew's reaction to Perfect Play | [catan.md](./catan.md) |
 | Risk | Perfect Play, Board Odds | [risk.md](./risk.md) |
 | Ticket to Ride (+ Minesweeper) | Perfect Play, Board Odds; Perfect Play only | [ticket-to-ride.md](./ticket-to-ride.md) |
 
@@ -36,6 +36,7 @@ Scope is deliberate: Perfect Play's five games, plus every Board Odds and Forced
 ## How to read a result from these channels
 
 1. **Name the opponent.** "Plan X wins 44.8%" means *against these regulars*. Perfect Play's own Risk test shows the tuned player's 48% collapsing once three copies of it share a table (the lone regular wins 82%). An exploit of one opponent model is not a strategy.
+   A champion makes the same objection from the table side: DandyDrew says human Catan is cooperative (the table trades with and gangs up on whoever leads), which no bot here models ([catan.md](./catan.md#a-champions-read-dandydrew-on-perfect-play)).
 2. **Name the rule set.** The Risk Australia dispute between the channels is a draft-vs-deal rule difference, which Perfect Play's own dealt-territory test confirms ([risk.md](./risk.md)).
 3. **Check the label.** "Ore/wheat", "port" and "army" mean different bots on each channel. Perfect Play's knight army buys about one extra dev card a game. Board Odds' largest-army bot buys dev cards first.
 4. **Check the clock.** Several headline effects are game-length effects: the Ticket to Ride hoarder wins by ending the game at round 30 against bots pacing for 41. And 67% of Board Odds' no-trade Monopoly games hit its 1,000-round cap, so "luck takes over" partly reflects the cap's tiebreak.
