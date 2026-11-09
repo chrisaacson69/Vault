@@ -75,6 +75,7 @@ Scope is deliberate: Perfect Play's five games, every Board Odds and Forced Win 
   - **Non-tradable calamities** go to the bottom of the stacks, so players can count and time them, and they tend to be the most destructive.
 
   Much of the play is recovering from or mitigating calamities. That is the race version of "the position decides": you prepare for a hit you can see coming.
+- **Why these three share a class (Chris):** the "search" is choosing what to do given the situation around you. Maybe you don't build that city if it means you get civil war, or you build two to avoid it. Because the decisions involve three or more players, he doesn't think there is necessarily a deterministic best path: each player's best choice depends on what the others choose, and that interaction is the gamesmanship. These games are races in structure, but not solvable races.
 
 ## The three channels
 
