@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1073 questions on 229 pages — 994 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
+**1074 questions on 229 pages — 995 open, 70 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -1108,26 +1108,27 @@ title: "Open Questions Registry"
 - `a064de` L152 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
 
 ### [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md)
-- `ae0055` L76 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
-- `a51ae8` L77 — Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
-- `ddb9c5` L78 — Comparison with Catan — 47k Empirical's city-engine and trade-overpay findings is the next step.
+- `ae0055` L98 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
+- `a51ae8` L99 — Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
+- `ddb9c5` L100 — Comparison with Catan — 47k Empirical's city-engine and trade-overpay findings is the next step.
 
 ### [Monopoly — Perfect Play vs Board Odds](../research/gaming/sim-channels/monopoly.md)
-- `819263` L58 — How do these compare with the Monopoly project's engine and EPT valuations? (The comparison step, not yet done.)
-- `ed7c35` L59 — Does "orange beats every set" survive in 4-player games with houses capped at 32, where the housing shortage is a weapon?
+- `819263` L74 — How do these compare with the Monopoly project's engine and EPT valuations? (The comparison step, not yet done.)
+- `ed7c35` L75 — Does "orange beats every set" survive in 4-player games with houses capped at 32, where the housing shortage is a weapon?
 
 ### [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md)
-- `a1e680` L58 — Is Perfect Play's "41,000 real online games" Catan check the same twosheep.io data behind Catan — 47k Empirical (47,000 games)? Both find even seats.
-- `0d1f8e` L59 — Do the channels publish code or result tables? (Board Odds links Risk code; Perfect Play's engine is unpublished.)
-- `448035` L60 — Is a channel-agnostic test possible? Rerun one disputed claim (South America vs Australia under a dealt start) on one engine with both channels' oppo…
+- `a1e680` L76 — Is Perfect Play's "41,000 real online games" Catan check the same twosheep.io data behind Catan — 47k Empirical (47,000 games)? Both find even seats.
+- `036f39` L77 — Do Board Odds' Checkers and Connect 4 videos measure their "best strategy" against the known perfect engines, and how big is the gap? Capturing those…
+- `0d1f8e` L78 — Do the channels publish code or result tables? (Board Odds links Risk code; Perfect Play's engine is unpublished.)
+- `448035` L79 — Is a channel-agnostic test possible? Rerun one disputed claim (South America vs Australia under a dealt start) on one engine with both channels' oppo…
 
 ### [Risk — Perfect Play vs Board Odds](../research/gaming/sim-channels/risk.md)
-- `2be57b` L68 — Does the attrition page's "stability decays as players are eliminated" show up in these channels' game-length data?
-- `bd603f` L69 — South America vs Australia under a draft with odds-aware opponents was never run by either channel.
+- `2be57b` L81 — Does the attrition page's "stability decays as players are eliminated" show up in these channels' game-length data?
+- `bd603f` L82 — South America vs Australia under a draft with odds-aware opponents was never run by either channel.
 
 ### [Ticket to Ride — Perfect Play vs Board Odds (+ Perfect Play's Minesweeper)](../research/gaming/sim-channels/ticket-to-ride.md)
-- `ef86e3` L53 — Does Board Odds' Normal pace its games like real players? It reports no game lengths, and pace is the variable the hoarder result hinges on.
-- `dc2958` L54 — Is Perfect Play's map the USA base map, and does the 2025 box change starting tickets?
+- `ef86e3` L55 — Does Board Odds' Normal pace its games like real players? It reports no game lengths, and pace is the variable the hoarder result hinges on.
+- `dc2958` L56 — Is Perfect Play's map the USA base map, and does the 2025 box change starting tickets?
 
 ### [Wordle — Solved for the List, Compressed for the Human](../research/gaming/wordle-solved.md)
 - `0e2a90` L78 — Adversarial Wordle is partly answered.

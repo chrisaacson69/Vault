@@ -8,7 +8,7 @@ title: "Computation and Information Theory"
 # Computation and Information Theory
 > What can be computed, what can be known, and what emerges from the limits of both.
 
-**Links:** [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md), [Economics](./economics/README.md), [Opposing Forces](./philosophy/dynamics/opposing-forces.md), [Comparative Advantage Bidding (Evo-Cap)](./evolutionary-capitalist/comparative-advantage-bidding.md)
+**Links:** [Measurement, Causality, and Free Will](./philosophy/metaphysics/measurement-causality.md), [Logic and Mathematics](./philosophy/logic-and-math/README.md), [LLM Grounding Problem](./llm-grounding-problem.md), [Cognitive vs. Motor Skills](./cognitive-vs-motor.md), [Triangular Arbitrage](../projects/triangular-arbitrage/README.md), [Economics](./economics/README.md), [Opposing Forces](./philosophy/dynamics/opposing-forces.md), [Comparative Advantage Bidding (Evo-Cap)](./evolutionary-capitalist/comparative-advantage-bidding.md), [Ticket to Ride + Minesweeper sims](./gaming/sim-channels/ticket-to-ride.md#minesweeper-perfect-play-only) (Perfect Play's Minesweeper bots measure the Minesweeper non-locality argument: 6 of the 10-point gap to a perfect-odds engine is global odds)
 
 ## Why This Matters
 

@@ -48,6 +48,8 @@ discussion: pending
 
 Expert board, modern first-click rule, 10M games per player [0:48, 2:40]. Rookie under 2%, corner starter 23, regular 29, counter 32, explorer 33, **odds player 39**, perfect machine 51 [2:46–3:04]. Learning the 1-1 and 1-2-1 patterns is worth 15× the wins [3:19]. Of the ~10-point gap between the best human-style player (41%) and the machine, 4 points are logic and 6 are exact-odds guessing [7:09–7:30]. Validation was on the classic first-click rule (35.58% vs a 2017 paper's 35.56%), not the modern rule used for results [1:01–1:16].
 
+**The cost of thinking locally.** This is an empirical measurement of Chris's [non-locality argument](../../computation-and-information.md#p-vs-np--the-minesweeper-argument-and-non-locality-of-constraints): Minesweeper consistency is NP-complete because any fixed window around a cell fails somewhere, since constraints propagate across the board. The odds player estimates each square from its own neighbours, a local window, and finds the truly best square only about a quarter of the time [5:07]. The perfect machine computes global odds. The ten-point gap splits into 4 points of logic and **6 of global odds**. And the machine still has to guess in 84% of games and loses about half of those [7:34], which matches the argument's point that some positions are genuinely undecidable. Of all the games covered here, this one shows most cleanly the gap between good advice and perfect play ([hub thesis](./README.md#thesis--chess-not-chutes-and-ladders)).
+
 ## Open Questions
 
 - Does Board Odds' Normal pace its games like real players? It reports no game lengths, and pace is the variable the hoarder result hinges on.

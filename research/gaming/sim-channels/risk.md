@@ -57,6 +57,19 @@ Our [`risk-battle-odds.py`](../../../tools/risk-battle-odds.py) (absorbing Marko
 - **Board Odds' fight-choice ablation:** choosing fights at random (from those with at least 3-in-10 odds) drops the opportunist to 0.2% [16:26–17:53]. Fight selection is the whole game for these bots.
 - **Bonus per border territory** (Board Odds): Australia 2.0, North America 1.67, Asia 1.4, Europe 1.25, South America and Africa 1.0 [7:20]. South America ranks fifth on that ratio yet first in results, so the ratio alone doesn't explain the ranking; neither channel says what does.
 
+## What both channels missed
+
+Measured against the vault's [Risk — The Attrition Constant](../risk-attrition-odds.md). **Chris: the bystander is everything.** Both channels' bots attack whenever the odds favour them, and neither asks who benefits from the fight.
+
+- **The bystander problem.** A won battle costs about 85% of the attacking force. In a symmetric 3-player standoff, the winner falls to 13.6% of the board's force while the player who stayed out rises to 86.4%. Attacking without falling behind a bystander needs **1.853×** the defender's stack. An engine that picks its battles (attack where it improves its standing, conserve where it only feeds a third player) is what these bots lack, along with diplomacy.
+- **Restraint fades as players drop out.** With three equal players, holding back is rational. With two left, an attack needs 117% of the defender's stack before it improves the attacker's standing. Neither channel looks at that phase change.
+- **Cashing cards early is an artifact of the table.** Both channels find "cash in as soon as you can" best, and hoarding costs 1–1.5 points. At a table of aggressive bots, cards are worth most immediately. Where players conserve and pick battles, card timing becomes a decision, not a reflex.
+- **Garrisons.** Interior garrisons should be **2, never 3**: the second army buys the defender's second die, and the third buys nothing. Neither channel tests garrison size.
+
+**Where the vault agrees with them:** big borders buy little. Perfect Play's all-to-borders bot scores 24 against 25.7 for none, and Board Odds finds thick borders cost about a point. The attrition page calls matching an escalating border "the most expensive way to stay unprotected."
+
+**Unreconciled:** Perfect Play's best attack ratio is 5:4. The vault's break-even for even battle odds is A/D ≈ 0.85, and its threshold for not falling behind a bystander is 1.853×. The 5:4 rule sits between them, which suggests the bots' tables reward winning fights more than winning the board.
+
 ## Caveats
 
 - No alliances, truces or ganging up on the leader on either channel, and a visible Australia stack is exactly what a human table gangs up on.

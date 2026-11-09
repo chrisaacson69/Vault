@@ -46,6 +46,22 @@ The directions agree everywhere. The levels differ because the baselines differ:
 - **Luck share (Board Odds).** Expert vs normal 1v1: the same seat won both games on 47.19% of boards, the expert won from both seats on 48.03%, the normal on 4.77% [7:04–7:12]. With trading off, dice-decided rises to 75.10% [11:54]. The creator warns this is matchup-specific, not "Monopoly is 47% luck" [1:13].
 - **Series length.** At p = 0.7163 a best-of-9 reaches 90% for the better player [7:19–7:36].
 
+## What both channels missed
+
+Measured against the vault's [frontier trade theory](../monopoly/frontier-trade-theory.md) and the [Monopoly project](../../../projects/monopoly/README.md)'s simulations. The common cause is the trade model: a set-for-set swap that the bots accept whenever both sides complete a set.
+
+- **"Mutual" swaps are not even (Chris).** Most games are won by whoever gets the first strong monopoly, and a swap of unequal sets (orange for green, say) hands one side that race. The bots treat any two-way completion as fair. A valuation that prices sets by rent per dollar and by how long the game will run would either demand compensation or take the better side, which is why the swap model gives away so much.
+- **The third-party cost.** The vault's *acceptor-underprices-the-externality* pattern: a set-for-set swap at a 4-player table damages the two players left out, and damages the accepting player too, because the partner got stronger. The bots price swaps as if only the two traders exist.
+- **Lone pieces as cash.** In the vault's 3-player case, C sells a lone orange piece for $250 and rises from 22.6% to 31.4%, while the buyer *falls* from 51.3% to 39.3%: the cash funds C's own set and drains the buyer's lead. Neither channel's bots can make that move. Perfect Play's bots never sell for cash, and Board Odds' bots sell only the last pieces of a set.
+- **The colour ranking depends on game length.** In the vault's table, light blue wins short games, orange and red medium ones, green and dark blue long ones. Perfect Play's "orange beats every set" comes from 2-player one-set duels, which fix the game length at the medium row.
+- **Denial value.** A property's worth includes what it stops an opponent from completing. Board Odds' expert bids to block a set at auction, the only nod to it.
+
+**Where the vault agrees with them:**
+- **Cash after a trade.** The project's orange set is worth $307 if the trade leaves you with $0 and $7,675 if it leaves you with $1,000. Board Odds independently found that paying 3× to complete a set loses to paying 2× (19.7%).
+- **Never trading is catastrophic.** The project's NoTrade bot won 9.2%, against 6.5% and 4.69% on the channels.
+
+**Apparent tension, explained:** Perfect Play's careful trader, which refuses lopsided swaps, does worse than one that always accepts. The project's Growth AI, which demands 35% of a set's value before selling a completing piece, wins its tournament at 30.9%. With swaps as the only trade type, refusing means no trade and a stalled game. Selectivity pays only when cash can balance a deal.
+
 ## Caveats
 
 - **Trade model.** Both channels accept almost every set-completing swap, so "always trade" holds against counterparts who always say yes. Neither models denial, timing or three-way deals, which is where the vault's [frontier trade theory](../monopoly/frontier-trade-theory.md) lives.

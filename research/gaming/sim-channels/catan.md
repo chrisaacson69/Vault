@@ -10,6 +10,7 @@ discussion: pending
 **Source:** [Board Odds — "The Best Catan Strategy, Tested on 3 Million Games"](../../../raw/videos/2026-10-21%20board-odds-catan-3m-games.md) — <https://www.youtube.com/watch?v=u-LJ2lhFnY8> (13:18, 2026-10-21; auto-captions)
 **Source:** [Forced Win — "The Best Catan Strategy, Tested on 3.7 Million Games"](../../../raw/videos/2026-10-27%20forced-win-catan-3-7m-games.md) — <https://www.youtube.com/watch?v=_3h9RjWUyts> (11:02, 2026-10-27; creator captions)
 **Source:** [DandyDrew — "The Best Catan Strategy, Tested on 200 Million Games - Catan Pro Reacts"](../../../raw/videos/2026-11-04%20dandydrew-reacts-perfect-play-catan.md) — <https://www.youtube.com/watch?v=5PTM5PdqyVw> (22:51, 2026-11-04; auto-captions; split from the played video with [`tools/split-reaction.py`](../../../tools/split-reaction.py))
+**Source:** [Catan road and seed-vs-skill sources](../../../raw/articles/2026-11-08%20catan-road-and-seed-sources.md) — a manifest for the fan's 36,000-game simulation (Wargamer, <https://www.wargamer.com/catan/fan-simulated-36000-games>) and Goodman, Perez-Liebana & Lucas, "Seeding for Success" (<https://arxiv.org/abs/2503.02686>)
 
 **Links:** [Simulation channels hub](./README.md), [Catan — 47k Empirical](../catan-47k-empirical.md), [Catan 50-Game Validation](../catan-50-games-validation.md), [Capability Without Leverage](../capability-without-leverage.md) (the unleveraged port), [Bilateral Trade Valuation](../bilateral-trade-valuation.md)
 
@@ -52,6 +53,27 @@ discussion: pending
 ## Cross-check against real games
 
 Perfect Play compared with "41,000 real online games" [10:05]. The knight pattern matched: 3 knights more than double the win rate. The seat pattern did not: real seats are roughly even, and adding about 20% spot misjudgement erased the bot seat edge. Our [47k page](../catan-47k-empirical.md) (Ioana Roman, twosheep.io) also finds turn order balanced. Whether the two datasets are the same is open.
+
+## No principle survives the sources
+
+Line up every Catan source the vault holds and each popular principle appears on both sides:
+
+| Source | Longest-road holder among winners | Conclusion |
+|---|---|---|
+| Fan simulation, 36k games (Reddit, via Wargamer) | 56–61% | roads are "OP"; wheat is the best resource |
+| Forced Win | 44% (excluding Road Builder tables) | rebuts the fan by name [3:33] |
+| Board Odds | 33.8% | "a prize for the winner, not a way to become one" |
+| Perfect Play | in almost 9 of 10 of its tuned player's wins | "chase the longest road" |
+| [Roman, 47k real games](../catan-47k-empirical.md) | n/a | a symptom of winning, not a cause |
+
+The same split runs through resources and build order. Perfect Play's tuned player leans on ore then wheat, and the fan's data names wheat the best resource, yet ore-wheat-sheep "loses" on two channels. Perfect Play says settlements before cities, while Forced Win's City Rusher wins its tournament. The fan's own write-up concedes the point: no strategy won overall, each had an edge in different starting situations.
+
+**Why: the board picks the plan.** "Seeding for Success" (Goodman, Perez-Liebana & Lucas, IEEE Transactions on Games, 2025) gives Catan's randomness by source, with competent MCTS agents:
+- **The map decides more than the dice.** Trimmed span is 0.31 for the map against 0.11 for the dice.
+- **A seat's value depends on the board.** The first player averages 22%, but on 95% of boards their underlying win chance lies between 4% and 56%.
+- **Skill reveals the position.** With random agents the board has no effect at all. Across the paper's 15 games, the more skilled the agents, the more the specific board or deal decides the result.
+
+A fixed principle averages over boards, so it is wrong on many of them. Drew makes the same point from the table: what works depends on the setup and on what the other players do. That is the hub page's thesis in its clearest case ([chess, not chutes and ladders](./README.md#thesis--chess-not-chutes-and-ladders)).
 
 ## A champion's read (DandyDrew on Perfect Play)
 

@@ -4,11 +4,12 @@ created: 2026-11-08
 discussion: pending
 ---
 # Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win
-> Three YouTube channels that turn board-game strategies into scripted bots and run them through millions of games. The engineering is mostly sound: Board Odds' Risk dice tables match the vault's exact solver to the decimal. But **every result is a statement about the bot players it was measured against**, and the three channels change the opponent, the rules and the meaning of a strategy's name from video to video. Read across channels, most apparent contradictions dissolve once you line up the rule set and the opponent model. **They are also less independent than they look:** Board Odds copies Perfect Play's script template, and Board Odds and Forced Win run Catan on the same open-source engine.
+> Three YouTube channels that turn board-game strategies into scripted bots and run them through millions of games. The engineering is mostly sound: Board Odds' Risk dice tables match the vault's exact solver to the decimal. But **every result is a statement about the bot players it was measured against**, and the three channels change the opponent, the rules and the meaning of a strategy's name from video to video. Read across channels, most apparent contradictions dissolve once you line up the rule set and the opponent model. **They are also less independent than they look:** Board Odds copies Perfect Play's script template, and Board Odds and Forced Win run Catan on the same open-source engine. **The thesis the comparison supports (Chris): these games need to be played like chess, not chutes and ladders.** What the videos deliver is good principles, not perfect play, and in N≥3 games the right principle depends on the position.
 
 **Sources:** ten captured transcripts, one line each on the per-game pages below, all in [raw/videos/](../../../raw/videos/) dated 2026-10-13 to 2026-11-07 (clipped 2026-11-08).
+**Source:** [Catan road and seed-vs-skill sources](../../../raw/articles/2026-11-08%20catan-road-and-seed-sources.md) — a manifest for <https://www.wargamer.com/catan/fan-simulated-36000-games> and Goodman, Perez-Liebana & Lucas, "Seeding for Success" <https://arxiv.org/abs/2503.02686> (IEEE Transactions on Games, 2025)
 
-**Links:** [Pokémon Gen 1 tournament](../pokemon-gen1-1v1-tournament.md) (the same genre, critiqued: fixed policy ⇒ exact chain), [D&D Monster Tournament — Exact Markov Chains](../dnd-monster-tournament-markov.md), [Risk — The Attrition Constant](../risk-attrition-odds.md), [Catan — 47k Empirical](../catan-47k-empirical.md), [Monopoly project](../../../projects/monopoly/README.md), [Frontier Trade Theory](../monopoly/frontier-trade-theory.md), [Hollow Opponent, Perceived Depth](../hollow-opponent-perceived-depth.md)
+**Links:** [Randomness as the Termination Mechanism (N≥3)](../n3-termination-and-randomization.md), [The Multiplayer Coalition Problem](../multiplayer-coalition-problem.md), [Computation and Information](../../computation-and-information.md) (Chris's Minesweeper non-locality argument), [Pokémon Gen 1 tournament](../pokemon-gen1-1v1-tournament.md) (the same genre, critiqued: fixed policy ⇒ exact chain), [D&D Monster Tournament — Exact Markov Chains](../dnd-monster-tournament-markov.md), [Risk — The Attrition Constant](../risk-attrition-odds.md), [Catan — 47k Empirical](../catan-47k-empirical.md), [Monopoly project](../../../projects/monopoly/README.md), [Frontier Trade Theory](../monopoly/frontier-trade-theory.md), [Hollow Opponent, Perceived Depth](../hollow-opponent-perceived-depth.md)
 
 ---
 
@@ -22,6 +23,23 @@ discussion: pending
 | Ticket to Ride (+ Minesweeper) | Perfect Play, Board Odds; Perfect Play only | [ticket-to-ride.md](./ticket-to-ride.md) |
 
 Scope is deliberate: Perfect Play's five games, plus every Board Odds and Forced Win video on the same games. Board Odds' other eleven games (Othello, Codenames, Yahtzee, Battleship, …) are not captured.
+
+## Thesis — chess, not chutes and ladders
+
+**Principles are averages over positions.** Each video turns a strategy into a fixed rule, measures it across millions of random boards, and reports the average. That produces sound advice, but advice is not play, and the clearest evidence comes from games where perfect play is known.
+
+1. **Where a perfect engine exists, it measures the gap.** In Minesweeper, Perfect Play's best player following the video's own advice reaches 41%, while its perfect-odds machine reaches 51%. Six of those ten points come from guessing better, and even the machine guesses in 84% of games and loses about half of those ([ticket-to-ride.md](./ticket-to-ride.md#minesweeper-perfect-play-only)). Good advice still leaves points on the table. Board Odds also covers two solved games, Checkers and Connect 4, which would show the same gap against a known perfect engine. Those videos are not captured here.
+2. **In N≥3 games, static bots play a different game.** The vault's [N≥3 thesis](../n3-termination-and-randomization.md) holds that with three or more players the stable pattern is ganging up on the leader, and that dice or the cost of a won battle are what let the game end. All three channels state that their bots never coordinate, gang up or negotiate. Without the gang-up, whoever gets ahead stays ahead, and the tables play like races:
+   - Board Odds' Monopoly: the first player to a full set wins 47.9%, nearly double a fair share.
+   - Risk: games end in 11–13 rounds, and seat edges show up everywhere.
+   - Catan: Perfect Play's bot seat edge vanishes once the bots stop agreeing on the best spot.
+3. **The right principle changes with the position.** Catan shows this most clearly ([catan.md](./catan.md#no-principle-survives-the-sources)):
+   - The longest-road holder wins anywhere from 34% to about 90% of games depending on the source, and the advice runs both ways.
+   - "Seeding for Success" finds that the board layout decides Catan more than the dice. The first player's real win chance ranges from 4% to 56% across boards.
+   - Across 15 games, the more skilled the agents, the more the specific board or deal decides the result. Random agents see no board effect at all. Static play averages the position away; skilled play exploits it.
+4. **Search is not automatically better either.** Shallow search can lose to good rules, as in chess. Forced Win's look-ahead bot lost to the rule set distilled from its own habits. Those rules were learned from position-aware play, so the result shows good principles extracted from play beating guide principles, not principles replacing play. Neither fixed rules nor search alone wins: tactics plus position does.
+
+**What follows for reading these videos:** take the principles as defaults, and treat any "best strategy" claim as the best fixed plan against fixed bots. Each per-game page lists what the channels missed by leaving position and diplomacy out.
 
 ## The three channels
 
@@ -56,6 +74,7 @@ Scope is deliberate: Perfect Play's five games, plus every Board Odds and Forced
 ## Open Questions
 
 - Is Perfect Play's "41,000 real online games" Catan check the same twosheep.io data behind [Catan — 47k Empirical](../catan-47k-empirical.md) (47,000 games)? Both find even seats.
+- Do Board Odds' Checkers and Connect 4 videos measure their "best strategy" against the known perfect engines, and how big is the gap? Capturing those two would make thesis point 1 checkable on solved games.
 - Do the channels publish code or result tables? (Board Odds links Risk code; Perfect Play's engine is unpublished.)
 - Is a channel-agnostic test possible? Rerun one disputed claim (South America vs Australia under a dealt start) on one engine with both channels' opponent models.
 
