@@ -70,7 +70,11 @@ Scope is deliberate: Perfect Play's five games, every Board Odds and Forced Win 
 - **Races build the brake into the rules.** In destructive games the gang-up on the leader keeps the game level ([N≥3 thesis](../n3-termination-and-randomization.md)). Races can't rely on that, so designers write it in. In Power Grid the player with the most cities goes first in the plant auction but last when buying resources and building. In Puerto Rico you can't stop others gaining from the role you pick; you can only deny them the role they need.
 - **Static bots should do relatively better in races.** The part of the game they can't do, coordinating against the leader, is handled by the rules, which they follow automatically. The exception is trade, which is negotiation, as in Monopoly. This is a prediction, not yet tested.
 - **In a race, the position is timing.** Power Grid's classic advice is not to lead in cities early, because trailing buys cheaper resources and a better building order. Being behind is something you can use, the same pattern as Yahtzee pacing and Guess Who's bold play when trailing. The right move depends on where you stand.
-- **Civilization (Chris):** board combat is almost deterministic, so the game is a race along the succession track and the play is in trade and timing. Some calamity cards may be passed hidden inside trades, which would give the friendly interaction a destructive edge (unverified; from memory).
+- **Civilization (Chris):** board combat is almost deterministic, so the game is a race along the succession track and the play is in trade and timing. Calamities come in two kinds:
+  - **Tradable calamities** are shuffled randomly into the card stacks and can be passed on hidden inside a trade. That spreads their damage across several players and gives the friendly interaction a destructive edge.
+  - **Non-tradable calamities** go to the bottom of the stacks, so players can count and time them, and they tend to be the most destructive.
+
+  Much of the play is recovering from or mitigating calamities. That is the race version of "the position decides": you prepare for a hit you can see coming.
 
 ## The three channels
 
