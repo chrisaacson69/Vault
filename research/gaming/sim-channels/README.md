@@ -59,6 +59,19 @@ Scope is deliberate: Perfect Play's five games, every Board Odds and Forced Win 
 
 **Why the top six come out alike (Chris):** each has either no opponent to model (Yahtzee, Minesweeper) or two players with a fixed target, so there is a computable optimum and the videos' principles land a measurable distance below it. **Clue is the edge case:** 3–6 players, but you can't attack the leader, only race them, and players affect each other only through what their suggestions reveal. That makes it closer to parallel solitaire with timing than to the bottom row. Only in the bottom row can players gang up on the leader, so "perfect play" stops being a fixed target, and that is where [the thesis](#thesis--chess-not-chutes-and-ladders) bites hardest. It is also the class Chris most wants to pursue; the puzzle games are "mostly search".
 
+### The bottom row splits by how players interact
+
+| Interaction | Games | How you affect others |
+|---|---|---|
+| Destructive | Risk, Monopoly (rent to bankruptcy) | remove armies, eliminate players |
+| Denial and trade | Catan (robber, trade), Ticket to Ride (blocking) | slow them down, take what they need |
+| Non-destructive races | Avalon Hill's Civilization, Power Grid, Puerto Rico (Chris's examples, not covered by the channels) | trade, auctions, a shared market, role choice |
+
+- **Races build the brake into the rules.** In destructive games the gang-up on the leader keeps the game level ([N≥3 thesis](../n3-termination-and-randomization.md)). Races can't rely on that, so designers write it in. In Power Grid the player with the most cities goes first in the plant auction but last when buying resources and building. In Puerto Rico you can't stop others gaining from the role you pick; you can only deny them the role they need.
+- **Static bots should do relatively better in races.** The part of the game they can't do, coordinating against the leader, is handled by the rules, which they follow automatically. The exception is trade, which is negotiation, as in Monopoly. This is a prediction, not yet tested.
+- **In a race, the position is timing.** Power Grid's classic advice is not to lead in cities early, because trailing buys cheaper resources and a better building order. Being behind is something you can use, the same pattern as Yahtzee pacing and Guess Who's bold play when trailing. The right move depends on where you stand.
+- **Civilization (Chris):** board combat is almost deterministic, so the game is a race along the succession track and the play is in trade and timing. Some calamity cards may be passed hidden inside trades, which would give the friendly interaction a destructive edge (unverified; from memory).
+
 ## The three channels
 
 | | Perfect Play (`@PerfectPlaySim`) | Board Odds (`@BoardOdds`) | Forced Win (`@forcedwingames`) |
