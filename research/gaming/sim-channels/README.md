@@ -24,6 +24,7 @@ discussion: pending
 | Checkers, Connect 4, Othello (solved) | Board Odds | [solved-games.md](./solved-games.md) |
 | Battleship, Yahtzee (vs the vault's exact solutions) | Board Odds; Ballpark Figures pages | [exact-solutions.md](./exact-solutions.md) |
 | Guess Who | Board Odds, Mark Rober; Nica (2016) | [guess-who.md](./guess-who.md) |
+| Clue | Board Odds; StrataGames, Let's Get Into It, What's What (deduction) | [clue.md](./clue.md) |
 
 Scope is deliberate: Perfect Play's five games, every Board Odds and Forced Win video on the same games, Board Odds' solved games, and the games where another source gives an exact or mathematical answer (Battleship, Yahtzee, Guess Who, Clue). Board Odds' Codenames, Exploding Kittens, Scrabble, Stratego and Sorry! videos are not captured.
 
