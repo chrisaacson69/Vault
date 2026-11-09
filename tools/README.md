@@ -6,7 +6,7 @@ keep the vault write-optimized (a web of forward links), and let tools derive th
 read-optimized checks instead of auditing by hand.
 
 Most of what follows maintains the vault itself. One exception is noted as such:
-**`risk-battle-odds.py`** and **`catan-board-supply.py`** are *research* tools backing specific pages, kept here
+**`risk-battle-odds.py`**, **`catan-board-supply.py`** and **`catan-game-align.py`** are *research* tools backing specific pages, kept here
 because it is the same kind of artifact — a deterministic generator whose output is
 checkable — and because a solver that lives next to its page cannot go unfindable.
 
@@ -159,6 +159,19 @@ captures; linear, with no ports, trading or robber.
 py -3 tools/catan-board-supply.py --sample 200000   # distribution over random boards
 py -3 tools/catan-board-supply.py --board "wood=6,9,10,3 brick=8,4,11 sheep=5,12,9,6 wheat=8,5,10,3 ore=4,11,2"
 py -3 tools/catan-board-supply.py --selftest        # exit 0 = clean
+```
+
+## catan-game-align.py — does the winner's path match what the board made cheap? (research tool)
+
+Reads hand-transcribed expert games (`raw/datasets/catan-expert/*.json`, format in `TEMPLATE.json`),
+prices each full board with `catan-board-supply.py` (imported, not re-implemented), and compares
+the board's tilt (cities cheap or dear) with each player's path from their final VP breakdown.
+The control is aligned-vs-unaligned win rate among players facing the *same* board. Records sit
+under `raw/`, so they are immutable once written: a correction goes in a new file.
+
+```
+py -3 tools/catan-game-align.py raw/datasets/catan-expert/
+py -3 tools/catan-game-align.py --selftest
 ```
 
 ## cook-county-rail-deaths.py — how the Cook County ME classifies train deaths (research query, not a vault gate)

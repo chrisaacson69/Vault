@@ -1,0 +1,37 @@
+{
+  "_comment": "Copy to <source>-<id>.json. Transcribe only what you can read from the source; use null for anything you can't. Board = all 19 hexes (order doesn't matter yet). The desert takes token null.",
+  "source": {
+    "type": "twosheep-replay | youtube",
+    "url": "",
+    "timestamp_board": "",
+    "timestamp_final": "",
+    "transcribed_by": "",
+    "transcribed_on": "YYYY-MM-DD"
+  },
+  "board": [
+    {"resource": "wood",   "token": null},
+    {"resource": "wood",   "token": null},
+    {"resource": "wood",   "token": null},
+    {"resource": "wood",   "token": null},
+    {"resource": "brick",  "token": null},
+    {"resource": "brick",  "token": null},
+    {"resource": "brick",  "token": null},
+    {"resource": "sheep",  "token": null},
+    {"resource": "sheep",  "token": null},
+    {"resource": "sheep",  "token": null},
+    {"resource": "sheep",  "token": null},
+    {"resource": "wheat",  "token": null},
+    {"resource": "wheat",  "token": null},
+    {"resource": "wheat",  "token": null},
+    {"resource": "wheat",  "token": null},
+    {"resource": "ore",    "token": null},
+    {"resource": "ore",    "token": null},
+    {"resource": "ore",    "token": null},
+    {"resource": "desert", "token": null}
+  ],
+  "players": [
+    {"name": "", "seat": 1, "winner": false,
+     "start": {"settlement_1": ["resource-token", "resource-token", "resource-token"], "settlement_2": []},
+     "final": {"settlements": null, "cities": null, "longest_road": null, "largest_army": null, "vp_cards": null}}
+  ]
+}
