@@ -1109,11 +1109,11 @@ title: "Open Questions Registry"
 - `a064de` L156 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
 
 ### [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md)
-- `ae0055` L117 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
-- `a51ae8` L118 — Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
-- `ddb9c5` L119 — Comparison with Catan — 47k Empirical's city-engine and trade-overpay findings is the next step.
-- `67b7f3` L120 — Test on Catanatron (the open-source engine Board Odds and Forced Win used): does the plan the board's prices favour actually win more on that board?…
-- `e34858` L121 — Does robbing the scarce-resource holder on their scarce hex cost the robber trades, or is the refusal-to-trade response too rare to matter?
+- `ae0055` L124 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
+- `a51ae8` L125 — Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
+- `ddb9c5` L126 — Comparison with Catan — 47k Empirical's city-engine and trade-overpay findings is the next step.
+- `9e7e17` L127 — On expert human games (twosheep Champs replays, DandyDrew's games, transcribed by hand): do players whose path matches the board's prices win more of…
+- `e34858` L128 — Does robbing the scarce-resource holder on their scarce hex cost the robber trades, or is the refusal-to-trade response too rare to matter?
 
 ### [Clue — Board Odds' Monte Carlo vs the Deduction Videos](../research/gaming/sim-channels/clue.md)
 - `eb6658` L64 — What is Let's Get Into It's later episode's answer to "these rules can't get everything", and does it reach full constraint satisfaction over the 324…

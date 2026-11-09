@@ -102,6 +102,13 @@ That is board supply, not what a player captures, and it leaves out two things t
 - **A big early city paints a target.** Drew: "when you build an early city, you become an early target… you're going to take a lot of heat" [11:35]. A city on a big spot reads as the lead, and the lead draws the robber.
 - **Identical bots can't find the gaps (Chris).** When every player follows the same rules, nobody leaves a gap for anyone else to exploit: no open land left by a table of city-rushers, no undercontested resource. The [frontier sketch](../catan-47k-empirical.md#common-knowledge-competition--the-counter-positioning-move)'s counter-positioning move needs a table of players with different plans. A homogeneous bot table measures each plan against copies of the baseline, never against the hole the others leave.
 
+**Verifying it needs expert human games, not bots (Chris).** A recorded game shows how real players reacted to a board, so the board's prices can be set against how the winner actually won. Bot games can't do that, for the reasons this page exists: their plans are fixed and don't react to the board. The comparison design:
+- per game: the full board → prices → which path the board makes cheap (cities and dev cards vs roads and settlements);
+- the winner's realized path (VP from cities, settlements, longest road, largest army, VP cards);
+- the control: did players whose path matched the board's prices win more often than players whose path didn't? That control is needed because a winner's path also follows from their placement, not only from the board.
+
+**Data.** The public Kaggle 50 games can't run this: they record only the tiles players touched, not the full board. Roman's 47k set is private. The usable expert sources are **twosheep's Champs-division replays** (viewable one at a time, no bulk export) and **DandyDrew's recorded games**, both small-N and transcribed by hand. Catanatron stays useful for the price tool's mechanics, not for verifying the theory.
+
 **Holding the scarce resource.**
 - **Trading leverage.** Owning the only good supply of a scarce resource is a better outside option, and in [Nash bargaining](../nash-bargaining-problem.md) an outside option shifts the split, not just the floor. It's the same pattern as the [Monopoly careful trader](./monopoly.md#what-both-channels-missed).
 - **The robber, a hypothesis (Chris).** Resources are [hidden trackable](../catan-47k-empirical.md#hidden-trackable--a-soft-design-flaw), so a careful robber knows whether you hold the scarce card and the odds of stealing it. They may rob *you* but on a different hex, so your scarce hex keeps producing for trade. And the holder may refuse to trade with whoever robbed them. That is the same social price as breaking a continent in [Risk](./risk.md#the-axis-neither-channel-varies-the-planning-horizon-chris). Bots carry no grudge, so in their games an attack costs only what it costs on the board.
@@ -117,7 +124,7 @@ That is board supply, not what a player captures, and it leaves out two things t
 - Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
 - Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
 - Comparison with [Catan — 47k Empirical](../catan-47k-empirical.md)'s city-engine and trade-overpay findings is the next step.
-- Test on Catanatron (the open-source engine Board Odds and Forced Win used): does the plan the board's prices favour actually win more *on that board*? This is the substitute for the private 47k data.
+- On expert human games (twosheep Champs replays, DandyDrew's games, transcribed by hand): do players whose path matches the board's prices win more often? Catanatron can check the tool's mechanics but can't verify the theory, since bot plans don't react to the board.
 - Does robbing the scarce-resource holder on their scarce hex cost the robber trades, or is the refusal-to-trade response too rare to matter?
 
 ## Tags
