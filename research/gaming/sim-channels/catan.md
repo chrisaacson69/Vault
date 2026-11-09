@@ -1,7 +1,7 @@
 ---
 status: active
 created: 2026-11-08
-discussion: pending
+discussion: folded-in
 ---
 # Catan — Perfect Play vs Board Odds vs Forced Win
 > Three bot simulations of base Catan, two of them on the same open-source engine (Catanatron). They agree on a core: **a varied opening beats pure pip-chasing, wasting the robber hurts while its exact target barely matters, trading matters, and naive "road every chance" bots are hopeless (3.5–5.3%).** They disagree on cities vs settlements, ore/wheat plans, ports, knights and seat order, and almost every disagreement traces to a different baseline opponent, optimised vs hand-written bots, or a strategy name meaning a different bot. Each channel found a different "biggest lever" because each tested different levers: Board Odds opening placement, Forced Win hand size over 7, Perfect Play settlements before cities.
@@ -87,6 +87,25 @@ DandyDrew (USA Catan champion, top-ranked online) reacted to Perfect Play's vide
 - **Mechanics the bots miss:** humans hold knights for timing instead of playing every one [20:04].
 - He corrects the pronunciation of Perfect Play's cited champion, Bo Peng [16:02].
 
+## Reading the board as an economy (Chris)
+
+The setup is random, but each resource's total pips can be counted. That supply plus each build's recipe says which goals are cheap and which are expensive *on this board*, which should drive the plan or at least the opening. The qualitative version is already in the vault as the [board-as-efficient-frontier sketch](../catan-47k-empirical.md#board-as-efficient-frontier--a-prescription-theory-sketch). What this adds is a price.
+
+**The price, computed.** [`tools/catan-board-supply.py`](../../../tools/catan-board-supply.py) weights each build's recipe by its inputs' scarcity, where 1.0 per card means a perfectly even board. Over 200,000 random boards (run 2026-11-09):
+- **Brick and ore are scarce by design:** 3 tiles each against 4 for the others, so 9.7 expected pips vs 12.9. A resource's total ranges from about 6 to 17 between the 5th and 95th percentile boards.
+- **Cities are the most board-sensitive build:** median price 5.48 for 5 cards, 4.45–7.46 between the 5th and 95th percentiles, because a city needs 3 ore. Roads run 2.13 (1.74–2.83), settlements 4.04 (3.68–4.57), dev cards 3.09 (2.69–3.73).
+- **The city/settlement price ratio runs from 1.00 to 2.02** (median 1.36). On some deals a city costs no more than a settlement; on others it costs twice as much. Channels averaging over random boards are averaging over that swing, which is one reading of why they split on cities vs settlements.
+
+That is board supply, not what a player captures, and it leaves out two things that also price a build:
+
+- **Open land expires; cities don't (Chris, spelling out DandyDrew's "pace with the board" [11:56]).** Roads and settlements are the land-grab phase. Settlement spots are a shared stock that runs out, while a city can go on a spot you own at any time. A player who rushes cities can grow big early and then stall with nowhere left to expand. So a settlement's real price has to include the option it saves you from losing, and the supply model above can't see that.
+- **A big early city paints a target.** Drew: "when you build an early city, you become an early target… you're going to take a lot of heat" [11:35]. A city on a big spot reads as the lead, and the lead draws the robber.
+- **Identical bots can't find the gaps (Chris).** When every player follows the same rules, nobody leaves a gap for anyone else to exploit: no open land left by a table of city-rushers, no undercontested resource. The [frontier sketch](../catan-47k-empirical.md#common-knowledge-competition--the-counter-positioning-move)'s counter-positioning move needs a table of players with different plans. A homogeneous bot table measures each plan against copies of the baseline, never against the hole the others leave.
+
+**Holding the scarce resource.**
+- **Trading leverage.** Owning the only good supply of a scarce resource is a better outside option, and in [Nash bargaining](../nash-bargaining-problem.md) an outside option shifts the split, not just the floor. It's the same pattern as the [Monopoly careful trader](./monopoly.md#what-both-channels-missed).
+- **The robber, a hypothesis (Chris).** Resources are [hidden trackable](../catan-47k-empirical.md#hidden-trackable--a-soft-design-flaw), so a careful robber knows whether you hold the scarce card and the odds of stealing it. They may rob *you* but on a different hex, so your scarce hex keeps producing for trade. And the holder may refuse to trade with whoever robbed them. That is the same social price as breaking a continent in [Risk](./risk.md#the-axis-neither-channel-varies-the-planning-horizon-chris). Bots carry no grudge, so in their games an attack costs only what it costs on the board.
+
 ## Caveats
 
 - No player negotiation anywhere. Board Odds has no player trading at all.
@@ -98,6 +117,8 @@ DandyDrew (USA Catan champion, top-ranked online) reacted to Perfect Play's vide
 - Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
 - Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
 - Comparison with [Catan — 47k Empirical](../catan-47k-empirical.md)'s city-engine and trade-overpay findings is the next step.
+- Test on Catanatron (the open-source engine Board Odds and Forced Win used): does the plan the board's prices favour actually win more *on that board*? This is the substitute for the private 47k data.
+- Does robbing the scarce-resource holder on their scarce hex cost the robber trades, or is the refusal-to-trade response too rare to matter?
 
 ## Tags
 

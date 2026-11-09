@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1078 questions on 230 pages — 998 open, 71 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
+**1080 questions on 230 pages — 1000 open, 71 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -866,10 +866,10 @@ title: "Open Questions Registry"
 - `f723a8` L442 — High timeout rate:
 
 ### [Catan — 47,000 Games of Empirical Findings](../research/gaming/catan-47k-empirical.md)
-- `f33fcf` L729 — Is there a stable "best opening placement archetype"?
-- `375f3c` L730 — What's the optimal Monopoly card timing as a function of inventory state?
-- `ca230a` L731 — Trade efficiency distribution conditional on game phase.
-- `bf7e28` L732 — How does Catan robber placement correlate with winning?
+- `f33fcf` L731 — Is there a stable "best opening placement archetype"?
+- `375f3c` L732 — What's the optimal Monopoly card timing as a function of inventory state?
+- `ca230a` L733 — Trade efficiency distribution conditional on game phase.
+- `bf7e28` L734 — How does Catan robber placement correlate with winning?
 
 ### [CaptainMeme vs. 6 Cicero — The Human/AI Split in Press Diplomacy](../research/gaming/cicero-press-diplomacy-captain-meme.md)
 - `abea58` L108 — Does the no-grudge advantage extend beyond game play?
@@ -1109,9 +1109,11 @@ title: "Open Questions Registry"
 - `a064de` L156 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
 
 ### [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md)
-- `ae0055` L98 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
-- `a51ae8` L99 — Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
-- `ddb9c5` L100 — Comparison with Catan — 47k Empirical's city-engine and trade-overpay findings is the next step.
+- `ae0055` L117 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
+- `a51ae8` L118 — Does Catanatron allow adjacent 6/8? If so, Board Odds' and Forced Win's boards differ from Perfect Play's.
+- `ddb9c5` L119 — Comparison with Catan — 47k Empirical's city-engine and trade-overpay findings is the next step.
+- `67b7f3` L120 — Test on Catanatron (the open-source engine Board Odds and Forced Win used): does the plan the board's prices favour actually win more on that board?…
+- `e34858` L121 — Does robbing the scarce-resource holder on their scarce hex cost the robber trades, or is the refusal-to-trade response too rare to matter?
 
 ### [Clue — Board Odds' Monte Carlo vs the Deduction Videos](../research/gaming/sim-channels/clue.md)
 - `eb6658` L64 — What is Let's Get Into It's later episode's answer to "these rules can't get everything", and does it reach full constraint satisfaction over the 324…

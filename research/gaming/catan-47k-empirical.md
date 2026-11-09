@@ -312,6 +312,8 @@ A Catan board, post-random-setup, is **a vector space whose structure determines
 
 Together these collapse onto a **strategy preference landscape**: some build paths are well-supported by this board, others are uphill. The optimal opening isn't an absolute — it's *conditional on the realized board*.
 
+**Priced, 2026-11-09:** the resource-probability dimension is now computed. [`tools/catan-board-supply.py`](../../tools/catan-board-supply.py) prices each build by its inputs' scarcity on a given board. Across random boards a city costs 1.00–2.02× a settlement, and the two terms that model misses are open land as an expiring option and a big early city as a robber target. See [sim-channels → Catan](./sim-channels/catan.md#reading-the-board-as-an-economy-chris).
+
 ### The resource-strategy correspondence
 
 Each resource biases toward specific build paths:

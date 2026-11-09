@@ -6,7 +6,7 @@ keep the vault write-optimized (a web of forward links), and let tools derive th
 read-optimized checks instead of auditing by hand.
 
 Most of what follows maintains the vault itself. One exception is noted as such:
-**`risk-battle-odds.py`** is a *research* solver backing a specific page, kept here
+**`risk-battle-odds.py`** and **`catan-board-supply.py`** are *research* tools backing specific pages, kept here
 because it is the same kind of artifact — a deterministic generator whose output is
 checkable — and because a solver that lives next to its page cannot go unfindable.
 
@@ -147,6 +147,19 @@ shell separately. They are structurally independent, so `--selftest` **cross-che
 against each other on every run** — plus the per-round dice table against the published
 Risk odds, and the martingale identity behind the closed form. That mutual check is the
 point: the reduction is not faster (both are O(A·D)/2), it is a second oracle.
+
+## catan-board-supply.py — a Catan board read as an economy (research tool, not a vault gate)
+
+Backs [research/gaming/sim-channels/catan.md](../research/gaming/sim-channels/catan.md#reading-the-board-as-an-economy-chris).
+Counts each resource's pip supply on a base-Catan board and prices each build's recipe by
+that scarcity (1.0 per card on a perfectly even board). Board supply only, not what a player
+captures; linear, with no ports, trading or robber.
+
+```
+py -3 tools/catan-board-supply.py --sample 200000   # distribution over random boards
+py -3 tools/catan-board-supply.py --board "wood=6,9,10,3 brick=8,4,11 sheep=5,12,9,6 wheat=8,5,10,3 ore=4,11,2"
+py -3 tools/catan-board-supply.py --selftest        # exit 0 = clean
+```
 
 ## cook-county-rail-deaths.py — how the Cook County ME classifies train deaths (research query, not a vault gate)
 
