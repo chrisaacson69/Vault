@@ -32,7 +32,7 @@ title: "Open Questions Registry"
 ## Resolved
 > Newest first. *(no link)* = the note doesn't say where it was answered.
 
-- `a3dd5c` [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md) L78 — Do Board Odds' Checkers and Connect 4 videos measure their "best strategy" against the known perfect engines? *(2026-11-08)*
+- `a3dd5c` [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md) L80 — Do Board Odds' Checkers and Connect 4 videos measure their "best strategy" against the known perfect engines? *(2026-11-08)*
 - `8e15f5` [The RE Build Tool](../method/re-controller.md) L621 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
 - `8eeaf6` [The RE Build Tool](../method/re-controller.md) L620 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
 - `5a9146` [The RE Build Tool](../method/re-controller.md) L619 — Autonomy: advisory first (one phase per session), driving later once the phase table has proved itself? *(2026-10-26)*
@@ -1103,10 +1103,10 @@ title: "Open Questions Registry"
 - `a93fd0` L85 — Yellow learnsets:
 
 ### [Gaming](../research/gaming/README.md)
-- `7da029` L150 — Could a game be designed specifically as an economics teaching tool — making the price system, comparative advantage, and entrepreneurial judgment th…
-- `27fa1f` L151 — What would a 4X game look like with AI agents as advisors (cyborg model applied to gaming)?
-- `9248d2` L152 — Is there a formal relationship between game AI evaluation functions and utility theory? Both are trying to compress complex state into a scalar value.
-- `a064de` L153 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
+- `7da029` L152 — Could a game be designed specifically as an economics teaching tool — making the price system, comparative advantage, and entrepreneurial judgment th…
+- `27fa1f` L153 — What would a 4X game look like with AI agents as advisors (cyborg model applied to gaming)?
+- `9248d2` L154 — Is there a formal relationship between game AI evaluation functions and utility theory? Both are trying to compress complex state into a scalar value.
+- `a064de` L155 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
 
 ### [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md)
 - `ae0055` L98 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?
@@ -1118,9 +1118,9 @@ title: "Open Questions Registry"
 - `ed7c35` L75 — Does "orange beats every set" survive in 4-player games with houses capped at 32, where the housing shortage is a weapon?
 
 ### [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md)
-- `a1e680` L77 — Is Perfect Play's "41,000 real online games" Catan check the same twosheep.io data behind Catan — 47k Empirical (47,000 games)? Both find even seats.
-- `0d1f8e` L79 — Do the channels publish code or result tables? (Board Odds links Risk code; Perfect Play's engine is unpublished.)
-- `448035` L80 — Is a channel-agnostic test possible? Rerun one disputed claim (South America vs Australia under a dealt start) on one engine with both channels' oppo…
+- `a1e680` L79 — Is Perfect Play's "41,000 real online games" Catan check the same twosheep.io data behind Catan — 47k Empirical (47,000 games)? Both find even seats.
+- `0d1f8e` L81 — Do the channels publish code or result tables? (Board Odds links Risk code; Perfect Play's engine is unpublished.)
+- `448035` L82 — Is a channel-agnostic test possible? Rerun one disputed claim (South America vs Australia under a dealt start) on one engine with both channels' oppo…
 
 ### [Risk — Perfect Play vs Board Odds](../research/gaming/sim-channels/risk.md)
 - `2be57b` L81 — Does the attrition page's "stability decays as players are eliminated" show up in these channels' game-length data?

@@ -25,3 +25,4 @@ permalink: /tags/simulation/
 - [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md) — varied openings, robber, trading agree; cities/ore-wheat/ports/seat disagreements traced to opponent and label differences
 - [Risk — Perfect Play vs Board Odds](../research/gaming/sim-channels/risk.md) — Australia strong under a draft, a trap under a deal; Board Odds' battle odds match risk-battle-odds.py
 - [Ticket to Ride — Perfect Play vs Board Odds (+ Minesweeper)](../research/gaming/sim-channels/ticket-to-ride.md) — the 83% hoarder is a clock exploit of slow bots; both agree on skipping the face-up locomotive
+- [Board Odds vs Exact Solutions — Battleship and Yahtzee](../research/gaming/sim-channels/exact-solutions.md) — Heatmap shooter within ~1.6 shots of exact greedy, but placement advice is best-response to non-adapting bots; Yahtzee best habit 215.48 vs solver 254.61 — the gap is pacing

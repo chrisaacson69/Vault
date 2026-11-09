@@ -21,9 +21,11 @@ discussion: pending
 | Catan | Perfect Play, Board Odds, Forced Win; DandyDrew's reaction to Perfect Play | [catan.md](./catan.md) |
 | Risk | Perfect Play, Board Odds | [risk.md](./risk.md) |
 | Ticket to Ride (+ Minesweeper) | Perfect Play, Board Odds; Perfect Play only | [ticket-to-ride.md](./ticket-to-ride.md) |
-| Checkers, Connect 4 (solved) | Board Odds | [solved-games.md](./solved-games.md) |
+| Checkers, Connect 4, Othello (solved) | Board Odds | [solved-games.md](./solved-games.md) |
+| Battleship, Yahtzee (vs the vault's exact solutions) | Board Odds; Ballpark Figures pages | [exact-solutions.md](./exact-solutions.md) |
+| Guess Who | Board Odds, Mark Rober; Nica (2016) | [guess-who.md](./guess-who.md) |
 
-Scope is deliberate: Perfect Play's five games, every Board Odds and Forced Win video on the same games, and Board Odds' two solved games. Board Odds' other nine games (Othello, Codenames, Yahtzee, Battleship, …) are not captured.
+Scope is deliberate: Perfect Play's five games, every Board Odds and Forced Win video on the same games, Board Odds' solved games, and the games where another source gives an exact or mathematical answer (Battleship, Yahtzee, Guess Who, Clue). Board Odds' Codenames, Exploding Kittens, Scrabble, Stratego and Sorry! videos are not captured.
 
 ## Thesis — chess, not chutes and ladders
 
