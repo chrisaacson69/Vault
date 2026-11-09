@@ -45,6 +45,20 @@ Scope is deliberate: Perfect Play's five games, every Board Odds and Forced Win 
 
 **What follows for reading these videos:** take the principles as defaults, and treat any "best strategy" claim as the best fixed plan against fixed bots. Each per-game page lists what the channels missed by leaving position and diplomacy out.
 
+## The games by class
+
+| Game | Players | Information | Chance | What "perfect" means |
+|---|---|---|---|---|
+| Checkers, Connect 4, Othello | 2 | perfect | none | search; solved |
+| Guess Who | 2 | hidden | the deal | exact solution (small enough to compute) |
+| Battleship | 2 | hidden | placement | best response (shooting) vs minimax (hiding) |
+| Yahtzee | 1 | perfect | dice | exact expected-score odds |
+| Minesweeper | 1 | hidden | the board | exact odds |
+| Clue | 3–6 | hidden | deal, dice | exact inference plus accusation timing |
+| Monopoly, Risk, Catan, Ticket to Ride | 3+ | mostly perfect | dice, cards | undefined: depends on the opponents |
+
+**Why the top six come out alike (Chris):** each has either no opponent to model (Yahtzee, Minesweeper) or two players with a fixed target, so there is a computable optimum and the videos' principles land a measurable distance below it. **Clue is the edge case:** 3–6 players, but you can't attack the leader, only race them, and players affect each other only through what their suggestions reveal. That makes it closer to parallel solitaire with timing than to the bottom row. Only in the bottom row can players gang up on the leader, so "perfect play" stops being a fixed target, and that is where [the thesis](#thesis--chess-not-chutes-and-ladders) bites hardest. It is also the class Chris most wants to pursue; the puzzle games are "mostly search".
+
 ## The three channels
 
 | | Perfect Play (`@PerfectPlaySim`) | Board Odds (`@BoardOdds`) | Forced Win (`@forcedwingames`) |
