@@ -1128,9 +1128,9 @@ title: "Open Questions Registry"
 - `448035` L115 — Is a channel-agnostic test possible? Rerun one disputed claim (South America vs Australia under a dealt start) on one engine with both channels' oppo…
 
 ### [Risk — Perfect Play vs Board Odds](../research/gaming/sim-channels/risk.md)
-- `2be57b` L92 — Does the attrition page's "stability decays as players are eliminated" show up in these channels' game-length data?
-- `bd603f` L93 — South America vs Australia under a draft with odds-aware opponents was never run by either channel.
-- `d7ef2e` L94 — Does a conserving engine (the bystander rule above) reproduce the human-table ranking, with Africa / North America / Europe holding and outscoring Au…
+- `2be57b` L100 — Does the attrition page's "stability decays as players are eliminated" show up in these channels' game-length data?
+- `bd603f` L101 — South America vs Australia under a draft with odds-aware opponents was never run by either channel.
+- `9cf928` L102 — Does a purpose-scoring engine (attack only for a card, a reinforcement threshold, a bonus gained or denied, or an elimination's cards, costed against…
 
 ### [Ticket to Ride — Perfect Play vs Board Odds (+ Perfect Play's Minesweeper)](../research/gaming/sim-channels/ticket-to-ride.md)
 - `ef86e3` L55 — Does Board Odds' Normal pace its games like real players? It reports no game lengths, and pace is the variable the hoarder result hinges on.
