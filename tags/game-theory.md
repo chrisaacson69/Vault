@@ -55,3 +55,4 @@ permalink: /tags/game-theory/
 - [Pokémon Gen 1 — 170,000 Sampled Battles a Fixed Policy Could Solve Exactly](../research/gaming/pokemon-gen1-1v1-tournament.md) — fixed policy ⇒ exact absorbing chain per matchup; dominance holds under optimal play, so an inversion flags the heuristic AI
 - [Monopoly — Perfect Play vs Board Odds](../research/gaming/sim-channels/monopoly.md) — trade, build, don't hoard cash; trading is the biggest lever; Board Odds' paired-dice luck share (47.19% expert vs normal)
 - [Risk — Perfect Play vs Board Odds](../research/gaming/sim-channels/risk.md) — Australia strong under a draft, a trap under a deal; Board Odds' battle odds match risk-battle-odds.py
+- [Solved Games — Board Odds' Checkers and Connect 4](../research/gaming/sim-channels/solved-games.md) — the principle → search → perfect ladder measured: best Checkers tip 53.5% vs 6-move search 97.5%; Connect 4 principle player 80%, look-ahead 95%, solver unbeaten

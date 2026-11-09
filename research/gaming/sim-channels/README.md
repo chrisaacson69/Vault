@@ -21,14 +21,15 @@ discussion: pending
 | Catan | Perfect Play, Board Odds, Forced Win; DandyDrew's reaction to Perfect Play | [catan.md](./catan.md) |
 | Risk | Perfect Play, Board Odds | [risk.md](./risk.md) |
 | Ticket to Ride (+ Minesweeper) | Perfect Play, Board Odds; Perfect Play only | [ticket-to-ride.md](./ticket-to-ride.md) |
+| Checkers, Connect 4 (solved) | Board Odds | [solved-games.md](./solved-games.md) |
 
-Scope is deliberate: Perfect Play's five games, plus every Board Odds and Forced Win video on the same games. Board Odds' other eleven games (Othello, Codenames, Yahtzee, Battleship, …) are not captured.
+Scope is deliberate: Perfect Play's five games, every Board Odds and Forced Win video on the same games, and Board Odds' two solved games. Board Odds' other nine games (Othello, Codenames, Yahtzee, Battleship, …) are not captured.
 
 ## Thesis — chess, not chutes and ladders
 
 **Principles are averages over positions.** Each video turns a strategy into a fixed rule, measures it across millions of random boards, and reports the average. That produces sound advice, but advice is not play, and the clearest evidence comes from games where perfect play is known.
 
-1. **Where a perfect engine exists, it measures the gap.** In Minesweeper, Perfect Play's best player following the video's own advice reaches 41%, while its perfect-odds machine reaches 51%. Six of those ten points come from guessing better, and even the machine guesses in 84% of games and loses about half of those ([ticket-to-ride.md](./ticket-to-ride.md#minesweeper-perfect-play-only)). Good advice still leaves points on the table. Board Odds also covers two solved games, Checkers and Connect 4, which would show the same gap against a known perfect engine. Those videos are not captured here.
+1. **Where a perfect engine exists, it measures the gap.** In Minesweeper, Perfect Play's best player following the video's own advice reaches 41%, while its perfect-odds machine reaches 51%. Six of those ten points come from guessing better, and even the machine guesses in 84% of games and loses about half of those ([ticket-to-ride.md](./ticket-to-ride.md#minesweeper-perfect-play-only)). Good advice still leaves points on the table. Board Odds' two solved games show the full ladder ([solved-games.md](./solved-games.md)). In Checkers the best classic tip scores 53.5% against a normal player and six-move search 97.5%. In Connect 4 a one-line principle player scores 80%, a four-move look-ahead 95%, and the solver never loses. Both videos say real games are "decided by mistakes": tactics beat strategy.
 2. **In N≥3 games, static bots play a different game.** The vault's [N≥3 thesis](../n3-termination-and-randomization.md) holds that with three or more players the stable pattern is ganging up on the leader, and that dice or the cost of a won battle are what let the game end. All three channels state that their bots never coordinate, gang up or negotiate. Without the gang-up, whoever gets ahead stays ahead, and the tables play like races:
    - Board Odds' Monopoly: the first player to a full set wins 47.9%, nearly double a fair share.
    - Risk: games end in 11–13 rounds, and seat edges show up everywhere.
@@ -74,7 +75,7 @@ Scope is deliberate: Perfect Play's five games, plus every Board Odds and Forced
 ## Open Questions
 
 - Is Perfect Play's "41,000 real online games" Catan check the same twosheep.io data behind [Catan — 47k Empirical](../catan-47k-empirical.md) (47,000 games)? Both find even seats.
-- Do Board Odds' Checkers and Connect 4 videos measure their "best strategy" against the known perfect engines, and how big is the gap? Capturing those two would make thesis point 1 checkable on solved games.
+- ~~Do Board Odds' Checkers and Connect 4 videos measure their "best strategy" against the known perfect engines?~~ **Resolved 2026-11-08** → [solved-games.md](./solved-games.md): yes for Connect 4 (a solver); Checkers stops at 8-move search.
 - Do the channels publish code or result tables? (Board Odds links Risk code; Perfect Play's engine is unpublished.)
 - Is a channel-agnostic test possible? Rerun one disputed claim (South America vs Australia under a dealt start) on one engine with both channels' opponent models.
 

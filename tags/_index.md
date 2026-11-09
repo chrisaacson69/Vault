@@ -42,10 +42,10 @@ permalink: /tags/_index/
 - [food-safety](./food-safety.md) — 1 file
 - [free-markets](./free-markets.md) — 24 files
 - [free-will](./free-will.md) — 7 files
-- [game-ai](./game-ai.md) — 32 files
+- [game-ai](./game-ai.md) — 33 files
 - [game-design](./game-design.md) — 11 files
-- [game-theory](./game-theory.md) — 49 files
-- [games](./games.md) — 78 files
+- [game-theory](./game-theory.md) — 50 files
+- [games](./games.md) — 79 files
 - [grounding](./grounding.md) — 11 files
 - [history](./history.md) — 28 files
 - [insurance](./insurance.md) — 1 file
@@ -88,4 +88,4 @@ permalink: /tags/_index/
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files
 - [workflow](./workflow.md) — 5 files
-- [youtube](./youtube.md) — 11 files
+- [youtube](./youtube.md) — 12 files

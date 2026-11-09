@@ -39,3 +39,4 @@ permalink: /tags/game-ai/
 - [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md) — three YouTube channels that turn board-game strategies into bots and run millions of games
 - [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md) — varied openings, robber, trading agree; cities/ore-wheat/ports/seat disagreements traced to opponent and label differences
 - [Ticket to Ride — Perfect Play vs Board Odds (+ Minesweeper)](../research/gaming/sim-channels/ticket-to-ride.md) — the 83% hoarder is a clock exploit of slow bots; both agree on skipping the face-up locomotive
+- [Solved Games — Board Odds' Checkers and Connect 4](../research/gaming/sim-channels/solved-games.md) — the principle → search → perfect ladder measured: best Checkers tip 53.5% vs 6-move search 97.5%; Connect 4 principle player 80%, look-ahead 95%, solver unbeaten
