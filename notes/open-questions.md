@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1080 questions on 230 pages — 1000 open, 71 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
+**1083 questions on 231 pages — 1003 open, 71 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -913,6 +913,11 @@ title: "Open Questions Registry"
 - `8b8ea8` L125 — Should the benchmark include composite systems (target LLM + simple planner) as a control, to separate LLM capability from architectural capability?…
 - `52949a` L126 — Can the benchmark be published / open-sourced? If so, it becomes a public standard and every new LLM release gets scored against the existing panel a…
 
+### [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md)
+- `108f55` L55 — Is the strong-fief insensitivity real, or only observed? Test it: run ev against the script on a strong start; the thesis predicts a near-zero gap.
+- `4521ca` L56 — Does the margin also predict which rung is enough? Is there a margin below which rung 3 beats rung 2 and above which they tie?
+- `fc3f30` L57 — Is this the same lesson as binding-constraint determines analysis depth (a candidate on the crucible page), one level down: the position rather than…
+
 ### [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - `1c6cac` L138 — How to value special abilities?
 - `76d7e9` L139 — Multi-figure Lanchester:
@@ -1103,10 +1108,10 @@ title: "Open Questions Registry"
 - `a93fd0` L85 — Yellow learnsets:
 
 ### [Gaming](../research/gaming/README.md)
-- `7da029` L153 — Could a game be designed specifically as an economics teaching tool — making the price system, comparative advantage, and entrepreneurial judgment th…
-- `27fa1f` L154 — What would a 4X game look like with AI agents as advisors (cyborg model applied to gaming)?
-- `9248d2` L155 — Is there a formal relationship between game AI evaluation functions and utility theory? Both are trying to compress complex state into a scalar value.
-- `a064de` L156 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
+- `7da029` L154 — Could a game be designed specifically as an economics teaching tool — making the price system, comparative advantage, and entrepreneurial judgment th…
+- `27fa1f` L155 — What would a 4X game look like with AI agents as advisors (cyborg model applied to gaming)?
+- `9248d2` L156 — Is there a formal relationship between game AI evaluation functions and utility theory? Both are trying to compress complex state into a scalar value.
+- `a064de` L157 — The simulation genre demonstrates computational irreducibility intuitively — could this be formalized into a teaching tool for the concepts in Comput…
 
 ### [Catan — Perfect Play vs Board Odds vs Forced Win](../research/gaming/sim-channels/catan.md)
 - `ae0055` L124 — Does Forced Win's +13 from "never end a turn on more than 7 cards" survive against a baseline that already manages its hand?

@@ -11,7 +11,7 @@ discussion: folded-in
 **Source:** [Board Odds — "The Best Othello Strategy, Tested on 100 Million Games"](../../../raw/videos/2026-11-08%20board-odds-othello-100m-games.md) — <https://www.youtube.com/watch?v=wn3W1_WijjA> (15:03, 2026-11-08; auto-captions)
 **Solved status:** Hiroki Takizawa, "Othello is Solved", <https://arxiv.org/abs/2310.19387> (submitted 2023-10-30): a *weak* solution of 8×8 Othello, built on the Edax engine; perfect play from both sides draws.
 
-**Links:** [Simulation channels hub](./README.md#thesis--chess-not-chutes-and-ladders), [Battleship — 30 Billion Boards](../battleship-board-analysis.md) (another N=2 case with a computable answer), [Yahtzee — Solved](../yahtzee-solved.md), [Wordle — Solved](../wordle-solved.md)
+**Links:** [Simulation channels hub](./README.md#thesis--chess-not-chutes-and-ladders), [Battleship — 30 Billion Boards](../battleship-board-analysis.md) (another N=2 case with a computable answer), [Yahtzee — Solved](../yahtzee-solved.md), [Wordle — Solved](../wordle-solved.md), [The Margin Sets the Intelligence](../margin-sets-player-intelligence.md) (the ladder pays only at thin margins)
 
 ---
 

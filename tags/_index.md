@@ -42,10 +42,10 @@ permalink: /tags/_index/
 - [food-safety](./food-safety.md) — 1 file
 - [free-markets](./free-markets.md) — 24 files
 - [free-will](./free-will.md) — 7 files
-- [game-ai](./game-ai.md) — 33 files
+- [game-ai](./game-ai.md) — 34 files
 - [game-design](./game-design.md) — 11 files
 - [game-theory](./game-theory.md) — 53 files
-- [games](./games.md) — 82 files
+- [games](./games.md) — 83 files
 - [grounding](./grounding.md) — 11 files
 - [history](./history.md) — 28 files
 - [insurance](./insurance.md) — 1 file
@@ -59,13 +59,13 @@ permalink: /tags/_index/
 - [mathematics](./mathematics.md) — 35 files
 - [meta-musing](./meta-musing.md) — 17 files
 - [metaphysics](./metaphysics.md) — 2 files
-- [methodology](./methodology.md) — 24 files
+- [methodology](./methodology.md) — 25 files
 - [mmc1](./mmc1.md) — 2 files
 - [morality](./morality.md) — 68 files
 - [music](./music.md) — 15 files
 - [natural-law](./natural-law.md) — 15 files
 - [nes](./nes.md) — 23 files
-- [nobunagas-ambition](./nobunagas-ambition.md) — 2 files
+- [nobunagas-ambition](./nobunagas-ambition.md) — 3 files
 - [objectivism](./objectivism.md) — 30 files
 - [opus-4-6](./opus-4-6.md) — 1 file
 - [peikoff](./peikoff.md) — 17 files
@@ -83,7 +83,7 @@ permalink: /tags/_index/
 - [simulation](./simulation.md) — 20 files
 - [snes](./snes.md) — 13 files
 - [software-engineering](./software-engineering.md) — 10 files
-- [strategy](./strategy.md) — 32 files
+- [strategy](./strategy.md) — 33 files
 - [tools](./tools.md) — 6 files
 - [transcription](./transcription.md) — 1 file
 - [utility](./utility.md) — 2 files

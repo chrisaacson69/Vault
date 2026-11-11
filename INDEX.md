@@ -7,7 +7,7 @@ permalink: /INDEX/
 # Vault Index
 > Master map of everything in the vault.
 
-**Last updated:** 2026-11-08 — full dated history in [logs/CHANGELOG.md](./logs/CHANGELOG.md).
+**Last updated:** 2026-11-11 — full dated history in [logs/CHANGELOG.md](./logs/CHANGELOG.md).
 
 ## Projects
 - [Batch Resize](./projects/batch-resize/README.md) — CLI image batch resizer (complete)
@@ -237,6 +237,7 @@ permalink: /INDEX/
   - [The Hollow Opponent — Where Game Depth Actually Lives](./research/gaming/hollow-opponent-perceived-depth.md) — NA1's daimyo AI decodes to one-ply weakest-prey plus a threshold; the thesis is that **perceived depth lived in the player's ignorance of the rule** and migrates to the board once decoded.
   - [The Dead-Verb Test — Mechanism Viability and Whether KOEI Learns](./research/gaming/dead-verbs-mechanism-viability.md) — a verb earns its menu slot only if it has a **home state** (a region where it's the *uniquely best response*); NA1's Bribe/Ninja/Pact/Marry are **dead** — one-shot effects dominated by compounding develop and redundant with the don't-be-a-target policy (Pact = insurance you can only buy when you don't need it). Legitimate AI *resource* handicaps vs the miss of pricing out the alternative toolkit. Falsifiable series scorecard: does the dominated fraction of the command menu shrink across the KOEI catalog?
   - [NA1 Turn Economy — Action Slots, the Economic Index and the Winning Position](./research/gaming/na1-turn-economy.md) — one command per fief per season makes the slot the binding constraint; Chris's Economic Index Σ∛(town·output·wealth), the Winning-Position Theorem (yours > everyone else's combined) and ~10% CAGR / 2.4% per-slot hurdle; play-observed, promoted from memory
+  - [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](./research/gaming/margin-sets-player-intelligence.md) — how much intelligence a player needs grows as its margin shrinks: from a strong start every move survives and methods tie; Saito (NA1) goes 1.7% script → 6.7% rule order → 8.3% formula-EV player. Develop smarter players on weak positions
   - [L'Empereur — the two-tier turn (KOEI's NES→SNES design hinge)](./research/gaming/lempereur-two-tier-turn.md) — KOEI's last NES conquest sim, decompiled to the bank: the same family engine but a new **country→province two-tier turn**, the shape the 16-bit titles would keep.
   - [Breaking Down an SNES Cart — the teardown method](./research/gaming/snes-cartridge-teardown.md) — how to look under the hood of *any* SNES ROM before knowing an opcode: read the internal header ($00:FFC0), detect LoROM/HiROM via the checksum-complement identity, lay the memory map + find the RESET entry, peel the subsystems (PPU modes / SPC700 / coprocessors). The architecture break the NES KOEI decompilers got to skip — 65C816 not 6502, mapping must be re-detected per cart. Grounded in the SNESdev wiki; existence proof = the verified `snes-decompiler` header/mapper tools
   - [KOEI's portable VM, proven from both sides — the SNES ROTK2 reversal](./research/gaming/koei-snes-portable-vm.md) — reversing ROTK2 on SNES and comparing it to its NES twin shows KOEI's strategy engine is a genuinely **portable bytecode VM**; the SNES release is a faithful port plus facelift.

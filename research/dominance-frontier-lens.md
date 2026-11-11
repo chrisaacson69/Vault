@@ -8,7 +8,7 @@ title: "The Dominance-Frontier Lens"
 # The Dominance-Frontier Lens
 > A recurring analytical frame for **any competitive system with counter dynamics** — games, but also markets and portfolios. Map **cost** against **effect**, draw the **edges** where X dominates or counters Y, trace the **frontier curve** of non-dominated choices, and flag the **asymmetric edges** where a counter costs more than the threat it answers. Then ask the design-quality question: **does every starting endowment have at least one viable path along the frontier?** It's the same construction as a Markowitz efficient frontier in finance — which is why this lens reaches past games.
 
-**Links:** [Capability Without Leverage](./gaming/capability-without-leverage.md) (the trap this lens *finds*), [MIRR — 4X as Capital Allocation](./gaming/mirr-4x-framework.md), [The Anchor Method](../method/anchor-method.md) (dominance pruning is a reducer — see below) · specimens linked in the ledger.
+**Links:** [Capability Without Leverage](./gaming/capability-without-leverage.md) (the trap this lens *finds*), [MIRR — 4X as Capital Allocation](./gaming/mirr-4x-framework.md), [The Anchor Method](../method/anchor-method.md) (dominance pruning is a reducer — see below) · specimens linked in the ledger., [The Margin Sets the Intelligence](./gaming/margin-sets-player-intelligence.md)
 
 > A **thesis page** (portable, source-independent), promoted from a working note. The worked graphs live in the specimens it cites; this page states the lens.
 
