@@ -18,6 +18,7 @@ Picked up the 2026-11-10 setup-RNG handoff (Chris: the *battle* setup; "abuse" =
 ## Commits (na1-decompiler `main`, pushed)
 `b9fec1f` (sim fixes), `1094c86` (atlas, renderer, plans), `129e141` (Mino plan, gate mode, `--fief`/`--split`), `006228e` (#44 writeup; ch.21 corrected).
 
+- **The Assign doesn't pay in whole games** (Chris called it). Saito starts with 29 gold and Assign costs 30, so turn 1 is impossible. Assigning as soon as he can afford it: 1.7% alive vs 5.0% without; all gold into men on turn 1: 1.0%. All 17 at skill 2: 63.3%. Commit `b3455e5`.
+
 ## Next (Chris)
-1. **Turn-1 Assign vs buying men**, in whole games. Chris expects Assign to lose: it costs early gold and the turn.
-2. **Later:** push Mino's random slots 3-4 back in the north; a decapitation chokepoint against Oda from the west; a hold rule that estimates a one-round kill; per-side run plans.
+1. **Later:** push Mino's random slots 3-4 back in the north; a decapitation chokepoint against Oda from the west; a hold rule that estimates a one-round kill; per-side run plans.
