@@ -20,5 +20,11 @@ Picked up the 2026-11-10 setup-RNG handoff (Chris: the *battle* setup; "abuse" =
 
 - **The Assign doesn't pay in whole games** (Chris called it). Saito starts with 29 gold and Assign costs 30, so turn 1 is impossible. Assigning as soon as he can afford it: 1.7% alive vs 5.0% without; all gold into men on turn 1: 1.0%. All 17 at skill 2: 63.3%. Commit `b3455e5`.
 
+- **Saito's choices priced from the formulas (#45, #46).**
+  - Revolt per season ≈ 0.15 × eligibility; the staged revolt battle is lost about a third of the time whatever the morale.
+  - Rice 0 after the harvest is certain death (52/52).
+  - Battle odds by men ratio; the daimyo-led bit doubles the attacker's men in the strength formula (ROM-checked; ch.17 had it defender-only).
+  - The EV player (`--tail ev`) keeps 50 of 600 Saito games alive against the reader's 40, with nothing fitted. Commits `59035d3`, `8313129`, `c337c5a`.
+
 ## Next (Chris)
 1. **Later:** push Mino's random slots 3-4 back in the north; a decapitation chokepoint against Oda from the west; a hold rule that estimates a one-round kill; per-side run plans.
