@@ -26,5 +26,13 @@ Picked up the 2026-11-10 setup-RNG handoff (Chris: the *battle* setup; "abuse" =
   - Battle odds by men ratio; the daimyo-led bit doubles the attacker's men in the strength formula (ROM-checked; ch.17 had it defender-only).
   - The EV player (`--tail ev`) keeps 50 of 600 Saito games alive against the reader's 40, with nothing fitted. Commits `59035d3`, `8313129`, `c337c5a`.
 
+- **EV player, end-of-horizon (#46).**
+  - A longer horizon alone lost (44 vs 50): the projection held the world still.
+  - Late attacks on Saito come from the pick flipping (others grow on the recruit schedule, he becomes the weakest) and from his own shield falling; a neighbour's own hire caused 1 of 149.
+  - With the ROM's recruit schedule in the projection, 8 seasons gives 53/600. Defaults are now 8 seasons with growth (`ea00297`).
+  - Income (the peasants move) is never chosen.
+  - Vault page: [The Margin Sets the Intelligence](../research/gaming/margin-sets-player-intelligence.md).
+
 ## Next (Chris)
+- The growth predictor is general plumbing: lift it out of `ev.py` for every fief and tail. Mid-game is the real test: a strong economy absorbs a big hire; 2 give turns a year leave 2 for other things; splitting a give beats one big give, though it costs a slot.
 1. **Later:** push Mino's random slots 3-4 back in the north; a decapitation chokepoint against Oda from the west; a hold rule that estimates a one-round kill; per-side run plans.
