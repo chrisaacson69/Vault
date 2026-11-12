@@ -46,6 +46,12 @@ The same scripted player keeps **68.1%** of all 17 starts alive on average. The 
 
 Each rung costs more to build and pays only where the margin is thin. That is why most strategy-game AI stops at rung 1-2 and seems fine: it is usually tested from comfortable positions.
 
+## The same shape at empire scale
+
+The [expanding player](https://github.com/chrisaacson69/na1-decompiler/blob/main/docs/synthesis-frontier.md) (#48) follows Chris's order: make yourself safe, then build, then expand. It attacks only when every fief it owns stays past its gates afterwards, buys men once the economy tops out, and uses interior fiefs as depots for the front. Over 70 years from all 17 starts, 137 of 340 games die in the opening without taking a second fief. Of the 203 that expand, 186 unify Japan (92%). A planner that matched targets to sources within the free army changed nothing (185 against 186), although it was built against measured slack: 70-89% of the spare army idled and enemy holes stayed open for years.
+
+The margin explains why. Once a player is past being hunted, the AI cannot retaliate strategically. It judges each attack on its own gates, so any plan that takes territory fast is close to optimal, and a greedy one is enough. All the intelligence pays in the opening, where the margin is thin. A planner should matter against opponents that answer back: the all-player map in the NA1 roadmap, which explores what is possible rather than what beats this AI (and see [the coalition problem](./multiplayer-coalition-problem.md)).
+
 ## History, read through the formulas
 
 A fief starting at morale 21 and loyalty 31 reads like a ruler the army and the peasants already resent. Surviving it takes the arc of a lord who turns wise: feed the army before you tax it, buy its loyalty before you need it, and make yourself not worth picking. The Saito of Mino are an apt specimen. Dōsan, the "Viper of Mino", rose by betraying his own lords and was killed in 1556 by his son Yoshitatsu. Past wrongs collect, and the 1560 fief carries that debt.
@@ -53,6 +59,7 @@ A fief starting at morale 21 and loyalty 31 reads like a ruler the army and the 
 ## Open Questions
 
 - ~~Is the strong-fief insensitivity real, or only observed? Test it: run `ev` against the script on a strong start; the thesis predicts a near-zero gap.~~ **Resolved 2026-11-11** → [`na1-decompiler` synthesis #47](https://github.com/chrisaacson69/na1-decompiler/blob/main/docs/synthesis-frontier.md): 6-year games, 50 seeds each. On Oda (47-49 alive of 50) and Tokugawa (41-42) survival is the same under every player; on the mid fiefs Hojo and Imagawa the EV players keep 4-8 more. The dial is the warning horizon: react to a threat 2 seasons ahead and the mid fiefs gain survivors for about 5% income, while the strong fiefs lose nothing.
+- Does a planner (rung 4) start to pay once the opponents retaliate? The all-player NA1 map is the test; against the gated AI it was neutral (#48).
 - Does the margin also predict *which* rung is enough? Is there a margin below which rung 3 beats rung 2 and above which they tie?
 - Is this the same lesson as [binding-constraint determines analysis depth](./nobunaga-crucible.md) (a candidate on the crucible page), one level down: the position rather than the game?
 
