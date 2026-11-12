@@ -33,6 +33,14 @@ Picked up the 2026-11-10 setup-RNG handoff (Chris: the *battle* setup; "abuse" =
   - Income (the peasants move) is never chosen.
   - Vault page: [The Margin Sets the Intelligence](../research/gaming/margin-sets-player-intelligence.md).
 
+- **Income priced, second objective, hunted gate (#46-#47).**
+  - The projection skipped the Summer re-seed of the income marks, so it could never see a gift pay. Fixed.
+  - Tax 55 then give beats give then tax (72/58 against 61/47 on Saito's start).
+  - A riot costs Saito his gold, not his fief.
+  - Saito: 57/600 with riots and tax moves.
+  - Strong and mid fiefs over 6 years: survival does not depend on the player on Oda and Tokugawa (the vault page's open question, resolved). Economy by rule plus defence by forecast (`HUNT_GATE = 2`): +7 survivors of 200 at 0-6% income.
+  - Commits `3fd281b`, `0f94620`, `11e6320`, `a4cc4c7`.
+
 ## Next (Chris)
 - The growth predictor is general plumbing: lift it out of `ev.py` for every fief and tail. Mid-game is the real test: a strong economy absorbs a big hire; 2 give turns a year leave 2 for other things; splitting a give beats one big give, though it costs a slot.
 1. **Later:** push Mino's random slots 3-4 back in the north; a decapitation chokepoint against Oda from the west; a hold rule that estimates a one-round kill; per-side run plans.

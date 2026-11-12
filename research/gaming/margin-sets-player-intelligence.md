@@ -52,7 +52,7 @@ A fief starting at morale 21 and loyalty 31 reads like a ruler the army and the 
 
 ## Open Questions
 
-- Is the strong-fief insensitivity real, or only observed? Test it: run `ev` against the script on a strong start; the thesis predicts a near-zero gap.
+- ~~Is the strong-fief insensitivity real, or only observed? Test it: run `ev` against the script on a strong start; the thesis predicts a near-zero gap.~~ **Resolved 2026-11-11** → [`na1-decompiler` synthesis #47](https://github.com/chrisaacson69/na1-decompiler/blob/main/docs/synthesis-frontier.md): 6-year games, 50 seeds each. On Oda (47-49 alive of 50) and Tokugawa (41-42) survival is the same under every player; on the mid fiefs Hojo and Imagawa the EV players keep 4-8 more. The dial is the warning horizon: react to a threat 2 seasons ahead and the mid fiefs gain survivors for about 5% income, while the strong fiefs lose nothing.
 - Does the margin also predict *which* rung is enough? Is there a margin below which rung 3 beats rung 2 and above which they tie?
 - Is this the same lesson as [binding-constraint determines analysis depth](./nobunaga-crucible.md) (a candidate on the crucible page), one level down: the position rather than the game?
 
