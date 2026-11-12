@@ -41,6 +41,12 @@ Picked up the 2026-11-10 setup-RNG handoff (Chris: the *battle* setup; "abuse" =
   - Strong and mid fiefs over 6 years: survival does not depend on the player on Oda and Tokugawa (the vault page's open question, resolved). Economy by rule plus defence by forecast (`HUNT_GATE = 2`): +7 survivors of 200 at 0-6% income.
   - Commits `3fd281b`, `0f94620`, `11e6320`, `a4cc4c7`.
 
+## 2026-11-12: what the gate leaves, and the rice it gave away
+- Every bench death is an invasion. Reader 49 of 200: 31 in year 1, 18 later. The scorers cut the later ones to 7-9; year 1 stays near 28, and 12 of those come before the first command.
+- Three deaths every player shared were rice 1 beside a full army. The Summer gift gave the rice away while no neighbour had picked the fief; an AI moving later that season passed the budget gate and won.
+- Chris: the hunted status has three states. *Safe* (no neighbour past the 47% share line) gives freely. *Huntable* (someone past it, picked or not) stops the gift at the budget gate. *Hunted* is the threat rows. `shield_rice` mode 3: the gate at 2 seasons ahead plus mode 3 keeps 162 of 200 alive (the reader keeps 151); ev-survival plus mode 1 keeps 169. The strong fiefs start huntable, so their year-1 gift was a real risk. Survival first: at this stage most mistakes are deadly.
+- na1-decompiler `3ea8155`, `140e58a` (#47).
+
 ## Next (Chris)
 - The growth predictor is general plumbing: lift it out of `ev.py` for every fief and tail. Mid-game is the real test: a strong economy absorbs a big hire; 2 give turns a year leave 2 for other things; splitting a give beats one big give, though it costs a slot.
 1. **Later:** push Mino's random slots 3-4 back in the north; a decapitation chokepoint against Oda from the west; a hold rule that estimates a one-round kill; per-side run plans.
