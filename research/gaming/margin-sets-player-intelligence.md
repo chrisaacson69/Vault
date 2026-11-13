@@ -52,6 +52,16 @@ The [expanding player](https://github.com/chrisaacson69/na1-decompiler/blob/main
 
 The margin explains why. Once a player is past being hunted, the AI cannot retaliate strategically. It judges each attack on its own gates, so any plan that takes territory fast is close to optimal, and a greedy one is enough. All the intelligence pays in the opening, where the margin is thin. A planner should matter against opponents that answer back: the all-player map in the NA1 roadmap, which explores what is possible rather than what beats this AI (and see [the coalition problem](./multiplayer-coalition-problem.md)).
 
+## The skill wall: the difficulty dial is the margin
+
+NA1's skill setting is the margin made adjustable. It is a set of human multipliers the dial takes away ([`na1-decompiler` #57-#59](https://github.com/chrisaacson69/na1-decompiler/blob/main/docs/synthesis-frontier.md), each read from the ROM). From skill 1 to skill 3:
+- your units' battle strength drops from 100% to 70% (the AI's stays 100%);
+- the morale hit per exchange goes from 5 against the AI's 1 to 3 against 3;
+- your develop multiplier falls from ×5 to ×3 on a √ curve, while the AI turns surplus gold into town and output one for one;
+- the AI's lords gain +15 on every stat instead of +5.
+
+At skill 1 those edges carry the greedy expander to unification in 155 of 340 games. At skill 3 the same player unifies 0. Fixing its skill-blind attack odds and hiring for its gates kept more openings alive, but its economy still fell to about 0.4 of the AI's per fief. Chris: *the game relies on human advantages to carry logical play.* Take them away and the greedy rule (rung 2) has met its limits. What is left is shape: expansion aimed at making your own fiefs back line (no enemy neighbour, no army, all the gold into the economy), so a few interior fiefs out-develop the AI on the cut curve. That is a planning problem, rung 3-4. The empire-scale verdict above ("greedy is enough") holds only while the dial leaves you a margin.
+
 ## History, read through the formulas
 
 A fief starting at morale 21 and loyalty 31 reads like a ruler the army and the peasants already resent. Surviving it takes the arc of a lord who turns wise: feed the army before you tax it, buy its loyalty before you need it, and make yourself not worth picking. The Saito of Mino are an apt specimen. Dōsan, the "Viper of Mino", rose by betraying his own lords and was killed in 1556 by his son Yoshitatsu. Past wrongs collect, and the 1560 fief carries that debt.
@@ -60,6 +70,7 @@ A fief starting at morale 21 and loyalty 31 reads like a ruler the army and the 
 
 - ~~Is the strong-fief insensitivity real, or only observed? Test it: run `ev` against the script on a strong start; the thesis predicts a near-zero gap.~~ **Resolved 2026-11-11** → [`na1-decompiler` synthesis #47](https://github.com/chrisaacson69/na1-decompiler/blob/main/docs/synthesis-frontier.md): 6-year games, 50 seeds each. On Oda (47-49 alive of 50) and Tokugawa (41-42) survival is the same under every player; on the mid fiefs Hojo and Imagawa the EV players keep 4-8 more. The dial is the warning horizon: react to a threat 2 seasons ahead and the mid fiefs gain survivors for about 5% income, while the strong fiefs lose nothing.
 - Does a planner (rung 4) start to pay once the opponents retaliate? The all-player NA1 map is the test; against the gated AI it was neutral (#48).
+- Does a planner pay once the *dial* removes the margin? At skill 3 the greedy expander unifies 0 of 340 (#57-#59). A backline-shaping planner is the test, and the next session.
 - Does the margin also predict *which* rung is enough? Is there a margin below which rung 3 beats rung 2 and above which they tie?
 - Is this the same lesson as [binding-constraint determines analysis depth](./nobunaga-crucible.md) (a candidate on the crucible page), one level down: the position rather than the game?
 

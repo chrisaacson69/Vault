@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1083 questions on 231 pages — 1002 open, 72 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
+**1086 questions on 231 pages — 1005 open, 72 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -32,7 +32,7 @@ title: "Open Questions Registry"
 ## Resolved
 > Newest first. *(no link)* = the note doesn't say where it was answered.
 
-- `108f55` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L55 — Is the strong-fief insensitivity real, or only observed? Test it: run ev against the script on a strong start… *(2026-11-11)*
+- `108f55` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L71 — Is the strong-fief insensitivity real, or only observed? Test it: run ev against the script on a strong start… *(2026-11-11)*
 - `a3dd5c` [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md) L113 — Do Board Odds' Checkers and Connect 4 videos measure their "best strategy" against the known perfect engines? *(2026-11-08)*
 - `8e15f5` [The RE Build Tool](../method/re-controller.md) L621 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
 - `8eeaf6` [The RE Build Tool](../method/re-controller.md) L620 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
@@ -915,8 +915,10 @@ title: "Open Questions Registry"
 - `52949a` L126 — Can the benchmark be published / open-sourced? If so, it becomes a public standard and every new LLM release gets scored against the existing panel a…
 
 ### [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md)
-- `4521ca` L56 — Does the margin also predict which rung is enough? Is there a margin below which rung 3 beats rung 2 and above which they tie?
-- `fc3f30` L57 — Is this the same lesson as binding-constraint determines analysis depth (a candidate on the crucible page), one level down: the position rather than…
+- `035edd` L72 — Does a planner (rung 4) start to pay once the opponents retaliate? The all-player NA1 map is the test; against the gated AI it was neutral (#48).
+- `0af48c` L73 — Does a planner pay once the dial removes the margin? At skill 3 the greedy expander unifies 0 of 340 (#57-#59). A backline-shaping planner is the tes…
+- `4521ca` L74 — Does the margin also predict which rung is enough? Is there a margin below which rung 3 beats rung 2 and above which they tie?
+- `fc3f30` L75 — Is this the same lesson as binding-constraint determines analysis depth (a candidate on the crucible page), one level down: the position rather than…
 
 ### [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - `1c6cac` L138 — How to value special abilities?
@@ -1085,9 +1087,10 @@ title: "Open Questions Registry"
 - `20951c` L269 — What's the minimum information an AI needs about opponents' strategies to make good coalition decisions? Leader identification is easy in these games…
 - `b02917` L270 — Can the interest rate framework be formalized enough to serve as a meta-heuristic — an AI that explicitly models its effective interest rate and adju…
 - `0baeb6` L271 — Is the Stockfish NN eval + algorithmic search split sufficient for multiplayer, or does the search itself need to be learned?
-- `0fdacd` L272 — Relative position as objective function:
-- `dd5c63` L273 — Fudge factor analysis:
-- `752d4c` L274 — Cross-game generalization:
+- `9b3904` L272 — How much of the coalition behaviour (gang-up on the leader, kingmaking, stalemate) appears when every seat is a sophisticated player rather than a ga…
+- `0fdacd` L273 — Relative position as objective function:
+- `dd5c63` L274 — Fudge factor analysis:
+- `752d4c` L275 — Cross-game generalization:
 
 ### [NA1 Turn Economy — Action Slots, the Economic Index and the Winning Position](../research/gaming/na1-turn-economy.md)
 - `bc2bc4` L35 — Does the theorem hold under the AI's actual behaviour (it attacks only its weakest neighbour; Hollow Opponent), or only against rational coalitions?…

@@ -27,3 +27,4 @@ na1-decompiler `main`, pushed: `6f27b05` (#49), `ac82a41` (#50), `580e0ca` (#51)
 - The dead-verbs page could cite Bribe (#51) and Loans (#54) too.
 - The unexplained rice +56 in the first single Summer-gift pair (7 above the range; not in 40 runs).
 
+**Continued in [assassination priced, the chain, skill 3 and the skill wall](./2026-11-13-na1-assassination-skill-wall.md)** (#55-#59; assassination, the ability-roll screen and the dead-verbs citations above are closed there).

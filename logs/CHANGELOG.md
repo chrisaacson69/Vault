@@ -13,6 +13,8 @@ created: 2026-07-20
 
 ## 2026-11-13
 
+**NA1: assassination priced, the chain mapped, the skill wall** ([session log](./2026-11-13-na1-assassination-skill-wall.md); na1-decompiler ledger #55-#59). A landed assassination always kills (cartridge-checked; #1's attrition overturned) and the fief comes with its army; at skill 1 a high roll chains 11 of 17 fiefs without a battle. At skill 3 nobody unifies: the expander's attack odds were skill-blind (`$9CF4`, human strength × (115 − 15·skill)%), the hire rule waits a decade, and the economy falls behind the AI's from year 5. [Dead verbs](../research/gaming/dead-verbs-mechanism-viability.md) completed; the skill wall added to [the margin page](../research/gaming/margin-sets-player-intelligence.md).
+
 **NA1: the unused verbs priced** ([session log](./2026-11-13-na1-verbs-priced.md); na1-decompiler ledger #49-#54). Diplomacy, sabotage, battle bribe, rice and loans each lose to buying men; the Summer marks were checked in the running cartridge (new tool `na1_play.py`, headless Mesen); the RNG is seeded only until the first button press. [Dead verbs](../research/gaming/dead-verbs-mechanism-viability.md) updated with the Pact and sabotage measurements.
 
 ## 2026-11-09
