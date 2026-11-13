@@ -17,16 +17,16 @@ A verb earns its slot on the menu only if there exists a game state where **play
 ## Why NA1's alternative verbs are dead
 **The binding constraint prices every verb against compounding.** NA1's real scarcity is **action slots** (4 decisions/year — the [turn-economy thesis](./nobunaga-crucible.md)), not gold. So a verb's true cost is the *opportunity cost of a develop slot*, and develop compounds geometrically. Bribe, Ninja, Pact, Marry are all **one-shot, non-compounding** effects. Against a compounding baseline, a non-compounding action is dominated *unless* it (a) averts a catastrophic loss or (b) unlocks a compounding gain. None of NA1's reliably clear that bar:
 
-- **Pact / Marry** — buy safety from attack. But the dominant policy is already *don't be a target*: the [war-commit gate](./nobunaga-crucible.md) selects the **weakest-provisioned** border fief, so non-weakness means you are never *selected* and the battle never happens — zero cost, no slot spent. Diplomacy is redundant with economics.
+- **Pact / Marry** — buy safety from attack. But the dominant policy is already *don't be a target*: the [war-commit gate](./nobunaga-crucible.md) selects the **weakest-provisioned** border fief, so non-weakness means you are never *selected* and the battle never happens — zero cost, no slot spent. Diplomacy is redundant with economics. *Priced from the ROM (2026-11-13, [ledger #49](https://github.com/chrisaacson69/na1-decompiler/blob/main/docs/synthesis-frontier.md)):* a relation is one d100 roll in the AI's war commit, re-rolled every season, and a pact's cell decays 10 a year, so against a neighbour who attacks whenever he can a pact buys about two seasons; a marriage (daimyo-wide, decays 2 a year) buys about eight, but its 300+ gold dowry buys about 100 men in 1560, which close the gate for good.
 - **Bribe** (gold-for-defection) — the one with a faint pulse (a maxed-gold pump fief with nothing compounding left to buy). Still capped by conquest: an assault *garrisons you with the surviving army anyway*, so Bribe pays gold for strictly less than force delivers.
 - **Ninja / sabotage** — a *temporary* enemy debuff against an AI whose spring-boon rubber-band repairs it next turn. Negative EV by construction.
 
-**The anti-player drift makes it worse over time.** NA1 hands the AI economic handicaps (linear develop vs the player's √-curve; spring-boon loyalty/wealth). As the AI's gold-denominated power outpaces the player's, every **fixed-gold** verb (Bribe, Pact) gets *relatively* more expensive each year — the verbs decay toward uselessness exactly as the game lengthens.
+**The anti-player drift makes it worse over time.** NA1 hands the AI economic handicaps (linear develop vs the player's √-curve; spring-boon loyalty/wealth). As the AI's gold-denominated power outpaces the player's, every **fixed-gold** verb (Bribe) gets *relatively* more expensive each year — the verbs decay toward uselessness exactly as the game lengthens.
 
 ## The anti-pattern: a verb with no home state
 Pact is the clean specimen. Its cost and its value are **anti-correlated in time**:
 - when you're *strong* you can afford it but won't be attacked (no need),
-- when you're *weak* you're attacked but can't spare the gold/slot (can't pay),
+- when you're *weak* you're attacked, and the gold is not the bar (the price is a share of *your* treasury, about 20 when it is empty) but the slot is: a command spent on a two-season stall instead of the men that end the threat,
 - and where the two would finally align, **non-weakness has already pre-empted the threat**.
 
 This is *insurance you can only buy when you don't need it*, layered on *redundancy with the optimal strategy*. Empty home state → zero marginal value. A mechanism is only as alive as the set of states where it's the best response is large.
