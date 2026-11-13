@@ -11,6 +11,10 @@ created: 2026-07-20
 
 ---
 
+## 2026-11-13
+
+**NA1: the unused verbs priced** ([session log](./2026-11-13-na1-verbs-priced.md); na1-decompiler ledger #49-#54). Diplomacy, sabotage, battle bribe, rice and loans each lose to buying men; the Summer marks were checked in the running cartridge (new tool `na1_play.py`, headless Mesen); the RNG is seeded only until the first button press. [Dead verbs](../research/gaming/dead-verbs-mechanism-viability.md) updated with the Pact and sabotage measurements.
+
 ## 2026-11-09
 
 **Sim channels, discussion folded in (Chris).** [Monopoly](../research/gaming/sim-channels/monopoly.md): the careful trader is right to lose, since a lopsided swap still beats no trade; the vault prices the trade and the split is the unsolved [bargaining](../research/gaming/nash-bargaining-problem.md) problem. [Risk](../research/gaming/sim-channels/risk.md): the human-table axis is planning horizon (every attack must buy something; breaking a continent declares enmity), the income term the attrition page lacks. [Catan](../research/gaming/sim-channels/catan.md): the board read as an economy, with new research tool [`tools/catan-board-supply.py`](../tools/catan-board-supply.py) pricing builds by pip scarcity (city/settlement ratio 1.00–2.02 across random boards); open land as an expiring option; identical bots can't exploit gaps.
