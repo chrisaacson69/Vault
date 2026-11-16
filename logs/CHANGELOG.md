@@ -11,6 +11,10 @@ created: 2026-07-20
 
 ---
 
+## 2026-11-16
+
+**NA1: the pocket planner, hubs, and the opening wall** ([session log](./2026-11-16-na1-pocket-planner.md); na1-decompiler ledger #60). A planner that looks 4 conquests ahead for pockets of back line tied the greedy expander at skill 2 (46 vs 48 unified of 200 fresh seeds) and was neutral at skill 3, where the first conquest comes in year 19. Greedy already ranks moves by interior fiefs created, so the wall is tempo, not horizon. Chris's correction: hubs are weak alone and strong owned (the army bill charges the largest neighbour, not the sum). [Margin page](../research/gaming/margin-sets-player-intelligence.md) updated, its planner question resolved.
+
 ## 2026-11-13
 
 **NA1: assassination priced, the chain mapped, the skill wall** ([session log](./2026-11-13-na1-assassination-skill-wall.md); na1-decompiler ledger #55-#59). A landed assassination always kills (cartridge-checked; #1's attrition overturned) and the fief comes with its army; at skill 1 a high roll chains 11 of 17 fiefs without a battle. At skill 3 nobody unifies: the expander's attack odds were skill-blind (`$9CF4`, human strength × (115 − 15·skill)%), the hire rule waits a decade, and the economy falls behind the AI's from year 5. [Dead verbs](../research/gaming/dead-verbs-mechanism-viability.md) completed; the skill wall added to [the margin page](../research/gaming/margin-sets-player-intelligence.md).
