@@ -22,3 +22,5 @@ na1-decompiler `main`, pushed: `7e8fcc0` (#60). Vault: this log, the [margin pag
 - **Next: the opening tempo.** What lets a one-fief player strike before year ~10 at skills 2-3? For example, hire straight to the attack and accept being huntable for a few seasons.
 - The multi-fief, multi-turn late war (#59).
 - Carried over: the ev odds table was measured at skill 1; the Hatakeyama pact test (#49); the unexplained rice +56.
+
+**Continued in [grow or strike, the economy floor, and the mid-game stall](./2026-11-17-na1-grow-or-strike.md)** (#61; the opening tempo above is answered there).

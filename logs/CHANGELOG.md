@@ -11,6 +11,10 @@ created: 2026-07-20
 
 ---
 
+## 2026-11-17
+
+**NA1: grow or strike, the economy floor, and the mid-game stall** ([session log](./2026-11-17-na1-grow-or-strike.md); na1-decompiler ledger #61). Giving up growth for tempo pays down to about 0.6 of the AI's economy, then falls off a cliff. Chris's earliest-X strike planner (no banking) gains +12 at skill 1 at no economic cost and +15 at skill 2. Neither risk tolerance nor sizing for a bad battle raises the win rate: the first conquest has a deadline at about year 12. Late openers stall mid-game at about 9 fiefs against 3-4 rivals, and the lord dies of age. [Margin page](../research/gaming/margin-sets-player-intelligence.md) updated, its tempo question resolved.
+
 ## 2026-11-16
 
 **NA1: the pocket planner, hubs, and the opening wall** ([session log](./2026-11-16-na1-pocket-planner.md); na1-decompiler ledger #60). A planner that looks 4 conquests ahead for pockets of back line tied the greedy expander at skill 2 (46 vs 48 unified of 200 fresh seeds) and was neutral at skill 3, where the first conquest comes in year 19. Greedy already ranks moves by interior fiefs created, so the wall is tempo, not horizon. Chris's correction: hubs are weak alone and strong owned (the army bill charges the largest neighbour, not the sum). [Margin page](../research/gaming/margin-sets-player-intelligence.md) updated, its planner question resolved.

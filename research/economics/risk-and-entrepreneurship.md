@@ -149,7 +149,7 @@ The specimens that instantiate "capital allocation under uncertainty" in a contr
 ## Open Questions
 - At what dollar threshold should a CEO agent defer to a human?
 - Can running many businesses in parallel give an AI entrepreneur fast enough feedback to develop genuine judgment?
-- How should agent teams calibrate risk tolerance? (Conservative = fewer losses but missed opportunities. Aggressive = more wins but bigger failures.)
+- How should agent teams calibrate risk tolerance? (Conservative = fewer losses but missed opportunities. Aggressive = more wins but bigger failures.) *A measured specimen:* in NA1 ([margin page](../gaming/margin-sets-player-intelligence.md), `na1-decompiler` #61), sizing attacks to survive a bad battle cut lost conquests from 14% to 1% and lost games (40 → 24-37 of 340), because the wait cost tempo; the win rate was set by a deadline, not by losses.
 - What's the right feedback loop for learning from bets — both wins and losses?
 - How does time-preference reasoning interact with compute costs? (An agent "thinking longer" on a decision is itself a time-preference trade-off.)
 - Could a "board of agents" — structured debate between agents with different risk profiles — produce better entrepreneurial decisions than a single CEO agent?
