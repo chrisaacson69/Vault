@@ -11,6 +11,10 @@ created: 2026-07-20
 
 ---
 
+## 2026-11-18
+
+**NA1: the mid-game stall, the empire planner and MIRR** ([session log](./2026-11-18-na1-empire-planner.md); na1-decompiler ledger #62-#70). The stall is the hold, not the win, and it is churn, not a plateau. The whole-empire SAFE gate vetoes attacks in over half the mid-game seasons. Move and Send land at the command (cartridge-checked), so turn order is a resource. Chris's fief ladder is the best skill-2 player of the line (60 of 340). His MIRR correction repairs the ROI ledger (34 → 57), builds bigger empires, and produces the switch from development to attack untuned. The hold line ignored the rival's own fiefs; fixing it was within noise. Next: a target's value to its owner (the big play in reverse). [Margin page](../research/gaming/margin-sets-player-intelligence.md) updated, its combined-attack question resolved.
+
 ## 2026-11-17
 
 **NA1: grow or strike, the economy floor, and the mid-game stall** ([session log](./2026-11-17-na1-grow-or-strike.md); na1-decompiler ledger #61). Giving up growth for tempo pays down to about 0.6 of the AI's economy, then falls off a cliff. Chris's earliest-X strike planner (no banking) gains +12 at skill 1 at no economic cost and +15 at skill 2. Neither risk tolerance nor sizing for a bad battle raises the win rate: the first conquest has a deadline at about year 12. Late openers stall mid-game at about 9 fiefs against 3-4 rivals, and the lord dies of age. [Margin page](../research/gaming/margin-sets-player-intelligence.md) updated, its tempo question resolved.

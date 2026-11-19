@@ -1,0 +1,24 @@
+# Session log: NA1, the mid-game stall, the empire planner and MIRR (2026-11-17 to 19)
+
+Continues [grow or strike](./2026-11-17-na1-grow-or-strike.md), whose open thread was the mid-game stall: about 9 fiefs against 3-4 consolidated rivals, and the lord's age ends it. Chris framed it as an RTS rush/boom: *invest in what gives you the best ROI.* The numbers are in **`na1-decompiler/docs/synthesis-frontier.md` #62-#70**; this is the map.
+
+## What happened
+- **#62, the combined attack:** fiefs beside a striker Move it their spare men before its turn. Neutral: it fires about once a game. A lost battle does not feed the defender (over 400 losses the garrison fell 0.37-0.58 men per man sent), so waves wear a target down. In the stalled seasons the empire held 465-1,475 spare men and 6,000-18,000 gold. **The stall is the hold, not the win**, and the men beside the striker are too few.
+- **#63, staging** (the whole empire marches men toward one hold-sized strike): the mechanism works and the count does not move. The binding gate is that *every* fief must be SAFE before any attack, and through the middle game some fief is short in over half the attack seasons.
+- **#64-#65, stepping through games** (`na1sim.trace`, a swimlane viewer): a capital that gave its gold to the depots and never hired (`--capital-first`), and COMING border fiefs that never secure themselves (they gift or develop on 321 of 442 turns).
+- **#66, the empire planner designed with Chris:** a fief ladder (tax, morale, peasants, then men while not SAFE as the rice feeds them) and a fiscal year: gold arrives once, at the Fall harvest; a gift pays only if it lands before Summer. **Move and Send land at the command**, checked on the cartridge (Chris had recalled end of turn), so turn order is a resource. The ladder alone is the best skill-2 player of the line (60 of 340).
+- **#67-#68, transfers and attacks on a ledger:** safety transfers are neutral. Growth transfers lose: the donors' gold was the strike army's. Priced by a gold-a-year ROI, attacks plus growth lost too (34).
+- **#69, MIRR (Chris's correction):** *we are not calculating MIRR correctly; attack is better early, when the armies are small, and every return falls as the game ages; a gift's value is marginal over the fief's own gift, and turn order changes its price; it is all calculable from the formulas.* Every option is now a cash-flow stream over 8 seasons, with men as capital and gross flows. MIRR repairs the ledger (34 → 57) and plays level with the ladder. It builds bigger empires (9.2-9.5 fiefs from year 30), and the switch from development to attack around 1570 comes out of the formulas, untuned.
+- **#70, the stall looked at** (Chris: *what do the investments look like when we stall?*): the interior outposts hold no men and sit at the treasury cap (600-850 men's worth of idle gold). The last rival's big fief needs more men than any one fief's header allows. The fiefs that could be taken are refused because the hold line ignored the rival's own other fiefs. It is churn, not a stall. In 5/3009 the hub Mino attacked, lost, and fell, putting Echizen, Hida, Omi, Iseshima and Shinano at risk at once (army bill 2,025 → 4,484). Chris: *these big plays make or break games; our job is to make sure they happen on our side.* Fixing the hold line (`--hold-all`) and a rescue (men into a non-SAFE neighbour first; rice instead of a buy-rice turn) were each within noise, and the rice half never fired: the ladder already hires only what the rice feeds.
+
+## Tools
+- `na1sim.trace` (per-turn board and blocker), `expand.LADDER`, `EMPIRE` / `EMPIRE_ATTACK` / `EMPIRE_MIRR` (`harvest_value`, `mirr`, `reinvest_rate`, `transfer_mirr`, `attack_mirr`), `HOLD_ALL`, `EMPIRE_RESCUE`; `tools/check-transfer-timing.py` (headless Mesen).
+
+## Commits
+na1-decompiler `main`, pushed: `8b22995` (#62), `5ae19ff` (#63), `6956d9f` (#64), `daffeaa` (#65), `79a2e7f` `68ebbcd` `8e40dde` (#66), `5610473` (#67), `a8137a6` (#68), `803caeb` (#69), `3d78d39` (#68's correction), `63324a0` `300ee62` (#70). Vault: this log, the [margin page](../research/gaming/margin-sets-player-intelligence.md) (the mid-game section, its combined-attack question resolved).
+
+## Open
+- **Next (Chris): the big play in the battle picker.** A target is worth what its fall costs its owner (the jump in the owner's army bill), beside its harvest and the men it frees. The losing branch of an attack is priced into its MIRR. And no extra hub protection: *a SAFE fief is safe barring a disaster; extra is only insurance.*
+- The header cap on the last rival's big fief: a strike from several fiefs.
+- MIRR's own-gift model (the ladder gives at most 60) and the treasury clamp it cannot see; r jumping season to season; the defender's men that join on a win.
+- Carried over: the memory-killed #65 runs (never rerun), the Assign turn, solo or heavy per target.

@@ -21,3 +21,5 @@ na1-decompiler `main`, pushed: `9eb1fb0`, `5d1a7b2`, `582e3dc`, `db64bdf`, `913d
 - **Next: the mid-game combined attack** on the stalled games (about 9 fiefs, 3-4 rivals left). Chris named two kinds: **several fiefs on the same turn** (the order fiefs act in matters), and **the same fief over several years** (you need not win at once, but the enemy may recover faster).
 - A time-clock risk dial, only after that.
 - Carried over: the Hatakeyama pact test (#49); the unexplained rice +56; the ev odds table measured at skill 1.
+
+Continued in [the empire planner and MIRR](./2026-11-18-na1-empire-planner.md) (#62-#70).
