@@ -7,7 +7,7 @@ title: "Open Questions Registry"
 
 **Resolve a question in place:** strike it through and say where it was answered — `- ~~question~~ **Resolved YYYY-MM-DD** → [page](…)`. The ID survives the strike-through.
 
-**1089 questions on 231 pages — 1005 open, 75 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
+**1090 questions on 231 pages — 1005 open, 76 resolved, 9 moved.** 0 possibly answered elsewhere, 3 possible re-asks, 1 marker drifts, 21 resolved without a link.
 
 ## Possibly answered elsewhere
 > An open question worded like a question resolved on another page. Read both; if it's answered, strike it through and link the answer.
@@ -32,10 +32,11 @@ title: "Open Questions Registry"
 ## Resolved
 > Newest first. *(no link)* = the note doesn't say where it was answered.
 
-- `b6b318` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L83 — How does a combined attack (several fiefs in one season, or one fief over several years) break a stall agains… *(2026-11-18)*
-- `a11d5d` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L82 — What lets a one-fief player strike before year 10 at skills 2-3? Hire straight to the attack and accept being… *(2026-11-17)*
-- `0af48c` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L81 — Does a planner pay once the dial removes the margin? At skill 3 the greedy expander unifies 0 of 340 (#57-#59… *(2026-11-16)*
-- `108f55` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L79 — Is the strong-fief insensitivity real, or only observed? Test it: run ev against the script on a strong start… *(2026-11-11)*
+- `096c65` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L86 — Does pricing a target by what its fall costs its owner (the jump in the owner's army bill), beside its harves… *(2026-11-20)*
+- `b6b318` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L85 — How does a combined attack (several fiefs in one season, or one fief over several years) break a stall agains… *(2026-11-18)*
+- `a11d5d` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L84 — What lets a one-fief player strike before year 10 at skills 2-3? Hire straight to the attack and accept being… *(2026-11-17)*
+- `0af48c` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L83 — Does a planner pay once the dial removes the margin? At skill 3 the greedy expander unifies 0 of 340 (#57-#59… *(2026-11-16)*
+- `108f55` [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md) L81 — Is the strong-fief insensitivity real, or only observed? Test it: run ev against the script on a strong start… *(2026-11-11)*
 - `a3dd5c` [Board-Game Simulation Channels — Perfect Play, Board Odds, Forced Win](../research/gaming/sim-channels/README.md) L113 — Do Board Odds' Checkers and Connect 4 videos measure their "best strategy" against the known perfect engines? *(2026-11-08)*
 - `8e15f5` [The RE Build Tool](../method/re-controller.md) L621 — Which existing skills does the build tool replace (/label-walk, /data-walk, /var-walk, /nobunaga)? *(2026-10-26)* *(no link)*
 - `8eeaf6` [The RE Build Tool](../method/re-controller.md) L620 — Is a CLI with JSON enough for Claude Code, or does the RE side want MCP from the start (claude.ai use)? *(2026-10-26)*
@@ -918,10 +919,10 @@ title: "Open Questions Registry"
 - `52949a` L126 — Can the benchmark be published / open-sourced? If so, it becomes a public standard and every new LLM release gets scored against the existing panel a…
 
 ### [The Margin Sets the Intelligence — Weak Positions Are Where Players Separate](../research/gaming/margin-sets-player-intelligence.md)
-- `035edd` L80 — Does a planner (rung 4) start to pay once the opponents retaliate? The all-player NA1 map is the test; against the gated AI it was neutral (#48).
-- `096c65` L84 — Does pricing a target by what its fall costs its owner (the jump in the owner's army bill), beside its harvest, break the late churn? (#70's next ste…
-- `4521ca` L85 — Does the margin also predict which rung is enough? Is there a margin below which rung 3 beats rung 2 and above which they tie?
-- `fc3f30` L86 — Is this the same lesson as binding-constraint determines analysis depth (a candidate on the crucible page), one level down: the position rather than…
+- `035edd` L82 — Does a planner (rung 4) start to pay once the opponents retaliate? The all-player NA1 map is the test; against the gated AI it was neutral (#48).
+- `43b340` L87 — Does the defender's morale belong in the attack sizing? A morale-363 capital beat a 2.35× strike (#82).
+- `4521ca` L88 — Does the margin also predict which rung is enough? Is there a margin below which rung 3 beats rung 2 and above which they tie?
+- `fc3f30` L89 — Is this the same lesson as binding-constraint determines analysis depth (a candidate on the crucible page), one level down: the position rather than…
 
 ### [Master of Magic — Economic Analysis](../research/gaming/master-of-magic/README.md)
 - `1c6cac` L138 — How to value special abilities?

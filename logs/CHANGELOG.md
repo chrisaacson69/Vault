@@ -11,6 +11,10 @@ created: 2026-07-20
 
 ---
 
+## 2026-11-20
+
+**NA1: the hold, the double attack, and rice** ([session log](./2026-11-20-na1-rice.md); na1-decompiler ledger #71-#86). The planner tuned to 92 of 340; the stall audited; the double attack built and measured in the battle lab (a lost wave's gold funds the defender's bribe of the next; the held-back commander dumps it). Chris's reading of single games found the big misses: the Echigo battle plan was never in the whole-game runs (Uesugi 7 → 15 of 20), and **attacks went out without rice** (40 of 78 lost attacks starved, every army handed to the defender): carrying 10 days, 93 → 135 of the 240 live-start games. A capital morale guard and a Summer rice shield (the AI's gate reads min(rice, men)) take it to 149. [Margin page](../research/gaming/margin-sets-player-intelligence.md) updated: the late game was rice.
+
 ## 2026-11-18
 
 **NA1: the mid-game stall, the empire planner and MIRR** ([session log](./2026-11-18-na1-empire-planner.md); na1-decompiler ledger #62-#70). The stall is the hold, not the win, and it is churn, not a plateau. The whole-empire SAFE gate vetoes attacks in over half the mid-game seasons. Move and Send land at the command (cartridge-checked), so turn order is a resource. Chris's fief ladder is the best skill-2 player of the line (60 of 340). His MIRR correction repairs the ROI ledger (34 → 57), builds bigger empires, and produces the switch from development to attack untuned. The hold line ignored the rival's own fiefs; fixing it was within noise. Next: a target's value to its owner (the big play in reverse). [Margin page](../research/gaming/margin-sets-player-intelligence.md) updated, its combined-attack question resolved.
